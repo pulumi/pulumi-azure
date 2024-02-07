@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
-From: Ian Wahbe <ian@wahbe.com>
-Date: Mon, 28 Aug 2023 14:57:22 -0700
-Subject: [PATCH 5/9] Modify resources
+From: Anton Tayanovskyy <anton@pulumi.com>
+Date: Wed, 7 Feb 2024 13:38:41 -0500
+Subject: [PATCH 5/5] Modify resources
 
 
 diff --git a/internal/services/advisor/advisor_recommendations_data_source.go b/internal/services/advisor/advisor_recommendations_data_source.go
@@ -52,10 +52,10 @@ index 40c52aa5bd..dab70b9c5c 100644
  
  			"backup_blob_container_uri": {
 diff --git a/internal/services/appservice/helpers/function_app_schema.go b/internal/services/appservice/helpers/function_app_schema.go
-index 3b0d1f427f..e9043db21d 100644
+index 0e19ebeeef..27e35b99ba 100644
 --- a/internal/services/appservice/helpers/function_app_schema.go
 +++ b/internal/services/appservice/helpers/function_app_schema.go
-@@ -1033,10 +1033,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
+@@ -1005,10 +1005,11 @@ func linuxFunctionAppStackSchema() *pluginsdk.Schema {
  					Description: "The version of .Net. Possible values are `3.1`, `6.0` and `7.0`",
  				},
  
@@ -69,10 +69,10 @@ index 3b0d1f427f..e9043db21d 100644
  						"site_config.0.application_stack.0.python_version",
  						"site_config.0.application_stack.0.java_version",
 diff --git a/internal/services/appservice/linux_function_app_slot_resource_test.go b/internal/services/appservice/linux_function_app_slot_resource_test.go
-index e79b7af93d..5007dd743e 100644
+index c22589ff52..dd6c1aaa4d 100644
 --- a/internal/services/appservice/linux_function_app_slot_resource_test.go
 +++ b/internal/services/appservice/linux_function_app_slot_resource_test.go
-@@ -992,11 +992,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
+@@ -993,11 +993,21 @@ func TestAccLinuxFunctionAppSlot_identityKeyVaultIdentity(t *testing.T) {
  
  	data.ResourceTest(t, r, []acceptance.TestStep{
  		{
@@ -95,14 +95,14 @@ index e79b7af93d..5007dd743e 100644
  	})
  }
  
-@@ -1041,7 +1051,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
+@@ -1042,7 +1052,6 @@ func TestAccLinuxFunctionAppSlot_storageAccountKeyVaultSecret(t *testing.T) {
  			Config: r.storageAccountKVSecret(data, SkuStandardPlan),
  			Check: acceptance.ComposeTestCheckFunc(
  				check.That(data.ResourceName).ExistsInAzure(r),
 -				check.That(data.ResourceName).Key("kind").HasValue("functionapp,linux"),
  			),
  		},
- 		data.ImportStep(),
+ 		data.ImportStep("site_credential.0.password"),
 diff --git a/internal/services/automation/automation_runbook_resource.go b/internal/services/automation/automation_runbook_resource.go
 index fd0873abad..a3c6fb2896 100644
 --- a/internal/services/automation/automation_runbook_resource.go
@@ -457,7 +457,7 @@ index a506d9b4e3..bf48597849 100644
  
  	return nil
 diff --git a/internal/services/containers/kubernetes_cluster_resource.go b/internal/services/containers/kubernetes_cluster_resource.go
-index 79e0352e13..69a7ec8039 100644
+index 5f0c7dc20a..859e6bc666 100644
 --- a/internal/services/containers/kubernetes_cluster_resource.go
 +++ b/internal/services/containers/kubernetes_cluster_resource.go
 @@ -1129,7 +1129,7 @@ func resourceKubernetesCluster() *pluginsdk.Resource {
@@ -488,7 +488,7 @@ index b141d14cfd..0e3d2fd1b2 100644
  						string(documentdb.IndexingModeConsistent),
  						string(documentdb.IndexingModeNone),
 diff --git a/internal/services/cosmos/cosmosdb_account_resource.go b/internal/services/cosmos/cosmosdb_account_resource.go
-index 7740e3d1e5..221ad16326 100644
+index fb5df793e4..f73358c274 100644
 --- a/internal/services/cosmos/cosmosdb_account_resource.go
 +++ b/internal/services/cosmos/cosmosdb_account_resource.go
 @@ -13,6 +13,8 @@ import (
@@ -675,18 +675,18 @@ index 31a7e5d33f..e3cef43845 100644
  								"source_addresses": {
  									Type:     pluginsdk.TypeSet,
 diff --git a/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go b/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
-index a750e2bed5..884abef831 100644
+index 99c958271c..3e330c5878 100644
 --- a/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
 +++ b/internal/services/hdinsight/hdinsight_hadoop_cluster_resource.go
-@@ -6,6 +6,7 @@ package hdinsight
+@@ -5,6 +5,7 @@ package hdinsight
+ 
  import (
- 	"context"
  	"fmt"
 +	"github.com/hashicorp/terraform-provider-azurerm/internal/tf/suppress"
  	"log"
  	"strings"
  	"time"
-@@ -141,9 +142,10 @@ func resourceHDInsightHadoopCluster() *pluginsdk.Resource {
+@@ -145,9 +146,10 @@ func resourceHDInsightHadoopCluster() *pluginsdk.Resource {
  									},
  
  									"vm_size": {
@@ -701,7 +701,7 @@ index a750e2bed5..884abef831 100644
  
  									"install_script_action": {
 diff --git a/internal/services/hdinsight/schema.go b/internal/services/hdinsight/schema.go
-index b733659da8..1f80b52a38 100644
+index 3aeb69702b..9f00e47439 100644
 --- a/internal/services/hdinsight/schema.go
 +++ b/internal/services/hdinsight/schema.go
 @@ -5,6 +5,8 @@ package hdinsight
@@ -713,17 +713,17 @@ index b733659da8..1f80b52a38 100644
  	"net/url"
  	"regexp"
  	"strings"
-@@ -47,7 +49,8 @@ func SchemaHDInsightTier() *pluginsdk.Schema {
+@@ -42,7 +44,8 @@ func SchemaHDInsightTier() *pluginsdk.Schema {
  		ValidateFunc: validation.StringInSlice([]string{
- 			string(hdinsight.TierStandard),
- 			string(hdinsight.TierPremium),
+ 			string(clusters.TierStandard),
+ 			string(clusters.TierPremium),
 -		}, false),
 +		}, features.CaseInsensitive()),
 +		DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  	}
  }
  
-@@ -1028,10 +1031,11 @@ type HDInsightNodeDefinition struct {
+@@ -1001,10 +1004,11 @@ type HDInsightNodeDefinition struct {
  func SchemaHDInsightNodeDefinition(schemaLocation string, definition HDInsightNodeDefinition, required bool) *pluginsdk.Schema {
  	result := map[string]*pluginsdk.Schema{
  		"vm_size": {
@@ -929,7 +929,7 @@ index 2301102093..b9721d0755 100644
  					},
  				},
 diff --git a/internal/services/loadbalancer/loadbalancer_resource.go b/internal/services/loadbalancer/loadbalancer_resource.go
-index 6ee2c825e8..d9af4b9b5e 100644
+index 0b56225df8..b77f4b035c 100644
 --- a/internal/services/loadbalancer/loadbalancer_resource.go
 +++ b/internal/services/loadbalancer/loadbalancer_resource.go
 @@ -6,6 +6,7 @@ package loadbalancer
@@ -940,10 +940,10 @@ index 6ee2c825e8..d9af4b9b5e 100644
  	"log"
  	"reflect"
  	"strconv"
-@@ -407,7 +408,8 @@ func resourceArmLoadBalancerSchema() map[string]*pluginsdk.Schema {
- 				string(network.LoadBalancerSkuNameBasic),
- 				string(network.LoadBalancerSkuNameStandard),
- 				string(network.LoadBalancerSkuNameGateway),
+@@ -399,7 +400,8 @@ func resourceArmLoadBalancerSchema() map[string]*pluginsdk.Schema {
+ 				string(loadbalancers.LoadBalancerSkuNameBasic),
+ 				string(loadbalancers.LoadBalancerSkuNameStandard),
+ 				string(loadbalancers.LoadBalancerSkuNameGateway),
 -			}, false),
 +			}, features.CaseInsensitive()),
 +			DiffSuppressFunc: suppress.CaseDifferenceV2Only,
@@ -951,7 +951,7 @@ index 6ee2c825e8..d9af4b9b5e 100644
  
  		"sku_tier": {
 diff --git a/internal/services/loadbalancer/nat_pool_resource.go b/internal/services/loadbalancer/nat_pool_resource.go
-index 8104ed5e00..86687eb75d 100644
+index 4cb2090275..4243c86d75 100644
 --- a/internal/services/loadbalancer/nat_pool_resource.go
 +++ b/internal/services/loadbalancer/nat_pool_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -962,17 +962,21 @@ index 8104ed5e00..86687eb75d 100644
  	"log"
  	"time"
  
-@@ -70,7 +71,7 @@ func resourceArmLoadBalancerNatPool() *pluginsdk.Resource {
- 					string(network.TransportProtocolAll),
- 					string(network.TransportProtocolTCP),
- 					string(network.TransportProtocolUDP),
+@@ -69,9 +70,9 @@ func resourceArmLoadBalancerNatPool() *pluginsdk.Resource {
+ 				Required: true,
+ 				ValidateFunc: validation.StringInSlice([]string{
+ 					string(loadbalancers.TransportProtocolAll),
+-					string(loadbalancers.TransportProtocolTcp),
+-					string(loadbalancers.TransportProtocolUdp),
 -				}, false),
++					string(loadbalancers.TransportProtocolTCP),
++					string(loadbalancers.TransportProtocolUDP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"frontend_port_start": {
 diff --git a/internal/services/loadbalancer/nat_rule_resource.go b/internal/services/loadbalancer/nat_rule_resource.go
-index 9bcae58266..77d4f88283 100644
+index f5e7302547..88677c10a9 100644
 --- a/internal/services/loadbalancer/nat_rule_resource.go
 +++ b/internal/services/loadbalancer/nat_rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -983,17 +987,21 @@ index 9bcae58266..77d4f88283 100644
  	"log"
  	"time"
  
-@@ -70,7 +71,7 @@ func resourceArmLoadBalancerNatRule() *pluginsdk.Resource {
- 					string(network.TransportProtocolAll),
- 					string(network.TransportProtocolTCP),
- 					string(network.TransportProtocolUDP),
+@@ -67,9 +68,9 @@ func resourceArmLoadBalancerNatRule() *pluginsdk.Resource {
+ 				Required: true,
+ 				ValidateFunc: validation.StringInSlice([]string{
+ 					string(loadbalancers.TransportProtocolAll),
+-					string(loadbalancers.TransportProtocolTcp),
+-					string(loadbalancers.TransportProtocolUdp),
 -				}, false),
++					string(loadbalancers.TransportProtocolTCP),
++					string(loadbalancers.TransportProtocolUDP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"frontend_port": {
 diff --git a/internal/services/loadbalancer/probe_resource.go b/internal/services/loadbalancer/probe_resource.go
-index 002d05dabe..977e484ad1 100644
+index ea0a79b9a6..aa551363d3 100644
 --- a/internal/services/loadbalancer/probe_resource.go
 +++ b/internal/services/loadbalancer/probe_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1004,17 +1012,19 @@ index 002d05dabe..977e484ad1 100644
  	"log"
  	"time"
  
-@@ -68,7 +69,7 @@ func resourceArmLoadBalancerProbe() *pluginsdk.Resource {
- 					string(network.ProbeProtocolHTTP),
- 					string(network.ProbeProtocolHTTPS),
- 					string(network.ProbeProtocolTCP),
+@@ -66,8 +67,8 @@ func resourceArmLoadBalancerProbe() *pluginsdk.Resource {
+ 				ValidateFunc: validation.StringInSlice([]string{
+ 					string(loadbalancers.ProbeProtocolHTTP),
+ 					string(loadbalancers.ProbeProtocolHTTPS),
+-					string(loadbalancers.ProbeProtocolTcp),
 -				}, false),
++					string(loadbalancers.ProbeProtocolTCP),
 +				}, features.CaseInsensitive()),
  			},
  
  			"port": {
 diff --git a/internal/services/loadbalancer/rule_resource.go b/internal/services/loadbalancer/rule_resource.go
-index 0cf346687a..e28ac229b2 100644
+index 74365aa972..7acf365175 100644
 --- a/internal/services/loadbalancer/rule_resource.go
 +++ b/internal/services/loadbalancer/rule_resource.go
 @@ -5,6 +5,7 @@ package loadbalancer
@@ -1025,11 +1035,15 @@ index 0cf346687a..e28ac229b2 100644
  	"log"
  	"time"
  
-@@ -388,7 +389,7 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
- 				string(network.TransportProtocolAll),
- 				string(network.TransportProtocolTCP),
- 				string(network.TransportProtocolUDP),
+@@ -369,9 +370,9 @@ func resourceArmLoadBalancerRuleSchema() map[string]*pluginsdk.Schema {
+ 			DiffSuppressFunc: suppress.CaseDifference,
+ 			ValidateFunc: validation.StringInSlice([]string{
+ 				string(loadbalancers.TransportProtocolAll),
+-				string(loadbalancers.TransportProtocolTcp),
+-				string(loadbalancers.TransportProtocolUdp),
 -			}, false),
++				string(loadbalancers.TransportProtocolTCP),
++				string(loadbalancers.TransportProtocolUDP),
 +			}, features.CaseInsensitive()),
  		},
  
@@ -2036,7 +2050,7 @@ index d68d5963fa..5da4ee2bdc 100644
  
  			"administrator_login": {
 diff --git a/internal/services/recoveryservices/recovery_services_vault_resource.go b/internal/services/recoveryservices/recovery_services_vault_resource.go
-index e67141577d..f3180f75a0 100644
+index 8938f9d1b2..c0fba3c5a8 100644
 --- a/internal/services/recoveryservices/recovery_services_vault_resource.go
 +++ b/internal/services/recoveryservices/recovery_services_vault_resource.go
 @@ -10,6 +10,8 @@ import (
@@ -2208,7 +2222,7 @@ index 693259db60..fa44554cd1 100644
  	return &pluginsdk.Resource{
  		Create: resourceServerVulnerabilityAssessmentCreate,
 diff --git a/internal/services/servicebus/servicebus_namespace_resource.go b/internal/services/servicebus/servicebus_namespace_resource.go
-index 746fa14f71..9cc0b192f5 100644
+index 96c932b7a2..5c3563db24 100644
 --- a/internal/services/servicebus/servicebus_namespace_resource.go
 +++ b/internal/services/servicebus/servicebus_namespace_resource.go
 @@ -87,7 +87,8 @@ func resourceServiceBusNamespace() *pluginsdk.Resource {
@@ -2222,7 +2236,7 @@ index 746fa14f71..9cc0b192f5 100644
  
  			"capacity": {
 diff --git a/internal/services/servicebus/servicebus_queue_resource.go b/internal/services/servicebus/servicebus_queue_resource.go
-index 9074eda4cf..15b08d1906 100644
+index c2c24b2294..704ad1f842 100644
 --- a/internal/services/servicebus/servicebus_queue_resource.go
 +++ b/internal/services/servicebus/servicebus_queue_resource.go
 @@ -46,6 +46,8 @@ func resourceServiceBusQueue() *pluginsdk.Resource {
@@ -2283,7 +2297,7 @@ index a4db7728d8..d0bbf2ec2f 100644
  
  		"action": {
 diff --git a/internal/services/servicebus/servicebus_topic_resource.go b/internal/services/servicebus/servicebus_topic_resource.go
-index dc9c771b90..2f8e585635 100644
+index 7c2cdadb04..0b18171b8f 100644
 --- a/internal/services/servicebus/servicebus_topic_resource.go
 +++ b/internal/services/servicebus/servicebus_topic_resource.go
 @@ -5,6 +5,8 @@ package servicebus
@@ -2526,7 +2540,7 @@ index b215edff58..af572b05db 100644
  	if !ok {
  		return fmt.Errorf("could not determine Storage domain suffix for environment %q", meta.(*clients.Client).Account.Environment.Name)
 diff --git a/internal/services/storage/storage_account_resource.go b/internal/services/storage/storage_account_resource.go
-index 69d3d2e1f8..b376ebd835 100644
+index 49eb2adb75..19b2813c15 100644
 --- a/internal/services/storage/storage_account_resource.go
 +++ b/internal/services/storage/storage_account_resource.go
 @@ -6,6 +6,8 @@ package storage
@@ -2538,7 +2552,7 @@ index 69d3d2e1f8..b376ebd835 100644
  	"log"
  	"net/http"
  	"net/url"
-@@ -127,8 +129,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -138,8 +140,9 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					string(storage.KindBlockBlobStorage),
  					string(storage.KindFileStorage),
  					string(storage.KindStorageV2),
@@ -2550,7 +2564,7 @@ index 69d3d2e1f8..b376ebd835 100644
  			},
  
  			"account_tier": {
-@@ -138,7 +141,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -149,7 +152,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					"Standard",
  					"Premium",
@@ -2560,7 +2574,7 @@ index 69d3d2e1f8..b376ebd835 100644
  			},
  
  			"account_replication_type": {
-@@ -151,7 +155,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -162,7 +166,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  					"RAGRS",
  					"GZRS",
  					"RAGZRS",
@@ -2569,8 +2583,8 @@ index 69d3d2e1f8..b376ebd835 100644
 +				DiffSuppressFunc: suppress.CaseDifferenceV2Only,
  			},
  
- 			// Only valid for BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
-@@ -162,7 +167,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+ 			// Only valid for FileStorage, BlobStorage & StorageV2 accounts, defaults to "Hot" in create function
+@@ -173,7 +178,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  				ValidateFunc: validation.StringInSlice([]string{
  					string(storage.AccessTierCool),
  					string(storage.AccessTierHot),
@@ -2580,7 +2594,7 @@ index 69d3d2e1f8..b376ebd835 100644
  			},
  
  			"azure_files_authentication": {
-@@ -380,7 +386,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
+@@ -391,7 +397,8 @@ func resourceStorageAccount() *pluginsdk.Resource {
  									string(storage.BypassLogging),
  									string(storage.BypassMetrics),
  									string(storage.BypassNone),
