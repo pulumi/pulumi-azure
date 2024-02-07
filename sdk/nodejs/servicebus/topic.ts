@@ -105,8 +105,7 @@ export class Topic extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     public readonly namespaceId!: pulumi.Output<string>;
     public /*out*/ readonly namespaceName!: pulumi.Output<string>;
@@ -225,8 +224,7 @@ export interface TopicState {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     namespaceId?: pulumi.Input<string>;
     namespaceName?: pulumi.Input<string>;
@@ -290,8 +288,7 @@ export interface TopicArgs {
      */
     name?: pulumi.Input<string>;
     /**
-     * The ID of the ServiceBus Namespace to create Changing this forces a new resource to be created.
-     * this topic in. Changing this forces a new resource to be created.
+     * The ID of the ServiceBus Namespace to create this topic in. Changing this forces a new resource to be created.
      */
     namespaceId: pulumi.Input<string>;
     /**

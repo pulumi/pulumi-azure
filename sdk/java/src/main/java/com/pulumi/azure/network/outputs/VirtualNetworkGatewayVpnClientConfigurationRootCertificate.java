@@ -16,7 +16,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
      */
     private String name;
     /**
-     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
      * 
      */
     private String publicCertData;
@@ -30,7 +30,7 @@ public final class VirtualNetworkGatewayVpnClientConfigurationRootCertificate {
         return this.name;
     }
     /**
-     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+     * @return The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
      * 
      */
     public String publicCertData() {

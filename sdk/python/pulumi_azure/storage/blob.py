@@ -31,7 +31,6 @@ class BlobArgs:
         """
         The set of arguments for constructing a Blob resource.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-               Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] access_tier: The access tier of the storage blob. Possible values are `Archive`, `Cool` and `Hot`.
@@ -81,7 +80,6 @@ class BlobArgs:
     def storage_account_name(self) -> pulumi.Input[str]:
         """
         Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -286,7 +284,6 @@ class _BlobState:
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-               Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
@@ -463,7 +460,6 @@ class _BlobState:
     def storage_account_name(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 
@@ -579,7 +575,6 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-               Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         """
@@ -729,7 +724,6 @@ class Blob(pulumi.CustomResource):
         :param pulumi.Input[str] source_content: The content for this blob which should be defined inline. This field can only be specified for Block blobs and cannot be specified if `source` or `source_uri` is specified. Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_uri: The URI of an existing blob, or a file in the Azure File service, to use as the source contents for the blob to be created. Changing this forces a new resource to be created. This field cannot be specified for Append blobs and cannot be specified if `source` or `source_content` is specified.
         :param pulumi.Input[str] storage_account_name: Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-               Changing this forces a new resource to be created.
         :param pulumi.Input[str] storage_container_name: The name of the storage container in which this blob should be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] type: The type of the storage blob to be created. Possible values are `Append`, `Block` or `Page`. Changing this forces a new resource to be created.
         :param pulumi.Input[str] url: The URL of the blob
@@ -852,7 +846,6 @@ class Blob(pulumi.CustomResource):
     def storage_account_name(self) -> pulumi.Output[str]:
         """
         Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "storage_account_name")
 

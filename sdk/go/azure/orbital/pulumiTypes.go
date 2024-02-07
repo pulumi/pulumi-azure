@@ -407,6 +407,8 @@ type SpacecraftLink struct {
 	// Bandwidth in Mhz.
 	BandwidthMhz float64 `pulumi:"bandwidthMhz"`
 	// Center frequency in Mhz.
+	//
+	// > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
 	CenterFrequencyMhz float64 `pulumi:"centerFrequencyMhz"`
 	// Direction if the communication. Possible values are `Uplink` and `Downlink`.
 	Direction string `pulumi:"direction"`
@@ -431,6 +433,8 @@ type SpacecraftLinkArgs struct {
 	// Bandwidth in Mhz.
 	BandwidthMhz pulumi.Float64Input `pulumi:"bandwidthMhz"`
 	// Center frequency in Mhz.
+	//
+	// > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
 	CenterFrequencyMhz pulumi.Float64Input `pulumi:"centerFrequencyMhz"`
 	// Direction if the communication. Possible values are `Uplink` and `Downlink`.
 	Direction pulumi.StringInput `pulumi:"direction"`
@@ -497,6 +501,8 @@ func (o SpacecraftLinkOutput) BandwidthMhz() pulumi.Float64Output {
 }
 
 // Center frequency in Mhz.
+//
+// > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
 func (o SpacecraftLinkOutput) CenterFrequencyMhz() pulumi.Float64Output {
 	return o.ApplyT(func(v SpacecraftLink) float64 { return v.CenterFrequencyMhz }).(pulumi.Float64Output)
 }

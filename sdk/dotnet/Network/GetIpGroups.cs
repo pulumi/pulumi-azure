@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Network
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = example.Apply(getIpGroupsResult =&gt; getIpGroupsResult.Id),
+        ///         ["ids"] = example.Apply(getIpGroupsResult =&gt; getIpGroupsResult.Ids),
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Network
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = example.Apply(getIpGroupsResult =&gt; getIpGroupsResult.Id),
+        ///         ["ids"] = example.Apply(getIpGroupsResult =&gt; getIpGroupsResult.Ids),
         ///     };
         /// });
         /// ```

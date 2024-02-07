@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = example.then(example => example.id);
+ * export const ids = example.then(example => example.ids);
  * ```
  */
 export function getIpGroups(args: GetIpGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetIpGroupsResult> {
@@ -77,7 +77,7 @@ export interface GetIpGroupsResult {
  *     name: "existing",
  *     resourceGroupName: "existing",
  * });
- * export const id = example.then(example => example.id);
+ * export const ids = example.then(example => example.ids);
  * ```
  */
 export function getIpGroupsOutput(args: GetIpGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpGroupsResult> {

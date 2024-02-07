@@ -31,6 +31,8 @@ __all__ = [
     'SpringCloudGatewayApiMetadata',
     'SpringCloudGatewayClientAuthorization',
     'SpringCloudGatewayCors',
+    'SpringCloudGatewayLocalResponseCachePerInstance',
+    'SpringCloudGatewayLocalResponseCachePerRoute',
     'SpringCloudGatewayQuota',
     'SpringCloudGatewayRouteConfigOpenApi',
     'SpringCloudGatewayRouteConfigRoute',
@@ -1510,6 +1512,102 @@ class SpringCloudGatewayCors(dict):
         How long, in seconds, the response from a pre-flight request can be cached by clients.
         """
         return pulumi.get(self, "max_age_seconds")
+
+
+@pulumi.output_type
+class SpringCloudGatewayLocalResponseCachePerInstance(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayLocalResponseCachePerInstance. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayLocalResponseCachePerInstance.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayLocalResponseCachePerInstance.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size: Optional[str] = None,
+                 time_to_live: Optional[str] = None):
+        """
+        :param str size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        :param str time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[str]:
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        return pulumi.get(self, "time_to_live")
+
+
+@pulumi.output_type
+class SpringCloudGatewayLocalResponseCachePerRoute(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "timeToLive":
+            suggest = "time_to_live"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in SpringCloudGatewayLocalResponseCachePerRoute. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        SpringCloudGatewayLocalResponseCachePerRoute.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        SpringCloudGatewayLocalResponseCachePerRoute.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 size: Optional[str] = None,
+                 time_to_live: Optional[str] = None):
+        """
+        :param str size: Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        :param str time_to_live: Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        if size is not None:
+            pulumi.set(__self__, "size", size)
+        if time_to_live is not None:
+            pulumi.set(__self__, "time_to_live", time_to_live)
+
+    @property
+    @pulumi.getter
+    def size(self) -> Optional[str]:
+        """
+        Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+        """
+        return pulumi.get(self, "size")
+
+    @property
+    @pulumi.getter(name="timeToLive")
+    def time_to_live(self) -> Optional[str]:
+        """
+        Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+        """
+        return pulumi.get(self, "time_to_live")
 
 
 @pulumi.output_type

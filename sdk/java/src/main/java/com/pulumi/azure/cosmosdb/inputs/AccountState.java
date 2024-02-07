@@ -469,6 +469,21 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     * 
+     */
+    @Import(name="partitionMergeEnabled")
+    private @Nullable Output<Boolean> partitionMergeEnabled;
+
+    /**
+     * @return Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> partitionMergeEnabled() {
+        return Optional.ofNullable(this.partitionMergeEnabled);
+    }
+
+    /**
      * The Primary key for the CosmosDB Account.
      * 
      */
@@ -788,6 +803,7 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
         this.networkAclBypassForAzureServices = $.networkAclBypassForAzureServices;
         this.networkAclBypassIds = $.networkAclBypassIds;
         this.offerType = $.offerType;
+        this.partitionMergeEnabled = $.partitionMergeEnabled;
         this.primaryKey = $.primaryKey;
         this.primaryMongodbConnectionString = $.primaryMongodbConnectionString;
         this.primaryReadonlyKey = $.primaryReadonlyKey;
@@ -1473,6 +1489,27 @@ public final class AccountState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder offerType(String offerType) {
             return offerType(Output.of(offerType));
+        }
+
+        /**
+         * @param partitionMergeEnabled Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionMergeEnabled(@Nullable Output<Boolean> partitionMergeEnabled) {
+            $.partitionMergeEnabled = partitionMergeEnabled;
+            return this;
+        }
+
+        /**
+         * @param partitionMergeEnabled Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder partitionMergeEnabled(Boolean partitionMergeEnabled) {
+            return partitionMergeEnabled(Output.of(partitionMergeEnabled));
         }
 
         /**

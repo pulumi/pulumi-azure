@@ -274,6 +274,12 @@ namespace Pulumi.Azure.CosmosDB
         public Output<string> OfferType { get; private set; } = null!;
 
         /// <summary>
+        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        /// </summary>
+        [Output("partitionMergeEnabled")]
+        public Output<bool?> PartitionMergeEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The Primary key for the CosmosDB Account.
         /// </summary>
         [Output("primaryKey")]
@@ -636,6 +642,12 @@ namespace Pulumi.Azure.CosmosDB
         public Input<string> OfferType { get; set; } = null!;
 
         /// <summary>
+        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        /// </summary>
+        [Input("partitionMergeEnabled")]
+        public Input<bool>? PartitionMergeEnabled { get; set; }
+
+        /// <summary>
         /// Whether or not public network access is allowed for this CosmosDB account. Defaults to `true`.
         /// </summary>
         [Input("publicNetworkAccessEnabled")]
@@ -892,6 +904,12 @@ namespace Pulumi.Azure.CosmosDB
         /// </summary>
         [Input("offerType")]
         public Input<string>? OfferType { get; set; }
+
+        /// <summary>
+        /// Is partition merge on the Cosmos DB account enabled? Defaults to `false`.
+        /// </summary>
+        [Input("partitionMergeEnabled")]
+        public Input<bool>? PartitionMergeEnabled { get; set; }
 
         [Input("primaryKey")]
         private Input<string>? _primaryKey;

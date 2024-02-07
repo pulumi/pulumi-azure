@@ -269,6 +269,8 @@ class SpacecraftLink(dict):
         """
         :param float bandwidth_mhz: Bandwidth in Mhz.
         :param float center_frequency_mhz: Center frequency in Mhz.
+               
+               > **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
         :param str direction: Direction if the communication. Possible values are `Uplink` and `Downlink`.
         :param str name: Name of the link.
         :param str polarization: Polarization. Possible values are `RHCP`, `LHCP`, `linearVertical` and `linearHorizontal`.
@@ -292,6 +294,8 @@ class SpacecraftLink(dict):
     def center_frequency_mhz(self) -> float:
         """
         Center frequency in Mhz.
+
+        > **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
         """
         return pulumi.get(self, "center_frequency_mhz")
 

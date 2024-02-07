@@ -447,14 +447,14 @@ public class KubernetesClusterNodePool extends com.pulumi.resources.CustomResour
         return Codegen.optional(this.nodePublicIpPrefixId);
     }
     /**
-     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      * 
      */
     @Export(name="nodeTaints", refs={List.class,String.class}, tree="[0,1]")
     private Output</* @Nullable */ List<String>> nodeTaints;
 
     /**
-     * @return A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * @return A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      * 
      */
     public Output<Optional<List<String>>> nodeTaints() {

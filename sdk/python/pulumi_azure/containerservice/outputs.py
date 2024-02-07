@@ -12,6 +12,8 @@ from . import outputs
 
 __all__ = [
     'ConnectedRegistryNotification',
+    'FleetUpdateStrategyStage',
+    'FleetUpdateStrategyStageGroup',
     'FluxConfigurationBlobStorage',
     'FluxConfigurationBlobStorageManagedIdentity',
     'FluxConfigurationBlobStorageServicePrincipal',
@@ -50,6 +52,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfig',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfile',
+    'KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort',
     'KubernetesClusterDefaultNodePoolUpgradeSettings',
     'KubernetesClusterExtensionAksAssignedIdentity',
     'KubernetesClusterExtensionPlan',
@@ -81,6 +84,7 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfig',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfig',
     'KubernetesClusterNodePoolNodeNetworkProfile',
+    'KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort',
     'KubernetesClusterNodePoolUpgradeSettings',
     'KubernetesClusterNodePoolWindowsProfile',
     'KubernetesClusterOmsAgent',
@@ -199,6 +203,82 @@ class ConnectedRegistryNotification(dict):
         The tag of the artifact that wants to be subscribed for the Connected Registry.
         """
         return pulumi.get(self, "tag")
+
+
+@pulumi.output_type
+class FleetUpdateStrategyStage(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "afterStageWaitInSeconds":
+            suggest = "after_stage_wait_in_seconds"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in FleetUpdateStrategyStage. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        FleetUpdateStrategyStage.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        FleetUpdateStrategyStage.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 groups: Sequence['outputs.FleetUpdateStrategyStageGroup'],
+                 name: str,
+                 after_stage_wait_in_seconds: Optional[int] = None):
+        """
+        :param Sequence['FleetUpdateStrategyStageGroupArgs'] groups: One or more `group` blocks as defined below.
+        :param str name: The name which should be used for this stage.
+        :param int after_stage_wait_in_seconds: Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "name", name)
+        if after_stage_wait_in_seconds is not None:
+            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> Sequence['outputs.FleetUpdateStrategyStageGroup']:
+        """
+        One or more `group` blocks as defined below.
+        """
+        return pulumi.get(self, "groups")
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this stage.
+        """
+        return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="afterStageWaitInSeconds")
+    def after_stage_wait_in_seconds(self) -> Optional[int]:
+        """
+        Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        return pulumi.get(self, "after_stage_wait_in_seconds")
+
+
+@pulumi.output_type
+class FleetUpdateStrategyStageGroup(dict):
+    def __init__(__self__, *,
+                 name: str):
+        """
+        :param str name: The name which should be used for this group.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name which should be used for this group.
+        """
+        return pulumi.get(self, "name")
 
 
 @pulumi.output_type
@@ -4455,7 +4535,11 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nodePublicIpTags":
+        if key == "allowedHostPorts":
+            suggest = "allowed_host_ports"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "nodePublicIpTags":
             suggest = "node_public_ip_tags"
 
         if suggest:
@@ -4470,14 +4554,38 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_host_ports: Optional[Sequence['outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort']] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
+        :param Sequence['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs'] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
+        :param Sequence[str] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_group_ids is not None:
+            pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[Sequence['outputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort']]:
+        """
+        One or more `allowed_host_ports` blocks as defined below.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of Application Security Group IDs which should be associated with this Node Pool.
+        """
+        return pulumi.get(self, "application_security_group_ids")
 
     @property
     @pulumi.getter(name="nodePublicIpTags")
@@ -4488,6 +4596,68 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfile(dict):
         > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
+
+
+@pulumi.output_type
+class KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portEnd":
+            suggest = "port_end"
+        elif key == "portStart":
+            suggest = "port_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_end: Optional[int] = None,
+                 port_start: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        """
+        :param int port_end: Specifies the end of the port range.
+        :param int port_start: Specifies the start of the port range.
+        :param str protocol: Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[int]:
+        """
+        Specifies the end of the port range.
+        """
+        return pulumi.get(self, "port_end")
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[int]:
+        """
+        Specifies the start of the port range.
+        """
+        return pulumi.get(self, "port_start")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type
@@ -6081,6 +6251,8 @@ class KubernetesClusterMonitorMetrics(dict):
         """
         :param str annotations_allowed: Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         :param str labels_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+               
+               > **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
         """
         if annotations_allowed is not None:
             pulumi.set(__self__, "annotations_allowed", annotations_allowed)
@@ -6100,6 +6272,8 @@ class KubernetesClusterMonitorMetrics(dict):
     def labels_allowed(self) -> Optional[str]:
         """
         Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+
+        > **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
         """
         return pulumi.get(self, "labels_allowed")
 
@@ -7273,7 +7447,11 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
     @staticmethod
     def __key_warning(key: str):
         suggest = None
-        if key == "nodePublicIpTags":
+        if key == "allowedHostPorts":
+            suggest = "allowed_host_ports"
+        elif key == "applicationSecurityGroupIds":
+            suggest = "application_security_group_ids"
+        elif key == "nodePublicIpTags":
             suggest = "node_public_ip_tags"
 
         if suggest:
@@ -7288,14 +7466,38 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
+                 allowed_host_ports: Optional[Sequence['outputs.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort']] = None,
+                 application_security_group_ids: Optional[Sequence[str]] = None,
                  node_public_ip_tags: Optional[Mapping[str, str]] = None):
         """
+        :param Sequence['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs'] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
+        :param Sequence[str] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param Mapping[str, str] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_group_ids is not None:
+            pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[Sequence['outputs.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort']]:
+        """
+        One or more `allowed_host_ports` blocks as defined below.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Optional[Sequence[str]]:
+        """
+        A list of Application Security Group IDs which should be associated with this Node Pool.
+        """
+        return pulumi.get(self, "application_security_group_ids")
 
     @property
     @pulumi.getter(name="nodePublicIpTags")
@@ -7306,6 +7508,68 @@ class KubernetesClusterNodePoolNodeNetworkProfile(dict):
         > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
         return pulumi.get(self, "node_public_ip_tags")
+
+
+@pulumi.output_type
+class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "portEnd":
+            suggest = "port_end"
+        elif key == "portStart":
+            suggest = "port_start"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 port_end: Optional[int] = None,
+                 port_start: Optional[int] = None,
+                 protocol: Optional[str] = None):
+        """
+        :param int port_end: Specifies the end of the port range.
+        :param int port_start: Specifies the start of the port range.
+        :param str protocol: Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[int]:
+        """
+        Specifies the end of the port range.
+        """
+        return pulumi.get(self, "port_end")
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[int]:
+        """
+        Specifies the start of the port range.
+        """
+        return pulumi.get(self, "port_start")
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[str]:
+        """
+        Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
 
 
 @pulumi.output_type

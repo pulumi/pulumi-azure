@@ -42,15 +42,15 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
      * A `connection_setting` block as defined below.
      * 
      */
-    @Import(name="connectionSetting")
-    private @Nullable Output<LabConnectionSettingArgs> connectionSetting;
+    @Import(name="connectionSetting", required=true)
+    private Output<LabConnectionSettingArgs> connectionSetting;
 
     /**
      * @return A `connection_setting` block as defined below.
      * 
      */
-    public Optional<Output<LabConnectionSettingArgs>> connectionSetting() {
-        return Optional.ofNullable(this.connectionSetting);
+    public Output<LabConnectionSettingArgs> connectionSetting() {
+        return this.connectionSetting;
     }
 
     /**
@@ -281,7 +281,7 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder connectionSetting(@Nullable Output<LabConnectionSettingArgs> connectionSetting) {
+        public Builder connectionSetting(Output<LabConnectionSettingArgs> connectionSetting) {
             $.connectionSetting = connectionSetting;
             return this;
         }
@@ -528,6 +528,9 @@ public final class LabArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public LabArgs build() {
+            if ($.connectionSetting == null) {
+                throw new MissingRequiredPropertyException("LabArgs", "connectionSetting");
+            }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("LabArgs", "resourceGroupName");
             }

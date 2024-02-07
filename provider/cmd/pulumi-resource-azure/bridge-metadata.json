@@ -4415,6 +4415,19 @@
                                             }
                                         }
                                     }
+                                },
+                                "gremlin_database": {
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "graph_names": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                },
+                                "tables_to_restore": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -9703,7 +9716,17 @@
                                     }
                                 },
                                 "node_network_profile": {
-                                    "maxItemsOne": true
+                                    "maxItemsOne": true,
+                                    "elem": {
+                                        "fields": {
+                                            "allowed_host_ports": {
+                                                "maxItemsOne": false
+                                            },
+                                            "application_security_group_ids": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
                                 },
                                 "node_taints": {
                                     "maxItemsOne": false
@@ -9948,7 +9971,17 @@
                         }
                     },
                     "node_network_profile": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "allowed_host_ports": {
+                                    "maxItemsOne": false
+                                },
+                                "application_security_group_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "node_taints": {
                         "maxItemsOne": false
@@ -9979,6 +10012,22 @@
                 "fields": {
                     "hub_profile": {
                         "maxItemsOne": true
+                    }
+                }
+            },
+            "azurerm_kubernetes_fleet_update_strategy": {
+                "current": "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy",
+                "majorVersion": 5,
+                "fields": {
+                    "stage": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "group": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -16174,6 +16223,9 @@
                                 },
                                 "public_ip_addresses": {
                                     "maxItemsOne": false
+                                },
+                                "trusted_address_ranges": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -16224,6 +16276,9 @@
                                     "maxItemsOne": false
                                 },
                                 "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "trusted_address_ranges": {
                                     "maxItemsOne": false
                                 }
                             }
@@ -16280,6 +16335,9 @@
                                 "public_ip_addresses": {
                                     "maxItemsOne": false
                                 },
+                                "trusted_address_ranges": {
+                                    "maxItemsOne": false
+                                },
                                 "vnet_configuration": {
                                     "maxItemsOne": true
                                 }
@@ -16332,6 +16390,9 @@
                                     "maxItemsOne": false
                                 },
                                 "public_ip_addresses": {
+                                    "maxItemsOne": false
+                                },
+                                "trusted_address_ranges": {
                                     "maxItemsOne": false
                                 },
                                 "vnet_configuration": {
@@ -18638,6 +18699,18 @@
                 "current": "azure:siterecovery/hyperVSite:HyperVSite",
                 "majorVersion": 5
             },
+            "azurerm_site_recovery_vmware_replicated_vm": {
+                "current": "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm",
+                "majorVersion": 5,
+                "fields": {
+                    "managed_disk": {
+                        "maxItemsOne": false
+                    },
+                    "network_interface": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_site_recovery_vmware_replication_policy": {
                 "current": "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy",
                 "majorVersion": 5
@@ -18895,6 +18968,15 @@
                 "current": "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring",
                 "majorVersion": 5
             },
+            "azurerm_spring_cloud_elastic_application_performance_monitoring": {
+                "current": "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring",
+                "majorVersion": 5,
+                "fields": {
+                    "application_packages": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_spring_cloud_gateway": {
                 "current": "azure:appplatform/springCloudGateway:SpringCloudGateway",
                 "majorVersion": 5,
@@ -18936,6 +19018,12 @@
                                 }
                             }
                         }
+                    },
+                    "local_response_cache_per_instance": {
+                        "maxItemsOne": true
+                    },
+                    "local_response_cache_per_route": {
+                        "maxItemsOne": true
                     },
                     "quota": {
                         "maxItemsOne": true
@@ -18995,6 +19083,10 @@
                         "maxItemsOne": true
                     }
                 }
+            },
+            "azurerm_spring_cloud_new_relic_application_performance_monitoring": {
+                "current": "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring",
+                "majorVersion": 5
             },
             "azurerm_spring_cloud_service": {
                 "current": "azure:appplatform/springCloudService:SpringCloudService",
@@ -19680,7 +19772,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": true
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     },
                     "job_storage_account": {
                         "maxItemsOne": false
@@ -27761,6 +27860,18 @@
                 "current": "azure:nginx/getCertificate:getCertificate",
                 "majorVersion": 5
             },
+            "azurerm_nginx_configuration": {
+                "current": "azure:nginx/getConfiguration:getConfiguration",
+                "majorVersion": 5,
+                "fields": {
+                    "config_file": {
+                        "maxItemsOne": false
+                    },
+                    "protected_file": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
             "azurerm_nginx_deployment": {
                 "current": "azure:nginx/getDeployment:getDeployment",
                 "majorVersion": 5,
@@ -28815,7 +28926,14 @@
                 "majorVersion": 5,
                 "fields": {
                     "identity": {
-                        "maxItemsOne": false
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "identity_ids": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
                     }
                 }
             },
@@ -28925,6 +29043,10 @@
                         }
                     }
                 }
+            },
+            "azurerm_virtual_desktop_workspace": {
+                "current": "azure:desktopvirtualization/getWorkspace:getWorkspace",
+                "majorVersion": 5
             },
             "azurerm_virtual_hub": {
                 "current": "azure:network/getVirtualHub:getVirtualHub",
@@ -30098,10 +30220,12 @@
             "azure:appplatform/springCloudCustomizedAccelerator:SpringCloudCustomizedAccelerator": "azurerm_spring_cloud_customized_accelerator",
             "azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal": "azurerm_spring_cloud_dev_tool_portal",
             "azure:appplatform/springCloudDynatraceApplicationPerformanceMonitoring:SpringCloudDynatraceApplicationPerformanceMonitoring": "azurerm_spring_cloud_dynatrace_application_performance_monitoring",
+            "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring": "azurerm_spring_cloud_elastic_application_performance_monitoring",
             "azure:appplatform/springCloudGateway:SpringCloudGateway": "azurerm_spring_cloud_gateway",
             "azure:appplatform/springCloudGatewayCustomDomain:SpringCloudGatewayCustomDomain": "azurerm_spring_cloud_gateway_custom_domain",
             "azure:appplatform/springCloudGatewayRouteConfig:SpringCloudGatewayRouteConfig": "azurerm_spring_cloud_gateway_route_config",
             "azure:appplatform/springCloudJavaDeployment:SpringCloudJavaDeployment": "azurerm_spring_cloud_java_deployment",
+            "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring": "azurerm_spring_cloud_new_relic_application_performance_monitoring",
             "azure:appplatform/springCloudService:SpringCloudService": "azurerm_spring_cloud_service",
             "azure:appplatform/springCloudStorage:SpringCloudStorage": "azurerm_spring_cloud_storage",
             "azure:appservice/activeSlot:ActiveSlot": "azurerm_app_service_active_slot",
@@ -30284,6 +30408,7 @@
             "azure:containerapp/environmentStorage:EnvironmentStorage": "azurerm_container_app_environment_storage",
             "azure:containerservice/clusterTrustedAccessRoleBinding:ClusterTrustedAccessRoleBinding": "azurerm_kubernetes_cluster_trusted_access_role_binding",
             "azure:containerservice/connectedRegistry:ConnectedRegistry": "azurerm_container_connected_registry",
+            "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy": "azurerm_kubernetes_fleet_update_strategy",
             "azure:containerservice/fluxConfiguration:FluxConfiguration": "azurerm_kubernetes_flux_configuration",
             "azure:containerservice/group:Group": "azurerm_container_group",
             "azure:containerservice/kubernetesCluster:KubernetesCluster": "azurerm_kubernetes_cluster",
@@ -30994,6 +31119,7 @@
             "azure:siterecovery/replicationPolicy:ReplicationPolicy": "azurerm_site_recovery_replication_policy",
             "azure:siterecovery/replicationRecoveryPlan:ReplicationRecoveryPlan": "azurerm_site_recovery_replication_recovery_plan",
             "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy": "azurerm_site_recovery_vmware_replication_policy",
+            "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm": "azurerm_site_recovery_vmware_replicated_vm",
             "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": "azurerm_site_recovery_vmware_replication_policy_association",
             "azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator": "azurerm_sql_active_directory_administrator",
             "azure:sql/database:Database": "azurerm_sql_database",
@@ -31226,6 +31352,7 @@
             "azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase": "azurerm_data_share_dataset_kusto_database",
             "azure:datashare/getShare:getShare": "azurerm_data_share",
             "azure:desktopvirtualization/getHostPool:getHostPool": "azurerm_virtual_desktop_host_pool",
+            "azure:desktopvirtualization/getWorkspace:getWorkspace": "azurerm_virtual_desktop_workspace",
             "azure:devtest/getLab:getLab": "azurerm_dev_test_lab",
             "azure:devtest/getVirtualNetwork:getVirtualNetwork": "azurerm_dev_test_virtual_network",
             "azure:digitaltwins/getInstance:getInstance": "azurerm_digital_twins_instance",
@@ -31364,6 +31491,7 @@
             "azure:network/getVirtualWan:getVirtualWan": "azurerm_virtual_wan",
             "azure:network/getVpnGateway:getVpnGateway": "azurerm_vpn_gateway",
             "azure:nginx/getCertificate:getCertificate": "azurerm_nginx_certificate",
+            "azure:nginx/getConfiguration:getConfiguration": "azurerm_nginx_configuration",
             "azure:nginx/getDeployment:getDeployment": "azurerm_nginx_deployment",
             "azure:notificationhub/getHub:getHub": "azurerm_notification_hub",
             "azure:notificationhub/getNamespace:getNamespace": "azurerm_notification_hub_namespace",
@@ -32613,6 +32741,12 @@
                 "exposedHeaders": "exposed_headers",
                 "maxAgeSeconds": "max_age_seconds"
             },
+            "azure:appplatform/SpringCloudGatewayLocalResponseCachePerInstance:SpringCloudGatewayLocalResponseCachePerInstance": {
+                "timeToLive": "time_to_live"
+            },
+            "azure:appplatform/SpringCloudGatewayLocalResponseCachePerRoute:SpringCloudGatewayLocalResponseCachePerRoute": {
+                "timeToLive": "time_to_live"
+            },
             "azure:appplatform/SpringCloudGatewayRouteConfigRoute:SpringCloudGatewayRouteConfigRoute": {
                 "classificationTags": "classification_tags",
                 "ssoValidationEnabled": "sso_validation_enabled",
@@ -32726,6 +32860,7 @@
                 "springCloudAppId": "spring_cloud_app_id"
             },
             "azure:appplatform/springCloudApiPortal:SpringCloudApiPortal": {
+                "apiTryOutEnabled": "api_try_out_enabled",
                 "gatewayIds": "gateway_ids",
                 "httpsOnlyEnabled": "https_only_enabled",
                 "instanceCount": "instance_count",
@@ -32850,6 +32985,13 @@
                 "springCloudServiceId": "spring_cloud_service_id",
                 "tenantToken": "tenant_token"
             },
+            "azure:appplatform/springCloudElasticApplicationPerformanceMonitoring:SpringCloudElasticApplicationPerformanceMonitoring": {
+                "applicationPackages": "application_packages",
+                "globallyEnabled": "globally_enabled",
+                "serverUrl": "server_url",
+                "serviceName": "service_name",
+                "springCloudServiceId": "spring_cloud_service_id"
+            },
             "azure:appplatform/springCloudGateway:SpringCloudGateway": {
                 "apiMetadata": "api_metadata",
                 "applicationPerformanceMonitoringTypes": "application_performance_monitoring_types",
@@ -32857,6 +32999,8 @@
                 "environmentVariables": "environment_variables",
                 "httpsOnly": "https_only",
                 "instanceCount": "instance_count",
+                "localResponseCachePerInstance": "local_response_cache_per_instance",
+                "localResponseCachePerRoute": "local_response_cache_per_route",
                 "publicNetworkAccessEnabled": "public_network_access_enabled",
                 "sensitiveEnvironmentVariables": "sensitive_environment_variables",
                 "springCloudServiceId": "spring_cloud_service_id"
@@ -32877,6 +33021,18 @@
                 "jvmOptions": "jvm_options",
                 "runtimeVersion": "runtime_version",
                 "springCloudAppId": "spring_cloud_app_id"
+            },
+            "azure:appplatform/springCloudNewRelicApplicationPerformanceMonitoring:SpringCloudNewRelicApplicationPerformanceMonitoring": {
+                "agentEnabled": "agent_enabled",
+                "appName": "app_name",
+                "appServerPort": "app_server_port",
+                "auditModeEnabled": "audit_mode_enabled",
+                "autoAppNamingEnabled": "auto_app_naming_enabled",
+                "autoTransactionNamingEnabled": "auto_transaction_naming_enabled",
+                "customTracingEnabled": "custom_tracing_enabled",
+                "globallyEnabled": "globally_enabled",
+                "licenseKey": "license_key",
+                "springCloudServiceId": "spring_cloud_service_id"
             },
             "azure:appplatform/springCloudService:SpringCloudService": {
                 "buildAgentPoolSize": "build_agent_pool_size",
@@ -38855,6 +39011,7 @@
                 "botName": "bot_name",
                 "emailAddress": "email_address",
                 "emailPassword": "email_password",
+                "magicCode": "magic_code",
                 "resourceGroupName": "resource_group_name"
             },
             "azure:bot/channelFacebook:ChannelFacebook": {
@@ -41501,6 +41658,10 @@
                 "issueDate": "issue_date",
                 "subjectName": "subject_name"
             },
+            "azure:containerservice/FleetUpdateStrategyStage:FleetUpdateStrategyStage": {
+                "afterStageWaitInSeconds": "after_stage_wait_in_seconds",
+                "groups": "group"
+            },
             "azure:containerservice/FluxConfigurationBlobStorage:FluxConfigurationBlobStorage": {
                 "accountKey": "account_key",
                 "containerId": "container_id",
@@ -41765,7 +41926,13 @@
                 "vmVfsCachePressure": "vm_vfs_cache_pressure"
             },
             "azure:containerservice/KubernetesClusterDefaultNodePoolNodeNetworkProfile:KubernetesClusterDefaultNodePoolNodeNetworkProfile": {
+                "allowedHostPorts": "allowed_host_ports",
+                "applicationSecurityGroupIds": "application_security_group_ids",
                 "nodePublicIpTags": "node_public_ip_tags"
+            },
+            "azure:containerservice/KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort:KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort": {
+                "portEnd": "port_end",
+                "portStart": "port_start"
             },
             "azure:containerservice/KubernetesClusterDefaultNodePoolUpgradeSettings:KubernetesClusterDefaultNodePoolUpgradeSettings": {
                 "maxSurge": "max_surge"
@@ -41948,7 +42115,13 @@
                 "vmVfsCachePressure": "vm_vfs_cache_pressure"
             },
             "azure:containerservice/KubernetesClusterNodePoolNodeNetworkProfile:KubernetesClusterNodePoolNodeNetworkProfile": {
+                "allowedHostPorts": "allowed_host_ports",
+                "applicationSecurityGroupIds": "application_security_group_ids",
                 "nodePublicIpTags": "node_public_ip_tags"
+            },
+            "azure:containerservice/KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort:KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort": {
+                "portEnd": "port_end",
+                "portStart": "port_start"
             },
             "azure:containerservice/KubernetesClusterNodePoolUpgradeSettings:KubernetesClusterNodePoolUpgradeSettings": {
                 "maxSurge": "max_surge"
@@ -42097,6 +42270,10 @@
                 "syncSchedule": "sync_schedule",
                 "syncTokenId": "sync_token_id",
                 "syncWindow": "sync_window"
+            },
+            "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy": {
+                "kubernetesFleetManagerId": "kubernetes_fleet_manager_id",
+                "stages": "stage"
             },
             "azure:containerservice/fluxConfiguration:FluxConfiguration": {
                 "blobStorage": "blob_storage",
@@ -42918,11 +43095,16 @@
             },
             "azure:cosmosdb/AccountRestore:AccountRestore": {
                 "databases": "database",
+                "gremlinDatabases": "gremlin_database",
                 "restoreTimestampInUtc": "restore_timestamp_in_utc",
-                "sourceCosmosdbAccountId": "source_cosmosdb_account_id"
+                "sourceCosmosdbAccountId": "source_cosmosdb_account_id",
+                "tablesToRestores": "tables_to_restore"
             },
             "azure:cosmosdb/AccountRestoreDatabase:AccountRestoreDatabase": {
                 "collectionNames": "collection_names"
+            },
+            "azure:cosmosdb/AccountRestoreGremlinDatabase:AccountRestoreGremlinDatabase": {
+                "graphNames": "graph_names"
             },
             "azure:cosmosdb/AccountVirtualNetworkRule:AccountVirtualNetworkRule": {
                 "ignoreMissingVnetServiceEndpoint": "ignore_missing_vnet_service_endpoint"
@@ -43027,6 +43209,7 @@
                 "networkAclBypassForAzureServices": "network_acl_bypass_for_azure_services",
                 "networkAclBypassIds": "network_acl_bypass_ids",
                 "offerType": "offer_type",
+                "partitionMergeEnabled": "partition_merge_enabled",
                 "primaryKey": "primary_key",
                 "primaryMongodbConnectionString": "primary_mongodb_connection_string",
                 "primaryReadonlyKey": "primary_readonly_key",
@@ -44509,6 +44692,11 @@
             "azure:desktopvirtualization/getHostPoolScheduledAgentUpdateSchedule:getHostPoolScheduledAgentUpdateSchedule": {
                 "dayOfWeek": "day_of_week",
                 "hourOfDay": "hour_of_day"
+            },
+            "azure:desktopvirtualization/getWorkspace:getWorkspace": {
+                "friendlyName": "friendly_name",
+                "publicNetworkAccessEnabled": "public_network_access_enabled",
+                "resourceGroupName": "resource_group_name"
             },
             "azure:desktopvirtualization/hostPool:HostPool": {
                 "customRdpProperties": "custom_rdp_properties",
@@ -50575,6 +50763,7 @@
                 "storageUri": "storage_uri"
             },
             "azure:mssql/DatabaseLongTermRetentionPolicy:DatabaseLongTermRetentionPolicy": {
+                "immutableBackupsEnabled": "immutable_backups_enabled",
                 "monthlyRetention": "monthly_retention",
                 "weekOfYear": "week_of_year",
                 "weeklyRetention": "weekly_retention",
@@ -50603,6 +50792,7 @@
                 "graceMinutes": "grace_minutes"
             },
             "azure:mssql/ManagedDatabaseLongTermRetentionPolicy:ManagedDatabaseLongTermRetentionPolicy": {
+                "immutableBackupsEnabled": "immutable_backups_enabled",
                 "monthlyRetention": "monthly_retention",
                 "weekOfYear": "week_of_year",
                 "weeklyRetention": "weekly_retention",
@@ -53546,6 +53736,19 @@
                 "keyVirtualPath": "key_virtual_path",
                 "nginxDeploymentId": "nginx_deployment_id"
             },
+            "azure:nginx/getConfiguration:getConfiguration": {
+                "configFiles": "config_file",
+                "nginxDeploymentId": "nginx_deployment_id",
+                "packageData": "package_data",
+                "protectedFiles": "protected_file",
+                "rootFile": "root_file"
+            },
+            "azure:nginx/getConfigurationConfigFile:getConfigurationConfigFile": {
+                "virtualPath": "virtual_path"
+            },
+            "azure:nginx/getConfigurationProtectedFile:getConfigurationProtectedFile": {
+                "virtualPath": "virtual_path"
+            },
             "azure:nginx/getDeployment:getDeployment": {
                 "diagnoseSupportEnabled": "diagnose_support_enabled",
                 "frontendPrivates": "frontend_private",
@@ -53737,6 +53940,7 @@
                 "networkVirtualApplianceId": "network_virtual_appliance_id",
                 "publicIpAddressIds": "public_ip_address_ids",
                 "publicIpAddresses": "public_ip_addresses",
+                "trustedAddressRanges": "trusted_address_ranges",
                 "trustedSubnetId": "trusted_subnet_id",
                 "untrustedSubnetId": "untrusted_subnet_id",
                 "virtualHubId": "virtual_hub_id"
@@ -53763,6 +53967,7 @@
                 "networkVirtualApplianceId": "network_virtual_appliance_id",
                 "publicIpAddressIds": "public_ip_address_ids",
                 "publicIpAddresses": "public_ip_addresses",
+                "trustedAddressRanges": "trusted_address_ranges",
                 "trustedSubnetId": "trusted_subnet_id",
                 "untrustedSubnetId": "untrusted_subnet_id",
                 "virtualHubId": "virtual_hub_id"
@@ -53795,6 +54000,7 @@
                 "egressNatIpAddresses": "egress_nat_ip_addresses",
                 "publicIpAddressIds": "public_ip_address_ids",
                 "publicIpAddresses": "public_ip_addresses",
+                "trustedAddressRanges": "trusted_address_ranges",
                 "vnetConfiguration": "vnet_configuration"
             },
             "azure:paloalto/NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration:NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfiguration": {
@@ -53823,6 +54029,7 @@
                 "egressNatIpAddresses": "egress_nat_ip_addresses",
                 "publicIpAddressIds": "public_ip_address_ids",
                 "publicIpAddresses": "public_ip_addresses",
+                "trustedAddressRanges": "trusted_address_ranges",
                 "vnetConfiguration": "vnet_configuration"
             },
             "azure:paloalto/NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration:NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration": {
@@ -55877,6 +56084,19 @@
                 "runbookId": "runbook_id",
                 "scriptPath": "script_path"
             },
+            "azure:siterecovery/VmwareReplicatedVmManagedDisk:VmwareReplicatedVmManagedDisk": {
+                "diskId": "disk_id",
+                "logStorageAccountId": "log_storage_account_id",
+                "targetDiskEncryptionSetId": "target_disk_encryption_set_id",
+                "targetDiskType": "target_disk_type"
+            },
+            "azure:siterecovery/VmwareReplicatedVmNetworkInterface:VmwareReplicatedVmNetworkInterface": {
+                "isPrimary": "is_primary",
+                "sourceMacAddress": "source_mac_address",
+                "targetStaticIp": "target_static_ip",
+                "targetSubnetName": "target_subnet_name",
+                "testSubnetName": "test_subnet_name"
+            },
             "azure:siterecovery/fabric:Fabric": {
                 "recoveryVaultName": "recovery_vault_name",
                 "resourceGroupName": "resource_group_name"
@@ -56016,6 +56236,29 @@
                 "applicationConsistentSnapshotFrequencyInMinutes": "application_consistent_snapshot_frequency_in_minutes",
                 "recoveryPointRetentionInMinutes": "recovery_point_retention_in_minutes",
                 "recoveryVaultId": "recovery_vault_id"
+            },
+            "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm": {
+                "applianceName": "appliance_name",
+                "defaultLogStorageAccountId": "default_log_storage_account_id",
+                "defaultRecoveryDiskType": "default_recovery_disk_type",
+                "defaultTargetDiskEncryptionSetId": "default_target_disk_encryption_set_id",
+                "licenseType": "license_type",
+                "managedDisks": "managed_disk",
+                "multiVmGroupName": "multi_vm_group_name",
+                "networkInterfaces": "network_interface",
+                "physicalServerCredentialName": "physical_server_credential_name",
+                "recoveryReplicationPolicyId": "recovery_replication_policy_id",
+                "recoveryVaultId": "recovery_vault_id",
+                "sourceVmName": "source_vm_name",
+                "targetAvailabilitySetId": "target_availability_set_id",
+                "targetBootDiagnosticsStorageAccountId": "target_boot_diagnostics_storage_account_id",
+                "targetNetworkId": "target_network_id",
+                "targetProximityPlacementGroupId": "target_proximity_placement_group_id",
+                "targetResourceGroupId": "target_resource_group_id",
+                "targetVmName": "target_vm_name",
+                "targetVmSize": "target_vm_size",
+                "targetZone": "target_zone",
+                "testNetworkId": "test_network_id"
             },
             "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation": {
                 "policyId": "policy_id",
@@ -56862,6 +57105,7 @@
                 "configurationParameter": "configuration_parameter"
             },
             "azure:streamanalytics/JobIdentity:JobIdentity": {
+                "identityIds": "identity_ids",
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },
@@ -56928,6 +57172,7 @@
                 "transformationQuery": "transformation_query"
             },
             "azure:streamanalytics/getJobIdentity:getJobIdentity": {
+                "identityIds": "identity_ids",
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
             },

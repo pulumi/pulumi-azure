@@ -25,6 +25,11 @@ export type GetHostPoolRegistrationInfo = import("./getHostPoolRegistrationInfo"
 export const GetHostPoolRegistrationInfo: typeof import("./getHostPoolRegistrationInfo").GetHostPoolRegistrationInfo = null as any;
 utilities.lazyLoad(exports, ["GetHostPoolRegistrationInfo"], () => require("./getHostPoolRegistrationInfo"));
 
+export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
+export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
+export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;
+utilities.lazyLoad(exports, ["getWorkspace","getWorkspaceOutput"], () => require("./getWorkspace"));
+
 export { HostPoolArgs, HostPoolState } from "./hostPool";
 export type HostPool = import("./hostPool").HostPool;
 export const HostPool: typeof import("./hostPool").HostPool = null as any;

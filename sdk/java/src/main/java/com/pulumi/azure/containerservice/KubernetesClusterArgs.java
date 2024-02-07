@@ -136,16 +136,12 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * A `azure_active_directory_role_based_access_control` block as defined below.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
-     * 
      */
     @Import(name="azureActiveDirectoryRoleBasedAccessControl")
     private @Nullable Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs> azureActiveDirectoryRoleBasedAccessControl;
 
     /**
      * @return A `azure_active_directory_role_based_access_control` block as defined below.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
      * 
      */
     public Optional<Output<KubernetesClusterAzureActiveDirectoryRoleBasedAccessControlArgs>> azureActiveDirectoryRoleBasedAccessControl() {
@@ -374,16 +370,12 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
      * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-     * 
      */
     @Import(name="imageCleanerIntervalHours")
     private @Nullable Output<Integer> imageCleanerIntervalHours;
 
     /**
      * @return Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-     * 
-     * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
      * 
      */
     public Optional<Output<Integer>> imageCleanerIntervalHours() {
@@ -585,12 +577,16 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
     /**
      * Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
      * 
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+     * 
      */
     @Import(name="monitorMetrics")
     private @Nullable Output<KubernetesClusterMonitorMetricsArgs> monitorMetrics;
 
     /**
      * @return Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+     * 
+     * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
      * 
      */
     public Optional<Output<KubernetesClusterMonitorMetricsArgs>> monitorMetrics() {
@@ -1345,8 +1341,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
-         * 
          * @return builder
          * 
          */
@@ -1357,8 +1351,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param azureActiveDirectoryRoleBasedAccessControl A `azure_active_directory_role_based_access_control` block as defined below.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/AKS-PrometheusAddonPreview` is enabled, see [the documentation](https://learn.microsoft.com/en-us/azure/azure-monitor/essentials/prometheus-metrics-enable?tabs=azure-portal) for more information.
          * 
          * @return builder
          * 
@@ -1679,8 +1671,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
          * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
-         * 
          * @return builder
          * 
          */
@@ -1691,8 +1681,6 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param imageCleanerIntervalHours Specifies the interval in hours when images should be cleaned up. Defaults to `48`.
-         * 
-         * &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableImageCleanerPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/image-cleaner) for more information.
          * 
          * @return builder
          * 
@@ -1968,6 +1956,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
         /**
          * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
          * 
+         * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
+         * 
          * @return builder
          * 
          */
@@ -1978,6 +1968,8 @@ public final class KubernetesClusterArgs extends com.pulumi.resources.ResourceAr
 
         /**
          * @param monitorMetrics Specifies a Prometheus add-on profile for the Kubernetes Cluster. A `monitor_metrics` block as defined below.
+         * 
+         * &gt; **Note:** If deploying Managed Prometheus, the `monitor_metrics` properties are required to configure the cluster for metrics collection. If no value is needed, set properties to `null`.
          * 
          * @return builder
          * 

@@ -3137,6 +3137,28 @@ export namespace appplatform {
         maxAgeSeconds?: number;
     }
 
+    export interface SpringCloudGatewayLocalResponseCachePerInstance {
+        /**
+         * Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+         */
+        size?: string;
+        /**
+         * Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+         */
+        timeToLive?: string;
+    }
+
+    export interface SpringCloudGatewayLocalResponseCachePerRoute {
+        /**
+         * Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+         */
+        size?: string;
+        /**
+         * Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+         */
+        timeToLive?: string;
+    }
+
     export interface SpringCloudGatewayQuota {
         /**
          * Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
@@ -29626,6 +29648,28 @@ export namespace containerservice {
         tag?: string;
     }
 
+    export interface FleetUpdateStrategyStage {
+        /**
+         * Specifies the time in seconds to wait at the end of this stage before starting the next one.
+         */
+        afterStageWaitInSeconds?: number;
+        /**
+         * One or more `group` blocks as defined below.
+         */
+        groups: outputs.containerservice.FleetUpdateStrategyStageGroup[];
+        /**
+         * The name which should be used for this stage.
+         */
+        name: string;
+    }
+
+    export interface FleetUpdateStrategyStageGroup {
+        /**
+         * The name which should be used for this group.
+         */
+        name: string;
+    }
+
     export interface FluxConfigurationBlobStorage {
         /**
          * Specifies the account key (shared key) to access the storage account.
@@ -31263,11 +31307,34 @@ export namespace containerservice {
 
     export interface KubernetesClusterDefaultNodePoolNodeNetworkProfile {
         /**
+         * One or more `allowedHostPorts` blocks as defined below.
+         */
+        allowedHostPorts?: outputs.containerservice.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort[];
+        /**
+         * A list of Application Security Group IDs which should be associated with this Node Pool.
+         */
+        applicationSecurityGroupIds?: string[];
+        /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: {[key: string]: string};
+    }
+
+    export interface KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
+        /**
+         * Specifies the end of the port range.
+         */
+        portEnd?: number;
+        /**
+         * Specifies the start of the port range.
+         */
+        portStart?: number;
+        /**
+         * Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+         */
+        protocol?: string;
     }
 
     export interface KubernetesClusterDefaultNodePoolUpgradeSettings {
@@ -31694,6 +31761,8 @@ export namespace containerservice {
         annotationsAllowed?: string;
         /**
          * Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+         *
+         * > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
          */
         labelsAllowed?: string;
     }
@@ -32028,11 +32097,34 @@ export namespace containerservice {
 
     export interface KubernetesClusterNodePoolNodeNetworkProfile {
         /**
+         * One or more `allowedHostPorts` blocks as defined below.
+         */
+        allowedHostPorts?: outputs.containerservice.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort[];
+        /**
+         * A list of Application Security Group IDs which should be associated with this Node Pool.
+         */
+        applicationSecurityGroupIds?: string[];
+        /**
          * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
          *
          * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
          */
         nodePublicIpTags?: {[key: string]: string};
+    }
+
+    export interface KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort {
+        /**
+         * Specifies the end of the port range.
+         */
+        portEnd?: number;
+        /**
+         * Specifies the start of the port range.
+         */
+        portStart?: number;
+        /**
+         * Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+         */
+        protocol?: string;
     }
 
     export interface KubernetesClusterNodePoolUpgradeSettings {
@@ -33403,6 +33495,10 @@ export namespace cosmosdb {
          */
         databases?: outputs.cosmosdb.AccountRestoreDatabase[];
         /**
+         * One or more `gremlinDatabase` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        gremlinDatabases?: outputs.cosmosdb.AccountRestoreGremlinDatabase[];
+        /**
          * The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
          */
         restoreTimestampInUtc: string;
@@ -33412,6 +33508,10 @@ export namespace cosmosdb {
          * > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
          */
         sourceCosmosdbAccountId: string;
+        /**
+         * A list of specific tables available for restore. Changing this forces a new resource to be created.
+         */
+        tablesToRestores?: string[];
     }
 
     export interface AccountRestoreDatabase {
@@ -33421,6 +33521,17 @@ export namespace cosmosdb {
         collectionNames?: string[];
         /**
          * The database name for the restore request. Changing this forces a new resource to be created.
+         */
+        name: string;
+    }
+
+    export interface AccountRestoreGremlinDatabase {
+        /**
+         * A list of the Graph names for the restore request. Changing this forces a new resource to be created.
+         */
+        graphNames?: string[];
+        /**
+         * The Gremlin Database name for the restore request. Changing this forces a new resource to be created.
          */
         name: string;
     }
@@ -51838,6 +51949,10 @@ export namespace mssql {
 
     export interface DatabaseLongTermRetentionPolicy {
         /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
+        immutableBackupsEnabled?: boolean;
+        /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
         monthlyRetention: string;
@@ -52029,6 +52144,10 @@ export namespace mssql {
     }
 
     export interface ManagedDatabaseLongTermRetentionPolicy {
+        /**
+         * Specifies if the backups are immutable. Defaults to `false`.
+         */
+        immutableBackupsEnabled?: boolean;
         /**
          * The monthly retention policy for an LTR backup in an ISO 8601 format. Valid value is between 1 to 120 months. e.g. `P1Y`, `P1M`, `P4W` or `P30D`.
          */
@@ -57919,7 +58038,7 @@ export namespace network {
          */
         name: string;
         /**
-         * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers.
+         * The public certificate of the root certificate authority. The certificate must be provided in Base-64 encoded X.509 format (PEM). In particular, this argument *must not* include the `-----BEGIN CERTIFICATE-----` or `-----END CERTIFICATE-----` markers, nor any newlines.
          */
         publicCertData: string;
     }
@@ -58566,6 +58685,28 @@ export namespace nginx {
         subnetId: string;
     }
 
+    export interface GetConfigurationConfigFile {
+        /**
+         * The base-64 encoded contents of this configuration file.
+         */
+        content: string;
+        /**
+         * The path of this configuration file.
+         */
+        virtualPath: string;
+    }
+
+    export interface GetConfigurationProtectedFile {
+        /**
+         * The base-64 encoded contents of this configuration file.
+         */
+        content: string;
+        /**
+         * The path of this configuration file.
+         */
+        virtualPath: string;
+    }
+
     export interface GetDeploymentFrontendPrivate {
         /**
          * The method of allocating the private IP to the Nginx Deployment.
@@ -58798,6 +58939,8 @@ export namespace orbital {
         bandwidthMhz: number;
         /**
          * Center frequency in Mhz.
+         *
+         * > **Note:** The value of `centerFrequencyMhz +/- bandwidthMhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
          */
         centerFrequencyMhz: number;
         /**
@@ -58906,6 +59049,7 @@ export namespace paloalto {
         networkVirtualApplianceId: string;
         publicIpAddressIds: string[];
         publicIpAddresses: string[];
+        trustedAddressRanges?: string[];
         trustedSubnetId: string;
         untrustedSubnetId: string;
         virtualHubId: string;
@@ -58941,6 +59085,7 @@ export namespace paloalto {
         networkVirtualApplianceId: string;
         publicIpAddressIds: string[];
         publicIpAddresses: string[];
+        trustedAddressRanges?: string[];
         trustedSubnetId: string;
         untrustedSubnetId: string;
         virtualHubId: string;
@@ -59022,6 +59167,10 @@ export namespace paloalto {
          */
         publicIpAddressIds: string[];
         publicIpAddresses: string[];
+        /**
+         * Specifies a list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: string[];
         /**
          * A `vnetConfiguration` block as defined below.
          */
@@ -59110,6 +59259,10 @@ export namespace paloalto {
          */
         publicIpAddressIds: string[];
         publicIpAddresses: string[];
+        /**
+         * Specifies a list of trusted ranges to use for the Network.
+         */
+        trustedAddressRanges?: string[];
         /**
          * A `vnetConfiguration` block as defined below.
          */
@@ -60094,7 +60247,7 @@ export namespace redhatopenshift {
          */
         resourceGroupId: string;
         /**
-         * The version of the OpenShift cluster. Changing this forces a new resource to be created.
+         * The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
          */
         version: string;
     }
@@ -62812,6 +62965,48 @@ export namespace siterecovery {
         type: string;
     }
 
+    export interface VmwareReplicatedVmManagedDisk {
+        /**
+         * The ID of the disk to be replicated. Changing this forces a new resource to be created.
+         */
+        diskId: string;
+        /**
+         * The ID of the storage account that should be used for logging during replication.
+         */
+        logStorageAccountId?: string;
+        /**
+         * The ID of the Disk Encryption Set that should be used for the disks when a failover is done.
+         */
+        targetDiskEncryptionSetId?: string;
+        /**
+         * The disk type of the disk to be created when a failover is done. Possible values are `Standard_LRS`, `Standard_LRS` and `StandardSSD_LRS`.
+         */
+        targetDiskType: string;
+    }
+
+    export interface VmwareReplicatedVmNetworkInterface {
+        /**
+         * Whether this `networkInterface` is primary for the replicated VM.
+         */
+        isPrimary: boolean;
+        /**
+         * Mac address of the network interface of source VM.
+         */
+        sourceMacAddress: string;
+        /**
+         * Static IP to assign when a failover is done.
+         */
+        targetStaticIp?: string;
+        /**
+         * Name of the subnet to use when a failover is done.
+         */
+        targetSubnetName?: string;
+        /**
+         * Name of the subnet to use when a test failover is done.
+         */
+        testSubnetName?: string;
+    }
+
 }
 
 export namespace sql {
@@ -64316,6 +64511,10 @@ export namespace streamanalytics {
 
     export interface GetJobIdentity {
         /**
+         * A list of User Assigned Managed Identity IDs assigned to this resource.
+         */
+        identityIds: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -64331,6 +64530,10 @@ export namespace streamanalytics {
 
     export interface JobIdentity {
         /**
+         * The identity id of the user assigned identity to use when type is `UserAssigned`
+         */
+        identityIds?: string[];
+        /**
          * The Principal ID associated with this Managed Service Identity.
          */
         principalId: string;
@@ -64339,7 +64542,7 @@ export namespace streamanalytics {
          */
         tenantId: string;
         /**
-         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. The only possible value is `SystemAssigned`.
+         * Specifies the type of Managed Service Identity that should be configured on this Stream Analytics Job. Possible values are `SystemAssigned` and `UserAssigned`.
          */
         type: string;
     }

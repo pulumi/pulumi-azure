@@ -3695,6 +3695,318 @@ func (o SpringCloudGatewayCorsPtrOutput) MaxAgeSeconds() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
+type SpringCloudGatewayLocalResponseCachePerInstance struct {
+	// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+	Size *string `pulumi:"size"`
+	// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+	TimeToLive *string `pulumi:"timeToLive"`
+}
+
+// SpringCloudGatewayLocalResponseCachePerInstanceInput is an input type that accepts SpringCloudGatewayLocalResponseCachePerInstanceArgs and SpringCloudGatewayLocalResponseCachePerInstanceOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayLocalResponseCachePerInstanceInput` via:
+//
+//	SpringCloudGatewayLocalResponseCachePerInstanceArgs{...}
+type SpringCloudGatewayLocalResponseCachePerInstanceInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayLocalResponseCachePerInstanceOutput() SpringCloudGatewayLocalResponseCachePerInstanceOutput
+	ToSpringCloudGatewayLocalResponseCachePerInstanceOutputWithContext(context.Context) SpringCloudGatewayLocalResponseCachePerInstanceOutput
+}
+
+type SpringCloudGatewayLocalResponseCachePerInstanceArgs struct {
+	// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+	TimeToLive pulumi.StringPtrInput `pulumi:"timeToLive"`
+}
+
+func (SpringCloudGatewayLocalResponseCachePerInstanceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerInstance)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerInstanceArgs) ToSpringCloudGatewayLocalResponseCachePerInstanceOutput() SpringCloudGatewayLocalResponseCachePerInstanceOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerInstanceOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerInstanceArgs) ToSpringCloudGatewayLocalResponseCachePerInstanceOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstanceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerInstanceOutput)
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerInstanceArgs) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutput() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerInstanceArgs) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerInstanceOutput).ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(ctx)
+}
+
+// SpringCloudGatewayLocalResponseCachePerInstancePtrInput is an input type that accepts SpringCloudGatewayLocalResponseCachePerInstanceArgs, SpringCloudGatewayLocalResponseCachePerInstancePtr and SpringCloudGatewayLocalResponseCachePerInstancePtrOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayLocalResponseCachePerInstancePtrInput` via:
+//
+//	        SpringCloudGatewayLocalResponseCachePerInstanceArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudGatewayLocalResponseCachePerInstancePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutput() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput
+	ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(context.Context) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput
+}
+
+type springCloudGatewayLocalResponseCachePerInstancePtrType SpringCloudGatewayLocalResponseCachePerInstanceArgs
+
+func SpringCloudGatewayLocalResponseCachePerInstancePtr(v *SpringCloudGatewayLocalResponseCachePerInstanceArgs) SpringCloudGatewayLocalResponseCachePerInstancePtrInput {
+	return (*springCloudGatewayLocalResponseCachePerInstancePtrType)(v)
+}
+
+func (*springCloudGatewayLocalResponseCachePerInstancePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayLocalResponseCachePerInstance)(nil)).Elem()
+}
+
+func (i *springCloudGatewayLocalResponseCachePerInstancePtrType) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutput() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudGatewayLocalResponseCachePerInstancePtrType) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerInstancePtrOutput)
+}
+
+type SpringCloudGatewayLocalResponseCachePerInstanceOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayLocalResponseCachePerInstanceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerInstance)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) ToSpringCloudGatewayLocalResponseCachePerInstanceOutput() SpringCloudGatewayLocalResponseCachePerInstanceOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) ToSpringCloudGatewayLocalResponseCachePerInstanceOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstanceOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutput() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return o.ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayLocalResponseCachePerInstance) *SpringCloudGatewayLocalResponseCachePerInstance {
+		return &v
+	}).(SpringCloudGatewayLocalResponseCachePerInstancePtrOutput)
+}
+
+// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayLocalResponseCachePerInstance) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+func (o SpringCloudGatewayLocalResponseCachePerInstanceOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayLocalResponseCachePerInstance) *string { return v.TimeToLive }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayLocalResponseCachePerInstancePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayLocalResponseCachePerInstance)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutput() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) ToSpringCloudGatewayLocalResponseCachePerInstancePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) Elem() SpringCloudGatewayLocalResponseCachePerInstanceOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerInstance) SpringCloudGatewayLocalResponseCachePerInstance {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudGatewayLocalResponseCachePerInstance
+		return ret
+	}).(SpringCloudGatewayLocalResponseCachePerInstanceOutput)
+}
+
+// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+func (o SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerInstance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+func (o SpringCloudGatewayLocalResponseCachePerInstancePtrOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerInstance) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToLive
+	}).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayLocalResponseCachePerRoute struct {
+	// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+	Size *string `pulumi:"size"`
+	// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+	TimeToLive *string `pulumi:"timeToLive"`
+}
+
+// SpringCloudGatewayLocalResponseCachePerRouteInput is an input type that accepts SpringCloudGatewayLocalResponseCachePerRouteArgs and SpringCloudGatewayLocalResponseCachePerRouteOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayLocalResponseCachePerRouteInput` via:
+//
+//	SpringCloudGatewayLocalResponseCachePerRouteArgs{...}
+type SpringCloudGatewayLocalResponseCachePerRouteInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayLocalResponseCachePerRouteOutput() SpringCloudGatewayLocalResponseCachePerRouteOutput
+	ToSpringCloudGatewayLocalResponseCachePerRouteOutputWithContext(context.Context) SpringCloudGatewayLocalResponseCachePerRouteOutput
+}
+
+type SpringCloudGatewayLocalResponseCachePerRouteArgs struct {
+	// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+	Size pulumi.StringPtrInput `pulumi:"size"`
+	// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+	TimeToLive pulumi.StringPtrInput `pulumi:"timeToLive"`
+}
+
+func (SpringCloudGatewayLocalResponseCachePerRouteArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerRoute)(nil)).Elem()
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerRouteArgs) ToSpringCloudGatewayLocalResponseCachePerRouteOutput() SpringCloudGatewayLocalResponseCachePerRouteOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerRouteOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerRouteArgs) ToSpringCloudGatewayLocalResponseCachePerRouteOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRouteOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerRouteOutput)
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerRouteArgs) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutput() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(context.Background())
+}
+
+func (i SpringCloudGatewayLocalResponseCachePerRouteArgs) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerRouteOutput).ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(ctx)
+}
+
+// SpringCloudGatewayLocalResponseCachePerRoutePtrInput is an input type that accepts SpringCloudGatewayLocalResponseCachePerRouteArgs, SpringCloudGatewayLocalResponseCachePerRoutePtr and SpringCloudGatewayLocalResponseCachePerRoutePtrOutput values.
+// You can construct a concrete instance of `SpringCloudGatewayLocalResponseCachePerRoutePtrInput` via:
+//
+//	        SpringCloudGatewayLocalResponseCachePerRouteArgs{...}
+//
+//	or:
+//
+//	        nil
+type SpringCloudGatewayLocalResponseCachePerRoutePtrInput interface {
+	pulumi.Input
+
+	ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutput() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput
+	ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(context.Context) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput
+}
+
+type springCloudGatewayLocalResponseCachePerRoutePtrType SpringCloudGatewayLocalResponseCachePerRouteArgs
+
+func SpringCloudGatewayLocalResponseCachePerRoutePtr(v *SpringCloudGatewayLocalResponseCachePerRouteArgs) SpringCloudGatewayLocalResponseCachePerRoutePtrInput {
+	return (*springCloudGatewayLocalResponseCachePerRoutePtrType)(v)
+}
+
+func (*springCloudGatewayLocalResponseCachePerRoutePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayLocalResponseCachePerRoute)(nil)).Elem()
+}
+
+func (i *springCloudGatewayLocalResponseCachePerRoutePtrType) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutput() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return i.ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(context.Background())
+}
+
+func (i *springCloudGatewayLocalResponseCachePerRoutePtrType) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(SpringCloudGatewayLocalResponseCachePerRoutePtrOutput)
+}
+
+type SpringCloudGatewayLocalResponseCachePerRouteOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayLocalResponseCachePerRouteOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerRoute)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) ToSpringCloudGatewayLocalResponseCachePerRouteOutput() SpringCloudGatewayLocalResponseCachePerRouteOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) ToSpringCloudGatewayLocalResponseCachePerRouteOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRouteOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutput() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return o.ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(context.Background())
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v SpringCloudGatewayLocalResponseCachePerRoute) *SpringCloudGatewayLocalResponseCachePerRoute {
+		return &v
+	}).(SpringCloudGatewayLocalResponseCachePerRoutePtrOutput)
+}
+
+// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayLocalResponseCachePerRoute) *string { return v.Size }).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+func (o SpringCloudGatewayLocalResponseCachePerRouteOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v SpringCloudGatewayLocalResponseCachePerRoute) *string { return v.TimeToLive }).(pulumi.StringPtrOutput)
+}
+
+type SpringCloudGatewayLocalResponseCachePerRoutePtrOutput struct{ *pulumi.OutputState }
+
+func (SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**SpringCloudGatewayLocalResponseCachePerRoute)(nil)).Elem()
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutput() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) ToSpringCloudGatewayLocalResponseCachePerRoutePtrOutputWithContext(ctx context.Context) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return o
+}
+
+func (o SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) Elem() SpringCloudGatewayLocalResponseCachePerRouteOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerRoute) SpringCloudGatewayLocalResponseCachePerRoute {
+		if v != nil {
+			return *v
+		}
+		var ret SpringCloudGatewayLocalResponseCachePerRoute
+		return ret
+	}).(SpringCloudGatewayLocalResponseCachePerRouteOutput)
+}
+
+// Specifies the maximum size of cache (10MB, 900KB, 1GB...) to determine if the cache needs to evict some entries.
+func (o SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) Size() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Size
+	}).(pulumi.StringPtrOutput)
+}
+
+// Specifies the time before a cached entry is expired (300s, 5m, 1h...).
+func (o SpringCloudGatewayLocalResponseCachePerRoutePtrOutput) TimeToLive() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *SpringCloudGatewayLocalResponseCachePerRoute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.TimeToLive
+	}).(pulumi.StringPtrOutput)
+}
+
 type SpringCloudGatewayQuota struct {
 	// Specifies the required cpu of the Spring Cloud Deployment. Possible Values are `500m`, `1`, `2`, `3` and `4`. Defaults to `1` if not specified.
 	//
@@ -7776,6 +8088,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayClientAuthorizationPtrInput)(nil)).Elem(), SpringCloudGatewayClientAuthorizationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayCorsPtrInput)(nil)).Elem(), SpringCloudGatewayCorsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerInstanceInput)(nil)).Elem(), SpringCloudGatewayLocalResponseCachePerInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerInstancePtrInput)(nil)).Elem(), SpringCloudGatewayLocalResponseCachePerInstanceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerRouteInput)(nil)).Elem(), SpringCloudGatewayLocalResponseCachePerRouteArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayLocalResponseCachePerRoutePtrInput)(nil)).Elem(), SpringCloudGatewayLocalResponseCachePerRouteArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayQuotaPtrInput)(nil)).Elem(), SpringCloudGatewayQuotaArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SpringCloudGatewayRouteConfigOpenApiInput)(nil)).Elem(), SpringCloudGatewayRouteConfigOpenApiArgs{})
@@ -7868,6 +8184,10 @@ func init() {
 	pulumi.RegisterOutputType(SpringCloudGatewayClientAuthorizationPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayCorsPtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayLocalResponseCachePerInstanceOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayLocalResponseCachePerInstancePtrOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayLocalResponseCachePerRouteOutput{})
+	pulumi.RegisterOutputType(SpringCloudGatewayLocalResponseCachePerRoutePtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayQuotaPtrOutput{})
 	pulumi.RegisterOutputType(SpringCloudGatewayRouteConfigOpenApiOutput{})

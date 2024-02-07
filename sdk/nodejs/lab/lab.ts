@@ -85,7 +85,7 @@ export class Lab extends pulumi.CustomResource {
     /**
      * A `connectionSetting` block as defined below.
      */
-    public readonly connectionSetting!: pulumi.Output<outputs.lab.LabConnectionSetting | undefined>;
+    public readonly connectionSetting!: pulumi.Output<outputs.lab.LabConnectionSetting>;
     /**
      * The description of the Lab Service Lab.
      */
@@ -159,6 +159,9 @@ export class Lab extends pulumi.CustomResource {
             resourceInputs["virtualMachine"] = state ? state.virtualMachine : undefined;
         } else {
             const args = argsOrState as LabArgs | undefined;
+            if ((!args || args.connectionSetting === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'connectionSetting'");
+            }
             if ((!args || args.resourceGroupName === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
@@ -259,7 +262,7 @@ export interface LabArgs {
     /**
      * A `connectionSetting` block as defined below.
      */
-    connectionSetting?: pulumi.Input<inputs.lab.LabConnectionSetting>;
+    connectionSetting: pulumi.Input<inputs.lab.LabConnectionSetting>;
     /**
      * The description of the Lab Service Lab.
      */

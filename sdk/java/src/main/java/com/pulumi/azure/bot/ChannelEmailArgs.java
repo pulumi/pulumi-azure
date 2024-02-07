@@ -50,15 +50,15 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
      * The email password that the Bot will authenticate with.
      * 
      */
-    @Import(name="emailPassword", required=true)
-    private Output<String> emailPassword;
+    @Import(name="emailPassword")
+    private @Nullable Output<String> emailPassword;
 
     /**
      * @return The email password that the Bot will authenticate with.
      * 
      */
-    public Output<String> emailPassword() {
-        return this.emailPassword;
+    public Optional<Output<String>> emailPassword() {
+        return Optional.ofNullable(this.emailPassword);
     }
 
     /**
@@ -74,6 +74,21 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> location() {
         return Optional.ofNullable(this.location);
+    }
+
+    /**
+     * The magic code used to set up OAUTH authentication.
+     * 
+     */
+    @Import(name="magicCode")
+    private @Nullable Output<String> magicCode;
+
+    /**
+     * @return The magic code used to set up OAUTH authentication.
+     * 
+     */
+    public Optional<Output<String>> magicCode() {
+        return Optional.ofNullable(this.magicCode);
     }
 
     /**
@@ -98,6 +113,7 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
         this.emailAddress = $.emailAddress;
         this.emailPassword = $.emailPassword;
         this.location = $.location;
+        this.magicCode = $.magicCode;
         this.resourceGroupName = $.resourceGroupName;
     }
 
@@ -167,7 +183,7 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          */
-        public Builder emailPassword(Output<String> emailPassword) {
+        public Builder emailPassword(@Nullable Output<String> emailPassword) {
             $.emailPassword = emailPassword;
             return this;
         }
@@ -204,6 +220,27 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param magicCode The magic code used to set up OAUTH authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder magicCode(@Nullable Output<String> magicCode) {
+            $.magicCode = magicCode;
+            return this;
+        }
+
+        /**
+         * @param magicCode The magic code used to set up OAUTH authentication.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder magicCode(String magicCode) {
+            return magicCode(Output.of(magicCode));
+        }
+
+        /**
          * @param resourceGroupName The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -230,9 +267,6 @@ public final class ChannelEmailArgs extends com.pulumi.resources.ResourceArgs {
             }
             if ($.emailAddress == null) {
                 throw new MissingRequiredPropertyException("ChannelEmailArgs", "emailAddress");
-            }
-            if ($.emailPassword == null) {
-                throw new MissingRequiredPropertyException("ChannelEmailArgs", "emailPassword");
             }
             if ($.resourceGroupName == null) {
                 throw new MissingRequiredPropertyException("ChannelEmailArgs", "resourceGroupName");

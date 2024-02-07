@@ -24,6 +24,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
             set => _databases = value;
         }
 
+        [Input("gremlinDatabases")]
+        private InputList<Inputs.AccountRestoreGremlinDatabaseArgs>? _gremlinDatabases;
+
+        /// <summary>
+        /// One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.AccountRestoreGremlinDatabaseArgs> GremlinDatabases
+        {
+            get => _gremlinDatabases ?? (_gremlinDatabases = new InputList<Inputs.AccountRestoreGremlinDatabaseArgs>());
+            set => _gremlinDatabases = value;
+        }
+
         /// <summary>
         /// The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         /// </summary>
@@ -37,6 +49,18 @@ namespace Pulumi.Azure.CosmosDB.Inputs
         /// </summary>
         [Input("sourceCosmosdbAccountId", required: true)]
         public Input<string> SourceCosmosdbAccountId { get; set; } = null!;
+
+        [Input("tablesToRestores")]
+        private InputList<string>? _tablesToRestores;
+
+        /// <summary>
+        /// A list of specific tables available for restore. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<string> TablesToRestores
+        {
+            get => _tablesToRestores ?? (_tablesToRestores = new InputList<string>());
+            set => _tablesToRestores = value;
+        }
 
         public AccountRestoreArgs()
         {

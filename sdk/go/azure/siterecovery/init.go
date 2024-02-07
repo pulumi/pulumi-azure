@@ -45,6 +45,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ReplicationRecoveryPlan{}
 	case "azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy":
 		r = &VMWareReplicationPolicy{}
+	case "azure:siterecovery/vmwareReplicatedVm:VmwareReplicatedVm":
+		r = &VmwareReplicatedVm{}
 	case "azure:siterecovery/vmwareReplicationPolicyAssociation:VmwareReplicationPolicyAssociation":
 		r = &VmwareReplicationPolicyAssociation{}
 	default:
@@ -118,6 +120,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"siterecovery/vMWareReplicationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"siterecovery/vmwareReplicatedVm",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

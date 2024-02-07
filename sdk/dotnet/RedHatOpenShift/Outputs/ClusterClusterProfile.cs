@@ -30,7 +30,7 @@ namespace Pulumi.Azure.RedHatOpenShift.Outputs
         /// </summary>
         public readonly string? ResourceGroupId;
         /// <summary>
-        /// The version of the OpenShift cluster. Changing this forces a new resource to be created.
+        /// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location &lt;region&gt;`. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string Version;
 

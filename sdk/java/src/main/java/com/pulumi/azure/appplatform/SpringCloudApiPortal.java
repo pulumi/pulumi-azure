@@ -72,6 +72,7 @@ import javax.annotation.Nullable;
  *             .httpsOnlyEnabled(false)
  *             .publicNetworkAccessEnabled(true)
  *             .instanceCount(1)
+ *             .apiTryOutEnabled(true)
  *             .sso(SpringCloudApiPortalSsoArgs.builder()
  *                 .clientId(&#34;test&#34;)
  *                 .clientSecret(&#34;secret&#34;)
@@ -95,6 +96,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:appplatform/springCloudApiPortal:SpringCloudApiPortal")
 public class SpringCloudApiPortal extends com.pulumi.resources.CustomResource {
+    /**
+     * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     * 
+     */
+    @Export(name="apiTryOutEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> apiTryOutEnabled;
+
+    /**
+     * @return Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     * 
+     */
+    public Output<Optional<Boolean>> apiTryOutEnabled() {
+        return Codegen.optional(this.apiTryOutEnabled);
+    }
     /**
      * Specifies a list of Spring Cloud Gateway.
      * 

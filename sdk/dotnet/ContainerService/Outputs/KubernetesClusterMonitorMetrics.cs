@@ -19,6 +19,8 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly string? AnnotationsAllowed;
         /// <summary>
         /// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+        /// 
+        /// &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
         /// </summary>
         public readonly string? LabelsAllowed;
 

@@ -26,6 +26,11 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
     private List<String> publicIpAddressIds;
     private @Nullable List<String> publicIpAddresses;
     /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
+    private @Nullable List<String> trustedAddressRanges;
+    /**
      * @return A `vnet_configuration` block as defined below.
      * 
      */
@@ -53,6 +58,13 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
         return this.publicIpAddresses == null ? List.of() : this.publicIpAddresses;
     }
     /**
+     * @return Specifies a list of trusted ranges to use for the Network.
+     * 
+     */
+    public List<String> trustedAddressRanges() {
+        return this.trustedAddressRanges == null ? List.of() : this.trustedAddressRanges;
+    }
+    /**
      * @return A `vnet_configuration` block as defined below.
      * 
      */
@@ -73,6 +85,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
         private @Nullable List<String> egressNatIpAddresses;
         private List<String> publicIpAddressIds;
         private @Nullable List<String> publicIpAddresses;
+        private @Nullable List<String> trustedAddressRanges;
         private NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration vnetConfiguration;
         public Builder() {}
         public Builder(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile defaults) {
@@ -81,6 +94,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
     	      this.egressNatIpAddresses = defaults.egressNatIpAddresses;
     	      this.publicIpAddressIds = defaults.publicIpAddressIds;
     	      this.publicIpAddresses = defaults.publicIpAddresses;
+    	      this.trustedAddressRanges = defaults.trustedAddressRanges;
     	      this.vnetConfiguration = defaults.vnetConfiguration;
         }
 
@@ -123,6 +137,15 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
             return publicIpAddresses(List.of(publicIpAddresses));
         }
         @CustomType.Setter
+        public Builder trustedAddressRanges(@Nullable List<String> trustedAddressRanges) {
+
+            this.trustedAddressRanges = trustedAddressRanges;
+            return this;
+        }
+        public Builder trustedAddressRanges(String... trustedAddressRanges) {
+            return trustedAddressRanges(List.of(trustedAddressRanges));
+        }
+        @CustomType.Setter
         public Builder vnetConfiguration(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfiguration vnetConfiguration) {
             if (vnetConfiguration == null) {
               throw new MissingRequiredPropertyException("NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile", "vnetConfiguration");
@@ -136,6 +159,7 @@ public final class NextGenerationFirewallVirtualNetworkPanoramaNetworkProfile {
             _resultValue.egressNatIpAddresses = egressNatIpAddresses;
             _resultValue.publicIpAddressIds = publicIpAddressIds;
             _resultValue.publicIpAddresses = publicIpAddresses;
+            _resultValue.trustedAddressRanges = trustedAddressRanges;
             _resultValue.vnetConfiguration = vnetConfiguration;
             return _resultValue;
         }

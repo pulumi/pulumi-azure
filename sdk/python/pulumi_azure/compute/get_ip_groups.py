@@ -120,7 +120,7 @@ def get_ip_groups(name: Optional[str] = None,
 
     example = azure.network.get_ip_groups(name="existing",
         resource_group_name="existing")
-    pulumi.export("id", example.id)
+    pulumi.export("ids", example.ids)
     ```
 
 
@@ -159,7 +159,7 @@ def get_ip_groups_output(name: Optional[pulumi.Input[str]] = None,
 
     example = azure.network.get_ip_groups(name="existing",
         resource_group_name="existing")
-    pulumi.export("id", example.id)
+    pulumi.export("ids", example.ids)
     ```
 
 

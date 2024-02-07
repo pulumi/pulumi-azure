@@ -85,6 +85,10 @@ import (
 //						pulumi.String("read"),
 //					},
 //				},
+//				LocalResponseCachePerInstance: &appplatform.SpringCloudGatewayLocalResponseCachePerInstanceArgs{
+//					Size:       pulumi.String("100MB"),
+//					TimeToLive: pulumi.String("30s"),
+//				},
 //			})
 //			if err != nil {
 //				return err
@@ -121,6 +125,10 @@ type SpringCloudGateway struct {
 	HttpsOnly pulumi.BoolPtrOutput `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrOutput `pulumi:"instanceCount"`
+	// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerInstance SpringCloudGatewayLocalResponseCachePerInstancePtrOutput `pulumi:"localResponseCachePerInstance"`
+	// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerRoute SpringCloudGatewayLocalResponseCachePerRoutePtrOutput `pulumi:"localResponseCachePerRoute"`
 	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
@@ -191,6 +199,10 @@ type springCloudGatewayState struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
+	// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerInstance *SpringCloudGatewayLocalResponseCachePerInstance `pulumi:"localResponseCachePerInstance"`
+	// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerRoute *SpringCloudGatewayLocalResponseCachePerRoute `pulumi:"localResponseCachePerRoute"`
 	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
@@ -222,6 +234,10 @@ type SpringCloudGatewayState struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
+	// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerInstance SpringCloudGatewayLocalResponseCachePerInstancePtrInput
+	// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerRoute SpringCloudGatewayLocalResponseCachePerRoutePtrInput
 	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
@@ -257,6 +273,10 @@ type springCloudGatewayArgs struct {
 	HttpsOnly *bool `pulumi:"httpsOnly"`
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount *int `pulumi:"instanceCount"`
+	// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerInstance *SpringCloudGatewayLocalResponseCachePerInstance `pulumi:"localResponseCachePerInstance"`
+	// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerRoute *SpringCloudGatewayLocalResponseCachePerRoute `pulumi:"localResponseCachePerRoute"`
 	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name *string `pulumi:"name"`
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
@@ -287,6 +307,10 @@ type SpringCloudGatewayArgs struct {
 	HttpsOnly pulumi.BoolPtrInput
 	// Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 	InstanceCount pulumi.IntPtrInput
+	// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerInstance SpringCloudGatewayLocalResponseCachePerInstancePtrInput
+	// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+	LocalResponseCachePerRoute SpringCloudGatewayLocalResponseCachePerRoutePtrInput
 	// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
 	Name pulumi.StringPtrInput
 	// Indicates whether the Spring Cloud Gateway exposes endpoint.
@@ -423,6 +447,20 @@ func (o SpringCloudGatewayOutput) HttpsOnly() pulumi.BoolPtrOutput {
 // Specifies the required instance count of the Spring Cloud Gateway. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
 func (o SpringCloudGatewayOutput) InstanceCount() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *SpringCloudGateway) pulumi.IntPtrOutput { return v.InstanceCount }).(pulumi.IntPtrOutput)
+}
+
+// A `localResponseCachePerInstance` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+func (o SpringCloudGatewayOutput) LocalResponseCachePerInstance() SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayLocalResponseCachePerInstancePtrOutput {
+		return v.LocalResponseCachePerInstance
+	}).(SpringCloudGatewayLocalResponseCachePerInstancePtrOutput)
+}
+
+// A `localResponseCachePerRoute` block as defined below. Only one of `localResponseCachePerInstance` or `localResponseCachePerRoute` can be specified.
+func (o SpringCloudGatewayOutput) LocalResponseCachePerRoute() SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+	return o.ApplyT(func(v *SpringCloudGateway) SpringCloudGatewayLocalResponseCachePerRoutePtrOutput {
+		return v.LocalResponseCachePerRoute
+	}).(SpringCloudGatewayLocalResponseCachePerRoutePtrOutput)
 }
 
 // The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.

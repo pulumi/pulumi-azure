@@ -86,6 +86,11 @@ namespace Pulumi.Azure.AppPlatform
     ///                 "read",
     ///             },
     ///         },
+    ///         LocalResponseCachePerInstance = new Azure.AppPlatform.Inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs
+    ///         {
+    ///             Size = "100MB",
+    ///             TimeToLive = "30s",
+    ///         },
     ///     });
     /// 
     /// });
@@ -143,6 +148,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Output("instanceCount")]
         public Output<int?> InstanceCount { get; private set; } = null!;
+
+        /// <summary>
+        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Output("localResponseCachePerInstance")]
+        public Output<Outputs.SpringCloudGatewayLocalResponseCachePerInstance?> LocalResponseCachePerInstance { get; private set; } = null!;
+
+        /// <summary>
+        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Output("localResponseCachePerRoute")]
+        public Output<Outputs.SpringCloudGatewayLocalResponseCachePerRoute?> LocalResponseCachePerRoute { get; private set; } = null!;
 
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
@@ -291,6 +308,18 @@ namespace Pulumi.Azure.AppPlatform
         public Input<int>? InstanceCount { get; set; }
 
         /// <summary>
+        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Input("localResponseCachePerInstance")]
+        public Input<Inputs.SpringCloudGatewayLocalResponseCachePerInstanceArgs>? LocalResponseCachePerInstance { get; set; }
+
+        /// <summary>
+        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Input("localResponseCachePerRoute")]
+        public Input<Inputs.SpringCloudGatewayLocalResponseCachePerRouteArgs>? LocalResponseCachePerRoute { get; set; }
+
+        /// <summary>
         /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.
         /// </summary>
         [Input("name")]
@@ -397,6 +426,18 @@ namespace Pulumi.Azure.AppPlatform
         /// </summary>
         [Input("instanceCount")]
         public Input<int>? InstanceCount { get; set; }
+
+        /// <summary>
+        /// A `local_response_cache_per_instance` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Input("localResponseCachePerInstance")]
+        public Input<Inputs.SpringCloudGatewayLocalResponseCachePerInstanceGetArgs>? LocalResponseCachePerInstance { get; set; }
+
+        /// <summary>
+        /// A `local_response_cache_per_route` block as defined below. Only one of `local_response_cache_per_instance` or `local_response_cache_per_route` can be specified.
+        /// </summary>
+        [Input("localResponseCachePerRoute")]
+        public Input<Inputs.SpringCloudGatewayLocalResponseCachePerRouteGetArgs>? LocalResponseCachePerRoute { get; set; }
 
         /// <summary>
         /// The name which should be used for this Spring Cloud Gateway. Changing this forces a new Spring Cloud Gateway to be created. The only possible value is `default`.

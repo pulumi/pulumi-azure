@@ -136,7 +136,7 @@ type GetAccountBlobContainerSASResult struct {
 	Id          string                                `pulumi:"id"`
 	IpAddress   *string                               `pulumi:"ipAddress"`
 	Permissions GetAccountBlobContainerSASPermissions `pulumi:"permissions"`
-	// The computed Blob Container Shared Access Signature (SAS).
+	// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
 	Sas   string `pulumi:"sas"`
 	Start string `pulumi:"start"`
 }
@@ -252,7 +252,7 @@ func (o GetAccountBlobContainerSASResultOutput) Permissions() GetAccountBlobCont
 	return o.ApplyT(func(v GetAccountBlobContainerSASResult) GetAccountBlobContainerSASPermissions { return v.Permissions }).(GetAccountBlobContainerSASPermissionsOutput)
 }
 
-// The computed Blob Container Shared Access Signature (SAS).
+// The computed Blob Container Shared Access Signature (SAS). The delimiter character ('?') for the query string is the prefix of `sas`.
 func (o GetAccountBlobContainerSASResultOutput) Sas() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccountBlobContainerSASResult) string { return v.Sas }).(pulumi.StringOutput)
 }

@@ -92,6 +92,9 @@ func NewProvider(ctx *pulumi.Context,
 			args.SubscriptionId = pulumi.StringPtr(d.(string))
 		}
 	}
+	if args.AuxiliaryTenantIds != nil {
+		args.AuxiliaryTenantIds = pulumi.ToSecret(args.AuxiliaryTenantIds).(pulumi.StringArrayInput)
+	}
 	if args.ClientCertificate != nil {
 		args.ClientCertificate = pulumi.ToSecret(args.ClientCertificate).(pulumi.StringPtrInput)
 	}

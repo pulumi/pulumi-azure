@@ -14,6 +14,14 @@ namespace Pulumi.Azure.ContainerService.Outputs
     public sealed class KubernetesClusterNodePoolNodeNetworkProfile
     {
         /// <summary>
+        /// One or more `allowed_host_ports` blocks as defined below.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort> AllowedHostPorts;
+        /// <summary>
+        /// A list of Application Security Group IDs which should be associated with this Node Pool.
+        /// </summary>
+        public readonly ImmutableArray<string> ApplicationSecurityGroupIds;
+        /// <summary>
         /// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
         /// 
         /// &gt; **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -21,8 +29,15 @@ namespace Pulumi.Azure.ContainerService.Outputs
         public readonly ImmutableDictionary<string, string>? NodePublicIpTags;
 
         [OutputConstructor]
-        private KubernetesClusterNodePoolNodeNetworkProfile(ImmutableDictionary<string, string>? nodePublicIpTags)
+        private KubernetesClusterNodePoolNodeNetworkProfile(
+            ImmutableArray<Outputs.KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort> allowedHostPorts,
+
+            ImmutableArray<string> applicationSecurityGroupIds,
+
+            ImmutableDictionary<string, string>? nodePublicIpTags)
         {
+            AllowedHostPorts = allowedHostPorts;
+            ApplicationSecurityGroupIds = applicationSecurityGroupIds;
             NodePublicIpTags = nodePublicIpTags;
         }
     }

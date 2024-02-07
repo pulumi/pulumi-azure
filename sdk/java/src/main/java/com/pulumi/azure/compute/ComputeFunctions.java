@@ -1504,7 +1504,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
      *     }
      * }
      * ```
@@ -1547,7 +1547,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
      *     }
      * }
      * ```
@@ -1590,7 +1590,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
      *     }
      * }
      * ```
@@ -1633,7 +1633,7 @@ public final class ComputeFunctions {
      *             .resourceGroupName(&#34;existing&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.id()));
+     *         ctx.export(&#34;ids&#34;, example.applyValue(getIpGroupsResult -&gt; getIpGroupsResult.ids()));
      *     }
      * }
      * ```

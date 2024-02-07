@@ -19,6 +19,8 @@ public final class KubernetesClusterMonitorMetrics {
     /**
      * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
      * 
+     * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
+     * 
      */
     private @Nullable String labelsAllowed;
 
@@ -32,6 +34,8 @@ public final class KubernetesClusterMonitorMetrics {
     }
     /**
      * @return Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource&#39;s labels metric.
+     * 
+     * &gt; **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
      * 
      */
     public Optional<String> labelsAllowed() {

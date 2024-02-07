@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", example.Id)
+//			ctx.Export("ids", example.Ids)
 //			return nil
 //		})
 //	}

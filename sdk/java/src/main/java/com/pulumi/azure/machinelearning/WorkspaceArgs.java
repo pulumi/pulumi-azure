@@ -100,14 +100,14 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="highBusinessImpact")
     private @Nullable Output<Boolean> highBusinessImpact;
 
     /**
-     * @return Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * @return Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<Boolean>> highBusinessImpact() {
@@ -477,7 +477,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param highBusinessImpact Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+         * @param highBusinessImpact Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -488,7 +488,7 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param highBusinessImpact Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+         * @param highBusinessImpact Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

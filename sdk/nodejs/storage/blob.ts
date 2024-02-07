@@ -118,7 +118,6 @@ export class Blob extends pulumi.CustomResource {
     public readonly sourceUri!: pulumi.Output<string | undefined>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     public readonly storageAccountName!: pulumi.Output<string>;
     /**
@@ -248,7 +247,6 @@ export interface BlobState {
     sourceUri?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     storageAccountName?: pulumi.Input<string>;
     /**
@@ -319,7 +317,6 @@ export interface BlobArgs {
     sourceUri?: pulumi.Input<string>;
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     storageAccountName: pulumi.Input<string>;
     /**

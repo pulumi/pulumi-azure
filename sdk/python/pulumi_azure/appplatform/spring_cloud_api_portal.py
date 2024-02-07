@@ -17,6 +17,7 @@ __all__ = ['SpringCloudApiPortalArgs', 'SpringCloudApiPortal']
 class SpringCloudApiPortalArgs:
     def __init__(__self__, *,
                  spring_cloud_service_id: pulumi.Input[str],
+                 api_try_out_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  https_only_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -26,6 +27,7 @@ class SpringCloudApiPortalArgs:
         """
         The set of arguments for constructing a SpringCloudApiPortal resource.
         :param pulumi.Input[str] spring_cloud_service_id: The ID of the Spring Cloud Service. Changing this forces a new Spring Cloud API Portal to be created.
+        :param pulumi.Input[bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -34,6 +36,8 @@ class SpringCloudApiPortalArgs:
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
         """
         pulumi.set(__self__, "spring_cloud_service_id", spring_cloud_service_id)
+        if api_try_out_enabled is not None:
+            pulumi.set(__self__, "api_try_out_enabled", api_try_out_enabled)
         if gateway_ids is not None:
             pulumi.set(__self__, "gateway_ids", gateway_ids)
         if https_only_enabled is not None:
@@ -58,6 +62,18 @@ class SpringCloudApiPortalArgs:
     @spring_cloud_service_id.setter
     def spring_cloud_service_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "spring_cloud_service_id", value)
+
+    @property
+    @pulumi.getter(name="apiTryOutEnabled")
+    def api_try_out_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        """
+        return pulumi.get(self, "api_try_out_enabled")
+
+    @api_try_out_enabled.setter
+    def api_try_out_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "api_try_out_enabled", value)
 
     @property
     @pulumi.getter(name="gatewayIds")
@@ -135,6 +151,7 @@ class SpringCloudApiPortalArgs:
 @pulumi.input_type
 class _SpringCloudApiPortalState:
     def __init__(__self__, *,
+                 api_try_out_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  https_only_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -145,6 +162,7 @@ class _SpringCloudApiPortalState:
                  url: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering SpringCloudApiPortal resources.
+        :param pulumi.Input[bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -154,6 +172,8 @@ class _SpringCloudApiPortalState:
         :param pulumi.Input['SpringCloudApiPortalSsoArgs'] sso: A `sso` block as defined below.
         :param pulumi.Input[str] url: TODO.
         """
+        if api_try_out_enabled is not None:
+            pulumi.set(__self__, "api_try_out_enabled", api_try_out_enabled)
         if gateway_ids is not None:
             pulumi.set(__self__, "gateway_ids", gateway_ids)
         if https_only_enabled is not None:
@@ -170,6 +190,18 @@ class _SpringCloudApiPortalState:
             pulumi.set(__self__, "sso", sso)
         if url is not None:
             pulumi.set(__self__, "url", url)
+
+    @property
+    @pulumi.getter(name="apiTryOutEnabled")
+    def api_try_out_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        """
+        return pulumi.get(self, "api_try_out_enabled")
+
+    @api_try_out_enabled.setter
+    def api_try_out_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "api_try_out_enabled", value)
 
     @property
     @pulumi.getter(name="gatewayIds")
@@ -273,6 +305,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_try_out_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  https_only_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -304,6 +337,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
+            api_try_out_enabled=True,
             sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
                 client_id="test",
                 client_secret="secret",
@@ -322,6 +356,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -359,6 +394,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
             https_only_enabled=False,
             public_network_access_enabled=True,
             instance_count=1,
+            api_try_out_enabled=True,
             sso=azure.appplatform.SpringCloudApiPortalSsoArgs(
                 client_id="test",
                 client_secret="secret",
@@ -390,6 +426,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 api_try_out_enabled: Optional[pulumi.Input[bool]] = None,
                  gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  https_only_enabled: Optional[pulumi.Input[bool]] = None,
                  instance_count: Optional[pulumi.Input[int]] = None,
@@ -406,6 +443,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = SpringCloudApiPortalArgs.__new__(SpringCloudApiPortalArgs)
 
+            __props__.__dict__["api_try_out_enabled"] = api_try_out_enabled
             __props__.__dict__["gateway_ids"] = gateway_ids
             __props__.__dict__["https_only_enabled"] = https_only_enabled
             __props__.__dict__["instance_count"] = instance_count
@@ -426,6 +464,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            api_try_out_enabled: Optional[pulumi.Input[bool]] = None,
             gateway_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             https_only_enabled: Optional[pulumi.Input[bool]] = None,
             instance_count: Optional[pulumi.Input[int]] = None,
@@ -441,6 +480,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] api_try_out_enabled: Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] gateway_ids: Specifies a list of Spring Cloud Gateway.
         :param pulumi.Input[bool] https_only_enabled: is only https is allowed?
         :param pulumi.Input[int] instance_count: Specifies the required instance count of the Spring Cloud API Portal. Possible Values are between `1` and `500`. Defaults to `1` if not specified.
@@ -454,6 +494,7 @@ class SpringCloudApiPortal(pulumi.CustomResource):
 
         __props__ = _SpringCloudApiPortalState.__new__(_SpringCloudApiPortalState)
 
+        __props__.__dict__["api_try_out_enabled"] = api_try_out_enabled
         __props__.__dict__["gateway_ids"] = gateway_ids
         __props__.__dict__["https_only_enabled"] = https_only_enabled
         __props__.__dict__["instance_count"] = instance_count
@@ -463,6 +504,14 @@ class SpringCloudApiPortal(pulumi.CustomResource):
         __props__.__dict__["sso"] = sso
         __props__.__dict__["url"] = url
         return SpringCloudApiPortal(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="apiTryOutEnabled")
+    def api_try_out_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        """
+        return pulumi.get(self, "api_try_out_enabled")
 
     @property
     @pulumi.getter(name="gatewayIds")

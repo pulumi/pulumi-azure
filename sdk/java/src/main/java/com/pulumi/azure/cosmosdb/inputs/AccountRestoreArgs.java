@@ -4,6 +4,7 @@
 package com.pulumi.azure.cosmosdb.inputs;
 
 import com.pulumi.azure.cosmosdb.inputs.AccountRestoreDatabaseArgs;
+import com.pulumi.azure.cosmosdb.inputs.AccountRestoreGremlinDatabaseArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -31,6 +32,21 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
      */
     public Optional<Output<List<AccountRestoreDatabaseArgs>>> databases() {
         return Optional.ofNullable(this.databases);
+    }
+
+    /**
+     * One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="gremlinDatabases")
+    private @Nullable Output<List<AccountRestoreGremlinDatabaseArgs>> gremlinDatabases;
+
+    /**
+     * @return One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<AccountRestoreGremlinDatabaseArgs>>> gremlinDatabases() {
+        return Optional.ofNullable(this.gremlinDatabases);
     }
 
     /**
@@ -67,12 +83,29 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         return this.sourceCosmosdbAccountId;
     }
 
+    /**
+     * A list of specific tables available for restore. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="tablesToRestores")
+    private @Nullable Output<List<String>> tablesToRestores;
+
+    /**
+     * @return A list of specific tables available for restore. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<String>>> tablesToRestores() {
+        return Optional.ofNullable(this.tablesToRestores);
+    }
+
     private AccountRestoreArgs() {}
 
     private AccountRestoreArgs(AccountRestoreArgs $) {
         this.databases = $.databases;
+        this.gremlinDatabases = $.gremlinDatabases;
         this.restoreTimestampInUtc = $.restoreTimestampInUtc;
         this.sourceCosmosdbAccountId = $.sourceCosmosdbAccountId;
+        this.tablesToRestores = $.tablesToRestores;
     }
 
     public static Builder builder() {
@@ -125,6 +158,37 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
+         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gremlinDatabases(@Nullable Output<List<AccountRestoreGremlinDatabaseArgs>> gremlinDatabases) {
+            $.gremlinDatabases = gremlinDatabases;
+            return this;
+        }
+
+        /**
+         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gremlinDatabases(List<AccountRestoreGremlinDatabaseArgs> gremlinDatabases) {
+            return gremlinDatabases(Output.of(gremlinDatabases));
+        }
+
+        /**
+         * @param gremlinDatabases One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder gremlinDatabases(AccountRestoreGremlinDatabaseArgs... gremlinDatabases) {
+            return gremlinDatabases(List.of(gremlinDatabases));
+        }
+
+        /**
          * @param restoreTimestampInUtc The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
          * 
          * @return builder
@@ -168,6 +232,37 @@ public final class AccountRestoreArgs extends com.pulumi.resources.ResourceArgs 
          */
         public Builder sourceCosmosdbAccountId(String sourceCosmosdbAccountId) {
             return sourceCosmosdbAccountId(Output.of(sourceCosmosdbAccountId));
+        }
+
+        /**
+         * @param tablesToRestores A list of specific tables available for restore. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tablesToRestores(@Nullable Output<List<String>> tablesToRestores) {
+            $.tablesToRestores = tablesToRestores;
+            return this;
+        }
+
+        /**
+         * @param tablesToRestores A list of specific tables available for restore. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tablesToRestores(List<String> tablesToRestores) {
+            return tablesToRestores(Output.of(tablesToRestores));
+        }
+
+        /**
+         * @param tablesToRestores A list of specific tables available for restore. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder tablesToRestores(String... tablesToRestores) {
+            return tablesToRestores(List.of(tablesToRestores));
         }
 
         public AccountRestoreArgs build() {

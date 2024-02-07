@@ -116,14 +116,14 @@ public class Lab extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="connectionSetting", refs={LabConnectionSetting.class}, tree="[0]")
-    private Output</* @Nullable */ LabConnectionSetting> connectionSetting;
+    private Output<LabConnectionSetting> connectionSetting;
 
     /**
      * @return A `connection_setting` block as defined below.
      * 
      */
-    public Output<Optional<LabConnectionSetting>> connectionSetting() {
-        return Codegen.optional(this.connectionSetting);
+    public Output<LabConnectionSetting> connectionSetting() {
+        return this.connectionSetting;
     }
     /**
      * The description of the Lab Service Lab.

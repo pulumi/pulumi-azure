@@ -21,8 +21,8 @@ import * as utilities from "../utilities";
  *     location: "westeurope",
  *     noradId: "12345",
  *     links: [{
- *         bandwidthMhz: 100,
- *         centerFrequencyMhz: 101,
+ *         bandwidthMhz: 30,
+ *         centerFrequencyMhz: 2050,
  *         direction: "Uplink",
  *         polarization: "LHCP",
  *         name: "examplename",

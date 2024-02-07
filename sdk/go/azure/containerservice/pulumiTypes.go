@@ -143,6 +143,218 @@ func (o ConnectedRegistryNotificationArrayOutput) Index(i pulumi.IntInput) Conne
 	}).(ConnectedRegistryNotificationOutput)
 }
 
+type FleetUpdateStrategyStage struct {
+	// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+	AfterStageWaitInSeconds *int `pulumi:"afterStageWaitInSeconds"`
+	// One or more `group` blocks as defined below.
+	Groups []FleetUpdateStrategyStageGroup `pulumi:"groups"`
+	// The name which should be used for this stage.
+	Name string `pulumi:"name"`
+}
+
+// FleetUpdateStrategyStageInput is an input type that accepts FleetUpdateStrategyStageArgs and FleetUpdateStrategyStageOutput values.
+// You can construct a concrete instance of `FleetUpdateStrategyStageInput` via:
+//
+//	FleetUpdateStrategyStageArgs{...}
+type FleetUpdateStrategyStageInput interface {
+	pulumi.Input
+
+	ToFleetUpdateStrategyStageOutput() FleetUpdateStrategyStageOutput
+	ToFleetUpdateStrategyStageOutputWithContext(context.Context) FleetUpdateStrategyStageOutput
+}
+
+type FleetUpdateStrategyStageArgs struct {
+	// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+	AfterStageWaitInSeconds pulumi.IntPtrInput `pulumi:"afterStageWaitInSeconds"`
+	// One or more `group` blocks as defined below.
+	Groups FleetUpdateStrategyStageGroupArrayInput `pulumi:"groups"`
+	// The name which should be used for this stage.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FleetUpdateStrategyStageArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateStrategyStage)(nil)).Elem()
+}
+
+func (i FleetUpdateStrategyStageArgs) ToFleetUpdateStrategyStageOutput() FleetUpdateStrategyStageOutput {
+	return i.ToFleetUpdateStrategyStageOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateStrategyStageArgs) ToFleetUpdateStrategyStageOutputWithContext(ctx context.Context) FleetUpdateStrategyStageOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateStrategyStageOutput)
+}
+
+// FleetUpdateStrategyStageArrayInput is an input type that accepts FleetUpdateStrategyStageArray and FleetUpdateStrategyStageArrayOutput values.
+// You can construct a concrete instance of `FleetUpdateStrategyStageArrayInput` via:
+//
+//	FleetUpdateStrategyStageArray{ FleetUpdateStrategyStageArgs{...} }
+type FleetUpdateStrategyStageArrayInput interface {
+	pulumi.Input
+
+	ToFleetUpdateStrategyStageArrayOutput() FleetUpdateStrategyStageArrayOutput
+	ToFleetUpdateStrategyStageArrayOutputWithContext(context.Context) FleetUpdateStrategyStageArrayOutput
+}
+
+type FleetUpdateStrategyStageArray []FleetUpdateStrategyStageInput
+
+func (FleetUpdateStrategyStageArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateStrategyStage)(nil)).Elem()
+}
+
+func (i FleetUpdateStrategyStageArray) ToFleetUpdateStrategyStageArrayOutput() FleetUpdateStrategyStageArrayOutput {
+	return i.ToFleetUpdateStrategyStageArrayOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateStrategyStageArray) ToFleetUpdateStrategyStageArrayOutputWithContext(ctx context.Context) FleetUpdateStrategyStageArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateStrategyStageArrayOutput)
+}
+
+type FleetUpdateStrategyStageOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateStrategyStageOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateStrategyStage)(nil)).Elem()
+}
+
+func (o FleetUpdateStrategyStageOutput) ToFleetUpdateStrategyStageOutput() FleetUpdateStrategyStageOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageOutput) ToFleetUpdateStrategyStageOutputWithContext(ctx context.Context) FleetUpdateStrategyStageOutput {
+	return o
+}
+
+// Specifies the time in seconds to wait at the end of this stage before starting the next one.
+func (o FleetUpdateStrategyStageOutput) AfterStageWaitInSeconds() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v FleetUpdateStrategyStage) *int { return v.AfterStageWaitInSeconds }).(pulumi.IntPtrOutput)
+}
+
+// One or more `group` blocks as defined below.
+func (o FleetUpdateStrategyStageOutput) Groups() FleetUpdateStrategyStageGroupArrayOutput {
+	return o.ApplyT(func(v FleetUpdateStrategyStage) []FleetUpdateStrategyStageGroup { return v.Groups }).(FleetUpdateStrategyStageGroupArrayOutput)
+}
+
+// The name which should be used for this stage.
+func (o FleetUpdateStrategyStageOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateStrategyStage) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FleetUpdateStrategyStageArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateStrategyStageArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateStrategyStage)(nil)).Elem()
+}
+
+func (o FleetUpdateStrategyStageArrayOutput) ToFleetUpdateStrategyStageArrayOutput() FleetUpdateStrategyStageArrayOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageArrayOutput) ToFleetUpdateStrategyStageArrayOutputWithContext(ctx context.Context) FleetUpdateStrategyStageArrayOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageArrayOutput) Index(i pulumi.IntInput) FleetUpdateStrategyStageOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetUpdateStrategyStage {
+		return vs[0].([]FleetUpdateStrategyStage)[vs[1].(int)]
+	}).(FleetUpdateStrategyStageOutput)
+}
+
+type FleetUpdateStrategyStageGroup struct {
+	// The name which should be used for this group.
+	Name string `pulumi:"name"`
+}
+
+// FleetUpdateStrategyStageGroupInput is an input type that accepts FleetUpdateStrategyStageGroupArgs and FleetUpdateStrategyStageGroupOutput values.
+// You can construct a concrete instance of `FleetUpdateStrategyStageGroupInput` via:
+//
+//	FleetUpdateStrategyStageGroupArgs{...}
+type FleetUpdateStrategyStageGroupInput interface {
+	pulumi.Input
+
+	ToFleetUpdateStrategyStageGroupOutput() FleetUpdateStrategyStageGroupOutput
+	ToFleetUpdateStrategyStageGroupOutputWithContext(context.Context) FleetUpdateStrategyStageGroupOutput
+}
+
+type FleetUpdateStrategyStageGroupArgs struct {
+	// The name which should be used for this group.
+	Name pulumi.StringInput `pulumi:"name"`
+}
+
+func (FleetUpdateStrategyStageGroupArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateStrategyStageGroup)(nil)).Elem()
+}
+
+func (i FleetUpdateStrategyStageGroupArgs) ToFleetUpdateStrategyStageGroupOutput() FleetUpdateStrategyStageGroupOutput {
+	return i.ToFleetUpdateStrategyStageGroupOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateStrategyStageGroupArgs) ToFleetUpdateStrategyStageGroupOutputWithContext(ctx context.Context) FleetUpdateStrategyStageGroupOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateStrategyStageGroupOutput)
+}
+
+// FleetUpdateStrategyStageGroupArrayInput is an input type that accepts FleetUpdateStrategyStageGroupArray and FleetUpdateStrategyStageGroupArrayOutput values.
+// You can construct a concrete instance of `FleetUpdateStrategyStageGroupArrayInput` via:
+//
+//	FleetUpdateStrategyStageGroupArray{ FleetUpdateStrategyStageGroupArgs{...} }
+type FleetUpdateStrategyStageGroupArrayInput interface {
+	pulumi.Input
+
+	ToFleetUpdateStrategyStageGroupArrayOutput() FleetUpdateStrategyStageGroupArrayOutput
+	ToFleetUpdateStrategyStageGroupArrayOutputWithContext(context.Context) FleetUpdateStrategyStageGroupArrayOutput
+}
+
+type FleetUpdateStrategyStageGroupArray []FleetUpdateStrategyStageGroupInput
+
+func (FleetUpdateStrategyStageGroupArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateStrategyStageGroup)(nil)).Elem()
+}
+
+func (i FleetUpdateStrategyStageGroupArray) ToFleetUpdateStrategyStageGroupArrayOutput() FleetUpdateStrategyStageGroupArrayOutput {
+	return i.ToFleetUpdateStrategyStageGroupArrayOutputWithContext(context.Background())
+}
+
+func (i FleetUpdateStrategyStageGroupArray) ToFleetUpdateStrategyStageGroupArrayOutputWithContext(ctx context.Context) FleetUpdateStrategyStageGroupArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FleetUpdateStrategyStageGroupArrayOutput)
+}
+
+type FleetUpdateStrategyStageGroupOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateStrategyStageGroupOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FleetUpdateStrategyStageGroup)(nil)).Elem()
+}
+
+func (o FleetUpdateStrategyStageGroupOutput) ToFleetUpdateStrategyStageGroupOutput() FleetUpdateStrategyStageGroupOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageGroupOutput) ToFleetUpdateStrategyStageGroupOutputWithContext(ctx context.Context) FleetUpdateStrategyStageGroupOutput {
+	return o
+}
+
+// The name which should be used for this group.
+func (o FleetUpdateStrategyStageGroupOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v FleetUpdateStrategyStageGroup) string { return v.Name }).(pulumi.StringOutput)
+}
+
+type FleetUpdateStrategyStageGroupArrayOutput struct{ *pulumi.OutputState }
+
+func (FleetUpdateStrategyStageGroupArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]FleetUpdateStrategyStageGroup)(nil)).Elem()
+}
+
+func (o FleetUpdateStrategyStageGroupArrayOutput) ToFleetUpdateStrategyStageGroupArrayOutput() FleetUpdateStrategyStageGroupArrayOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageGroupArrayOutput) ToFleetUpdateStrategyStageGroupArrayOutputWithContext(ctx context.Context) FleetUpdateStrategyStageGroupArrayOutput {
+	return o
+}
+
+func (o FleetUpdateStrategyStageGroupArrayOutput) Index(i pulumi.IntInput) FleetUpdateStrategyStageGroupOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) FleetUpdateStrategyStageGroup {
+		return vs[0].([]FleetUpdateStrategyStageGroup)[vs[1].(int)]
+	}).(FleetUpdateStrategyStageGroupOutput)
+}
+
 type FluxConfigurationBlobStorage struct {
 	// Specifies the account key (shared key) to access the storage account.
 	AccountKey *string `pulumi:"accountKey"`
@@ -8600,6 +8812,10 @@ func (o KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVf
 }
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfile struct {
+	// One or more `allowedHostPorts` blocks as defined below.
+	AllowedHostPorts []KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort `pulumi:"allowedHostPorts"`
+	// A list of Application Security Group IDs which should be associated with this Node Pool.
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -8618,6 +8834,10 @@ type KubernetesClusterDefaultNodePoolNodeNetworkProfileInput interface {
 }
 
 type KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs struct {
+	// One or more `allowedHostPorts` blocks as defined below.
+	AllowedHostPorts KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput `pulumi:"allowedHostPorts"`
+	// A list of Application Security Group IDs which should be associated with this Node Pool.
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -8701,6 +8921,20 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ToKubernetesCl
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput)
 }
 
+// One or more `allowedHostPorts` blocks as defined below.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) AllowedHostPorts() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) []KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
+		return v.AllowedHostPorts
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+// A list of Application Security Group IDs which should be associated with this Node Pool.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfile) []string {
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -8734,6 +8968,26 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) Elem() Kube
 	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput)
 }
 
+// One or more `allowedHostPorts` blocks as defined below.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) AllowedHostPorts() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) []KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHostPorts
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+// A list of Application Security Group IDs which should be associated with this Node Pool.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterDefaultNodePoolNodeNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -8744,6 +8998,121 @@ func (o KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput) NodePublicI
 		}
 		return v.NodePublicIpTags
 	}).(pulumi.StringMapOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort struct {
+	// Specifies the end of the port range.
+	PortEnd *int `pulumi:"portEnd"`
+	// Specifies the start of the port range.
+	PortStart *int `pulumi:"portStart"`
+	// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput is an input type that accepts KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs and KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput` via:
+//
+//	KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs{...}
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs struct {
+	// Specifies the end of the port range.
+	PortEnd pulumi.IntPtrInput `pulumi:"portEnd"`
+	// Specifies the start of the port range.
+	PortStart pulumi.IntPtrInput `pulumi:"portStart"`
+	// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput)
+}
+
+// KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput is an input type that accepts KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray and KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput` via:
+//
+//	KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray{ KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs{...} }
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput
+	ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray []KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return i.ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return o
+}
+
+// Specifies the end of the port range.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) PortEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort) *int { return v.PortEnd }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the start of the port range.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) PortStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort) *int { return v.PortStart }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ToKubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(ctx context.Context) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) Index(i pulumi.IntInput) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort {
+		return vs[0].([]KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPort)[vs[1].(int)]
+	}).(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput)
 }
 
 type KubernetesClusterDefaultNodePoolUpgradeSettings struct {
@@ -12569,6 +12938,8 @@ type KubernetesClusterMonitorMetrics struct {
 	// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 	AnnotationsAllowed *string `pulumi:"annotationsAllowed"`
 	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	//
+	// > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
 	LabelsAllowed *string `pulumi:"labelsAllowed"`
 }
 
@@ -12587,6 +12958,8 @@ type KubernetesClusterMonitorMetricsArgs struct {
 	// Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
 	AnnotationsAllowed pulumi.StringPtrInput `pulumi:"annotationsAllowed"`
 	// Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+	//
+	// > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
 	LabelsAllowed pulumi.StringPtrInput `pulumi:"labelsAllowed"`
 }
 
@@ -12673,6 +13046,8 @@ func (o KubernetesClusterMonitorMetricsOutput) AnnotationsAllowed() pulumi.Strin
 }
 
 // Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+//
+// > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
 func (o KubernetesClusterMonitorMetricsOutput) LabelsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v KubernetesClusterMonitorMetrics) *string { return v.LabelsAllowed }).(pulumi.StringPtrOutput)
 }
@@ -12712,6 +13087,8 @@ func (o KubernetesClusterMonitorMetricsPtrOutput) AnnotationsAllowed() pulumi.St
 }
 
 // Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+//
+// > **Note:** Both properties `annotationsAllowed` and `labelsAllowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
 func (o KubernetesClusterMonitorMetricsPtrOutput) LabelsAllowed() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *KubernetesClusterMonitorMetrics) *string {
 		if v == nil {
@@ -14885,6 +15262,10 @@ func (o KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput) VmVfsCacheP
 }
 
 type KubernetesClusterNodePoolNodeNetworkProfile struct {
+	// One or more `allowedHostPorts` blocks as defined below.
+	AllowedHostPorts []KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort `pulumi:"allowedHostPorts"`
+	// A list of Application Security Group IDs which should be associated with this Node Pool.
+	ApplicationSecurityGroupIds []string `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -14903,6 +15284,10 @@ type KubernetesClusterNodePoolNodeNetworkProfileInput interface {
 }
 
 type KubernetesClusterNodePoolNodeNetworkProfileArgs struct {
+	// One or more `allowedHostPorts` blocks as defined below.
+	AllowedHostPorts KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput `pulumi:"allowedHostPorts"`
+	// A list of Application Security Group IDs which should be associated with this Node Pool.
+	ApplicationSecurityGroupIds pulumi.StringArrayInput `pulumi:"applicationSecurityGroupIds"`
 	// Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 	//
 	// > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -14986,6 +15371,18 @@ func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ToKubernetesClusterNo
 	}).(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput)
 }
 
+// One or more `allowedHostPorts` blocks as defined below.
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) AllowedHostPorts() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) []KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort {
+		return v.AllowedHostPorts
+	}).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+// A list of Application Security Group IDs which should be associated with this Node Pool.
+func (o KubernetesClusterNodePoolNodeNetworkProfileOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfile) []string { return v.ApplicationSecurityGroupIds }).(pulumi.StringArrayOutput)
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -15017,6 +15414,26 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) Elem() KubernetesC
 	}).(KubernetesClusterNodePoolNodeNetworkProfileOutput)
 }
 
+// One or more `allowedHostPorts` blocks as defined below.
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) AllowedHostPorts() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) []KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort {
+		if v == nil {
+			return nil
+		}
+		return v.AllowedHostPorts
+	}).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+// A list of Application Security Group IDs which should be associated with this Node Pool.
+func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) ApplicationSecurityGroupIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *KubernetesClusterNodePoolNodeNetworkProfile) []string {
+		if v == nil {
+			return nil
+		}
+		return v.ApplicationSecurityGroupIds
+	}).(pulumi.StringArrayOutput)
+}
+
 // Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
 //
 // > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
@@ -15027,6 +15444,121 @@ func (o KubernetesClusterNodePoolNodeNetworkProfilePtrOutput) NodePublicIpTags()
 		}
 		return v.NodePublicIpTags
 	}).(pulumi.StringMapOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort struct {
+	// Specifies the end of the port range.
+	PortEnd *int `pulumi:"portEnd"`
+	// Specifies the start of the port range.
+	PortStart *int `pulumi:"portStart"`
+	// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+	Protocol *string `pulumi:"protocol"`
+}
+
+// KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput is an input type that accepts KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs and KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput` via:
+//
+//	KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs{...}
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput
+	ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs struct {
+	// Specifies the end of the port range.
+	PortEnd pulumi.IntPtrInput `pulumi:"portEnd"`
+	// Specifies the start of the port range.
+	PortStart pulumi.IntPtrInput `pulumi:"portStart"`
+	// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+	Protocol pulumi.StringPtrInput `pulumi:"protocol"`
+}
+
+func (KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return i.ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput)
+}
+
+// KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput is an input type that accepts KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray and KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput values.
+// You can construct a concrete instance of `KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput` via:
+//
+//	KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray{ KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs{...} }
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput interface {
+	pulumi.Input
+
+	ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput
+	ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray []KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput
+
+func (KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return i.ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(context.Background())
+}
+
+func (i KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return o
+}
+
+// Specifies the end of the port range.
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) PortEnd() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort) *int { return v.PortEnd }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the start of the port range.
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) PortStart() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort) *int { return v.PortStart }).(pulumi.IntPtrOutput)
+}
+
+// Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput) Protocol() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+type KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput struct{ *pulumi.OutputState }
+
+func (KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort)(nil)).Elem()
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput() KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) ToKubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutputWithContext(ctx context.Context) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput {
+	return o
+}
+
+func (o KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput) Index(i pulumi.IntInput) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort {
+		return vs[0].([]KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPort)[vs[1].(int)]
+	}).(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput)
 }
 
 type KubernetesClusterNodePoolUpgradeSettings struct {
@@ -24141,6 +24673,10 @@ func (o GetKubernetesClusterWindowsProfileArrayOutput) Index(i pulumi.IntInput) 
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationInput)(nil)).Elem(), ConnectedRegistryNotificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ConnectedRegistryNotificationArrayInput)(nil)).Elem(), ConnectedRegistryNotificationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageInput)(nil)).Elem(), FleetUpdateStrategyStageArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageArrayInput)(nil)).Elem(), FleetUpdateStrategyStageArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageGroupInput)(nil)).Elem(), FleetUpdateStrategyStageGroupArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FleetUpdateStrategyStageGroupArrayInput)(nil)).Elem(), FleetUpdateStrategyStageGroupArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStorageInput)(nil)).Elem(), FluxConfigurationBlobStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStoragePtrInput)(nil)).Elem(), FluxConfigurationBlobStorageArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FluxConfigurationBlobStorageManagedIdentityInput)(nil)).Elem(), FluxConfigurationBlobStorageManagedIdentityArgs{})
@@ -24217,6 +24753,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterDefaultNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterDefaultNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterExtensionAksAssignedIdentityInput)(nil)).Elem(), KubernetesClusterExtensionAksAssignedIdentityArgs{})
@@ -24279,6 +24817,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrInput)(nil)).Elem(), KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfilePtrInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayInput)(nil)).Elem(), KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolUpgradeSettingsPtrInput)(nil)).Elem(), KubernetesClusterNodePoolUpgradeSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*KubernetesClusterNodePoolWindowsProfileInput)(nil)).Elem(), KubernetesClusterNodePoolWindowsProfileArgs{})
@@ -24403,6 +24943,10 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetKubernetesClusterWindowsProfileArrayInput)(nil)).Elem(), GetKubernetesClusterWindowsProfileArray{})
 	pulumi.RegisterOutputType(ConnectedRegistryNotificationOutput{})
 	pulumi.RegisterOutputType(ConnectedRegistryNotificationArrayOutput{})
+	pulumi.RegisterOutputType(FleetUpdateStrategyStageOutput{})
+	pulumi.RegisterOutputType(FleetUpdateStrategyStageArrayOutput{})
+	pulumi.RegisterOutputType(FleetUpdateStrategyStageGroupOutput{})
+	pulumi.RegisterOutputType(FleetUpdateStrategyStageGroupArrayOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationBlobStorageOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationBlobStoragePtrOutput{})
 	pulumi.RegisterOutputType(FluxConfigurationBlobStorageManagedIdentityOutput{})
@@ -24479,6 +25023,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterDefaultNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterExtensionAksAssignedIdentityOutput{})
@@ -24541,6 +25087,8 @@ func init() {
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolLinuxOsConfigSysctlConfigPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfilePtrOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortOutput{})
+	pulumi.RegisterOutputType(KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArrayOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolUpgradeSettingsPtrOutput{})
 	pulumi.RegisterOutputType(KubernetesClusterNodePoolWindowsProfileOutput{})

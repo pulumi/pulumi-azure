@@ -9,6 +9,7 @@ from .application import *
 from .application_group import *
 from .get_host_pool import *
 from .get_host_pool_registration_info import *
+from .get_workspace import *
 from .host_pool import *
 from .scaling_plan import *
 from .workspace import *

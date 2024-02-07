@@ -3,9 +3,11 @@
 
 package com.pulumi.azure.containerservice.inputs;
 
+import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.String;
+import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.Optional;
@@ -15,6 +17,36 @@ import javax.annotation.Nullable;
 public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs Empty = new KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs();
+
+    /**
+     * One or more `allowed_host_ports` blocks as defined below.
+     * 
+     */
+    @Import(name="allowedHostPorts")
+    private @Nullable Output<List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs>> allowedHostPorts;
+
+    /**
+     * @return One or more `allowed_host_ports` blocks as defined below.
+     * 
+     */
+    public Optional<Output<List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs>>> allowedHostPorts() {
+        return Optional.ofNullable(this.allowedHostPorts);
+    }
+
+    /**
+     * A list of Application Security Group IDs which should be associated with this Node Pool.
+     * 
+     */
+    @Import(name="applicationSecurityGroupIds")
+    private @Nullable Output<List<String>> applicationSecurityGroupIds;
+
+    /**
+     * @return A list of Application Security Group IDs which should be associated with this Node Pool.
+     * 
+     */
+    public Optional<Output<List<String>>> applicationSecurityGroupIds() {
+        return Optional.ofNullable(this.applicationSecurityGroupIds);
+    }
 
     /**
      * Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
@@ -38,6 +70,8 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
     private KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs() {}
 
     private KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs(KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs $) {
+        this.allowedHostPorts = $.allowedHostPorts;
+        this.applicationSecurityGroupIds = $.applicationSecurityGroupIds;
         this.nodePublicIpTags = $.nodePublicIpTags;
     }
 
@@ -57,6 +91,68 @@ public final class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs extend
 
         public Builder(KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs defaults) {
             $ = new KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedHostPorts(@Nullable Output<List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs>> allowedHostPorts) {
+            $.allowedHostPorts = allowedHostPorts;
+            return this;
+        }
+
+        /**
+         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedHostPorts(List<KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs> allowedHostPorts) {
+            return allowedHostPorts(Output.of(allowedHostPorts));
+        }
+
+        /**
+         * @param allowedHostPorts One or more `allowed_host_ports` blocks as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder allowedHostPorts(KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs... allowedHostPorts) {
+            return allowedHostPorts(List.of(allowedHostPorts));
+        }
+
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which should be associated with this Node Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationSecurityGroupIds(@Nullable Output<List<String>> applicationSecurityGroupIds) {
+            $.applicationSecurityGroupIds = applicationSecurityGroupIds;
+            return this;
+        }
+
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which should be associated with this Node Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationSecurityGroupIds(List<String> applicationSecurityGroupIds) {
+            return applicationSecurityGroupIds(Output.of(applicationSecurityGroupIds));
+        }
+
+        /**
+         * @param applicationSecurityGroupIds A list of Application Security Group IDs which should be associated with this Node Pool.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder applicationSecurityGroupIds(String... applicationSecurityGroupIds) {
+            return applicationSecurityGroupIds(List.of(applicationSecurityGroupIds));
         }
 
         /**

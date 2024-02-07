@@ -135,7 +135,6 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Output("storageAccountName")]
         public Output<string> StorageAccountName { get; private set; } = null!;
@@ -282,7 +281,6 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName", required: true)]
         public Input<string> StorageAccountName { get; set; } = null!;
@@ -385,7 +383,6 @@ namespace Pulumi.Azure.Storage
 
         /// <summary>
         /// Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-        /// Changing this forces a new resource to be created.
         /// </summary>
         [Input("storageAccountName")]
         public Input<string>? StorageAccountName { get; set; }

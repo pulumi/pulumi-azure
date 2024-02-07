@@ -21,6 +21,21 @@ public final class SpringCloudApiPortalArgs extends com.pulumi.resources.Resourc
     public static final SpringCloudApiPortalArgs Empty = new SpringCloudApiPortalArgs();
 
     /**
+     * Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     * 
+     */
+    @Import(name="apiTryOutEnabled")
+    private @Nullable Output<Boolean> apiTryOutEnabled;
+
+    /**
+     * @return Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+     * 
+     */
+    public Optional<Output<Boolean>> apiTryOutEnabled() {
+        return Optional.ofNullable(this.apiTryOutEnabled);
+    }
+
+    /**
      * Specifies a list of Spring Cloud Gateway.
      * 
      */
@@ -128,6 +143,7 @@ public final class SpringCloudApiPortalArgs extends com.pulumi.resources.Resourc
     private SpringCloudApiPortalArgs() {}
 
     private SpringCloudApiPortalArgs(SpringCloudApiPortalArgs $) {
+        this.apiTryOutEnabled = $.apiTryOutEnabled;
         this.gatewayIds = $.gatewayIds;
         this.httpsOnlyEnabled = $.httpsOnlyEnabled;
         this.instanceCount = $.instanceCount;
@@ -153,6 +169,27 @@ public final class SpringCloudApiPortalArgs extends com.pulumi.resources.Resourc
 
         public Builder(SpringCloudApiPortalArgs defaults) {
             $ = new SpringCloudApiPortalArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param apiTryOutEnabled Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTryOutEnabled(@Nullable Output<Boolean> apiTryOutEnabled) {
+            $.apiTryOutEnabled = apiTryOutEnabled;
+            return this;
+        }
+
+        /**
+         * @param apiTryOutEnabled Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTryOutEnabled(Boolean apiTryOutEnabled) {
+            return apiTryOutEnabled(Output.of(apiTryOutEnabled));
         }
 
         /**

@@ -17,6 +17,8 @@ __all__ = [
     'DeploymentIdentity',
     'DeploymentLoggingStorageAccount',
     'DeploymentNetworkInterface',
+    'GetConfigurationConfigFileResult',
+    'GetConfigurationProtectedFileResult',
     'GetDeploymentFrontendPrivateResult',
     'GetDeploymentFrontendPublicResult',
     'GetDeploymentIdentityResult',
@@ -365,6 +367,64 @@ class DeploymentNetworkInterface(dict):
         Specify The SubNet Resource ID to this Nginx Deployment.
         """
         return pulumi.get(self, "subnet_id")
+
+
+@pulumi.output_type
+class GetConfigurationConfigFileResult(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        """
+        :param str content: The base-64 encoded contents of this configuration file.
+        :param str virtual_path: The path of this configuration file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The base-64 encoded contents of this configuration file.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        """
+        The path of this configuration file.
+        """
+        return pulumi.get(self, "virtual_path")
+
+
+@pulumi.output_type
+class GetConfigurationProtectedFileResult(dict):
+    def __init__(__self__, *,
+                 content: str,
+                 virtual_path: str):
+        """
+        :param str content: The base-64 encoded contents of this configuration file.
+        :param str virtual_path: The path of this configuration file.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "virtual_path", virtual_path)
+
+    @property
+    @pulumi.getter
+    def content(self) -> str:
+        """
+        The base-64 encoded contents of this configuration file.
+        """
+        return pulumi.get(self, "content")
+
+    @property
+    @pulumi.getter(name="virtualPath")
+    def virtual_path(self) -> str:
+        """
+        The path of this configuration file.
+        """
+        return pulumi.get(self, "virtual_path")
 
 
 @pulumi.output_type

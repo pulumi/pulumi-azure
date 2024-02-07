@@ -113,7 +113,7 @@ export class Provider extends pulumi.ProviderResource {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
-            resourceInputs["auxiliaryTenantIds"] = pulumi.output(args ? args.auxiliaryTenantIds : undefined).apply(JSON.stringify);
+            resourceInputs["auxiliaryTenantIds"] = pulumi.output(args?.auxiliaryTenantIds ? pulumi.secret(args.auxiliaryTenantIds) : undefined).apply(JSON.stringify);
             resourceInputs["clientCertificate"] = args?.clientCertificate ? pulumi.secret(args.clientCertificate) : undefined;
             resourceInputs["clientCertificatePassword"] = args?.clientCertificatePassword ? pulumi.secret(args.clientCertificatePassword) : undefined;
             resourceInputs["clientCertificatePath"] = args?.clientCertificatePath ? pulumi.secret(args.clientCertificatePath) : undefined;

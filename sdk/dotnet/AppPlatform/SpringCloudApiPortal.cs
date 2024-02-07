@@ -51,6 +51,7 @@ namespace Pulumi.Azure.AppPlatform
     ///         HttpsOnlyEnabled = false,
     ///         PublicNetworkAccessEnabled = true,
     ///         InstanceCount = 1,
+    ///         ApiTryOutEnabled = true,
     ///         Sso = new Azure.AppPlatform.Inputs.SpringCloudApiPortalSsoArgs
     ///         {
     ///             ClientId = "test",
@@ -77,6 +78,12 @@ namespace Pulumi.Azure.AppPlatform
     [AzureResourceType("azure:appplatform/springCloudApiPortal:SpringCloudApiPortal")]
     public partial class SpringCloudApiPortal : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        /// </summary>
+        [Output("apiTryOutEnabled")]
+        public Output<bool?> ApiTryOutEnabled { get; private set; } = null!;
+
         /// <summary>
         /// Specifies a list of Spring Cloud Gateway.
         /// </summary>
@@ -171,6 +178,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudApiPortalArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        /// </summary>
+        [Input("apiTryOutEnabled")]
+        public Input<bool>? ApiTryOutEnabled { get; set; }
+
         [Input("gatewayIds")]
         private InputList<string>? _gatewayIds;
 
@@ -227,6 +240,12 @@ namespace Pulumi.Azure.AppPlatform
 
     public sealed class SpringCloudApiPortalState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Specifies whether the API try-out feature is enabled. When enabled, users can try out the API by sending requests and viewing responses in API portal.
+        /// </summary>
+        [Input("apiTryOutEnabled")]
+        public Input<bool>? ApiTryOutEnabled { get; set; }
+
         [Input("gatewayIds")]
         private InputList<string>? _gatewayIds;
 

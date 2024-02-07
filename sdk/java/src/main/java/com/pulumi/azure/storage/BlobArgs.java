@@ -194,7 +194,6 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     @Import(name="storageAccountName", required=true)
@@ -202,7 +201,6 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      * 
      */
     public Output<String> storageAccountName() {
@@ -517,7 +515,6 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-         * Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -529,7 +526,6 @@ public final class BlobArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param storageAccountName Specifies the storage account in which to create the storage container. Changing this forces a new resource to be created.
-         * Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

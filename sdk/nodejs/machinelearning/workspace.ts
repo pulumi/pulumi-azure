@@ -330,7 +330,7 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
     /**
-     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
     public readonly highBusinessImpact!: pulumi.Output<boolean | undefined>;
     /**
@@ -505,7 +505,7 @@ export interface WorkspaceState {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
     highBusinessImpact?: pulumi.Input<boolean>;
     /**
@@ -599,7 +599,7 @@ export interface WorkspaceArgs {
      */
     friendlyName?: pulumi.Input<string>;
     /**
-     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      */
     highBusinessImpact?: pulumi.Input<boolean>;
     /**

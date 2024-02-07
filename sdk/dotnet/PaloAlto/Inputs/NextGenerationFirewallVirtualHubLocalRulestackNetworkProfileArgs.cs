@@ -50,6 +50,14 @@ namespace Pulumi.Azure.PaloAlto.Inputs
             set => _publicIpAddresses = value;
         }
 
+        [Input("trustedAddressRanges")]
+        private InputList<string>? _trustedAddressRanges;
+        public InputList<string> TrustedAddressRanges
+        {
+            get => _trustedAddressRanges ?? (_trustedAddressRanges = new InputList<string>());
+            set => _trustedAddressRanges = value;
+        }
+
         [Input("trustedSubnetId")]
         public Input<string>? TrustedSubnetId { get; set; }
 

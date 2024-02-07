@@ -166,7 +166,7 @@ namespace Pulumi.Azure.Orbital
         public Output<string> GroundStationName { get; private set; } = null!;
 
         /// <summary>
-        /// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        /// The name of the Contact. Changing this forces a new resource to be created.
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -248,7 +248,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string> GroundStationName { get; set; } = null!;
 
         /// <summary>
-        /// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        /// The name of the Contact. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -292,7 +292,7 @@ namespace Pulumi.Azure.Orbital
         public Input<string>? GroundStationName { get; set; }
 
         /// <summary>
-        /// The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+        /// The name of the Contact. Changing this forces a new resource to be created.
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }

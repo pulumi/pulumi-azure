@@ -309,8 +309,8 @@ class Spacecraft(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
+                bandwidth_mhz=30,
+                center_frequency_mhz=2050,
                 direction="Uplink",
                 polarization="LHCP",
                 name="examplename",
@@ -365,8 +365,8 @@ class Spacecraft(pulumi.CustomResource):
             location="westeurope",
             norad_id="12345",
             links=[azure.orbital.SpacecraftLinkArgs(
-                bandwidth_mhz=100,
-                center_frequency_mhz=101,
+                bandwidth_mhz=30,
+                center_frequency_mhz=2050,
                 direction="Uplink",
                 polarization="LHCP",
                 name="examplename",

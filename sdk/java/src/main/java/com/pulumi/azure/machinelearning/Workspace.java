@@ -505,14 +505,14 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.friendlyName);
     }
     /**
-     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      * 
      */
     @Export(name="highBusinessImpact", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> highBusinessImpact;
 
     /**
-     * @return Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service
+     * @return Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
      * 
      */
     public Output<Optional<Boolean>> highBusinessImpact() {

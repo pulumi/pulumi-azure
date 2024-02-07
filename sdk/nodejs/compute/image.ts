@@ -76,7 +76,6 @@ export class Image extends pulumi.CustomResource {
     public readonly hyperVGeneration!: pulumi.Output<string | undefined>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
     /**
@@ -88,8 +87,7 @@ export class Image extends pulumi.CustomResource {
      */
     public readonly osDisk!: pulumi.Output<outputs.compute.ImageOsDisk | undefined>;
     /**
-     * The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
     public readonly resourceGroupName!: pulumi.Output<string>;
     /**
@@ -163,7 +161,6 @@ export interface ImageState {
     hyperVGeneration?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -175,8 +172,7 @@ export interface ImageState {
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
-     * The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
     resourceGroupName?: pulumi.Input<string>;
     /**
@@ -209,7 +205,6 @@ export interface ImageArgs {
     hyperVGeneration?: pulumi.Input<string>;
     /**
      * Specified the supported Azure location where the resource exists. Changing this forces a new resource to be created.
-     * Changing this forces a new resource to be created.
      */
     location?: pulumi.Input<string>;
     /**
@@ -221,8 +216,7 @@ export interface ImageArgs {
      */
     osDisk?: pulumi.Input<inputs.compute.ImageOsDisk>;
     /**
-     * The name of the resource group in which to create. Changing this forces a new resource to be created.
-     * the image. Changing this forces a new resource to be created.
+     * The name of the resource group in which to create the image. Changing this forces a new resource to be created.
      */
     resourceGroupName: pulumi.Input<string>;
     /**

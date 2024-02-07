@@ -133,7 +133,7 @@ export class Contact extends pulumi.CustomResource {
      */
     public readonly groundStationName!: pulumi.Output<string>;
     /**
-     * The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+     * The name of the Contact. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -210,7 +210,7 @@ export interface ContactState {
      */
     groundStationName?: pulumi.Input<string>;
     /**
-     * The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+     * The name of the Contact. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -240,7 +240,7 @@ export interface ContactArgs {
      */
     groundStationName: pulumi.Input<string>;
     /**
-     * The name of the Contact. Changing this forces a new resource to be created. Changing this forces a new resource to be created.
+     * The name of the Contact. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

@@ -197,7 +197,7 @@ type ClusterClusterProfile struct {
 	PullSecret *string `pulumi:"pullSecret"`
 	// The resource group that the cluster profile is attached to.
 	ResourceGroupId *string `pulumi:"resourceGroupId"`
-	// The version of the OpenShift cluster. Changing this forces a new resource to be created.
+	// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 	Version string `pulumi:"version"`
 }
 
@@ -221,7 +221,7 @@ type ClusterClusterProfileArgs struct {
 	PullSecret pulumi.StringPtrInput `pulumi:"pullSecret"`
 	// The resource group that the cluster profile is attached to.
 	ResourceGroupId pulumi.StringPtrInput `pulumi:"resourceGroupId"`
-	// The version of the OpenShift cluster. Changing this forces a new resource to be created.
+	// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 	Version pulumi.StringInput `pulumi:"version"`
 }
 
@@ -322,7 +322,7 @@ func (o ClusterClusterProfileOutput) ResourceGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) *string { return v.ResourceGroupId }).(pulumi.StringPtrOutput)
 }
 
-// The version of the OpenShift cluster. Changing this forces a new resource to be created.
+// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 func (o ClusterClusterProfileOutput) Version() pulumi.StringOutput {
 	return o.ApplyT(func(v ClusterClusterProfile) string { return v.Version }).(pulumi.StringOutput)
 }
@@ -391,7 +391,7 @@ func (o ClusterClusterProfilePtrOutput) ResourceGroupId() pulumi.StringPtrOutput
 	}).(pulumi.StringPtrOutput)
 }
 
-// The version of the OpenShift cluster. Changing this forces a new resource to be created.
+// The version of the OpenShift cluster. Available versions can be found with the Azure CLI command `az aro get-versions --location <region>`. Changing this forces a new resource to be created.
 func (o ClusterClusterProfilePtrOutput) Version() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ClusterClusterProfile) *string {
 		if v == nil {

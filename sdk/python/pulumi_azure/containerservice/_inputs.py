@@ -11,6 +11,8 @@ from .. import _utilities
 
 __all__ = [
     'ConnectedRegistryNotificationArgs',
+    'FleetUpdateStrategyStageArgs',
+    'FleetUpdateStrategyStageGroupArgs',
     'FluxConfigurationBlobStorageArgs',
     'FluxConfigurationBlobStorageManagedIdentityArgs',
     'FluxConfigurationBlobStorageServicePrincipalArgs',
@@ -49,6 +51,7 @@ __all__ = [
     'KubernetesClusterDefaultNodePoolLinuxOsConfigArgs',
     'KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs',
+    'KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs',
     'KubernetesClusterDefaultNodePoolUpgradeSettingsArgs',
     'KubernetesClusterExtensionAksAssignedIdentityArgs',
     'KubernetesClusterExtensionPlanArgs',
@@ -80,6 +83,7 @@ __all__ = [
     'KubernetesClusterNodePoolLinuxOsConfigArgs',
     'KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs',
     'KubernetesClusterNodePoolNodeNetworkProfileArgs',
+    'KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs',
     'KubernetesClusterNodePoolUpgradeSettingsArgs',
     'KubernetesClusterNodePoolWindowsProfileArgs',
     'KubernetesClusterOmsAgentArgs',
@@ -189,6 +193,81 @@ class ConnectedRegistryNotificationArgs:
     @tag.setter
     def tag(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tag", value)
+
+
+@pulumi.input_type
+class FleetUpdateStrategyStageArgs:
+    def __init__(__self__, *,
+                 groups: pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageGroupArgs']]],
+                 name: pulumi.Input[str],
+                 after_stage_wait_in_seconds: Optional[pulumi.Input[int]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageGroupArgs']]] groups: One or more `group` blocks as defined below.
+        :param pulumi.Input[str] name: The name which should be used for this stage.
+        :param pulumi.Input[int] after_stage_wait_in_seconds: Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        pulumi.set(__self__, "groups", groups)
+        pulumi.set(__self__, "name", name)
+        if after_stage_wait_in_seconds is not None:
+            pulumi.set(__self__, "after_stage_wait_in_seconds", after_stage_wait_in_seconds)
+
+    @property
+    @pulumi.getter
+    def groups(self) -> pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageGroupArgs']]]:
+        """
+        One or more `group` blocks as defined below.
+        """
+        return pulumi.get(self, "groups")
+
+    @groups.setter
+    def groups(self, value: pulumi.Input[Sequence[pulumi.Input['FleetUpdateStrategyStageGroupArgs']]]):
+        pulumi.set(self, "groups", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this stage.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="afterStageWaitInSeconds")
+    def after_stage_wait_in_seconds(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the time in seconds to wait at the end of this stage before starting the next one.
+        """
+        return pulumi.get(self, "after_stage_wait_in_seconds")
+
+    @after_stage_wait_in_seconds.setter
+    def after_stage_wait_in_seconds(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "after_stage_wait_in_seconds", value)
+
+
+@pulumi.input_type
+class FleetUpdateStrategyStageGroupArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] name: The name which should be used for this group.
+        """
+        pulumi.set(__self__, "name", name)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this group.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
 
 
 @pulumi.input_type
@@ -4599,14 +4678,46 @@ class KubernetesClusterDefaultNodePoolLinuxOsConfigSysctlConfigArgs:
 @pulumi.input_type
 class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     def __init__(__self__, *,
+                 allowed_host_ports: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]]] = None,
+                 application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/en-us/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_group_ids is not None:
+            pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]:
+        """
+        One or more `allowed_host_ports` blocks as defined below.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @allowed_host_ports.setter
+    def allowed_host_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]):
+        pulumi.set(self, "allowed_host_ports", value)
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Application Security Group IDs which should be associated with this Node Pool.
+        """
+        return pulumi.get(self, "application_security_group_ids")
+
+    @application_security_group_ids.setter
+    def application_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_security_group_ids", value)
 
     @property
     @pulumi.getter(name="nodePublicIpTags")
@@ -4621,6 +4732,61 @@ class KubernetesClusterDefaultNodePoolNodeNetworkProfileArgs:
     @node_public_ip_tags.setter
     def node_public_ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_public_ip_tags", value)
+
+
+@pulumi.input_type
+class KubernetesClusterDefaultNodePoolNodeNetworkProfileAllowedHostPortArgs:
+    def __init__(__self__, *,
+                 port_end: Optional[pulumi.Input[int]] = None,
+                 port_start: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port_end: Specifies the end of the port range.
+        :param pulumi.Input[int] port_start: Specifies the start of the port range.
+        :param pulumi.Input[str] protocol: Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the end of the port range.
+        """
+        return pulumi.get(self, "port_end")
+
+    @port_end.setter
+    def port_end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_end", value)
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the start of the port range.
+        """
+        return pulumi.get(self, "port_start")
+
+    @port_start.setter
+    def port_start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_start", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type
@@ -6130,6 +6296,8 @@ class KubernetesClusterMonitorMetricsArgs:
         """
         :param pulumi.Input[str] annotations_allowed: Specifies a comma-separated list of Kubernetes annotation keys that will be used in the resource's labels metric.
         :param pulumi.Input[str] labels_allowed: Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+               
+               > **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
         """
         if annotations_allowed is not None:
             pulumi.set(__self__, "annotations_allowed", annotations_allowed)
@@ -6153,6 +6321,8 @@ class KubernetesClusterMonitorMetricsArgs:
     def labels_allowed(self) -> Optional[pulumi.Input[str]]:
         """
         Specifies a Comma-separated list of additional Kubernetes label keys that will be used in the resource's labels metric.
+
+        > **Note:** Both properties `annotations_allowed` and `labels_allowed` are required if you are enabling Managed Prometheus with an existing Azure Monitor Workspace.
         """
         return pulumi.get(self, "labels_allowed")
 
@@ -7379,14 +7549,46 @@ class KubernetesClusterNodePoolLinuxOsConfigSysctlConfigArgs:
 @pulumi.input_type
 class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     def __init__(__self__, *,
+                 allowed_host_ports: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]]] = None,
+                 application_security_group_ids: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  node_public_ip_tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
+        :param pulumi.Input[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]] allowed_host_ports: One or more `allowed_host_ports` blocks as defined below.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] application_security_group_ids: A list of Application Security Group IDs which should be associated with this Node Pool.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] node_public_ip_tags: Specifies a mapping of tags to the instance-level public IPs. Changing this forces a new resource to be created.
                
                > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/NodePublicIPTagsPreview` is enabled and the Resource Provider is re-registered, see [the documentation](https://learn.microsoft.com/azure/aks/use-node-public-ips#use-public-ip-tags-on-node-public-ips-preview) for more information.
         """
+        if allowed_host_ports is not None:
+            pulumi.set(__self__, "allowed_host_ports", allowed_host_ports)
+        if application_security_group_ids is not None:
+            pulumi.set(__self__, "application_security_group_ids", application_security_group_ids)
         if node_public_ip_tags is not None:
             pulumi.set(__self__, "node_public_ip_tags", node_public_ip_tags)
+
+    @property
+    @pulumi.getter(name="allowedHostPorts")
+    def allowed_host_ports(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]:
+        """
+        One or more `allowed_host_ports` blocks as defined below.
+        """
+        return pulumi.get(self, "allowed_host_ports")
+
+    @allowed_host_ports.setter
+    def allowed_host_ports(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs']]]]):
+        pulumi.set(self, "allowed_host_ports", value)
+
+    @property
+    @pulumi.getter(name="applicationSecurityGroupIds")
+    def application_security_group_ids(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of Application Security Group IDs which should be associated with this Node Pool.
+        """
+        return pulumi.get(self, "application_security_group_ids")
+
+    @application_security_group_ids.setter
+    def application_security_group_ids(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "application_security_group_ids", value)
 
     @property
     @pulumi.getter(name="nodePublicIpTags")
@@ -7401,6 +7603,61 @@ class KubernetesClusterNodePoolNodeNetworkProfileArgs:
     @node_public_ip_tags.setter
     def node_public_ip_tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]):
         pulumi.set(self, "node_public_ip_tags", value)
+
+
+@pulumi.input_type
+class KubernetesClusterNodePoolNodeNetworkProfileAllowedHostPortArgs:
+    def __init__(__self__, *,
+                 port_end: Optional[pulumi.Input[int]] = None,
+                 port_start: Optional[pulumi.Input[int]] = None,
+                 protocol: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[int] port_end: Specifies the end of the port range.
+        :param pulumi.Input[int] port_start: Specifies the start of the port range.
+        :param pulumi.Input[str] protocol: Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        if port_end is not None:
+            pulumi.set(__self__, "port_end", port_end)
+        if port_start is not None:
+            pulumi.set(__self__, "port_start", port_start)
+        if protocol is not None:
+            pulumi.set(__self__, "protocol", protocol)
+
+    @property
+    @pulumi.getter(name="portEnd")
+    def port_end(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the end of the port range.
+        """
+        return pulumi.get(self, "port_end")
+
+    @port_end.setter
+    def port_end(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_end", value)
+
+    @property
+    @pulumi.getter(name="portStart")
+    def port_start(self) -> Optional[pulumi.Input[int]]:
+        """
+        Specifies the start of the port range.
+        """
+        return pulumi.get(self, "port_start")
+
+    @port_start.setter
+    def port_start(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "port_start", value)
+
+    @property
+    @pulumi.getter
+    def protocol(self) -> Optional[pulumi.Input[str]]:
+        """
+        Specifies the protocol of the port range. Possible values are `TCP` and `UDP`.
+        """
+        return pulumi.get(self, "protocol")
+
+    @protocol.setter
+    def protocol(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "protocol", value)
 
 
 @pulumi.input_type

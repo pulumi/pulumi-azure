@@ -225,7 +225,7 @@ namespace Pulumi.Azure.ContainerService
         public Output<string?> NodePublicIpPrefixId { get; private set; } = null!;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         /// </summary>
         [Output("nodeTaints")]
         public Output<ImmutableArray<string>> NodeTaints { get; private set; } = null!;
@@ -564,7 +564,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         /// </summary>
         public InputList<string> NodeTaints
         {
@@ -880,7 +880,7 @@ namespace Pulumi.Azure.ContainerService
         private InputList<string>? _nodeTaints;
 
         /// <summary>
-        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+        /// A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
         /// </summary>
         public InputList<string> NodeTaints
         {

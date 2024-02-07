@@ -21,6 +21,7 @@ from .replicated_vm import *
 from .replication_policy import *
 from .replication_recovery_plan import *
 from .vm_ware_replication_policy import *
+from .vmware_replicated_vm import *
 from .vmware_replication_policy_association import *
 from ._inputs import *
 from . import outputs

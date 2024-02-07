@@ -59,6 +59,13 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
         return Optional.ofNullable(this.publicIpAddresses);
     }
 
+    @Import(name="trustedAddressRanges")
+    private @Nullable Output<List<String>> trustedAddressRanges;
+
+    public Optional<Output<List<String>>> trustedAddressRanges() {
+        return Optional.ofNullable(this.trustedAddressRanges);
+    }
+
     @Import(name="trustedSubnetId")
     private @Nullable Output<String> trustedSubnetId;
 
@@ -89,6 +96,7 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
         this.networkVirtualApplianceId = $.networkVirtualApplianceId;
         this.publicIpAddressIds = $.publicIpAddressIds;
         this.publicIpAddresses = $.publicIpAddresses;
+        this.trustedAddressRanges = $.trustedAddressRanges;
         this.trustedSubnetId = $.trustedSubnetId;
         this.untrustedSubnetId = $.untrustedSubnetId;
         this.virtualHubId = $.virtualHubId;
@@ -180,6 +188,19 @@ public final class NextGenerationFirewallVirtualHubLocalRulestackNetworkProfileA
 
         public Builder publicIpAddresses(String... publicIpAddresses) {
             return publicIpAddresses(List.of(publicIpAddresses));
+        }
+
+        public Builder trustedAddressRanges(@Nullable Output<List<String>> trustedAddressRanges) {
+            $.trustedAddressRanges = trustedAddressRanges;
+            return this;
+        }
+
+        public Builder trustedAddressRanges(List<String> trustedAddressRanges) {
+            return trustedAddressRanges(Output.of(trustedAddressRanges));
+        }
+
+        public Builder trustedAddressRanges(String... trustedAddressRanges) {
+            return trustedAddressRanges(List.of(trustedAddressRanges));
         }
 
         public Builder trustedSubnetId(@Nullable Output<String> trustedSubnetId) {

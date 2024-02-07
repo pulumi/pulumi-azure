@@ -83,9 +83,11 @@ type ChannelEmail struct {
 	// The email address that the Bot will authenticate with.
 	EmailAddress pulumi.StringOutput `pulumi:"emailAddress"`
 	// The email password that the Bot will authenticate with.
-	EmailPassword pulumi.StringOutput `pulumi:"emailPassword"`
+	EmailPassword pulumi.StringPtrOutput `pulumi:"emailPassword"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
+	// The magic code used to set up OAUTH authentication.
+	MagicCode pulumi.StringPtrOutput `pulumi:"magicCode"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 }
@@ -103,17 +105,18 @@ func NewChannelEmail(ctx *pulumi.Context,
 	if args.EmailAddress == nil {
 		return nil, errors.New("invalid value for required argument 'EmailAddress'")
 	}
-	if args.EmailPassword == nil {
-		return nil, errors.New("invalid value for required argument 'EmailPassword'")
-	}
 	if args.ResourceGroupName == nil {
 		return nil, errors.New("invalid value for required argument 'ResourceGroupName'")
 	}
 	if args.EmailPassword != nil {
-		args.EmailPassword = pulumi.ToSecret(args.EmailPassword).(pulumi.StringInput)
+		args.EmailPassword = pulumi.ToSecret(args.EmailPassword).(pulumi.StringPtrInput)
+	}
+	if args.MagicCode != nil {
+		args.MagicCode = pulumi.ToSecret(args.MagicCode).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
 		"emailPassword",
+		"magicCode",
 	})
 	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
@@ -147,6 +150,8 @@ type channelEmailState struct {
 	EmailPassword *string `pulumi:"emailPassword"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The magic code used to set up OAUTH authentication.
+	MagicCode *string `pulumi:"magicCode"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 }
@@ -160,6 +165,8 @@ type ChannelEmailState struct {
 	EmailPassword pulumi.StringPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The magic code used to set up OAUTH authentication.
+	MagicCode pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 }
@@ -174,9 +181,11 @@ type channelEmailArgs struct {
 	// The email address that the Bot will authenticate with.
 	EmailAddress string `pulumi:"emailAddress"`
 	// The email password that the Bot will authenticate with.
-	EmailPassword string `pulumi:"emailPassword"`
+	EmailPassword *string `pulumi:"emailPassword"`
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
+	// The magic code used to set up OAUTH authentication.
+	MagicCode *string `pulumi:"magicCode"`
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 }
@@ -188,9 +197,11 @@ type ChannelEmailArgs struct {
 	// The email address that the Bot will authenticate with.
 	EmailAddress pulumi.StringInput
 	// The email password that the Bot will authenticate with.
-	EmailPassword pulumi.StringInput
+	EmailPassword pulumi.StringPtrInput
 	// The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
+	// The magic code used to set up OAUTH authentication.
+	MagicCode pulumi.StringPtrInput
 	// The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 }
@@ -293,13 +304,18 @@ func (o ChannelEmailOutput) EmailAddress() pulumi.StringOutput {
 }
 
 // The email password that the Bot will authenticate with.
-func (o ChannelEmailOutput) EmailPassword() pulumi.StringOutput {
-	return o.ApplyT(func(v *ChannelEmail) pulumi.StringOutput { return v.EmailPassword }).(pulumi.StringOutput)
+func (o ChannelEmailOutput) EmailPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEmail) pulumi.StringPtrOutput { return v.EmailPassword }).(pulumi.StringPtrOutput)
 }
 
 // The supported Azure location where the resource exists. Changing this forces a new resource to be created.
 func (o ChannelEmailOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ChannelEmail) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
+}
+
+// The magic code used to set up OAUTH authentication.
+func (o ChannelEmailOutput) MagicCode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ChannelEmail) pulumi.StringPtrOutput { return v.MagicCode }).(pulumi.StringPtrOutput)
 }
 
 // The name of the resource group in which to create the Bot Channel. Changing this forces a new resource to be created.

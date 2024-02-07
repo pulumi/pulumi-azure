@@ -185,7 +185,7 @@ export class KubernetesClusterNodePool extends pulumi.CustomResource {
      */
     public readonly nodePublicIpPrefixId!: pulumi.Output<string | undefined>;
     /**
-     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     public readonly nodeTaints!: pulumi.Output<string[] | undefined>;
     /**
@@ -501,7 +501,7 @@ export interface KubernetesClusterNodePoolState {
      */
     nodePublicIpPrefixId?: pulumi.Input<string>;
     /**
-     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -705,7 +705,7 @@ export interface KubernetesClusterNodePoolArgs {
      */
     nodePublicIpPrefixId?: pulumi.Input<string>;
     /**
-     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`). Changing this forces a new resource to be created.
+     * A list of Kubernetes taints which should be applied to nodes in the agent pool (e.g `key=value:NoSchedule`).
      */
     nodeTaints?: pulumi.Input<pulumi.Input<string>[]>;
     /**

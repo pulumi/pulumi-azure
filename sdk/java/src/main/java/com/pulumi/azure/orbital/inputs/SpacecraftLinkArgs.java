@@ -33,12 +33,16 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
     /**
      * Center frequency in Mhz.
      * 
+     * &gt; **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
+     * 
      */
     @Import(name="centerFrequencyMhz", required=true)
     private Output<Double> centerFrequencyMhz;
 
     /**
      * @return Center frequency in Mhz.
+     * 
+     * &gt; **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
      * 
      */
     public Output<Double> centerFrequencyMhz() {
@@ -142,6 +146,8 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
         /**
          * @param centerFrequencyMhz Center frequency in Mhz.
          * 
+         * &gt; **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
+         * 
          * @return builder
          * 
          */
@@ -152,6 +158,8 @@ public final class SpacecraftLinkArgs extends com.pulumi.resources.ResourceArgs 
 
         /**
          * @param centerFrequencyMhz Center frequency in Mhz.
+         * 
+         * &gt; **Note:** The value of `center_frequency_mhz +/- bandwidth_mhz / 2` should fall in one of these ranges: `Uplink/LHCP`: [2025, 2120]; `Uplink/Linear`: [399, 403],[435, 438],[449, 451]; `Uplink/RHCP`: [399, 403],[435, 438],[449, 451],[2025, 2120]; `Downlink/LHCP`: [2200, 2300], [7500, 8400]; `Downlink/Linear`: [399, 403], [435, 438], [449, 451]; Downlink/Linear`: [399, 403], [435, 438], [449, 451], [2200, 2300], [7500, 8400]
          * 
          * @return builder
          * 
