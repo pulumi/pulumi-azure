@@ -593,7 +593,7 @@ func Provider() tfbridge.ProviderInfo {
 					EnvVars: []string{"ARM_METADATA_HOSTNAME"},
 				},
 			},
-			"auxillary_tenant_ids":        {Secret: &yes},
+			"auxiliary_tenant_ids":        {Secret: &yes},
 			"client_certificate":          {Secret: &yes},
 			"client_certificate_password": {Secret: &yes},
 			"client_certificate_path":     {Secret: &yes},
