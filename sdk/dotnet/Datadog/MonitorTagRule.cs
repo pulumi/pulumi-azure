@@ -83,7 +83,7 @@ namespace Pulumi.Azure.Datadog
     /// Tag Rules on the Datadog Monitor can be imported using the `tag rule resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:datadog/monitorTagRule:MonitorTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/tagRules/default
+    /// $ pulumi import azure:datadog/monitorTagRule:MonitorTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/tagRules/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:datadog/monitorTagRule:MonitorTagRule")]

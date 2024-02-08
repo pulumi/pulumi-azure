@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * IoTHub EventHub Endpoint can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/eventhub_endpoint1
+ * $ pulumi import azure:iot/endpointEventhub:EndpointEventhub eventhub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/eventhub_endpoint1
  * ```
  */
 export class EndpointEventhub extends pulumi.CustomResource {

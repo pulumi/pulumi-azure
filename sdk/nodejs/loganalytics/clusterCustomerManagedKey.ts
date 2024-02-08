@@ -76,7 +76,7 @@ import * as utilities from "../utilities";
  * Log Analytics Cluster Customer Managed Keys can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
+ * $ pulumi import azure:loganalytics/clusterCustomerManagedKey:ClusterCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/clusters/cluster1
  * ```
  */
 export class ClusterCustomerManagedKey extends pulumi.CustomResource {

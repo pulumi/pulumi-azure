@@ -406,7 +406,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
+        $ pulumi import azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
         ```
 
         :param str resource_name: The name of the resource.
@@ -504,7 +504,7 @@ class ScaleSetPacketCapture(pulumi.CustomResource):
         Virtual Machine Scale Set Packet Captures can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
+        $ pulumi import azure:compute/scaleSetPacketCapture:ScaleSetPacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
         ```
 
         :param str resource_name: The name of the resource.

@@ -73,9 +73,7 @@ import (
 // Lab Service Labs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:lab/lab:Lab example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1
-//
+// $ pulumi import azure:lab/lab:Lab example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1
 // ```
 type Lab struct {
 	pulumi.CustomResourceState

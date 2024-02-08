@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * Route Maps can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
+ * $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
  * ```
  */
 export class RouteMap extends pulumi.CustomResource {

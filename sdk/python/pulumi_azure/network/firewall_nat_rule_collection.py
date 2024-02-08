@@ -285,7 +285,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         Azure Firewall NAT Rule Collections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
+        $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
         ```
 
         :param str resource_name: The name of the resource.
@@ -360,7 +360,7 @@ class FirewallNatRuleCollection(pulumi.CustomResource):
         Azure Firewall NAT Rule Collections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
+        $ pulumi import azure:network/firewallNatRuleCollection:FirewallNatRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/azureFirewalls/myfirewall/natRuleCollections/mycollection
         ```
 
         :param str resource_name: The name of the resource.

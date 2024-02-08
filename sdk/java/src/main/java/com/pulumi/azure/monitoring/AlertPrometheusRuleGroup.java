@@ -26,7 +26,7 @@ import javax.annotation.Nullable;
  * Alert Management Prometheus Rule Group can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AlertsManagement/prometheusRuleGroups/ruleGroup1
+ * $ pulumi import azure:monitoring/alertPrometheusRuleGroup:AlertPrometheusRuleGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AlertsManagement/prometheusRuleGroups/ruleGroup1
  * ```
  * 
  */

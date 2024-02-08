@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * Private DNS TXT Records can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
+ * $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
  * ```
  * 
  */

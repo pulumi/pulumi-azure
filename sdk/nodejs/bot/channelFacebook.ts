@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * The Facebook Integration for a Bot Channel can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:bot/channelFacebook:ChannelFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/FacebookChannel
+ * $ pulumi import azure:bot/channelFacebook:ChannelFacebook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/FacebookChannel
  * ```
  */
 export class ChannelFacebook extends pulumi.CustomResource {

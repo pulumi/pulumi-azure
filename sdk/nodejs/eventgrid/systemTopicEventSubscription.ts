@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * EventGrid System Topic Event Subscriptions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
+ * $ pulumi import azure:eventgrid/systemTopicEventSubscription:SystemTopicEventSubscription example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/topic1/eventSubscriptions/subscription1
  * ```
  */
 export class SystemTopicEventSubscription extends pulumi.CustomResource {

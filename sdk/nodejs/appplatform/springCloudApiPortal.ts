@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * Spring Cloud API Portals can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1
+ * $ pulumi import azure:appplatform/springCloudApiPortal:SpringCloudApiPortal example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/apiPortals/apiPortal1
  * ```
  */
 export class SpringCloudApiPortal extends pulumi.CustomResource {

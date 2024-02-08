@@ -51,9 +51,7 @@ import (
 // Lighthouse Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azure:lighthouse/assignment:Assignment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationAssignments/00000000-0000-0000-0000-000000000000
 // ```
 type Assignment struct {
 	pulumi.CustomResourceState

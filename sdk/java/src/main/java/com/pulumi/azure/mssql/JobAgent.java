@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  * Elastic Job Agents can be imported using the `id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
+ * $ pulumi import azure:mssql/jobAgent:JobAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1
  * ```
  * 
  */

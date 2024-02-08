@@ -69,7 +69,7 @@ import * as utilities from "../utilities";
  * HDInsight Interactive Query Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
+ * $ pulumi import azure:hdinsight/interactiveQueryCluster:InteractiveQueryCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.HDInsight/clusters/cluster1
  * ```
  */
 export class InteractiveQueryCluster extends pulumi.CustomResource {

@@ -19,9 +19,7 @@ import (
 // Custom Domain for a Web PubSub service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:webpubsub/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1/customDomains/customDomain1
-//
+// $ pulumi import azure:webpubsub/customDomain:CustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1/customDomains/customDomain1
 // ```
 type CustomDomain struct {
 	pulumi.CustomResourceState

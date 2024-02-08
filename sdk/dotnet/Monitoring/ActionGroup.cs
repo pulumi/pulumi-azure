@@ -168,7 +168,7 @@ namespace Pulumi.Azure.Monitoring
     /// Action Groups can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
+    /// $ pulumi import azure:monitoring/actionGroup:ActionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/actionGroups/myagname
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/actionGroup:ActionGroup")]

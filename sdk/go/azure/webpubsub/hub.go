@@ -125,9 +125,7 @@ import (
 // Web Pubsub Hub can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/hubs/webPubSubhub1
-//
+// $ pulumi import azure:webpubsub/hub:Hub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webPubSub1/hubs/webPubSubhub1
 // ```
 type Hub struct {
 	pulumi.CustomResourceState

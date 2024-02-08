@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * Spring Cloud services can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
+ * $ pulumi import azure:appplatform/springCloudService:SpringCloudService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AppPlatform/spring/spring1
  * ```
  */
 export class SpringCloudService extends pulumi.CustomResource {

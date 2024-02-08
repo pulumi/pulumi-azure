@@ -57,7 +57,7 @@ namespace Pulumi.Azure.DataFactory
     /// e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+    /// $ pulumi import azure:datafactory/datasetSnowflake:DatasetSnowflake example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/datasetSnowflake:DatasetSnowflake")]

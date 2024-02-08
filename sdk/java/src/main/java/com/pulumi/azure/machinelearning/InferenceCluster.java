@@ -148,7 +148,7 @@ import javax.annotation.Nullable;
  * Machine Learning Inference Clusters can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:machinelearning/inferenceCluster:InferenceCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/cluster1
+ * $ pulumi import azure:machinelearning/inferenceCluster:InferenceCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/cluster1
  * ```
  * 
  */

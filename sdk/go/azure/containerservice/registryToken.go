@@ -80,9 +80,7 @@ import (
 // Container Registries can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
-//
+// $ pulumi import azure:containerservice/registryToken:RegistryToken example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ContainerRegistry/registries/myregistry1/tokens/token1
 // ```
 type RegistryToken struct {
 	pulumi.CustomResourceState

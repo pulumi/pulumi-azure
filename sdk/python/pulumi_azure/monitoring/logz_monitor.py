@@ -400,7 +400,7 @@ class LogzMonitor(pulumi.CustomResource):
         logz Monitors can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
+        $ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.
@@ -454,7 +454,7 @@ class LogzMonitor(pulumi.CustomResource):
         logz Monitors can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
+        $ pulumi import azure:monitoring/logzMonitor:LogzMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.

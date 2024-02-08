@@ -76,9 +76,7 @@ import (
 // Sentinel Fusion Alert Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:sentinel/alertRuleFusion:AlertRuleFusion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
-//
+// $ pulumi import azure:sentinel/alertRuleFusion:AlertRuleFusion example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/alertRules/rule1
 // ```
 type AlertRuleFusion struct {
 	pulumi.CustomResourceState

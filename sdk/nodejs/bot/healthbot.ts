@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * Healthbot Service can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
+ * $ pulumi import azure:bot/healthbot:Healthbot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HealthBot/healthBots/bot1
  * ```
  */
 export class Healthbot extends pulumi.CustomResource {

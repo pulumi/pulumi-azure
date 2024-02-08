@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Compute
     /// Bastion Hosts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
+    /// $ pulumi import azure:compute/bastionHost:BastionHost example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/bastionHosts/instance1
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/bastionHost:BastionHost")]

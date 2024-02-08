@@ -125,7 +125,7 @@ import * as utilities from "../utilities";
  * Network Connection Monitors can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
+ * $ pulumi import azure:network/networkConnectionMonitor:NetworkConnectionMonitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/networkWatchers/watcher1/connectionMonitors/connectionMonitor1
  * ```
  */
 export class NetworkConnectionMonitor extends pulumi.CustomResource {

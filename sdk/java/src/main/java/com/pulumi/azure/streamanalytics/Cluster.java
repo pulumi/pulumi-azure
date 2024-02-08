@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * Stream Analytics Clusters can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:streamanalytics/cluster:Cluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1
+ * $ pulumi import azure:streamanalytics/cluster:Cluster example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1
  * ```
  * 
  */

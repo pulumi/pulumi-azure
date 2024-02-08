@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Kusto
     /// Kusto Clusters can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1
+    /// $ pulumi import azure:kusto/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/database:Database")]

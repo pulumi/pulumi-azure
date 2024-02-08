@@ -192,7 +192,7 @@ class ChannelAlexa(pulumi.CustomResource):
         The Alexa Integration for a Bot Channel can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
+        $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,7 +238,7 @@ class ChannelAlexa(pulumi.CustomResource):
         The Alexa Integration for a Bot Channel can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
+        $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
         ```
 
         :param str resource_name: The name of the resource.

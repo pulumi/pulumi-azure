@@ -98,7 +98,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         Portal Tenant Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
+        $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -138,7 +138,7 @@ class PortalTenantConfiguration(pulumi.CustomResource):
         Portal Tenant Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
+        $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
         ```
 
         :param str resource_name: The name of the resource.

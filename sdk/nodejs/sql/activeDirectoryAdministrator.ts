@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * A SQL Active Directory Administrator can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/administrators/activeDirectory
+ * $ pulumi import azure:sql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/administrators/activeDirectory
  * ```
  */
 export class ActiveDirectoryAdministrator extends pulumi.CustomResource {

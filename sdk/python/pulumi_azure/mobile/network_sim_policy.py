@@ -404,7 +404,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
         Mobile Network Sim Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mobile/networkSimPolicy:NetworkSimPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/simPolicies/simPolicy1
+        $ pulumi import azure:mobile/networkSimPolicy:NetworkSimPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/simPolicies/simPolicy1
         ```
 
         :param str resource_name: The name of the resource.
@@ -501,7 +501,7 @@ class NetworkSimPolicy(pulumi.CustomResource):
         Mobile Network Sim Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mobile/networkSimPolicy:NetworkSimPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/simPolicies/simPolicy1
+        $ pulumi import azure:mobile/networkSimPolicy:NetworkSimPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/simPolicies/simPolicy1
         ```
 
         :param str resource_name: The name of the resource.

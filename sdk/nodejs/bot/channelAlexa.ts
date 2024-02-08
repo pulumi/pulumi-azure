@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * The Alexa Integration for a Bot Channel can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
+ * $ pulumi import azure:bot/channelAlexa:ChannelAlexa example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/AlexaChannel
  * ```
  */
 export class ChannelAlexa extends pulumi.CustomResource {

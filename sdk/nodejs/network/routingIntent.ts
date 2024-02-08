@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * Virtual Hub Routing Intents can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/routingIntent:RoutingIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/routingIntent1
+ * $ pulumi import azure:network/routingIntent:RoutingIntent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routingIntent/routingIntent1
  * ```
  */
 export class RoutingIntent extends pulumi.CustomResource {

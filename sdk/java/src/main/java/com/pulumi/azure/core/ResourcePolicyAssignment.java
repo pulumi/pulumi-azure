@@ -87,7 +87,7 @@ import javax.annotation.Nullable;
  * Resource Policy Assignments can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example &#34;{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1&#34;
+ * $ pulumi import azure:core/resourcePolicyAssignment:ResourcePolicyAssignment example &#34;{resource}/providers/Microsoft.Authorization/policyAssignments/assignment1&#34;
  * ```
  * 
  *  where `{resource}` is a Resource ID in the form `/subscriptions/00000000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualNetworks/network1`.

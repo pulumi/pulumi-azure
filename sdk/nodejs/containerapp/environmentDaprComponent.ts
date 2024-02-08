@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
+ * $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
  * ```
  */
 export class EnvironmentDaprComponent extends pulumi.CustomResource {

@@ -426,7 +426,7 @@ class Prefix(pulumi.CustomResource):
         A Custom IP Prefix can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
+        $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
         ```
 
         :param str resource_name: The name of the resource.
@@ -463,7 +463,7 @@ class Prefix(pulumi.CustomResource):
         A Custom IP Prefix can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
+        $ pulumi import azure:customip/prefix:Prefix example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/customIPPrefixes/customIPPrefix1
         ```
 
         :param str resource_name: The name of the resource.

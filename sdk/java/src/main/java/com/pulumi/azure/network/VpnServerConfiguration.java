@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * VPN Server Configurations can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
+ * $ pulumi import azure:network/vpnServerConfiguration:VpnServerConfiguration config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/vpnServerConfigurations/config1
  * ```
  * 
  */

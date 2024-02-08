@@ -97,9 +97,7 @@ import (
 // Synapse Self-hosted Integration Runtimes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
-//
+// $ pulumi import azure:synapse/integrationRuntimeSelfHosted:IntegrationRuntimeSelfHosted example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Synapse/workspaces/workspace1/integrationRuntimes/IntegrationRuntime1
 // ```
 type IntegrationRuntimeSelfHosted struct {
 	pulumi.CustomResourceState

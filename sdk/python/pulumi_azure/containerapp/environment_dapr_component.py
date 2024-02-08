@@ -367,7 +367,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
+        $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,7 +420,7 @@ class EnvironmentDaprComponent(pulumi.CustomResource):
         A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
+        $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent"
         ```
 
         :param str resource_name: The name of the resource.

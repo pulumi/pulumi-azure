@@ -250,7 +250,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
+        $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
         ```
 
         :param str resource_name: The name of the resource.
@@ -300,7 +300,7 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
+        $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
         ```
 
         :param str resource_name: The name of the resource.

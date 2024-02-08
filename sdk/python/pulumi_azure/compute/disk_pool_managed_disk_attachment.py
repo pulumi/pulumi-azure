@@ -169,7 +169,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
         Disks Pool Managed Disk Attachments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+        $ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,7 +255,7 @@ class DiskPoolManagedDiskAttachment(pulumi.CustomResource):
         Disks Pool Managed Disk Attachments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+        $ pulumi import azure:compute/diskPoolManagedDiskAttachment:DiskPoolManagedDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/storagePool1/managedDisks|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
         ```
 
         :param str resource_name: The name of the resource.

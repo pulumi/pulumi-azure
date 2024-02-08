@@ -338,7 +338,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
         Monitor Action Rule can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+        $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -399,7 +399,7 @@ class ActionRuleSuppression(pulumi.CustomResource):
         Monitor Action Rule can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+        $ pulumi import azure:monitoring/actionRuleSuppression:ActionRuleSuppression example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
 
         :param str resource_name: The name of the resource.

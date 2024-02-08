@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
+ * $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
  * ```
  */
 export class HciCluster extends pulumi.CustomResource {

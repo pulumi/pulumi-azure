@@ -219,7 +219,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
+        $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class LocalRulestackFqdnList(pulumi.CustomResource):
         Palo Alto Local Rulestack FQDN Lists can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
+        $ pulumi import azure:paloalto/localRulestackFqdnList:LocalRulestackFqdnList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/fqdnLists/myFQDNList1
         ```
 
         :param str resource_name: The name of the resource.

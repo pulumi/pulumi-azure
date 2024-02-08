@@ -65,7 +65,7 @@ namespace Pulumi.Azure.Sql
     /// SQL Databases can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:sql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/databases/database1
+    /// $ pulumi import azure:sql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/databases/database1
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/database:Database")]

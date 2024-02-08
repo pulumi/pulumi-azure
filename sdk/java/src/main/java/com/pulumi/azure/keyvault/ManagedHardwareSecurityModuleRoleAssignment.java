@@ -21,7 +21,7 @@ import javax.annotation.Nullable;
  * Managed Hardware Security Modules can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleAssignment:ManagedHardwareSecurityModuleRoleAssignment example https://0000.managedhsm.azure.net///RoleAssignment/00000000-0000-0000-0000-000000000000
  * ```
  * 
  */

@@ -81,9 +81,7 @@ import (
 // App Service Custom Hostname Bindings can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/slots/staging/hostNameBindings/mywebsite.com
-//
+// $ pulumi import azure:appservice/slotCustomHostnameBinding:SlotCustomHostnameBinding mywebsite /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/slots/staging/hostNameBindings/mywebsite.com
 // ```
 type SlotCustomHostnameBinding struct {
 	pulumi.CustomResourceState

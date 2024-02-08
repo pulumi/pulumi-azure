@@ -125,7 +125,7 @@ import javax.annotation.Nullable;
  * Media Jobs can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:media/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/transforms/transform1/jobs/job1
+ * $ pulumi import azure:media/job:Job example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/transforms/transform1/jobs/job1
  * ```
  * 
  */

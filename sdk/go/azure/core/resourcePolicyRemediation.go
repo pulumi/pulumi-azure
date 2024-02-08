@@ -104,9 +104,7 @@ import (
 // Policy Remediations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
-//
+// $ pulumi import azure:core/resourcePolicyRemediation:ResourcePolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.PolicyInsights/remediations/remediation1
 // ```
 type ResourcePolicyRemediation struct {
 	pulumi.CustomResourceState

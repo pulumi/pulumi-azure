@@ -94,7 +94,7 @@ import * as utilities from "../utilities";
  * Key Vaults can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
+ * $ pulumi import azure:keyvault/managedStorageAccountSasTokenDefinition:ManagedStorageAccountSasTokenDefinition example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01/sas/exampleSasDefinition01
  * ```
  */
 export class ManagedStorageAccountSasTokenDefinition extends pulumi.CustomResource {

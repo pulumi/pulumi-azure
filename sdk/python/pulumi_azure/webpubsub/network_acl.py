@@ -220,7 +220,7 @@ class NetworkAcl(pulumi.CustomResource):
         Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
+        $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
         ```
 
         :param str resource_name: The name of the resource.
@@ -291,7 +291,7 @@ class NetworkAcl(pulumi.CustomResource):
         Network ACLs for a Web Pubsub service can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
+        $ pulumi import azure:webpubsub/networkAcl:NetworkAcl example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/webpubsub1
         ```
 
         :param str resource_name: The name of the resource.

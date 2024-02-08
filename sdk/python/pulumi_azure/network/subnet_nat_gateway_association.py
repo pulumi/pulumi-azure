@@ -128,7 +128,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         Subnet NAT Gateway Associations can be imported using the `resource id` of the Subnet, e.g.
 
         ```sh
-         $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+        $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,7 +173,7 @@ class SubnetNatGatewayAssociation(pulumi.CustomResource):
         Subnet NAT Gateway Associations can be imported using the `resource id` of the Subnet, e.g.
 
         ```sh
-         $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+        $ pulumi import azure:network/subnetNatGatewayAssociation:SubnetNatGatewayAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
         ```
 
         :param str resource_name: The name of the resource.

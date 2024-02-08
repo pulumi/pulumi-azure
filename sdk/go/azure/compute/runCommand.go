@@ -288,9 +288,7 @@ import (
 // An existing Virtual Machine Run Command can be imported into Terraform using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:compute/runCommand:RunCommand example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/vm1/runCommands/rc1
-//
+// $ pulumi import azure:compute/runCommand:RunCommand example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/vm1/runCommands/rc1
 // ```
 type RunCommand struct {
 	pulumi.CustomResourceState

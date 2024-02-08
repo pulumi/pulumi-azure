@@ -391,7 +391,7 @@ class SourceControl(pulumi.CustomResource):
         Automations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
+        $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
         ```
 
         :param str resource_name: The name of the resource.
@@ -444,7 +444,7 @@ class SourceControl(pulumi.CustomResource):
         Automations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
+        $ pulumi import azure:automation/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/sourceControls/sc1
         ```
 
         :param str resource_name: The name of the resource.

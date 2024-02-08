@@ -240,7 +240,7 @@ class BgpConnection(pulumi.CustomResource):
         Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
+        $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,7 +302,7 @@ class BgpConnection(pulumi.CustomResource):
         Virtual Hub Bgp Connections can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
+        $ pulumi import azure:network/bgpConnection:BgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/bgpConnections/connection1
         ```
 
         :param str resource_name: The name of the resource.

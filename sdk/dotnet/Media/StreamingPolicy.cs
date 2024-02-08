@@ -136,7 +136,7 @@ namespace Pulumi.Azure.Media
     /// Streaming Policies can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingPolicies/policy1
+    /// $ pulumi import azure:media/streamingPolicy:StreamingPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingPolicies/policy1
     /// ```
     /// </summary>
     [AzureResourceType("azure:media/streamingPolicy:StreamingPolicy")]

@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * Mobile Network Attached Data Network can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1/packetCoreDataPlanes/packetCoreDataPlane1/attachedDataNetworks/attachedDataNetwork1
+ * $ pulumi import azure:mobile/networkAttachedDataNetwork:NetworkAttachedDataNetwork example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1/packetCoreDataPlanes/packetCoreDataPlane1/attachedDataNetworks/attachedDataNetwork1
  * ```
  */
 export class NetworkAttachedDataNetwork extends pulumi.CustomResource {

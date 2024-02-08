@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * Azure Native New Relic Tag Rule can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:newrelic/tagRule:TagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1/tagRules/ruleSet1
+ * $ pulumi import azure:newrelic/tagRule:TagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1/tagRules/ruleSet1
  * ```
  */
 export class TagRule extends pulumi.CustomResource {

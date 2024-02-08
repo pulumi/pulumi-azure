@@ -62,7 +62,7 @@ namespace Pulumi.Azure.EventHub
     /// EventGrid Event Subscription's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
+    /// $ pulumi import azure:eventhub/eventSubscription:EventSubscription eventSubscription1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/topics/topic1/providers/Microsoft.EventGrid/eventSubscriptions/eventSubscription1
     /// ```
     /// </summary>
     [Obsolete(@"azure.eventhub.EventSubscription has been deprecated in favor of azure.eventgrid.EventSubscription")]

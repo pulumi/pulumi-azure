@@ -215,7 +215,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         The pricing tier can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
+        $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,7 +280,7 @@ class SubscriptionPricing(pulumi.CustomResource):
         The pricing tier can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
+        $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/<resource_type>
         ```
 
         :param str resource_name: The name of the resource.

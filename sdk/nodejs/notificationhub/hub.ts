@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * Notification Hubs can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
+ * $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
  * ```
  */
 export class Hub extends pulumi.CustomResource {

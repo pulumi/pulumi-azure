@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Redis Cache's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1
+ * $ pulumi import azure:redis/cache:Cache cache1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redis/cache1
  * ```
  */
 export class Cache extends pulumi.CustomResource {

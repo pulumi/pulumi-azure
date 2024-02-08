@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * PostgreSQL Flexible Server Firewall Rules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
+ * $ pulumi import azure:postgresql/flexibleServerFirewallRule:FlexibleServerFirewallRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/firewallRules/firewallRule1
  * ```
  */
 export class FlexibleServerFirewallRule extends pulumi.CustomResource {

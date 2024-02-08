@@ -323,7 +323,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
+        $ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -371,7 +371,7 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         Azure Relay Namespace Authorization Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
+        $ pulumi import azure:relay/namespaceAuthorizationRule:NamespaceAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/authorizationRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

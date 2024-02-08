@@ -437,7 +437,7 @@ class Provider(pulumi.CustomResource):
         Attestation Providers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+        $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
         ```
 
         :param str resource_name: The name of the resource.
@@ -483,7 +483,7 @@ class Provider(pulumi.CustomResource):
         Attestation Providers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
+        $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
         ```
 
         :param str resource_name: The name of the resource.

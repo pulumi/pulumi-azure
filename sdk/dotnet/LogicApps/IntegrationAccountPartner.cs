@@ -56,7 +56,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic App Integration Account Partners can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
+    /// $ pulumi import azure:logicapps/integrationAccountPartner:IntegrationAccountPartner example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/partners/partner1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountPartner:IntegrationAccountPartner")]

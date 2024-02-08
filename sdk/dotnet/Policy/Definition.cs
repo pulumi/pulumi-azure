@@ -70,13 +70,13 @@ namespace Pulumi.Azure.Policy
     /// Policy Definitions can be imported using the `policy name`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/&lt;SUBSCRIPTION_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
+    /// $ pulumi import azure:policy/definition:Definition examplePolicy /subscriptions/&lt;SUBSCRIPTION_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
     /// ```
     /// 
     ///  or
     /// 
     /// ```sh
-    ///  $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/&lt;MANGAGEMENT_GROUP_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
+    /// $ pulumi import azure:policy/definition:Definition examplePolicy /providers/Microsoft.Management/managementgroups/&lt;MANGAGEMENT_GROUP_ID&gt;/providers/Microsoft.Authorization/policyDefinitions/&lt;POLICY_NAME&gt;
     /// ```
     /// </summary>
     [AzureResourceType("azure:policy/definition:Definition")]

@@ -146,7 +146,7 @@ class CertificateContacts(pulumi.CustomResource):
         Key Vault Certificate Contacts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
+        $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,7 +207,7 @@ class CertificateContacts(pulumi.CustomResource):
         Key Vault Certificate Contacts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
+        $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
         ```
 
         :param str resource_name: The name of the resource.

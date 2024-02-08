@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * Fluid Relay Servers can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:fluidrelay/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.FluidRelay/fluidRelayServers/server1
+ * $ pulumi import azure:fluidrelay/server:Server example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.FluidRelay/fluidRelayServers/server1
  * ```
  * 
  */

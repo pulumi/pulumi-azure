@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * Azure Blueprint Assignments can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
+ * $ pulumi import azure:blueprint/assignment:Assignment example "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Blueprint/blueprintAssignments/assignSimpleBlueprint"
  * ```
  */
 export class Assignment extends pulumi.CustomResource {

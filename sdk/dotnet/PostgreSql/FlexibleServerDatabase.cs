@@ -51,7 +51,7 @@ namespace Pulumi.Azure.PostgreSql
     /// Azure PostgreSQL Flexible Server Database can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/databases/database1
+    /// $ pulumi import azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/flexibleServer1/databases/database1
     /// ```
     /// </summary>
     [AzureResourceType("azure:postgresql/flexibleServerDatabase:FlexibleServerDatabase")]

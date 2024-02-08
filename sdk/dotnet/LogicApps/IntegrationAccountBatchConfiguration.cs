@@ -53,7 +53,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
+    /// $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration")]

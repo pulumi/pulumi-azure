@@ -236,7 +236,7 @@ class Table(pulumi.CustomResource):
         CosmosDB Tables can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/tables/table1
+        $ pulumi import azure:cosmosdb/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/tables/table1
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,7 +279,7 @@ class Table(pulumi.CustomResource):
         CosmosDB Tables can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/tables/table1
+        $ pulumi import azure:cosmosdb/table:Table table1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/tables/table1
         ```
 
         :param str resource_name: The name of the resource.

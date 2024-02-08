@@ -50,9 +50,7 @@ import (
 // The setting can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
-//
+// $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/<setting_name>
 // ```
 type Setting struct {
 	pulumi.CustomResourceState

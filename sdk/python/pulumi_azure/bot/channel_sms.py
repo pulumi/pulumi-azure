@@ -258,7 +258,7 @@ class ChannelSms(pulumi.CustomResource):
         The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
+        $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,7 +308,7 @@ class ChannelSms(pulumi.CustomResource):
         The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
+        $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
         ```
 
         :param str resource_name: The name of the resource.

@@ -53,9 +53,7 @@ import (
 // Azure Arc Private Link Scope can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:arc/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScope1
-//
+// $ pulumi import azure:arc/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/privateLinkScopes/privateLinkScope1
 // ```
 type PrivateLinkScope struct {
 	pulumi.CustomResourceState

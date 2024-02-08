@@ -430,7 +430,7 @@ class Elasticsearch(pulumi.CustomResource):
         Elasticsearch's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
+        $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.
@@ -476,7 +476,7 @@ class Elasticsearch(pulumi.CustomResource):
         Elasticsearch's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
+        $ pulumi import azure:elasticcloud/elasticsearch:Elasticsearch example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Elastic/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.

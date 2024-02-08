@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+ * $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
  * ```
  */
 export class KubernetesClusterNodePool extends pulumi.CustomResource {

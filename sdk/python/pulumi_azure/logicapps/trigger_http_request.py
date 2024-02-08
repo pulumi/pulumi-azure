@@ -259,7 +259,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
+        $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,7 +311,7 @@ class TriggerHttpRequest(pulumi.CustomResource):
         Logic App HTTP Request Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
+        $ pulumi import azure:logicapps/triggerHttpRequest:TriggerHttpRequest request1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/request1
         ```
 
         :param str resource_name: The name of the resource.

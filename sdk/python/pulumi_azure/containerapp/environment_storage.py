@@ -266,7 +266,7 @@ class EnvironmentStorage(pulumi.CustomResource):
         A Container App Environment Storage can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
+        $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,7 +324,7 @@ class EnvironmentStorage(pulumi.CustomResource):
         A Container App Environment Storage can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
+        $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
         ```
 
         :param str resource_name: The name of the resource.

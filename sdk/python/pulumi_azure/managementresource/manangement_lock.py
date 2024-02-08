@@ -227,7 +227,7 @@ class ManangementLock(pulumi.CustomResource):
         Management Locks can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+        $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,7 +296,7 @@ class ManangementLock(pulumi.CustomResource):
         Management Locks can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
+        $ pulumi import azure:managementresource/manangementLock:ManangementLock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
         ```
 
         :param str resource_name: The name of the resource.

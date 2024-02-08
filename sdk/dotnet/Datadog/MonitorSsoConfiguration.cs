@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Datadog
     /// SingleSignOn on the Datadog Monitor can be imported using the `signle sign on resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
+    /// $ pulumi import azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Datadog/monitors/monitor1/singleSignOnConfigurations/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:datadog/monitorSsoConfiguration:MonitorSsoConfiguration")]

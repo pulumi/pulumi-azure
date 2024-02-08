@@ -2510,7 +2510,7 @@ class Account(pulumi.CustomResource):
         Storage Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+        $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
         :param str resource_name: The name of the resource.
@@ -2637,7 +2637,7 @@ class Account(pulumi.CustomResource):
         Storage Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
+        $ pulumi import azure:storage/account:Account storageAcc1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/myaccount
         ```
 
         :param str resource_name: The name of the resource.

@@ -40,7 +40,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// The contact can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+    /// $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/contact:Contact")]

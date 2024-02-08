@@ -56,7 +56,7 @@ namespace Pulumi.Azure.ApiManagement
     /// API Management AAD Identity Provider can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
+    /// $ pulumi import azure:apimanagement/identityProviderAad:IdentityProviderAad example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/aad
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/identityProviderAad:IdentityProviderAad")]

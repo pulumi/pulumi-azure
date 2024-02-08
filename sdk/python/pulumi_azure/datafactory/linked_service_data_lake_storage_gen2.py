@@ -511,7 +511,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+        $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -569,7 +569,7 @@ class LinkedServiceDataLakeStorageGen2(pulumi.CustomResource):
         Data Factory Data Lake Storage Gen2 Linked Services can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+        $ pulumi import azure:datafactory/linkedServiceDataLakeStorageGen2:LinkedServiceDataLakeStorageGen2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
         :param str resource_name: The name of the resource.

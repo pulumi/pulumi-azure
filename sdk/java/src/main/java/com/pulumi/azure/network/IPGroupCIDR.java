@@ -66,10 +66,12 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * IP Group CIDRs can be imported using the `resource id` of the IP Group and the CIDR value (`/` characters have to be replaced by `_`), e.g.
+ * IP Group CIDRs can be imported using the `resource id` of the IP Group and
+ * 
+ *  the CIDR value (`/` characters have to be replaced by `_`), e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24
+ * $ pulumi import azure:network/iPGroupCIDR:IPGroupCIDR example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/test-rg/providers/Microsoft.Network/ipGroups/test-ipgroup/cidrs/10.1.0.0_24
  * ```
  * 
  */

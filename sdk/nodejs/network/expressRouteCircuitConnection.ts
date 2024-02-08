@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * Express Route Circuit Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteCircuits/circuit1/peerings/peering1/connections/connection1
+ * $ pulumi import azure:network/expressRouteCircuitConnection:ExpressRouteCircuitConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRouteCircuits/circuit1/peerings/peering1/connections/connection1
  * ```
  */
 export class ExpressRouteCircuitConnection extends pulumi.CustomResource {

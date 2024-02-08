@@ -64,7 +64,7 @@ namespace Pulumi.Azure.PrivateDns
     /// Private DNS MX Records can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
+    /// $ pulumi import azure:privatedns/mxRecord:MxRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/MX/@
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/mxRecord:MxRecord")]

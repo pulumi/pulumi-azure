@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Management
     /// Policy Remediations can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:management/groupPolicyRemediation:GroupPolicyRemediation example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.PolicyInsights/remediations/remediation1
+    /// $ pulumi import azure:management/groupPolicyRemediation:GroupPolicyRemediation example /providers/Microsoft.Management/managementGroups/my-mgmt-group-id/providers/Microsoft.PolicyInsights/remediations/remediation1
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/groupPolicyRemediation:GroupPolicyRemediation")]

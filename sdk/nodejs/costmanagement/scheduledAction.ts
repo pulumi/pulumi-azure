@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * Azure Cost Management Scheduled Actions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:costmanagement/scheduledAction:ScheduledAction example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/scheduledaction1
+ * $ pulumi import azure:costmanagement/scheduledAction:ScheduledAction example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/scheduledActions/scheduledaction1
  * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {

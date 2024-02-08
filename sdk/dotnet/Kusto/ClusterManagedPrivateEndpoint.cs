@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Kusto
     /// Managed Private Endpoint for a Kusto Cluster can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/managedPrivateEndpoints/managedPrivateEndpoint1
+    /// $ pulumi import azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/managedPrivateEndpoints/managedPrivateEndpoint1
     /// ```
     /// </summary>
     [AzureResourceType("azure:kusto/clusterManagedPrivateEndpoint:ClusterManagedPrivateEndpoint")]
