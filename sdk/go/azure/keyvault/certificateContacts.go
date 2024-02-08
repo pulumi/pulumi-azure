@@ -98,9 +98,7 @@ import (
 // Key Vault Certificate Contacts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
-//
+// $ pulumi import azure:keyvault/certificateContacts:CertificateContacts example https://example-keyvault.vault.azure.net/certificates/contacts
 // ```
 type CertificateContacts struct {
 	pulumi.CustomResourceState

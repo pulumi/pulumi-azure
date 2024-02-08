@@ -235,7 +235,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
+        $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,7 +285,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Data Factory Managed Private Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
+        $ pulumi import azure:datafactory/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/managedVirtualNetworks/default/managedPrivateEndpoints/endpoint1
         ```
 
         :param str resource_name: The name of the resource.

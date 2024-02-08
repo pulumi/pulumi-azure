@@ -48,7 +48,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic App HTTP Actions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
+    /// $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/actionHttp:ActionHttp")]

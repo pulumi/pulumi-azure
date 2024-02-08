@@ -125,9 +125,7 @@ import (
 // Data Factory SQL Server Linked Service's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
-//
+// $ pulumi import azure:datafactory/linkedServiceSqlServer:LinkedServiceSqlServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
 // ```
 type LinkedServiceSqlServer struct {
 	pulumi.CustomResourceState

@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Core
     /// Cost Management View for a Subscriptions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:core/subscriptionCostManagementView:SubscriptionCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/costmanagementview
+    /// $ pulumi import azure:core/subscriptionCostManagementView:SubscriptionCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/costmanagementview
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/subscriptionCostManagementView:SubscriptionCostManagementView")]

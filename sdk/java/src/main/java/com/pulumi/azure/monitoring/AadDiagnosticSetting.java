@@ -104,7 +104,7 @@ import javax.annotation.Nullable;
  * Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+ * $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
  * ```
  * 
  */

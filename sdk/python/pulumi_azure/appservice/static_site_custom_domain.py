@@ -196,7 +196,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         Static Site Custom Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
+        $ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -261,7 +261,7 @@ class StaticSiteCustomDomain(pulumi.CustomResource):
         Static Site Custom Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
+        $ pulumi import azure:appservice/staticSiteCustomDomain:StaticSiteCustomDomain example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1/customDomains/name.contoso.com
         ```
 
         :param str resource_name: The name of the resource.

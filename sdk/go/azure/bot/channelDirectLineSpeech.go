@@ -79,9 +79,7 @@ import (
 // Direct Line Speech Channels can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
-//
+// $ pulumi import azure:bot/channelDirectLineSpeech:ChannelDirectLineSpeech example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/DirectLineSpeechChannel
 // ```
 type ChannelDirectLineSpeech struct {
 	pulumi.CustomResourceState

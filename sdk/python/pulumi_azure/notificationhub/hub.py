@@ -306,7 +306,7 @@ class Hub(pulumi.CustomResource):
         Notification Hubs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
+        $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
         ```
 
         :param str resource_name: The name of the resource.
@@ -355,7 +355,7 @@ class Hub(pulumi.CustomResource):
         Notification Hubs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
+        $ pulumi import azure:notificationhub/hub:Hub hub1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.NotificationHubs/namespaces/namespace1/notificationHubs/hub1
         ```
 
         :param str resource_name: The name of the resource.

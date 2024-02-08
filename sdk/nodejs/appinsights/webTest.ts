@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * Application Insights Web Tests can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/webTests/my_test
+ * $ pulumi import azure:appinsights/webTest:WebTest my_test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/webTests/my_test
  * ```
  */
 export class WebTest extends pulumi.CustomResource {

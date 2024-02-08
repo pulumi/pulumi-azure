@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AppPlatform
     /// Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
+    /// $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal")]

@@ -21,7 +21,7 @@ namespace Pulumi.Azure.Lb
     /// Load Balancer NAT Rules can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
+    /// $ pulumi import azure:lb/natRule:NatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/inboundNatRules/rule1
     /// ```
     /// </summary>
     [AzureResourceType("azure:lb/natRule:NatRule")]

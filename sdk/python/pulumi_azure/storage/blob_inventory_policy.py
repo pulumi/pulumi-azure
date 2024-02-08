@@ -140,7 +140,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         Storage Blob Inventory Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
+        $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,7 +195,7 @@ class BlobInventoryPolicy(pulumi.CustomResource):
         Storage Blob Inventory Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
+        $ pulumi import azure:storage/blobInventoryPolicy:BlobInventoryPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageAccount1/inventoryPolicies/inventoryPolicy1
         ```
 
         :param str resource_name: The name of the resource.

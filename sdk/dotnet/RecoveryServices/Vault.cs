@@ -43,7 +43,7 @@ namespace Pulumi.Azure.RecoveryServices
     /// Recovery Services Vaults can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
+    /// $ pulumi import azure:recoveryservices/vault:Vault vault1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1
     /// ```
     /// </summary>
     [AzureResourceType("azure:recoveryservices/vault:Vault")]

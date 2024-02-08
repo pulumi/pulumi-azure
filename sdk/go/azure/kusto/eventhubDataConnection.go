@@ -107,9 +107,7 @@ import (
 // Kusto EventHub Data Connections can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/eventHubConnection1
-//
+// $ pulumi import azure:kusto/eventhubDataConnection:EventhubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/eventHubConnection1
 // ```
 type EventhubDataConnection struct {
 	pulumi.CustomResourceState

@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * Shared Image Galleries can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
+ * $ pulumi import azure:compute/sharedImageGallery:SharedImageGallery gallery1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/galleries/gallery1
  * ```
  * 
  */

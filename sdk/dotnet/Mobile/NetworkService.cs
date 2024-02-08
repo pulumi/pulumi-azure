@@ -109,7 +109,7 @@ namespace Pulumi.Azure.Mobile
     /// Mobile Network Service can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mobile/networkService:NetworkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/services/service1
+    /// $ pulumi import azure:mobile/networkService:NetworkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/services/service1
     /// ```
     /// </summary>
     [AzureResourceType("azure:mobile/networkService:NetworkService")]

@@ -50,7 +50,7 @@ import * as utilities from "../utilities";
  * API Management Gateway Certificate Authority can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/certificateAuthorities/cert1
+ * $ pulumi import azure:apimanagement/gatewayCertificateAuthority:GatewayCertificateAuthority example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/certificateAuthorities/cert1
  * ```
  */
 export class GatewayCertificateAuthority extends pulumi.CustomResource {

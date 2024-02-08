@@ -159,7 +159,7 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
         Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
+        $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,7 +203,7 @@ class PostgresqlCoordinatorConfiguration(pulumi.CustomResource):
         Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
+        $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
         ```
 
         :param str resource_name: The name of the resource.

@@ -54,7 +54,7 @@ import * as utilities from "../utilities";
  * Diagnostic Settings can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
+ * $ pulumi import azure:monitoring/diagnosticSetting:DiagnosticSetting example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.KeyVault/vaults/vault1|logMonitoring1"
  * ```
  */
 export class DiagnosticSetting extends pulumi.CustomResource {

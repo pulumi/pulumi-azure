@@ -53,9 +53,7 @@ import (
 // An existing Resource Management Private Link can be imported into Terraform using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:management/privateLink:PrivateLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Authorization/resourceManagementPrivateLinks/link1
-//
+// $ pulumi import azure:management/privateLink:PrivateLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Authorization/resourceManagementPrivateLinks/link1
 // ```
 type PrivateLink struct {
 	pulumi.CustomResourceState

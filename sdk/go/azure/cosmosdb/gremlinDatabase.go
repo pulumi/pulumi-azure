@@ -54,9 +54,7 @@ import (
 // CosmosDB Gremlin Databases can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
-//
+// $ pulumi import azure:cosmosdb/gremlinDatabase:GremlinDatabase db1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.DocumentDB/databaseAccounts/account1/gremlinDatabases/db1
 // ```
 type GremlinDatabase struct {
 	pulumi.CustomResourceState

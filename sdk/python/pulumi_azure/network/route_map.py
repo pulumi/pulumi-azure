@@ -174,7 +174,7 @@ class RouteMap(pulumi.CustomResource):
         Route Maps can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
+        $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,7 +230,7 @@ class RouteMap(pulumi.CustomResource):
         Route Maps can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
+        $ pulumi import azure:network/routeMap:RouteMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/virtualHubs/virtualHub1/routeMaps/routeMap1
         ```
 
         :param str resource_name: The name of the resource.

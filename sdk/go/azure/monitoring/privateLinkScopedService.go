@@ -69,9 +69,7 @@ import (
 // Azure Monitor Private Link Scoped Services can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
-//
+// $ pulumi import azure:monitoring/privateLinkScopedService:PrivateLinkScopedService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1/scopedResources/sr1
 // ```
 type PrivateLinkScopedService struct {
 	pulumi.CustomResourceState

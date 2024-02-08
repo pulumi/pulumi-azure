@@ -37,7 +37,7 @@ import * as utilities from "../utilities";
  * Media Services Accounts can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mediaservices/account:Account account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaServices/account1
+ * $ pulumi import azure:mediaservices/account:Account account /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/mediaServices/account1
  * ```
  *
  * @deprecated azure.mediaservices.Account has been deprecated in favor of azure.media.ServiceAccount

@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * Failover Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
+ * $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
  * ```
  */
 export class FailoverGroup extends pulumi.CustomResource {

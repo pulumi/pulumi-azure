@@ -53,7 +53,7 @@ namespace Pulumi.Azure.ConfidentialLedger
     /// Confidential Ledgers can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
+    /// $ pulumi import azure:confidentialledger/ledger:Ledger example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-group/providers/Microsoft.ConfidentialLedger/ledgers/example-ledger
     /// ```
     /// </summary>
     [AzureResourceType("azure:confidentialledger/ledger:Ledger")]

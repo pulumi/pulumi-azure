@@ -224,7 +224,7 @@ class Account(pulumi.CustomResource):
         Data Share Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
+        $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,7 +267,7 @@ class Account(pulumi.CustomResource):
         Data Share Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
+        $ pulumi import azure:datashare/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1
         ```
 
         :param str resource_name: The name of the resource.

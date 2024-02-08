@@ -116,9 +116,7 @@ import (
 // Security Center Automations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:securitycenter/automation:Automation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Security/automations/automation1
-//
+// $ pulumi import azure:securitycenter/automation:Automation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Security/automations/automation1
 // ```
 type Automation struct {
 	pulumi.CustomResourceState

@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * SignalR services can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:signalr/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/terraform-signalr/providers/Microsoft.SignalRService/signalR/tfex-signalr
+ * $ pulumi import azure:signalr/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/terraform-signalr/providers/Microsoft.SignalRService/signalR/tfex-signalr
  * ```
  * 
  */

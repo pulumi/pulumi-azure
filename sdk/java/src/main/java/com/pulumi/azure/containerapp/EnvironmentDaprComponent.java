@@ -81,7 +81,7 @@ import javax.annotation.Nullable;
  * A Dapr Component for a Container App Environment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent&#34;
+ * $ pulumi import azure:containerapp/environmentDaprComponent:EnvironmentDaprComponent example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/daprComponents/mydaprcomponent&#34;
  * ```
  * 
  */

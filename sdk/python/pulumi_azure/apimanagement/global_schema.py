@@ -255,7 +255,7 @@ class GlobalSchema(pulumi.CustomResource):
         API Management API Schema's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
+        $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,7 +302,7 @@ class GlobalSchema(pulumi.CustomResource):
         API Management API Schema's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
+        $ pulumi import azure:apimanagement/globalSchema:GlobalSchema example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/schemas/schema1
         ```
 
         :param str resource_name: The name of the resource.

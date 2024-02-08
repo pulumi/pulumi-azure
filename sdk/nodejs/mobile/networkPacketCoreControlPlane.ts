@@ -61,7 +61,7 @@ import * as utilities from "../utilities";
  * Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1
+ * $ pulumi import azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1
  * ```
  */
 export class NetworkPacketCoreControlPlane extends pulumi.CustomResource {

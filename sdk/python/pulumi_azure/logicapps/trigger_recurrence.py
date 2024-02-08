@@ -295,7 +295,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         Logic App Recurrence Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
+        $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
         ```
 
         :param str resource_name: The name of the resource.
@@ -340,7 +340,7 @@ class TriggerRecurrence(pulumi.CustomResource):
         Logic App Recurrence Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
+        $ pulumi import azure:logicapps/triggerRecurrence:TriggerRecurrence daily /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/daily
         ```
 
         :param str resource_name: The name of the resource.

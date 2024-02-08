@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * Network Manager Management Group Connection can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
+ * $ pulumi import azure:network/networkManagerManagementGroupConnection:NetworkManagerManagementGroupConnection example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
  * ```
  */
 export class NetworkManagerManagementGroupConnection extends pulumi.CustomResource {

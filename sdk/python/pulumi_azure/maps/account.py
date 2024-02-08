@@ -276,7 +276,7 @@ class Account(pulumi.CustomResource):
         A Maps Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
+        $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,7 +319,7 @@ class Account(pulumi.CustomResource):
         A Maps Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
+        $ pulumi import azure:maps/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maps/accounts/my-maps-account
         ```
 
         :param str resource_name: The name of the resource.

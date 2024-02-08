@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * Tenant Template Deployments can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+ * $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
  * ```
  */
 export class TenantTemplateDeployment extends pulumi.CustomResource {

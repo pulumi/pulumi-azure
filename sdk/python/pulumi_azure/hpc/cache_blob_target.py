@@ -289,7 +289,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+        $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,7 +363,7 @@ class CacheBlobTarget(pulumi.CustomResource):
         Blob Targets within an HPC Cache can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+        $ pulumi import azure:hpc/cacheBlobTarget:CacheBlobTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
         :param str resource_name: The name of the resource.

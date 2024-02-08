@@ -217,7 +217,7 @@ class Cluster(pulumi.CustomResource):
         EventHub Cluster's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventhub/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/clusters/cluster1
+        $ pulumi import azure:eventhub/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.
@@ -255,7 +255,7 @@ class Cluster(pulumi.CustomResource):
         EventHub Cluster's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventhub/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/clusters/cluster1
+        $ pulumi import azure:eventhub/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.

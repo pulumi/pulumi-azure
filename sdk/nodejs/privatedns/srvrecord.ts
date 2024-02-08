@@ -46,7 +46,7 @@ import * as utilities from "../utilities";
  * Private DNS SRV Records can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:privatedns/sRVRecord:SRVRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/SRV/test
+ * $ pulumi import azure:privatedns/sRVRecord:SRVRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/SRV/test
  * ```
  */
 export class SRVRecord extends pulumi.CustomResource {

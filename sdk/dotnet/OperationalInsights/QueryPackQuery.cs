@@ -60,7 +60,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// Log Analytics Query Pack Queries can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:operationalinsights/queryPackQuery:QueryPackQuery example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1/queries/15b49e87-8555-4d92-8a7b-2014b469a9df
+    /// $ pulumi import azure:operationalinsights/queryPackQuery:QueryPackQuery example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1/queries/15b49e87-8555-4d92-8a7b-2014b469a9df
     /// ```
     /// </summary>
     [AzureResourceType("azure:operationalinsights/queryPackQuery:QueryPackQuery")]

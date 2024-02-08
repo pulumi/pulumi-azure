@@ -351,7 +351,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         Network Manager Connectivity Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
+        $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
         ```
 
         :param str resource_name: The name of the resource.
@@ -426,7 +426,7 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         Network Manager Connectivity Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
+        $ pulumi import azure:network/networkManagerConnectivityConfiguration:NetworkManagerConnectivityConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/connectivityConfigurations/configuration1
         ```
 
         :param str resource_name: The name of the resource.

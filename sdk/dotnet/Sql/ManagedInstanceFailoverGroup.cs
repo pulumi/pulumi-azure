@@ -100,7 +100,7 @@ namespace Pulumi.Azure.Sql
     /// SQL Instance Failover Groups can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
+    /// $ pulumi import azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/locations/Location/instanceFailoverGroups/failoverGroup1
     /// ```
     /// </summary>
     [AzureResourceType("azure:sql/managedInstanceFailoverGroup:ManagedInstanceFailoverGroup")]

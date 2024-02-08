@@ -272,7 +272,7 @@ class Certificate(pulumi.CustomResource):
         Automation Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
+        $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,7 +318,7 @@ class Certificate(pulumi.CustomResource):
         Automation Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
+        $ pulumi import azure:automation/certificate:Certificate certificate1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/certificates/certificate1
         ```
 
         :param str resource_name: The name of the resource.

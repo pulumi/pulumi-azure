@@ -118,9 +118,7 @@ import (
 // Point-to-Site VPN Gateway's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2sVpnGateways/gateway1
-//
+// $ pulumi import azure:network/pointToPointVpnGateway:PointToPointVpnGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/p2sVpnGateways/gateway1
 // ```
 type PointToPointVpnGateway struct {
 	pulumi.CustomResourceState

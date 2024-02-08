@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * Virtual Networks can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/virtualNetwork:VirtualNetwork exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1
+ * $ pulumi import azure:network/virtualNetwork:VirtualNetwork exampleNetwork /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1
  * ```
  * 
  */

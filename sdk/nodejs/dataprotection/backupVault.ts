@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * Backup Vaults can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
+ * $ pulumi import azure:dataprotection/backupVault:BackupVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1
  * ```
  */
 export class BackupVault extends pulumi.CustomResource {

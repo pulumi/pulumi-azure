@@ -61,9 +61,7 @@ import (
 // PTR records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:dns/ptrRecord:PtrRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/PTR/myrecord1
-//
+// $ pulumi import azure:dns/ptrRecord:PtrRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/dnsZones/zone1/PTR/myrecord1
 // ```
 type PtrRecord struct {
 	pulumi.CustomResourceState

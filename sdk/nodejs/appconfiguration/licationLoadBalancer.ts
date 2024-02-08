@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * Application Gateway for Containers (ALB) can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1
+ * $ pulumi import azure:appconfiguration/licationLoadBalancer:LicationLoadBalancer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceNetworking/trafficControllers/alb1
  * ```
  */
 export class LicationLoadBalancer extends pulumi.CustomResource {

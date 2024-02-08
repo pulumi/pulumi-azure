@@ -86,9 +86,7 @@ import (
 // Cosmos DB Mongo Role Definitions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbRoleDefinitions/dbname1.rolename1
-//
+// $ pulumi import azure:cosmosdb/mongoRoleDefinition:MongoRoleDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbRoleDefinitions/dbname1.rolename1
 // ```
 type MongoRoleDefinition struct {
 	pulumi.CustomResourceState

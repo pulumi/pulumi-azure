@@ -184,7 +184,7 @@ class NotebookWorkspace(pulumi.CustomResource):
         =SQL Notebook Workspaces can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
+        $ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,7 +237,7 @@ class NotebookWorkspace(pulumi.CustomResource):
         =SQL Notebook Workspaces can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
+        $ pulumi import azure:cosmosdb/notebookWorkspace:NotebookWorkspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/notebookWorkspaces/notebookWorkspace1
         ```
 
         :param str resource_name: The name of the resource.

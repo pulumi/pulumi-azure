@@ -332,7 +332,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         Customer Managed Keys for a EventHub Namespace can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
+        $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
 
         :param str resource_name: The name of the resource.
@@ -505,7 +505,7 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         Customer Managed Keys for a EventHub Namespace can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
+        $ pulumi import azure:eventhub/namespaceCustomerManagedKey:NamespaceCustomerManagedKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventHub/namespaces/namespace1
         ```
 
         :param str resource_name: The name of the resource.

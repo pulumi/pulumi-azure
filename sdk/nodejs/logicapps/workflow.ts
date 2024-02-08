@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * Logic App Workflows can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+ * $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
  * ```
  */
 export class Workflow extends pulumi.CustomResource {

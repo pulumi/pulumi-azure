@@ -49,7 +49,7 @@ namespace Pulumi.Azure.DataBricks
     /// Databricks Access Connectors can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:databricks/accessConnector:AccessConnector connector1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/accessConnectors/connector1
+    /// $ pulumi import azure:databricks/accessConnector:AccessConnector connector1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/accessConnectors/connector1
     /// ```
     /// </summary>
     [AzureResourceType("azure:databricks/accessConnector:AccessConnector")]

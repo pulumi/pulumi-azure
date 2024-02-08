@@ -72,9 +72,7 @@ import (
 // CosmosDB SQL Dedicated Gateways can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/account1/services/SqlDedicatedGateway
-//
+// $ pulumi import azure:cosmosdb/sqlDedicatedGateway:SqlDedicatedGateway example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DocumentDB/databaseAccounts/account1/services/SqlDedicatedGateway
 // ```
 type SqlDedicatedGateway struct {
 	pulumi.CustomResourceState

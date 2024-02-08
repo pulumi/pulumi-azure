@@ -100,9 +100,7 @@ import (
 // A Stream Analytics Output to an Azure Synapse Analytics Workspace can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:streamanalytics/outputSynapse:OutputSynapse example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
-//
+// $ pulumi import azure:streamanalytics/outputSynapse:OutputSynapse example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
 // ```
 type OutputSynapse struct {
 	pulumi.CustomResourceState

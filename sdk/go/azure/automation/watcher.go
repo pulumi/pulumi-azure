@@ -93,9 +93,7 @@ import (
 // Automation Watchers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:automation/watcher:Watcher example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/watchers/watch1
-//
+// $ pulumi import azure:automation/watcher:Watcher example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/watchers/watch1
 // ```
 type Watcher struct {
 	pulumi.CustomResourceState

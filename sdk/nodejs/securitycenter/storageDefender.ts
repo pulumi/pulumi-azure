@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * The setting can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:securitycenter/storageDefender:StorageDefender example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageacc
+ * $ pulumi import azure:securitycenter/storageDefender:StorageDefender example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/storageacc
  * ```
  */
 export class StorageDefender extends pulumi.CustomResource {

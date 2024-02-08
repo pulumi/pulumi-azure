@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AnalysisServices
     /// Analysis Services Server can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
+    /// $ pulumi import azure:analysisservices/server:Server server /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AnalysisServices/servers/server1
     /// ```
     /// </summary>
     [AzureResourceType("azure:analysisservices/server:Server")]

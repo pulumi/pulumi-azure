@@ -119,7 +119,7 @@ namespace Pulumi.Azure.Synapse
     /// Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
+    /// $ pulumi import azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/sqlAdministrators/activeDirectory
     /// ```
     /// </summary>
     [AzureResourceType("azure:synapse/workspaceSqlAadAdmin:WorkspaceSqlAadAdmin")]

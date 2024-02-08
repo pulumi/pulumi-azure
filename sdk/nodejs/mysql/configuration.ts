@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * MySQL Configurations can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
+ * $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
  * ```
  */
 export class Configuration extends pulumi.CustomResource {

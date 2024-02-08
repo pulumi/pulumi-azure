@@ -97,7 +97,7 @@ import javax.annotation.Nullable;
  * Route Server Bgp Connections can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
+ * $ pulumi import azure:network/routeServerBgpConnection:RouteServerBgpConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1/bgpConnections/connection1
  * ```
  * 
  */

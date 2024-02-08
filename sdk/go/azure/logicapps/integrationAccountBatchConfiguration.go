@@ -65,9 +65,7 @@ import (
 // Logic App Integration Account Batch Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
-//
+// $ pulumi import azure:logicapps/integrationAccountBatchConfiguration:IntegrationAccountBatchConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/batchConfigurations/batchConfiguration1
 // ```
 type IntegrationAccountBatchConfiguration struct {
 	pulumi.CustomResourceState

@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * Associations between NAT Gateway and Public IP Addresses can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1&#34;
+ * $ pulumi import azure:network/natGatewayPublicIpAssociation:NatGatewayPublicIpAssociation example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1|/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/publicIPAddresses/myPublicIpAddress1&#34;
  * ```
  * 
  */

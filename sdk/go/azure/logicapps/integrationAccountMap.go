@@ -73,9 +73,7 @@ import (
 // Logic App Integration Account Maps can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:logicapps/integrationAccountMap:IntegrationAccountMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/maps/map1
-//
+// $ pulumi import azure:logicapps/integrationAccountMap:IntegrationAccountMap example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/maps/map1
 // ```
 type IntegrationAccountMapResource struct {
 	pulumi.CustomResourceState

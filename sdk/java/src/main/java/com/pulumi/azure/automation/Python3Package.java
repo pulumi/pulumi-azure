@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * Automation Python3 Packages can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:automation/python3Package:Python3Package example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/python3Packages/pkg
+ * $ pulumi import azure:automation/python3Package:Python3Package example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/python3Packages/pkg
  * ```
  * 
  */

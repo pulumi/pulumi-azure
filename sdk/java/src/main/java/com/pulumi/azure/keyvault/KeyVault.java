@@ -88,7 +88,7 @@ import javax.annotation.Nullable;
  * Key Vault&#39;s can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
+ * $ pulumi import azure:keyvault/keyVault:KeyVault example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.KeyVault/vaults/vault1
  * ```
  * 
  */

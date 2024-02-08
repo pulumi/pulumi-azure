@@ -65,9 +65,7 @@ import (
 // VMWare Replication Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/vault1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/policy1
-//
+// $ pulumi import azure:siterecovery/vMWareReplicationPolicy:VMWareReplicationPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/vault1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationPolicies/policy1
 // ```
 type VMWareReplicationPolicy struct {
 	pulumi.CustomResourceState

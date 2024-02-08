@@ -524,7 +524,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+        $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -579,7 +579,7 @@ class LinkedServiceSftp(pulumi.CustomResource):
         Data Factory Linked Service's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+        $ pulumi import azure:datafactory/linkedServiceSftp:LinkedServiceSftp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
         ```
 
         :param str resource_name: The name of the resource.

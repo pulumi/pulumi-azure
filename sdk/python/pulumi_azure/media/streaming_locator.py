@@ -469,7 +469,7 @@ class StreamingLocator(pulumi.CustomResource):
         Streaming Locators can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/streamingLocator:StreamingLocator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingLocators/locator1
+        $ pulumi import azure:media/streamingLocator:StreamingLocator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingLocators/locator1
         ```
 
         :param str resource_name: The name of the resource.
@@ -535,7 +535,7 @@ class StreamingLocator(pulumi.CustomResource):
         Streaming Locators can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/streamingLocator:StreamingLocator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingLocators/locator1
+        $ pulumi import azure:media/streamingLocator:StreamingLocator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/streamingLocators/locator1
         ```
 
         :param str resource_name: The name of the resource.

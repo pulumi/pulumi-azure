@@ -75,9 +75,7 @@ import (
 // The Line Integration for a Bot Channel can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
-//
+// $ pulumi import azure:bot/channelLine:ChannelLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/LineChannel
 // ```
 type ChannelLine struct {
 	pulumi.CustomResourceState

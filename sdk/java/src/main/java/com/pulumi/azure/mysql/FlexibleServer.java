@@ -117,7 +117,7 @@ import javax.annotation.Nullable;
  * MySQL Flexible Servers can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
+ * $ pulumi import azure:mysql/flexibleServer:FlexibleServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/flexibleServers/flexibleServer1
  * ```
  * 
  */

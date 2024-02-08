@@ -355,7 +355,7 @@ class Dashboard(pulumi.CustomResource):
         Dashboards can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+        $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
         ```
 
          Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.
@@ -521,7 +521,7 @@ class Dashboard(pulumi.CustomResource):
         Dashboards can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
+        $ pulumi import azure:dashboard/dashboard:Dashboard my-board /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.Portal/dashboards/00000000-0000-0000-0000-000000000000
         ```
 
          Note the URI in the above sample can be found using the Resource Explorer tool in the Azure Portal.

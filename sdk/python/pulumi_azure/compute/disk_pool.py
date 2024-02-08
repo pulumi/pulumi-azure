@@ -300,7 +300,7 @@ class DiskPool(pulumi.CustomResource):
         Disk Pools can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPool:DiskPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/diskPool1
+        $ pulumi import azure:compute/diskPool:DiskPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/diskPool1
         ```
 
         :param str resource_name: The name of the resource.
@@ -359,7 +359,7 @@ class DiskPool(pulumi.CustomResource):
         Disk Pools can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPool:DiskPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/diskPool1
+        $ pulumi import azure:compute/diskPool:DiskPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StoragePool/diskPools/diskPool1
         ```
 
         :param str resource_name: The name of the resource.

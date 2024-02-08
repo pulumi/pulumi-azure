@@ -554,7 +554,7 @@ class Blob(pulumi.CustomResource):
         Storage Blob's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
+        $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,7 +614,7 @@ class Blob(pulumi.CustomResource):
         Storage Blob's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
+        $ pulumi import azure:storage/blob:Blob blob1 https://example.blob.core.windows.net/container/blob.vhd
         ```
 
         :param str resource_name: The name of the resource.

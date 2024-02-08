@@ -89,7 +89,7 @@ namespace Pulumi.Azure.Mobile
     /// Mobile Network Packet Core Control Plane can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1
+    /// $ pulumi import azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1
     /// ```
     /// </summary>
     [AzureResourceType("azure:mobile/networkPacketCoreControlPlane:NetworkPacketCoreControlPlane")]

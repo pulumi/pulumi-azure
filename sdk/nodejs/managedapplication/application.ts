@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * Managed Application can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:managedapplication/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applications/app1
+ * $ pulumi import azure:managedapplication/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applications/app1
  * ```
  */
 export class Application extends pulumi.CustomResource {

@@ -244,7 +244,7 @@ class PublicCertificate(pulumi.CustomResource):
         App Service Public Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
+        $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,7 +296,7 @@ class PublicCertificate(pulumi.CustomResource):
         App Service Public Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
+        $ pulumi import azure:appservice/publicCertificate:PublicCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/site1/publicCertificates/publicCertificate1
         ```
 
         :param str resource_name: The name of the resource.

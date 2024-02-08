@@ -129,7 +129,7 @@ import javax.annotation.Nullable;
  * Virtual Hub Route Table Routes can be imported using `&lt;Route Table Resource Id&gt;/routes/&lt;Route Name&gt;`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1/routes/routeName
+ * $ pulumi import azure:network/virtualHubRouteTableRoute:VirtualHubRouteTableRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/virtualHub1/hubRouteTables/routeTable1/routes/routeName
  * ```
  * 
  */

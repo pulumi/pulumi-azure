@@ -646,7 +646,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         Resource Deployment Script can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
+        $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
         ```
 
         :param str resource_name: The name of the resource.
@@ -712,7 +712,7 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         Resource Deployment Script can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
+        $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
         ```
 
         :param str resource_name: The name of the resource.

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * Azure Cosmos DB for PostgreSQL Roles can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:cosmosdb/postgresqlRole:PostgresqlRole example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/roles/role1
+ * $ pulumi import azure:cosmosdb/postgresqlRole:PostgresqlRole example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/roles/role1
  * ```
  */
 export class PostgresqlRole extends pulumi.CustomResource {

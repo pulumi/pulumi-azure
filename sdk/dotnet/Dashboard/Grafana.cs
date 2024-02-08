@@ -52,7 +52,7 @@ namespace Pulumi.Azure.Dashboard
     /// Dashboard Grafana can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
+    /// $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
     /// ```
     /// </summary>
     [AzureResourceType("azure:dashboard/grafana:Grafana")]

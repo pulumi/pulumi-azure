@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * Cosmos DB Mongo User Definitions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:cosmosdb/mongoUserDefinition:MongoUserDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbUserDefinitions/dbname1.username1
+ * $ pulumi import azure:cosmosdb/mongoUserDefinition:MongoUserDefinition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DocumentDB/databaseAccounts/account1/mongodbUserDefinitions/dbname1.username1
  * ```
  */
 export class MongoUserDefinition extends pulumi.CustomResource {

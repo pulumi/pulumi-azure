@@ -83,9 +83,7 @@ import (
 // Service Bus DR configs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
-//
+// $ pulumi import azure:servicebus/namespaceDisasterRecoveryConfig:NamespaceDisasterRecoveryConfig config1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/disasterRecoveryConfigs/config1
 // ```
 type NamespaceDisasterRecoveryConfig struct {
 	pulumi.CustomResourceState

@@ -154,7 +154,7 @@ class DataConnectorIot(pulumi.CustomResource):
         Iot Data Connectors can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,7 +192,7 @@ class DataConnectorIot(pulumi.CustomResource):
         Iot Data Connectors can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        $ pulumi import azure:sentinel/dataConnectorIot:DataConnectorIot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
         :param str resource_name: The name of the resource.

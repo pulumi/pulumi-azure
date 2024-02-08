@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * MS SQL Server Security Alert Policy can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
+ * $ pulumi import azure:mssql/serverSecurityAlertPolicy:ServerSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/acceptanceTestResourceGroup1/providers/Microsoft.Sql/servers/mssqlserver/securityAlertPolicies/Default
  * ```
  */
 export class ServerSecurityAlertPolicy extends pulumi.CustomResource {

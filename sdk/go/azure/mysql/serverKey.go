@@ -149,9 +149,7 @@ import (
 // A MySQL Server Key can be imported using the `resource id` of the MySQL Server Key, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:mysql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/servers/server1/keys/keyvaultname_key-name_keyversion
-//
+// $ pulumi import azure:mysql/serverKey:ServerKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforMySQL/servers/server1/keys/keyvaultname_key-name_keyversion
 // ```
 type ServerKey struct {
 	pulumi.CustomResourceState

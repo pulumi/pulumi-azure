@@ -494,7 +494,7 @@ class Environment(pulumi.CustomResource):
         A Container App Environment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
+        $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
 
         :param str resource_name: The name of the resource.
@@ -548,7 +548,7 @@ class Environment(pulumi.CustomResource):
         A Container App Environment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
+        $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
         ```
 
         :param str resource_name: The name of the resource.

@@ -66,7 +66,7 @@ namespace Pulumi.Azure.OperationalInsights
     /// Log Analytics Solutions can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
+    /// $ pulumi import azure:operationalinsights/analyticsSolution:AnalyticsSolution solution1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.OperationsManagement/solutions/solution1
     /// ```
     /// </summary>
     [AzureResourceType("azure:operationalinsights/analyticsSolution:AnalyticsSolution")]

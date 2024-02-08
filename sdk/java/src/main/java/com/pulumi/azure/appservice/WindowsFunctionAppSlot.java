@@ -102,7 +102,7 @@ import javax.annotation.Nullable;
  * A Windows Function App Slot can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot example &#34;/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1&#34;
+ * $ pulumi import azure:appservice/windowsFunctionAppSlot:WindowsFunctionAppSlot example &#34;/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1/slots/slot1&#34;
  * ```
  * 
  */

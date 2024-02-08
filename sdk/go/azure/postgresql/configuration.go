@@ -75,9 +75,7 @@ import (
 // PostgreSQL Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:postgresql/configuration:Configuration backslash_quote /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/configurations/backslash_quote
-//
+// $ pulumi import azure:postgresql/configuration:Configuration backslash_quote /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1/configurations/backslash_quote
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState
