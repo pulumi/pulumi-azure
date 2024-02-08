@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * EventGrid Domain Topics can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:eventgrid/domainTopic:DomainTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1/topics/topic1
+ * $ pulumi import azure:eventgrid/domainTopic:DomainTopic topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1/topics/topic1
  * ```
  * 
  */

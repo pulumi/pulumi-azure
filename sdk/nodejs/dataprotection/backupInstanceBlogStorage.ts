@@ -53,7 +53,7 @@ import * as utilities from "../utilities";
  * Backup Instance Blob Storages can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
+ * $ pulumi import azure:dataprotection/backupInstanceBlogStorage:BackupInstanceBlogStorage example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataProtection/backupVaults/vault1/backupInstances/backupInstance1
  * ```
  */
 export class BackupInstanceBlogStorage extends pulumi.CustomResource {

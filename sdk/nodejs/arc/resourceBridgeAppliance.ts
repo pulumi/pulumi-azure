@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * Arc Resource Bridge Appliance can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ResourceConnector/appliances/appliancesExample
+ * $ pulumi import azure:arc/resourceBridgeAppliance:ResourceBridgeAppliance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ResourceConnector/appliances/appliancesExample
  * ```
  */
 export class ResourceBridgeAppliance extends pulumi.CustomResource {

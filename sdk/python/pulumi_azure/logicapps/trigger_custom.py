@@ -168,7 +168,7 @@ class TriggerCustom(pulumi.CustomResource):
         Logic App Custom Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
+        $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,7 +215,7 @@ class TriggerCustom(pulumi.CustomResource):
         Logic App Custom Triggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
+        $ pulumi import azure:logicapps/triggerCustom:TriggerCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/triggers/custom1
         ```
 
         :param str resource_name: The name of the resource.

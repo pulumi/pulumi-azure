@@ -626,7 +626,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+        $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -681,7 +681,7 @@ class IntegrationRuntimeSsis(pulumi.CustomResource):
         Data Factory Azure-SSIS Integration Runtimes can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
+        $ pulumi import azure:datafactory/integrationRuntimeSsis:IntegrationRuntimeSsis example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/integrationruntimes/example
         ```
 
         :param str resource_name: The name of the resource.

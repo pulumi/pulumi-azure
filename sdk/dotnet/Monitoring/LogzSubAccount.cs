@@ -66,7 +66,7 @@ namespace Pulumi.Azure.Monitoring
     /// logz SubAccounts can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/logzSubAccount:LogzSubAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/accounts/subAccount1
+    /// $ pulumi import azure:monitoring/logzSubAccount:LogzSubAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/accounts/subAccount1
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/logzSubAccount:LogzSubAccount")]

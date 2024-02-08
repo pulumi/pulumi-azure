@@ -208,9 +208,7 @@ import (
 // SQL Database can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
-//
+// $ pulumi import azure:mssql/database:Database example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/databases/example1
 // ```
 type Database struct {
 	pulumi.CustomResourceState

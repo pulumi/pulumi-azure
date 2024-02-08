@@ -175,7 +175,7 @@ class ActionCustom(pulumi.CustomResource):
         Logic App Custom Actions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
+        $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,7 +229,7 @@ class ActionCustom(pulumi.CustomResource):
         Logic App Custom Actions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
+        $ pulumi import azure:logicapps/actionCustom:ActionCustom custom1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/custom1
         ```
 
         :param str resource_name: The name of the resource.

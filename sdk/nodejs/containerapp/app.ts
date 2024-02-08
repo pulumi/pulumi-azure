@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * A Container App can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/app:App example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/containerApps/myContainerApp"
+ * $ pulumi import azure:containerapp/app:App example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/containerApps/myContainerApp"
  * ```
  */
 export class App extends pulumi.CustomResource {

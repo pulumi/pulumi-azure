@@ -299,7 +299,7 @@ class EnterpriseCluster(pulumi.CustomResource):
         Redis Enterprise Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
+        $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
 
         :param str resource_name: The name of the resource.
@@ -339,7 +339,7 @@ class EnterpriseCluster(pulumi.CustomResource):
         Redis Enterprise Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
+        $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
         ```
 
         :param str resource_name: The name of the resource.

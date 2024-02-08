@@ -100,7 +100,7 @@ import javax.annotation.Nullable;
  * Azure VM Workload Backup Policies can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:backup/policyVMWorkload:PolicyVMWorkload policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupPolicies/policy1
+ * $ pulumi import azure:backup/policyVMWorkload:PolicyVMWorkload policy1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupPolicies/policy1
  * ```
  * 
  */

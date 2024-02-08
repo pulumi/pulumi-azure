@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * Recovery Services can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:siterecovery/hyperVSite:HyperVSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/fabric1
+ * $ pulumi import azure:siterecovery/hyperVSite:HyperVSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/replicationFabrics/fabric1
  * ```
  */
 export class HyperVSite extends pulumi.CustomResource {

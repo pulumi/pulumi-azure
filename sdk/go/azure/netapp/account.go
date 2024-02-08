@@ -83,9 +83,7 @@ import (
 // NetApp Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:netapp/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
-//
+// $ pulumi import azure:netapp/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.NetApp/netAppAccounts/account1
 // ```
 type Account struct {
 	pulumi.CustomResourceState

@@ -83,10 +83,14 @@ import javax.annotation.Nullable;
  * An existing Dev Center can be imported into Terraform using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}
+ * $ pulumi import azure:devcenter/devCenter:DevCenter example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}
  * ```
  * 
- *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`. * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`. * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
+ *  * Where `{subscriptionId}` is the ID of the Azure Subscription where the Dev Center exists. For example `12345678-1234-9876-4563-123456789012`.
+ * 
+ *  * Where `{resourceGroupName}` is the name of Resource Group where this Dev Center exists. For example `example-resource-group`.
+ * 
+ *  * Where `{devCenterName}` is the name of the Dev Center. For example `devCenterValue`.
  * 
  */
 @ResourceType(type="azure:devcenter/devCenter:DevCenter")

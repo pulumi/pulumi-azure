@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  * CDN Endpoint Custom Domains can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
+ * $ pulumi import azure:cdn/endpointCustomDomain:EndpointCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/profile1/endpoints/endpoint1/customDomains/domain1
  * ```
  */
 export class EndpointCustomDomain extends pulumi.CustomResource {

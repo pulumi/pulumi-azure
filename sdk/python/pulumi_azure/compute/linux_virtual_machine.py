@@ -1819,7 +1819,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         Linux Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
+        $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
 
         :param str resource_name: The name of the resource.
@@ -1975,7 +1975,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         Linux Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
+        $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
         ```
 
         :param str resource_name: The name of the resource.

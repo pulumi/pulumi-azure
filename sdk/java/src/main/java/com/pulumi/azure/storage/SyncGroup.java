@@ -64,7 +64,7 @@ import javax.annotation.Nullable;
  * Storage Sync Groups can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
+ * $ pulumi import azure:storage/syncGroup:SyncGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.StorageSync/storageSyncServices/sync1/syncGroups/group1
  * ```
  * 
  */

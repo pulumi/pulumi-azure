@@ -460,7 +460,7 @@ class ScalingPlan(pulumi.CustomResource):
         Virtual Desktop Scaling Plans can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
+        $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
         ```
 
         :param str resource_name: The name of the resource.
@@ -580,7 +580,7 @@ class ScalingPlan(pulumi.CustomResource):
         Virtual Desktop Scaling Plans can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
+        $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
         ```
 
         :param str resource_name: The name of the resource.

@@ -80,7 +80,7 @@ import * as utilities from "../utilities";
  * Synapse Workspace Azure AD Administrator can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory
+ * $ pulumi import azure:synapse/workspaceAadAdmin:WorkspaceAadAdmin example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Synapse/workspaces/workspace1/administrators/activeDirectory
  * ```
  */
 export class WorkspaceAadAdmin extends pulumi.CustomResource {

@@ -465,7 +465,7 @@ class Definition(pulumi.CustomResource):
         Managed Application Definition can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
+        $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
         ```
 
         :param str resource_name: The name of the resource.
@@ -520,7 +520,7 @@ class Definition(pulumi.CustomResource):
         Managed Application Definition can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
+        $ pulumi import azure:managedapplication/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Solutions/applicationDefinitions/appDefinition1
         ```
 
         :param str resource_name: The name of the resource.

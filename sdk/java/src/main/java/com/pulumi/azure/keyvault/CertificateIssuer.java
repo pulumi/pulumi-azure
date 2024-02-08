@@ -76,7 +76,7 @@ import javax.annotation.Nullable;
  * Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example &#34;https://key-vault-name.vault.azure.net/certificates/issuers/example&#34;
+ * $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example &#34;https://key-vault-name.vault.azure.net/certificates/issuers/example&#34;
  * ```
  * 
  */

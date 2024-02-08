@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * Portal Tenant Configurations can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
+ * $ pulumi import azure:core/portalTenantConfiguration:PortalTenantConfiguration example /providers/Microsoft.Portal/tenantConfigurations/default
  * ```
  */
 export class PortalTenantConfiguration extends pulumi.CustomResource {

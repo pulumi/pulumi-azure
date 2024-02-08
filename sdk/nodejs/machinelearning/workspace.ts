@@ -272,7 +272,7 @@ import * as utilities from "../utilities";
  * Machine Learning Workspace can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:machinelearning/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1
+ * $ pulumi import azure:machinelearning/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.MachineLearningServices/workspaces/workspace1
  * ```
  */
 export class Workspace extends pulumi.CustomResource {

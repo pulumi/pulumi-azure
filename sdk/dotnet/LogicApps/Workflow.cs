@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic App Workflows can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
+    /// $ pulumi import azure:logicapps/workflow:Workflow workflow1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/workflow:Workflow")]

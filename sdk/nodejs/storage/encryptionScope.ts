@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * Storage Encryption Scopes can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
+ * $ pulumi import azure:storage/encryptionScope:EncryptionScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Storage/storageAccounts/account1/encryptionScopes/scope1
  * ```
  */
 export class EncryptionScope extends pulumi.CustomResource {

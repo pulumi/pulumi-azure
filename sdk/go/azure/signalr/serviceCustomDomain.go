@@ -140,9 +140,7 @@ import (
 // Custom Domain for a SignalR service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:signalr/serviceCustomDomain:ServiceCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customDomains/customDomain1
-//
+// $ pulumi import azure:signalr/serviceCustomDomain:ServiceCustomDomain example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customDomains/customDomain1
 // ```
 type ServiceCustomDomain struct {
 	pulumi.CustomResourceState

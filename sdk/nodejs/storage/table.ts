@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * Table's within a Storage Account can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+ * $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
  * ```
  */
 export class Table extends pulumi.CustomResource {

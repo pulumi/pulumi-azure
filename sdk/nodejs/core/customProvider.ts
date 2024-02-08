@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * Custom Provider can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
+ * $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
  * ```
  */
 export class CustomProvider extends pulumi.CustomResource {

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * Network Manager Security Admin Configuration can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1
+ * $ pulumi import azure:network/networkManagerSecurityAdminConfiguration:NetworkManagerSecurityAdminConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1
  * ```
  */
 export class NetworkManagerSecurityAdminConfiguration extends pulumi.CustomResource {

@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * Redis Enterprise Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
+ * $ pulumi import azure:redis/enterpriseCluster:EnterpriseCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1
  * ```
  */
 export class EnterpriseCluster extends pulumi.CustomResource {

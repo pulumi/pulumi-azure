@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
+ * $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
  * ```
  */
 export class FederatedIdentityCredential extends pulumi.CustomResource {

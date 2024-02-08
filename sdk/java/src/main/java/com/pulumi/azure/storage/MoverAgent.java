@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * Storage Mover Agent can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:storage/moverAgent:MoverAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/agents/agent1
+ * $ pulumi import azure:storage/moverAgent:MoverAgent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/agents/agent1
  * ```
  * 
  */

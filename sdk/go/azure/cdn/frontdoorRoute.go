@@ -19,9 +19,7 @@ import (
 // Front Door Routes can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
-//
+// $ pulumi import azure:cdn/frontdoorRoute:FrontdoorRoute example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/afdEndpoints/endpoint1/routes/route1
 // ```
 type FrontdoorRoute struct {
 	pulumi.CustomResourceState

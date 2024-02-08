@@ -19,9 +19,7 @@ import (
 // Front Door Security Policies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
-//
+// $ pulumi import azure:cdn/frontdoorSecurityPolicy:FrontdoorSecurityPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/securityPolicies/policy1
 // ```
 type FrontdoorSecurityPolicy struct {
 	pulumi.CustomResourceState

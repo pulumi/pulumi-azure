@@ -289,7 +289,7 @@ class CustomProvider(pulumi.CustomResource):
         Custom Provider can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
+        $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -332,7 +332,7 @@ class CustomProvider(pulumi.CustomResource):
         Custom Provider can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
+        $ pulumi import azure:core/customProvider:CustomProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.CustomProviders/resourceProviders/example
         ```
 
         :param str resource_name: The name of the resource.

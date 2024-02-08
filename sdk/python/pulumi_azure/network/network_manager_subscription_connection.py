@@ -208,7 +208,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
+        $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
 
         :param str resource_name: The name of the resource.
@@ -253,7 +253,7 @@ class NetworkManagerSubscriptionConnection(pulumi.CustomResource):
         Network Subscription Network Manager Connection can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
+        $ pulumi import azure:network/networkManagerSubscriptionConnection:NetworkManagerSubscriptionConnection example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Network/networkManagerConnections/networkManagerConnection1
         ```
 
         :param str resource_name: The name of the resource.

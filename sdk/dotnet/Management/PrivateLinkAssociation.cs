@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Management
     /// An existing Private Link Association can be imported into Terraform using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import azure:management/privateLinkAssociation:PrivateLinkAssociation example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/privateLinkAssociations/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AzureResourceType("azure:management/privateLinkAssociation:PrivateLinkAssociation")]

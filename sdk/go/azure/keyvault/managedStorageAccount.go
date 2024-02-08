@@ -196,9 +196,7 @@ import (
 // Key Vault Managed Storage Accounts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
-//
+// $ pulumi import azure:keyvault/managedStorageAccount:ManagedStorageAccount example https://example-keyvault.vault.azure.net/storage/exampleStorageAcc01
 // ```
 type ManagedStorageAccount struct {
 	pulumi.CustomResourceState

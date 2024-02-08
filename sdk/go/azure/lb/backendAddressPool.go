@@ -76,9 +76,7 @@ import (
 // Load Balancer Backend Address Pools can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:lb/backendAddressPool:BackendAddressPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1
-//
+// $ pulumi import azure:lb/backendAddressPool:BackendAddressPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/backendAddressPools/pool1
 // ```
 type BackendAddressPool struct {
 	pulumi.CustomResourceState

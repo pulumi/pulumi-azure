@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * IoTHub Route can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/routes/route1
+ * $ pulumi import azure:iot/route:Route route1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/routes/route1
  * ```
  */
 export class Route extends pulumi.CustomResource {

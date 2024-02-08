@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * Azure Relay Hybrid Connection Authorization Rules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
+ * $ pulumi import azure:relay/hybridConnectionAuthorizationRule:HybridConnectionAuthorizationRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Relay/namespaces/namespace1/hybridConnections/connection1/authorizationRules/rule1
  * ```
  */
 export class HybridConnectionAuthorizationRule extends pulumi.CustomResource {

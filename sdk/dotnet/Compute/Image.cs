@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Compute
     /// Images can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
+    /// $ pulumi import azure:compute/image:Image example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/images/image1
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/image:Image")]

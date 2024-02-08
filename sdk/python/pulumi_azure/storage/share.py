@@ -363,7 +363,7 @@ class Share(pulumi.CustomResource):
         Storage Shares can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+        $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
         ```
 
         :param str resource_name: The name of the resource.
@@ -425,7 +425,7 @@ class Share(pulumi.CustomResource):
         Storage Shares can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
+        $ pulumi import azure:storage/share:Share exampleShare https://account1.file.core.windows.net/share1
         ```
 
         :param str resource_name: The name of the resource.

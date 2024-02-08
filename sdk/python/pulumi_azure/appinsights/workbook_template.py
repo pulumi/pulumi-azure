@@ -403,7 +403,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         Application Insights Workbook Template can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
+        $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
         ```
 
         :param str resource_name: The name of the resource.
@@ -498,7 +498,7 @@ class WorkbookTemplate(pulumi.CustomResource):
         Application Insights Workbook Template can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
+        $ pulumi import azure:appinsights/workbookTemplate:WorkbookTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbookTemplates/resource1
         ```
 
         :param str resource_name: The name of the resource.

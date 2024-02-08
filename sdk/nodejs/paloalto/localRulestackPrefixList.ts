@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * Palo Alto Local Rulestack Prefix Lists can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/prefixLists/myFQDNList1
+ * $ pulumi import azure:paloalto/localRulestackPrefixList:LocalRulestackPrefixList example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack/prefixLists/myFQDNList1
  * ```
  */
 export class LocalRulestackPrefixList extends pulumi.CustomResource {

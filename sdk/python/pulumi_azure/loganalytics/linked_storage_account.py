@@ -200,7 +200,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:loganalytics/linkedStorageAccount:LinkedStorageAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedStorageAccounts/{dataSourceType}
+        $ pulumi import azure:loganalytics/linkedStorageAccount:LinkedStorageAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedStorageAccounts/{dataSourceType}
         ```
 
         :param str resource_name: The name of the resource.
@@ -249,7 +249,7 @@ class LinkedStorageAccount(pulumi.CustomResource):
         Log Analytics Linked Storage Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:loganalytics/linkedStorageAccount:LinkedStorageAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedStorageAccounts/{dataSourceType}
+        $ pulumi import azure:loganalytics/linkedStorageAccount:LinkedStorageAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/linkedStorageAccounts/{dataSourceType}
         ```
 
         :param str resource_name: The name of the resource.

@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Storage
     /// Data Lake Gen2 File System's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem queue1 https://account1.dfs.core.windows.net/fileSystem1
+    /// $ pulumi import azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem queue1 https://account1.dfs.core.windows.net/fileSystem1
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/dataLakeGen2Filesystem:DataLakeGen2Filesystem")]

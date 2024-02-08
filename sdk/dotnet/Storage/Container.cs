@@ -53,7 +53,7 @@ namespace Pulumi.Azure.Storage
     /// Storage Containers can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
+    /// $ pulumi import azure:storage/container:Container container1 https://example.blob.core.windows.net/container
     /// ```
     /// </summary>
     [AzureResourceType("azure:storage/container:Container")]

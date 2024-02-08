@@ -95,7 +95,7 @@ import javax.annotation.Nullable;
  * A Container App Environment Storage can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage&#34;
+ * $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage&#34;
  * ```
  * 
  */

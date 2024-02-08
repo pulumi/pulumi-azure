@@ -87,13 +87,13 @@ import javax.annotation.Nullable;
  * App Configuration Features can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=labelName
+ * $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=labelName
  * ```
  * 
- *  If you wish to import with an empty label then simply leave the label&#39;s name blank
+ *  If you wish to import with an empty label then simply leave the label&#39;s name blank:
  * 
  * ```sh
- *  $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
+ * $ pulumi import azure:appconfiguration/configurationFeature:ConfigurationFeature test https://appconfname1.azconfig.io/kv/.appconfig.featureflag%2FkeyName?label=
  * ```
  * 
  */

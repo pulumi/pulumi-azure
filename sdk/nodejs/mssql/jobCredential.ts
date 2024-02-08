@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Elastic Job Credentials can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
+ * $ pulumi import azure:mssql/jobCredential:JobCredential example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Sql/servers/myserver1/jobAgents/myjobagent1/credentials/credential1
  * ```
  */
 export class JobCredential extends pulumi.CustomResource {

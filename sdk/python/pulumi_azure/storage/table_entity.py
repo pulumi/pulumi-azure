@@ -224,7 +224,7 @@ class TableEntity(pulumi.CustomResource):
         Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
+        $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,7 +272,7 @@ class TableEntity(pulumi.CustomResource):
         Entities within a Table in an Azure Storage Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
+        $ pulumi import azure:storage/tableEntity:TableEntity entity1 https://example.table.core.windows.net/table1(PartitionKey='samplepartition',RowKey='samplerow')
         ```
 
         :param str resource_name: The name of the resource.

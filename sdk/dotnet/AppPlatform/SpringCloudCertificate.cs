@@ -150,7 +150,7 @@ namespace Pulumi.Azure.AppPlatform
     /// Spring Cloud Certificate can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/spring1/certificates/cert1
+    /// $ pulumi import azure:appplatform/springCloudCertificate:SpringCloudCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/spring1/certificates/cert1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appplatform/springCloudCertificate:SpringCloudCertificate")]

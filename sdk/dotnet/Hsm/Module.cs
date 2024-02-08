@@ -154,7 +154,7 @@ namespace Pulumi.Azure.Hsm
     /// Dedicated Hardware Security Module can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
+    /// $ pulumi import azure:hsm/module:Module example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/hsm1
     /// ```
     /// </summary>
     [AzureResourceType("azure:hsm/module:Module")]

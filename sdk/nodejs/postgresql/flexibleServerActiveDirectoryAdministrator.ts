@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  * A PostgreSQL Flexible Server Active Directory Administrator can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/myserver/administrators/objectId
+ * $ pulumi import azure:postgresql/flexibleServerActiveDirectoryAdministrator:FlexibleServerActiveDirectoryAdministrator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/flexibleServers/myserver/administrators/objectId
  * ```
  */
 export class FlexibleServerActiveDirectoryAdministrator extends pulumi.CustomResource {

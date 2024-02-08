@@ -61,9 +61,7 @@ import (
 // Storage Queue's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
-//
+// $ pulumi import azure:storage/queue:Queue queue1 https://example.queue.core.windows.net/queue1
 // ```
 type Queue struct {
 	pulumi.CustomResourceState

@@ -17,7 +17,7 @@ namespace Pulumi.Azure.Network
     /// Firewall Policy Rule Collection Groups can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
+    /// $ pulumi import azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/firewallPolicies/policy1/ruleCollectionGroups/gruop1
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/firewallPolicyRuleCollectionGroup:FirewallPolicyRuleCollectionGroup")]

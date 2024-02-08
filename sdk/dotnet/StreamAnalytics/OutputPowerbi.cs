@@ -50,7 +50,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// Stream Analytics Output to Power BI can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
+    /// $ pulumi import azure:streamanalytics/outputPowerbi:OutputPowerbi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/outputPowerbi:OutputPowerbi")]

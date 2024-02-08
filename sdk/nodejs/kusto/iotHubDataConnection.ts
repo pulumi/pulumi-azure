@@ -71,7 +71,7 @@ import * as utilities from "../utilities";
  * Kusto IotHub Data Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
+ * $ pulumi import azure:kusto/iotHubDataConnection:IotHubDataConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/databases/database1/dataConnections/dataConnection1
  * ```
  */
 export class IotHubDataConnection extends pulumi.CustomResource {

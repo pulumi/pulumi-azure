@@ -460,7 +460,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         Stream Analytics can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
+        $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
 
         :param str resource_name: The name of the resource.
@@ -523,7 +523,7 @@ class ReferenceInputMssql(pulumi.CustomResource):
         Stream Analytics can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
+        $ pulumi import azure:streamanalytics/referenceInputMssql:ReferenceInputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
         ```
 
         :param str resource_name: The name of the resource.

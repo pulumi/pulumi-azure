@@ -65,9 +65,7 @@ import (
 // Azure IoT Time Series Insights Access Policy can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
-//
+// $ pulumi import azure:iot/timeSeriesInsightsAccessPolicy:TimeSeriesInsightsAccessPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/accessPolicies/example
 // ```
 type TimeSeriesInsightsAccessPolicy struct {
 	pulumi.CustomResourceState

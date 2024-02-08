@@ -234,7 +234,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
+        $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,7 +260,7 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
+        $ pulumi import azure:armmsi/federatedIdentityCredential:FederatedIdentityCredential example /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{parentIdentityName}/federatedIdentityCredentials/{resourceName}
         ```
 
         :param str resource_name: The name of the resource.

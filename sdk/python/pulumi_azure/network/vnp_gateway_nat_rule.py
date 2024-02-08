@@ -441,7 +441,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
+        $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -505,7 +505,7 @@ class VnpGatewayNatRule(pulumi.CustomResource):
         VPN Gateway NAT Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
+        $ pulumi import azure:network/vnpGatewayNatRule:VnpGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/vpnGateways/vpnGateway1/natRules/natRule1
         ```
 
         :param str resource_name: The name of the resource.

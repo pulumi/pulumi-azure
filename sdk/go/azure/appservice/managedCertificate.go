@@ -21,9 +21,7 @@ import (
 // App Service Managed Certificates can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
-//
+// $ pulumi import azure:appservice/managedCertificate:ManagedCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Web/certificates/customhost.contoso.com
 // ```
 type ManagedCertificate struct {
 	pulumi.CustomResourceState

@@ -44,7 +44,7 @@ namespace Pulumi.Azure.Network
     /// Express Route Ports can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:network/expressRoutePort:ExpressRoutePort example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRoutePorts/port1
+    /// $ pulumi import azure:network/expressRoutePort:ExpressRoutePort example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/expressRoutePorts/port1
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/expressRoutePort:ExpressRoutePort")]

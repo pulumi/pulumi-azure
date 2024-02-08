@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * Palo Alto Networks Rulestacks can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:paloalto/localRulestack:LocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack
+ * $ pulumi import azure:paloalto/localRulestack:LocalRulestack example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/myLocalRulestack
  * ```
  */
 export class LocalRulestack extends pulumi.CustomResource {

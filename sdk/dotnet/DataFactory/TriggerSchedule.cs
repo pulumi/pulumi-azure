@@ -54,7 +54,7 @@ namespace Pulumi.Azure.DataFactory
     /// Data Factory Schedule Trigger can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+    /// $ pulumi import azure:datafactory/triggerSchedule:TriggerSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/triggerSchedule:TriggerSchedule")]

@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * ExpressRoute Port Authorizations can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRoutePorts/myExpressPort/authorizations/auth1
+ * $ pulumi import azure:network/expressRoutePortAuthorization:ExpressRoutePortAuthorization auth1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/expressRoutePorts/myExpressPort/authorizations/auth1
  * ```
  */
 export class ExpressRoutePortAuthorization extends pulumi.CustomResource {

@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * Subscription Cost Management Exports can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
+ * $ pulumi import azure:core/subscriptionCostManagementExport:SubscriptionCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/providers/Microsoft.CostManagement/exports/export1
  * ```
  * 
  */

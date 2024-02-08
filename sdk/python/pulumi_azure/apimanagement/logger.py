@@ -331,7 +331,7 @@ class Logger(pulumi.CustomResource):
         API Management Loggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+        $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
         ```
 
         :param str resource_name: The name of the resource.
@@ -385,7 +385,7 @@ class Logger(pulumi.CustomResource):
         API Management Loggers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
+        $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
         ```
 
         :param str resource_name: The name of the resource.

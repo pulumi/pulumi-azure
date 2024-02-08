@@ -225,7 +225,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
+        $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
         ```
 
         :param str resource_name: The name of the resource.
@@ -274,7 +274,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         A PostgreSQL Active Directory Administrator can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
+        $ pulumi import azure:postgresql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver
         ```
 
         :param str resource_name: The name of the resource.

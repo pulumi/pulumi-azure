@@ -352,7 +352,7 @@ class StaticSite(pulumi.CustomResource):
         Static Web Apps can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
+        $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
 
         :param str resource_name: The name of the resource.
@@ -394,7 +394,7 @@ class StaticSite(pulumi.CustomResource):
         Static Web Apps can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
+        $ pulumi import azure:appservice/staticSite:StaticSite example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/staticSites/my-static-site1
         ```
 
         :param str resource_name: The name of the resource.

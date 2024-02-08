@@ -260,7 +260,7 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
+        $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,7 +307,7 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         Azure IoT Time Series Insights Reference Data Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
+        $ pulumi import azure:iot/timeSeriesInsightsReferenceDataSet:TimeSeriesInsightsReferenceDataSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example/referenceDataSets/example
         ```
 
         :param str resource_name: The name of the resource.

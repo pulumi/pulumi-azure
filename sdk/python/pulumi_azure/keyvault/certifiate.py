@@ -561,7 +561,7 @@ class Certifiate(pulumi.CustomResource):
         Key Vault Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+        $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
         :param str resource_name: The name of the resource.
@@ -769,7 +769,7 @@ class Certifiate(pulumi.CustomResource):
         Key Vault Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
+        $ pulumi import azure:keyvault/certifiate:Certifiate example "https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217"
         ```
 
         :param str resource_name: The name of the resource.

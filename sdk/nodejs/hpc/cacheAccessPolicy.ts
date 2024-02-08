@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * HPC Cache Access Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:hpc/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/cacheAccessPolicies/policy1
+ * $ pulumi import azure:hpc/cacheAccessPolicy:CacheAccessPolicy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/cacheAccessPolicies/policy1
  * ```
  */
 export class CacheAccessPolicy extends pulumi.CustomResource {

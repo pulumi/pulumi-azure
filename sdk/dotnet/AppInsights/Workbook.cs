@@ -68,7 +68,7 @@ namespace Pulumi.Azure.AppInsights
     /// Workbooks can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appinsights/workbook:Workbook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooks/resource1
+    /// $ pulumi import azure:appinsights/workbook:Workbook example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/workbooks/resource1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appinsights/workbook:Workbook")]

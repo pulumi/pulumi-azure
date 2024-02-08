@@ -73,9 +73,7 @@ import (
 // ServiceBus Queue Authorization Rules can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
-//
+// $ pulumi import azure:servicebus/queueAuthorizationRule:QueueAuthorizationRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ServiceBus/namespaces/namespace1/queues/queue1/authorizationRules/rule1
 // ```
 type QueueAuthorizationRule struct {
 	pulumi.CustomResourceState

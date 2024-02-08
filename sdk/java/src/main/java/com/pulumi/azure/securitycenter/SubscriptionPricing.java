@@ -103,7 +103,7 @@ import javax.annotation.Nullable;
  * The pricing tier can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/&lt;resource_type&gt;
+ * $ pulumi import azure:securitycenter/subscriptionPricing:SubscriptionPricing example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/pricings/&lt;resource_type&gt;
  * ```
  * 
  */

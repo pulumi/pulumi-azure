@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  * API Management Diagnostics can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
+ * $ pulumi import azure:apimanagement/diagnostic:Diagnostic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/diagnostics/applicationinsights
  * ```
  */
 export class Diagnostic extends pulumi.CustomResource {

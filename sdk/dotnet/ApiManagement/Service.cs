@@ -42,7 +42,7 @@ namespace Pulumi.Azure.ApiManagement
     /// API Management Services can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
+    /// $ pulumi import azure:apimanagement/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1
     /// ```
     /// </summary>
     [AzureResourceType("azure:apimanagement/service:Service")]

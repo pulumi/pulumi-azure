@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * Automation Credentials can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
+ * $ pulumi import azure:automation/credential:Credential credential1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/credentials/credential1
  * ```
  * 
  */
