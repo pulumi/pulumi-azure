@@ -56,7 +56,7 @@ namespace Pulumi.Azure.Maps
     /// An Azure Maps Creators can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:maps/creator:Creator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Maps/accounts/account1/creators/creator1
+    /// $ pulumi import azure:maps/creator:Creator example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Maps/accounts/account1/creators/creator1
     /// ```
     /// </summary>
     [AzureResourceType("azure:maps/creator:Creator")]

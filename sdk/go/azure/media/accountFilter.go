@@ -120,9 +120,7 @@ import (
 // Account Filters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
-//
+// $ pulumi import azure:media/accountFilter:AccountFilter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Media/mediaServices/account1/accountFilters/filter1
 // ```
 type AccountFilter struct {
 	pulumi.CustomResourceState

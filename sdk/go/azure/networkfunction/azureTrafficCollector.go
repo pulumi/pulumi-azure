@@ -56,9 +56,7 @@ import (
 // Network Function Azure Traffic Collector can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:networkfunction/azureTrafficCollector:AzureTrafficCollector example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/azureTrafficCollector1
-//
+// $ pulumi import azure:networkfunction/azureTrafficCollector:AzureTrafficCollector example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.NetworkFunction/azureTrafficCollectors/azureTrafficCollector1
 // ```
 type AzureTrafficCollector struct {
 	pulumi.CustomResourceState

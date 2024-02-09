@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * MariaDB Firewall rules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mariadb/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/firewallRules/rule1
+ * $ pulumi import azure:mariadb/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/firewallRules/rule1
  * ```
  */
 export class FirewallRule extends pulumi.CustomResource {

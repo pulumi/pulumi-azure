@@ -51,7 +51,7 @@ namespace Pulumi.Azure.AppService
     /// Linux Web Apps can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:appservice/linuxWebApp:LinuxWebApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
+    /// $ pulumi import azure:appservice/linuxWebApp:LinuxWebApp example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
     /// ```
     /// </summary>
     [AzureResourceType("azure:appservice/linuxWebApp:LinuxWebApp")]

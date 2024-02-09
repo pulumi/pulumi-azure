@@ -289,7 +289,7 @@ class Group(pulumi.CustomResource):
         API Management Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
+        $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
         ```
 
         :param str resource_name: The name of the resource.
@@ -336,7 +336,7 @@ class Group(pulumi.CustomResource):
         API Management Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
+        $ pulumi import azure:apimanagement/group:Group example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/groups/example-apimg
         ```
 
         :param str resource_name: The name of the resource.

@@ -152,7 +152,7 @@ import * as utilities from "../utilities";
  * Virtual Network Gateway Connections can be imported using their `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
+ * $ pulumi import azure:network/virtualNetworkGatewayConnection:VirtualNetworkGatewayConnection exampleConnection /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.Network/connections/myConnection1
  * ```
  */
 export class VirtualNetworkGatewayConnection extends pulumi.CustomResource {

@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * Event Grid System Topic can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
+ * $ pulumi import azure:eventgrid/systemTopic:SystemTopic example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/systemTopics/systemTopic1
  * ```
  * 
  */

@@ -249,7 +249,7 @@ namespace Pulumi.Azure.MSSql
     /// Microsoft SQL Managed Instances can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mssql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
+    /// $ pulumi import azure:mssql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/managedInstance:ManagedInstance")]

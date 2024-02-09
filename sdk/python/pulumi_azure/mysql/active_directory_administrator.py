@@ -226,7 +226,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+        $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
         ```
 
         :param str resource_name: The name of the resource.
@@ -276,7 +276,7 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+        $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
         ```
 
         :param str resource_name: The name of the resource.

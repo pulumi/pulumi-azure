@@ -203,7 +203,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         Data Share Kusto Cluster Datasets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/datasetKustoCluster:DatasetKustoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+        $ pulumi import azure:datashare/datasetKustoCluster:DatasetKustoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class DatasetKustoCluster(pulumi.CustomResource):
         Data Share Kusto Cluster Datasets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/datasetKustoCluster:DatasetKustoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
+        $ pulumi import azure:datashare/datasetKustoCluster:DatasetKustoCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1/dataSets/dataSet1
         ```
 
         :param str resource_name: The name of the resource.

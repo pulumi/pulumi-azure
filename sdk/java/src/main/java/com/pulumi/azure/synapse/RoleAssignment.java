@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * Synapse Role Assignment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:synapse/roleAssignment:RoleAssignment example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000&#34;
+ * $ pulumi import azure:synapse/roleAssignment:RoleAssignment example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1|000000000000&#34;
  * ```
  * 
  */

@@ -625,7 +625,7 @@ class Insights(pulumi.CustomResource):
         Application Insights instances can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
+        $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
         ```
 
         :param str resource_name: The name of the resource.
@@ -697,7 +697,7 @@ class Insights(pulumi.CustomResource):
         Application Insights instances can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
+        $ pulumi import azure:appinsights/insights:Insights instance1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Insights/components/instance1
         ```
 
         :param str resource_name: The name of the resource.

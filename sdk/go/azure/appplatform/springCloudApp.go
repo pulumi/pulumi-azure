@@ -63,9 +63,7 @@ import (
 // Spring Cloud Application can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp
-//
+// $ pulumi import azure:appplatform/springCloudApp:SpringCloudApp example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp
 // ```
 type SpringCloudApp struct {
 	pulumi.CustomResourceState

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * Iot Security Device Group can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
+ * $ pulumi import azure:iot/securityDeviceGroup:SecurityDeviceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Devices/iotHubs/hub1/providers/Microsoft.Security/deviceSecurityGroups/group1
  * ```
  */
 export class SecurityDeviceGroup extends pulumi.CustomResource {

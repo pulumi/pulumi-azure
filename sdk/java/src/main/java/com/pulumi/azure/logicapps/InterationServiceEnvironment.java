@@ -113,7 +113,7 @@ import javax.annotation.Nullable;
  * Integration Service Environments can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
+ * $ pulumi import azure:logicapps/interationServiceEnvironment:InterationServiceEnvironment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationServiceEnvironments/ise1
  * ```
  * 
  */

@@ -218,7 +218,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
         iSCSI Target Luns can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+        $ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,7 +305,7 @@ class DiskPoolIscsiTargetLun(pulumi.CustomResource):
         iSCSI Target Luns can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
+        $ pulumi import azure:compute/diskPoolIscsiTargetLun:DiskPoolIscsiTargetLun example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/example-resource-group/providers/Microsoft.StoragePool/diskPools/diskPoolValue/iscsiTargets/iscsiTargetValue/lun|/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Compute/disks/disk1
         ```
 
         :param str resource_name: The name of the resource.

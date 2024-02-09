@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * PostgreSQL Server's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:postgresql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1
+ * $ pulumi import azure:postgresql/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/servers/server1
  * ```
  */
 export class Server extends pulumi.CustomResource {

@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * Policy Exemptions can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
+ * $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
  * ```
  * 
  */

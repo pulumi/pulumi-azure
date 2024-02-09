@@ -271,7 +271,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
+        $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -328,7 +328,7 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         Spring Cloud Dev Tool Portals can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
+        $ pulumi import azure:appplatform/springCloudDevToolPortal:SpringCloudDevToolPortal example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/Spring/service1/DevToolPortals/default
         ```
 
         :param str resource_name: The name of the resource.

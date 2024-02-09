@@ -79,7 +79,7 @@ import javax.annotation.Nullable;
  * Cognitive Services Account Deployment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:cognitive/deployment:Deployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.CognitiveServices/accounts/account1/deployments/deployment1
+ * $ pulumi import azure:cognitive/deployment:Deployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.CognitiveServices/accounts/account1/deployments/deployment1
  * ```
  * 
  */

@@ -58,9 +58,7 @@ import (
 // Active Directory Domain Service Trusts can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
-//
+// $ pulumi import azure:domainservices/serviceTrust:ServiceTrust example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.AAD/domainServices/DomainService1/trusts/trust1
 // ```
 type ServiceTrust struct {
 	pulumi.CustomResourceState

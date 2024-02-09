@@ -311,7 +311,7 @@ class FailoverGroup(pulumi.CustomResource):
         Failover Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
+        $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
         ```
 
         :param str resource_name: The name of the resource.
@@ -378,7 +378,7 @@ class FailoverGroup(pulumi.CustomResource):
         Failover Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
+        $ pulumi import azure:mssql/failoverGroup:FailoverGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Sql/servers/server1/failoverGroups/failoverGroup1
         ```
 
         :param str resource_name: The name of the resource.

@@ -852,7 +852,7 @@ class Cluster(pulumi.CustomResource):
         Service Fabric Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
+        $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.
@@ -923,7 +923,7 @@ class Cluster(pulumi.CustomResource):
         Service Fabric Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
+        $ pulumi import azure:servicefabric/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ServiceFabric/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.

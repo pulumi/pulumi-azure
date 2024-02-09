@@ -229,7 +229,7 @@ class Database(pulumi.CustomResource):
         MySQL Database's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/databases/database1
+        $ pulumi import azure:mysql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/databases/database1
         ```
 
         :param str resource_name: The name of the resource.
@@ -281,7 +281,7 @@ class Database(pulumi.CustomResource):
         MySQL Database's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/databases/database1
+        $ pulumi import azure:mysql/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/databases/database1
         ```
 
         :param str resource_name: The name of the resource.

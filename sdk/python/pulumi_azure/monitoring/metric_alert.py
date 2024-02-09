@@ -649,7 +649,7 @@ class MetricAlert(pulumi.CustomResource):
         Metric Alerts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
+        $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
         ```
 
         :param str resource_name: The name of the resource.
@@ -735,7 +735,7 @@ class MetricAlert(pulumi.CustomResource):
         Metric Alerts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
+        $ pulumi import azure:monitoring/metricAlert:MetricAlert main /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.Insights/metricAlerts/example-metricalert
         ```
 
         :param str resource_name: The name of the resource.

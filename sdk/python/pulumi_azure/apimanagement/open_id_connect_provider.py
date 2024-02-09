@@ -321,7 +321,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
+        $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
         ```
 
         :param str resource_name: The name of the resource.
@@ -371,7 +371,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
         API Management OpenID Connect Providers can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
+        $ pulumi import azure:apimanagement/openIdConnectProvider:OpenIdConnectProvider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/openidConnectProviders/provider1
         ```
 
         :param str resource_name: The name of the resource.

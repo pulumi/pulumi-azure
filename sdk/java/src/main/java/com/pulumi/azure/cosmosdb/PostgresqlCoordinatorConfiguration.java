@@ -71,7 +71,7 @@ import javax.annotation.Nullable;
  * Coordinator Configurations on Azure Cosmos DB for PostgreSQL Clusters can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
+ * $ pulumi import azure:cosmosdb/postgresqlCoordinatorConfiguration:PostgresqlCoordinatorConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DBforPostgreSQL/serverGroupsv2/cluster1/coordinatorConfigurations/array_nulls
  * ```
  * 
  */

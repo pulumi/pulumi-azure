@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * Security Assessments Policy can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
+ * $ pulumi import azure:securitycenter/assessmentPolicy:AssessmentPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/assessmentMetadata/metadata1
  * ```
  */
 export class AssessmentPolicy extends pulumi.CustomResource {

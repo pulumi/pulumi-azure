@@ -195,7 +195,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         The Directline Channel for a Bot can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
+        $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,7 +242,7 @@ class ChannelDirectLine(pulumi.CustomResource):
         The Directline Channel for a Bot can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
+        $ pulumi import azure:bot/channelDirectLine:ChannelDirectLine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.BotService/botServices/example/channels/DirectlineChannel
         ```
 
         :param str resource_name: The name of the resource.

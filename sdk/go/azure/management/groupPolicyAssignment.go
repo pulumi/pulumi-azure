@@ -76,9 +76,7 @@ import (
 // Management Group Policy Assignments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:management/groupPolicyAssignment:GroupPolicyAssignment example /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
-//
+// $ pulumi import azure:management/groupPolicyAssignment:GroupPolicyAssignment example /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyAssignments/assignment1
 // ```
 type GroupPolicyAssignment struct {
 	pulumi.CustomResourceState

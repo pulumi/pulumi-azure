@@ -86,9 +86,7 @@ import (
 // Spring Cloud Active Deployment can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1
-//
+// $ pulumi import azure:appplatform/springCloudActiveDeployment:SpringCloudActiveDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourcegroup1/providers/Microsoft.AppPlatform/spring/service1/apps/app1
 // ```
 type SpringCloudActiveDeployment struct {
 	pulumi.CustomResourceState

@@ -138,7 +138,7 @@ class ServerDnsAlias(pulumi.CustomResource):
         MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
+        $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -176,7 +176,7 @@ class ServerDnsAlias(pulumi.CustomResource):
         MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
+        $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
         ```
 
         :param str resource_name: The name of the resource.

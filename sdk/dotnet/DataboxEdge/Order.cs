@@ -71,7 +71,7 @@ namespace Pulumi.Azure.DataboxEdge
     /// Databox Edge Orders can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:databoxedge/order:Order example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/device1
+    /// $ pulumi import azure:databoxedge/order:Order example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/device1
     /// ```
     /// </summary>
     [AzureResourceType("azure:databoxedge/order:Order")]

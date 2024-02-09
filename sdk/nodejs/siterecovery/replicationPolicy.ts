@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Site Recovery Replication Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:siterecovery/replicationPolicy:ReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
+ * $ pulumi import azure:siterecovery/replicationPolicy:ReplicationPolicy mypolicy /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationPolicies/policy-name
  * ```
  */
 export class ReplicationPolicy extends pulumi.CustomResource {

@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * Data Shares can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+ * $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
  * ```
  */
 export class Share extends pulumi.CustomResource {

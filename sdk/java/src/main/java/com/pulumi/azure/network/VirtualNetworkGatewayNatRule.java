@@ -25,7 +25,7 @@ import javax.annotation.Nullable;
  * Virtual Network Gateway Nat Rules can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/virtualNetworkGateways/gw1/natRules/rule1
+ * $ pulumi import azure:network/virtualNetworkGatewayNatRule:VirtualNetworkGatewayNatRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Network/virtualNetworkGateways/gw1/natRules/rule1
  * ```
  * 
  */

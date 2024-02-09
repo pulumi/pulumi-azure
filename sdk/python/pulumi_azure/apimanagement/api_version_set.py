@@ -337,7 +337,7 @@ class ApiVersionSet(pulumi.CustomResource):
         API Version Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
+        $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,7 +389,7 @@ class ApiVersionSet(pulumi.CustomResource):
         API Version Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
+        $ pulumi import azure:apimanagement/apiVersionSet:ApiVersionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apiVersionSets/set1
         ```
 
         :param str resource_name: The name of the resource.

@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * Azure IoT Time Series Insights Gen2 Environment can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
+ * $ pulumi import azure:iot/timeSeriesInsightsGen2Environment:TimeSeriesInsightsGen2Environment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/example
  * ```
  */
 export class TimeSeriesInsightsGen2Environment extends pulumi.CustomResource {

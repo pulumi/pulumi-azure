@@ -56,9 +56,7 @@ import (
 // Storage Syncs can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:storage/sync:Sync example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1
-//
+// $ pulumi import azure:storage/sync:Sync example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageSync/storageSyncServices/sync1
 // ```
 type Sync struct {
 	pulumi.CustomResourceState

@@ -248,7 +248,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         Network Manager Deployment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
+        $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,7 +318,7 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         Network Manager Deployment can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
+        $ pulumi import azure:network/networkManagerDeployment:NetworkManagerDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/commit|eastus|Connectivity
         ```
 
         :param str resource_name: The name of the resource.

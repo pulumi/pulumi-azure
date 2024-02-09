@@ -340,7 +340,7 @@ class Probe(pulumi.CustomResource):
         Load Balancer Probes can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
+        $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
         ```
 
         :param str resource_name: The name of the resource.
@@ -393,7 +393,7 @@ class Probe(pulumi.CustomResource):
         Load Balancer Probes can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
+        $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
         ```
 
         :param str resource_name: The name of the resource.

@@ -49,7 +49,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic App Integration Account Certificates can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/certificates/certificate1
+    /// $ pulumi import azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/certificates/certificate1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/integrationAccountCertificate:IntegrationAccountCertificate")]

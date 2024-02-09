@@ -64,9 +64,7 @@ import (
 // Attestation Providers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
-//
+// $ pulumi import azure:attestation/provider:Provider example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Attestation/attestationProviders/provider1
 // ```
 type Provider struct {
 	pulumi.CustomResourceState

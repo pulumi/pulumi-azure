@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * API Management Notification Recipient Users can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:apimanagement/notificationRecipientUser:NotificationRecipientUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientUsers/userid1
+ * $ pulumi import azure:apimanagement/notificationRecipientUser:NotificationRecipientUser example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/notifications/notificationName1/recipientUsers/userid1
  * ```
  */
 export class NotificationRecipientUser extends pulumi.CustomResource {

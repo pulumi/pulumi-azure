@@ -40,7 +40,7 @@ namespace Pulumi.Azure.Monitoring
     /// Azure Monitor Private Link Scopes can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
+    /// $ pulumi import azure:monitoring/privateLinkScope:PrivateLinkScope example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/privateLinkScopes/pls1
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/privateLinkScope:PrivateLinkScope")]

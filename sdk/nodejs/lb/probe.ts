@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  * Load Balancer Probes can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
+ * $ pulumi import azure:lb/probe:Probe example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/lb1/probes/probe1
  * ```
  */
 export class Probe extends pulumi.CustomResource {

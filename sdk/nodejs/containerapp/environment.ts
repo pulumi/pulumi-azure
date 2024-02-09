@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * A Container App Environment can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
+ * $ pulumi import azure:containerapp/environment:Environment example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment"
  * ```
  */
 export class Environment extends pulumi.CustomResource {

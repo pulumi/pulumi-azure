@@ -221,7 +221,7 @@ class Resolver(pulumi.CustomResource):
         DNS Resolver can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
+        $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,7 +263,7 @@ class Resolver(pulumi.CustomResource):
         DNS Resolver can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
+        $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
         ```
 
         :param str resource_name: The name of the resource.

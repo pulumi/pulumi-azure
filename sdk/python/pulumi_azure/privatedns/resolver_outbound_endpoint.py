@@ -239,7 +239,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         Private DNS Resolver Outbound Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
+        $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,7 +299,7 @@ class ResolverOutboundEndpoint(pulumi.CustomResource):
         Private DNS Resolver Outbound Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
+        $ pulumi import azure:privatedns/resolverOutboundEndpoint:ResolverOutboundEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1/outboundEndpoints/outboundEndpoint1
         ```
 
         :param str resource_name: The name of the resource.

@@ -304,7 +304,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         NFS Target within a HPC Cache can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+        $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,7 +334,7 @@ class CacheNfsTarget(pulumi.CustomResource):
         NFS Target within a HPC Cache can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
+        $ pulumi import azure:hpc/cacheNfsTarget:CacheNfsTarget example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StorageCache/caches/cache1/storageTargets/target1
         ```
 
         :param str resource_name: The name of the resource.

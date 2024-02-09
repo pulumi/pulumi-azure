@@ -432,7 +432,7 @@ class OutputMssql(pulumi.CustomResource):
         Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
+        $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
         :param str resource_name: The name of the resource.
@@ -496,7 +496,7 @@ class OutputMssql(pulumi.CustomResource):
         Stream Analytics Outputs to Microsoft SQL Server Database can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
+        $ pulumi import azure:streamanalytics/outputMssql:OutputMssql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
         ```
 
         :param str resource_name: The name of the resource.

@@ -64,7 +64,7 @@ import * as utilities from "../utilities";
  * Mobile Network Sim can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mobile/networkSim:NetworkSim example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/simGroups/simGroup1/sims/sim1
+ * $ pulumi import azure:mobile/networkSim:NetworkSim example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/simGroups/simGroup1/sims/sim1
  * ```
  */
 export class NetworkSim extends pulumi.CustomResource {

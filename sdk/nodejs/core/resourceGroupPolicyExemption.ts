@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * Policy Exemptions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Authorization/policyExemptions/exemption1
+ * $ pulumi import azure:core/resourceGroupPolicyExemption:ResourceGroupPolicyExemption exemption1 /subscriptions/00000000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Authorization/policyExemptions/exemption1
  * ```
  */
 export class ResourceGroupPolicyExemption extends pulumi.CustomResource {

@@ -372,7 +372,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
+        $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
         ```
 
         :param str resource_name: The name of the resource.
@@ -439,7 +439,7 @@ class GatewayHostNameConfiguration(pulumi.CustomResource):
         API Management Gateway Host Name Configuration can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
+        $ pulumi import azure:apimanagement/gatewayHostNameConfiguration:GatewayHostNameConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/hostnameConfigurations/hc1
         ```
 
         :param str resource_name: The name of the resource.

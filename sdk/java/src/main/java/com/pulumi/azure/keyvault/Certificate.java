@@ -271,7 +271,7 @@ import javax.annotation.Nullable;
  * Key Vault Certificates can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:keyvault/certificate:Certificate example &#34;https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217&#34;
+ * $ pulumi import azure:keyvault/certificate:Certificate example &#34;https://example-keyvault.vault.azure.net/certificates/example/fdf067c93bbb4b22bff4d8b7a9a56217&#34;
  * ```
  * 
  */

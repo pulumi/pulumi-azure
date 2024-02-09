@@ -118,7 +118,7 @@ namespace Pulumi.Azure.Monitoring
     /// Scheduled Query Rule Log can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
+    /// $ pulumi import azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Insights/scheduledQueryRules/myrulename
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/scheduledQueryRulesLog:ScheduledQueryRulesLog")]

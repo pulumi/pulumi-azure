@@ -81,9 +81,7 @@ import (
 // Spring Cloud Application Redis Association can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp/bindings/bind1
-//
+// $ pulumi import azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.AppPlatform/spring/myservice/apps/myapp/bindings/bind1
 // ```
 type SpringCloudAppRedisAssociation struct {
 	pulumi.CustomResourceState

@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * Synapse Private Link Hub can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
+ * $ pulumi import azure:synapse/privateLinkHub:PrivateLinkHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/privateLinkHubs/privateLinkHub1
  * ```
  */
 export class PrivateLinkHub extends pulumi.CustomResource {

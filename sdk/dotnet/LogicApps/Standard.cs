@@ -129,7 +129,7 @@ namespace Pulumi.Azure.LogicApps
     /// Logic Apps can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:logicapps/standard:Standard logicapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/logicapp1
+    /// $ pulumi import azure:logicapps/standard:Standard logicapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/logicapp1
     /// ```
     /// </summary>
     [AzureResourceType("azure:logicapps/standard:Standard")]

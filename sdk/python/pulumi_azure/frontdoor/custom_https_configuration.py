@@ -212,7 +212,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.
 
         ```sh
-         $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
+        $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,7 +307,7 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         Front Door Custom HTTPS Configurations can be imported using the `resource id` of the Front Door Custom HTTPS Configuration, e.g.
 
         ```sh
-         $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
+        $ pulumi import azure:frontdoor/customHttpsConfiguration:CustomHttpsConfiguration example_custom_https_1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/frontDoors/frontdoor1/customHttpsConfiguration/endpoint1
         ```
 
         :param str resource_name: The name of the resource.

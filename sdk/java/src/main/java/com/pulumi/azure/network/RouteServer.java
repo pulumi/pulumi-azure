@@ -93,7 +93,7 @@ import javax.annotation.Nullable;
  * Route Server can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
+ * $ pulumi import azure:network/routeServer:RouteServer example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/routeServer1
  * ```
  * 
  */

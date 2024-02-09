@@ -58,7 +58,7 @@ import * as utilities from "../utilities";
  * Data Factory Custom Event Trigger can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+ * $ pulumi import azure:datafactory/triggerCustomEvent:TriggerCustomEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
  * ```
  */
 export class TriggerCustomEvent extends pulumi.CustomResource {

@@ -92,9 +92,7 @@ import (
 // Backend Address Pool Addresses can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
-//
+// $ pulumi import azure:lb/backendAddressPoolAddress:BackendAddressPoolAddress example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/loadBalancers/loadBalancer1/backendAddressPools/backendAddressPool1/addresses/address1
 // ```
 type BackendAddressPoolAddress struct {
 	pulumi.CustomResourceState

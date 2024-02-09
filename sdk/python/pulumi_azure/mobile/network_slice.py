@@ -263,7 +263,7 @@ class NetworkSlice(pulumi.CustomResource):
         Mobile Network Slice can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mobile/networkSlice:NetworkSlice example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/slices/slice1
+        $ pulumi import azure:mobile/networkSlice:NetworkSlice example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/slices/slice1
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,7 +313,7 @@ class NetworkSlice(pulumi.CustomResource):
         Mobile Network Slice can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mobile/networkSlice:NetworkSlice example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/slices/slice1
+        $ pulumi import azure:mobile/networkSlice:NetworkSlice example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/mobileNetworks/mobileNetwork1/slices/slice1
         ```
 
         :param str resource_name: The name of the resource.

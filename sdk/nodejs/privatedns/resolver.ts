@@ -31,7 +31,7 @@ import * as utilities from "../utilities";
  * DNS Resolver can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
+ * $ pulumi import azure:privatedns/resolver:Resolver example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsResolvers/dnsResolver1
  * ```
  */
 export class Resolver extends pulumi.CustomResource {

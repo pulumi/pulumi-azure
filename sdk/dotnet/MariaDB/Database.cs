@@ -55,7 +55,7 @@ namespace Pulumi.Azure.MariaDB
     /// MariaDB Database's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mariadb/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/databases/database1
+    /// $ pulumi import azure:mariadb/database:Database database1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1/databases/database1
     /// ```
     /// </summary>
     [AzureResourceType("azure:mariadb/database:Database")]

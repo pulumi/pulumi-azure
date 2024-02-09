@@ -461,7 +461,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         Redis Enterprise Databases can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
+        $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
         ```
 
         :param str resource_name: The name of the resource.
@@ -524,7 +524,7 @@ class EnterpriseDatabase(pulumi.CustomResource):
         Redis Enterprise Databases can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
+        $ pulumi import azure:redis/enterpriseDatabase:EnterpriseDatabase example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Cache/redisEnterprise/cluster1/databases/database1
         ```
 
         :param str resource_name: The name of the resource.

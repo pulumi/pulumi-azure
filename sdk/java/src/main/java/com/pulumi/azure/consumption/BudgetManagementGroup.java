@@ -108,7 +108,7 @@ import javax.annotation.Nullable;
  * Management Group Consumption Budgets can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:consumption/budgetManagementGroup:BudgetManagementGroup example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/budget1
+ * $ pulumi import azure:consumption/budgetManagementGroup:BudgetManagementGroup example /providers/Microsoft.Management/managementGroups/00000000-0000-0000-0000-000000000000/providers/Microsoft.Consumption/budgets/budget1
  * ```
  * 
  */

@@ -197,7 +197,7 @@ class Workspace(pulumi.CustomResource):
         Healthcare Workspaces can be imported using the resource`id`, e.g.
 
         ```sh
-         $ pulumi import azure:healthcare/workspace:Workspace example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1
+        $ pulumi import azure:healthcare/workspace:Workspace example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,7 +232,7 @@ class Workspace(pulumi.CustomResource):
         Healthcare Workspaces can be imported using the resource`id`, e.g.
 
         ```sh
-         $ pulumi import azure:healthcare/workspace:Workspace example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1
+        $ pulumi import azure:healthcare/workspace:Workspace example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.HealthcareApis/workspaces/workspace1
         ```
 
         :param str resource_name: The name of the resource.

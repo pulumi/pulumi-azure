@@ -62,7 +62,7 @@ import * as utilities from "../utilities";
  * Stream Analytics Output Functions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:streamanalytics/outputFunction:OutputFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
+ * $ pulumi import azure:streamanalytics/outputFunction:OutputFunction example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/outputs/output1
  * ```
  */
 export class OutputFunction extends pulumi.CustomResource {

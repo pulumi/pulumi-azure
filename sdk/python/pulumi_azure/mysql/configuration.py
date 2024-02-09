@@ -202,7 +202,7 @@ class Configuration(pulumi.CustomResource):
         MySQL Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
+        $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,7 +259,7 @@ class Configuration(pulumi.CustomResource):
         MySQL Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
+        $ pulumi import azure:mysql/configuration:Configuration interactive_timeout /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/configurations/interactive_timeout
         ```
 
         :param str resource_name: The name of the resource.

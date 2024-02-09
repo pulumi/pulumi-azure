@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  * PowerBI Embedded can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
+ * $ pulumi import azure:powerbi/embedded:Embedded example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PowerBIDedicated/capacities/capacity1
  * ```
  */
 export class Embedded extends pulumi.CustomResource {

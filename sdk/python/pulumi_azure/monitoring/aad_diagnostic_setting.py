@@ -367,7 +367,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+        $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
         ```
 
         :param str resource_name: The name of the resource.
@@ -451,7 +451,7 @@ class AadDiagnosticSetting(pulumi.CustomResource):
         Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+        $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
         ```
 
         :param str resource_name: The name of the resource.

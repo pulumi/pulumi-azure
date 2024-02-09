@@ -54,7 +54,7 @@ namespace Pulumi.Azure.KeyVault
     /// Key Vault Certificate Issuers can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
+    /// $ pulumi import azure:keyvault/certificateIssuer:CertificateIssuer example "https://key-vault-name.vault.azure.net/certificates/issuers/example"
     /// ```
     /// </summary>
     [AzureResourceType("azure:keyvault/certificateIssuer:CertificateIssuer")]

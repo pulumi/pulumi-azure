@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Core
     /// Resource Deployment Script can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
+    /// $ pulumi import azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Resources/deploymentScripts/script1
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/resourceDeploymentScriptAzureCli:ResourceDeploymentScriptAzureCli")]

@@ -45,7 +45,7 @@ namespace Pulumi.Azure.DevTest
     /// Dev Test Labs can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
+    /// $ pulumi import azure:devtest/lab:Lab lab1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1
     /// ```
     /// </summary>
     [AzureResourceType("azure:devtest/lab:Lab")]

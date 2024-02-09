@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  * Service Connector for app service can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appservice/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
+ * $ pulumi import azure:appservice/connection:Connection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Web/sites/webapp/providers/Microsoft.ServiceLinker/linkers/serviceconnector1
  * ```
  */
 export class Connection extends pulumi.CustomResource {
