@@ -110,9 +110,7 @@ import (
 // PostgreSQL Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/configurations/configuration1
-//
+// $ pulumi import azure:postgresql/flexibleServerConfiguration:FlexibleServerConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforPostgreSQL/flexibleServers/server1/configurations/configuration1
 // ```
 type FlexibleServerConfiguration struct {
 	pulumi.CustomResourceState

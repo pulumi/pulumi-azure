@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * Data Factory SQL Server Table Datasets can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+ * $ pulumi import azure:datafactory/datasetSqlServerTable:DatasetSqlServerTable example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
  * ```
  */
 export class DatasetSqlServerTable extends pulumi.CustomResource {

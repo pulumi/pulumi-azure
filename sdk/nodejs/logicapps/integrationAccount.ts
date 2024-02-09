@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * Logic App Integration Accounts can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
+ * $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
  * ```
  */
 export class IntegrationAccount extends pulumi.CustomResource {

@@ -377,7 +377,7 @@ class SourceControl(pulumi.CustomResource):
         App Service Source Controls can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
+        $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
         :param str resource_name: The name of the resource.
@@ -432,7 +432,7 @@ class SourceControl(pulumi.CustomResource):
         App Service Source Controls can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
+        $ pulumi import azure:appservice/sourceControl:SourceControl example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.Web/sites/site1
         ```
 
         :param str resource_name: The name of the resource.

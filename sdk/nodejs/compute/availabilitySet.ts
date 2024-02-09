@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * Availability Sets can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
+ * $ pulumi import azure:compute/availabilitySet:AvailabilitySet group1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/availabilitySets/webAvailSet
  * ```
  */
 export class AvailabilitySet extends pulumi.CustomResource {

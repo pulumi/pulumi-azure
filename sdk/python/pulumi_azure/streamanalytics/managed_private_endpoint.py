@@ -227,7 +227,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1/privateEndpoints/endpoint1
+        $ pulumi import azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1/privateEndpoints/endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,7 +277,7 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         Stream Analytics Private Endpoints can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1/privateEndpoints/endpoint1
+        $ pulumi import azure:streamanalytics/managedPrivateEndpoint:ManagedPrivateEndpoint example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.StreamAnalytics/clusters/cluster1/privateEndpoints/endpoint1
         ```
 
         :param str resource_name: The name of the resource.

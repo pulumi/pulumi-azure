@@ -261,7 +261,7 @@ class FirewallRule(pulumi.CustomResource):
         MySQL Firewall Rule's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/firewallRules/rule1
+        $ pulumi import azure:mysql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/firewallRules/rule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -339,7 +339,7 @@ class FirewallRule(pulumi.CustomResource):
         MySQL Firewall Rule's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mysql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/firewallRules/rule1
+        $ pulumi import azure:mysql/firewallRule:FirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMySQL/servers/server1/firewallRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

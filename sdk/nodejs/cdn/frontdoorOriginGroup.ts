@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * Front Door Origin Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
+ * $ pulumi import azure:cdn/frontdoorOriginGroup:FrontdoorOriginGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/originGroups/originGroup1
  * ```
  */
 export class FrontdoorOriginGroup extends pulumi.CustomResource {

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * Red Hat OpenShift Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
+ * $ pulumi import azure:redhatopenshift/cluster:Cluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/group1/providers/Microsoft.RedHatOpenShift/openShiftClusters/cluster1
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

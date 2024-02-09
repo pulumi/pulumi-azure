@@ -261,7 +261,7 @@ import javax.annotation.Nullable;
  * Disk Encryption Sets can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
+ * $ pulumi import azure:compute/diskEncryptionSet:DiskEncryptionSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/diskEncryptionSets/encryptionSet1
  * ```
  * 
  */

@@ -270,7 +270,7 @@ class TxtRecord(pulumi.CustomResource):
         Private DNS TXT Records can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
+        $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
         ```
 
         :param str resource_name: The name of the resource.
@@ -313,7 +313,7 @@ class TxtRecord(pulumi.CustomResource):
         Private DNS TXT Records can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
+        $ pulumi import azure:privatedns/txtRecord:TxtRecord test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/contoso.com/TXT/test
         ```
 
         :param str resource_name: The name of the resource.

@@ -691,7 +691,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
+        $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
         ```
 
         :param str resource_name: The name of the resource.
@@ -773,7 +773,7 @@ class LinuxVirtualMachine(pulumi.CustomResource):
         Dev Test Linux Virtual Machines can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
+        $ pulumi import azure:devtest/linuxVirtualMachine:LinuxVirtualMachine machine1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DevTestLab/labs/lab1/virtualMachines/machine1
         ```
 
         :param str resource_name: The name of the resource.

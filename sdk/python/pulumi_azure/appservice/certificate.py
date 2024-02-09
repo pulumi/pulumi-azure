@@ -465,7 +465,7 @@ class Certificate(pulumi.CustomResource):
         App Service Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
+        $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
         ```
 
         :param str resource_name: The name of the resource.
@@ -514,7 +514,7 @@ class Certificate(pulumi.CustomResource):
         App Service Certificates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
+        $ pulumi import azure:appservice/certificate:Certificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/certificates/certificate1
         ```
 
         :param str resource_name: The name of the resource.

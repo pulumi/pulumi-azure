@@ -178,7 +178,7 @@ class ManagementPolicy(pulumi.CustomResource):
         Storage Account Management Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
+        $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,7 +270,7 @@ class ManagementPolicy(pulumi.CustomResource):
         Storage Account Management Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
+        $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
         ```
 
         :param str resource_name: The name of the resource.

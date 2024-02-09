@@ -109,9 +109,7 @@ import (
 // IoTHub Cosmos DB Account Endpoint can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount endpoint1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/cosmosDBAccountEndpoint1
-//
+// $ pulumi import azure:iot/endpointCosmosdbAccount:EndpointCosmosdbAccount endpoint1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/cosmosDBAccountEndpoint1
 // ```
 type EndpointCosmosdbAccount struct {
 	pulumi.CustomResourceState

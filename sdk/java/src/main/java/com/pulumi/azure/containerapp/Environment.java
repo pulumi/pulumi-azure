@@ -73,7 +73,7 @@ import javax.annotation.Nullable;
  * A Container App Environment can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:containerapp/environment:Environment example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment&#34;
+ * $ pulumi import azure:containerapp/environment:Environment example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment&#34;
  * ```
  * 
  */

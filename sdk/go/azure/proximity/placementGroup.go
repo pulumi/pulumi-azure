@@ -56,9 +56,7 @@ import (
 // Proximity Placement Groups can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:proximity/placementGroup:PlacementGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/proximityPlacementGroups/example-ppg
-//
+// $ pulumi import azure:proximity/placementGroup:PlacementGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.Compute/proximityPlacementGroups/example-ppg
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState

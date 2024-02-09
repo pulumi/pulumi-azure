@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  * Virtual Machine Packet Captures can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:compute/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
+ * $ pulumi import azure:compute/packetCapture:PacketCapture capture1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/networkWatchers/watcher1/packetCaptures/capture1
  * ```
  */
 export class PacketCapture extends pulumi.CustomResource {

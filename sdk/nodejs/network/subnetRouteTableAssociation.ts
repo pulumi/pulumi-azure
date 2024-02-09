@@ -45,7 +45,7 @@ import * as utilities from "../utilities";
  * Subnet Route Table Associations can be imported using the `resource id` of the Subnet, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
+ * $ pulumi import azure:network/subnetRouteTableAssociation:SubnetRouteTableAssociation association1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/virtualNetworks/myvnet1/subnets/mysubnet1
  * ```
  */
 export class SubnetRouteTableAssociation extends pulumi.CustomResource {

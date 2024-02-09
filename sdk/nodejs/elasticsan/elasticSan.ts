@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * An existing Elastic SAN can be imported into Terraform using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:elasticsan/elasticSan:ElasticSan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1
+ * $ pulumi import azure:elasticsan/elasticSan:ElasticSan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.ElasticSan/elasticSans/esan1
  * ```
  */
 export class ElasticSan extends pulumi.CustomResource {

@@ -76,9 +76,7 @@ import (
 // External Endpoints can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
-//
+// $ pulumi import azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-group/providers/Microsoft.Network/trafficManagerProfiles/example-profile/ExternalEndpoints/example-endpoint
 // ```
 type TrafficManagerExternalEndpoint struct {
 	pulumi.CustomResourceState

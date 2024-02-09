@@ -76,9 +76,7 @@ import (
 // API Management Loggers can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
-//
+// $ pulumi import azure:apimanagement/logger:Logger example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-rg/providers/Microsoft.ApiManagement/service/example-apim/loggers/example-logger
 // ```
 type Logger struct {
 	pulumi.CustomResourceState

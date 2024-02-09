@@ -218,7 +218,7 @@ class Contact(pulumi.CustomResource):
         The contact can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+        $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,7 +258,7 @@ class Contact(pulumi.CustomResource):
         The contact can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
+        $ pulumi import azure:securitycenter/contact:Contact example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/securityContacts/default1
         ```
 
         :param str resource_name: The name of the resource.

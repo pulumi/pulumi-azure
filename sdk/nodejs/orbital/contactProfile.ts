@@ -68,7 +68,7 @@ import * as utilities from "../utilities";
  * Contact profile can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
+ * $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
  * ```
  */
 export class ContactProfile extends pulumi.CustomResource {

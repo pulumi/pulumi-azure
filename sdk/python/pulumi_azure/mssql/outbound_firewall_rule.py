@@ -123,7 +123,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
         SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
+        $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
         ```
 
         :param str resource_name: The name of the resource.
@@ -162,7 +162,7 @@ class OutboundFirewallRule(pulumi.CustomResource):
         SQL Outbound Firewall Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
+        $ pulumi import azure:mssql/outboundFirewallRule:OutboundFirewallRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/servers/myserver/outboundFirewallRules/fqdn1
         ```
 
         :param str resource_name: The name of the resource.

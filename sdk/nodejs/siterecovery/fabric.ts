@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Site Recovery Fabric can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
+ * $ pulumi import azure:siterecovery/fabric:Fabric myfabric /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resource-group-name/providers/Microsoft.RecoveryServices/vaults/recovery-vault-name/replicationFabrics/fabric-name
  * ```
  */
 export class Fabric extends pulumi.CustomResource {

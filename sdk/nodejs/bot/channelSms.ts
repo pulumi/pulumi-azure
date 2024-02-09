@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * The SMS Integration for a Bot Channel can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
+ * $ pulumi import azure:bot/channelSms:ChannelSms example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/SmsChannel
  * ```
  */
 export class ChannelSms extends pulumi.CustomResource {

@@ -41,7 +41,7 @@ namespace Pulumi.Azure.Core
     /// Tenant Template Deployments can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+    /// $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
     /// ```
     /// </summary>
     [AzureResourceType("azure:core/tenantTemplateDeployment:TenantTemplateDeployment")]

@@ -432,7 +432,7 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         Policy Remediations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PolicyInsights/remediations/remediation1
+        $ pulumi import azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PolicyInsights/remediations/remediation1
         ```
 
         :param str resource_name: The name of the resource.
@@ -507,7 +507,7 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         Policy Remediations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PolicyInsights/remediations/remediation1
+        $ pulumi import azure:core/resourceGroupPolicyRemediation:ResourceGroupPolicyRemediation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.PolicyInsights/remediations/remediation1
         ```
 
         :param str resource_name: The name of the resource.

@@ -67,9 +67,7 @@ import (
 // Office Power BI Data Connectors can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
-//
+// $ pulumi import azure:sentinel/dataConnectorOfficePowerBi:DataConnectorOfficePowerBi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
 // ```
 type DataConnectorOfficePowerBi struct {
 	pulumi.CustomResourceState

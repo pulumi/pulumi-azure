@@ -329,7 +329,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         Billing Account Cost Management Exports can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
+        $ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
         ```
 
         :param str resource_name: The name of the resource.
@@ -385,7 +385,7 @@ class AccountCostManagementExport(pulumi.CustomResource):
         Billing Account Cost Management Exports can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
+        $ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
         ```
 
         :param str resource_name: The name of the resource.

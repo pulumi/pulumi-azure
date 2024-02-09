@@ -156,7 +156,7 @@ class Table(pulumi.CustomResource):
         Table's within a Storage Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+        $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
         ```
 
         :param str resource_name: The name of the resource.
@@ -194,7 +194,7 @@ class Table(pulumi.CustomResource):
         Table's within a Storage Account can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
+        $ pulumi import azure:storage/table:Table table1 "https://example.table.core.windows.net/Tables('replace-with-table-name')"
         ```
 
         :param str resource_name: The name of the resource.

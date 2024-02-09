@@ -272,7 +272,7 @@ class EmailTemplate(pulumi.CustomResource):
         API Management Email Templates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
+        $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,7 +330,7 @@ class EmailTemplate(pulumi.CustomResource):
         API Management Email Templates can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
+        $ pulumi import azure:apimanagement/emailTemplate:EmailTemplate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/instance1/templates/template1
         ```
 
         :param str resource_name: The name of the resource.

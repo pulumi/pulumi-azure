@@ -88,7 +88,7 @@ namespace Pulumi.Azure.Iot
     /// Azure IoT Time Series Insights IoTHub Event Source can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/eventSources/example
+    /// $ pulumi import azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.TimeSeriesInsights/environments/environment1/eventSources/example
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/timeSeriesInsightsEventSourceIothub:TimeSeriesInsightsEventSourceIothub")]

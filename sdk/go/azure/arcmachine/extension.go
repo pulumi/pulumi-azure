@@ -19,9 +19,7 @@ import (
 // Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
-//
+// $ pulumi import azure:arcmachine/extension:Extension example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.HybridCompute/machines/hcmachine1/extensions/ext1
 // ```
 type Extension struct {
 	pulumi.CustomResourceState

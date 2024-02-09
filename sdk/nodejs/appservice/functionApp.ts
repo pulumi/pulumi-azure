@@ -115,7 +115,7 @@ import * as utilities from "../utilities";
  * Function Apps can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
+ * $ pulumi import azure:appservice/functionApp:FunctionApp functionapp1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/functionapp1
  * ```
  */
 export class FunctionApp extends pulumi.CustomResource {

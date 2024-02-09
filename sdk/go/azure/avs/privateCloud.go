@@ -63,9 +63,7 @@ import (
 // VMware Private Clouds can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
-//
+// $ pulumi import azure:avs/privateCloud:PrivateCloud example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AVS/privateClouds/privateCloud1
 // ```
 type PrivateCloud struct {
 	pulumi.CustomResourceState

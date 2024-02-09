@@ -74,9 +74,7 @@ import (
 // Spring Cloud Builders can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appplatform/springCloudBuilder:SpringCloudBuilder example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1
-//
+// $ pulumi import azure:appplatform/springCloudBuilder:SpringCloudBuilder example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/Microsoft.AppPlatform/spring/service1/buildServices/buildService1/builders/builder1
 // ```
 type SpringCloudBuilder struct {
 	pulumi.CustomResourceState

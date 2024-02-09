@@ -389,7 +389,7 @@ class DatasetPostgresql(pulumi.CustomResource):
         Data Factory PostgreSQL Datasets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/datasetPostgresql:DatasetPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+        $ pulumi import azure:datafactory/datasetPostgresql:DatasetPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,7 +437,7 @@ class DatasetPostgresql(pulumi.CustomResource):
         Data Factory PostgreSQL Datasets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/datasetPostgresql:DatasetPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
+        $ pulumi import azure:datafactory/datasetPostgresql:DatasetPostgresql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/datasets/example
         ```
 
         :param str resource_name: The name of the resource.

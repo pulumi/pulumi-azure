@@ -41,7 +41,7 @@ namespace Pulumi.Azure.LogAnalytics
     /// Log Analytics Query Packs can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:loganalytics/queryPack:QueryPack example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1
+    /// $ pulumi import azure:loganalytics/queryPack:QueryPack example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.OperationalInsights/queryPacks/queryPack1
     /// ```
     /// </summary>
     [AzureResourceType("azure:loganalytics/queryPack:QueryPack")]

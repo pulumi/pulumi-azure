@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * Private DNS PTR Records can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
+ * $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
  * ```
  */
 export class PTRRecord extends pulumi.CustomResource {

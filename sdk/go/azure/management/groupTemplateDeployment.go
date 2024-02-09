@@ -185,9 +185,7 @@ import (
 // Management Group Template Deployments can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:management/groupTemplateDeployment:GroupTemplateDeployment example /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/deploy1
-//
+// $ pulumi import azure:management/groupTemplateDeployment:GroupTemplateDeployment example /providers/Microsoft.Management/managementGroups/my-management-group-id/providers/Microsoft.Resources/deployments/deploy1
 // ```
 type GroupTemplateDeployment struct {
 	pulumi.CustomResourceState

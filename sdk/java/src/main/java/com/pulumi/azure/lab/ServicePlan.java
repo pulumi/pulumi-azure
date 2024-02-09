@@ -67,7 +67,7 @@ import javax.annotation.Nullable;
  * Lab Service Plans can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:lab/servicePlan:ServicePlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labPlans/labPlan1
+ * $ pulumi import azure:lab/servicePlan:ServicePlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labPlans/labPlan1
  * ```
  * 
  */

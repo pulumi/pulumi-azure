@@ -74,9 +74,7 @@ import (
 // DevTest Schedule's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
-//
+// $ pulumi import azure:devtest/schedule:Schedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DevTestLab/labs/myDevTestLab/schedules/labvmautostart
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState

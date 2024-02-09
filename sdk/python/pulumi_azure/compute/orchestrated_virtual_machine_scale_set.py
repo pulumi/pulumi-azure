@@ -1263,7 +1263,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         An Virtual Machine Scale Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+        $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
 
         :param str resource_name: The name of the resource.
@@ -1353,7 +1353,7 @@ class OrchestratedVirtualMachineScaleSet(pulumi.CustomResource):
         An Virtual Machine Scale Set can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
+        $ pulumi import azure:compute/orchestratedVirtualMachineScaleSet:OrchestratedVirtualMachineScaleSet example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/virtualMachineScaleSets/scaleset1
         ```
 
         :param str resource_name: The name of the resource.

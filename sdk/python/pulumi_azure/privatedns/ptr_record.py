@@ -266,7 +266,7 @@ class PTRRecord(pulumi.CustomResource):
         Private DNS PTR Records can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
+        $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,7 +307,7 @@ class PTRRecord(pulumi.CustomResource):
         Private DNS PTR Records can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
+        $ pulumi import azure:privatedns/pTRRecord:PTRRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/2.0.192.in-addr.arpa/PTR/15
         ```
 
         :param str resource_name: The name of the resource.

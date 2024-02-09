@@ -217,7 +217,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         Capacity Reservation Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
+        $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,7 +254,7 @@ class CapacityReservationGroup(pulumi.CustomResource):
         Capacity Reservation Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
+        $ pulumi import azure:compute/capacityReservationGroup:CapacityReservationGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1
         ```
 
         :param str resource_name: The name of the resource.

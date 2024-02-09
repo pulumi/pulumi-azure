@@ -191,9 +191,7 @@ import (
 // SQL Server Transparent Data Encryption can be imported using the resource id, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
-//
+// $ pulumi import azure:mssql/serverTransparentDataEncryption:ServerTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/encryptionProtector/current
 // ```
 type ServerTransparentDataEncryption struct {
 	pulumi.CustomResourceState

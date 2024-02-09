@@ -19,9 +19,7 @@ import (
 // Azure Managed Lustre File Systems can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:managedlustre/fileSystem:FileSystem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageCache/amlFilesystems/amlFilesystem1
-//
+// $ pulumi import azure:managedlustre/fileSystem:FileSystem example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageCache/amlFilesystems/amlFilesystem1
 // ```
 type FileSystem struct {
 	pulumi.CustomResourceState

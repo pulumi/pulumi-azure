@@ -364,7 +364,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
+        $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,7 +437,7 @@ class AttachedDatabaseConfiguration(pulumi.CustomResource):
         Kusto Attached Database Configurations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
+        $ pulumi import azure:kusto/attachedDatabaseConfiguration:AttachedDatabaseConfiguration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Kusto/clusters/cluster1/attachedDatabaseConfigurations/configuration1
         ```
 
         :param str resource_name: The name of the resource.

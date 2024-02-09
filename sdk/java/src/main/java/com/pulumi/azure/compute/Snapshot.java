@@ -75,7 +75,7 @@ import javax.annotation.Nullable;
  * Snapshots can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
+ * $ pulumi import azure:compute/snapshot:Snapshot example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/snapshots/snapshot1
  * ```
  * 
  */

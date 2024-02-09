@@ -209,7 +209,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         App Service Virtual Network Associations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
+        $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,7 +335,7 @@ class VirtualNetworkSwiftConnection(pulumi.CustomResource):
         App Service Virtual Network Associations can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
+        $ pulumi import azure:appservice/virtualNetworkSwiftConnection:VirtualNetworkSwiftConnection myassociation /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Web/sites/instance1/config/virtualNetwork
         ```
 
         :param str resource_name: The name of the resource.

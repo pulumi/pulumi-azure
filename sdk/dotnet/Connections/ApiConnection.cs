@@ -63,7 +63,7 @@ namespace Pulumi.Azure.Connections
     /// API Connections can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
+    /// $ pulumi import azure:connections/apiConnection:ApiConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.Web/connections/example-connection
     /// ```
     /// </summary>
     [AzureResourceType("azure:connections/apiConnection:ApiConnection")]

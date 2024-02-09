@@ -623,7 +623,7 @@ class DataCollectionRule(pulumi.CustomResource):
         Data Collection Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
+        $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -820,7 +820,7 @@ class DataCollectionRule(pulumi.CustomResource):
         Data Collection Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
+        $ pulumi import azure:monitoring/dataCollectionRule:DataCollectionRule example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Insights/dataCollectionRules/rule1
         ```
 
         :param str resource_name: The name of the resource.

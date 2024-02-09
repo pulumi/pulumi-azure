@@ -65,7 +65,7 @@ import * as utilities from "../utilities";
  * Monitor Azure Active Directory Diagnostic Settings can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
+ * $ pulumi import azure:monitoring/aadDiagnosticSetting:AadDiagnosticSetting example /providers/Microsoft.AADIAM/diagnosticSettings/setting1
  * ```
  */
 export class AadDiagnosticSetting extends pulumi.CustomResource {

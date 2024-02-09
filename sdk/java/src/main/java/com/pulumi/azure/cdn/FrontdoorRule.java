@@ -311,7 +311,7 @@ import javax.annotation.Nullable;
  * Front Door Rules can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
+ * $ pulumi import azure:cdn/frontdoorRule:FrontdoorRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Cdn/profiles/profile1/ruleSets/ruleSet1/rules/rule1
  * ```
  * 
  */

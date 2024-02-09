@@ -359,7 +359,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         Resource Group Consumption Budgets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
+        $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
         ```
 
         :param str resource_name: The name of the resource.
@@ -443,7 +443,7 @@ class BudgetResourceGroup(pulumi.CustomResource):
         Resource Group Consumption Budgets can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
+        $ pulumi import azure:consumption/budgetResourceGroup:BudgetResourceGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Consumption/budgets/resourceGroup1
         ```
 
         :param str resource_name: The name of the resource.

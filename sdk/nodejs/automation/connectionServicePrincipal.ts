@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * Automation Connection can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
+ * $ pulumi import azure:automation/connectionServicePrincipal:ConnectionServicePrincipal conn1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/connections/conn1
  * ```
  */
 export class ConnectionServicePrincipal extends pulumi.CustomResource {

@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * IoTHub Storage Container Endpoint can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:iot/endpointStorageContainer:EndpointStorageContainer storage_container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/storage_container_endpoint1
+ * $ pulumi import azure:iot/endpointStorageContainer:EndpointStorageContainer storage_container1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/storage_container_endpoint1
  * ```
  */
 export class EndpointStorageContainer extends pulumi.CustomResource {

@@ -315,7 +315,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         Subscription Template Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
+        $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
         ```
 
         :param str resource_name: The name of the resource.
@@ -369,7 +369,7 @@ class SubscriptionTemplateDeployment(pulumi.CustomResource):
         Subscription Template Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
+        $ pulumi import azure:core/subscriptionTemplateDeployment:SubscriptionTemplateDeployment example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Resources/deployments/template1
         ```
 
         :param str resource_name: The name of the resource.

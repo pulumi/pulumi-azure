@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Logic App HTTP Actions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
+ * $ pulumi import azure:logicapps/actionHttp:ActionHttp webhook1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Logic/workflows/workflow1/actions/webhook1
  * ```
  */
 export class ActionHttp extends pulumi.CustomResource {

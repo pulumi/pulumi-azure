@@ -1597,7 +1597,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+        $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
         ```
 
         :param str resource_name: The name of the resource.
@@ -1719,7 +1719,7 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         Kubernetes Cluster Node Pools can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
+        $ pulumi import azure:containerservice/kubernetesClusterNodePool:KubernetesClusterNodePool pool1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1/agentPools/pool1
         ```
 
         :param str resource_name: The name of the resource.

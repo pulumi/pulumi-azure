@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * NAT Gateway can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
+ * $ pulumi import azure:network/natGateway:NatGateway test /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/natGateways/gateway1
  * ```
  */
 export class NatGateway extends pulumi.CustomResource {

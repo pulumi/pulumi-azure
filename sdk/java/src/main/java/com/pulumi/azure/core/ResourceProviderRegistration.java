@@ -90,7 +90,7 @@ import javax.annotation.Nullable;
  * Resource Provider Registrations can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
+ * $ pulumi import azure:core/resourceProviderRegistration:ResourceProviderRegistration example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.PolicyInsights
  * ```
  * 
  */

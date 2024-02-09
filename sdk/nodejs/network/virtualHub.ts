@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * Virtual Hub's can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
+ * $ pulumi import azure:network/virtualHub:VirtualHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/virtualHubs/hub1
  * ```
  */
 export class VirtualHub extends pulumi.CustomResource {
