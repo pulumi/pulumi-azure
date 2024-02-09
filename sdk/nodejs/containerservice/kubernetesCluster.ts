@@ -43,7 +43,7 @@ import * as utilities from "../utilities";
  * Managed Kubernetes Clusters can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
+ * $ pulumi import azure:containerservice/kubernetesCluster:KubernetesCluster cluster1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ContainerService/managedClusters/cluster1
  * ```
  */
 export class KubernetesCluster extends pulumi.CustomResource {

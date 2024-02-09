@@ -73,9 +73,7 @@ import (
 // Kubernetes Fleet Update Strategies can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/ContainerService/fleets/fleet1/updateStrategies/updateStrategy1
-//
+// $ pulumi import azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resourceGroup1/providers/ContainerService/fleets/fleet1/updateStrategies/updateStrategy1
 // ```
 type FleetUpdateStrategy struct {
 	pulumi.CustomResourceState

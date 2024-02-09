@@ -253,7 +253,7 @@ class IntegrationAccount(pulumi.CustomResource):
         Logic App Integration Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
+        $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,7 +295,7 @@ class IntegrationAccount(pulumi.CustomResource):
         Logic App Integration Accounts can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
+        $ pulumi import azure:logicapps/integrationAccount:IntegrationAccount example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1
         ```
 
         :param str resource_name: The name of the resource.

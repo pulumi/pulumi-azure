@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  * Web PubSub services can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
+ * $ pulumi import azure:webpubsub/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/pubsub1
  * ```
  */
 export class Service extends pulumi.CustomResource {

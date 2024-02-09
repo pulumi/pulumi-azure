@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Search
     /// Azure Search Shared Private Link Resource can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
+    /// $ pulumi import azure:search/sharedPrivateLinkService:SharedPrivateLinkService example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1/sharedPrivateLinkResources/resource1
     /// ```
     /// </summary>
     [AzureResourceType("azure:search/sharedPrivateLinkService:SharedPrivateLinkService")]

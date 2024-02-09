@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * Storage Mover Target Endpoint can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:storage/moverTargetEndpoint:MoverTargetEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/endpoints/endpoint1
+ * $ pulumi import azure:storage/moverTargetEndpoint:MoverTargetEndpoint example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/endpoints/endpoint1
  * ```
  */
 export class MoverTargetEndpoint extends pulumi.CustomResource {

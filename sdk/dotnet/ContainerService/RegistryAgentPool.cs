@@ -49,7 +49,7 @@ namespace Pulumi.Azure.ContainerService
     /// Azure Container Registry Agent Pool can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
+    /// $ pulumi import azure:containerservice/registryAgentPool:RegistryAgentPool example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ContainerRegistry/registries/registry1/agentPools/agentpool1
     /// ```
     /// </summary>
     [AzureResourceType("azure:containerservice/registryAgentPool:RegistryAgentPool")]

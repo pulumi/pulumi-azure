@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Search
     /// Search Services can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:search/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1
+    /// $ pulumi import azure:search/service:Service example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Search/searchServices/service1
     /// ```
     /// </summary>
     [AzureResourceType("azure:search/service:Service")]

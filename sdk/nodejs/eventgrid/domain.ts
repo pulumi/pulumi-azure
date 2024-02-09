@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * EventGrid Domains can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+ * $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
  * ```
  */
 export class Domain extends pulumi.CustomResource {

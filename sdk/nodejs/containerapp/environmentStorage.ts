@@ -49,7 +49,7 @@ import * as utilities from "../utilities";
  * A Container App Environment Storage can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
+ * $ pulumi import azure:containerapp/environmentStorage:EnvironmentStorage example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myEnvironment/storages/mystorage"
  * ```
  */
 export class EnvironmentStorage extends pulumi.CustomResource {

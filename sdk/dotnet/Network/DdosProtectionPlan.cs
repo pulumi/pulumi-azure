@@ -45,7 +45,7 @@ namespace Pulumi.Azure.Network
     /// Azure DDoS Protection Plan can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:network/ddosProtectionPlan:DdosProtectionPlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/ddosProtectionPlans/testddospplan
+    /// $ pulumi import azure:network/ddosProtectionPlan:DdosProtectionPlan example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Network/ddosProtectionPlans/testddospplan
     /// ```
     /// </summary>
     [AzureResourceType("azure:network/ddosProtectionPlan:DdosProtectionPlan")]

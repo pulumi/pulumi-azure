@@ -127,7 +127,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// Stream Analytics Job's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:streamanalytics/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/schedule/default
+    /// $ pulumi import azure:streamanalytics/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/schedule/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/jobSchedule:JobSchedule")]

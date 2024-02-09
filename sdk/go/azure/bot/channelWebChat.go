@@ -72,9 +72,7 @@ import (
 // Web Chat Channels can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:bot/channelWebChat:ChannelWebChat example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/WebChatChannel
-//
+// $ pulumi import azure:bot/channelWebChat:ChannelWebChat example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.BotService/botServices/botService1/channels/WebChatChannel
 // ```
 type ChannelWebChat struct {
 	pulumi.CustomResourceState

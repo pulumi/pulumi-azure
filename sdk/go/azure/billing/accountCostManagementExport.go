@@ -79,9 +79,7 @@ import (
 // Billing Account Cost Management Exports can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
-//
+// $ pulumi import azure:billing/accountCostManagementExport:AccountCostManagementExport example /providers/Microsoft.Billing/billingAccounts/12345678/providers/Microsoft.CostManagement/exports/export1
 // ```
 type AccountCostManagementExport struct {
 	pulumi.CustomResourceState

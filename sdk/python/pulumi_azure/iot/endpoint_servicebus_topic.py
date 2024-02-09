@@ -346,7 +346,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebustopic_endpoint1
+        $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebustopic_endpoint1
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,7 +411,7 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         IoTHub ServiceBus Topic Endpoint can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebustopic_endpoint1
+        $ pulumi import azure:iot/endpointServicebusTopic:EndpointServicebusTopic servicebus_topic1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1/endpoints/servicebustopic_endpoint1
         ```
 
         :param str resource_name: The name of the resource.

@@ -166,7 +166,7 @@ class ApiRelease(pulumi.CustomResource):
         API Management API Releases can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
+        $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,7 +216,7 @@ class ApiRelease(pulumi.CustomResource):
         API Management API Releases can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
+        $ pulumi import azure:apimanagement/apiRelease:ApiRelease example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/releases/release1
         ```
 
         :param str resource_name: The name of the resource.

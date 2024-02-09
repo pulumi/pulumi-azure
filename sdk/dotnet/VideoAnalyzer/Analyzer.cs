@@ -95,7 +95,7 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// Video Analyzer can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:videoanalyzer/analyzer:Analyzer analyzer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/videoAnalyzers/analyzer1
+    /// $ pulumi import azure:videoanalyzer/analyzer:Analyzer analyzer /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Media/videoAnalyzers/analyzer1
     /// ```
     /// </summary>
     [AzureResourceType("azure:videoanalyzer/analyzer:Analyzer")]

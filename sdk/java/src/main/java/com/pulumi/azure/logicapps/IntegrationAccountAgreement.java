@@ -105,7 +105,7 @@ import javax.annotation.Nullable;
  * Logic App Integration Account Agreements can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/agreements/agreement1
+ * $ pulumi import azure:logicapps/integrationAccountAgreement:IntegrationAccountAgreement example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/agreements/agreement1
  * ```
  * 
  */

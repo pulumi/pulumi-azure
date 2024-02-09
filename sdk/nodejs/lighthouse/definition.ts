@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * Lighthouse Definitions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
+ * $ pulumi import azure:lighthouse/definition:Definition example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.ManagedServices/registrationDefinitions/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class Definition extends pulumi.CustomResource {

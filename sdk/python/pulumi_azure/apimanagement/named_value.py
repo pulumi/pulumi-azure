@@ -332,7 +332,7 @@ class NamedValue(pulumi.CustomResource):
         API Management Properties can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
+        $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,7 +382,7 @@ class NamedValue(pulumi.CustomResource):
         API Management Properties can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
+        $ pulumi import azure:apimanagement/namedValue:NamedValue example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example-resources/providers/Microsoft.ApiManagement/service/example-apim/namedValues/example-apimp
         ```
 
         :param str resource_name: The name of the resource.

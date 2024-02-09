@@ -86,7 +86,7 @@ import * as utilities from "../utilities";
  * Storage Account Management Policies can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
+ * $ pulumi import azure:storage/managementPolicy:ManagementPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Storage/storageAccounts/myaccountname/managementPolicies/default
  * ```
  */
 export class ManagementPolicy extends pulumi.CustomResource {

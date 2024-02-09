@@ -77,7 +77,7 @@ namespace Pulumi.Azure.Monitoring
     /// logz Tag Rules can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:monitoring/logzTagRule:LogzTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/tagRules/ruleSet1
+    /// $ pulumi import azure:monitoring/logzTagRule:LogzTagRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logz/monitors/monitor1/tagRules/ruleSet1
     /// ```
     /// </summary>
     [AzureResourceType("azure:monitoring/logzTagRule:LogzTagRule")]

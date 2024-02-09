@@ -534,7 +534,7 @@ class Domain(pulumi.CustomResource):
         EventGrid Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+        $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
         ```
 
         :param str resource_name: The name of the resource.
@@ -582,7 +582,7 @@ class Domain(pulumi.CustomResource):
         EventGrid Domains can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
+        $ pulumi import azure:eventgrid/domain:Domain domain1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.EventGrid/domains/domain1
         ```
 
         :param str resource_name: The name of the resource.

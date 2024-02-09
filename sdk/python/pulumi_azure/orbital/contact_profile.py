@@ -419,7 +419,7 @@ class ContactProfile(pulumi.CustomResource):
         Contact profile can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
+        $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
         ```
 
         :param str resource_name: The name of the resource.
@@ -500,7 +500,7 @@ class ContactProfile(pulumi.CustomResource):
         Contact profile can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
+        $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
         ```
 
         :param str resource_name: The name of the resource.

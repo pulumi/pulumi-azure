@@ -440,7 +440,7 @@ class Monitor(pulumi.CustomResource):
         Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
+        $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.
@@ -496,7 +496,7 @@ class Monitor(pulumi.CustomResource):
         Azure Native New Relic Monitor can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
+        $ pulumi import azure:newrelic/monitor:Monitor example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/NewRelic.Observability/monitors/monitor1
         ```
 
         :param str resource_name: The name of the resource.

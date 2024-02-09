@@ -73,9 +73,7 @@ import (
 // Network Manager Network Group can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1
-//
+// $ pulumi import azure:network/networkManagerNetworkGroup:NetworkManagerNetworkGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1
 // ```
 type NetworkManagerNetworkGroup struct {
 	pulumi.CustomResourceState

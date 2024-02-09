@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * Capacity Reservations can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
+ * $ pulumi import azure:compute/capacityReservation:CapacityReservation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Compute/capacityReservationGroups/capacityReservationGroup1/capacityReservations/capacityReservation1
  * ```
  */
 export class CapacityReservation extends pulumi.CustomResource {

@@ -387,7 +387,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         Alert Processing Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+        $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
 
         :param str resource_name: The name of the resource.
@@ -466,7 +466,7 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         Alert Processing Rules can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
+        $ pulumi import azure:monitoring/alertProcessingRuleActionGroup:AlertProcessingRuleActionGroup example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.AlertsManagement/actionRules/actionRule1
         ```
 
         :param str resource_name: The name of the resource.

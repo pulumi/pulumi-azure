@@ -69,7 +69,7 @@ import javax.annotation.Nullable;
  * Table&#39;s within a Storage Account can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:storage/table:Table table1 &#34;https://example.table.core.windows.net/Tables(&#39;replace-with-table-name&#39;)&#34;
+ * $ pulumi import azure:storage/table:Table table1 &#34;https://example.table.core.windows.net/Tables(&#39;replace-with-table-name&#39;)&#34;
  * ```
  * 
  */

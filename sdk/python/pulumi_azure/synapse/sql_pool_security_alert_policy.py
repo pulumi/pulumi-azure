@@ -356,7 +356,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/securityAlertPolicies/default
+        $ pulumi import azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/securityAlertPolicies/default
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,7 +437,7 @@ class SqlPoolSecurityAlertPolicy(pulumi.CustomResource):
         Synapse SQL Pool Security Alert Policies can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/securityAlertPolicies/default
+        $ pulumi import azure:synapse/sqlPoolSecurityAlertPolicy:SqlPoolSecurityAlertPolicy example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/sqlPools/sqlPool1/securityAlertPolicies/default
         ```
 
         :param str resource_name: The name of the resource.

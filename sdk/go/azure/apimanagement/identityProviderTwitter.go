@@ -65,9 +65,7 @@ import (
 // API Management Twitter Identity Provider can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
-//
+// $ pulumi import azure:apimanagement/identityProviderTwitter:IdentityProviderTwitter example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/identityProviders/twitter
 // ```
 type IdentityProviderTwitter struct {
 	pulumi.CustomResourceState

@@ -197,9 +197,7 @@ import (
 // App Configurations can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
-//
+// $ pulumi import azure:appconfiguration/configurationStore:ConfigurationStore appconf /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.AppConfiguration/configurationStores/appConf1
 // ```
 type ConfigurationStore struct {
 	pulumi.CustomResourceState

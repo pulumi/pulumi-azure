@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MySql
     /// A MySQL Active Directory Administrator can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
+    /// $ pulumi import azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator administrator /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforMySQL/servers/myserver/administrators/activeDirectory
     /// ```
     /// </summary>
     [AzureResourceType("azure:mysql/activeDirectoryAdministrator:ActiveDirectoryAdministrator")]

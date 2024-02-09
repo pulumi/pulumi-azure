@@ -428,7 +428,7 @@ class ApiOperation(pulumi.CustomResource):
         API Management API Operation's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
+        $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
         :param str resource_name: The name of the resource.
@@ -488,7 +488,7 @@ class ApiOperation(pulumi.CustomResource):
         API Management API Operation's can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
+        $ pulumi import azure:apimanagement/apiOperation:ApiOperation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.ApiManagement/service/instance1/apis/api1/operations/operation1
         ```
 
         :param str resource_name: The name of the resource.

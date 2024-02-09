@@ -466,13 +466,13 @@ class ConfigurationKey(pulumi.CustomResource):
         App Configuration Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
+        $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
         ```
 
-         If you wish to import a key with an empty label then simply leave label's name blank
+         If you wish to import a key with an empty label then simply leave label's name blank:
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
+        $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
         ```
 
         :param str resource_name: The name of the resource.
@@ -581,13 +581,13 @@ class ConfigurationKey(pulumi.CustomResource):
         App Configuration Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
+        $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=labelName
         ```
 
-         If you wish to import a key with an empty label then simply leave label's name blank
+         If you wish to import a key with an empty label then simply leave label's name blank:
 
         ```sh
-         $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
+        $ pulumi import azure:appconfiguration/configurationKey:ConfigurationKey test https://appconfname1.azconfig.io/kv/keyName?label=
         ```
 
         :param str resource_name: The name of the resource.

@@ -267,7 +267,7 @@ class Share(pulumi.CustomResource):
         Data Shares can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+        $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,7 +321,7 @@ class Share(pulumi.CustomResource):
         Data Shares can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
+        $ pulumi import azure:datashare/share:Share example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DataShare/accounts/account1/shares/share1
         ```
 
         :param str resource_name: The name of the resource.

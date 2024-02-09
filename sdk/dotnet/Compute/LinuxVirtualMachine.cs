@@ -117,7 +117,7 @@ namespace Pulumi.Azure.Compute
     /// Linux Virtual Machines can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
+    /// $ pulumi import azure:compute/linuxVirtualMachine:LinuxVirtualMachine example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1
     /// ```
     /// </summary>
     [AzureResourceType("azure:compute/linuxVirtualMachine:LinuxVirtualMachine")]

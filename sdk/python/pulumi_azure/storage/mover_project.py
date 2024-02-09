@@ -154,7 +154,7 @@ class MoverProject(pulumi.CustomResource):
         Storage Mover Project can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
+        $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,7 +192,7 @@ class MoverProject(pulumi.CustomResource):
         Storage Mover Project can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
+        $ pulumi import azure:storage/moverProject:MoverProject example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.StorageMover/storageMovers/storageMover1/projects/project1
         ```
 
         :param str resource_name: The name of the resource.

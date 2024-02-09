@@ -255,7 +255,7 @@ class WorkspaceKey(pulumi.CustomResource):
         Synapse Workspace Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
+        $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
 
         :param str resource_name: The name of the resource.
@@ -358,7 +358,7 @@ class WorkspaceKey(pulumi.CustomResource):
         Synapse Workspace Keys can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
+        $ pulumi import azure:synapse/workspaceKey:WorkspaceKey example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Synapse/workspaces/workspace1/keys/key1
         ```
 
         :param str resource_name: The name of the resource.

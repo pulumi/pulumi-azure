@@ -40,7 +40,7 @@ namespace Pulumi.Azure.SecurityCenter
     /// The setting can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/&lt;setting_name&gt;
+    /// $ pulumi import azure:securitycenter/setting:Setting example /subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Security/settings/&lt;setting_name&gt;
     /// ```
     /// </summary>
     [AzureResourceType("azure:securitycenter/setting:Setting")]

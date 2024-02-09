@@ -389,7 +389,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
+        $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,7 +442,7 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         Cost Management View for a Resource Groups can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
+        $ pulumi import azure:core/resourceGroupCostManagementView:ResourceGroupCostManagementView example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.CostManagement/views/costmanagementview
         ```
 
         :param str resource_name: The name of the resource.

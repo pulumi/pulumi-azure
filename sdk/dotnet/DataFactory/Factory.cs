@@ -41,7 +41,7 @@ namespace Pulumi.Azure.DataFactory
     /// Data Factory can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:datafactory/factory:Factory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
+    /// $ pulumi import azure:datafactory/factory:Factory example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example
     /// ```
     /// </summary>
     [AzureResourceType("azure:datafactory/factory:Factory")]

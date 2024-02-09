@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * PostgreSQL Virtual Network Rules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:postgresql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver/virtualNetworkRules/vnetrulename
+ * $ pulumi import azure:postgresql/virtualNetworkRule:VirtualNetworkRule rule1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myserver/virtualNetworkRules/vnetrulename
  * ```
  */
 export class VirtualNetworkRule extends pulumi.CustomResource {

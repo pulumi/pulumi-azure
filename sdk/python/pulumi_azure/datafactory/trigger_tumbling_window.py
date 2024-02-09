@@ -577,7 +577,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+        $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -656,7 +656,7 @@ class TriggerTumblingWindow(pulumi.CustomResource):
         Data Factory Tumbling Window Trigger can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
+        $ pulumi import azure:datafactory/triggerTumblingWindow:TriggerTumblingWindow example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/triggers/example
         ```
 
         :param str resource_name: The name of the resource.

@@ -74,9 +74,7 @@ import (
 // API Management API Tags can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
-//
+// $ pulumi import azure:apimanagement/apiTag:ApiTag example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/apis/api1/tags/tag1
 // ```
 type ApiTag struct {
 	pulumi.CustomResourceState

@@ -89,7 +89,7 @@ import javax.annotation.Nullable;
  * Cost Management Export for a Resource Group can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
+ * $ pulumi import azure:core/resourceGroupCostManagementExport:ResourceGroupCostManagementExport example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.CostManagement/exports/export1
  * ```
  * 
  */

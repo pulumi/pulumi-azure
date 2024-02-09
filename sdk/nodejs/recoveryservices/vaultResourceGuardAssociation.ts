@@ -35,7 +35,7 @@ import * as utilities from "../utilities";
  * Resource Guards can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupResourceGuardProxies/proxy1
+ * $ pulumi import azure:recoveryservices/vaultResourceGuardAssociation:VaultResourceGuardAssociation example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.RecoveryServices/vaults/vault1/backupResourceGuardProxies/proxy1
  * ```
  */
 export class VaultResourceGuardAssociation extends pulumi.CustomResource {

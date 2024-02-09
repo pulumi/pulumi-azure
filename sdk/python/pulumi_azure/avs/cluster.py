@@ -226,7 +226,7 @@ class Cluster(pulumi.CustomResource):
         VMware Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
+        $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.
@@ -274,7 +274,7 @@ class Cluster(pulumi.CustomResource):
         VMware Clusters can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
+        $ pulumi import azure:avs/cluster:Cluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.AVS/privateClouds/privateCloud1/clusters/cluster1
         ```
 
         :param str resource_name: The name of the resource.

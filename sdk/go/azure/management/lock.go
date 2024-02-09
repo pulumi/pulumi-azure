@@ -131,9 +131,7 @@ import (
 // Management Locks can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:management/lock:Lock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
-//
+// $ pulumi import azure:management/lock:Lock lock1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Authorization/locks/lock1
 // ```
 type Lock struct {
 	pulumi.CustomResourceState

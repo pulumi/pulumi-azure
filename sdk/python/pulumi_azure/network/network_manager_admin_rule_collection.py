@@ -197,7 +197,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         Network Manager Admin Rule Collection can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
+        $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,7 +247,7 @@ class NetworkManagerAdminRuleCollection(pulumi.CustomResource):
         Network Manager Admin Rule Collection can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
+        $ pulumi import azure:network/networkManagerAdminRuleCollection:NetworkManagerAdminRuleCollection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/securityAdminConfigurations/configuration1/ruleCollections/ruleCollection1
         ```
 
         :param str resource_name: The name of the resource.

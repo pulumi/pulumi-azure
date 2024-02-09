@@ -72,9 +72,7 @@ import (
 // API Management Product API's can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
-//
+// $ pulumi import azure:apimanagement/productApi:ProductApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.ApiManagement/service/service1/products/exampleId/apis/apiId
 // ```
 type ProductApi struct {
 	pulumi.CustomResourceState

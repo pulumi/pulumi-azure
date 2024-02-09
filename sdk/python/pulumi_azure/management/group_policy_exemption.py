@@ -356,7 +356,7 @@ class GroupPolicyExemption(pulumi.CustomResource):
         Policy Exemptions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
+        $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
         ```
 
         :param str resource_name: The name of the resource.
@@ -406,7 +406,7 @@ class GroupPolicyExemption(pulumi.CustomResource):
         Policy Exemptions can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
+        $ pulumi import azure:management/groupPolicyExemption:GroupPolicyExemption exemption1 /providers/Microsoft.Management/managementGroups/group1/providers/Microsoft.Authorization/policyExemptions/exemption1
         ```
 
         :param str resource_name: The name of the resource.

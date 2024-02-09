@@ -101,7 +101,7 @@ import javax.annotation.Nullable;
  * Mobile Network Packet Core Data Plane can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1/packetCoreDataPlanes/packetCoreDataPlane1
+ * $ pulumi import azure:mobile/networkPacketCoreDataPlane:NetworkPacketCoreDataPlane example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.MobileNetwork/packetCoreControlPlanes/packetCoreControlPlane1/packetCoreDataPlanes/packetCoreDataPlane1
  * ```
  * 
  */

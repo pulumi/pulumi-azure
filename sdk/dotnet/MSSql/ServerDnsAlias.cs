@@ -49,7 +49,7 @@ namespace Pulumi.Azure.MSSql
     /// MSSQL Server DNS Aliass can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
+    /// $ pulumi import azure:mssql/serverDnsAlias:ServerDnsAlias example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/servers/server1/dnsAliases/default
     /// ```
     /// </summary>
     [AzureResourceType("azure:mssql/serverDnsAlias:ServerDnsAlias")]

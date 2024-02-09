@@ -19,9 +19,7 @@ import (
 // Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:webpubsub/customCertificate:CustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/WebPubsub1/customCertificates/cert1
-//
+// $ pulumi import azure:webpubsub/customCertificate:CustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/webPubSub/WebPubsub1/customCertificates/cert1
 // ```
 type CustomCertificate struct {
 	pulumi.CustomResourceState

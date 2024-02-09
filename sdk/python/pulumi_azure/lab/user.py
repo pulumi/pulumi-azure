@@ -206,7 +206,7 @@ class User(pulumi.CustomResource):
         Lab Service Users can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:lab/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1/users/user1
+        $ pulumi import azure:lab/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1/users/user1
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,7 +265,7 @@ class User(pulumi.CustomResource):
         Lab Service Users can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:lab/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1/users/user1
+        $ pulumi import azure:lab/user:User example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.LabServices/labs/lab1/users/user1
         ```
 
         :param str resource_name: The name of the resource.

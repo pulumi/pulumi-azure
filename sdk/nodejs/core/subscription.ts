@@ -70,7 +70,7 @@ import * as utilities from "../utilities";
  * Subscriptions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
+ * $ pulumi import azure:core/subscription:Subscription example "/providers/Microsoft.Subscription/aliases/subscription1"
  * ```
  *
  *  In this scenario, the `subscription_id` property can be completed and the provider will assume control of the existing subscription by creating an Alias. See the `adding an Alias to an existing Subscription` above. This provider requires an alias to correctly manage Subscription resources due to Azure Subscription API design.

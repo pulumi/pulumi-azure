@@ -68,7 +68,7 @@ import javax.annotation.Nullable;
  * Data Factory MySQL Linked Service&#39;s can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:datafactory/linkedServiceMysql:LinkedServiceMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
+ * $ pulumi import azure:datafactory/linkedServiceMysql:LinkedServiceMysql example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/example/providers/Microsoft.DataFactory/factories/example/linkedservices/example
  * ```
  * 
  */

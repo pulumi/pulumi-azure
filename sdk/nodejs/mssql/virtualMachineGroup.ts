@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  * Microsoft SQL Virtual Machine Groups can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:mssql/virtualMachineGroup:VirtualMachineGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1
+ * $ pulumi import azure:mssql/virtualMachineGroup:VirtualMachineGroup example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SqlVirtualMachine/sqlVirtualMachineGroups/vmgroup1
  * ```
  */
 export class VirtualMachineGroup extends pulumi.CustomResource {

@@ -124,7 +124,7 @@ class GatewayApi(pulumi.CustomResource):
         API Management Gateway APIs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
+        $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,7 +165,7 @@ class GatewayApi(pulumi.CustomResource):
         API Management Gateway APIs can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
+        $ pulumi import azure:apimanagement/gatewayApi:GatewayApi example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.ApiManagement/service/service1/gateways/gateway1/apis/api1
         ```
 
         :param str resource_name: The name of the resource.

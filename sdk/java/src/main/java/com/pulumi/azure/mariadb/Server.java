@@ -74,7 +74,7 @@ import javax.annotation.Nullable;
  * MariaDB Server&#39;s can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:mariadb/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1
+ * $ pulumi import azure:mariadb/server:Server server1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.DBforMariaDB/servers/server1
  * ```
  * 
  */

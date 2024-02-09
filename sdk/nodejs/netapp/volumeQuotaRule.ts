@@ -93,7 +93,7 @@ import * as utilities from "../utilities";
  * Volume Quota Rules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:netapp/volumeQuotaRule:VolumeQuotaRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1/volumeQuotaRules/quota1
+ * $ pulumi import azure:netapp/volumeQuotaRule:VolumeQuotaRule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/rg1/providers/Microsoft.NetApp/netAppAccounts/account1/capacityPools/pool1/volumes/vol1/volumeQuotaRules/quota1
  * ```
  */
 export class VolumeQuotaRule extends pulumi.CustomResource {

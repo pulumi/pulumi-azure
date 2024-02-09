@@ -43,7 +43,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// Virtual Desktop Workspaces can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
+    /// $ pulumi import azure:desktopvirtualization/workspace:Workspace example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/workspaces/myworkspace
     /// ```
     /// </summary>
     [AzureResourceType("azure:desktopvirtualization/workspace:Workspace")]

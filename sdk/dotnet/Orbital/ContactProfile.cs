@@ -110,7 +110,7 @@ namespace Pulumi.Azure.Orbital
     /// Contact profile can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
+    /// $ pulumi import azure:orbital/contactProfile:ContactProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Orbital/contactProfiles/contactProfile1
     /// ```
     /// </summary>
     [AzureResourceType("azure:orbital/contactProfile:ContactProfile")]

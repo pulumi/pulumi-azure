@@ -586,7 +586,7 @@ class LiveEvent(pulumi.CustomResource):
         Live Events can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1
+        $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1
         ```
 
         :param str resource_name: The name of the resource.
@@ -672,7 +672,7 @@ class LiveEvent(pulumi.CustomResource):
         Live Events can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1
+        $ pulumi import azure:media/liveEvent:LiveEvent example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.Media/mediaServices/account1/liveEvents/event1
         ```
 
         :param str resource_name: The name of the resource.

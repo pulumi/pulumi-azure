@@ -189,7 +189,7 @@ import * as utilities from "../utilities";
  * SQL Servers can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:sql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
+ * $ pulumi import azure:sql/managedInstance:ManagedInstance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.Sql/managedInstances/myserver
  * ```
  */
 export class ManagedInstance extends pulumi.CustomResource {

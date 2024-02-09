@@ -19,9 +19,7 @@ import (
 // KeyVaults can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import azure:keyvault/managedHardwareSecurityModuleRoleDefinition:ManagedHardwareSecurityModuleRoleDefinition example https://0000.managedhsm.azure.net///RoleDefinition/00000000-0000-0000-0000-000000000000
 // ```
 type ManagedHardwareSecurityModuleRoleDefinition struct {
 	pulumi.CustomResourceState

@@ -289,7 +289,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         SQL Managed Instance Transparent Data Encryption can be imported using the resource id, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
+        $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
         ```
 
         :param str resource_name: The name of the resource.
@@ -450,7 +450,7 @@ class ManagedInstanceTransparentDataEncryption(pulumi.CustomResource):
         SQL Managed Instance Transparent Data Encryption can be imported using the resource id, e.g.
 
         ```sh
-         $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
+        $ pulumi import azure:mssql/managedInstanceTransparentDataEncryption:ManagedInstanceTransparentDataEncryption example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Microsoft.Sql/managedInstances/instance1/encryptionProtector/current
         ```
 
         :param str resource_name: The name of the resource.

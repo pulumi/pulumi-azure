@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * A Container App Environment Certificate can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:containerapp/environmentCertificate:EnvironmentCertificate example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/certificates/mycertificate"
+ * $ pulumi import azure:containerapp/environmentCertificate:EnvironmentCertificate example "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.App/managedEnvironments/myenv/certificates/mycertificate"
  * ```
  */
 export class EnvironmentCertificate extends pulumi.CustomResource {

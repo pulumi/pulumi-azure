@@ -540,7 +540,7 @@ class Grafana(pulumi.CustomResource):
         Dashboard Grafana can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
+        $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
         ```
 
         :param str resource_name: The name of the resource.
@@ -594,7 +594,7 @@ class Grafana(pulumi.CustomResource):
         Dashboard Grafana can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
+        $ pulumi import azure:dashboard/grafana:Grafana example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Dashboard/grafana/workspace1
         ```
 
         :param str resource_name: The name of the resource.

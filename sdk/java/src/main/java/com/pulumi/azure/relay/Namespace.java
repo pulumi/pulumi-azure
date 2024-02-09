@@ -63,7 +63,7 @@ import javax.annotation.Nullable;
  * Azure Relay Namespace&#39;s can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:relay/namespace:Namespace relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1
+ * $ pulumi import azure:relay/namespace:Namespace relay1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Relay/namespaces/relay1
  * ```
  * 
  */

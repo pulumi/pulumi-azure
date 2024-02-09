@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Iot
     /// IoT Hub File Uploads can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:iot/fileUpload:FileUpload example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1
+    /// $ pulumi import azure:iot/fileUpload:FileUpload example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Devices/iotHubs/hub1
     /// ```
     /// </summary>
     [AzureResourceType("azure:iot/fileUpload:FileUpload")]

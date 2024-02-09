@@ -51,7 +51,7 @@ namespace Pulumi.Azure.Stack
     /// Azure Stack HCI Clusters can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
+    /// $ pulumi import azure:stack/hciCluster:HciCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.AzureStackHCI/clusters/cluster1
     /// ```
     /// </summary>
     [AzureResourceType("azure:stack/hciCluster:HciCluster")]

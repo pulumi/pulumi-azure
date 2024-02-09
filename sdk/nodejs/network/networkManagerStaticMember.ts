@@ -47,7 +47,7 @@ import * as utilities from "../utilities";
  * Network Manager Static Member can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/networkManagerStaticMember:NetworkManagerStaticMember example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1/staticMembers/staticMember1
+ * $ pulumi import azure:network/networkManagerStaticMember:NetworkManagerStaticMember example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/networkManagers/networkManager1/networkGroups/networkGroup1/staticMembers/staticMember1
  * ```
  */
 export class NetworkManagerStaticMember extends pulumi.CustomResource {

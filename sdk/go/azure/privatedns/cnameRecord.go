@@ -61,9 +61,7 @@ import (
 // Private DNS CName Records can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
-//
+// $ pulumi import azure:privatedns/cnameRecord:CnameRecord example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/privateDnsZones/zone1/CNAME/myrecord1
 // ```
 type CnameRecord struct {
 	pulumi.CustomResourceState

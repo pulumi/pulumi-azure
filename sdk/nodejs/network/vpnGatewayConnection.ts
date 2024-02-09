@@ -67,7 +67,7 @@ import * as utilities from "../utilities";
  * VPN Gateway Connections can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:network/vpnGatewayConnection:VpnGatewayConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/conn1
+ * $ pulumi import azure:network/vpnGatewayConnection:VpnGatewayConnection example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Network/vpnGateways/gateway1/vpnConnections/conn1
  * ```
  */
 export class VpnGatewayConnection extends pulumi.CustomResource {

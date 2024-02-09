@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * Logic App Integration Account Sessions can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
+ * $ pulumi import azure:logicapps/integrationAccountSession:IntegrationAccountSession example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Logic/integrationAccounts/account1/sessions/session1
  * ```
  */
 export class IntegrationAccountSession extends pulumi.CustomResource {

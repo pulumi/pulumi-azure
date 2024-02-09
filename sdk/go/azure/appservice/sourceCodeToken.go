@@ -50,9 +50,7 @@ import (
 // App Service Source Control Token's can be imported using the `type`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
-//
+// $ pulumi import azure:appservice/sourceCodeToken:SourceCodeToken example {type}
 // ```
 type SourceCodeToken struct {
 	pulumi.CustomResourceState

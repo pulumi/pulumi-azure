@@ -266,7 +266,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         sentinels can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
         :param str resource_name: The name of the resource.
@@ -316,7 +316,7 @@ class DataConnectorMicrosoftThreatIntelligence(pulumi.CustomResource):
         sentinels can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
+        $ pulumi import azure:sentinel/dataConnectorMicrosoftThreatIntelligence:DataConnectorMicrosoftThreatIntelligence example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.OperationalInsights/workspaces/workspace1/providers/Microsoft.SecurityInsights/dataConnectors/dc1
         ```
 
         :param str resource_name: The name of the resource.

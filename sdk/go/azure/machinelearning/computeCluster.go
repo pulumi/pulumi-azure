@@ -136,9 +136,7 @@ import (
 // Machine Learning Compute Clusters can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:machinelearning/computeCluster:ComputeCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/cluster1
-//
+// $ pulumi import azure:machinelearning/computeCluster:ComputeCluster example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resGroup1/providers/Microsoft.MachineLearningServices/workspaces/workspace1/computes/cluster1
 // ```
 type ComputeCluster struct {
 	pulumi.CustomResourceState

@@ -15,7 +15,7 @@ namespace Pulumi.Azure.DataBricks
     /// Databrick Workspaces can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:databricks/workspace:Workspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
+    /// $ pulumi import azure:databricks/workspace:Workspace workspace1 /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Databricks/workspaces/workspace1
     /// ```
     /// </summary>
     [AzureResourceType("azure:databricks/workspace:Workspace")]

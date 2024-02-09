@@ -29,7 +29,7 @@ import * as utilities from "../utilities";
  * App Service Certificate Orders can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
+ * $ pulumi import azure:appservice/certificateOrder:CertificateOrder example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.CertificateRegistration/certificateOrders/certificateorder1
  * ```
  */
 export class CertificateOrder extends pulumi.CustomResource {

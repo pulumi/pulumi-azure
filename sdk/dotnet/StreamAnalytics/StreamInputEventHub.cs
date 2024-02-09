@@ -82,7 +82,7 @@ namespace Pulumi.Azure.StreamAnalytics
     /// Stream Analytics Stream Input EventHub's can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
+    /// $ pulumi import azure:streamanalytics/streamInputEventHub:StreamInputEventHub example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.StreamAnalytics/streamingJobs/job1/inputs/input1
     /// ```
     /// </summary>
     [AzureResourceType("azure:streamanalytics/streamInputEventHub:StreamInputEventHub")]

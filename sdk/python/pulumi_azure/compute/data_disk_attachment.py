@@ -305,7 +305,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         Virtual Machines Data Disk Attachments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
+        $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
         ```
 
         :param str resource_name: The name of the resource.
@@ -401,7 +401,7 @@ class DataDiskAttachment(pulumi.CustomResource):
         Virtual Machines Data Disk Attachments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
+        $ pulumi import azure:compute/dataDiskAttachment:DataDiskAttachment example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/virtualMachines/machine1/dataDisks/disk1
         ```
 
         :param str resource_name: The name of the resource.

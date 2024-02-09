@@ -116,7 +116,7 @@ import javax.annotation.Nullable;
  * Nginx Deployments can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
+ * $ pulumi import azure:nginx/deployment:Deployment example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/group1/providers/Nginx.NginxPlus/nginxDeployments/dep1
  * ```
  * 
  */

@@ -110,7 +110,7 @@ import * as utilities from "../utilities";
  * Virtual Desktop Scaling Plans can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
+ * $ pulumi import azure:desktopvirtualization/scalingPlan:ScalingPlan example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/resGroup1/providers/Microsoft.DesktopVirtualization/scalingPlans/plan1
  * ```
  */
 export class ScalingPlan extends pulumi.CustomResource {

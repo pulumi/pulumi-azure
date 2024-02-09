@@ -539,7 +539,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         Subscription Policy Assignments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
+        $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
 
         :param str resource_name: The name of the resource.
@@ -603,7 +603,7 @@ class SubscriptionPolicyAssignment(pulumi.CustomResource):
         Subscription Policy Assignments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
+        $ pulumi import azure:core/subscriptionPolicyAssignment:SubscriptionPolicyAssignment example /subscriptions/00000000-0000-0000-000000000000/providers/Microsoft.Authorization/policyAssignments/assignment1
         ```
 
         :param str resource_name: The name of the resource.

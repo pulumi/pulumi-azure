@@ -57,9 +57,7 @@ import (
 // Maintenance Configuration can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
-//
+// $ pulumi import azure:maintenance/configuration:Configuration example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Maintenance/maintenanceConfigurations/example-mc
 // ```
 type Configuration struct {
 	pulumi.CustomResourceState

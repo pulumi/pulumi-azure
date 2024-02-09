@@ -289,7 +289,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         Data Collection Rules Association can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
+        $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
         ```
 
         :param str resource_name: The name of the resource.
@@ -386,7 +386,7 @@ class DataCollectionRuleAssociation(pulumi.CustomResource):
         Data Collection Rules Association can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
+        $ pulumi import azure:monitoring/dataCollectionRuleAssociation:DataCollectionRuleAssociation example /subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/rg1/providers/Microsoft.Compute/virtualMachines/vm1/providers/Microsoft.Insights/dataCollectionRuleAssociations/dca1
         ```
 
         :param str resource_name: The name of the resource.

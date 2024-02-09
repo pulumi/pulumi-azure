@@ -74,9 +74,7 @@ import (
 // Data Lake Gen2 Paths can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
-//
+// $ pulumi import azure:storage/dataLakeGen2Path:DataLakeGen2Path example https://account1.dfs.core.windows.net/fileSystem1/path
 // ```
 type DataLakeGen2Path struct {
 	pulumi.CustomResourceState

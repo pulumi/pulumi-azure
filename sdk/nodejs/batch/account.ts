@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  * Batch Account can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:batch/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Batch/batchAccounts/account1
+ * $ pulumi import azure:batch/account:Account example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Batch/batchAccounts/account1
  * ```
  */
 export class Account extends pulumi.CustomResource {

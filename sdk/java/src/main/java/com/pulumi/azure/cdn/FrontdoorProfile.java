@@ -62,7 +62,7 @@ import javax.annotation.Nullable;
  * Front Door Profiles can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
+ * $ pulumi import azure:cdn/frontdoorProfile:FrontdoorProfile example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Cdn/profiles/myprofile1
  * ```
  * 
  */

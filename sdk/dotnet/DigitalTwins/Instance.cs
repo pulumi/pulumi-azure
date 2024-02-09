@@ -45,7 +45,7 @@ namespace Pulumi.Azure.DigitalTwins
     /// Digital Twins instances can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:digitaltwins/instance:Instance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1
+    /// $ pulumi import azure:digitaltwins/instance:Instance example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.DigitalTwins/digitalTwinsInstances/dt1
     /// ```
     /// </summary>
     [AzureResourceType("azure:digitaltwins/instance:Instance")]

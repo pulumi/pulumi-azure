@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * Automation Job Schedules can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
+ * $ pulumi import azure:automation/jobSchedule:JobSchedule example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.Automation/automationAccounts/account1/jobSchedules/10000000-1001-1001-1001-000000000001
  * ```
  */
 export class JobSchedule extends pulumi.CustomResource {

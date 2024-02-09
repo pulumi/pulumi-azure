@@ -19,9 +19,7 @@ import (
 // Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/scheduledQueryRules/rule1
-//
+// $ pulumi import azure:monitoring/scheduledQueryRulesAlertV2:ScheduledQueryRulesAlertV2 example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Insights/scheduledQueryRules/rule1
 // ```
 type ScheduledQueryRulesAlertV2 struct {
 	pulumi.CustomResourceState

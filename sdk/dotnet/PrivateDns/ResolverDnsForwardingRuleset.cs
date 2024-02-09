@@ -102,7 +102,7 @@ namespace Pulumi.Azure.PrivateDns
     /// Private DNS Resolver Dns Forwarding Ruleset can be imported using the `resource id`, e.g.
     /// 
     /// ```sh
-    ///  $ pulumi import azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1
+    /// $ pulumi import azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1
     /// ```
     /// </summary>
     [AzureResourceType("azure:privatedns/resolverDnsForwardingRuleset:ResolverDnsForwardingRuleset")]

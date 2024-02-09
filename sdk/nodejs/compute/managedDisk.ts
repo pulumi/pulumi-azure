@@ -63,7 +63,7 @@ import * as utilities from "../utilities";
  * Managed Disks can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
+ * $ pulumi import azure:compute/managedDisk:ManagedDisk example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/mygroup1/providers/Microsoft.Compute/disks/manageddisk1
  * ```
  */
 export class ManagedDisk extends pulumi.CustomResource {

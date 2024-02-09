@@ -66,7 +66,7 @@ import * as utilities from "../utilities";
  * Private DNS Resolver Virtual Network Link can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1/virtualNetworkLinks/virtualNetworkLink1
+ * $ pulumi import azure:privatedns/resolverVirtualNetworkLink:ResolverVirtualNetworkLink example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/resourceGroup1/providers/Microsoft.Network/dnsForwardingRulesets/dnsForwardingRuleset1/virtualNetworkLinks/virtualNetworkLink1
  * ```
  */
 export class ResolverVirtualNetworkLink extends pulumi.CustomResource {

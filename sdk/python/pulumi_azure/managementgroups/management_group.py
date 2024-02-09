@@ -205,7 +205,7 @@ class ManagementGroup(pulumi.CustomResource):
         Management Groups can be imported using the `management group resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
+        $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
         ```
 
         :param str resource_name: The name of the resource.
@@ -250,7 +250,7 @@ class ManagementGroup(pulumi.CustomResource):
         Management Groups can be imported using the `management group resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
+        $ pulumi import azure:managementgroups/managementGroup:ManagementGroup example /providers/Microsoft.Management/managementGroups/group1
         ```
 
         :param str resource_name: The name of the resource.

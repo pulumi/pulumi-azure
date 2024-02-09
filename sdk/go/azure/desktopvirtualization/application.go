@@ -90,9 +90,7 @@ import (
 // Virtual Desktop Application can be imported using the `resource id`, e.g.
 //
 // ```sh
-//
-//	$ pulumi import azure:desktopvirtualization/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup/applications/myapplication
-//
+// $ pulumi import azure:desktopvirtualization/application:Application example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myGroup1/providers/Microsoft.DesktopVirtualization/applicationGroups/myapplicationgroup/applications/myapplication
 // ```
 type Application struct {
 	pulumi.CustomResourceState

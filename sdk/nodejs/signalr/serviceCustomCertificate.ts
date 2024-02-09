@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * Custom Certificate for a SignalR service can be imported using the `resource id`, e.g.
  *
  * ```sh
- *  $ pulumi import azure:signalr/serviceCustomCertificate:ServiceCustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customCertificates/cert1
+ * $ pulumi import azure:signalr/serviceCustomCertificate:ServiceCustomCertificate example /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/group1/providers/Microsoft.SignalRService/signalR/signalr1/customCertificates/cert1
  * ```
  */
 export class ServiceCustomCertificate extends pulumi.CustomResource {

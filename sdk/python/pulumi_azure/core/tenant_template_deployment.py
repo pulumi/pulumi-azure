@@ -300,7 +300,7 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         Tenant Template Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+        $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
         ```
 
         :param str resource_name: The name of the resource.
@@ -339,7 +339,7 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         Tenant Template Deployments can be imported using the `resource id`, e.g.
 
         ```sh
-         $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
+        $ pulumi import azure:core/tenantTemplateDeployment:TenantTemplateDeployment example /providers/Microsoft.Resources/deployments/deploy1
         ```
 
         :param str resource_name: The name of the resource.

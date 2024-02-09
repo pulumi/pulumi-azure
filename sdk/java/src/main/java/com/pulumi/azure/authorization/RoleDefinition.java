@@ -66,7 +66,7 @@ import javax.annotation.Nullable;
  * Role Definitions can be imported using the `resource id`, e.g.
  * 
  * ```sh
- *  $ pulumi import azure:authorization/roleDefinition:RoleDefinition example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000&#34;
+ * $ pulumi import azure:authorization/roleDefinition:RoleDefinition example &#34;/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.Authorization/roleDefinitions/00000000-0000-0000-0000-000000000000|/subscriptions/00000000-0000-0000-0000-000000000000&#34;
  * ```
  * 
  */
