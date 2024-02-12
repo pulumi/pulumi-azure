@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * const exampleCluster = new azure.arckubernetes.Cluster("exampleCluster", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: "West Europe",
- *     agentPublicKeyCertificate: fs.readFileSync("testdata/public.cer", { encoding: "base64" }),
+ *     agentPublicKeyCertificate: Buffer.from(fs.readFileSync("testdata/public.cer", 'binary')).toString('base64'),
  *     identity: {
  *         type: "SystemAssigned",
  *     },

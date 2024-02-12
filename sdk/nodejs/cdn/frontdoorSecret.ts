@@ -55,7 +55,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("my-certificate.pfx", { encoding: "base64" }),
+ *         contents: Buffer.from(fs.readFileSync("my-certificate.pfx", 'binary')).toString('base64'),
  *     },
  * });
  * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {

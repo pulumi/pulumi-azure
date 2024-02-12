@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const exampleCertificate = new azure.batch.Certificate("exampleCertificate", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleBatch / accountAccount.name,
- *     certificate: fs.readFileSync("certificate.cer", { encoding: "base64" }),
+ *     certificate: Buffer.from(fs.readFileSync("certificate.cer", 'binary')).toString('base64'),
  *     format: "Cer",
  *     thumbprint: "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
  *     thumbprintAlgorithm: "SHA1",
