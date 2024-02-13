@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  *         var exampleWorkspaceTable = new WorkspaceTable(&#34;exampleWorkspaceTable&#34;, WorkspaceTableArgs.builder()        
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .retentionInDays(60)
+ *             .totalRetentionInDays(180)
  *             .build());
  * 
  *     }
@@ -104,10 +105,6 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
     /**
      * The table&#39;s retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      * 
-     * &gt; **Note:** `retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
-     * 
-     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-     * 
      */
     @Export(name="retentionInDays", refs={Integer.class}, tree="[0]")
     private Output</* @Nullable */ Integer> retentionInDays;
@@ -115,13 +112,31 @@ public class WorkspaceTable extends com.pulumi.resources.CustomResource {
     /**
      * @return The table&#39;s retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
      * 
-     * &gt; **Note:** `retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     */
+    public Output<Optional<Integer>> retentionInDays() {
+        return Codegen.optional(this.retentionInDays);
+    }
+    /**
+     * The table&#39;s total retention in days. Possible values range between 30 and 4383.
+     * 
+     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      * 
      * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      * 
      */
-    public Output<Optional<Integer>> retentionInDays() {
-        return Codegen.optional(this.retentionInDays);
+    @Export(name="totalRetentionInDays", refs={Integer.class}, tree="[0]")
+    private Output</* @Nullable */ Integer> totalRetentionInDays;
+
+    /**
+     * @return The table&#39;s total retention in days. Possible values range between 30 and 4383.
+     * 
+     * &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * 
+     * &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+     * 
+     */
+    public Output<Optional<Integer>> totalRetentionInDays() {
+        return Codegen.optional(this.totalRetentionInDays);
     }
     /**
      * The object ID of the Log Analytics Workspace that contains the table.

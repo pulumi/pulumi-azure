@@ -433,6 +433,8 @@ type Workspace struct {
 	DiscoveryUrl pulumi.StringOutput `pulumi:"discoveryUrl"`
 	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrOutput `pulumi:"encryption"`
+	// A `featureStore` block as defined below.
+	FeatureStore WorkspaceFeatureStorePtrOutput `pulumi:"featureStore"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrOutput `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
@@ -443,6 +445,8 @@ type Workspace struct {
 	ImageBuildComputeName pulumi.StringPtrOutput `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringOutput `pulumi:"keyVaultId"`
+	// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+	Kind pulumi.StringPtrOutput `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -530,6 +534,8 @@ type workspaceState struct {
 	DiscoveryUrl *string `pulumi:"discoveryUrl"`
 	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
+	// A `featureStore` block as defined below.
+	FeatureStore *WorkspaceFeatureStore `pulumi:"featureStore"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
@@ -540,6 +546,8 @@ type workspaceState struct {
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId *string `pulumi:"keyVaultId"`
+	// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -583,6 +591,8 @@ type WorkspaceState struct {
 	DiscoveryUrl pulumi.StringPtrInput
 	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrInput
+	// A `featureStore` block as defined below.
+	FeatureStore WorkspaceFeatureStorePtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
@@ -593,6 +603,8 @@ type WorkspaceState struct {
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringPtrInput
+	// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -638,6 +650,8 @@ type workspaceArgs struct {
 	Description *string `pulumi:"description"`
 	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption *WorkspaceEncryption `pulumi:"encryption"`
+	// A `featureStore` block as defined below.
+	FeatureStore *WorkspaceFeatureStore `pulumi:"featureStore"`
 	// Display name for this Machine Learning Workspace.
 	FriendlyName *string `pulumi:"friendlyName"`
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
@@ -648,6 +662,8 @@ type workspaceArgs struct {
 	ImageBuildComputeName *string `pulumi:"imageBuildComputeName"`
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId string `pulumi:"keyVaultId"`
+	// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+	Kind *string `pulumi:"kind"`
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -688,6 +704,8 @@ type WorkspaceArgs struct {
 	Description pulumi.StringPtrInput
 	// An `encryption` block as defined below. Changing this forces a new resource to be created.
 	Encryption WorkspaceEncryptionPtrInput
+	// A `featureStore` block as defined below.
+	FeatureStore WorkspaceFeatureStorePtrInput
 	// Display name for this Machine Learning Workspace.
 	FriendlyName pulumi.StringPtrInput
 	// Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
@@ -698,6 +716,8 @@ type WorkspaceArgs struct {
 	ImageBuildComputeName pulumi.StringPtrInput
 	// The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 	KeyVaultId pulumi.StringInput
+	// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+	Kind pulumi.StringPtrInput
 	// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
@@ -840,6 +860,11 @@ func (o WorkspaceOutput) Encryption() WorkspaceEncryptionPtrOutput {
 	return o.ApplyT(func(v *Workspace) WorkspaceEncryptionPtrOutput { return v.Encryption }).(WorkspaceEncryptionPtrOutput)
 }
 
+// A `featureStore` block as defined below.
+func (o WorkspaceOutput) FeatureStore() WorkspaceFeatureStorePtrOutput {
+	return o.ApplyT(func(v *Workspace) WorkspaceFeatureStorePtrOutput { return v.FeatureStore }).(WorkspaceFeatureStorePtrOutput)
+}
+
 // Display name for this Machine Learning Workspace.
 func (o WorkspaceOutput) FriendlyName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.FriendlyName }).(pulumi.StringPtrOutput)
@@ -863,6 +888,11 @@ func (o WorkspaceOutput) ImageBuildComputeName() pulumi.StringPtrOutput {
 // The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
 func (o WorkspaceOutput) KeyVaultId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Workspace) pulumi.StringOutput { return v.KeyVaultId }).(pulumi.StringOutput)
+}
+
+// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+func (o WorkspaceOutput) Kind() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Workspace) pulumi.StringPtrOutput { return v.Kind }).(pulumi.StringPtrOutput)
 }
 
 // Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

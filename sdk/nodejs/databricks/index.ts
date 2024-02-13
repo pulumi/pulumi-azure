@@ -10,6 +10,11 @@ export type AccessConnector = import("./accessConnector").AccessConnector;
 export const AccessConnector: typeof import("./accessConnector").AccessConnector = null as any;
 utilities.lazyLoad(exports, ["AccessConnector"], () => require("./accessConnector"));
 
+export { GetAccessConnectorArgs, GetAccessConnectorResult, GetAccessConnectorOutputArgs } from "./getAccessConnector";
+export const getAccessConnector: typeof import("./getAccessConnector").getAccessConnector = null as any;
+export const getAccessConnectorOutput: typeof import("./getAccessConnector").getAccessConnectorOutput = null as any;
+utilities.lazyLoad(exports, ["getAccessConnector","getAccessConnectorOutput"], () => require("./getAccessConnector"));
+
 export { GetWorkspaceArgs, GetWorkspaceResult, GetWorkspaceOutputArgs } from "./getWorkspace";
 export const getWorkspace: typeof import("./getWorkspace").getWorkspace = null as any;
 export const getWorkspaceOutput: typeof import("./getWorkspace").getWorkspaceOutput = null as any;

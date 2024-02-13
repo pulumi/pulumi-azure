@@ -39,14 +39,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     @Import(name="backendPort", required=true)
     private Output<Integer> backendPort;
 
     /**
-     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     public Output<Integer> backendPort() {
@@ -69,14 +69,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
     @Import(name="enableFloatingIp")
     private @Nullable Output<Boolean> enableFloatingIp;
 
     /**
-     * @return Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * @return Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
     public Optional<Output<Boolean>> enableFloatingIp() {
@@ -114,14 +114,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     @Import(name="frontendPort", required=true)
     private Output<Integer> frontendPort;
 
     /**
-     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     public Output<Integer> frontendPort() {
@@ -129,14 +129,14 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      * 
      */
     @Import(name="idleTimeoutInMinutes")
     private @Nullable Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      * 
      */
     public Optional<Output<Integer>> idleTimeoutInMinutes() {
@@ -292,7 +292,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
          * 
          * @return builder
          * 
@@ -303,7 +303,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+         * @param backendPort The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
          * 
          * @return builder
          * 
@@ -334,7 +334,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -345,7 +345,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+         * @param enableFloatingIp Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
          * 
          * @return builder
          * 
@@ -397,7 +397,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
          * 
          * @return builder
          * 
@@ -408,7 +408,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+         * @param frontendPort The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
          * 
          * @return builder
          * 
@@ -418,7 +418,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeoutInMinutes Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+         * @param idleTimeoutInMinutes Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
          * 
          * @return builder
          * 
@@ -429,7 +429,7 @@ public final class RuleArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param idleTimeoutInMinutes Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+         * @param idleTimeoutInMinutes Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
          * 
          * @return builder
          * 

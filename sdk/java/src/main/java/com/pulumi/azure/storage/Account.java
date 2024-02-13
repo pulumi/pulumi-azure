@@ -434,6 +434,20 @@ public class Account extends com.pulumi.resources.CustomResource {
         return this.largeFileShareEnabled;
     }
     /**
+     * Is Local User Enabled? Defaults to `true`.
+     * 
+     */
+    @Export(name="localUserEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> localUserEnabled;
+
+    /**
+     * @return Is Local User Enabled? Defaults to `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> localUserEnabled() {
+        return Codegen.optional(this.localUserEnabled);
+    }
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */

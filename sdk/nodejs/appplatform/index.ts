@@ -45,6 +45,11 @@ export type SpringCloudAppCosmosDBAssociation = import("./springCloudAppCosmosDB
 export const SpringCloudAppCosmosDBAssociation: typeof import("./springCloudAppCosmosDBAssociation").SpringCloudAppCosmosDBAssociation = null as any;
 utilities.lazyLoad(exports, ["SpringCloudAppCosmosDBAssociation"], () => require("./springCloudAppCosmosDBAssociation"));
 
+export { SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs, SpringCloudAppDynamicsApplicationPerformanceMonitoringState } from "./springCloudAppDynamicsApplicationPerformanceMonitoring";
+export type SpringCloudAppDynamicsApplicationPerformanceMonitoring = import("./springCloudAppDynamicsApplicationPerformanceMonitoring").SpringCloudAppDynamicsApplicationPerformanceMonitoring;
+export const SpringCloudAppDynamicsApplicationPerformanceMonitoring: typeof import("./springCloudAppDynamicsApplicationPerformanceMonitoring").SpringCloudAppDynamicsApplicationPerformanceMonitoring = null as any;
+utilities.lazyLoad(exports, ["SpringCloudAppDynamicsApplicationPerformanceMonitoring"], () => require("./springCloudAppDynamicsApplicationPerformanceMonitoring"));
+
 export { SpringCloudAppMysqlAssociationArgs, SpringCloudAppMysqlAssociationState } from "./springCloudAppMysqlAssociation";
 export type SpringCloudAppMysqlAssociation = import("./springCloudAppMysqlAssociation").SpringCloudAppMysqlAssociation;
 export const SpringCloudAppMysqlAssociation: typeof import("./springCloudAppMysqlAssociation").SpringCloudAppMysqlAssociation = null as any;
@@ -177,6 +182,8 @@ const _module = {
                 return new SpringCloudApp(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppCosmosDBAssociation:SpringCloudAppCosmosDBAssociation":
                 return new SpringCloudAppCosmosDBAssociation(name, <any>undefined, { urn })
+            case "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring":
+                return new SpringCloudAppDynamicsApplicationPerformanceMonitoring(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppMysqlAssociation:SpringCloudAppMysqlAssociation":
                 return new SpringCloudAppMysqlAssociation(name, <any>undefined, { urn })
             case "azure:appplatform/springCloudAppRedisAssociation:SpringCloudAppRedisAssociation":
@@ -234,6 +241,7 @@ pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApiPortal
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApiPortalCustomDomain", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApp", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppCosmosDBAssociation", _module)
+pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppMysqlAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudAppRedisAssociation", _module)
 pulumi.runtime.registerResourceModule("azure", "appplatform/springCloudApplicationInsightsApplicationPerformanceMonitoring", _module)

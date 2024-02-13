@@ -21,6 +21,21 @@ public final class TrafficManagerExternalEndpointState extends com.pulumi.resour
     public static final TrafficManagerExternalEndpointState Empty = new TrafficManagerExternalEndpointState();
 
     /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     * 
+     */
+    @Import(name="alwaysServeEnabled")
+    private @Nullable Output<Boolean> alwaysServeEnabled;
+
+    /**
+     * @return If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> alwaysServeEnabled() {
+        return Optional.ofNullable(this.alwaysServeEnabled);
+    }
+
+    /**
      * One or more `custom_header` blocks as defined below.
      * 
      */
@@ -173,6 +188,7 @@ public final class TrafficManagerExternalEndpointState extends com.pulumi.resour
     private TrafficManagerExternalEndpointState() {}
 
     private TrafficManagerExternalEndpointState(TrafficManagerExternalEndpointState $) {
+        this.alwaysServeEnabled = $.alwaysServeEnabled;
         this.customHeaders = $.customHeaders;
         this.enabled = $.enabled;
         this.endpointLocation = $.endpointLocation;
@@ -201,6 +217,27 @@ public final class TrafficManagerExternalEndpointState extends com.pulumi.resour
 
         public Builder(TrafficManagerExternalEndpointState defaults) {
             $ = new TrafficManagerExternalEndpointState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param alwaysServeEnabled If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alwaysServeEnabled(@Nullable Output<Boolean> alwaysServeEnabled) {
+            $.alwaysServeEnabled = alwaysServeEnabled;
+            return this;
+        }
+
+        /**
+         * @param alwaysServeEnabled If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder alwaysServeEnabled(Boolean alwaysServeEnabled) {
+            return alwaysServeEnabled(Output.of(alwaysServeEnabled));
         }
 
         /**

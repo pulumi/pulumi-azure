@@ -4,6 +4,7 @@
 package com.pulumi.azure.machinelearning;
 
 import com.pulumi.azure.machinelearning.inputs.WorkspaceEncryptionArgs;
+import com.pulumi.azure.machinelearning.inputs.WorkspaceFeatureStoreArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceIdentityArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -85,6 +86,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `feature_store` block as defined below.
+     * 
+     */
+    @Import(name="featureStore")
+    private @Nullable Output<WorkspaceFeatureStoreArgs> featureStore;
+
+    /**
+     * @return A `feature_store` block as defined below.
+     * 
+     */
+    public Optional<Output<WorkspaceFeatureStoreArgs>> featureStore() {
+        return Optional.ofNullable(this.featureStore);
+    }
+
+    /**
      * Display name for this Machine Learning Workspace.
      * 
      */
@@ -157,6 +173,21 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Output<String> keyVaultId() {
         return this.keyVaultId;
+    }
+
+    /**
+     * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     * 
+     */
+    @Import(name="kind")
+    private @Nullable Output<String> kind;
+
+    /**
+     * @return The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     * 
+     */
+    public Optional<Output<String>> kind() {
+        return Optional.ofNullable(this.kind);
     }
 
     /**
@@ -332,11 +363,13 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         this.containerRegistryId = $.containerRegistryId;
         this.description = $.description;
         this.encryption = $.encryption;
+        this.featureStore = $.featureStore;
         this.friendlyName = $.friendlyName;
         this.highBusinessImpact = $.highBusinessImpact;
         this.identity = $.identity;
         this.imageBuildComputeName = $.imageBuildComputeName;
         this.keyVaultId = $.keyVaultId;
+        this.kind = $.kind;
         this.location = $.location;
         this.name = $.name;
         this.primaryUserAssignedIdentity = $.primaryUserAssignedIdentity;
@@ -456,6 +489,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param featureStore A `feature_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder featureStore(@Nullable Output<WorkspaceFeatureStoreArgs> featureStore) {
+            $.featureStore = featureStore;
+            return this;
+        }
+
+        /**
+         * @param featureStore A `feature_store` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder featureStore(WorkspaceFeatureStoreArgs featureStore) {
+            return featureStore(Output.of(featureStore));
+        }
+
+        /**
          * @param friendlyName Display name for this Machine Learning Workspace.
          * 
          * @return builder
@@ -558,6 +612,27 @@ public final class WorkspaceArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder keyVaultId(String keyVaultId) {
             return keyVaultId(Output.of(keyVaultId));
+        }
+
+        /**
+         * @param kind The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kind(@Nullable Output<String> kind) {
+            $.kind = kind;
+            return this;
+        }
+
+        /**
+         * @param kind The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kind(String kind) {
+            return kind(Output.of(kind));
         }
 
         /**

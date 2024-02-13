@@ -48,8 +48,9 @@ import (
 //				return err
 //			}
 //			_, err = loganalytics.NewWorkspaceTable(ctx, "exampleWorkspaceTable", &loganalytics.WorkspaceTableArgs{
-//				WorkspaceId:     exampleAnalyticsWorkspace.ID(),
-//				RetentionInDays: pulumi.Int(60),
+//				WorkspaceId:          exampleAnalyticsWorkspace.ID(),
+//				RetentionInDays:      pulumi.Int(60),
+//				TotalRetentionInDays: pulumi.Int(180),
 //			})
 //			if err != nil {
 //				return err
@@ -69,11 +70,13 @@ type WorkspaceTable struct {
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrOutput `pulumi:"plan"`
 	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
+	// The table's total retention in days. Possible values range between 30 and 4383.
 	//
-	// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
 	// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-	RetentionInDays pulumi.IntPtrOutput `pulumi:"retentionInDays"`
+	TotalRetentionInDays pulumi.IntPtrOutput `pulumi:"totalRetentionInDays"`
 	// The object ID of the Log Analytics Workspace that contains the table.
 	WorkspaceId pulumi.StringOutput `pulumi:"workspaceId"`
 }
@@ -118,11 +121,13 @@ type workspaceTableState struct {
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan *string `pulumi:"plan"`
 	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// The table's total retention in days. Possible values range between 30 and 4383.
 	//
-	// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
 	// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-	RetentionInDays *int `pulumi:"retentionInDays"`
+	TotalRetentionInDays *int `pulumi:"totalRetentionInDays"`
 	// The object ID of the Log Analytics Workspace that contains the table.
 	WorkspaceId *string `pulumi:"workspaceId"`
 }
@@ -135,11 +140,13 @@ type WorkspaceTableState struct {
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrInput
 	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	RetentionInDays pulumi.IntPtrInput
+	// The table's total retention in days. Possible values range between 30 and 4383.
 	//
-	// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
 	// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-	RetentionInDays pulumi.IntPtrInput
+	TotalRetentionInDays pulumi.IntPtrInput
 	// The object ID of the Log Analytics Workspace that contains the table.
 	WorkspaceId pulumi.StringPtrInput
 }
@@ -156,11 +163,13 @@ type workspaceTableArgs struct {
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan *string `pulumi:"plan"`
 	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	RetentionInDays *int `pulumi:"retentionInDays"`
+	// The table's total retention in days. Possible values range between 30 and 4383.
 	//
-	// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
 	// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-	RetentionInDays *int `pulumi:"retentionInDays"`
+	TotalRetentionInDays *int `pulumi:"totalRetentionInDays"`
 	// The object ID of the Log Analytics Workspace that contains the table.
 	WorkspaceId string `pulumi:"workspaceId"`
 }
@@ -174,11 +183,13 @@ type WorkspaceTableArgs struct {
 	// > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
 	Plan pulumi.StringPtrInput
 	// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+	RetentionInDays pulumi.IntPtrInput
+	// The table's total retention in days. Possible values range between 30 and 4383.
 	//
-	// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+	// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 	//
 	// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
-	RetentionInDays pulumi.IntPtrInput
+	TotalRetentionInDays pulumi.IntPtrInput
 	// The object ID of the Log Analytics Workspace that contains the table.
 	WorkspaceId pulumi.StringInput
 }
@@ -283,12 +294,17 @@ func (o WorkspaceTableOutput) Plan() pulumi.StringPtrOutput {
 }
 
 // The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-//
-// > **Note:** `retentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
-//
-// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
 func (o WorkspaceTableOutput) RetentionInDays() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *WorkspaceTable) pulumi.IntPtrOutput { return v.RetentionInDays }).(pulumi.IntPtrOutput)
+}
+
+// The table's total retention in days. Possible values range between 30 and 4383.
+//
+// > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+//
+// > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+func (o WorkspaceTableOutput) TotalRetentionInDays() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *WorkspaceTable) pulumi.IntPtrOutput { return v.TotalRetentionInDays }).(pulumi.IntPtrOutput)
 }
 
 // The object ID of the Log Analytics Workspace that contains the table.

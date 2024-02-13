@@ -195,6 +195,9 @@ namespace Pulumi.Azure.AppService
         [Output("pricingTier")]
         public Output<string> PricingTier { get; private set; } = null!;
 
+        [Output("remoteDebuggingEnabled")]
+        public Output<bool?> RemoteDebuggingEnabled { get; private set; } = null!;
+
         /// <summary>
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
         /// </summary>
@@ -309,6 +312,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("remoteDebuggingEnabled")]
+        public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
@@ -457,6 +463,9 @@ namespace Pulumi.Azure.AppService
         /// </summary>
         [Input("pricingTier")]
         public Input<string>? PricingTier { get; set; }
+
+        [Input("remoteDebuggingEnabled")]
+        public Input<bool>? RemoteDebuggingEnabled { get; set; }
 
         /// <summary>
         /// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.

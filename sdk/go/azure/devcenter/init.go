@@ -23,6 +23,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 	switch typ {
 	case "azure:devcenter/devCenter:DevCenter":
 		r = &DevCenter{}
+	case "azure:devcenter/gallery:Gallery":
+		r = &Gallery{}
 	case "azure:devcenter/project:Project":
 		r = &Project{}
 	default:
@@ -41,6 +43,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"devcenter/devCenter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"devcenter/gallery",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

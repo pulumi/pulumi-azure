@@ -189,6 +189,573 @@ func (o BackupPolicyDiskRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.S
 	return o.ApplyT(func(v BackupPolicyDiskRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
 }
 
+type BackupPolicyKubernetesClusterDefaultRetentionRule struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+}
+
+// BackupPolicyKubernetesClusterDefaultRetentionRuleInput is an input type that accepts BackupPolicyKubernetesClusterDefaultRetentionRuleArgs and BackupPolicyKubernetesClusterDefaultRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterDefaultRetentionRuleInput` via:
+//
+//	BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{...}
+type BackupPolicyKubernetesClusterDefaultRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleOutput
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutputWithContext(context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleOutput
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleArgs struct {
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+}
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleOutput {
+	return i.ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterDefaultRetentionRuleOutput)
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput() BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterDefaultRetentionRuleOutput).ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(ctx)
+}
+
+// BackupPolicyKubernetesClusterDefaultRetentionRulePtrInput is an input type that accepts BackupPolicyKubernetesClusterDefaultRetentionRuleArgs, BackupPolicyKubernetesClusterDefaultRetentionRulePtr and BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterDefaultRetentionRulePtrInput` via:
+//
+//	        BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{...}
+//
+//	or:
+//
+//	        nil
+type BackupPolicyKubernetesClusterDefaultRetentionRulePtrInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput() BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput
+	ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(context.Context) BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput
+}
+
+type backupPolicyKubernetesClusterDefaultRetentionRulePtrType BackupPolicyKubernetesClusterDefaultRetentionRuleArgs
+
+func BackupPolicyKubernetesClusterDefaultRetentionRulePtr(v *BackupPolicyKubernetesClusterDefaultRetentionRuleArgs) BackupPolicyKubernetesClusterDefaultRetentionRulePtrInput {
+	return (*backupPolicyKubernetesClusterDefaultRetentionRulePtrType)(v)
+}
+
+func (*backupPolicyKubernetesClusterDefaultRetentionRulePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyKubernetesClusterDefaultRetentionRule)(nil)).Elem()
+}
+
+func (i *backupPolicyKubernetesClusterDefaultRetentionRulePtrType) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput() BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return i.ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (i *backupPolicyKubernetesClusterDefaultRetentionRulePtrType) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput)
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput() BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return o.ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(context.Background())
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v BackupPolicyKubernetesClusterDefaultRetentionRule) *BackupPolicyKubernetesClusterDefaultRetentionRule {
+		return &v
+	}).(BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleOutput) LifeCycles() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterDefaultRetentionRule) []BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**BackupPolicyKubernetesClusterDefaultRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput() BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRulePtrOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) Elem() BackupPolicyKubernetesClusterDefaultRetentionRuleOutput {
+	return o.ApplyT(func(v *BackupPolicyKubernetesClusterDefaultRetentionRule) BackupPolicyKubernetesClusterDefaultRetentionRule {
+		if v != nil {
+			return *v
+		}
+		var ret BackupPolicyKubernetesClusterDefaultRetentionRule
+		return ret
+	}).(BackupPolicyKubernetesClusterDefaultRetentionRuleOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput) LifeCycles() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v *BackupPolicyKubernetesClusterDefaultRetentionRule) []BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
+		if v == nil {
+			return nil
+		}
+		return v.LifeCycles
+	}).(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `OperationalStore`.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs and BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{...}
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `OperationalStore`.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray and BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{ BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray []BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `OperationalStore`.
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput) ToBackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRule struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyKubernetesClusterRetentionRuleCriteria `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles []BackupPolicyKubernetesClusterRetentionRuleLifeCycle `pulumi:"lifeCycles"`
+	// The name which should be used for this retention rule. Changing this forces a new resource to be created.
+	Name string `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority int `pulumi:"priority"`
+}
+
+// BackupPolicyKubernetesClusterRetentionRuleInput is an input type that accepts BackupPolicyKubernetesClusterRetentionRuleArgs and BackupPolicyKubernetesClusterRetentionRuleOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterRetentionRuleInput` via:
+//
+//	BackupPolicyKubernetesClusterRetentionRuleArgs{...}
+type BackupPolicyKubernetesClusterRetentionRuleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterRetentionRuleOutput() BackupPolicyKubernetesClusterRetentionRuleOutput
+	ToBackupPolicyKubernetesClusterRetentionRuleOutputWithContext(context.Context) BackupPolicyKubernetesClusterRetentionRuleOutput
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleArgs struct {
+	// A `criteria` block as defined below. Changing this forces a new resource to be created.
+	Criteria BackupPolicyKubernetesClusterRetentionRuleCriteriaInput `pulumi:"criteria"`
+	// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+	LifeCycles BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput `pulumi:"lifeCycles"`
+	// The name which should be used for this retention rule. Changing this forces a new resource to be created.
+	Name pulumi.StringInput `pulumi:"name"`
+	// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+	Priority pulumi.IntInput `pulumi:"priority"`
+}
+
+func (BackupPolicyKubernetesClusterRetentionRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleArgs) ToBackupPolicyKubernetesClusterRetentionRuleOutput() BackupPolicyKubernetesClusterRetentionRuleOutput {
+	return i.ToBackupPolicyKubernetesClusterRetentionRuleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleArgs) ToBackupPolicyKubernetesClusterRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterRetentionRuleOutput)
+}
+
+// BackupPolicyKubernetesClusterRetentionRuleArrayInput is an input type that accepts BackupPolicyKubernetesClusterRetentionRuleArray and BackupPolicyKubernetesClusterRetentionRuleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterRetentionRuleArrayInput` via:
+//
+//	BackupPolicyKubernetesClusterRetentionRuleArray{ BackupPolicyKubernetesClusterRetentionRuleArgs{...} }
+type BackupPolicyKubernetesClusterRetentionRuleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterRetentionRuleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleArrayOutput
+	ToBackupPolicyKubernetesClusterRetentionRuleArrayOutputWithContext(context.Context) BackupPolicyKubernetesClusterRetentionRuleArrayOutput
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleArray []BackupPolicyKubernetesClusterRetentionRuleInput
+
+func (BackupPolicyKubernetesClusterRetentionRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterRetentionRule)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleArray) ToBackupPolicyKubernetesClusterRetentionRuleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleArrayOutput {
+	return i.ToBackupPolicyKubernetesClusterRetentionRuleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleArray) ToBackupPolicyKubernetesClusterRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterRetentionRuleArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterRetentionRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) ToBackupPolicyKubernetesClusterRetentionRuleOutput() BackupPolicyKubernetesClusterRetentionRuleOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) ToBackupPolicyKubernetesClusterRetentionRuleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleOutput {
+	return o
+}
+
+// A `criteria` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) Criteria() BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRule) BackupPolicyKubernetesClusterRetentionRuleCriteria {
+		return v.Criteria
+	}).(BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput)
+}
+
+// A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) LifeCycles() BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRule) []BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
+		return v.LifeCycles
+	}).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput)
+}
+
+// The name which should be used for this retention rule. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleOutput) Priority() pulumi.IntOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRule) int { return v.Priority }).(pulumi.IntOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterRetentionRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterRetentionRule)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleArrayOutput) ToBackupPolicyKubernetesClusterRetentionRuleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleArrayOutput) ToBackupPolicyKubernetesClusterRetentionRuleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleArrayOutput) Index(i pulumi.IntInput) BackupPolicyKubernetesClusterRetentionRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyKubernetesClusterRetentionRule {
+		return vs[0].([]BackupPolicyKubernetesClusterRetentionRule)[vs[1].(int)]
+	}).(BackupPolicyKubernetesClusterRetentionRuleOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleCriteria struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria *string `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks []string `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears []string `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes []string `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths []string `pulumi:"weeksOfMonths"`
+}
+
+// BackupPolicyKubernetesClusterRetentionRuleCriteriaInput is an input type that accepts BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs and BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterRetentionRuleCriteriaInput` via:
+//
+//	BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{...}
+type BackupPolicyKubernetesClusterRetentionRuleCriteriaInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutput() BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput
+	ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutputWithContext(context.Context) BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs struct {
+	// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+	AbsoluteCriteria pulumi.StringPtrInput `pulumi:"absoluteCriteria"`
+	// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+	DaysOfWeeks pulumi.StringArrayInput `pulumi:"daysOfWeeks"`
+	// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+	MonthsOfYears pulumi.StringArrayInput `pulumi:"monthsOfYears"`
+	// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+	ScheduledBackupTimes pulumi.StringArrayInput `pulumi:"scheduledBackupTimes"`
+	// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+	WeeksOfMonths pulumi.StringArrayInput `pulumi:"weeksOfMonths"`
+}
+
+func (BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs) ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutput() BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput {
+	return i.ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs) ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleCriteria)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutput() BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ToBackupPolicyKubernetesClusterRetentionRuleCriteriaOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput {
+	return o
+}
+
+// Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) AbsoluteCriteria() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) *string { return v.AbsoluteCriteria }).(pulumi.StringPtrOutput)
+}
+
+// Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) DaysOfWeeks() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.DaysOfWeeks }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) MonthsOfYears() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.MonthsOfYears }).(pulumi.StringArrayOutput)
+}
+
+// Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) ScheduledBackupTimes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.ScheduledBackupTimes }).(pulumi.StringArrayOutput)
+}
+
+// Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput) WeeksOfMonths() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleCriteria) []string { return v.WeeksOfMonths }).(pulumi.StringArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycle struct {
+	// The type of data store. The only possible value is `OperationalStore`.
+	DataStoreType string `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration string `pulumi:"duration"`
+}
+
+// BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput is an input type that accepts BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs and BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput` via:
+//
+//	BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{...}
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput
+	ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutputWithContext(context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs struct {
+	// The type of data store. The only possible value is `OperationalStore`.
+	DataStoreType pulumi.StringInput `pulumi:"dataStoreType"`
+	// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+	Duration pulumi.StringInput `pulumi:"duration"`
+}
+
+func (BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput {
+	return i.ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput)
+}
+
+// BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput is an input type that accepts BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray and BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput values.
+// You can construct a concrete instance of `BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput` via:
+//
+//	BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{ BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{...} }
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput interface {
+	pulumi.Input
+
+	ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput
+	ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutputWithContext(context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray []BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput
+
+func (BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput {
+	return i.ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutputWithContext(context.Background())
+}
+
+func (i BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput {
+	return o
+}
+
+// The type of data store. The only possible value is `OperationalStore`.
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) DataStoreType() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleLifeCycle) string { return v.DataStoreType }).(pulumi.StringOutput)
+}
+
+// The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput) Duration() pulumi.StringOutput {
+	return o.ApplyT(func(v BackupPolicyKubernetesClusterRetentionRuleLifeCycle) string { return v.Duration }).(pulumi.StringOutput)
+}
+
+type BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput struct{ *pulumi.OutputState }
+
+func (BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]BackupPolicyKubernetesClusterRetentionRuleLifeCycle)(nil)).Elem()
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput() BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) ToBackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutputWithContext(ctx context.Context) BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput {
+	return o
+}
+
+func (o BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput) Index(i pulumi.IntInput) BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
+		return vs[0].([]BackupPolicyKubernetesClusterRetentionRuleLifeCycle)[vs[1].(int)]
+	}).(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput)
+}
+
 type BackupPolicyPostgresqlRetentionRule struct {
 	// A `criteria` block as defined below. Changing this forces a new Backup Policy PostgreSQL to be created.
 	Criteria BackupPolicyPostgresqlRetentionRuleCriteria `pulumi:"criteria"`
@@ -697,6 +1264,15 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyDiskRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyDiskRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRuleInput)(nil)).Elem(), BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRulePtrInput)(nil)).Elem(), BackupPolicyKubernetesClusterDefaultRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayInput)(nil)).Elem(), BackupPolicyKubernetesClusterRetentionRuleLifeCycleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleArrayInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*BackupPolicyPostgresqlRetentionRuleCriteriaInput)(nil)).Elem(), BackupPolicyPostgresqlRetentionRuleCriteriaArgs{})
@@ -707,6 +1283,15 @@ func init() {
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyDiskRetentionRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterDefaultRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterDefaultRetentionRulePtrOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleArrayOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleCriteriaOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleOutput{})
+	pulumi.RegisterOutputType(BackupPolicyKubernetesClusterRetentionRuleLifeCycleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleArrayOutput{})
 	pulumi.RegisterOutputType(BackupPolicyPostgresqlRetentionRuleCriteriaOutput{})

@@ -6,6 +6,7 @@ from .. import _utilities
 import typing
 # Export this package's modules as members:
 from .access_connector import *
+from .get_access_connector import *
 from .get_workspace import *
 from .get_workspace_private_endpoint_connection import *
 from .virtual_network_peering import *

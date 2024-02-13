@@ -23,6 +23,7 @@ class EnvironmentV3Args:
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  zone_redundant: Optional[pulumi.Input[bool]] = None):
         """
@@ -54,6 +55,8 @@ class EnvironmentV3Args:
             pulumi.set(__self__, "internal_load_balancing_mode", internal_load_balancing_mode)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
         if zone_redundant is not None:
@@ -148,6 +151,15 @@ class EnvironmentV3Args:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]]:
         return pulumi.get(self, "tags")
@@ -187,6 +199,7 @@ class _EnvironmentV3State:
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  pricing_tier: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -244,6 +257,8 @@ class _EnvironmentV3State:
             pulumi.set(__self__, "name", name)
         if pricing_tier is not None:
             pulumi.set(__self__, "pricing_tier", pricing_tier)
+        if remote_debugging_enabled is not None:
+            pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if resource_group_name is not None:
             pulumi.set(__self__, "resource_group_name", resource_group_name)
         if subnet_id is not None:
@@ -412,6 +427,15 @@ class _EnvironmentV3State:
         pulumi.set(self, "pricing_tier", value)
 
     @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @remote_debugging_enabled.setter
+    def remote_debugging_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "remote_debugging_enabled", value)
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -485,6 +509,7 @@ class EnvironmentV3(pulumi.CustomResource):
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -663,6 +688,7 @@ class EnvironmentV3(pulumi.CustomResource):
                  dedicated_host_count: Optional[pulumi.Input[int]] = None,
                  internal_load_balancing_mode: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
                  resource_group_name: Optional[pulumi.Input[str]] = None,
                  subnet_id: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -681,6 +707,7 @@ class EnvironmentV3(pulumi.CustomResource):
             __props__.__dict__["dedicated_host_count"] = dedicated_host_count
             __props__.__dict__["internal_load_balancing_mode"] = internal_load_balancing_mode
             __props__.__dict__["name"] = name
+            __props__.__dict__["remote_debugging_enabled"] = remote_debugging_enabled
             if resource_group_name is None and not opts.urn:
                 raise TypeError("Missing required property 'resource_group_name'")
             __props__.__dict__["resource_group_name"] = resource_group_name
@@ -721,6 +748,7 @@ class EnvironmentV3(pulumi.CustomResource):
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             pricing_tier: Optional[pulumi.Input[str]] = None,
+            remote_debugging_enabled: Optional[pulumi.Input[bool]] = None,
             resource_group_name: Optional[pulumi.Input[str]] = None,
             subnet_id: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -774,6 +802,7 @@ class EnvironmentV3(pulumi.CustomResource):
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["pricing_tier"] = pricing_tier
+        __props__.__dict__["remote_debugging_enabled"] = remote_debugging_enabled
         __props__.__dict__["resource_group_name"] = resource_group_name
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
@@ -884,6 +913,11 @@ class EnvironmentV3(pulumi.CustomResource):
         Pricing tier for the front end instances.
         """
         return pulumi.get(self, "pricing_tier")
+
+    @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> pulumi.Output[Optional[bool]]:
+        return pulumi.get(self, "remote_debugging_enabled")
 
     @property
     @pulumi.getter(name="resourceGroupName")

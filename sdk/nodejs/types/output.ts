@@ -23585,6 +23585,86 @@ export namespace cdn {
 
 }
 
+export namespace chaosstudio {
+    export interface ExperimentIdentity {
+        /**
+         * A list of User Managed Identity IDs which should be assigned to the Policy Definition.
+         *
+         * > **NOTE:** This is required when `type` is set to `UserAssigned`.
+         */
+        identityIds?: string[];
+        /**
+         * The Principal ID associated with this Managed Service Identity.
+         */
+        principalId: string;
+        /**
+         * The Tenant ID associated with this Managed Service Identity.
+         */
+        tenantId: string;
+        /**
+         * The Type of Managed Identity which should be added to this Policy Definition. Possible values are `SystemAssigned` and `UserAssigned`.
+         */
+        type: string;
+    }
+
+    export interface ExperimentSelector {
+        /**
+         * A list of Chaos Studio Target IDs that should be part of this Selector.
+         */
+        chaosStudioTargetIds: string[];
+        /**
+         * The name of this Selector.
+         */
+        name: string;
+    }
+
+    export interface ExperimentStep {
+        /**
+         * One or more `branch` blocks as defined above.
+         */
+        branches: outputs.chaosstudio.ExperimentStepBranch[];
+        /**
+         * The name of the Step.
+         */
+        name: string;
+    }
+
+    export interface ExperimentStepBranch {
+        /**
+         * One or more `actions` blocks as defined above.
+         */
+        actions: outputs.chaosstudio.ExperimentStepBranchAction[];
+        /**
+         * The name of the branch.
+         */
+        name: string;
+    }
+
+    export interface ExperimentStepBranchAction {
+        /**
+         * The type of action that should be added to the experiment. Possible values are `continuous`, `delay` and `discrete`.
+         */
+        actionType: string;
+        /**
+         * An ISO8601 formatted string specifying the duration for a `delay` or `continuous` action.
+         */
+        duration?: string;
+        /**
+         * A key-value map of additional parameters to configure the action. The values that are accepted by this depend on the `urn` i.e. the capability/fault that is applied. Possible parameter values can be found in this [documentation](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library)
+         */
+        parameters?: {[key: string]: string};
+        /**
+         * The name of the Selector to which this action should apply to. This must be specified if the `actionType` is `continuous` or `discrete`.
+         */
+        selectorName?: string;
+        /**
+         * The Unique Resource Name of the action, this value is provided by the `azure.chaosstudio.Capability` resource e.g. `azurerm_chaos_studio_capability.example.urn`. This must be specified if the `actionType` is `continuous` or `discrete`.
+         */
+        urn?: string;
+    }
+
+}
+
 export namespace cognitive {
     export interface AccountCustomerManagedKey {
         /**
@@ -28618,7 +28698,7 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. 
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
          */
@@ -28642,7 +28722,7 @@ export namespace containerapp {
          */
         livenessProbes?: outputs.containerapp.AppTemplateContainerLivenessProbe[];
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. 
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          */
@@ -28913,7 +28993,7 @@ export namespace containerapp {
          */
         commands?: string[];
         /**
-         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+         * The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
          */
@@ -28933,7 +29013,7 @@ export namespace containerapp {
          */
         image: string;
         /**
-         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+         * The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
          *
          * > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
          */
@@ -34268,6 +34348,25 @@ export namespace databricks {
         type: string;
     }
 
+    export interface GetAccessConnectorIdentity {
+        /**
+         * A `identityIds` block as defined below.
+         */
+        identityIds: string[];
+        /**
+         * The ID of the TODO.
+         */
+        principalId: string;
+        /**
+         * The ID of the TODO.
+         */
+        tenantId: string;
+        /**
+         * TODO.
+         */
+        type: string;
+    }
+
     export interface GetWorkspaceManagedDiskIdentity {
         /**
          * The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
@@ -36268,6 +36367,77 @@ export namespace dataprotection {
          * Possible values are `FirstOfDay` and `FirstOfWeek`. Changing this forces a new Backup Policy Disk to be created.
          */
         absoluteCriteria?: string;
+    }
+
+    export interface BackupPolicyKubernetesClusterDefaultRetentionRule {
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle[];
+    }
+
+    export interface BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `OperationalStore`.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
+    }
+
+    export interface BackupPolicyKubernetesClusterRetentionRule {
+        /**
+         * A `criteria` block as defined below. Changing this forces a new resource to be created.
+         */
+        criteria: outputs.dataprotection.BackupPolicyKubernetesClusterRetentionRuleCriteria;
+        /**
+         * A `lifeCycle` block as defined below. Changing this forces a new resource to be created.
+         */
+        lifeCycles: outputs.dataprotection.BackupPolicyKubernetesClusterRetentionRuleLifeCycle[];
+        /**
+         * The name which should be used for this retention rule. Changing this forces a new resource to be created.
+         */
+        name: string;
+        /**
+         * Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+         */
+        priority: number;
+    }
+
+    export interface BackupPolicyKubernetesClusterRetentionRuleCriteria {
+        /**
+         * Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+         */
+        absoluteCriteria?: string;
+        /**
+         * Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+         */
+        daysOfWeeks?: string[];
+        /**
+         * Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+         */
+        monthsOfYears?: string[];
+        /**
+         * Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+         */
+        scheduledBackupTimes?: string[];
+        /**
+         * Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+         */
+        weeksOfMonths?: string[];
+    }
+
+    export interface BackupPolicyKubernetesClusterRetentionRuleLifeCycle {
+        /**
+         * The type of data store. The only possible value is `OperationalStore`.
+         */
+        dataStoreType: string;
+        /**
+         * The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+         */
+        duration: string;
     }
 
     export interface BackupPolicyPostgresqlRetentionRule {
@@ -45804,6 +45974,23 @@ export namespace machinelearning {
          * > **Note:** `userAssignedIdentityId` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
          */
         userAssignedIdentityId?: string;
+    }
+
+    export interface WorkspaceFeatureStore {
+        /**
+         * The version of Spark runtime.
+         */
+        computerSparkRuntimeVersion?: string;
+        /**
+         * The name of offline store connection.
+         */
+        offlineConnectionName?: string;
+        /**
+         * The name of online store connection.
+         *
+         * > **Note:** `featureStore` must be set when`kind` is `FeatureStore`
+         */
+        onlineConnectionName?: string;
     }
 
     export interface WorkspaceIdentity {

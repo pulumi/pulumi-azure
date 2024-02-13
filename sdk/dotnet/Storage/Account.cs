@@ -244,6 +244,12 @@ namespace Pulumi.Azure.Storage
         public Output<bool> LargeFileShareEnabled { get; private set; } = null!;
 
         /// <summary>
+        /// Is Local User Enabled? Defaults to `true`.
+        /// </summary>
+        [Output("localUserEnabled")]
+        public Output<bool?> LocalUserEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Output("location")]
@@ -966,6 +972,12 @@ namespace Pulumi.Azure.Storage
         public Input<bool>? LargeFileShareEnabled { get; set; }
 
         /// <summary>
+        /// Is Local User Enabled? Defaults to `true`.
+        /// </summary>
+        [Input("localUserEnabled")]
+        public Input<bool>? LocalUserEnabled { get; set; }
+
+        /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         /// </summary>
         [Input("location")]
@@ -1213,6 +1225,12 @@ namespace Pulumi.Azure.Storage
         /// </summary>
         [Input("largeFileShareEnabled")]
         public Input<bool>? LargeFileShareEnabled { get; set; }
+
+        /// <summary>
+        /// Is Local User Enabled? Defaults to `true`.
+        /// </summary>
+        [Input("localUserEnabled")]
+        public Input<bool>? LocalUserEnabled { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

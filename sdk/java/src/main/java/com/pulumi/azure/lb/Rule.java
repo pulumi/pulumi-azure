@@ -112,14 +112,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.backendAddressPoolIds);
     }
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     @Export(name="backendPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> backendPort;
 
     /**
-     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * @return The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     public Output<Integer> backendPort() {
@@ -140,14 +140,14 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.disableOutboundSnat);
     }
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
     @Export(name="enableFloatingIp", refs={Boolean.class}, tree="[0]")
     private Output</* @Nullable */ Boolean> enableFloatingIp;
 
     /**
-     * @return Are the Floating IPs enabled for this Load Balncer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * @return Are the Floating IPs enabled for this Load Balancer Rule? A &#34;floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      * 
      */
     public Output<Optional<Boolean>> enableFloatingIp() {
@@ -188,28 +188,28 @@ public class Rule extends com.pulumi.resources.CustomResource {
         return this.frontendIpConfigurationName;
     }
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     @Export(name="frontendPort", refs={Integer.class}, tree="[0]")
     private Output<Integer> frontendPort;
 
     /**
-     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * @return The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means &#34;Any Port&#34;.
      * 
      */
     public Output<Integer> frontendPort() {
         return this.frontendPort;
     }
     /**
-     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      * 
      */
     @Export(name="idleTimeoutInMinutes", refs={Integer.class}, tree="[0]")
     private Output<Integer> idleTimeoutInMinutes;
 
     /**
-     * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * @return Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      * 
      */
     public Output<Integer> idleTimeoutInMinutes() {

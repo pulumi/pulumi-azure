@@ -183,6 +183,8 @@ type Account struct {
 	IsHnsEnabled pulumi.BoolPtrOutput `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
 	LargeFileShareEnabled pulumi.BoolOutput `pulumi:"largeFileShareEnabled"`
+	// Is Local User Enabled? Defaults to `true`.
+	LocalUserEnabled pulumi.BoolPtrOutput `pulumi:"localUserEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -470,6 +472,8 @@ type accountState struct {
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
+	// Is Local User Enabled? Defaults to `true`.
+	LocalUserEnabled *bool `pulumi:"localUserEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -710,6 +714,8 @@ type AccountState struct {
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Is Large File Share Enabled?
 	LargeFileShareEnabled pulumi.BoolPtrInput
+	// Is Local User Enabled? Defaults to `true`.
+	LocalUserEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -954,6 +960,8 @@ type accountArgs struct {
 	IsHnsEnabled *bool `pulumi:"isHnsEnabled"`
 	// Is Large File Share Enabled?
 	LargeFileShareEnabled *bool `pulumi:"largeFileShareEnabled"`
+	// Is Local User Enabled? Defaults to `true`.
+	LocalUserEnabled *bool `pulumi:"localUserEnabled"`
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -1051,6 +1059,8 @@ type AccountArgs struct {
 	IsHnsEnabled pulumi.BoolPtrInput
 	// Is Large File Share Enabled?
 	LargeFileShareEnabled pulumi.BoolPtrInput
+	// Is Local User Enabled? Defaults to `true`.
+	LocalUserEnabled pulumi.BoolPtrInput
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
 	// The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
@@ -1288,6 +1298,11 @@ func (o AccountOutput) IsHnsEnabled() pulumi.BoolPtrOutput {
 // Is Large File Share Enabled?
 func (o AccountOutput) LargeFileShareEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *Account) pulumi.BoolOutput { return v.LargeFileShareEnabled }).(pulumi.BoolOutput)
+}
+
+// Is Local User Enabled? Defaults to `true`.
+func (o AccountOutput) LocalUserEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Account) pulumi.BoolPtrOutput { return v.LocalUserEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.

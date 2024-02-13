@@ -18,6 +18,7 @@ class TrafficManagerAzureEndpointArgs:
     def __init__(__self__, *,
                  profile_id: pulumi.Input[str],
                  target_resource_id: pulumi.Input[str],
+                 always_serve_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -29,6 +30,7 @@ class TrafficManagerAzureEndpointArgs:
         The set of arguments for constructing a TrafficManagerAzureEndpoint resource.
         :param pulumi.Input[str] profile_id: The ID of the Traffic Manager Profile that this Azure Endpoint should be created within. Changing this forces a new resource to be created.
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
+        :param pulumi.Input[bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -39,6 +41,8 @@ class TrafficManagerAzureEndpointArgs:
         """
         pulumi.set(__self__, "profile_id", profile_id)
         pulumi.set(__self__, "target_resource_id", target_resource_id)
+        if always_serve_enabled is not None:
+            pulumi.set(__self__, "always_serve_enabled", always_serve_enabled)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if enabled is not None:
@@ -77,6 +81,18 @@ class TrafficManagerAzureEndpointArgs:
     @target_resource_id.setter
     def target_resource_id(self, value: pulumi.Input[str]):
         pulumi.set(self, "target_resource_id", value)
+
+    @property
+    @pulumi.getter(name="alwaysServeEnabled")
+    def always_serve_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_serve_enabled")
+
+    @always_serve_enabled.setter
+    def always_serve_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_serve_enabled", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -166,6 +182,7 @@ class TrafficManagerAzureEndpointArgs:
 @pulumi.input_type
 class _TrafficManagerAzureEndpointState:
     def __init__(__self__, *,
+                 always_serve_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -177,6 +194,7 @@ class _TrafficManagerAzureEndpointState:
                  weight: Optional[pulumi.Input[int]] = None):
         """
         Input properties used for looking up and filtering TrafficManagerAzureEndpoint resources.
+        :param pulumi.Input[bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input['TrafficManagerAzureEndpointCustomHeaderArgs']]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -187,6 +205,8 @@ class _TrafficManagerAzureEndpointState:
         :param pulumi.Input[str] target_resource_id: The ID of the Azure Resource which should be used as a target.
         :param pulumi.Input[int] weight: Specifies how much traffic should be distributed to this endpoint, this must be specified for Profiles using the Weighted traffic routing method. Valid values are between `1` and `1000`.
         """
+        if always_serve_enabled is not None:
+            pulumi.set(__self__, "always_serve_enabled", always_serve_enabled)
         if custom_headers is not None:
             pulumi.set(__self__, "custom_headers", custom_headers)
         if enabled is not None:
@@ -205,6 +225,18 @@ class _TrafficManagerAzureEndpointState:
             pulumi.set(__self__, "target_resource_id", target_resource_id)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
+
+    @property
+    @pulumi.getter(name="alwaysServeEnabled")
+    def always_serve_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_serve_enabled")
+
+    @always_serve_enabled.setter
+    def always_serve_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "always_serve_enabled", value)
 
     @property
     @pulumi.getter(name="customHeaders")
@@ -320,6 +352,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_serve_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -365,6 +398,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             })
         example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
             profile_id=example_traffic_manager_profile.id,
+            always_serve_enabled=True,
             weight=100,
             target_resource_id=example_public_ip.id)
         ```
@@ -379,6 +413,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -430,6 +465,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             })
         example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
             profile_id=example_traffic_manager_profile.id,
+            always_serve_enabled=True,
             weight=100,
             target_resource_id=example_public_ip.id)
         ```
@@ -457,6 +493,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 always_serve_enabled: Optional[pulumi.Input[bool]] = None,
                  custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]]] = None,
                  enabled: Optional[pulumi.Input[bool]] = None,
                  geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -475,6 +512,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = TrafficManagerAzureEndpointArgs.__new__(TrafficManagerAzureEndpointArgs)
 
+            __props__.__dict__["always_serve_enabled"] = always_serve_enabled
             __props__.__dict__["custom_headers"] = custom_headers
             __props__.__dict__["enabled"] = enabled
             __props__.__dict__["geo_mappings"] = geo_mappings
@@ -498,6 +536,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            always_serve_enabled: Optional[pulumi.Input[bool]] = None,
             custom_headers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]]] = None,
             enabled: Optional[pulumi.Input[bool]] = None,
             geo_mappings: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
@@ -514,6 +553,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[bool] always_serve_enabled: If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['TrafficManagerAzureEndpointCustomHeaderArgs']]]] custom_headers: One or more `custom_header` blocks as defined below.
         :param pulumi.Input[bool] enabled: Is the endpoint enabled? Defaults to `true`.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] geo_mappings: A list of Geographic Regions used to distribute traffic, such as `WORLD`, `UK` or `DE`. The same location can't be specified in two endpoints. [See the Geographic Hierarchies documentation for more information](https://docs.microsoft.com/rest/api/trafficmanager/geographichierarchies/getdefault).
@@ -528,6 +568,7 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
 
         __props__ = _TrafficManagerAzureEndpointState.__new__(_TrafficManagerAzureEndpointState)
 
+        __props__.__dict__["always_serve_enabled"] = always_serve_enabled
         __props__.__dict__["custom_headers"] = custom_headers
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["geo_mappings"] = geo_mappings
@@ -538,6 +579,14 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         __props__.__dict__["target_resource_id"] = target_resource_id
         __props__.__dict__["weight"] = weight
         return TrafficManagerAzureEndpoint(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="alwaysServeEnabled")
+    def always_serve_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        """
+        return pulumi.get(self, "always_serve_enabled")
 
     @property
     @pulumi.getter(name="customHeaders")

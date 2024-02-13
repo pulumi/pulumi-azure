@@ -428,60 +428,9 @@ func detectCloudShell() cloudShellProfile {
 	return negative
 }
 
-// stringValue gets a string value from a property map, then from environment vars; if
-// neither are present, returns empty string ""
-func stringValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) string {
-	val, ok := vars[prop]
-	if ok && val.IsString() {
-		return val.StringValue()
-	}
-	for _, env := range envs {
-		val, ok := os.LookupEnv(env)
-		if ok {
-			return val
-		}
-	}
-	return ""
-}
-
-// boolValue takes a bool value from a property map, then from environment vars; defaults to false
-func boolValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) bool {
-	val, ok := vars[prop]
-	if ok && val.IsBool() {
-		return val.BoolValue()
-	}
-	for _, env := range envs {
-		val, ok := os.LookupEnv(env)
-		if ok && val == "true" {
-			return true
-		}
-	}
-	return false
-}
-
-// arrayValue takes an array value from a property map, then from environment vars; defaults to an empty array
-func arrayValue(vars resource.PropertyMap, prop resource.PropertyKey, envs []string) []string {
-	val, ok := vars[prop]
-	var vals []string
-	if ok && val.IsArray() {
-		for _, v := range val.ArrayValue() {
-			vals = append(vals, v.StringValue())
-		}
-		return vals
-	}
-
-	for _, env := range envs {
-		val, ok := os.LookupEnv(env)
-		if ok {
-			return strings.Split(val, ";")
-		}
-	}
-	return vals
-}
-
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
 func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) error {
-	envName := stringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
+	envName := tfbridge.ConfigStringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
 	if envName == "" {
 		envName = "public"
 	}
@@ -492,34 +441,34 @@ func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) er
 	}
 
 	//check for auxiliary tenants
-	auxTenants := arrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
+	auxTenants := tfbridge.ConfigArrayValue(vars, "auxiliaryTenantIDs", []string{"ARM_AUXILIARY_TENANT_IDS"})
 
 	// validate the azure config
-	useOIDC := boolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
+	useOIDC := tfbridge.ConfigBoolValue(vars, "useOidc", []string{"ARM_USE_OIDC"})
 	authConfig := auth.Credentials{
-		// SubscriptionID:                stringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
-		ClientID:     stringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
-		ClientSecret: stringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
-		TenantID:     stringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
+		// SubscriptionID: tfbridge.ConfigStringValue(vars, "subscriptionId", []string{"ARM_SUBSCRIPTION_ID"}),
+		ClientID:     tfbridge.ConfigStringValue(vars, "clientId", []string{"ARM_CLIENT_ID"}),
+		ClientSecret: tfbridge.ConfigStringValue(vars, "clientSecret", []string{"ARM_CLIENT_SECRET"}),
+		TenantID:     tfbridge.ConfigStringValue(vars, "tenantId", []string{"ARM_TENANT_ID"}),
 		Environment:  *env,
-		ClientCertificatePath: stringValue(vars, "clientCertificatePath", []string{
+		ClientCertificatePath: tfbridge.ConfigStringValue(vars, "clientCertificatePath", []string{
 			"ARM_CLIENT_CERTIFICATE_PATH"}),
-		ClientCertificatePassword: stringValue(vars, "clientCertificatePassword", []string{
+		ClientCertificatePassword: tfbridge.ConfigStringValue(vars, "clientCertificatePassword", []string{
 			"ARM_CLIENT_CERTIFICATE_PASSWORD"}),
-		CustomManagedIdentityEndpoint: stringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
+		CustomManagedIdentityEndpoint: tfbridge.ConfigStringValue(vars, "msiEndpoint", []string{"ARM_MSI_ENDPOINT"}),
 		AuxiliaryTenantIDs:            auxTenants,
 
 		// OIDC section. The ACTIONS_ variables are set by GitHub.
-		GitHubOIDCTokenRequestToken: stringValue(vars, "oidcRequestToken", []string{
+		GitHubOIDCTokenRequestToken: tfbridge.ConfigStringValue(vars, "oidcRequestToken", []string{
 			"ARM_OIDC_REQUEST_TOKEN", "ACTIONS_ID_TOKEN_REQUEST_TOKEN"}),
-		GitHubOIDCTokenRequestURL: stringValue(vars, "oidcRequestUrl", []string{
+		GitHubOIDCTokenRequestURL: tfbridge.ConfigStringValue(vars, "oidcRequestUrl", []string{
 			"ARM_OIDC_REQUEST_URL", "ACTIONS_ID_TOKEN_REQUEST_URL"}),
-		OIDCAssertionToken: stringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
+		OIDCAssertionToken: tfbridge.ConfigStringValue(vars, "oidcToken", []string{"ARM_OIDC_TOKEN"}),
 
 		// Feature Toggles
 		EnableAuthenticatingUsingClientCertificate: true,
 		EnableAuthenticatingUsingClientSecret:      true,
-		EnableAuthenticatingUsingManagedIdentity:   boolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
+		EnableAuthenticatingUsingManagedIdentity:   tfbridge.ConfigBoolValue(vars, "useMsi", []string{"ARM_USE_MSI"}),
 		EnableAuthenticatingUsingAzureCLI:          true,
 		EnableAuthenticationUsingOIDC:              useOIDC,
 		EnableAuthenticationUsingGitHubOIDC:        useOIDC,
@@ -2655,17 +2604,14 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_container_app_environment_dapr_component": {Tok: azureResource(azureContainerApp, "EnvironmentDaprComponent")},
 			"azurerm_container_app_environment_storage":        {Tok: azureResource(azureContainerApp, "EnvironmentStorage")},
 
-			// Mobile
-			"azurerm_mobile_network":              {Tok: azureResource(azureMobile, "Network")},
-			"azurerm_mobile_network_service":      {Tok: azureResource(azureMobile, "NetworkService")},
-			"azurerm_mobile_network_sim_group":    {Tok: azureResource(azureMobile, "NetworkSimGroup")},
-			"azurerm_mobile_network_site":         {Tok: azureResource(azureMobile, "NetworkSite")},
-			"azurerm_mobile_network_slice":        {Tok: azureResource(azureMobile, "NetworkSlice")},
-			"azurerm_mobile_network_data_network": {Tok: azureResource(azureMobile, "NetworkDataNetwork")},
-			"azurerm_mobile_network_sim_policy":   {Tok: azureResource(azureMobile, "NetworkSimPolicy")},
-
 			"azurerm_data_factory_credential_user_managed_identity": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
+			},
+
+			"azurerm_chaos_studio_capability": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"urn": {Name: "capabilityUrn"},
+				},
 			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{

@@ -954,6 +954,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring",
+  "fqn": "pulumi_azure.appplatform",
+  "classes": {
+   "azure:appplatform/springCloudAppDynamicsApplicationPerformanceMonitoring:SpringCloudAppDynamicsApplicationPerformanceMonitoring": "SpringCloudAppDynamicsApplicationPerformanceMonitoring"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "appplatform/springCloudAppMysqlAssociation",
   "fqn": "pulumi_azure.appplatform",
   "classes": {
@@ -2154,6 +2162,22 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "chaosstudio/capability",
+  "fqn": "pulumi_azure.chaosstudio",
+  "classes": {
+   "azure:chaosstudio/capability:Capability": "Capability"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "chaosstudio/experiment",
+  "fqn": "pulumi_azure.chaosstudio",
+  "classes": {
+   "azure:chaosstudio/experiment:Experiment": "Experiment"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "chaosstudio/target",
   "fqn": "pulumi_azure.chaosstudio",
   "classes": {
@@ -2574,6 +2598,14 @@ _utilities.register(
   "fqn": "pulumi_azure.containerservice",
   "classes": {
    "azure:containerservice/connectedRegistry:ConnectedRegistry": "ConnectedRegistry"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "containerservice/fleetMember",
+  "fqn": "pulumi_azure.containerservice",
+  "classes": {
+   "azure:containerservice/fleetMember:FleetMember": "FleetMember"
   }
  },
  {
@@ -3674,6 +3706,14 @@ _utilities.register(
  },
  {
   "pkg": "azure",
+  "mod": "dataprotection/backupPolicyKubernetesCluster",
+  "fqn": "pulumi_azure.dataprotection",
+  "classes": {
+   "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster": "BackupPolicyKubernetesCluster"
+  }
+ },
+ {
+  "pkg": "azure",
   "mod": "dataprotection/backupPolicyPostgresql",
   "fqn": "pulumi_azure.dataprotection",
   "classes": {
@@ -3806,6 +3846,14 @@ _utilities.register(
   "fqn": "pulumi_azure.devcenter",
   "classes": {
    "azure:devcenter/devCenter:DevCenter": "DevCenter"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "devcenter/gallery",
+  "fqn": "pulumi_azure.devcenter",
+  "classes": {
+   "azure:devcenter/gallery:Gallery": "Gallery"
   }
  },
  {
@@ -4678,6 +4726,14 @@ _utilities.register(
   "fqn": "pulumi_azure.iotcentral",
   "classes": {
    "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet": "ApplicationNetworkRuleSet"
+  }
+ },
+ {
+  "pkg": "azure",
+  "mod": "iotcentral/organization",
+  "fqn": "pulumi_azure.iotcentral",
+  "classes": {
+   "azure:iotcentral/organization:Organization": "Organization"
   }
  },
  {

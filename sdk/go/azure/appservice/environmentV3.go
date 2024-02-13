@@ -146,7 +146,8 @@ type EnvironmentV3 struct {
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// Pricing tier for the front end instances.
-	PricingTier pulumi.StringOutput `pulumi:"pricingTier"`
+	PricingTier            pulumi.StringOutput  `pulumi:"pricingTier"`
+	RemoteDebuggingEnabled pulumi.BoolPtrOutput `pulumi:"remoteDebuggingEnabled"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -225,7 +226,8 @@ type environmentV3State struct {
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// Pricing tier for the front end instances.
-	PricingTier *string `pulumi:"pricingTier"`
+	PricingTier            *string `pulumi:"pricingTier"`
+	RemoteDebuggingEnabled *bool   `pulumi:"remoteDebuggingEnabled"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -269,7 +271,8 @@ type EnvironmentV3State struct {
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// Pricing tier for the front end instances.
-	PricingTier pulumi.StringPtrInput
+	PricingTier            pulumi.StringPtrInput
+	RemoteDebuggingEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringPtrInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -301,7 +304,8 @@ type environmentV3Args struct {
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode *string `pulumi:"internalLoadBalancingMode"`
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
-	Name *string `pulumi:"name"`
+	Name                   *string `pulumi:"name"`
+	RemoteDebuggingEnabled *bool   `pulumi:"remoteDebuggingEnabled"`
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -328,7 +332,8 @@ type EnvironmentV3Args struct {
 	// Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment. Possible values are `None` (for an External VIP Type), and `"Web, Publishing"` (for an Internal VIP Type). Defaults to `None`. Changing this forces a new resource to be created.
 	InternalLoadBalancingMode pulumi.StringPtrInput
 	// The name of the App Service Environment. Changing this forces a new resource to be created.
-	Name pulumi.StringPtrInput
+	Name                   pulumi.StringPtrInput
+	RemoteDebuggingEnabled pulumi.BoolPtrInput
 	// The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
 	ResourceGroupName pulumi.StringInput
 	// The ID of the Subnet which the App Service Environment should be connected to. Changing this forces a new resource to be created.
@@ -496,6 +501,10 @@ func (o EnvironmentV3Output) Name() pulumi.StringOutput {
 // Pricing tier for the front end instances.
 func (o EnvironmentV3Output) PricingTier() pulumi.StringOutput {
 	return o.ApplyT(func(v *EnvironmentV3) pulumi.StringOutput { return v.PricingTier }).(pulumi.StringOutput)
+}
+
+func (o EnvironmentV3Output) RemoteDebuggingEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *EnvironmentV3) pulumi.BoolPtrOutput { return v.RemoteDebuggingEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.

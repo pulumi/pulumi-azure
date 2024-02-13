@@ -1906,6 +1906,189 @@ func (o WorkspaceEncryptionPtrOutput) UserAssignedIdentityId() pulumi.StringPtrO
 	}).(pulumi.StringPtrOutput)
 }
 
+type WorkspaceFeatureStore struct {
+	// The version of Spark runtime.
+	ComputerSparkRuntimeVersion *string `pulumi:"computerSparkRuntimeVersion"`
+	// The name of offline store connection.
+	OfflineConnectionName *string `pulumi:"offlineConnectionName"`
+	// The name of online store connection.
+	//
+	// > **Note:** `featureStore` must be set when`kind` is `FeatureStore`
+	OnlineConnectionName *string `pulumi:"onlineConnectionName"`
+}
+
+// WorkspaceFeatureStoreInput is an input type that accepts WorkspaceFeatureStoreArgs and WorkspaceFeatureStoreOutput values.
+// You can construct a concrete instance of `WorkspaceFeatureStoreInput` via:
+//
+//	WorkspaceFeatureStoreArgs{...}
+type WorkspaceFeatureStoreInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeatureStoreOutput() WorkspaceFeatureStoreOutput
+	ToWorkspaceFeatureStoreOutputWithContext(context.Context) WorkspaceFeatureStoreOutput
+}
+
+type WorkspaceFeatureStoreArgs struct {
+	// The version of Spark runtime.
+	ComputerSparkRuntimeVersion pulumi.StringPtrInput `pulumi:"computerSparkRuntimeVersion"`
+	// The name of offline store connection.
+	OfflineConnectionName pulumi.StringPtrInput `pulumi:"offlineConnectionName"`
+	// The name of online store connection.
+	//
+	// > **Note:** `featureStore` must be set when`kind` is `FeatureStore`
+	OnlineConnectionName pulumi.StringPtrInput `pulumi:"onlineConnectionName"`
+}
+
+func (WorkspaceFeatureStoreArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeatureStore)(nil)).Elem()
+}
+
+func (i WorkspaceFeatureStoreArgs) ToWorkspaceFeatureStoreOutput() WorkspaceFeatureStoreOutput {
+	return i.ToWorkspaceFeatureStoreOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeatureStoreArgs) ToWorkspaceFeatureStoreOutputWithContext(ctx context.Context) WorkspaceFeatureStoreOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeatureStoreOutput)
+}
+
+func (i WorkspaceFeatureStoreArgs) ToWorkspaceFeatureStorePtrOutput() WorkspaceFeatureStorePtrOutput {
+	return i.ToWorkspaceFeatureStorePtrOutputWithContext(context.Background())
+}
+
+func (i WorkspaceFeatureStoreArgs) ToWorkspaceFeatureStorePtrOutputWithContext(ctx context.Context) WorkspaceFeatureStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeatureStoreOutput).ToWorkspaceFeatureStorePtrOutputWithContext(ctx)
+}
+
+// WorkspaceFeatureStorePtrInput is an input type that accepts WorkspaceFeatureStoreArgs, WorkspaceFeatureStorePtr and WorkspaceFeatureStorePtrOutput values.
+// You can construct a concrete instance of `WorkspaceFeatureStorePtrInput` via:
+//
+//	        WorkspaceFeatureStoreArgs{...}
+//
+//	or:
+//
+//	        nil
+type WorkspaceFeatureStorePtrInput interface {
+	pulumi.Input
+
+	ToWorkspaceFeatureStorePtrOutput() WorkspaceFeatureStorePtrOutput
+	ToWorkspaceFeatureStorePtrOutputWithContext(context.Context) WorkspaceFeatureStorePtrOutput
+}
+
+type workspaceFeatureStorePtrType WorkspaceFeatureStoreArgs
+
+func WorkspaceFeatureStorePtr(v *WorkspaceFeatureStoreArgs) WorkspaceFeatureStorePtrInput {
+	return (*workspaceFeatureStorePtrType)(v)
+}
+
+func (*workspaceFeatureStorePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeatureStore)(nil)).Elem()
+}
+
+func (i *workspaceFeatureStorePtrType) ToWorkspaceFeatureStorePtrOutput() WorkspaceFeatureStorePtrOutput {
+	return i.ToWorkspaceFeatureStorePtrOutputWithContext(context.Background())
+}
+
+func (i *workspaceFeatureStorePtrType) ToWorkspaceFeatureStorePtrOutputWithContext(ctx context.Context) WorkspaceFeatureStorePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(WorkspaceFeatureStorePtrOutput)
+}
+
+type WorkspaceFeatureStoreOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeatureStoreOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*WorkspaceFeatureStore)(nil)).Elem()
+}
+
+func (o WorkspaceFeatureStoreOutput) ToWorkspaceFeatureStoreOutput() WorkspaceFeatureStoreOutput {
+	return o
+}
+
+func (o WorkspaceFeatureStoreOutput) ToWorkspaceFeatureStoreOutputWithContext(ctx context.Context) WorkspaceFeatureStoreOutput {
+	return o
+}
+
+func (o WorkspaceFeatureStoreOutput) ToWorkspaceFeatureStorePtrOutput() WorkspaceFeatureStorePtrOutput {
+	return o.ToWorkspaceFeatureStorePtrOutputWithContext(context.Background())
+}
+
+func (o WorkspaceFeatureStoreOutput) ToWorkspaceFeatureStorePtrOutputWithContext(ctx context.Context) WorkspaceFeatureStorePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v WorkspaceFeatureStore) *WorkspaceFeatureStore {
+		return &v
+	}).(WorkspaceFeatureStorePtrOutput)
+}
+
+// The version of Spark runtime.
+func (o WorkspaceFeatureStoreOutput) ComputerSparkRuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatureStore) *string { return v.ComputerSparkRuntimeVersion }).(pulumi.StringPtrOutput)
+}
+
+// The name of offline store connection.
+func (o WorkspaceFeatureStoreOutput) OfflineConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatureStore) *string { return v.OfflineConnectionName }).(pulumi.StringPtrOutput)
+}
+
+// The name of online store connection.
+//
+// > **Note:** `featureStore` must be set when`kind` is `FeatureStore`
+func (o WorkspaceFeatureStoreOutput) OnlineConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v WorkspaceFeatureStore) *string { return v.OnlineConnectionName }).(pulumi.StringPtrOutput)
+}
+
+type WorkspaceFeatureStorePtrOutput struct{ *pulumi.OutputState }
+
+func (WorkspaceFeatureStorePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**WorkspaceFeatureStore)(nil)).Elem()
+}
+
+func (o WorkspaceFeatureStorePtrOutput) ToWorkspaceFeatureStorePtrOutput() WorkspaceFeatureStorePtrOutput {
+	return o
+}
+
+func (o WorkspaceFeatureStorePtrOutput) ToWorkspaceFeatureStorePtrOutputWithContext(ctx context.Context) WorkspaceFeatureStorePtrOutput {
+	return o
+}
+
+func (o WorkspaceFeatureStorePtrOutput) Elem() WorkspaceFeatureStoreOutput {
+	return o.ApplyT(func(v *WorkspaceFeatureStore) WorkspaceFeatureStore {
+		if v != nil {
+			return *v
+		}
+		var ret WorkspaceFeatureStore
+		return ret
+	}).(WorkspaceFeatureStoreOutput)
+}
+
+// The version of Spark runtime.
+func (o WorkspaceFeatureStorePtrOutput) ComputerSparkRuntimeVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatureStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ComputerSparkRuntimeVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of offline store connection.
+func (o WorkspaceFeatureStorePtrOutput) OfflineConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatureStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OfflineConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of online store connection.
+//
+// > **Note:** `featureStore` must be set when`kind` is `FeatureStore`
+func (o WorkspaceFeatureStorePtrOutput) OnlineConnectionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *WorkspaceFeatureStore) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OnlineConnectionName
+	}).(pulumi.StringPtrOutput)
+}
+
 type WorkspaceIdentity struct {
 	// Specifies a list of User Assigned Managed Identity IDs to be assigned to this Machine Learning Workspace.
 	//
@@ -2253,6 +2436,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*SynapseSparkIdentityPtrInput)(nil)).Elem(), SynapseSparkIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceEncryptionPtrInput)(nil)).Elem(), WorkspaceEncryptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFeatureStoreInput)(nil)).Elem(), WorkspaceFeatureStoreArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceFeatureStorePtrInput)(nil)).Elem(), WorkspaceFeatureStoreArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceIdentityPtrInput)(nil)).Elem(), WorkspaceIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceIdentityInput)(nil)).Elem(), GetWorkspaceIdentityArgs{})
@@ -2277,6 +2462,8 @@ func init() {
 	pulumi.RegisterOutputType(SynapseSparkIdentityPtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionOutput{})
 	pulumi.RegisterOutputType(WorkspaceEncryptionPtrOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeatureStoreOutput{})
+	pulumi.RegisterOutputType(WorkspaceFeatureStorePtrOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceIdentityPtrOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceIdentityOutput{})

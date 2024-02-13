@@ -415,6 +415,12 @@ namespace Pulumi.Azure.MachineLearning
         public Output<Outputs.WorkspaceEncryption?> Encryption { get; private set; } = null!;
 
         /// <summary>
+        /// A `feature_store` block as defined below.
+        /// </summary>
+        [Output("featureStore")]
+        public Output<Outputs.WorkspaceFeatureStore?> FeatureStore { get; private set; } = null!;
+
+        /// <summary>
         /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Output("friendlyName")]
@@ -443,6 +449,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Output("keyVaultId")]
         public Output<string> KeyVaultId { get; private set; } = null!;
+
+        /// <summary>
+        /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        /// </summary>
+        [Output("kind")]
+        public Output<string?> Kind { get; private set; } = null!;
 
         /// <summary>
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -587,6 +599,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceEncryptionArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// A `feature_store` block as defined below.
+        /// </summary>
+        [Input("featureStore")]
+        public Input<Inputs.WorkspaceFeatureStoreArgs>? FeatureStore { get; set; }
+
+        /// <summary>
         /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Input("friendlyName")]
@@ -615,6 +633,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("keyVaultId", required: true)]
         public Input<string> KeyVaultId { get; set; } = null!;
+
+        /// <summary>
+        /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
@@ -727,6 +751,12 @@ namespace Pulumi.Azure.MachineLearning
         public Input<Inputs.WorkspaceEncryptionGetArgs>? Encryption { get; set; }
 
         /// <summary>
+        /// A `feature_store` block as defined below.
+        /// </summary>
+        [Input("featureStore")]
+        public Input<Inputs.WorkspaceFeatureStoreGetArgs>? FeatureStore { get; set; }
+
+        /// <summary>
         /// Display name for this Machine Learning Workspace.
         /// </summary>
         [Input("friendlyName")]
@@ -755,6 +785,12 @@ namespace Pulumi.Azure.MachineLearning
         /// </summary>
         [Input("keyVaultId")]
         public Input<string>? KeyVaultId { get; set; }
+
+        /// <summary>
+        /// The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        /// </summary>
+        [Input("kind")]
+        public Input<string>? Kind { get; set; }
 
         /// <summary>
         /// Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.

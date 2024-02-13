@@ -24,9 +24,11 @@ class WorkspaceArgs:
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+                 feature_store: Optional[pulumi.Input['WorkspaceFeatureStoreArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -49,9 +51,11 @@ class WorkspaceArgs:
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceFeatureStoreArgs'] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
+        :param pulumi.Input[str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
@@ -74,12 +78,16 @@ class WorkspaceArgs:
             pulumi.set(__self__, "description", description)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if feature_store is not None:
+            pulumi.set(__self__, "feature_store", feature_store)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
             pulumi.set(__self__, "high_business_impact", high_business_impact)
         if image_build_compute_name is not None:
             pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -201,6 +209,18 @@ class WorkspaceArgs:
         pulumi.set(self, "encryption", value)
 
     @property
+    @pulumi.getter(name="featureStore")
+    def feature_store(self) -> Optional[pulumi.Input['WorkspaceFeatureStoreArgs']]:
+        """
+        A `feature_store` block as defined below.
+        """
+        return pulumi.get(self, "feature_store")
+
+    @feature_store.setter
+    def feature_store(self, value: Optional[pulumi.Input['WorkspaceFeatureStoreArgs']]):
+        pulumi.set(self, "feature_store", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -235,6 +255,18 @@ class WorkspaceArgs:
     @image_build_compute_name.setter
     def image_build_compute_name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "image_build_compute_name", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -346,11 +378,13 @@ class _WorkspaceState:
                  description: Optional[pulumi.Input[str]] = None,
                  discovery_url: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input['WorkspaceEncryptionArgs']] = None,
+                 feature_store: Optional[pulumi.Input['WorkspaceFeatureStoreArgs']] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input['WorkspaceIdentityArgs']] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -371,11 +405,13 @@ class _WorkspaceState:
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input['WorkspaceEncryptionArgs'] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input['WorkspaceFeatureStoreArgs'] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         :param pulumi.Input['WorkspaceIdentityArgs'] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
@@ -402,6 +438,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "discovery_url", discovery_url)
         if encryption is not None:
             pulumi.set(__self__, "encryption", encryption)
+        if feature_store is not None:
+            pulumi.set(__self__, "feature_store", feature_store)
         if friendly_name is not None:
             pulumi.set(__self__, "friendly_name", friendly_name)
         if high_business_impact is not None:
@@ -412,6 +450,8 @@ class _WorkspaceState:
             pulumi.set(__self__, "image_build_compute_name", image_build_compute_name)
         if key_vault_id is not None:
             pulumi.set(__self__, "key_vault_id", key_vault_id)
+        if kind is not None:
+            pulumi.set(__self__, "kind", kind)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if name is not None:
@@ -501,6 +541,18 @@ class _WorkspaceState:
         pulumi.set(self, "encryption", value)
 
     @property
+    @pulumi.getter(name="featureStore")
+    def feature_store(self) -> Optional[pulumi.Input['WorkspaceFeatureStoreArgs']]:
+        """
+        A `feature_store` block as defined below.
+        """
+        return pulumi.get(self, "feature_store")
+
+    @feature_store.setter
+    def feature_store(self, value: Optional[pulumi.Input['WorkspaceFeatureStoreArgs']]):
+        pulumi.set(self, "feature_store", value)
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> Optional[pulumi.Input[str]]:
         """
@@ -559,6 +611,18 @@ class _WorkspaceState:
     @key_vault_id.setter
     def key_vault_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "key_vault_id", value)
+
+    @property
+    @pulumi.getter
+    def kind(self) -> Optional[pulumi.Input[str]]:
+        """
+        The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        """
+        return pulumi.get(self, "kind")
+
+    @kind.setter
+    def kind(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "kind", value)
 
     @property
     @pulumi.getter
@@ -709,11 +773,13 @@ class Workspace(pulumi.CustomResource):
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+                 feature_store: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeatureStoreArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -973,11 +1039,13 @@ class Workspace(pulumi.CustomResource):
                > **NOTE:** The `admin_enabled` should be `true` in order to associate the Container Registry to this Machine Learning Workspace.
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceFeatureStoreArgs']] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
@@ -1258,11 +1326,13 @@ class Workspace(pulumi.CustomResource):
                  container_registry_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+                 feature_store: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeatureStoreArgs']]] = None,
                  friendly_name: Optional[pulumi.Input[str]] = None,
                  high_business_impact: Optional[pulumi.Input[bool]] = None,
                  identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
                  image_build_compute_name: Optional[pulumi.Input[str]] = None,
                  key_vault_id: Optional[pulumi.Input[str]] = None,
+                 kind: Optional[pulumi.Input[str]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
                  primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -1288,6 +1358,7 @@ class Workspace(pulumi.CustomResource):
             __props__.__dict__["container_registry_id"] = container_registry_id
             __props__.__dict__["description"] = description
             __props__.__dict__["encryption"] = encryption
+            __props__.__dict__["feature_store"] = feature_store
             __props__.__dict__["friendly_name"] = friendly_name
             __props__.__dict__["high_business_impact"] = high_business_impact
             if identity is None and not opts.urn:
@@ -1297,6 +1368,7 @@ class Workspace(pulumi.CustomResource):
             if key_vault_id is None and not opts.urn:
                 raise TypeError("Missing required property 'key_vault_id'")
             __props__.__dict__["key_vault_id"] = key_vault_id
+            __props__.__dict__["kind"] = kind
             __props__.__dict__["location"] = location
             __props__.__dict__["name"] = name
             __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
@@ -1328,11 +1400,13 @@ class Workspace(pulumi.CustomResource):
             description: Optional[pulumi.Input[str]] = None,
             discovery_url: Optional[pulumi.Input[str]] = None,
             encryption: Optional[pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']]] = None,
+            feature_store: Optional[pulumi.Input[pulumi.InputType['WorkspaceFeatureStoreArgs']]] = None,
             friendly_name: Optional[pulumi.Input[str]] = None,
             high_business_impact: Optional[pulumi.Input[bool]] = None,
             identity: Optional[pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']]] = None,
             image_build_compute_name: Optional[pulumi.Input[str]] = None,
             key_vault_id: Optional[pulumi.Input[str]] = None,
+            kind: Optional[pulumi.Input[str]] = None,
             location: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
             primary_user_assigned_identity: Optional[pulumi.Input[str]] = None,
@@ -1358,11 +1432,13 @@ class Workspace(pulumi.CustomResource):
         :param pulumi.Input[str] description: The description of this Machine Learning Workspace.
         :param pulumi.Input[str] discovery_url: The url for the discovery service to identify regional endpoints for machine learning experimentation services.
         :param pulumi.Input[pulumi.InputType['WorkspaceEncryptionArgs']] encryption: An `encryption` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[pulumi.InputType['WorkspaceFeatureStoreArgs']] feature_store: A `feature_store` block as defined below.
         :param pulumi.Input[str] friendly_name: Display name for this Machine Learning Workspace.
         :param pulumi.Input[bool] high_business_impact: Flag to signal High Business Impact (HBI) data in the workspace and reduce diagnostic data collected by the service. Changing this forces a new resource to be created.
         :param pulumi.Input[pulumi.InputType['WorkspaceIdentityArgs']] identity: An `identity` block as defined below.
         :param pulumi.Input[str] image_build_compute_name: The compute name for image build of the Machine Learning Workspace.
         :param pulumi.Input[str] key_vault_id: The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] kind: The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
         :param pulumi.Input[str] location: Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
         :param pulumi.Input[str] name: Specifies the name of the Machine Learning Workspace. Changing this forces a new resource to be created.
         :param pulumi.Input[str] primary_user_assigned_identity: The user assigned identity id that represents the workspace identity.
@@ -1388,11 +1464,13 @@ class Workspace(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["discovery_url"] = discovery_url
         __props__.__dict__["encryption"] = encryption
+        __props__.__dict__["feature_store"] = feature_store
         __props__.__dict__["friendly_name"] = friendly_name
         __props__.__dict__["high_business_impact"] = high_business_impact
         __props__.__dict__["identity"] = identity
         __props__.__dict__["image_build_compute_name"] = image_build_compute_name
         __props__.__dict__["key_vault_id"] = key_vault_id
+        __props__.__dict__["kind"] = kind
         __props__.__dict__["location"] = location
         __props__.__dict__["name"] = name
         __props__.__dict__["primary_user_assigned_identity"] = primary_user_assigned_identity
@@ -1449,6 +1527,14 @@ class Workspace(pulumi.CustomResource):
         return pulumi.get(self, "encryption")
 
     @property
+    @pulumi.getter(name="featureStore")
+    def feature_store(self) -> pulumi.Output[Optional['outputs.WorkspaceFeatureStore']]:
+        """
+        A `feature_store` block as defined below.
+        """
+        return pulumi.get(self, "feature_store")
+
+    @property
     @pulumi.getter(name="friendlyName")
     def friendly_name(self) -> pulumi.Output[Optional[str]]:
         """
@@ -1487,6 +1573,14 @@ class Workspace(pulumi.CustomResource):
         The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
         """
         return pulumi.get(self, "key_vault_id")
+
+    @property
+    @pulumi.getter
+    def kind(self) -> pulumi.Output[Optional[str]]:
+        """
+        The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+        """
+        return pulumi.get(self, "kind")
 
     @property
     @pulumi.getter

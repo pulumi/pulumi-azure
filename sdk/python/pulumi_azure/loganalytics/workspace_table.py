@@ -17,7 +17,8 @@ class WorkspaceTableArgs:
                  workspace_id: pulumi.Input[str],
                  name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
-                 retention_in_days: Optional[pulumi.Input[int]] = None):
+                 retention_in_days: Optional[pulumi.Input[int]] = None,
+                 total_retention_in_days: Optional[pulumi.Input[int]] = None):
         """
         The set of arguments for constructing a WorkspaceTable resource.
         :param pulumi.Input[str] workspace_id: The object ID of the Log Analytics Workspace that contains the table.
@@ -26,8 +27,9 @@ class WorkspaceTableArgs:
                
                > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between 30 and 4383.
                
-               > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+               > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
                
                > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         """
@@ -38,6 +40,8 @@ class WorkspaceTableArgs:
             pulumi.set(__self__, "plan", plan)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if total_retention_in_days is not None:
+            pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -82,16 +86,28 @@ class WorkspaceTableArgs:
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-
-        > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
-
-        > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
     def retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="totalRetentionInDays")
+    def total_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The table's total retention in days. Possible values range between 30 and 4383.
+
+        > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+
+        > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+        """
+        return pulumi.get(self, "total_retention_in_days")
+
+    @total_retention_in_days.setter
+    def total_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_retention_in_days", value)
 
 
 @pulumi.input_type
@@ -100,6 +116,7 @@ class _WorkspaceTableState:
                  name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
+                 total_retention_in_days: Optional[pulumi.Input[int]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering WorkspaceTable resources.
@@ -108,8 +125,9 @@ class _WorkspaceTableState:
                
                > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between 30 and 4383.
                
-               > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+               > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
                
                > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         :param pulumi.Input[str] workspace_id: The object ID of the Log Analytics Workspace that contains the table.
@@ -120,6 +138,8 @@ class _WorkspaceTableState:
             pulumi.set(__self__, "plan", plan)
         if retention_in_days is not None:
             pulumi.set(__self__, "retention_in_days", retention_in_days)
+        if total_retention_in_days is not None:
+            pulumi.set(__self__, "total_retention_in_days", total_retention_in_days)
         if workspace_id is not None:
             pulumi.set(__self__, "workspace_id", workspace_id)
 
@@ -154,16 +174,28 @@ class _WorkspaceTableState:
     def retention_in_days(self) -> Optional[pulumi.Input[int]]:
         """
         The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-
-        > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
-
-        > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         """
         return pulumi.get(self, "retention_in_days")
 
     @retention_in_days.setter
     def retention_in_days(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "retention_in_days", value)
+
+    @property
+    @pulumi.getter(name="totalRetentionInDays")
+    def total_retention_in_days(self) -> Optional[pulumi.Input[int]]:
+        """
+        The table's total retention in days. Possible values range between 30 and 4383.
+
+        > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+
+        > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+        """
+        return pulumi.get(self, "total_retention_in_days")
+
+    @total_retention_in_days.setter
+    def total_retention_in_days(self, value: Optional[pulumi.Input[int]]):
+        pulumi.set(self, "total_retention_in_days", value)
 
     @property
     @pulumi.getter(name="workspaceId")
@@ -186,6 +218,7 @@ class WorkspaceTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
+                 total_retention_in_days: Optional[pulumi.Input[int]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
@@ -207,7 +240,8 @@ class WorkspaceTable(pulumi.CustomResource):
             retention_in_days=30)
         example_workspace_table = azure.loganalytics.WorkspaceTable("exampleWorkspaceTable",
             workspace_id=example_analytics_workspace.id,
-            retention_in_days=60)
+            retention_in_days=60,
+            total_retention_in_days=180)
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,8 +251,9 @@ class WorkspaceTable(pulumi.CustomResource):
                
                > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between 30 and 4383.
                
-               > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+               > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
                
                > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         :param pulumi.Input[str] workspace_id: The object ID of the Log Analytics Workspace that contains the table.
@@ -248,7 +283,8 @@ class WorkspaceTable(pulumi.CustomResource):
             retention_in_days=30)
         example_workspace_table = azure.loganalytics.WorkspaceTable("exampleWorkspaceTable",
             workspace_id=example_analytics_workspace.id,
-            retention_in_days=60)
+            retention_in_days=60,
+            total_retention_in_days=180)
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,6 +305,7 @@ class WorkspaceTable(pulumi.CustomResource):
                  name: Optional[pulumi.Input[str]] = None,
                  plan: Optional[pulumi.Input[str]] = None,
                  retention_in_days: Optional[pulumi.Input[int]] = None,
+                 total_retention_in_days: Optional[pulumi.Input[int]] = None,
                  workspace_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -282,6 +319,7 @@ class WorkspaceTable(pulumi.CustomResource):
             __props__.__dict__["name"] = name
             __props__.__dict__["plan"] = plan
             __props__.__dict__["retention_in_days"] = retention_in_days
+            __props__.__dict__["total_retention_in_days"] = total_retention_in_days
             if workspace_id is None and not opts.urn:
                 raise TypeError("Missing required property 'workspace_id'")
             __props__.__dict__["workspace_id"] = workspace_id
@@ -298,6 +336,7 @@ class WorkspaceTable(pulumi.CustomResource):
             name: Optional[pulumi.Input[str]] = None,
             plan: Optional[pulumi.Input[str]] = None,
             retention_in_days: Optional[pulumi.Input[int]] = None,
+            total_retention_in_days: Optional[pulumi.Input[int]] = None,
             workspace_id: Optional[pulumi.Input[str]] = None) -> 'WorkspaceTable':
         """
         Get an existing WorkspaceTable resource's state with the given name, id, and optional extra
@@ -311,8 +350,9 @@ class WorkspaceTable(pulumi.CustomResource):
                
                > **Note:** The `name` of tables currently supported by the `Basic` plan can be found [here](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/basic-logs-configure?tabs=portal-1#supported-tables).
         :param pulumi.Input[int] retention_in_days: The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        :param pulumi.Input[int] total_retention_in_days: The table's total retention in days. Possible values range between 30 and 4383.
                
-               > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+               > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
                
                > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         :param pulumi.Input[str] workspace_id: The object ID of the Log Analytics Workspace that contains the table.
@@ -324,6 +364,7 @@ class WorkspaceTable(pulumi.CustomResource):
         __props__.__dict__["name"] = name
         __props__.__dict__["plan"] = plan
         __props__.__dict__["retention_in_days"] = retention_in_days
+        __props__.__dict__["total_retention_in_days"] = total_retention_in_days
         __props__.__dict__["workspace_id"] = workspace_id
         return WorkspaceTable(resource_name, opts=opts, __props__=__props__)
 
@@ -350,12 +391,20 @@ class WorkspaceTable(pulumi.CustomResource):
     def retention_in_days(self) -> pulumi.Output[Optional[int]]:
         """
         The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+        """
+        return pulumi.get(self, "retention_in_days")
 
-        > **Note:** `retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
+    @property
+    @pulumi.getter(name="totalRetentionInDays")
+    def total_retention_in_days(self) -> pulumi.Output[Optional[int]]:
+        """
+        The table's total retention in days. Possible values range between 30 and 4383.
+
+        > **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of operationalinsights.AnalyticsWorkspace retention_in_days when a loganalytics.WorkspaceTable is deleted.
 
         > **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         """
-        return pulumi.get(self, "retention_in_days")
+        return pulumi.get(self, "total_retention_in_days")
 
     @property
     @pulumi.getter(name="workspaceId")

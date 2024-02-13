@@ -309,6 +309,12 @@ public class EnvironmentV3 extends com.pulumi.resources.CustomResource {
     public Output<String> pricingTier() {
         return this.pricingTier;
     }
+    @Export(name="remoteDebuggingEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> remoteDebuggingEnabled;
+
+    public Output<Optional<Boolean>> remoteDebuggingEnabled() {
+        return Codegen.optional(this.remoteDebuggingEnabled);
+    }
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
      * 

@@ -41,6 +41,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         RetentionInDays = 60,
+    ///         TotalRetentionInDays = 180,
     ///     });
     /// 
     /// });
@@ -65,13 +66,19 @@ namespace Pulumi.Azure.LogAnalytics
 
         /// <summary>
         /// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        /// 
-        /// &gt; **Note:** `retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
-        /// 
-        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         /// </summary>
         [Output("retentionInDays")]
         public Output<int?> RetentionInDays { get; private set; } = null!;
+
+        /// <summary>
+        /// The table's total retention in days. Possible values range between 30 and 4383.
+        /// 
+        /// &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+        /// 
+        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+        /// </summary>
+        [Output("totalRetentionInDays")]
+        public Output<int?> TotalRetentionInDays { get; private set; } = null!;
 
         /// <summary>
         /// The object ID of the Log Analytics Workspace that contains the table.
@@ -141,13 +148,19 @@ namespace Pulumi.Azure.LogAnalytics
 
         /// <summary>
         /// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        /// 
-        /// &gt; **Note:** `retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
-        /// 
-        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// The table's total retention in days. Possible values range between 30 and 4383.
+        /// 
+        /// &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+        /// 
+        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+        /// </summary>
+        [Input("totalRetentionInDays")]
+        public Input<int>? TotalRetentionInDays { get; set; }
 
         /// <summary>
         /// The object ID of the Log Analytics Workspace that contains the table.
@@ -179,13 +192,19 @@ namespace Pulumi.Azure.LogAnalytics
 
         /// <summary>
         /// The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
-        /// 
-        /// &gt; **Note:** `retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
-        /// 
-        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
         /// </summary>
         [Input("retentionInDays")]
         public Input<int>? RetentionInDays { get; set; }
+
+        /// <summary>
+        /// The table's total retention in days. Possible values range between 30 and 4383.
+        /// 
+        /// &gt; **Note:** `retention_in_days` and `total_retention_in_days` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+        /// 
+        /// &gt; **Note:** The `retention_in_days` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
+        /// </summary>
+        [Input("totalRetentionInDays")]
+        public Input<int>? TotalRetentionInDays { get; set; }
 
         /// <summary>
         /// The object ID of the Log Analytics Workspace that contains the table.

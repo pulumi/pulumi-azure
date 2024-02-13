@@ -179,6 +179,7 @@ namespace Pulumi.Azure.AppService
         /// Pricing tier for the front end instances.
         /// </summary>
         public readonly string PricingTier;
+        public readonly bool RemoteDebuggingEnabled;
         public readonly string ResourceGroupName;
         /// <summary>
         /// The ID of the v3 App Service Environment Subnet.
@@ -224,6 +225,8 @@ namespace Pulumi.Azure.AppService
 
             string pricingTier,
 
+            bool remoteDebuggingEnabled,
+
             string resourceGroupName,
 
             string subnetId,
@@ -248,6 +251,7 @@ namespace Pulumi.Azure.AppService
             Location = location;
             Name = name;
             PricingTier = pricingTier;
+            RemoteDebuggingEnabled = remoteDebuggingEnabled;
             ResourceGroupName = resourceGroupName;
             SubnetId = subnetId;
             Tags = tags;

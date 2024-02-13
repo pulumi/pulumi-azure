@@ -15,6 +15,11 @@ export type ApplicationNetworkRuleSet = import("./applicationNetworkRuleSet").Ap
 export const ApplicationNetworkRuleSet: typeof import("./applicationNetworkRuleSet").ApplicationNetworkRuleSet = null as any;
 utilities.lazyLoad(exports, ["ApplicationNetworkRuleSet"], () => require("./applicationNetworkRuleSet"));
 
+export { OrganizationArgs, OrganizationState } from "./organization";
+export type Organization = import("./organization").Organization;
+export const Organization: typeof import("./organization").Organization = null as any;
+utilities.lazyLoad(exports, ["Organization"], () => require("./organization"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new Application(name, <any>undefined, { urn })
             case "azure:iotcentral/applicationNetworkRuleSet:ApplicationNetworkRuleSet":
                 return new ApplicationNetworkRuleSet(name, <any>undefined, { urn })
+            case "azure:iotcentral/organization:Organization":
+                return new Organization(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("azure", "iotcentral/application", _module)
 pulumi.runtime.registerResourceModule("azure", "iotcentral/applicationNetworkRuleSet", _module)
+pulumi.runtime.registerResourceModule("azure", "iotcentral/organization", _module)

@@ -144,7 +144,7 @@ namespace Pulumi.Azure.DataProtection
         public Output<ImmutableArray<Outputs.BackupPolicyPostgresqlRetentionRule>> RetentionRules { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Output("timeZone")]
         public Output<string?> TimeZone { get; private set; } = null!;
@@ -244,7 +244,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }
@@ -306,7 +306,7 @@ namespace Pulumi.Azure.DataProtection
         }
 
         /// <summary>
-        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+        /// Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
         /// </summary>
         [Input("timeZone")]
         public Input<string>? TimeZone { get; set; }

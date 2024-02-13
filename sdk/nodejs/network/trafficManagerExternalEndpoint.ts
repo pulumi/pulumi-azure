@@ -37,6 +37,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleTrafficManagerExternalEndpoint = new azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", {
  *     profileId: exampleTrafficManagerProfile.id,
+ *     alwaysServeEnabled: true,
  *     weight: 100,
  *     target: "www.example.com",
  * });
@@ -78,6 +79,10 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficManagerExternalEndpoint.__pulumiType;
     }
 
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    public readonly alwaysServeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
@@ -132,6 +137,7 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerExternalEndpointState | undefined;
+            resourceInputs["alwaysServeEnabled"] = state ? state.alwaysServeEnabled : undefined;
             resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["endpointLocation"] = state ? state.endpointLocation : undefined;
@@ -150,6 +156,7 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
             if ((!args || args.target === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'target'");
             }
+            resourceInputs["alwaysServeEnabled"] = args ? args.alwaysServeEnabled : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["endpointLocation"] = args ? args.endpointLocation : undefined;
@@ -170,6 +177,10 @@ export class TrafficManagerExternalEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficManagerExternalEndpoint resources.
  */
 export interface TrafficManagerExternalEndpointState {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    alwaysServeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
@@ -216,6 +227,10 @@ export interface TrafficManagerExternalEndpointState {
  * The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
  */
 export interface TrafficManagerExternalEndpointArgs {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    alwaysServeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `customHeader` blocks as defined below.
      */

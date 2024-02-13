@@ -10,6 +10,7 @@ from .backup_instance_disk import *
 from .backup_instance_postgresql import *
 from .backup_policy_blob_storage import *
 from .backup_policy_disk import *
+from .backup_policy_kubernetes_cluster import *
 from .backup_policy_postgresql import *
 from .backup_vault import *
 from .get_backup_vault import *

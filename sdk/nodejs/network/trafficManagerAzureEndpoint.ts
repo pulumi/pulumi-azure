@@ -43,6 +43,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleTrafficManagerAzureEndpoint = new azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", {
  *     profileId: exampleTrafficManagerProfile.id,
+ *     alwaysServeEnabled: true,
  *     weight: 100,
  *     targetResourceId: examplePublicIp.id,
  * });
@@ -84,6 +85,10 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
         return obj['__pulumiType'] === TrafficManagerAzureEndpoint.__pulumiType;
     }
 
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    public readonly alwaysServeEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
@@ -134,6 +139,7 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as TrafficManagerAzureEndpointState | undefined;
+            resourceInputs["alwaysServeEnabled"] = state ? state.alwaysServeEnabled : undefined;
             resourceInputs["customHeaders"] = state ? state.customHeaders : undefined;
             resourceInputs["enabled"] = state ? state.enabled : undefined;
             resourceInputs["geoMappings"] = state ? state.geoMappings : undefined;
@@ -151,6 +157,7 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
             if ((!args || args.targetResourceId === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'targetResourceId'");
             }
+            resourceInputs["alwaysServeEnabled"] = args ? args.alwaysServeEnabled : undefined;
             resourceInputs["customHeaders"] = args ? args.customHeaders : undefined;
             resourceInputs["enabled"] = args ? args.enabled : undefined;
             resourceInputs["geoMappings"] = args ? args.geoMappings : undefined;
@@ -170,6 +177,10 @@ export class TrafficManagerAzureEndpoint extends pulumi.CustomResource {
  * Input properties used for looking up and filtering TrafficManagerAzureEndpoint resources.
  */
 export interface TrafficManagerAzureEndpointState {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    alwaysServeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `customHeader` blocks as defined below.
      */
@@ -212,6 +223,10 @@ export interface TrafficManagerAzureEndpointState {
  * The set of arguments for constructing a TrafficManagerAzureEndpoint resource.
  */
 export interface TrafficManagerAzureEndpointArgs {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     */
+    alwaysServeEnabled?: pulumi.Input<boolean>;
     /**
      * One or more `customHeader` blocks as defined below.
      */

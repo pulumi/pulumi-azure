@@ -22,7 +22,7 @@ class GetEnvironmentV3Result:
     """
     A collection of values returned by getEnvironmentV3.
     """
-    def __init__(__self__, allow_new_private_endpoint_connections=None, cluster_settings=None, dedicated_host_count=None, dns_suffix=None, external_inbound_ip_addresses=None, id=None, inbound_network_dependencies=None, internal_inbound_ip_addresses=None, internal_load_balancing_mode=None, ip_ssl_address_count=None, linux_outbound_ip_addresses=None, location=None, name=None, pricing_tier=None, resource_group_name=None, subnet_id=None, tags=None, windows_outbound_ip_addresses=None, zone_redundant=None):
+    def __init__(__self__, allow_new_private_endpoint_connections=None, cluster_settings=None, dedicated_host_count=None, dns_suffix=None, external_inbound_ip_addresses=None, id=None, inbound_network_dependencies=None, internal_inbound_ip_addresses=None, internal_load_balancing_mode=None, ip_ssl_address_count=None, linux_outbound_ip_addresses=None, location=None, name=None, pricing_tier=None, remote_debugging_enabled=None, resource_group_name=None, subnet_id=None, tags=None, windows_outbound_ip_addresses=None, zone_redundant=None):
         if allow_new_private_endpoint_connections and not isinstance(allow_new_private_endpoint_connections, bool):
             raise TypeError("Expected argument 'allow_new_private_endpoint_connections' to be a bool")
         pulumi.set(__self__, "allow_new_private_endpoint_connections", allow_new_private_endpoint_connections)
@@ -65,6 +65,9 @@ class GetEnvironmentV3Result:
         if pricing_tier and not isinstance(pricing_tier, str):
             raise TypeError("Expected argument 'pricing_tier' to be a str")
         pulumi.set(__self__, "pricing_tier", pricing_tier)
+        if remote_debugging_enabled and not isinstance(remote_debugging_enabled, bool):
+            raise TypeError("Expected argument 'remote_debugging_enabled' to be a bool")
+        pulumi.set(__self__, "remote_debugging_enabled", remote_debugging_enabled)
         if resource_group_name and not isinstance(resource_group_name, str):
             raise TypeError("Expected argument 'resource_group_name' to be a str")
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -194,6 +197,11 @@ class GetEnvironmentV3Result:
         return pulumi.get(self, "pricing_tier")
 
     @property
+    @pulumi.getter(name="remoteDebuggingEnabled")
+    def remote_debugging_enabled(self) -> bool:
+        return pulumi.get(self, "remote_debugging_enabled")
+
+    @property
     @pulumi.getter(name="resourceGroupName")
     def resource_group_name(self) -> str:
         return pulumi.get(self, "resource_group_name")
@@ -248,6 +256,7 @@ class AwaitableGetEnvironmentV3Result(GetEnvironmentV3Result):
             location=self.location,
             name=self.name,
             pricing_tier=self.pricing_tier,
+            remote_debugging_enabled=self.remote_debugging_enabled,
             resource_group_name=self.resource_group_name,
             subnet_id=self.subnet_id,
             tags=self.tags,
@@ -297,6 +306,7 @@ def get_environment_v3(name: Optional[str] = None,
         location=pulumi.get(__ret__, 'location'),
         name=pulumi.get(__ret__, 'name'),
         pricing_tier=pulumi.get(__ret__, 'pricing_tier'),
+        remote_debugging_enabled=pulumi.get(__ret__, 'remote_debugging_enabled'),
         resource_group_name=pulumi.get(__ret__, 'resource_group_name'),
         subnet_id=pulumi.get(__ret__, 'subnet_id'),
         tags=pulumi.get(__ret__, 'tags'),
