@@ -140,7 +140,7 @@ namespace Pulumi.Azure.ChaosStudio
     ///                         {
     ///                             new Azure.ChaosStudio.Inputs.ExperimentStepBranchActionArgs
     ///                             {
-    ///                                 Urn = exampleCapability.Urn,
+    ///                                 Urn = exampleCapability.CapabilityUrn,
     ///                                 SelectorName = "Selector1",
     ///                                 Parameters = 
     ///                                 {

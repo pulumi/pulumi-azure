@@ -4,10 +4,13 @@
 package com.pulumi.azure.databricks;
 
 import com.pulumi.azure.Utilities;
+import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
+import com.pulumi.azure.databricks.inputs.GetAccessConnectorPlainArgs;
 import com.pulumi.azure.databricks.inputs.GetWorkspaceArgs;
 import com.pulumi.azure.databricks.inputs.GetWorkspacePlainArgs;
 import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionArgs;
 import com.pulumi.azure.databricks.inputs.GetWorkspacePrivateEndpointConnectionPlainArgs;
+import com.pulumi.azure.databricks.outputs.GetAccessConnectorResult;
 import com.pulumi.azure.databricks.outputs.GetWorkspacePrivateEndpointConnectionResult;
 import com.pulumi.azure.databricks.outputs.GetWorkspaceResult;
 import com.pulumi.core.Output;
@@ -17,6 +20,162 @@ import com.pulumi.deployment.InvokeOptions;
 import java.util.concurrent.CompletableFuture;
 
 public final class DatabricksFunctions {
+    /**
+     * Use this data source to access information about an existing Databricks Access Connector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databricks.DatabricksFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args) {
+        return getAccessConnector(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Databricks Access Connector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databricks.DatabricksFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args) {
+        return getAccessConnectorPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Use this data source to access information about an existing Databricks Access Connector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databricks.DatabricksFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static Output<GetAccessConnectorResult> getAccessConnector(GetAccessConnectorArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("azure:databricks/getAccessConnector:getAccessConnector", TypeShape.of(GetAccessConnectorResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Use this data source to access information about an existing Databricks Access Connector.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.databricks.DatabricksFunctions;
+     * import com.pulumi.azure.databricks.inputs.GetAccessConnectorArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = DatabricksFunctions.getAccessConnector(GetAccessConnectorArgs.builder()
+     *             .name(&#34;existing&#34;)
+     *             .resourceGroupName(&#34;existing&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAccessConnectorResult -&gt; getAccessConnectorResult.id()));
+     *     }
+     * }
+     * ```
+     * 
+     */
+    public static CompletableFuture<GetAccessConnectorResult> getAccessConnectorPlain(GetAccessConnectorPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("azure:databricks/getAccessConnector:getAccessConnector", TypeShape.of(GetAccessConnectorResult.class), args, Utilities.withVersion(options));
+    }
     /**
      * Use this data source to access information about an existing Databricks workspace.
      * 

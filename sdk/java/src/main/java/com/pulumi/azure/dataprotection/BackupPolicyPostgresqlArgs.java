@@ -94,14 +94,14 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     @Import(name="timeZone")
     private @Nullable Output<String> timeZone;
 
     /**
-     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     public Optional<Output<String>> timeZone() {
@@ -279,7 +279,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
          * 
          * @return builder
          * 
@@ -290,7 +290,7 @@ public final class BackupPolicyPostgresqlArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+         * @param timeZone Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
          * 
          * @return builder
          * 

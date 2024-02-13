@@ -82,7 +82,7 @@ import * as utilities from "../utilities";
  *         branches: [{
  *             name: "example",
  *             actions: [{
- *                 urn: exampleCapability.urn,
+ *                 urn: exampleCapability.capabilityUrn,
  *                 selectorName: "Selector1",
  *                 parameters: {
  *                     abruptShutdown: "false",

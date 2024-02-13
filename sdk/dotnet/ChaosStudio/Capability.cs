@@ -84,16 +84,16 @@ namespace Pulumi.Azure.ChaosStudio
         public Output<string> CapabilityType { get; private set; } = null!;
 
         /// <summary>
+        /// The Unique Resource Name of the Capability.
+        /// </summary>
+        [Output("capabilityUrn")]
+        public Output<string> CapabilityUrn { get; private set; } = null!;
+
+        /// <summary>
         /// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         /// </summary>
         [Output("chaosStudioTargetId")]
         public Output<string> ChaosStudioTargetId { get; private set; } = null!;
-
-        /// <summary>
-        /// The Unique Resource Name of the Capability.
-        /// </summary>
-        [Output("urn")]
-        public Output<string> Urn { get; private set; } = null!;
 
 
         /// <summary>
@@ -168,16 +168,16 @@ namespace Pulumi.Azure.ChaosStudio
         public Input<string>? CapabilityType { get; set; }
 
         /// <summary>
+        /// The Unique Resource Name of the Capability.
+        /// </summary>
+        [Input("capabilityUrn")]
+        public Input<string>? CapabilityUrn { get; set; }
+
+        /// <summary>
         /// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         /// </summary>
         [Input("chaosStudioTargetId")]
         public Input<string>? ChaosStudioTargetId { get; set; }
-
-        /// <summary>
-        /// The Unique Resource Name of the Capability.
-        /// </summary>
-        [Input("urn")]
-        public Input<string>? Urn { get; set; }
 
         public CapabilityState()
         {

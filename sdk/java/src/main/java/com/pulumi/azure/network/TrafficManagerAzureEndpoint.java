@@ -83,6 +83,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTrafficManagerAzureEndpoint = new TrafficManagerAzureEndpoint(&#34;exampleTrafficManagerAzureEndpoint&#34;, TrafficManagerAzureEndpointArgs.builder()        
  *             .profileId(exampleTrafficManagerProfile.id())
+ *             .alwaysServeEnabled(true)
  *             .weight(100)
  *             .targetResourceId(examplePublicIp.id())
  *             .build());
@@ -102,6 +103,20 @@ import javax.annotation.Nullable;
  */
 @ResourceType(type="azure:network/trafficManagerAzureEndpoint:TrafficManagerAzureEndpoint")
 public class TrafficManagerAzureEndpoint extends com.pulumi.resources.CustomResource {
+    /**
+     * If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     * 
+     */
+    @Export(name="alwaysServeEnabled", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> alwaysServeEnabled;
+
+    /**
+     * @return If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> alwaysServeEnabled() {
+        return Codegen.optional(this.alwaysServeEnabled);
+    }
     /**
      * One or more `custom_header` blocks as defined below.
      * 

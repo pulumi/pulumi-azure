@@ -91,10 +91,10 @@ type Capability struct {
 
 	// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
 	CapabilityType pulumi.StringOutput `pulumi:"capabilityType"`
+	// The Unique Resource Name of the Capability.
+	CapabilityUrn pulumi.StringOutput `pulumi:"capabilityUrn"`
 	// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
 	ChaosStudioTargetId pulumi.StringOutput `pulumi:"chaosStudioTargetId"`
-	// The Unique Resource Name of the Capability.
-	Urn pulumi.StringOutput `pulumi:"urn"`
 }
 
 // NewCapability registers a new resource with the given unique name, arguments, and options.
@@ -135,19 +135,19 @@ func GetCapability(ctx *pulumi.Context,
 type capabilityState struct {
 	// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
 	CapabilityType *string `pulumi:"capabilityType"`
+	// The Unique Resource Name of the Capability.
+	CapabilityUrn *string `pulumi:"capabilityUrn"`
 	// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
 	ChaosStudioTargetId *string `pulumi:"chaosStudioTargetId"`
-	// The Unique Resource Name of the Capability.
-	Urn *string `pulumi:"urn"`
 }
 
 type CapabilityState struct {
 	// The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
 	CapabilityType pulumi.StringPtrInput
+	// The Unique Resource Name of the Capability.
+	CapabilityUrn pulumi.StringPtrInput
 	// The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
 	ChaosStudioTargetId pulumi.StringPtrInput
-	// The Unique Resource Name of the Capability.
-	Urn pulumi.StringPtrInput
 }
 
 func (CapabilityState) ElementType() reflect.Type {
@@ -261,14 +261,14 @@ func (o CapabilityOutput) CapabilityType() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.CapabilityType }).(pulumi.StringOutput)
 }
 
+// The Unique Resource Name of the Capability.
+func (o CapabilityOutput) CapabilityUrn() pulumi.StringOutput {
+	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.CapabilityUrn }).(pulumi.StringOutput)
+}
+
 // The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
 func (o CapabilityOutput) ChaosStudioTargetId() pulumi.StringOutput {
 	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.ChaosStudioTargetId }).(pulumi.StringOutput)
-}
-
-// The Unique Resource Name of the Capability.
-func (o CapabilityOutput) Urn() pulumi.StringOutput {
-	return o.ApplyT(func(v *Capability) pulumi.StringOutput { return v.Urn }).(pulumi.StringOutput)
 }
 
 type CapabilityArrayOutput struct{ *pulumi.OutputState }

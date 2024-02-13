@@ -299,7 +299,7 @@ class Experiment(pulumi.CustomResource):
                 branches=[azure.chaosstudio.ExperimentStepBranchArgs(
                     name="example",
                     actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.urn,
+                        urn=example_capability.capability_urn,
                         selector_name="Selector1",
                         parameters={
                             "abruptShutdown": "false",
@@ -403,7 +403,7 @@ class Experiment(pulumi.CustomResource):
                 branches=[azure.chaosstudio.ExperimentStepBranchArgs(
                     name="example",
                     actions=[azure.chaosstudio.ExperimentStepBranchActionArgs(
-                        urn=example_capability.urn,
+                        urn=example_capability.capability_urn,
                         selector_name="Selector1",
                         parameters={
                             "abruptShutdown": "false",

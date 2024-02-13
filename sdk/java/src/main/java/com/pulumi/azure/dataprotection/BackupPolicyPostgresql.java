@@ -182,14 +182,14 @@ public class BackupPolicyPostgresql extends com.pulumi.resources.CustomResource 
         return Codegen.optional(this.retentionRules);
     }
     /**
-     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     @Export(name="timeZone", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> timeZone;
 
     /**
-     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * @return Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      * 
      */
     public Output<Optional<String>> timeZone() {

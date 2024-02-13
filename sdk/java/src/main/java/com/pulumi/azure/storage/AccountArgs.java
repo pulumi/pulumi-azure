@@ -336,6 +336,21 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Is Local User Enabled? Defaults to `true`.
+     * 
+     */
+    @Import(name="localUserEnabled")
+    private @Nullable Output<Boolean> localUserEnabled;
+
+    /**
+     * @return Is Local User Enabled? Defaults to `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> localUserEnabled() {
+        return Optional.ofNullable(this.localUserEnabled);
+    }
+
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      * 
      */
@@ -628,6 +643,7 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
         this.infrastructureEncryptionEnabled = $.infrastructureEncryptionEnabled;
         this.isHnsEnabled = $.isHnsEnabled;
         this.largeFileShareEnabled = $.largeFileShareEnabled;
+        this.localUserEnabled = $.localUserEnabled;
         this.location = $.location;
         this.minTlsVersion = $.minTlsVersion;
         this.name = $.name;
@@ -1082,6 +1098,27 @@ public final class AccountArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder largeFileShareEnabled(Boolean largeFileShareEnabled) {
             return largeFileShareEnabled(Output.of(largeFileShareEnabled));
+        }
+
+        /**
+         * @param localUserEnabled Is Local User Enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localUserEnabled(@Nullable Output<Boolean> localUserEnabled) {
+            $.localUserEnabled = localUserEnabled;
+            return this;
+        }
+
+        /**
+         * @param localUserEnabled Is Local User Enabled? Defaults to `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder localUserEnabled(Boolean localUserEnabled) {
+            return localUserEnabled(Output.of(localUserEnabled));
         }
 
         /**

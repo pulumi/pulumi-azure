@@ -86,6 +86,7 @@ public final class GetEnvironmentV3Result {
      * 
      */
     private String pricingTier;
+    private Boolean remoteDebuggingEnabled;
     private String resourceGroupName;
     /**
      * @return The ID of the v3 App Service Environment Subnet.
@@ -203,6 +204,9 @@ public final class GetEnvironmentV3Result {
     public String pricingTier() {
         return this.pricingTier;
     }
+    public Boolean remoteDebuggingEnabled() {
+        return this.remoteDebuggingEnabled;
+    }
     public String resourceGroupName() {
         return this.resourceGroupName;
     }
@@ -254,6 +258,7 @@ public final class GetEnvironmentV3Result {
         private String location;
         private String name;
         private String pricingTier;
+        private Boolean remoteDebuggingEnabled;
         private String resourceGroupName;
         private String subnetId;
         private Map<String,String> tags;
@@ -276,6 +281,7 @@ public final class GetEnvironmentV3Result {
     	      this.location = defaults.location;
     	      this.name = defaults.name;
     	      this.pricingTier = defaults.pricingTier;
+    	      this.remoteDebuggingEnabled = defaults.remoteDebuggingEnabled;
     	      this.resourceGroupName = defaults.resourceGroupName;
     	      this.subnetId = defaults.subnetId;
     	      this.tags = defaults.tags;
@@ -411,6 +417,14 @@ public final class GetEnvironmentV3Result {
             return this;
         }
         @CustomType.Setter
+        public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
+            if (remoteDebuggingEnabled == null) {
+              throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "remoteDebuggingEnabled");
+            }
+            this.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder resourceGroupName(String resourceGroupName) {
             if (resourceGroupName == null) {
               throw new MissingRequiredPropertyException("GetEnvironmentV3Result", "resourceGroupName");
@@ -469,6 +483,7 @@ public final class GetEnvironmentV3Result {
             _resultValue.location = location;
             _resultValue.name = name;
             _resultValue.pricingTier = pricingTier;
+            _resultValue.remoteDebuggingEnabled = remoteDebuggingEnabled;
             _resultValue.resourceGroupName = resourceGroupName;
             _resultValue.subnetId = subnetId;
             _resultValue.tags = tags;

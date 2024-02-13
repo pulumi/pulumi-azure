@@ -85,13 +85,13 @@ export class Capability extends pulumi.CustomResource {
      */
     public readonly capabilityType!: pulumi.Output<string>;
     /**
+     * The Unique Resource Name of the Capability.
+     */
+    public /*out*/ readonly capabilityUrn!: pulumi.Output<string>;
+    /**
      * The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
      */
     public readonly chaosStudioTargetId!: pulumi.Output<string>;
-    /**
-     * The Unique Resource Name of the Capability.
-     */
-    public /*out*/ readonly urn!: pulumi.Output<string>;
 
     /**
      * Create a Capability resource with the given unique name, arguments, and options.
@@ -107,8 +107,8 @@ export class Capability extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as CapabilityState | undefined;
             resourceInputs["capabilityType"] = state ? state.capabilityType : undefined;
+            resourceInputs["capabilityUrn"] = state ? state.capabilityUrn : undefined;
             resourceInputs["chaosStudioTargetId"] = state ? state.chaosStudioTargetId : undefined;
-            resourceInputs["urn"] = state ? state.urn : undefined;
         } else {
             const args = argsOrState as CapabilityArgs | undefined;
             if ((!args || args.capabilityType === undefined) && !opts.urn) {
@@ -119,7 +119,7 @@ export class Capability extends pulumi.CustomResource {
             }
             resourceInputs["capabilityType"] = args ? args.capabilityType : undefined;
             resourceInputs["chaosStudioTargetId"] = args ? args.chaosStudioTargetId : undefined;
-            resourceInputs["urn"] = undefined /*out*/;
+            resourceInputs["capabilityUrn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(Capability.__pulumiType, name, resourceInputs, opts);
@@ -135,13 +135,13 @@ export interface CapabilityState {
      */
     capabilityType?: pulumi.Input<string>;
     /**
+     * The Unique Resource Name of the Capability.
+     */
+    capabilityUrn?: pulumi.Input<string>;
+    /**
      * The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
      */
     chaosStudioTargetId?: pulumi.Input<string>;
-    /**
-     * The Unique Resource Name of the Capability.
-     */
-    urn?: pulumi.Input<string>;
 }
 
 /**

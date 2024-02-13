@@ -96,6 +96,13 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.name);
     }
 
+    @Import(name="remoteDebuggingEnabled")
+    private @Nullable Output<Boolean> remoteDebuggingEnabled;
+
+    public Optional<Output<Boolean>> remoteDebuggingEnabled() {
+        return Optional.ofNullable(this.remoteDebuggingEnabled);
+    }
+
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnet_id`). Changing this forces a new resource to be created.
      * 
@@ -168,6 +175,7 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
         this.dedicatedHostCount = $.dedicatedHostCount;
         this.internalLoadBalancingMode = $.internalLoadBalancingMode;
         this.name = $.name;
+        this.remoteDebuggingEnabled = $.remoteDebuggingEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.subnetId = $.subnetId;
         this.tags = $.tags;
@@ -305,6 +313,15 @@ public final class EnvironmentV3Args extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        public Builder remoteDebuggingEnabled(@Nullable Output<Boolean> remoteDebuggingEnabled) {
+            $.remoteDebuggingEnabled = remoteDebuggingEnabled;
+            return this;
+        }
+
+        public Builder remoteDebuggingEnabled(Boolean remoteDebuggingEnabled) {
+            return remoteDebuggingEnabled(Output.of(remoteDebuggingEnabled));
         }
 
         /**

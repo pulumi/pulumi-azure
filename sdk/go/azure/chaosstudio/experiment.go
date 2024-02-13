@@ -140,7 +140,7 @@ import (
 //								Name: pulumi.String("example"),
 //								Actions: chaosstudio.ExperimentStepBranchActionArray{
 //									&chaosstudio.ExperimentStepBranchActionArgs{
-//										Urn:          exampleCapability.Urn,
+//										Urn:          exampleCapability.CapabilityUrn,
 //										SelectorName: pulumi.String("Selector1"),
 //										Parameters: pulumi.StringMap{
 //											"abruptShutdown": pulumi.String("false"),

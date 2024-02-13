@@ -53,20 +53,20 @@ class CapabilityArgs:
 class _CapabilityState:
     def __init__(__self__, *,
                  capability_type: Optional[pulumi.Input[str]] = None,
-                 chaos_studio_target_id: Optional[pulumi.Input[str]] = None,
-                 urn: Optional[pulumi.Input[str]] = None):
+                 capability_urn: Optional[pulumi.Input[str]] = None,
+                 chaos_studio_target_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering Capability resources.
         :param pulumi.Input[str] capability_type: The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
+        :param pulumi.Input[str] capability_urn: The Unique Resource Name of the Capability.
         :param pulumi.Input[str] chaos_studio_target_id: The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
-        :param pulumi.Input[str] urn: The Unique Resource Name of the Capability.
         """
         if capability_type is not None:
             pulumi.set(__self__, "capability_type", capability_type)
+        if capability_urn is not None:
+            pulumi.set(__self__, "capability_urn", capability_urn)
         if chaos_studio_target_id is not None:
             pulumi.set(__self__, "chaos_studio_target_id", chaos_studio_target_id)
-        if urn is not None:
-            pulumi.set(__self__, "urn", urn)
 
     @property
     @pulumi.getter(name="capabilityType")
@@ -81,6 +81,18 @@ class _CapabilityState:
         pulumi.set(self, "capability_type", value)
 
     @property
+    @pulumi.getter(name="capabilityUrn")
+    def capability_urn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The Unique Resource Name of the Capability.
+        """
+        return pulumi.get(self, "capability_urn")
+
+    @capability_urn.setter
+    def capability_urn(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "capability_urn", value)
+
+    @property
     @pulumi.getter(name="chaosStudioTargetId")
     def chaos_studio_target_id(self) -> Optional[pulumi.Input[str]]:
         """
@@ -91,18 +103,6 @@ class _CapabilityState:
     @chaos_studio_target_id.setter
     def chaos_studio_target_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "chaos_studio_target_id", value)
-
-    @property
-    @pulumi.getter
-    def urn(self) -> Optional[pulumi.Input[str]]:
-        """
-        The Unique Resource Name of the Capability.
-        """
-        return pulumi.get(self, "urn")
-
-    @urn.setter
-    def urn(self, value: Optional[pulumi.Input[str]]):
-        pulumi.set(self, "urn", value)
 
 
 class Capability(pulumi.CustomResource):
@@ -246,7 +246,7 @@ class Capability(pulumi.CustomResource):
             if chaos_studio_target_id is None and not opts.urn:
                 raise TypeError("Missing required property 'chaos_studio_target_id'")
             __props__.__dict__["chaos_studio_target_id"] = chaos_studio_target_id
-            __props__.__dict__["urn"] = None
+            __props__.__dict__["capability_urn"] = None
         super(Capability, __self__).__init__(
             'azure:chaosstudio/capability:Capability',
             resource_name,
@@ -258,8 +258,8 @@ class Capability(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             capability_type: Optional[pulumi.Input[str]] = None,
-            chaos_studio_target_id: Optional[pulumi.Input[str]] = None,
-            urn: Optional[pulumi.Input[str]] = None) -> 'Capability':
+            capability_urn: Optional[pulumi.Input[str]] = None,
+            chaos_studio_target_id: Optional[pulumi.Input[str]] = None) -> 'Capability':
         """
         Get an existing Capability resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -268,16 +268,16 @@ class Capability(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] capability_type: The capability that should be applied to the Chaos Studio Target. For supported values please see this Chaos Studio [Fault Library](https://learn.microsoft.com/azure/chaos-studio/chaos-studio-fault-library). Changing this forces a new Chaos Studio Capability to be created.
+        :param pulumi.Input[str] capability_urn: The Unique Resource Name of the Capability.
         :param pulumi.Input[str] chaos_studio_target_id: The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
-        :param pulumi.Input[str] urn: The Unique Resource Name of the Capability.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _CapabilityState.__new__(_CapabilityState)
 
         __props__.__dict__["capability_type"] = capability_type
+        __props__.__dict__["capability_urn"] = capability_urn
         __props__.__dict__["chaos_studio_target_id"] = chaos_studio_target_id
-        __props__.__dict__["urn"] = urn
         return Capability(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -289,18 +289,18 @@ class Capability(pulumi.CustomResource):
         return pulumi.get(self, "capability_type")
 
     @property
+    @pulumi.getter(name="capabilityUrn")
+    def capability_urn(self) -> pulumi.Output[str]:
+        """
+        The Unique Resource Name of the Capability.
+        """
+        return pulumi.get(self, "capability_urn")
+
+    @property
     @pulumi.getter(name="chaosStudioTargetId")
     def chaos_studio_target_id(self) -> pulumi.Output[str]:
         """
         The Chaos Studio Target that the capability should be applied to. Changing this forces a new Chaos Studio Capability to be created.
         """
         return pulumi.get(self, "chaos_studio_target_id")
-
-    @property
-    @pulumi.getter
-    def urn(self) -> pulumi.Output[str]:
-        """
-        The Unique Resource Name of the Capability.
-        """
-        return pulumi.get(self, "urn")
 

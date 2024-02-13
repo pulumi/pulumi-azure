@@ -7,6 +7,7 @@ import com.pulumi.azure.Utilities;
 import com.pulumi.azure.machinelearning.WorkspaceArgs;
 import com.pulumi.azure.machinelearning.inputs.WorkspaceState;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceEncryption;
+import com.pulumi.azure.machinelearning.outputs.WorkspaceFeatureStore;
 import com.pulumi.azure.machinelearning.outputs.WorkspaceIdentity;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
@@ -491,6 +492,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.encryption);
     }
     /**
+     * A `feature_store` block as defined below.
+     * 
+     */
+    @Export(name="featureStore", refs={WorkspaceFeatureStore.class}, tree="[0]")
+    private Output</* @Nullable */ WorkspaceFeatureStore> featureStore;
+
+    /**
+     * @return A `feature_store` block as defined below.
+     * 
+     */
+    public Output<Optional<WorkspaceFeatureStore>> featureStore() {
+        return Codegen.optional(this.featureStore);
+    }
+    /**
      * Display name for this Machine Learning Workspace.
      * 
      */
@@ -559,6 +574,20 @@ public class Workspace extends com.pulumi.resources.CustomResource {
      */
     public Output<String> keyVaultId() {
         return this.keyVaultId;
+    }
+    /**
+     * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     * 
+     */
+    @Export(name="kind", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kind;
+
+    /**
+     * @return The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     * 
+     */
+    public Output<Optional<String>> kind() {
+        return Codegen.optional(this.kind);
     }
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
