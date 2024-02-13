@@ -36,6 +36,7 @@ class AccountArgs:
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -84,6 +85,7 @@ class AccountArgs:
                
                > **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
+        :param pulumi.Input[bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
@@ -149,6 +151,8 @@ class AccountArgs:
             pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
             pulumi.set(__self__, "large_file_share_enabled", large_file_share_enabled)
+        if local_user_enabled is not None:
+            pulumi.set(__self__, "local_user_enabled", local_user_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if min_tls_version is not None:
@@ -433,6 +437,18 @@ class AccountArgs:
         pulumi.set(self, "large_file_share_enabled", value)
 
     @property
+    @pulumi.getter(name="localUserEnabled")
+    def local_user_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Local User Enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_user_enabled")
+
+    @local_user_enabled.setter
+    def local_user_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_user_enabled", value)
+
+    @property
     @pulumi.getter
     def location(self) -> Optional[pulumi.Input[str]]:
         """
@@ -656,6 +672,7 @@ class _AccountState:
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -776,6 +793,7 @@ class _AccountState:
                
                > **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
+        :param pulumi.Input[bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
@@ -915,6 +933,8 @@ class _AccountState:
             pulumi.set(__self__, "is_hns_enabled", is_hns_enabled)
         if large_file_share_enabled is not None:
             pulumi.set(__self__, "large_file_share_enabled", large_file_share_enabled)
+        if local_user_enabled is not None:
+            pulumi.set(__self__, "local_user_enabled", local_user_enabled)
         if location is not None:
             pulumi.set(__self__, "location", location)
         if min_tls_version is not None:
@@ -1331,6 +1351,18 @@ class _AccountState:
     @large_file_share_enabled.setter
     def large_file_share_enabled(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "large_file_share_enabled", value)
+
+    @property
+    @pulumi.getter(name="localUserEnabled")
+    def local_user_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Is Local User Enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_user_enabled")
+
+    @local_user_enabled.setter
+    def local_user_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "local_user_enabled", value)
 
     @property
     @pulumi.getter
@@ -2434,6 +2466,7 @@ class Account(pulumi.CustomResource):
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -2544,6 +2577,7 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
+        :param pulumi.Input[bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
@@ -2674,6 +2708,7 @@ class Account(pulumi.CustomResource):
                  infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
                  is_hns_enabled: Optional[pulumi.Input[bool]] = None,
                  large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+                 local_user_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
                  min_tls_version: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
@@ -2723,6 +2758,7 @@ class Account(pulumi.CustomResource):
             __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
             __props__.__dict__["is_hns_enabled"] = is_hns_enabled
             __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
+            __props__.__dict__["local_user_enabled"] = local_user_enabled
             __props__.__dict__["location"] = location
             __props__.__dict__["min_tls_version"] = min_tls_version
             __props__.__dict__["name"] = name
@@ -2845,6 +2881,7 @@ class Account(pulumi.CustomResource):
             infrastructure_encryption_enabled: Optional[pulumi.Input[bool]] = None,
             is_hns_enabled: Optional[pulumi.Input[bool]] = None,
             large_file_share_enabled: Optional[pulumi.Input[bool]] = None,
+            local_user_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
             min_tls_version: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
@@ -2970,6 +3007,7 @@ class Account(pulumi.CustomResource):
                
                > **NOTE:** This can only be `true` when `account_tier` is `Standard` or when `account_tier` is `Premium` *and* `account_kind` is `BlockBlobStorage`
         :param pulumi.Input[bool] large_file_share_enabled: Is Large File Share Enabled?
+        :param pulumi.Input[bool] local_user_enabled: Is Local User Enabled? Defaults to `true`.
         :param pulumi.Input[str] location: Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
         :param pulumi.Input[str] min_tls_version: The minimum supported TLS version for the storage account. Possible values are `TLS1_0`, `TLS1_1`, and `TLS1_2`. Defaults to `TLS1_2` for new storage accounts.
                
@@ -3094,6 +3132,7 @@ class Account(pulumi.CustomResource):
         __props__.__dict__["infrastructure_encryption_enabled"] = infrastructure_encryption_enabled
         __props__.__dict__["is_hns_enabled"] = is_hns_enabled
         __props__.__dict__["large_file_share_enabled"] = large_file_share_enabled
+        __props__.__dict__["local_user_enabled"] = local_user_enabled
         __props__.__dict__["location"] = location
         __props__.__dict__["min_tls_version"] = min_tls_version
         __props__.__dict__["name"] = name
@@ -3346,6 +3385,14 @@ class Account(pulumi.CustomResource):
         Is Large File Share Enabled?
         """
         return pulumi.get(self, "large_file_share_enabled")
+
+    @property
+    @pulumi.getter(name="localUserEnabled")
+    def local_user_enabled(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Is Local User Enabled? Defaults to `true`.
+        """
+        return pulumi.get(self, "local_user_enabled")
 
     @property
     @pulumi.getter

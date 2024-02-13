@@ -12,6 +12,11 @@ from .. import _utilities
 __all__ = [
     'BackupPolicyDiskRetentionRuleArgs',
     'BackupPolicyDiskRetentionRuleCriteriaArgs',
+    'BackupPolicyKubernetesClusterDefaultRetentionRuleArgs',
+    'BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs',
+    'BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs',
     'BackupPolicyPostgresqlRetentionRuleArgs',
     'BackupPolicyPostgresqlRetentionRuleCriteriaArgs',
     'BackupVaultIdentityArgs',
@@ -105,6 +110,256 @@ class BackupPolicyDiskRetentionRuleCriteriaArgs:
     @absolute_criteria.setter
     def absolute_criteria(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "absolute_criteria", value)
+
+
+@pulumi.input_type
+class BackupPolicyKubernetesClusterDefaultRetentionRuleArgs:
+    def __init__(__self__, *,
+                 life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs']]] life_cycles: A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "life_cycles", life_cycles)
+
+    @property
+    @pulumi.getter(name="lifeCycles")
+    def life_cycles(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs']]]:
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "life_cycles")
+
+    @life_cycles.setter
+    def life_cycles(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs']]]):
+        pulumi.set(self, "life_cycles", value)
+
+
+@pulumi.input_type
+class BackupPolicyKubernetesClusterDefaultRetentionRuleLifeCycleArgs:
+    def __init__(__self__, *,
+                 data_store_type: pulumi.Input[str],
+                 duration: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`.
+        :param pulumi.Input[str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "data_store_type", data_store_type)
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> pulumi.Input[str]:
+        """
+        The type of data store. The only possible value is `OperationalStore`.
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @data_store_type.setter
+    def data_store_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_store_type", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
+
+
+@pulumi.input_type
+class BackupPolicyKubernetesClusterRetentionRuleArgs:
+    def __init__(__self__, *,
+                 criteria: pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs'],
+                 life_cycles: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs']]],
+                 name: pulumi.Input[str],
+                 priority: pulumi.Input[int]):
+        """
+        :param pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs'] criteria: A `criteria` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs']]] life_cycles: A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] name: The name which should be used for this retention rule. Changing this forces a new resource to be created.
+        :param pulumi.Input[int] priority: Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "criteria", criteria)
+        pulumi.set(__self__, "life_cycles", life_cycles)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "priority", priority)
+
+    @property
+    @pulumi.getter
+    def criteria(self) -> pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs']:
+        """
+        A `criteria` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "criteria")
+
+    @criteria.setter
+    def criteria(self, value: pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs']):
+        pulumi.set(self, "criteria", value)
+
+    @property
+    @pulumi.getter(name="lifeCycles")
+    def life_cycles(self) -> pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs']]]:
+        """
+        A `life_cycle` block as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "life_cycles")
+
+    @life_cycles.setter
+    def life_cycles(self, value: pulumi.Input[Sequence[pulumi.Input['BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs']]]):
+        pulumi.set(self, "life_cycles", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name which should be used for this retention rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter
+    def priority(self) -> pulumi.Input[int]:
+        """
+        Specifies the priority of the rule. The priority number must be unique for each rule. The lower the priority number, the higher the priority of the rule. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "priority")
+
+    @priority.setter
+    def priority(self, value: pulumi.Input[int]):
+        pulumi.set(self, "priority", value)
+
+
+@pulumi.input_type
+class BackupPolicyKubernetesClusterRetentionRuleCriteriaArgs:
+    def __init__(__self__, *,
+                 absolute_criteria: Optional[pulumi.Input[str]] = None,
+                 days_of_weeks: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 months_of_years: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 scheduled_backup_times: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 weeks_of_months: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[str] absolute_criteria: Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] days_of_weeks: Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] months_of_years: Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] scheduled_backup_times: Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] weeks_of_months: Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+        if absolute_criteria is not None:
+            pulumi.set(__self__, "absolute_criteria", absolute_criteria)
+        if days_of_weeks is not None:
+            pulumi.set(__self__, "days_of_weeks", days_of_weeks)
+        if months_of_years is not None:
+            pulumi.set(__self__, "months_of_years", months_of_years)
+        if scheduled_backup_times is not None:
+            pulumi.set(__self__, "scheduled_backup_times", scheduled_backup_times)
+        if weeks_of_months is not None:
+            pulumi.set(__self__, "weeks_of_months", weeks_of_months)
+
+    @property
+    @pulumi.getter(name="absoluteCriteria")
+    def absolute_criteria(self) -> Optional[pulumi.Input[str]]:
+        """
+        Possible values are `AllBackup`, `FirstOfDay`, `FirstOfWeek`, `FirstOfMonth` and `FirstOfYear`. These values mean the first successful backup of the day/week/month/year. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "absolute_criteria")
+
+    @absolute_criteria.setter
+    def absolute_criteria(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "absolute_criteria", value)
+
+    @property
+    @pulumi.getter(name="daysOfWeeks")
+    def days_of_weeks(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Possible values are `Monday`, `Tuesday`, `Thursday`, `Friday`, `Saturday` and `Sunday`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "days_of_weeks")
+
+    @days_of_weeks.setter
+    def days_of_weeks(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "days_of_weeks", value)
+
+    @property
+    @pulumi.getter(name="monthsOfYears")
+    def months_of_years(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Possible values are `January`, `February`, `March`, `April`, `May`, `June`, `July`, `August`, `September`, `October`, `November` and `December`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "months_of_years")
+
+    @months_of_years.setter
+    def months_of_years(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "months_of_years", value)
+
+    @property
+    @pulumi.getter(name="scheduledBackupTimes")
+    def scheduled_backup_times(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Specifies a list of backup times for backup in the `RFC3339` format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "scheduled_backup_times")
+
+    @scheduled_backup_times.setter
+    def scheduled_backup_times(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "scheduled_backup_times", value)
+
+    @property
+    @pulumi.getter(name="weeksOfMonths")
+    def weeks_of_months(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        Possible values are `First`, `Second`, `Third`, `Fourth` and `Last`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "weeks_of_months")
+
+    @weeks_of_months.setter
+    def weeks_of_months(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "weeks_of_months", value)
+
+
+@pulumi.input_type
+class BackupPolicyKubernetesClusterRetentionRuleLifeCycleArgs:
+    def __init__(__self__, *,
+                 data_store_type: pulumi.Input[str],
+                 duration: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] data_store_type: The type of data store. The only possible value is `OperationalStore`.
+        :param pulumi.Input[str] duration: The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "data_store_type", data_store_type)
+        pulumi.set(__self__, "duration", duration)
+
+    @property
+    @pulumi.getter(name="dataStoreType")
+    def data_store_type(self) -> pulumi.Input[str]:
+        """
+        The type of data store. The only possible value is `OperationalStore`.
+        """
+        return pulumi.get(self, "data_store_type")
+
+    @data_store_type.setter
+    def data_store_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "data_store_type", value)
+
+    @property
+    @pulumi.getter
+    def duration(self) -> pulumi.Input[str]:
+        """
+        The retention duration up to which the backups are to be retained in the data stores. It should follow `ISO 8601` duration format. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "duration")
+
+    @duration.setter
+    def duration(self, value: pulumi.Input[str]):
+        pulumi.set(self, "duration", value)
 
 
 @pulumi.input_type

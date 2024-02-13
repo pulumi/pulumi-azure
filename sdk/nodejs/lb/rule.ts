@@ -81,7 +81,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly backendAddressPoolIds!: pulumi.Output<string[] | undefined>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
      */
     public readonly backendPort!: pulumi.Output<number>;
     /**
@@ -89,7 +89,7 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly disableOutboundSnat!: pulumi.Output<boolean | undefined>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     public readonly enableFloatingIp!: pulumi.Output<boolean | undefined>;
     /**
@@ -102,11 +102,11 @@ export class Rule extends pulumi.CustomResource {
      */
     public readonly frontendIpConfigurationName!: pulumi.Output<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
      */
     public readonly frontendPort!: pulumi.Output<number>;
     /**
-     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
     public readonly idleTimeoutInMinutes!: pulumi.Output<number>;
     /**
@@ -205,7 +205,7 @@ export interface RuleState {
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
      */
     backendPort?: pulumi.Input<number>;
     /**
@@ -213,7 +213,7 @@ export interface RuleState {
      */
     disableOutboundSnat?: pulumi.Input<boolean>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**
@@ -226,11 +226,11 @@ export interface RuleState {
      */
     frontendIpConfigurationName?: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
      */
     frontendPort?: pulumi.Input<number>;
     /**
-     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**
@@ -266,7 +266,7 @@ export interface RuleArgs {
      */
     backendAddressPoolIds?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+     * The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
      */
     backendPort: pulumi.Input<number>;
     /**
@@ -274,7 +274,7 @@ export interface RuleArgs {
      */
     disableOutboundSnat?: pulumi.Input<boolean>;
     /**
-     * Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+     * Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
      */
     enableFloatingIp?: pulumi.Input<boolean>;
     /**
@@ -286,11 +286,11 @@ export interface RuleArgs {
      */
     frontendIpConfigurationName: pulumi.Input<string>;
     /**
-     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+     * The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
      */
     frontendPort: pulumi.Input<number>;
     /**
-     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+     * Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
      */
     idleTimeoutInMinutes?: pulumi.Input<number>;
     /**

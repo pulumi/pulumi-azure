@@ -186,6 +186,10 @@ export class Account extends pulumi.CustomResource {
      */
     public readonly largeFileShareEnabled!: pulumi.Output<boolean>;
     /**
+     * Is Local User Enabled? Defaults to `true`.
+     */
+    public readonly localUserEnabled!: pulumi.Output<boolean | undefined>;
+    /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
     public readonly location!: pulumi.Output<string>;
@@ -583,6 +587,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["infrastructureEncryptionEnabled"] = state ? state.infrastructureEncryptionEnabled : undefined;
             resourceInputs["isHnsEnabled"] = state ? state.isHnsEnabled : undefined;
             resourceInputs["largeFileShareEnabled"] = state ? state.largeFileShareEnabled : undefined;
+            resourceInputs["localUserEnabled"] = state ? state.localUserEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["minTlsVersion"] = state ? state.minTlsVersion : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -702,6 +707,7 @@ export class Account extends pulumi.CustomResource {
             resourceInputs["infrastructureEncryptionEnabled"] = args ? args.infrastructureEncryptionEnabled : undefined;
             resourceInputs["isHnsEnabled"] = args ? args.isHnsEnabled : undefined;
             resourceInputs["largeFileShareEnabled"] = args ? args.largeFileShareEnabled : undefined;
+            resourceInputs["localUserEnabled"] = args ? args.localUserEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["minTlsVersion"] = args ? args.minTlsVersion : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
@@ -889,6 +895,10 @@ export interface AccountState {
      * Is Large File Share Enabled?
      */
     largeFileShareEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Local User Enabled? Defaults to `true`.
+     */
+    localUserEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */
@@ -1346,6 +1356,10 @@ export interface AccountArgs {
      * Is Large File Share Enabled?
      */
     largeFileShareEnabled?: pulumi.Input<boolean>;
+    /**
+     * Is Local User Enabled? Defaults to `true`.
+     */
+    localUserEnabled?: pulumi.Input<boolean>;
     /**
      * Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
      */

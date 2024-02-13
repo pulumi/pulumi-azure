@@ -82,7 +82,7 @@ namespace Pulumi.Azure.Lb
         public Output<ImmutableArray<string>> BackendAddressPoolIds { get; private set; } = null!;
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Output("backendPort")]
         public Output<int> BackendPort { get; private set; } = null!;
@@ -94,7 +94,7 @@ namespace Pulumi.Azure.Lb
         public Output<bool?> DisableOutboundSnat { get; private set; } = null!;
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Output("enableFloatingIp")]
         public Output<bool?> EnableFloatingIp { get; private set; } = null!;
@@ -115,13 +115,13 @@ namespace Pulumi.Azure.Lb
         public Output<string> FrontendIpConfigurationName { get; private set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Output("frontendPort")]
         public Output<int> FrontendPort { get; private set; } = null!;
 
         /// <summary>
-        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
         /// </summary>
         [Output("idleTimeoutInMinutes")]
         public Output<int> IdleTimeoutInMinutes { get; private set; } = null!;
@@ -217,7 +217,7 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Input("backendPort", required: true)]
         public Input<int> BackendPort { get; set; } = null!;
@@ -229,7 +229,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? DisableOutboundSnat { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
@@ -247,13 +247,13 @@ namespace Pulumi.Azure.Lb
         public Input<string> FrontendIpConfigurationName { get; set; } = null!;
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Input("frontendPort", required: true)]
         public Input<int> FrontendPort { get; set; } = null!;
 
         /// <summary>
-        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }
@@ -311,7 +311,7 @@ namespace Pulumi.Azure.Lb
         }
 
         /// <summary>
-        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive.
+        /// The port used for internal connections on the endpoint. Possible values range between 0 and 65535, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Input("backendPort")]
         public Input<int>? BackendPort { get; set; }
@@ -323,7 +323,7 @@ namespace Pulumi.Azure.Lb
         public Input<bool>? DisableOutboundSnat { get; set; }
 
         /// <summary>
-        /// Are the Floating IPs enabled for this Load Balncer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
+        /// Are the Floating IPs enabled for this Load Balancer Rule? A "floating” IP is reassigned to a secondary server in case the primary server fails. Required to configure a SQL AlwaysOn Availability Group. Defaults to `false`.
         /// </summary>
         [Input("enableFloatingIp")]
         public Input<bool>? EnableFloatingIp { get; set; }
@@ -344,13 +344,13 @@ namespace Pulumi.Azure.Lb
         public Input<string>? FrontendIpConfigurationName { get; set; }
 
         /// <summary>
-        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive.
+        /// The port for the external endpoint. Port numbers for each Rule must be unique within the Load Balancer. Possible values range between 0 and 65534, inclusive. A port of `0` means "Any Port".
         /// </summary>
         [Input("frontendPort")]
         public Input<int>? FrontendPort { get; set; }
 
         /// <summary>
-        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `30` minutes. Defaults to `4` minutes.
+        /// Specifies the idle timeout in minutes for TCP connections. Valid values are between `4` and `100` minutes. Defaults to `4` minutes.
         /// </summary>
         [Input("idleTimeoutInMinutes")]
         public Input<int>? IdleTimeoutInMinutes { get; set; }

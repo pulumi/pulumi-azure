@@ -5,6 +5,16 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
 // Export members:
+export { CapabilityArgs, CapabilityState } from "./capability";
+export type Capability = import("./capability").Capability;
+export const Capability: typeof import("./capability").Capability = null as any;
+utilities.lazyLoad(exports, ["Capability"], () => require("./capability"));
+
+export { ExperimentArgs, ExperimentState } from "./experiment";
+export type Experiment = import("./experiment").Experiment;
+export const Experiment: typeof import("./experiment").Experiment = null as any;
+utilities.lazyLoad(exports, ["Experiment"], () => require("./experiment"));
+
 export { TargetArgs, TargetState } from "./target";
 export type Target = import("./target").Target;
 export const Target: typeof import("./target").Target = null as any;
@@ -15,6 +25,10 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
+            case "azure:chaosstudio/capability:Capability":
+                return new Capability(name, <any>undefined, { urn })
+            case "azure:chaosstudio/experiment:Experiment":
+                return new Experiment(name, <any>undefined, { urn })
             case "azure:chaosstudio/target:Target":
                 return new Target(name, <any>undefined, { urn })
             default:
@@ -22,4 +36,6 @@ const _module = {
         }
     },
 };
+pulumi.runtime.registerResourceModule("azure", "chaosstudio/capability", _module)
+pulumi.runtime.registerResourceModule("azure", "chaosstudio/experiment", _module)
 pulumi.runtime.registerResourceModule("azure", "chaosstudio/target", _module)

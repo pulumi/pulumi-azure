@@ -58,9 +58,10 @@ import (
 //				return err
 //			}
 //			_, err = network.NewTrafficManagerExternalEndpoint(ctx, "exampleTrafficManagerExternalEndpoint", &network.TrafficManagerExternalEndpointArgs{
-//				ProfileId: exampleTrafficManagerProfile.ID(),
-//				Weight:    pulumi.Int(100),
-//				Target:    pulumi.String("www.example.com"),
+//				ProfileId:          exampleTrafficManagerProfile.ID(),
+//				AlwaysServeEnabled: pulumi.Bool(true),
+//				Weight:             pulumi.Int(100),
+//				Target:             pulumi.String("www.example.com"),
 //			})
 //			if err != nil {
 //				return err
@@ -81,6 +82,8 @@ import (
 type TrafficManagerExternalEndpoint struct {
 	pulumi.CustomResourceState
 
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrOutput `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -139,6 +142,8 @@ func GetTrafficManagerExternalEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficManagerExternalEndpoint resources.
 type trafficManagerExternalEndpointState struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -162,6 +167,8 @@ type trafficManagerExternalEndpointState struct {
 }
 
 type TrafficManagerExternalEndpointState struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrInput
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
@@ -189,6 +196,8 @@ func (TrafficManagerExternalEndpointState) ElementType() reflect.Type {
 }
 
 type trafficManagerExternalEndpointArgs struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerExternalEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -213,6 +222,8 @@ type trafficManagerExternalEndpointArgs struct {
 
 // The set of arguments for constructing a TrafficManagerExternalEndpoint resource.
 type TrafficManagerExternalEndpointArgs struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrInput
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerExternalEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
@@ -320,6 +331,11 @@ func (o TrafficManagerExternalEndpointOutput) ToTrafficManagerExternalEndpointOu
 
 func (o TrafficManagerExternalEndpointOutput) ToTrafficManagerExternalEndpointOutputWithContext(ctx context.Context) TrafficManagerExternalEndpointOutput {
 	return o
+}
+
+// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+func (o TrafficManagerExternalEndpointOutput) AlwaysServeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerExternalEndpoint) pulumi.BoolPtrOutput { return v.AlwaysServeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `customHeader` blocks as defined below.

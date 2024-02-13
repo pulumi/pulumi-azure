@@ -87,8 +87,9 @@ type LookupEnvironmentV3Result struct {
 	// The name of the Cluster Setting.
 	Name string `pulumi:"name"`
 	// Pricing tier for the front end instances.
-	PricingTier       string `pulumi:"pricingTier"`
-	ResourceGroupName string `pulumi:"resourceGroupName"`
+	PricingTier            string `pulumi:"pricingTier"`
+	RemoteDebuggingEnabled bool   `pulumi:"remoteDebuggingEnabled"`
+	ResourceGroupName      string `pulumi:"resourceGroupName"`
 	// The ID of the v3 App Service Environment Subnet.
 	SubnetId string `pulumi:"subnetId"`
 	// A mapping of tags assigned to the v3 App Service Environment.
@@ -208,6 +209,10 @@ func (o LookupEnvironmentV3ResultOutput) Name() pulumi.StringOutput {
 // Pricing tier for the front end instances.
 func (o LookupEnvironmentV3ResultOutput) PricingTier() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupEnvironmentV3Result) string { return v.PricingTier }).(pulumi.StringOutput)
+}
+
+func (o LookupEnvironmentV3ResultOutput) RemoteDebuggingEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupEnvironmentV3Result) bool { return v.RemoteDebuggingEnabled }).(pulumi.BoolOutput)
 }
 
 func (o LookupEnvironmentV3ResultOutput) ResourceGroupName() pulumi.StringOutput {

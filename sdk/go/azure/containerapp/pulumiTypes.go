@@ -1899,7 +1899,7 @@ type AppTemplateContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu float64 `pulumi:"cpu"`
@@ -1913,7 +1913,7 @@ type AppTemplateContainer struct {
 	Image string `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes []AppTemplateContainerLivenessProbe `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory string `pulumi:"memory"`
@@ -1943,7 +1943,7 @@ type AppTemplateContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64Input `pulumi:"cpu"`
@@ -1957,7 +1957,7 @@ type AppTemplateContainerArgs struct {
 	Image pulumi.StringInput `pulumi:"image"`
 	// A `livenessProbe` block as detailed below.
 	LivenessProbes AppTemplateContainerLivenessProbeArrayInput `pulumi:"livenessProbes"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringInput `pulumi:"memory"`
@@ -2032,7 +2032,7 @@ func (o AppTemplateContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppTemplateContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 //
 // > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o AppTemplateContainerOutput) Cpu() pulumi.Float64Output {
@@ -2061,7 +2061,7 @@ func (o AppTemplateContainerOutput) LivenessProbes() AppTemplateContainerLivenes
 	return o.ApplyT(func(v AppTemplateContainer) []AppTemplateContainerLivenessProbe { return v.LivenessProbes }).(AppTemplateContainerLivenessProbeArrayOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 //
 // > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateContainerOutput) Memory() pulumi.StringOutput {
@@ -3629,7 +3629,7 @@ type AppTemplateInitContainer struct {
 	Args []string `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands []string `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu *float64 `pulumi:"cpu"`
@@ -3641,7 +3641,7 @@ type AppTemplateInitContainer struct {
 	EphemeralStorage *string `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image string `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory *string `pulumi:"memory"`
@@ -3667,7 +3667,7 @@ type AppTemplateInitContainerArgs struct {
 	Args pulumi.StringArrayInput `pulumi:"args"`
 	// A command to pass to the container to override the default. This is provided as a list of command line elements without spaces.
 	Commands pulumi.StringArrayInput `pulumi:"commands"`
-	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+	// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 	Cpu pulumi.Float64PtrInput `pulumi:"cpu"`
@@ -3679,7 +3679,7 @@ type AppTemplateInitContainerArgs struct {
 	EphemeralStorage pulumi.StringPtrInput `pulumi:"ephemeralStorage"`
 	// The image to use to create the container.
 	Image pulumi.StringInput `pulumi:"image"`
-	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+	// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 	//
 	// > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 	Memory pulumi.StringPtrInput `pulumi:"memory"`
@@ -3750,7 +3750,7 @@ func (o AppTemplateInitContainerOutput) Commands() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) []string { return v.Commands }).(pulumi.StringArrayOutput)
 }
 
-// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`.
+// The amount of vCPU to allocate to the container. Possible values include `0.25`, `0.5`, `0.75`, `1.0`, `1.25`, `1.5`, `1.75`, and `2.0`. When there's a workload profile specified, there's no such constraint.
 //
 // > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.0` / `2.0` or `0.5` / `1.0`
 func (o AppTemplateInitContainerOutput) Cpu() pulumi.Float64PtrOutput {
@@ -3774,7 +3774,7 @@ func (o AppTemplateInitContainerOutput) Image() pulumi.StringOutput {
 	return o.ApplyT(func(v AppTemplateInitContainer) string { return v.Image }).(pulumi.StringOutput)
 }
 
-// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`.
+// The amount of memory to allocate to the container. Possible values are `0.5Gi`, `1Gi`, `1.5Gi`, `2Gi`, `2.5Gi`, `3Gi`, `3.5Gi` and `4Gi`. When there's a workload profile specified, there's no such constraint.
 //
 // > **NOTE:** `cpu` and `memory` must be specified in `0.25'/'0.5Gi` combination increments. e.g. `1.25` / `2.5Gi` or `0.75` / `1.5Gi`
 func (o AppTemplateInitContainerOutput) Memory() pulumi.StringPtrOutput {

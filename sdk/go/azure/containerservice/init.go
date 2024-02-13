@@ -25,6 +25,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ClusterTrustedAccessRoleBinding{}
 	case "azure:containerservice/connectedRegistry:ConnectedRegistry":
 		r = &ConnectedRegistry{}
+	case "azure:containerservice/fleetMember:FleetMember":
+		r = &FleetMember{}
 	case "azure:containerservice/fleetUpdateStrategy:FleetUpdateStrategy":
 		r = &FleetUpdateStrategy{}
 	case "azure:containerservice/fluxConfiguration:FluxConfiguration":
@@ -78,6 +80,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"azure",
 		"containerservice/connectedRegistry",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"azure",
+		"containerservice/fleetMember",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

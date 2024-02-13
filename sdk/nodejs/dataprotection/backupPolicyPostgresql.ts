@@ -120,7 +120,7 @@ export class BackupPolicyPostgresql extends pulumi.CustomResource {
      */
     public readonly retentionRules!: pulumi.Output<outputs.dataprotection.BackupPolicyPostgresqlRetentionRule[] | undefined>;
     /**
-     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     public readonly timeZone!: pulumi.Output<string | undefined>;
     /**
@@ -200,7 +200,7 @@ export interface BackupPolicyPostgresqlState {
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
     /**
-     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     timeZone?: pulumi.Input<string>;
     /**
@@ -234,7 +234,7 @@ export interface BackupPolicyPostgresqlArgs {
      */
     retentionRules?: pulumi.Input<pulumi.Input<inputs.dataprotection.BackupPolicyPostgresqlRetentionRule>[]>;
     /**
-     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy Disk to be created.
+     * Specifies the Time Zone which should be used by the backup schedule. Changing this forces a new Backup Policy PostgreSQL to be created.
      */
     timeZone?: pulumi.Input<string>;
     /**

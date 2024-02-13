@@ -155,6 +155,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
      * Pricing tier for the front end instances.
      */
     public /*out*/ readonly pricingTier!: pulumi.Output<string>;
+    public readonly remoteDebuggingEnabled!: pulumi.Output<boolean | undefined>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */
@@ -205,6 +206,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["pricingTier"] = state ? state.pricingTier : undefined;
+            resourceInputs["remoteDebuggingEnabled"] = state ? state.remoteDebuggingEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -223,6 +225,7 @@ export class EnvironmentV3 extends pulumi.CustomResource {
             resourceInputs["dedicatedHostCount"] = args ? args.dedicatedHostCount : undefined;
             resourceInputs["internalLoadBalancingMode"] = args ? args.internalLoadBalancingMode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["remoteDebuggingEnabled"] = args ? args.remoteDebuggingEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -298,6 +301,7 @@ export interface EnvironmentV3State {
      * Pricing tier for the front end instances.
      */
     pricingTier?: pulumi.Input<string>;
+    remoteDebuggingEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */
@@ -347,6 +351,7 @@ export interface EnvironmentV3Args {
      * The name of the App Service Environment. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
+    remoteDebuggingEnabled?: pulumi.Input<boolean>;
     /**
      * The name of the Resource Group where the App Service Environment exists. Defaults to the Resource Group of the Subnet (specified by `subnetId`). Changing this forces a new resource to be created.
      */

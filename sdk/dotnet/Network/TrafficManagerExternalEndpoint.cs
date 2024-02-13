@@ -54,6 +54,7 @@ namespace Pulumi.Azure.Network
     ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", new()
     ///     {
     ///         ProfileId = exampleTrafficManagerProfile.Id,
+    ///         AlwaysServeEnabled = true,
     ///         Weight = 100,
     ///         Target = "www.example.com",
     ///     });
@@ -72,6 +73,12 @@ namespace Pulumi.Azure.Network
     [AzureResourceType("azure:network/trafficManagerExternalEndpoint:TrafficManagerExternalEndpoint")]
     public partial class TrafficManagerExternalEndpoint : global::Pulumi.CustomResource
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// </summary>
+        [Output("alwaysServeEnabled")]
+        public Output<bool?> AlwaysServeEnabled { get; private set; } = null!;
+
         /// <summary>
         /// One or more `custom_header` blocks as defined below.
         /// </summary>
@@ -178,6 +185,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerExternalEndpointArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// </summary>
+        [Input("alwaysServeEnabled")]
+        public Input<bool>? AlwaysServeEnabled { get; set; }
+
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderArgs>? _customHeaders;
 
@@ -264,6 +277,12 @@ namespace Pulumi.Azure.Network
 
     public sealed class TrafficManagerExternalEndpointState : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+        /// </summary>
+        [Input("alwaysServeEnabled")]
+        public Input<bool>? AlwaysServeEnabled { get; set; }
+
         [Input("customHeaders")]
         private InputList<Inputs.TrafficManagerExternalEndpointCustomHeaderGetArgs>? _customHeaders;
 

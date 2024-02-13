@@ -67,9 +67,10 @@ import (
 //				return err
 //			}
 //			_, err = network.NewTrafficManagerAzureEndpoint(ctx, "exampleTrafficManagerAzureEndpoint", &network.TrafficManagerAzureEndpointArgs{
-//				ProfileId:        exampleTrafficManagerProfile.ID(),
-//				Weight:           pulumi.Int(100),
-//				TargetResourceId: examplePublicIp.ID(),
+//				ProfileId:          exampleTrafficManagerProfile.ID(),
+//				AlwaysServeEnabled: pulumi.Bool(true),
+//				Weight:             pulumi.Int(100),
+//				TargetResourceId:   examplePublicIp.ID(),
 //			})
 //			if err != nil {
 //				return err
@@ -90,6 +91,8 @@ import (
 type TrafficManagerAzureEndpoint struct {
 	pulumi.CustomResourceState
 
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrOutput `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayOutput `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -146,6 +149,8 @@ func GetTrafficManagerAzureEndpoint(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering TrafficManagerAzureEndpoint resources.
 type trafficManagerAzureEndpointState struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerAzureEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -167,6 +172,8 @@ type trafficManagerAzureEndpointState struct {
 }
 
 type TrafficManagerAzureEndpointState struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrInput
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
@@ -192,6 +199,8 @@ func (TrafficManagerAzureEndpointState) ElementType() reflect.Type {
 }
 
 type trafficManagerAzureEndpointArgs struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled *bool `pulumi:"alwaysServeEnabled"`
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders []TrafficManagerAzureEndpointCustomHeader `pulumi:"customHeaders"`
 	// Is the endpoint enabled? Defaults to `true`.
@@ -214,6 +223,8 @@ type trafficManagerAzureEndpointArgs struct {
 
 // The set of arguments for constructing a TrafficManagerAzureEndpoint resource.
 type TrafficManagerAzureEndpointArgs struct {
+	// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+	AlwaysServeEnabled pulumi.BoolPtrInput
 	// One or more `customHeader` blocks as defined below.
 	CustomHeaders TrafficManagerAzureEndpointCustomHeaderArrayInput
 	// Is the endpoint enabled? Defaults to `true`.
@@ -319,6 +330,11 @@ func (o TrafficManagerAzureEndpointOutput) ToTrafficManagerAzureEndpointOutput()
 
 func (o TrafficManagerAzureEndpointOutput) ToTrafficManagerAzureEndpointOutputWithContext(ctx context.Context) TrafficManagerAzureEndpointOutput {
 	return o
+}
+
+// If Always Serve is enabled, probing for endpoint health will be disabled and endpoints will be included in the traffic routing method. Defaults to `false`.
+func (o TrafficManagerAzureEndpointOutput) AlwaysServeEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *TrafficManagerAzureEndpoint) pulumi.BoolPtrOutput { return v.AlwaysServeEnabled }).(pulumi.BoolPtrOutput)
 }
 
 // One or more `customHeader` blocks as defined below.

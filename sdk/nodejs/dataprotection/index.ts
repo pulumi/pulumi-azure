@@ -30,6 +30,11 @@ export type BackupPolicyDisk = import("./backupPolicyDisk").BackupPolicyDisk;
 export const BackupPolicyDisk: typeof import("./backupPolicyDisk").BackupPolicyDisk = null as any;
 utilities.lazyLoad(exports, ["BackupPolicyDisk"], () => require("./backupPolicyDisk"));
 
+export { BackupPolicyKubernetesClusterArgs, BackupPolicyKubernetesClusterState } from "./backupPolicyKubernetesCluster";
+export type BackupPolicyKubernetesCluster = import("./backupPolicyKubernetesCluster").BackupPolicyKubernetesCluster;
+export const BackupPolicyKubernetesCluster: typeof import("./backupPolicyKubernetesCluster").BackupPolicyKubernetesCluster = null as any;
+utilities.lazyLoad(exports, ["BackupPolicyKubernetesCluster"], () => require("./backupPolicyKubernetesCluster"));
+
 export { BackupPolicyPostgresqlArgs, BackupPolicyPostgresqlState } from "./backupPolicyPostgresql";
 export type BackupPolicyPostgresql = import("./backupPolicyPostgresql").BackupPolicyPostgresql;
 export const BackupPolicyPostgresql: typeof import("./backupPolicyPostgresql").BackupPolicyPostgresql = null as any;
@@ -65,6 +70,8 @@ const _module = {
                 return new BackupPolicyBlobStorage(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyDisk:BackupPolicyDisk":
                 return new BackupPolicyDisk(name, <any>undefined, { urn })
+            case "azure:dataprotection/backupPolicyKubernetesCluster:BackupPolicyKubernetesCluster":
+                return new BackupPolicyKubernetesCluster(name, <any>undefined, { urn })
             case "azure:dataprotection/backupPolicyPostgresql:BackupPolicyPostgresql":
                 return new BackupPolicyPostgresql(name, <any>undefined, { urn })
             case "azure:dataprotection/backupVault:BackupVault":
@@ -81,6 +88,7 @@ pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstanceDis
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupInstancePostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyBlobStorage", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyDisk", _module)
+pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyKubernetesCluster", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupPolicyPostgresql", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/backupVault", _module)
 pulumi.runtime.registerResourceModule("azure", "dataprotection/resourceGuard", _module)

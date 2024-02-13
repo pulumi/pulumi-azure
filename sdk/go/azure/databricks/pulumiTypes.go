@@ -807,6 +807,130 @@ func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) Wor
 	}).(WorkspaceStorageAccountIdentityOutput)
 }
 
+type GetAccessConnectorIdentity struct {
+	// A `identityIds` block as defined below.
+	IdentityIds []string `pulumi:"identityIds"`
+	// The ID of the TODO.
+	PrincipalId string `pulumi:"principalId"`
+	// The ID of the TODO.
+	TenantId string `pulumi:"tenantId"`
+	// TODO.
+	Type string `pulumi:"type"`
+}
+
+// GetAccessConnectorIdentityInput is an input type that accepts GetAccessConnectorIdentityArgs and GetAccessConnectorIdentityOutput values.
+// You can construct a concrete instance of `GetAccessConnectorIdentityInput` via:
+//
+//	GetAccessConnectorIdentityArgs{...}
+type GetAccessConnectorIdentityInput interface {
+	pulumi.Input
+
+	ToGetAccessConnectorIdentityOutput() GetAccessConnectorIdentityOutput
+	ToGetAccessConnectorIdentityOutputWithContext(context.Context) GetAccessConnectorIdentityOutput
+}
+
+type GetAccessConnectorIdentityArgs struct {
+	// A `identityIds` block as defined below.
+	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
+	// The ID of the TODO.
+	PrincipalId pulumi.StringInput `pulumi:"principalId"`
+	// The ID of the TODO.
+	TenantId pulumi.StringInput `pulumi:"tenantId"`
+	// TODO.
+	Type pulumi.StringInput `pulumi:"type"`
+}
+
+func (GetAccessConnectorIdentityArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessConnectorIdentity)(nil)).Elem()
+}
+
+func (i GetAccessConnectorIdentityArgs) ToGetAccessConnectorIdentityOutput() GetAccessConnectorIdentityOutput {
+	return i.ToGetAccessConnectorIdentityOutputWithContext(context.Background())
+}
+
+func (i GetAccessConnectorIdentityArgs) ToGetAccessConnectorIdentityOutputWithContext(ctx context.Context) GetAccessConnectorIdentityOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessConnectorIdentityOutput)
+}
+
+// GetAccessConnectorIdentityArrayInput is an input type that accepts GetAccessConnectorIdentityArray and GetAccessConnectorIdentityArrayOutput values.
+// You can construct a concrete instance of `GetAccessConnectorIdentityArrayInput` via:
+//
+//	GetAccessConnectorIdentityArray{ GetAccessConnectorIdentityArgs{...} }
+type GetAccessConnectorIdentityArrayInput interface {
+	pulumi.Input
+
+	ToGetAccessConnectorIdentityArrayOutput() GetAccessConnectorIdentityArrayOutput
+	ToGetAccessConnectorIdentityArrayOutputWithContext(context.Context) GetAccessConnectorIdentityArrayOutput
+}
+
+type GetAccessConnectorIdentityArray []GetAccessConnectorIdentityInput
+
+func (GetAccessConnectorIdentityArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessConnectorIdentity)(nil)).Elem()
+}
+
+func (i GetAccessConnectorIdentityArray) ToGetAccessConnectorIdentityArrayOutput() GetAccessConnectorIdentityArrayOutput {
+	return i.ToGetAccessConnectorIdentityArrayOutputWithContext(context.Background())
+}
+
+func (i GetAccessConnectorIdentityArray) ToGetAccessConnectorIdentityArrayOutputWithContext(ctx context.Context) GetAccessConnectorIdentityArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetAccessConnectorIdentityArrayOutput)
+}
+
+type GetAccessConnectorIdentityOutput struct{ *pulumi.OutputState }
+
+func (GetAccessConnectorIdentityOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetAccessConnectorIdentity)(nil)).Elem()
+}
+
+func (o GetAccessConnectorIdentityOutput) ToGetAccessConnectorIdentityOutput() GetAccessConnectorIdentityOutput {
+	return o
+}
+
+func (o GetAccessConnectorIdentityOutput) ToGetAccessConnectorIdentityOutputWithContext(ctx context.Context) GetAccessConnectorIdentityOutput {
+	return o
+}
+
+// A `identityIds` block as defined below.
+func (o GetAccessConnectorIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetAccessConnectorIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
+}
+
+// The ID of the TODO.
+func (o GetAccessConnectorIdentityOutput) PrincipalId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
+}
+
+// The ID of the TODO.
+func (o GetAccessConnectorIdentityOutput) TenantId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.TenantId }).(pulumi.StringOutput)
+}
+
+// TODO.
+func (o GetAccessConnectorIdentityOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.Type }).(pulumi.StringOutput)
+}
+
+type GetAccessConnectorIdentityArrayOutput struct{ *pulumi.OutputState }
+
+func (GetAccessConnectorIdentityArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetAccessConnectorIdentity)(nil)).Elem()
+}
+
+func (o GetAccessConnectorIdentityArrayOutput) ToGetAccessConnectorIdentityArrayOutput() GetAccessConnectorIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccessConnectorIdentityArrayOutput) ToGetAccessConnectorIdentityArrayOutputWithContext(ctx context.Context) GetAccessConnectorIdentityArrayOutput {
+	return o
+}
+
+func (o GetAccessConnectorIdentityArrayOutput) Index(i pulumi.IntInput) GetAccessConnectorIdentityOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetAccessConnectorIdentity {
+		return vs[0].([]GetAccessConnectorIdentity)[vs[1].(int)]
+	}).(GetAccessConnectorIdentityOutput)
+}
+
 type GetWorkspaceManagedDiskIdentity struct {
 	// The principal UUID for the internal databricks storage account needed to provide access to the workspace for enabling Customer Managed Keys.
 	PrincipalId string `pulumi:"principalId"`
@@ -1179,6 +1303,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), WorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*WorkspaceStorageAccountIdentityArrayInput)(nil)).Elem(), WorkspaceStorageAccountIdentityArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityInput)(nil)).Elem(), GetAccessConnectorIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetAccessConnectorIdentityArrayInput)(nil)).Elem(), GetAccessConnectorIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspaceManagedDiskIdentityArrayInput)(nil)).Elem(), GetWorkspaceManagedDiskIdentityArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkspacePrivateEndpointConnectionConnectionInput)(nil)).Elem(), GetWorkspacePrivateEndpointConnectionConnectionArgs{})
@@ -1193,6 +1319,8 @@ func init() {
 	pulumi.RegisterOutputType(WorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityOutput{})
 	pulumi.RegisterOutputType(WorkspaceStorageAccountIdentityArrayOutput{})
+	pulumi.RegisterOutputType(GetAccessConnectorIdentityOutput{})
+	pulumi.RegisterOutputType(GetAccessConnectorIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityOutput{})
 	pulumi.RegisterOutputType(GetWorkspaceManagedDiskIdentityArrayOutput{})
 	pulumi.RegisterOutputType(GetWorkspacePrivateEndpointConnectionConnectionOutput{})

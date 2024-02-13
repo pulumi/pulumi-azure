@@ -39787,6 +39787,7 @@
             },
             "azure:chaosstudio/capability:Capability": {
                 "capabilityType": "capability_type",
+                "capabilityUrn": "urn",
                 "chaosStudioTargetId": "chaos_studio_target_id"
             },
             "azure:chaosstudio/experiment:Experiment": {

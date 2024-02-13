@@ -326,6 +326,10 @@ export class Workspace extends pulumi.CustomResource {
      */
     public readonly encryption!: pulumi.Output<outputs.machinelearning.WorkspaceEncryption | undefined>;
     /**
+     * A `featureStore` block as defined below.
+     */
+    public readonly featureStore!: pulumi.Output<outputs.machinelearning.WorkspaceFeatureStore | undefined>;
+    /**
      * Display name for this Machine Learning Workspace.
      */
     public readonly friendlyName!: pulumi.Output<string | undefined>;
@@ -345,6 +349,10 @@ export class Workspace extends pulumi.CustomResource {
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     public readonly keyVaultId!: pulumi.Output<string>;
+    /**
+     * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     */
+    public readonly kind!: pulumi.Output<string | undefined>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -414,11 +422,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["discoveryUrl"] = state ? state.discoveryUrl : undefined;
             resourceInputs["encryption"] = state ? state.encryption : undefined;
+            resourceInputs["featureStore"] = state ? state.featureStore : undefined;
             resourceInputs["friendlyName"] = state ? state.friendlyName : undefined;
             resourceInputs["highBusinessImpact"] = state ? state.highBusinessImpact : undefined;
             resourceInputs["identity"] = state ? state.identity : undefined;
             resourceInputs["imageBuildComputeName"] = state ? state.imageBuildComputeName : undefined;
             resourceInputs["keyVaultId"] = state ? state.keyVaultId : undefined;
+            resourceInputs["kind"] = state ? state.kind : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = state ? state.primaryUserAssignedIdentity : undefined;
@@ -451,11 +461,13 @@ export class Workspace extends pulumi.CustomResource {
             resourceInputs["containerRegistryId"] = args ? args.containerRegistryId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["encryption"] = args ? args.encryption : undefined;
+            resourceInputs["featureStore"] = args ? args.featureStore : undefined;
             resourceInputs["friendlyName"] = args ? args.friendlyName : undefined;
             resourceInputs["highBusinessImpact"] = args ? args.highBusinessImpact : undefined;
             resourceInputs["identity"] = args ? args.identity : undefined;
             resourceInputs["imageBuildComputeName"] = args ? args.imageBuildComputeName : undefined;
             resourceInputs["keyVaultId"] = args ? args.keyVaultId : undefined;
+            resourceInputs["kind"] = args ? args.kind : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["primaryUserAssignedIdentity"] = args ? args.primaryUserAssignedIdentity : undefined;
@@ -501,6 +513,10 @@ export interface WorkspaceState {
      */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
+     * A `featureStore` block as defined below.
+     */
+    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore>;
+    /**
      * Display name for this Machine Learning Workspace.
      */
     friendlyName?: pulumi.Input<string>;
@@ -520,6 +536,10 @@ export interface WorkspaceState {
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     keyVaultId?: pulumi.Input<string>;
+    /**
+     * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     */
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */
@@ -595,6 +615,10 @@ export interface WorkspaceArgs {
      */
     encryption?: pulumi.Input<inputs.machinelearning.WorkspaceEncryption>;
     /**
+     * A `featureStore` block as defined below.
+     */
+    featureStore?: pulumi.Input<inputs.machinelearning.WorkspaceFeatureStore>;
+    /**
      * Display name for this Machine Learning Workspace.
      */
     friendlyName?: pulumi.Input<string>;
@@ -614,6 +638,10 @@ export interface WorkspaceArgs {
      * The ID of key vault associated with this Machine Learning Workspace. Changing this forces a new resource to be created.
      */
     keyVaultId: pulumi.Input<string>;
+    /**
+     * The type of the Workspace. Possible values are `Default`, `FeatureStore`. Defaults to `Default`
+     */
+    kind?: pulumi.Input<string>;
     /**
      * Specifies the supported Azure location where the Machine Learning Workspace should exist. Changing this forces a new resource to be created.
      */

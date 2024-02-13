@@ -25,6 +25,7 @@ import * as utilities from "../utilities";
  * const exampleWorkspaceTable = new azure.loganalytics.WorkspaceTable("exampleWorkspaceTable", {
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     retentionInDays: 60,
+ *     totalRetentionInDays: 180,
  * });
  * ```
  */
@@ -68,12 +69,16 @@ export class WorkspaceTable extends pulumi.CustomResource {
     public readonly plan!: pulumi.Output<string | undefined>;
     /**
      * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     */
+    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    /**
+     * The table's total retention in days. Possible values range between 30 and 4383.
      *
-     * > **Note:** `retentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    public readonly retentionInDays!: pulumi.Output<number | undefined>;
+    public readonly totalRetentionInDays!: pulumi.Output<number | undefined>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */
@@ -95,6 +100,7 @@ export class WorkspaceTable extends pulumi.CustomResource {
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["plan"] = state ? state.plan : undefined;
             resourceInputs["retentionInDays"] = state ? state.retentionInDays : undefined;
+            resourceInputs["totalRetentionInDays"] = state ? state.totalRetentionInDays : undefined;
             resourceInputs["workspaceId"] = state ? state.workspaceId : undefined;
         } else {
             const args = argsOrState as WorkspaceTableArgs | undefined;
@@ -104,6 +110,7 @@ export class WorkspaceTable extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["plan"] = args ? args.plan : undefined;
             resourceInputs["retentionInDays"] = args ? args.retentionInDays : undefined;
+            resourceInputs["totalRetentionInDays"] = args ? args.totalRetentionInDays : undefined;
             resourceInputs["workspaceId"] = args ? args.workspaceId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -127,12 +134,16 @@ export interface WorkspaceTableState {
     plan?: pulumi.Input<string>;
     /**
      * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     */
+    retentionInDays?: pulumi.Input<number>;
+    /**
+     * The table's total retention in days. Possible values range between 30 and 4383.
      *
-     * > **Note:** `retentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    retentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */
@@ -155,12 +166,16 @@ export interface WorkspaceTableArgs {
     plan?: pulumi.Input<string>;
     /**
      * The table's retention in days. Possible values are either 7 (Free Tier only) or range between 30 and 730.
+     */
+    retentionInDays?: pulumi.Input<number>;
+    /**
+     * The table's total retention in days. Possible values range between 30 and 4383.
      *
-     * > **Note:** `retentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
+     * > **Note:** `retentionInDays` and `totalRetentionInDays` will revert back to the value of azure.operationalinsights.AnalyticsWorkspace retention_in_days when a azure.loganalytics.WorkspaceTable is deleted.
      *
      * > **Note:** The `retentionInDays` cannot be specified when `plan` is `Basic` because the retention is fixed at eight days.
      */
-    retentionInDays?: pulumi.Input<number>;
+    totalRetentionInDays?: pulumi.Input<number>;
     /**
      * The object ID of the Log Analytics Workspace that contains the table.
      */

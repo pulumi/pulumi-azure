@@ -2667,6 +2667,12 @@ func Provider() tfbridge.ProviderInfo {
 			"azurerm_data_factory_credential_user_managed_identity": {
 				Docs: &tfbridge.DocInfo{AllowMissing: true},
 			},
+
+			"azurerm_chaos_studio_capability": {
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"urn": {Name: "capabilityUrn"},
+				},
+			},
 		},
 		DataSources: map[string]*tfbridge.DataSourceInfo{
 			"azurerm_location": {Tok: azureDataSource(azureCore, "getLocation")},

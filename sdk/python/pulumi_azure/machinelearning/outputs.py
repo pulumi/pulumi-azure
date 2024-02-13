@@ -20,6 +20,7 @@ __all__ = [
     'InferenceClusterSsl',
     'SynapseSparkIdentity',
     'WorkspaceEncryption',
+    'WorkspaceFeatureStore',
     'WorkspaceIdentity',
     'GetWorkspaceIdentityResult',
 ]
@@ -727,6 +728,74 @@ class WorkspaceEncryption(dict):
         > **Note:** `user_assigned_identity_id` must set when`identity.type` is `UserAssigned` or service won't be able to find the assigned permissions.
         """
         return pulumi.get(self, "user_assigned_identity_id")
+
+
+@pulumi.output_type
+class WorkspaceFeatureStore(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computerSparkRuntimeVersion":
+            suggest = "computer_spark_runtime_version"
+        elif key == "offlineConnectionName":
+            suggest = "offline_connection_name"
+        elif key == "onlineConnectionName":
+            suggest = "online_connection_name"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in WorkspaceFeatureStore. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        WorkspaceFeatureStore.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        WorkspaceFeatureStore.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 computer_spark_runtime_version: Optional[str] = None,
+                 offline_connection_name: Optional[str] = None,
+                 online_connection_name: Optional[str] = None):
+        """
+        :param str computer_spark_runtime_version: The version of Spark runtime.
+        :param str offline_connection_name: The name of offline store connection.
+        :param str online_connection_name: The name of online store connection.
+               
+               > **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        """
+        if computer_spark_runtime_version is not None:
+            pulumi.set(__self__, "computer_spark_runtime_version", computer_spark_runtime_version)
+        if offline_connection_name is not None:
+            pulumi.set(__self__, "offline_connection_name", offline_connection_name)
+        if online_connection_name is not None:
+            pulumi.set(__self__, "online_connection_name", online_connection_name)
+
+    @property
+    @pulumi.getter(name="computerSparkRuntimeVersion")
+    def computer_spark_runtime_version(self) -> Optional[str]:
+        """
+        The version of Spark runtime.
+        """
+        return pulumi.get(self, "computer_spark_runtime_version")
+
+    @property
+    @pulumi.getter(name="offlineConnectionName")
+    def offline_connection_name(self) -> Optional[str]:
+        """
+        The name of offline store connection.
+        """
+        return pulumi.get(self, "offline_connection_name")
+
+    @property
+    @pulumi.getter(name="onlineConnectionName")
+    def online_connection_name(self) -> Optional[str]:
+        """
+        The name of online store connection.
+
+        > **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        """
+        return pulumi.get(self, "online_connection_name")
 
 
 @pulumi.output_type

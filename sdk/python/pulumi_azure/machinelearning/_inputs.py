@@ -20,6 +20,7 @@ __all__ = [
     'InferenceClusterSslArgs',
     'SynapseSparkIdentityArgs',
     'WorkspaceEncryptionArgs',
+    'WorkspaceFeatureStoreArgs',
     'WorkspaceIdentityArgs',
 ]
 
@@ -664,6 +665,65 @@ class WorkspaceEncryptionArgs:
     @user_assigned_identity_id.setter
     def user_assigned_identity_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "user_assigned_identity_id", value)
+
+
+@pulumi.input_type
+class WorkspaceFeatureStoreArgs:
+    def __init__(__self__, *,
+                 computer_spark_runtime_version: Optional[pulumi.Input[str]] = None,
+                 offline_connection_name: Optional[pulumi.Input[str]] = None,
+                 online_connection_name: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] computer_spark_runtime_version: The version of Spark runtime.
+        :param pulumi.Input[str] offline_connection_name: The name of offline store connection.
+        :param pulumi.Input[str] online_connection_name: The name of online store connection.
+               
+               > **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        """
+        if computer_spark_runtime_version is not None:
+            pulumi.set(__self__, "computer_spark_runtime_version", computer_spark_runtime_version)
+        if offline_connection_name is not None:
+            pulumi.set(__self__, "offline_connection_name", offline_connection_name)
+        if online_connection_name is not None:
+            pulumi.set(__self__, "online_connection_name", online_connection_name)
+
+    @property
+    @pulumi.getter(name="computerSparkRuntimeVersion")
+    def computer_spark_runtime_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version of Spark runtime.
+        """
+        return pulumi.get(self, "computer_spark_runtime_version")
+
+    @computer_spark_runtime_version.setter
+    def computer_spark_runtime_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "computer_spark_runtime_version", value)
+
+    @property
+    @pulumi.getter(name="offlineConnectionName")
+    def offline_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of offline store connection.
+        """
+        return pulumi.get(self, "offline_connection_name")
+
+    @offline_connection_name.setter
+    def offline_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "offline_connection_name", value)
+
+    @property
+    @pulumi.getter(name="onlineConnectionName")
+    def online_connection_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name of online store connection.
+
+        > **Note:** `feature_store` must be set when`kind` is `FeatureStore`
+        """
+        return pulumi.get(self, "online_connection_name")
+
+    @online_connection_name.setter
+    def online_connection_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "online_connection_name", value)
 
 
 @pulumi.input_type

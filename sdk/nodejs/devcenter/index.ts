@@ -10,6 +10,11 @@ export type DevCenter = import("./devCenter").DevCenter;
 export const DevCenter: typeof import("./devCenter").DevCenter = null as any;
 utilities.lazyLoad(exports, ["DevCenter"], () => require("./devCenter"));
 
+export { GalleryArgs, GalleryState } from "./gallery";
+export type Gallery = import("./gallery").Gallery;
+export const Gallery: typeof import("./gallery").Gallery = null as any;
+utilities.lazyLoad(exports, ["Gallery"], () => require("./gallery"));
+
 export { ProjectArgs, ProjectState } from "./project";
 export type Project = import("./project").Project;
 export const Project: typeof import("./project").Project = null as any;
@@ -22,6 +27,8 @@ const _module = {
         switch (type) {
             case "azure:devcenter/devCenter:DevCenter":
                 return new DevCenter(name, <any>undefined, { urn })
+            case "azure:devcenter/gallery:Gallery":
+                return new Gallery(name, <any>undefined, { urn })
             case "azure:devcenter/project:Project":
                 return new Project(name, <any>undefined, { urn })
             default:
@@ -30,4 +37,5 @@ const _module = {
     },
 };
 pulumi.runtime.registerResourceModule("azure", "devcenter/devCenter", _module)
+pulumi.runtime.registerResourceModule("azure", "devcenter/gallery", _module)
 pulumi.runtime.registerResourceModule("azure", "devcenter/project", _module)

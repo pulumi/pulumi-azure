@@ -105,6 +105,7 @@ export interface GetEnvironmentV3Result {
      * Pricing tier for the front end instances.
      */
     readonly pricingTier: string;
+    readonly remoteDebuggingEnabled: boolean;
     readonly resourceGroupName: string;
     /**
      * The ID of the v3 App Service Environment Subnet.

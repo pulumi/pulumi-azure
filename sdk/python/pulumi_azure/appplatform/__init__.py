@@ -13,6 +13,7 @@ from .spring_cloud_api_portal import *
 from .spring_cloud_api_portal_custom_domain import *
 from .spring_cloud_app import *
 from .spring_cloud_app_cosmos_dbassociation import *
+from .spring_cloud_app_dynamics_application_performance_monitoring import *
 from .spring_cloud_app_mysql_association import *
 from .spring_cloud_app_redis_association import *
 from .spring_cloud_application_insights_application_performance_monitoring import *
