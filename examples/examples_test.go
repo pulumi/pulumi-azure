@@ -15,6 +15,8 @@ import (
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
+const pulumiExamplesPath = "../p-examples"
+
 func skipIfShort(t *testing.T) {
 	if testing.Short() {
 		t.Skip("skipping long-running test in short mode")

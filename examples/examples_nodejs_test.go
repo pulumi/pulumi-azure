@@ -10,6 +10,7 @@ import (
 	"path/filepath"
 	"testing"
 
+	pexamples "github.com/pulumi/examples/misc/test/definitions"
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 	"github.com/stretchr/testify/assert"
 )
@@ -342,4 +343,17 @@ func TestAccFrontdoor(t *testing.T) {
 		})
 
 	integration.ProgramTest(t, &test)
+}
+
+func TestPulumiExamples(t *testing.T) {
+	for _, example := range pexamples.GetTestsForTag("azure").GetTestsForTag(pexamples.TS) {
+		t.Run(example.Dir, func(t *testing.T) {
+			test := getJSBaseOptions(t).
+				With(example.Options).
+				With(integration.ProgramTestOptions{
+					Dir: filepath.Join(getCwd(t), pulumiExamplesPath, example.Dir),
+				})
+			integration.ProgramTest(t, &test)
+		})
+	}
 }
