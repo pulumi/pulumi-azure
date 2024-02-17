@@ -27,8 +27,8 @@ namespace Pulumi.Azure.DataFactory.Inputs
         /// <summary>
         /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
         /// </summary>
-        [Input("gitUrl", required: true)]
-        public Input<string> GitUrl { get; set; } = null!;
+        [Input("gitUrl")]
+        public Input<string>? GitUrl { get; set; }
 
         /// <summary>
         /// Is automated publishing enabled? Defaults to `true`.

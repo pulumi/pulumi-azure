@@ -2453,12 +2453,12 @@ class FactoryGithubConfiguration(dict):
             suggest = "account_name"
         elif key == "branchName":
             suggest = "branch_name"
-        elif key == "gitUrl":
-            suggest = "git_url"
         elif key == "repositoryName":
             suggest = "repository_name"
         elif key == "rootFolder":
             suggest = "root_folder"
+        elif key == "gitUrl":
+            suggest = "git_url"
         elif key == "publishingEnabled":
             suggest = "publishing_enabled"
 
@@ -2476,25 +2476,26 @@ class FactoryGithubConfiguration(dict):
     def __init__(__self__, *,
                  account_name: str,
                  branch_name: str,
-                 git_url: str,
                  repository_name: str,
                  root_folder: str,
+                 git_url: Optional[str] = None,
                  publishing_enabled: Optional[bool] = None):
         """
         :param str account_name: Specifies the GitHub account name.
         :param str branch_name: Specifies the branch of the repository to get code from.
-        :param str git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param str repository_name: Specifies the name of the git repository.
         :param str root_folder: Specifies the root folder within the repository. Set to `/` for the top level.
+        :param str git_url: Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
         :param bool publishing_enabled: Is automated publishing enabled? Defaults to `true`.
                
                > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
         """
         pulumi.set(__self__, "account_name", account_name)
         pulumi.set(__self__, "branch_name", branch_name)
-        pulumi.set(__self__, "git_url", git_url)
         pulumi.set(__self__, "repository_name", repository_name)
         pulumi.set(__self__, "root_folder", root_folder)
+        if git_url is not None:
+            pulumi.set(__self__, "git_url", git_url)
         if publishing_enabled is not None:
             pulumi.set(__self__, "publishing_enabled", publishing_enabled)
 
@@ -2515,14 +2516,6 @@ class FactoryGithubConfiguration(dict):
         return pulumi.get(self, "branch_name")
 
     @property
-    @pulumi.getter(name="gitUrl")
-    def git_url(self) -> str:
-        """
-        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
-        """
-        return pulumi.get(self, "git_url")
-
-    @property
     @pulumi.getter(name="repositoryName")
     def repository_name(self) -> str:
         """
@@ -2537,6 +2530,14 @@ class FactoryGithubConfiguration(dict):
         Specifies the root folder within the repository. Set to `/` for the top level.
         """
         return pulumi.get(self, "root_folder")
+
+    @property
+    @pulumi.getter(name="gitUrl")
+    def git_url(self) -> Optional[str]:
+        """
+        Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
+        """
+        return pulumi.get(self, "git_url")
 
     @property
     @pulumi.getter(name="publishingEnabled")
@@ -5708,7 +5709,7 @@ class GetFactoryGithubConfigurationResult(dict):
         """
         :param str account_name: The VSTS account name.
         :param str branch_name: The branch of the repository to get code from.
-        :param str git_url: The GitHub Enterprise host name.
+        :param str git_url: The GitHub repository url.
         :param str repository_name: The name of the git repository.
         :param str root_folder: The root folder within the repository.
         """
@@ -5738,7 +5739,7 @@ class GetFactoryGithubConfigurationResult(dict):
     @pulumi.getter(name="gitUrl")
     def git_url(self) -> str:
         """
-        The GitHub Enterprise host name.
+        The GitHub repository url.
         """
         return pulumi.get(self, "git_url")
 

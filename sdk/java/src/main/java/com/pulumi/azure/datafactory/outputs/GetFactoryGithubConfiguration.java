@@ -21,7 +21,7 @@ public final class GetFactoryGithubConfiguration {
      */
     private String branchName;
     /**
-     * @return The GitHub Enterprise host name.
+     * @return The GitHub repository url.
      * 
      */
     private String gitUrl;
@@ -52,7 +52,7 @@ public final class GetFactoryGithubConfiguration {
         return this.branchName;
     }
     /**
-     * @return The GitHub Enterprise host name.
+     * @return The GitHub repository url.
      * 
      */
     public String gitUrl() {

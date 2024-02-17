@@ -6563,7 +6563,7 @@ type FactoryGithubConfiguration struct {
 	// Specifies the branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
-	GitUrl string `pulumi:"gitUrl"`
+	GitUrl *string `pulumi:"gitUrl"`
 	// Is automated publishing enabled? Defaults to `true`.
 	//
 	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
@@ -6591,7 +6591,7 @@ type FactoryGithubConfigurationArgs struct {
 	// Specifies the branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
 	// Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
-	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
+	GitUrl pulumi.StringPtrInput `pulumi:"gitUrl"`
 	// Is automated publishing enabled? Defaults to `true`.
 	//
 	// > **Note:** You must log in to the Data Factory management UI to complete the authentication to the GitHub repository.
@@ -6690,8 +6690,8 @@ func (o FactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
 }
 
 // Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
-func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
-	return o.ApplyT(func(v FactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
+func (o FactoryGithubConfigurationOutput) GitUrl() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v FactoryGithubConfiguration) *string { return v.GitUrl }).(pulumi.StringPtrOutput)
 }
 
 // Is automated publishing enabled? Defaults to `true`.
@@ -6761,7 +6761,7 @@ func (o FactoryGithubConfigurationPtrOutput) GitUrl() pulumi.StringPtrOutput {
 		if v == nil {
 			return nil
 		}
-		return &v.GitUrl
+		return v.GitUrl
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -16126,7 +16126,7 @@ type GetFactoryGithubConfiguration struct {
 	AccountName string `pulumi:"accountName"`
 	// The branch of the repository to get code from.
 	BranchName string `pulumi:"branchName"`
-	// The GitHub Enterprise host name.
+	// The GitHub repository url.
 	GitUrl string `pulumi:"gitUrl"`
 	// The name of the git repository.
 	RepositoryName string `pulumi:"repositoryName"`
@@ -16150,7 +16150,7 @@ type GetFactoryGithubConfigurationArgs struct {
 	AccountName pulumi.StringInput `pulumi:"accountName"`
 	// The branch of the repository to get code from.
 	BranchName pulumi.StringInput `pulumi:"branchName"`
-	// The GitHub Enterprise host name.
+	// The GitHub repository url.
 	GitUrl pulumi.StringInput `pulumi:"gitUrl"`
 	// The name of the git repository.
 	RepositoryName pulumi.StringInput `pulumi:"repositoryName"`
@@ -16219,7 +16219,7 @@ func (o GetFactoryGithubConfigurationOutput) BranchName() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.BranchName }).(pulumi.StringOutput)
 }
 
-// The GitHub Enterprise host name.
+// The GitHub repository url.
 func (o GetFactoryGithubConfigurationOutput) GitUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetFactoryGithubConfiguration) string { return v.GitUrl }).(pulumi.StringOutput)
 }

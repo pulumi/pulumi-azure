@@ -30,7 +30,8 @@ class HostPoolArgs:
                  scheduled_agent_updates: Optional[pulumi.Input['HostPoolScheduledAgentUpdatesArgs']] = None,
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
-                 validate_environment: Optional[pulumi.Input[bool]] = None):
+                 validate_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a HostPool resource.
         :param pulumi.Input[str] load_balancer_type: `BreadthFirst` load balancing distributes new user sessions across all available session hosts in the host pool. Possible values are `BreadthFirst`, `DepthFirst` and `Persistent`.
@@ -53,6 +54,7 @@ class HostPoolArgs:
         :param pulumi.Input[bool] start_vm_on_connect: Enables or disables the Start VM on Connection Feature. Defaults to `false`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        :param pulumi.Input[str] vm_template: A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         pulumi.set(__self__, "load_balancer_type", load_balancer_type)
         pulumi.set(__self__, "resource_group_name", resource_group_name)
@@ -81,6 +83,8 @@ class HostPoolArgs:
             pulumi.set(__self__, "tags", tags)
         if validate_environment is not None:
             pulumi.set(__self__, "validate_environment", validate_environment)
+        if vm_template is not None:
+            pulumi.set(__self__, "vm_template", vm_template)
 
     @property
     @pulumi.getter(name="loadBalancerType")
@@ -267,6 +271,18 @@ class HostPoolArgs:
     def validate_environment(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate_environment", value)
 
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A VM template for session hosts configuration within hostpool. This is a JSON string.
+        """
+        return pulumi.get(self, "vm_template")
+
+    @vm_template.setter
+    def vm_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_template", value)
+
 
 @pulumi.input_type
 class _HostPoolState:
@@ -285,7 +301,8 @@ class _HostPoolState:
                  start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
-                 validate_environment: Optional[pulumi.Input[bool]] = None):
+                 validate_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering HostPool resources.
         :param pulumi.Input[str] custom_rdp_properties: A valid custom RDP properties string for the Virtual Desktop Host Pool, available properties can be [found in this article](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/rdp-files).
@@ -308,6 +325,7 @@ class _HostPoolState:
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        :param pulumi.Input[str] vm_template: A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         if custom_rdp_properties is not None:
             pulumi.set(__self__, "custom_rdp_properties", custom_rdp_properties)
@@ -339,6 +357,8 @@ class _HostPoolState:
             pulumi.set(__self__, "type", type)
         if validate_environment is not None:
             pulumi.set(__self__, "validate_environment", validate_environment)
+        if vm_template is not None:
+            pulumi.set(__self__, "vm_template", vm_template)
 
     @property
     @pulumi.getter(name="customRdpProperties")
@@ -525,6 +545,18 @@ class _HostPoolState:
     def validate_environment(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "validate_environment", value)
 
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> Optional[pulumi.Input[str]]:
+        """
+        A VM template for session hosts configuration within hostpool. This is a JSON string.
+        """
+        return pulumi.get(self, "vm_template")
+
+    @vm_template.setter
+    def vm_template(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "vm_template", value)
+
 
 class HostPool(pulumi.CustomResource):
     @overload
@@ -546,6 +578,7 @@ class HostPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Virtual Desktop Host Pool.
@@ -609,6 +642,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        :param pulumi.Input[str] vm_template: A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         ...
     @overload
@@ -686,6 +720,7 @@ class HostPool(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  type: Optional[pulumi.Input[str]] = None,
                  validate_environment: Optional[pulumi.Input[bool]] = None,
+                 vm_template: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -716,6 +751,7 @@ class HostPool(pulumi.CustomResource):
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
             __props__.__dict__["validate_environment"] = validate_environment
+            __props__.__dict__["vm_template"] = vm_template
         super(HostPool, __self__).__init__(
             'azure:desktopvirtualization/hostPool:HostPool',
             resource_name,
@@ -740,7 +776,8 @@ class HostPool(pulumi.CustomResource):
             start_vm_on_connect: Optional[pulumi.Input[bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
             type: Optional[pulumi.Input[str]] = None,
-            validate_environment: Optional[pulumi.Input[bool]] = None) -> 'HostPool':
+            validate_environment: Optional[pulumi.Input[bool]] = None,
+            vm_template: Optional[pulumi.Input[str]] = None) -> 'HostPool':
         """
         Get an existing HostPool resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -768,6 +805,7 @@ class HostPool(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: A mapping of tags to assign to the resource.
         :param pulumi.Input[str] type: The type of the Virtual Desktop Host Pool. Valid options are `Personal` or `Pooled`. Changing the type forces a new resource to be created.
         :param pulumi.Input[bool] validate_environment: Allows you to test service changes before they are deployed to production. Defaults to `false`.
+        :param pulumi.Input[str] vm_template: A VM template for session hosts configuration within hostpool. This is a JSON string.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -788,6 +826,7 @@ class HostPool(pulumi.CustomResource):
         __props__.__dict__["tags"] = tags
         __props__.__dict__["type"] = type
         __props__.__dict__["validate_environment"] = validate_environment
+        __props__.__dict__["vm_template"] = vm_template
         return HostPool(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -914,4 +953,12 @@ class HostPool(pulumi.CustomResource):
         Allows you to test service changes before they are deployed to production. Defaults to `false`.
         """
         return pulumi.get(self, "validate_environment")
+
+    @property
+    @pulumi.getter(name="vmTemplate")
+    def vm_template(self) -> pulumi.Output[Optional[str]]:
+        """
+        A VM template for session hosts configuration within hostpool. This is a JSON string.
+        """
+        return pulumi.get(self, "vm_template")
 

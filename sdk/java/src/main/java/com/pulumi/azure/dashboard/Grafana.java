@@ -8,6 +8,7 @@ import com.pulumi.azure.dashboard.GrafanaArgs;
 import com.pulumi.azure.dashboard.inputs.GrafanaState;
 import com.pulumi.azure.dashboard.outputs.GrafanaAzureMonitorWorkspaceIntegration;
 import com.pulumi.azure.dashboard.outputs.GrafanaIdentity;
+import com.pulumi.azure.dashboard.outputs.GrafanaSmtp;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -273,6 +274,20 @@ public class Grafana extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<String>> sku() {
         return Codegen.optional(this.sku);
+    }
+    /**
+     * A `smtp` block as defined below.
+     * 
+     */
+    @Export(name="smtp", refs={GrafanaSmtp.class}, tree="[0]")
+    private Output</* @Nullable */ GrafanaSmtp> smtp;
+
+    /**
+     * @return A `smtp` block as defined below.
+     * 
+     */
+    public Output<Optional<GrafanaSmtp>> smtp() {
+        return Codegen.optional(this.smtp);
     }
     /**
      * A mapping of tags which should be assigned to the Dashboard Grafana.

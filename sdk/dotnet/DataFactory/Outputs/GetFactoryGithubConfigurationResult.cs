@@ -22,7 +22,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// </summary>
         public readonly string BranchName;
         /// <summary>
-        /// The GitHub Enterprise host name.
+        /// The GitHub repository url.
         /// </summary>
         public readonly string GitUrl;
         /// <summary>

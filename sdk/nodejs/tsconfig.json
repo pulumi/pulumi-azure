@@ -623,6 +623,7 @@
         "datashare/share.ts",
         "desktopvirtualization/application.ts",
         "desktopvirtualization/applicationGroup.ts",
+        "desktopvirtualization/getApplicationGroup.ts",
         "desktopvirtualization/getHostPool.ts",
         "desktopvirtualization/getHostPoolRegistrationInfo.ts",
         "desktopvirtualization/getWorkspace.ts",

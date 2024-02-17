@@ -307,6 +307,20 @@ public class HostPool extends com.pulumi.resources.CustomResource {
     public Output<Optional<Boolean>> validateEnvironment() {
         return Codegen.optional(this.validateEnvironment);
     }
+    /**
+     * A VM template for session hosts configuration within hostpool. This is a JSON string.
+     * 
+     */
+    @Export(name="vmTemplate", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> vmTemplate;
+
+    /**
+     * @return A VM template for session hosts configuration within hostpool. This is a JSON string.
+     * 
+     */
+    public Output<Optional<String>> vmTemplate() {
+        return Codegen.optional(this.vmTemplate);
+    }
 
     /**
      *

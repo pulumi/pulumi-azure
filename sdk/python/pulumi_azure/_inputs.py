@@ -18,6 +18,7 @@ __all__ = [
     'ProviderFeaturesKeyVaultArgs',
     'ProviderFeaturesLogAnalyticsWorkspaceArgs',
     'ProviderFeaturesManagedDiskArgs',
+    'ProviderFeaturesPostgresqlFlexibleServerArgs',
     'ProviderFeaturesResourceGroupArgs',
     'ProviderFeaturesSubscriptionArgs',
     'ProviderFeaturesTemplateDeploymentArgs',
@@ -35,6 +36,7 @@ class ProviderFeaturesArgs:
                  key_vault: Optional[pulumi.Input['ProviderFeaturesKeyVaultArgs']] = None,
                  log_analytics_workspace: Optional[pulumi.Input['ProviderFeaturesLogAnalyticsWorkspaceArgs']] = None,
                  managed_disk: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']] = None,
+                 postgresql_flexible_server: Optional[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgs']] = None,
                  resource_group: Optional[pulumi.Input['ProviderFeaturesResourceGroupArgs']] = None,
                  subscription: Optional[pulumi.Input['ProviderFeaturesSubscriptionArgs']] = None,
                  template_deployment: Optional[pulumi.Input['ProviderFeaturesTemplateDeploymentArgs']] = None,
@@ -54,6 +56,8 @@ class ProviderFeaturesArgs:
             pulumi.set(__self__, "log_analytics_workspace", log_analytics_workspace)
         if managed_disk is not None:
             pulumi.set(__self__, "managed_disk", managed_disk)
+        if postgresql_flexible_server is not None:
+            pulumi.set(__self__, "postgresql_flexible_server", postgresql_flexible_server)
         if resource_group is not None:
             pulumi.set(__self__, "resource_group", resource_group)
         if subscription is not None:
@@ -127,6 +131,15 @@ class ProviderFeaturesArgs:
     @managed_disk.setter
     def managed_disk(self, value: Optional[pulumi.Input['ProviderFeaturesManagedDiskArgs']]):
         pulumi.set(self, "managed_disk", value)
+
+    @property
+    @pulumi.getter(name="postgresqlFlexibleServer")
+    def postgresql_flexible_server(self) -> Optional[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgs']]:
+        return pulumi.get(self, "postgresql_flexible_server")
+
+    @postgresql_flexible_server.setter
+    def postgresql_flexible_server(self, value: Optional[pulumi.Input['ProviderFeaturesPostgresqlFlexibleServerArgs']]):
+        pulumi.set(self, "postgresql_flexible_server", value)
 
     @property
     @pulumi.getter(name="resourceGroup")
@@ -449,6 +462,23 @@ class ProviderFeaturesManagedDiskArgs:
     @expand_without_downtime.setter
     def expand_without_downtime(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "expand_without_downtime", value)
+
+
+@pulumi.input_type
+class ProviderFeaturesPostgresqlFlexibleServerArgs:
+    def __init__(__self__, *,
+                 restart_server_on_configuration_value_change: Optional[pulumi.Input[bool]] = None):
+        if restart_server_on_configuration_value_change is not None:
+            pulumi.set(__self__, "restart_server_on_configuration_value_change", restart_server_on_configuration_value_change)
+
+    @property
+    @pulumi.getter(name="restartServerOnConfigurationValueChange")
+    def restart_server_on_configuration_value_change(self) -> Optional[pulumi.Input[bool]]:
+        return pulumi.get(self, "restart_server_on_configuration_value_change")
+
+    @restart_server_on_configuration_value_change.setter
+    def restart_server_on_configuration_value_change(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "restart_server_on_configuration_value_change", value)
 
 
 @pulumi.input_type

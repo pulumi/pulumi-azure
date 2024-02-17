@@ -16148,7 +16148,7 @@ class LinuxWebAppLogsApplicationLogs(dict):
                  file_system_level: str,
                  azure_blob_storage: Optional['outputs.LinuxWebAppLogsApplicationLogsAzureBlobStorage'] = None):
         """
-        :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param str file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param 'LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -16159,7 +16159,7 @@ class LinuxWebAppLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> str:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -20297,7 +20297,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
                  file_system_level: str,
                  azure_blob_storage: Optional['outputs.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None):
         """
-        :param str file_system_level: Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+        :param str file_system_level: Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param 'LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -20308,7 +20308,7 @@ class LinuxWebAppSlotLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> str:
         """
-        Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -34365,7 +34365,7 @@ class WindowsWebAppLogsApplicationLogs(dict):
                  file_system_level: str,
                  azure_blob_storage: Optional['outputs.WindowsWebAppLogsApplicationLogsAzureBlobStorage'] = None):
         """
-        :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param str file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param 'WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -34376,7 +34376,7 @@ class WindowsWebAppLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> str:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -38795,7 +38795,7 @@ class WindowsWebAppSlotLogsApplicationLogs(dict):
                  file_system_level: str,
                  azure_blob_storage: Optional['outputs.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage'] = None):
         """
-        :param str file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param str file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param 'WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs' azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -38806,7 +38806,7 @@ class WindowsWebAppSlotLogsApplicationLogs(dict):
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> str:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 

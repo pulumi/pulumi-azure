@@ -27,7 +27,7 @@ public final class FactoryGithubConfiguration {
      * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
      * 
      */
-    private String gitUrl;
+    private @Nullable String gitUrl;
     /**
      * @return Is automated publishing enabled? Defaults to `true`.
      * 
@@ -65,8 +65,8 @@ public final class FactoryGithubConfiguration {
      * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
      * 
      */
-    public String gitUrl() {
-        return this.gitUrl;
+    public Optional<String> gitUrl() {
+        return Optional.ofNullable(this.gitUrl);
     }
     /**
      * @return Is automated publishing enabled? Defaults to `true`.
@@ -103,7 +103,7 @@ public final class FactoryGithubConfiguration {
     public static final class Builder {
         private String accountName;
         private String branchName;
-        private String gitUrl;
+        private @Nullable String gitUrl;
         private @Nullable Boolean publishingEnabled;
         private String repositoryName;
         private String rootFolder;
@@ -135,10 +135,8 @@ public final class FactoryGithubConfiguration {
             return this;
         }
         @CustomType.Setter
-        public Builder gitUrl(String gitUrl) {
-            if (gitUrl == null) {
-              throw new MissingRequiredPropertyException("FactoryGithubConfiguration", "gitUrl");
-            }
+        public Builder gitUrl(@Nullable String gitUrl) {
+
             this.gitUrl = gitUrl;
             return this;
         }

@@ -12323,7 +12323,7 @@ export namespace appservice {
          */
         azureBlobStorage?: outputs.appservice.LinuxWebAppLogsApplicationLogsAzureBlobStorage;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: string;
     }
@@ -13437,7 +13437,7 @@ export namespace appservice {
          */
         azureBlobStorage?: outputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage;
         /**
-         * Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: string;
     }
@@ -17223,7 +17223,7 @@ export namespace appservice {
          */
         azureBlobStorage?: outputs.appservice.WindowsWebAppLogsApplicationLogsAzureBlobStorage;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: string;
     }
@@ -18420,7 +18420,7 @@ export namespace appservice {
          */
         azureBlobStorage?: outputs.appservice.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: string;
     }
@@ -25749,6 +25749,10 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
         /**
+         * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        additionalUnattendContents?: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent[];
+        /**
          * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          */
         adminPassword: string;
@@ -25798,6 +25802,17 @@ export namespace compute {
          * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          */
         winrmListeners?: outputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener[];
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
+        /**
+         * The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+         */
+        content: string;
+        /**
+         * The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+         */
+        setting: string;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
@@ -27715,6 +27730,7 @@ export namespace config {
         keyVault?: outputs.config.FeaturesKeyVault;
         logAnalyticsWorkspace?: outputs.config.FeaturesLogAnalyticsWorkspace;
         managedDisk?: outputs.config.FeaturesManagedDisk;
+        postgresqlFlexibleServer?: outputs.config.FeaturesPostgresqlFlexibleServer;
         resourceGroup?: outputs.config.FeaturesResourceGroup;
         subscription?: outputs.config.FeaturesSubscription;
         templateDeployment?: outputs.config.FeaturesTemplateDeployment;
@@ -27785,6 +27801,10 @@ export namespace config {
 
     export interface FeaturesManagedDisk {
         expandWithoutDowntime?: boolean;
+    }
+
+    export interface FeaturesPostgresqlFlexibleServer {
+        restartServerOnConfigurationValueChange?: boolean;
     }
 
     export interface FeaturesResourceGroup {
@@ -31043,7 +31063,7 @@ export namespace containerservice {
         /**
          * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
          *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
+         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
          */
         enableHostEncryption?: boolean;
         /**
@@ -33460,19 +33480,23 @@ export namespace cosmosdb {
 
     export interface AccountBackup {
         /**
-         * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         * The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
          */
         intervalInMinutes: number;
         /**
-         * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         * The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
          */
         retentionInHours: number;
         /**
-         * The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         *
+         * > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
          */
         storageRedundancy: string;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+         *
+         * > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
         type: string;
     }
@@ -33499,13 +33523,13 @@ export namespace cosmosdb {
         /**
          * When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          */
-        maxIntervalInSeconds: number;
+        maxIntervalInSeconds?: number;
         /**
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          *
-         * > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+         * > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
          */
-        maxStalenessPrefix: number;
+        maxStalenessPrefix?: number;
     }
 
     export interface AccountCorsRule {
@@ -33585,7 +33609,7 @@ export namespace cosmosdb {
         /**
          * The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
+         * > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
          */
         sourceCosmosdbAccountId: string;
         /**
@@ -34113,6 +34137,42 @@ export namespace dashboard {
         type: string;
     }
 
+    export interface GrafanaSmtp {
+        /**
+         * Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+         */
+        enabled?: boolean;
+        /**
+         * Address used when sending emails.
+         */
+        fromAddress: string;
+        /**
+         * Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+         */
+        fromName?: string;
+        /**
+         * SMTP server hostname with port, e.g. test.email.net:587
+         */
+        host: string;
+        /**
+         * Password of SMTP authentication.
+         * *
+         */
+        password: string;
+        /**
+         * Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+         */
+        startTlsPolicy: string;
+        /**
+         * User of SMTP authentication.
+         */
+        user: string;
+        /**
+         * Whether verify SSL for SMTP server. Defaults to `false`.
+         */
+        verificationSkipEnabled?: boolean;
+    }
+
 }
 
 export namespace databoxedge {
@@ -34350,19 +34410,19 @@ export namespace databricks {
 
     export interface GetAccessConnectorIdentity {
         /**
-         * A `identityIds` block as defined below.
+         * The list of User Assigned Managed Identity IDs assigned to this Access Connector.
          */
         identityIds: string[];
         /**
-         * The ID of the TODO.
+         * The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         principalId: string;
         /**
-         * The ID of the TODO.
+         * The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
          */
         tenantId: string;
         /**
-         * TODO.
+         * The type of Managed Service Identity that is configured on this Access Connector.
          */
         type: string;
     }
@@ -35354,7 +35414,7 @@ export namespace datafactory {
         /**
          * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
          */
-        gitUrl: string;
+        gitUrl?: string;
         /**
          * Is automated publishing enabled? Defaults to `true`.
          *
@@ -35690,7 +35750,7 @@ export namespace datafactory {
          */
         branchName: string;
         /**
-         * The GitHub Enterprise host name.
+         * The GitHub repository url.
          */
         gitUrl: string;
         /**
@@ -44249,14 +44309,21 @@ export namespace keyvault {
 
     export interface GetCertificatesCertificate {
         /**
-         * Whether this secret is enabled.
+         * Whether this certificate is enabled.
          */
         enabled: boolean;
+        /**
+         * The ID of this certificate.
+         */
         id: string;
         /**
-         * The name of secret.
+         * The name of certificate.
          */
         name: string;
+        /**
+         * The tags of this certificate.
+         */
+        tags: {[key: string]: string};
     }
 
     export interface GetKeyVaultAccessPolicy {
@@ -44329,6 +44396,10 @@ export namespace keyvault {
          * The name of secret.
          */
         name: string;
+        /**
+         * The tags of this secret.
+         */
+        tags: {[key: string]: string};
     }
 
     export interface KeyRotationPolicy {

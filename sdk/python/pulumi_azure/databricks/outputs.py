@@ -429,10 +429,10 @@ class GetAccessConnectorIdentityResult(dict):
                  tenant_id: str,
                  type: str):
         """
-        :param Sequence[str] identity_ids: A `identity_ids` block as defined below.
-        :param str principal_id: The ID of the TODO.
-        :param str tenant_id: The ID of the TODO.
-        :param str type: TODO.
+        :param Sequence[str] identity_ids: The list of User Assigned Managed Identity IDs assigned to this Access Connector.
+        :param str principal_id: The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
+        :param str tenant_id: The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
+        :param str type: The type of Managed Service Identity that is configured on this Access Connector.
         """
         pulumi.set(__self__, "identity_ids", identity_ids)
         pulumi.set(__self__, "principal_id", principal_id)
@@ -443,7 +443,7 @@ class GetAccessConnectorIdentityResult(dict):
     @pulumi.getter(name="identityIds")
     def identity_ids(self) -> Sequence[str]:
         """
-        A `identity_ids` block as defined below.
+        The list of User Assigned Managed Identity IDs assigned to this Access Connector.
         """
         return pulumi.get(self, "identity_ids")
 
@@ -451,7 +451,7 @@ class GetAccessConnectorIdentityResult(dict):
     @pulumi.getter(name="principalId")
     def principal_id(self) -> str:
         """
-        The ID of the TODO.
+        The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "principal_id")
 
@@ -459,7 +459,7 @@ class GetAccessConnectorIdentityResult(dict):
     @pulumi.getter(name="tenantId")
     def tenant_id(self) -> str:
         """
-        The ID of the TODO.
+        The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "tenant_id")
 
@@ -467,7 +467,7 @@ class GetAccessConnectorIdentityResult(dict):
     @pulumi.getter
     def type(self) -> str:
         """
-        TODO.
+        The type of Managed Service Identity that is configured on this Access Connector.
         """
         return pulumi.get(self, "type")
 

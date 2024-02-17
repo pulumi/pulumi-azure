@@ -11169,6 +11169,8 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCerti
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration struct {
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+	AdditionalUnattendContents []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword string `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
@@ -11211,6 +11213,8 @@ type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput interf
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs struct {
+	// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+	AdditionalUnattendContents OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput `pulumi:"additionalUnattendContents"`
 	// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 	AdminPassword pulumi.StringInput `pulumi:"adminPassword"`
 	// The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
@@ -11318,6 +11322,13 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) T
 	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput)
 }
 
+// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdditionalUnattendContents() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
+		return v.AdditionalUnattendContents
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput)
+}
+
 // The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
 func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput) AdminPassword() pulumi.StringOutput {
 	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) string { return v.AdminPassword }).(pulumi.StringOutput)
@@ -11415,6 +11426,16 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 		var ret OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration
 		return ret
 	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput)
+}
+
+// One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput) AdditionalUnattendContents() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return o.ApplyT(func(v *OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration) []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalUnattendContents
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput)
 }
 
 // The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -11531,6 +11552,116 @@ func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput
 		}
 		return v.WinrmListeners
 	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+	Content string `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+	Setting string `pulumi:"setting"`
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs{...}
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs struct {
+	// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+	Content pulumi.StringInput `pulumi:"content"`
+	// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+	Setting pulumi.StringInput `pulumi:"setting"`
+}
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput)
+}
+
+// OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput is an input type that accepts OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray and OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput values.
+// You can construct a concrete instance of `OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput` via:
+//
+//	OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray{ OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs{...} }
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput interface {
+	pulumi.Input
+
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput
+	ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutputWithContext(context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray []OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentInput
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return i.ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutputWithContext(context.Background())
+}
+
+func (i OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput {
+	return o
+}
+
+// The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput) Content() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent) string {
+		return v.Content
+	}).(pulumi.StringOutput)
+}
+
+// The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput) Setting() pulumi.StringOutput {
+	return o.ApplyT(func(v OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent) string {
+		return v.Setting
+	}).(pulumi.StringOutput)
+}
+
+type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput struct{ *pulumi.OutputState }
+
+func (OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent)(nil)).Elem()
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput() OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput) ToOrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutputWithContext(ctx context.Context) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput {
+	return o
+}
+
+func (o OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput) Index(i pulumi.IntInput) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
+		return vs[0].([]OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent)[vs[1].(int)]
+	}).(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput)
 }
 
 type OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret struct {
@@ -32677,6 +32808,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateInput)(nil)).Elem(), OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs{})
@@ -33083,6 +33216,8 @@ func init() {
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentOutput{})
+	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArrayOutput{})
 	pulumi.RegisterOutputType(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateOutput{})

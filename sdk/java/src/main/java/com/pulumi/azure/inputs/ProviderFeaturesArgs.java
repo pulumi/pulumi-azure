@@ -10,6 +10,7 @@ import com.pulumi.azure.inputs.ProviderFeaturesCognitiveAccountArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesKeyVaultArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesLogAnalyticsWorkspaceArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesManagedDiskArgs;
+import com.pulumi.azure.inputs.ProviderFeaturesPostgresqlFlexibleServerArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesResourceGroupArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesSubscriptionArgs;
 import com.pulumi.azure.inputs.ProviderFeaturesTemplateDeploymentArgs;
@@ -75,6 +76,13 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.managedDisk);
     }
 
+    @Import(name="postgresqlFlexibleServer")
+    private @Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer;
+
+    public Optional<Output<ProviderFeaturesPostgresqlFlexibleServerArgs>> postgresqlFlexibleServer() {
+        return Optional.ofNullable(this.postgresqlFlexibleServer);
+    }
+
     @Import(name="resourceGroup")
     private @Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup;
 
@@ -120,6 +128,7 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
         this.keyVault = $.keyVault;
         this.logAnalyticsWorkspace = $.logAnalyticsWorkspace;
         this.managedDisk = $.managedDisk;
+        this.postgresqlFlexibleServer = $.postgresqlFlexibleServer;
         this.resourceGroup = $.resourceGroup;
         this.subscription = $.subscription;
         this.templateDeployment = $.templateDeployment;
@@ -206,6 +215,15 @@ public final class ProviderFeaturesArgs extends com.pulumi.resources.ResourceArg
 
         public Builder managedDisk(ProviderFeaturesManagedDiskArgs managedDisk) {
             return managedDisk(Output.of(managedDisk));
+        }
+
+        public Builder postgresqlFlexibleServer(@Nullable Output<ProviderFeaturesPostgresqlFlexibleServerArgs> postgresqlFlexibleServer) {
+            $.postgresqlFlexibleServer = postgresqlFlexibleServer;
+            return this;
+        }
+
+        public Builder postgresqlFlexibleServer(ProviderFeaturesPostgresqlFlexibleServerArgs postgresqlFlexibleServer) {
+            return postgresqlFlexibleServer(Output.of(postgresqlFlexibleServer));
         }
 
         public Builder resourceGroup(@Nullable Output<ProviderFeaturesResourceGroupArgs> resourceGroup) {

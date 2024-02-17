@@ -12,6 +12,18 @@ namespace Pulumi.Azure.Compute.Inputs
 
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs : global::Pulumi.ResourceArgs
     {
+        [Input("additionalUnattendContents")]
+        private InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>? _additionalUnattendContents;
+
+        /// <summary>
+        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs> AdditionalUnattendContents
+        {
+            get => _additionalUnattendContents ?? (_additionalUnattendContents = new InputList<Inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>());
+            set => _additionalUnattendContents = value;
+        }
+
         [Input("adminPassword", required: true)]
         private Input<string>? _adminPassword;
 

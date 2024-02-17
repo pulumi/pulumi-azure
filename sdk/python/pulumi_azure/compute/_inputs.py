@@ -78,6 +78,7 @@ __all__ = [
     'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileLinuxConfigurationSecretCertificateArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs',
+    'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretCertificateArgs',
     'OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs',
@@ -4746,6 +4747,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     def __init__(__self__, *,
                  admin_password: pulumi.Input[str],
                  admin_username: pulumi.Input[str],
+                 additional_unattend_contents: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]] = None,
                  computer_name_prefix: Optional[pulumi.Input[str]] = None,
                  enable_automatic_updates: Optional[pulumi.Input[bool]] = None,
                  hotpatching_enabled: Optional[pulumi.Input[bool]] = None,
@@ -4758,6 +4760,7 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         """
         :param pulumi.Input[str] admin_password: The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         :param pulumi.Input[str] admin_username: The username of the local administrator on each Virtual Machine Scale Set instance. Changing this forces a new resource to be created.
+        :param pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]] additional_unattend_contents: One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[str] computer_name_prefix: The prefix which should be used for the name of the Virtual Machines in this Scale Set. If unspecified this defaults to the value for the `name` field. If the value of the `name` field is not a valid `computer_name_prefix`, then you must specify `computer_name_prefix`. Changing this forces a new resource to be created.
         :param pulumi.Input[bool] enable_automatic_updates: Are automatic updates enabled for this Virtual Machine? Defaults to `true`.
         :param pulumi.Input[bool] hotpatching_enabled: Should the VM be patched without requiring a reboot? Possible values are `true` or `false`. Defaults to `false`. For more information about hot patching please see the [product documentation](https://docs.microsoft.com/azure/automanage/automanage-hotpatch).
@@ -4776,6 +4779,8 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
         """
         pulumi.set(__self__, "admin_password", admin_password)
         pulumi.set(__self__, "admin_username", admin_username)
+        if additional_unattend_contents is not None:
+            pulumi.set(__self__, "additional_unattend_contents", additional_unattend_contents)
         if computer_name_prefix is not None:
             pulumi.set(__self__, "computer_name_prefix", computer_name_prefix)
         if enable_automatic_updates is not None:
@@ -4818,6 +4823,18 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @admin_username.setter
     def admin_username(self, value: pulumi.Input[str]):
         pulumi.set(self, "admin_username", value)
+
+    @property
+    @pulumi.getter(name="additionalUnattendContents")
+    def additional_unattend_contents(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]]:
+        """
+        One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "additional_unattend_contents")
+
+    @additional_unattend_contents.setter
+    def additional_unattend_contents(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs']]]]):
+        pulumi.set(self, "additional_unattend_contents", value)
 
     @property
     @pulumi.getter(name="computerNamePrefix")
@@ -4932,6 +4949,43 @@ class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs:
     @winrm_listeners.setter
     def winrm_listeners(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs']]]]):
         pulumi.set(self, "winrm_listeners", value)
+
+
+@pulumi.input_type
+class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs:
+    def __init__(__self__, *,
+                 content: pulumi.Input[str],
+                 setting: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] content: The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] setting: The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+        """
+        pulumi.set(__self__, "content", content)
+        pulumi.set(__self__, "setting", setting)
+
+    @property
+    @pulumi.getter
+    def content(self) -> pulumi.Input[str]:
+        """
+        The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "content")
+
+    @content.setter
+    def content(self, value: pulumi.Input[str]):
+        pulumi.set(self, "content", value)
+
+    @property
+    @pulumi.getter
+    def setting(self) -> pulumi.Input[str]:
+        """
+        The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+        """
+        return pulumi.get(self, "setting")
+
+    @setting.setter
+    def setting(self, value: pulumi.Input[str]):
+        pulumi.set(self, "setting", value)
 
 
 @pulumi.input_type

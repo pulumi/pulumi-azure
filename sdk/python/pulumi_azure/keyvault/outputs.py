@@ -2302,35 +2302,50 @@ class GetCertificatesCertificateResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  id: str,
-                 name: str):
+                 name: str,
+                 tags: Mapping[str, str]):
         """
-        :param bool enabled: Whether this secret is enabled.
-        :param str name: The name of secret.
+        :param bool enabled: Whether this certificate is enabled.
+        :param str id: The ID of this certificate.
+        :param str name: The name of certificate.
+        :param Mapping[str, str] tags: The tags of this certificate.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
     def enabled(self) -> bool:
         """
-        Whether this secret is enabled.
+        Whether this certificate is enabled.
         """
         return pulumi.get(self, "enabled")
 
     @property
     @pulumi.getter
     def id(self) -> str:
+        """
+        The ID of this certificate.
+        """
         return pulumi.get(self, "id")
 
     @property
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of secret.
+        The name of certificate.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The tags of this certificate.
+        """
+        return pulumi.get(self, "tags")
 
 
 @pulumi.output_type
@@ -2506,15 +2521,18 @@ class GetSecretsSecretResult(dict):
     def __init__(__self__, *,
                  enabled: bool,
                  id: str,
-                 name: str):
+                 name: str,
+                 tags: Mapping[str, str]):
         """
         :param bool enabled: Whether this secret is enabled.
         :param str id: The ID of this secret.
         :param str name: The name of secret.
+        :param Mapping[str, str] tags: The tags of this secret.
         """
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "tags", tags)
 
     @property
     @pulumi.getter
@@ -2539,5 +2557,13 @@ class GetSecretsSecretResult(dict):
         The name of secret.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter
+    def tags(self) -> Mapping[str, str]:
+        """
+        The tags of this secret.
+        """
+        return pulumi.get(self, "tags")
 
 

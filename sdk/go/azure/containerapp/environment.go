@@ -75,6 +75,10 @@ type Environment struct {
 	DefaultDomain pulumi.StringOutput `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringOutput `pulumi:"dockerBridgeCidr"`
+	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+	InfrastructureResourceGroupName pulumi.StringOutput `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -153,6 +157,10 @@ type environmentState struct {
 	DefaultDomain *string `pulumi:"defaultDomain"`
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr *string `pulumi:"dockerBridgeCidr"`
+	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -192,6 +200,10 @@ type EnvironmentState struct {
 	DefaultDomain pulumi.StringPtrInput
 	// The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 	DockerBridgeCidr pulumi.StringPtrInput
+	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -231,6 +243,10 @@ func (EnvironmentState) ElementType() reflect.Type {
 type environmentArgs struct {
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString *string `pulumi:"daprApplicationInsightsConnectionString"`
+	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+	InfrastructureResourceGroupName *string `pulumi:"infrastructureResourceGroupName"`
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -261,6 +277,10 @@ type environmentArgs struct {
 type EnvironmentArgs struct {
 	// Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
 	DaprApplicationInsightsConnectionString pulumi.StringPtrInput
+	// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+	//
+	// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+	InfrastructureResourceGroupName pulumi.StringPtrInput
 	// The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
 	//
 	// > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -387,6 +407,13 @@ func (o EnvironmentOutput) DefaultDomain() pulumi.StringOutput {
 // The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
 func (o EnvironmentOutput) DockerBridgeCidr() pulumi.StringOutput {
 	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.DockerBridgeCidr }).(pulumi.StringOutput)
+}
+
+// Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+//
+// > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+func (o EnvironmentOutput) InfrastructureResourceGroupName() pulumi.StringOutput {
+	return o.ApplyT(func(v *Environment) pulumi.StringOutput { return v.InfrastructureResourceGroupName }).(pulumi.StringOutput)
 }
 
 // The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.

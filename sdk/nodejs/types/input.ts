@@ -13,6 +13,7 @@ export interface ProviderFeatures {
     keyVault?: pulumi.Input<inputs.ProviderFeaturesKeyVault>;
     logAnalyticsWorkspace?: pulumi.Input<inputs.ProviderFeaturesLogAnalyticsWorkspace>;
     managedDisk?: pulumi.Input<inputs.ProviderFeaturesManagedDisk>;
+    postgresqlFlexibleServer?: pulumi.Input<inputs.ProviderFeaturesPostgresqlFlexibleServer>;
     resourceGroup?: pulumi.Input<inputs.ProviderFeaturesResourceGroup>;
     subscription?: pulumi.Input<inputs.ProviderFeaturesSubscription>;
     templateDeployment?: pulumi.Input<inputs.ProviderFeaturesTemplateDeployment>;
@@ -83,6 +84,10 @@ export interface ProviderFeaturesLogAnalyticsWorkspace {
 
 export interface ProviderFeaturesManagedDisk {
     expandWithoutDowntime?: pulumi.Input<boolean>;
+}
+
+export interface ProviderFeaturesPostgresqlFlexibleServer {
+    restartServerOnConfigurationValueChange?: pulumi.Input<boolean>;
 }
 
 export interface ProviderFeaturesResourceGroup {
@@ -7255,7 +7260,7 @@ export namespace appservice {
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppLogsApplicationLogsAzureBlobStorage>;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: pulumi.Input<string>;
     }
@@ -8369,7 +8374,7 @@ export namespace appservice {
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage>;
         /**
-         * Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: pulumi.Input<string>;
     }
@@ -12155,7 +12160,7 @@ export namespace appservice {
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppLogsApplicationLogsAzureBlobStorage>;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: pulumi.Input<string>;
     }
@@ -13352,7 +13357,7 @@ export namespace appservice {
          */
         azureBlobStorage?: pulumi.Input<inputs.appservice.WindowsWebAppSlotLogsApplicationLogsAzureBlobStorage>;
         /**
-         * Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+         * Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
          */
         fileSystemLevel: pulumi.Input<string>;
     }
@@ -19011,6 +19016,10 @@ export namespace compute {
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
         /**
+         * One or more `additionalUnattendContent` blocks as defined below. Changing this forces a new resource to be created.
+         */
+        additionalUnattendContents?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent>[]>;
+        /**
          * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
          */
         adminPassword: pulumi.Input<string>;
@@ -19060,6 +19069,17 @@ export namespace compute {
          * One or more `winrmListener` blocks as defined below. Changing this forces a new resource to be created.
          */
         winrmListeners?: pulumi.Input<pulumi.Input<inputs.compute.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener>[]>;
+    }
+
+    export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent {
+        /**
+         * The XML formatted content that is added to the unattend.xml file for the specified path and component. Changing this forces a new resource to be created.
+         */
+        content: pulumi.Input<string>;
+        /**
+         * The name of the setting to which the content applies. Possible values are `AutoLogon` and `FirstLogonCommands`. Changing this forces a new resource to be created.
+         */
+        setting: pulumi.Input<string>;
     }
 
     export interface OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret {
@@ -22944,7 +22964,7 @@ export namespace containerservice {
         /**
          * Should the nodes in the Default Node Pool have host encryption enabled? `temporaryNameForRotation` must be specified when changing this property.
          *
-         * > **Note:** This requires that the Preview Feature `Microsoft.ContainerService/EnableEncryptionAtHostPreview` is enabled and the Resource Provider is re-registered.
+         * > **Note:** This requires that the  Feature `Microsoft.ContainerService/EnableEncryptionAtHost` is enabled and the Resource Provider is registered.
          */
         enableHostEncryption?: pulumi.Input<boolean>;
         /**
@@ -25282,19 +25302,23 @@ export namespace cosmosdb {
 
     export interface AccountBackup {
         /**
-         * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         * The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
          */
         intervalInMinutes?: pulumi.Input<number>;
         /**
-         * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         * The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
          */
         retentionInHours?: pulumi.Input<number>;
         /**
-         * The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         *
+         * > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
          */
         storageRedundancy?: pulumi.Input<string>;
         /**
-         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+         * The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+         *
+         * > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          */
         type: pulumi.Input<string>;
     }
@@ -25325,7 +25349,7 @@ export namespace cosmosdb {
         /**
          * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
          *
-         * > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+         * > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
          */
         maxStalenessPrefix?: pulumi.Input<number>;
     }
@@ -25407,7 +25431,7 @@ export namespace cosmosdb {
         /**
          * The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
          *
-         * > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
+         * > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `azure.cosmosdb.getRestorableDatabaseAccounts`.
          */
         sourceCosmosdbAccountId: pulumi.Input<string>;
         /**
@@ -25838,6 +25862,42 @@ export namespace dashboard {
          * Specifies the type of Managed Service Identity. Possible values are `SystemAssigned`, `UserAssigned`. Changing this forces a new resource to be created.
          */
         type: pulumi.Input<string>;
+    }
+
+    export interface GrafanaSmtp {
+        /**
+         * Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+         */
+        enabled?: pulumi.Input<boolean>;
+        /**
+         * Address used when sending emails.
+         */
+        fromAddress: pulumi.Input<string>;
+        /**
+         * Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+         */
+        fromName?: pulumi.Input<string>;
+        /**
+         * SMTP server hostname with port, e.g. test.email.net:587
+         */
+        host: pulumi.Input<string>;
+        /**
+         * Password of SMTP authentication.
+         * *
+         */
+        password: pulumi.Input<string>;
+        /**
+         * Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+         */
+        startTlsPolicy: pulumi.Input<string>;
+        /**
+         * User of SMTP authentication.
+         */
+        user: pulumi.Input<string>;
+        /**
+         * Whether verify SSL for SMTP server. Defaults to `false`.
+         */
+        verificationSkipEnabled?: pulumi.Input<boolean>;
     }
 }
 
@@ -26958,7 +27018,7 @@ export namespace datafactory {
         /**
          * Specifies the GitHub Enterprise host name. For example: <https://github.mydomain.com>. Use <https://github.com> for open source repositories.
          */
-        gitUrl: pulumi.Input<string>;
+        gitUrl?: pulumi.Input<string>;
         /**
          * Is automated publishing enabled? Defaults to `true`.
          *

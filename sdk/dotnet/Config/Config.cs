@@ -319,6 +319,7 @@ namespace Pulumi.Azure
                 public Pulumi.Azure.Config.Types.FeaturesKeyVault? KeyVault { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesLogAnalyticsWorkspace? LogAnalyticsWorkspace { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesManagedDisk? ManagedDisk { get; set; } = null!;
+                public Pulumi.Azure.Config.Types.FeaturesPostgresqlFlexibleServer? PostgresqlFlexibleServer { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesResourceGroup? ResourceGroup { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesSubscription? Subscription { get; set; } = null!;
                 public Pulumi.Azure.Config.Types.FeaturesTemplateDeployment? TemplateDeployment { get; set; } = null!;
@@ -396,6 +397,11 @@ namespace Pulumi.Azure
              public class FeaturesManagedDisk
              {
                 public bool? ExpandWithoutDowntime { get; set; }
+            }
+
+             public class FeaturesPostgresqlFlexibleServer
+             {
+                public bool? RestartServerOnConfigurationValueChange { get; set; }
             }
 
              public class FeaturesResourceGroup

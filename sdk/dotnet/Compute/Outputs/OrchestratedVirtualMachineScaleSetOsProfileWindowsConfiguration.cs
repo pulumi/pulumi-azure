@@ -14,6 +14,10 @@ namespace Pulumi.Azure.Compute.Outputs
     public sealed class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration
     {
         /// <summary>
+        /// One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> AdditionalUnattendContents;
+        /// <summary>
         /// The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
         /// </summary>
         public readonly string AdminPassword;
@@ -66,6 +70,8 @@ namespace Pulumi.Azure.Compute.Outputs
 
         [OutputConstructor]
         private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration(
+            ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents,
+
             string adminPassword,
 
             string adminUsername,
@@ -88,6 +94,7 @@ namespace Pulumi.Azure.Compute.Outputs
 
             ImmutableArray<Outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners)
         {
+            AdditionalUnattendContents = additionalUnattendContents;
             AdminPassword = adminPassword;
             AdminUsername = adminUsername;
             ComputerNamePrefix = computerNamePrefix;

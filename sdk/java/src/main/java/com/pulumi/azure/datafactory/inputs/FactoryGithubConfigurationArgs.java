@@ -51,15 +51,15 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
      * Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
      * 
      */
-    @Import(name="gitUrl", required=true)
-    private Output<String> gitUrl;
+    @Import(name="gitUrl")
+    private @Nullable Output<String> gitUrl;
 
     /**
      * @return Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
      * 
      */
-    public Output<String> gitUrl() {
-        return this.gitUrl;
+    public Optional<Output<String>> gitUrl() {
+        return Optional.ofNullable(this.gitUrl);
     }
 
     /**
@@ -188,7 +188,7 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
          * @return builder
          * 
          */
-        public Builder gitUrl(Output<String> gitUrl) {
+        public Builder gitUrl(@Nullable Output<String> gitUrl) {
             $.gitUrl = gitUrl;
             return this;
         }
@@ -276,9 +276,6 @@ public final class FactoryGithubConfigurationArgs extends com.pulumi.resources.R
             }
             if ($.branchName == null) {
                 throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "branchName");
-            }
-            if ($.gitUrl == null) {
-                throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "gitUrl");
             }
             if ($.repositoryName == null) {
                 throw new MissingRequiredPropertyException("FactoryGithubConfigurationArgs", "repositoryName");
