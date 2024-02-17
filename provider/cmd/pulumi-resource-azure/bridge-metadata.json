@@ -4893,6 +4893,9 @@
                     },
                     "outbound_ip": {
                         "maxItemsOne": false
+                    },
+                    "smtp": {
+                        "maxItemsOne": true
                     }
                 }
             },
@@ -16152,6 +16155,9 @@
                                     "maxItemsOne": true,
                                     "elem": {
                                         "fields": {
+                                            "additional_unattend_content": {
+                                                "maxItemsOne": false
+                                            },
                                             "secret": {
                                                 "maxItemsOne": false,
                                                 "elem": {
@@ -29158,6 +29164,10 @@
                 "current": "azure:core/getUserAssignedIdentity:getUserAssignedIdentity",
                 "majorVersion": 5
             },
+            "azurerm_virtual_desktop_application_group": {
+                "current": "azure:desktopvirtualization/getApplicationGroup:getApplicationGroup",
+                "majorVersion": 5
+            },
             "azurerm_virtual_desktop_host_pool": {
                 "current": "azure:desktopvirtualization/getHostPool:getHostPool",
                 "majorVersion": 5,
@@ -31489,6 +31499,7 @@
             "azure:datashare/getDatasetKustoCluster:getDatasetKustoCluster": "azurerm_data_share_dataset_kusto_cluster",
             "azure:datashare/getDatasetKustoDatabase:getDatasetKustoDatabase": "azurerm_data_share_dataset_kusto_database",
             "azure:datashare/getShare:getShare": "azurerm_data_share",
+            "azure:desktopvirtualization/getApplicationGroup:getApplicationGroup": "azurerm_virtual_desktop_application_group",
             "azure:desktopvirtualization/getHostPool:getHostPool": "azurerm_virtual_desktop_host_pool",
             "azure:desktopvirtualization/getWorkspace:getWorkspace": "azurerm_virtual_desktop_workspace",
             "azure:devtest/getLab:getLab": "azurerm_dev_test_lab",
@@ -40141,6 +40152,7 @@
                 "keyVaultId": "key_vault_id"
             },
             "azure:compute/OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration:OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration": {
+                "additionalUnattendContents": "additional_unattend_content",
                 "adminPassword": "admin_password",
                 "adminUsername": "admin_username",
                 "computerNamePrefix": "computer_name_prefix",
@@ -41329,6 +41341,7 @@
                 "keyVault": "key_vault",
                 "logAnalyticsWorkspace": "log_analytics_workspace",
                 "managedDisk": "managed_disk",
+                "postgresqlFlexibleServer": "postgresql_flexible_server",
                 "resourceGroup": "resource_group",
                 "templateDeployment": "template_deployment",
                 "virtualMachine": "virtual_machine",
@@ -41364,6 +41377,9 @@
             },
             "azure:config/featuresManagedDisk:featuresManagedDisk": {
                 "expandWithoutDowntime": "expand_without_downtime"
+            },
+            "azure:config/featuresPostgresqlFlexibleServer:featuresPostgresqlFlexibleServer": {
+                "restartServerOnConfigurationValueChange": "restart_server_on_configuration_value_change"
             },
             "azure:config/featuresResourceGroup:featuresResourceGroup": {
                 "preventDeletionIfContainsResources": "prevent_deletion_if_contains_resources"
@@ -41646,6 +41662,7 @@
                 "daprApplicationInsightsConnectionString": "dapr_application_insights_connection_string",
                 "defaultDomain": "default_domain",
                 "dockerBridgeCidr": "docker_bridge_cidr",
+                "infrastructureResourceGroupName": "infrastructure_resource_group_name",
                 "infrastructureSubnetId": "infrastructure_subnet_id",
                 "internalLoadBalancerEnabled": "internal_load_balancer_enabled",
                 "logAnalyticsWorkspaceId": "log_analytics_workspace_id",
@@ -43652,7 +43669,8 @@
             "azure:costmanagement/anomalyAlert:AnomalyAlert": {
                 "displayName": "display_name",
                 "emailAddresses": "email_addresses",
-                "emailSubject": "email_subject"
+                "emailSubject": "email_subject",
+                "subscriptionId": "subscription_id"
             },
             "azure:costmanagement/scheduledAction:ScheduledAction": {
                 "dayOfMonth": "day_of_month",
@@ -43682,6 +43700,12 @@
                 "identityIds": "identity_ids",
                 "principalId": "principal_id",
                 "tenantId": "tenant_id"
+            },
+            "azure:dashboard/GrafanaSmtp:GrafanaSmtp": {
+                "fromAddress": "from_address",
+                "fromName": "from_name",
+                "startTlsPolicy": "start_tls_policy",
+                "verificationSkipEnabled": "verification_skip_enabled"
             },
             "azure:dashboard/azurerm_portal_dashboard:azurerm_portal_dashboard": {
                 "dashboardProperties": "dashboard_properties",
@@ -44885,6 +44909,12 @@
                 "hostPoolId": "host_pool_id",
                 "resourceGroupName": "resource_group_name"
             },
+            "azure:desktopvirtualization/getApplicationGroup:getApplicationGroup": {
+                "friendlyName": "friendly_name",
+                "hostPoolId": "host_pool_id",
+                "resourceGroupName": "resource_group_name",
+                "workspaceId": "workspace_id"
+            },
             "azure:desktopvirtualization/getHostPool:getHostPool": {
                 "customRdpProperties": "custom_rdp_properties",
                 "friendlyName": "friendly_name",
@@ -44924,7 +44954,8 @@
                 "resourceGroupName": "resource_group_name",
                 "scheduledAgentUpdates": "scheduled_agent_updates",
                 "startVmOnConnect": "start_vm_on_connect",
-                "validateEnvironment": "validate_environment"
+                "validateEnvironment": "validate_environment",
+                "vmTemplate": "vm_template"
             },
             "azure:desktopvirtualization/scalingPlan:ScalingPlan": {
                 "exclusionTag": "exclusion_tag",
@@ -47217,6 +47248,7 @@
                 "keyVault": "key_vault",
                 "logAnalyticsWorkspace": "log_analytics_workspace",
                 "managedDisk": "managed_disk",
+                "postgresqlFlexibleServer": "postgresql_flexible_server",
                 "resourceGroup": "resource_group",
                 "templateDeployment": "template_deployment",
                 "virtualMachine": "virtual_machine",
@@ -47252,6 +47284,9 @@
             },
             "azure:index/ProviderFeaturesManagedDisk:ProviderFeaturesManagedDisk": {
                 "expandWithoutDowntime": "expand_without_downtime"
+            },
+            "azure:index/ProviderFeaturesPostgresqlFlexibleServer:ProviderFeaturesPostgresqlFlexibleServer": {
+                "restartServerOnConfigurationValueChange": "restart_server_on_configuration_value_change"
             },
             "azure:index/ProviderFeaturesResourceGroup:ProviderFeaturesResourceGroup": {
                 "preventDeletionIfContainsResources": "prevent_deletion_if_contains_resources"
