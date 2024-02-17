@@ -39,6 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a Linked Service using managed identity and new cluster config
 //			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
@@ -49,6 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a databricks instance
 //			exampleWorkspace, err := databricks.NewWorkspace(ctx, "exampleWorkspace", &databricks.WorkspaceArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
@@ -121,6 +123,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Link to an existing cluster via access token
 //			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
@@ -128,6 +131,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a databricks instance
 //			exampleWorkspace, err := databricks.NewWorkspace(ctx, "exampleWorkspace", &databricks.WorkspaceArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,

@@ -124,6 +124,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// associate to a Data Collection Rule
 //			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring.DataCollectionRuleAssociationArgs{
 //				TargetResourceId:     exampleLinuxVirtualMachine.ID(),
 //				DataCollectionRuleId: exampleDataCollectionRule.ID(),
@@ -132,6 +133,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// associate to a Data Collection Endpoint
 //			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example2", &monitoring.DataCollectionRuleAssociationArgs{
 //				TargetResourceId:         exampleLinuxVirtualMachine.ID(),
 //				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
