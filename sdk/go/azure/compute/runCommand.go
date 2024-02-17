@@ -190,6 +190,7 @@ import (
 //					Filter:  pulumi.Bool(false),
 //				},
 //			}, nil)
+//			// basic example
 //			_, err = compute.NewRunCommand(ctx, "exampleRunCommand", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
@@ -200,6 +201,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// authorize to storage blob using user assigned identity
 //			_, err = compute.NewRunCommand(ctx, "example2RunCommand", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
@@ -241,6 +243,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// authorize to storage blob using SAS token
 //			_, err = compute.NewRunCommand(ctx, "example3RunCommand", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
