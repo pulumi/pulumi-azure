@@ -18,7 +18,8 @@ class AnomalyAlertArgs:
                  email_addresses: pulumi.Input[Sequence[pulumi.Input[str]]],
                  email_subject: pulumi.Input[str],
                  message: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         The set of arguments for constructing a AnomalyAlert resource.
         :param pulumi.Input[str] display_name: The display name which should be used for this Cost Anomaly Alert.
@@ -26,6 +27,7 @@ class AnomalyAlertArgs:
         :param pulumi.Input[str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         pulumi.set(__self__, "display_name", display_name)
         pulumi.set(__self__, "email_addresses", email_addresses)
@@ -34,6 +36,8 @@ class AnomalyAlertArgs:
             pulumi.set(__self__, "message", message)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -95,6 +99,18 @@ class AnomalyAlertArgs:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 @pulumi.input_type
 class _AnomalyAlertState:
@@ -103,7 +119,8 @@ class _AnomalyAlertState:
                  email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
                  email_subject: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
-                 name: Optional[pulumi.Input[str]] = None):
+                 name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None):
         """
         Input properties used for looking up and filtering AnomalyAlert resources.
         :param pulumi.Input[str] display_name: The display name which should be used for this Cost Anomaly Alert.
@@ -111,6 +128,7 @@ class _AnomalyAlertState:
         :param pulumi.Input[str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         if display_name is not None:
             pulumi.set(__self__, "display_name", display_name)
@@ -122,6 +140,8 @@ class _AnomalyAlertState:
             pulumi.set(__self__, "message", message)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if subscription_id is not None:
+            pulumi.set(__self__, "subscription_id", subscription_id)
 
     @property
     @pulumi.getter(name="displayName")
@@ -183,6 +203,18 @@ class _AnomalyAlertState:
     def name(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "name", value)
 
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        """
+        return pulumi.get(self, "subscription_id")
+
+    @subscription_id.setter
+    def subscription_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "subscription_id", value)
+
 
 class AnomalyAlert(pulumi.CustomResource):
     @overload
@@ -194,9 +226,12 @@ class AnomalyAlert(pulumi.CustomResource):
                  email_subject: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         """
         Manages a Cost Anomaly Alert.
+
+        > **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
 
         ## Example Usage
 
@@ -207,7 +242,8 @@ class AnomalyAlert(pulumi.CustomResource):
         example = azure.costmanagement.AnomalyAlert("example",
             display_name="Alert DisplayName",
             email_addresses=["example@test.net"],
-            email_subject="My Test Anomaly Alert")
+            email_subject="My Test Anomaly Alert",
+            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import
@@ -225,6 +261,7 @@ class AnomalyAlert(pulumi.CustomResource):
         :param pulumi.Input[str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         ...
     @overload
@@ -235,6 +272,8 @@ class AnomalyAlert(pulumi.CustomResource):
         """
         Manages a Cost Anomaly Alert.
 
+        > **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+
         ## Example Usage
 
         ```python
@@ -244,7 +283,8 @@ class AnomalyAlert(pulumi.CustomResource):
         example = azure.costmanagement.AnomalyAlert("example",
             display_name="Alert DisplayName",
             email_addresses=["example@test.net"],
-            email_subject="My Test Anomaly Alert")
+            email_subject="My Test Anomaly Alert",
+            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000")
         ```
 
         ## Import
@@ -275,6 +315,7 @@ class AnomalyAlert(pulumi.CustomResource):
                  email_subject: Optional[pulumi.Input[str]] = None,
                  message: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 subscription_id: Optional[pulumi.Input[str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -295,6 +336,7 @@ class AnomalyAlert(pulumi.CustomResource):
             __props__.__dict__["email_subject"] = email_subject
             __props__.__dict__["message"] = message
             __props__.__dict__["name"] = name
+            __props__.__dict__["subscription_id"] = subscription_id
         super(AnomalyAlert, __self__).__init__(
             'azure:costmanagement/anomalyAlert:AnomalyAlert',
             resource_name,
@@ -309,7 +351,8 @@ class AnomalyAlert(pulumi.CustomResource):
             email_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
             email_subject: Optional[pulumi.Input[str]] = None,
             message: Optional[pulumi.Input[str]] = None,
-            name: Optional[pulumi.Input[str]] = None) -> 'AnomalyAlert':
+            name: Optional[pulumi.Input[str]] = None,
+            subscription_id: Optional[pulumi.Input[str]] = None) -> 'AnomalyAlert':
         """
         Get an existing AnomalyAlert resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -322,6 +365,7 @@ class AnomalyAlert(pulumi.CustomResource):
         :param pulumi.Input[str] email_subject: The email subject of the Cost Anomaly Alerts. Maximum length of the subject is 70.
         :param pulumi.Input[str] message: The message of the Cost Anomaly Alert. Maximum length of the message is 250.
         :param pulumi.Input[str] name: The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
+        :param pulumi.Input[str] subscription_id: The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -332,6 +376,7 @@ class AnomalyAlert(pulumi.CustomResource):
         __props__.__dict__["email_subject"] = email_subject
         __props__.__dict__["message"] = message
         __props__.__dict__["name"] = name
+        __props__.__dict__["subscription_id"] = subscription_id
         return AnomalyAlert(resource_name, opts=opts, __props__=__props__)
 
     @property
@@ -373,4 +418,12 @@ class AnomalyAlert(pulumi.CustomResource):
         The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="subscriptionId")
+    def subscription_id(self) -> pulumi.Output[str]:
+        """
+        The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        """
+        return pulumi.get(self, "subscription_id")
 

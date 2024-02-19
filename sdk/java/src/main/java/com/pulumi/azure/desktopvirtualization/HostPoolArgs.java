@@ -255,6 +255,21 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.validateEnvironment);
     }
 
+    /**
+     * A VM template for session hosts configuration within hostpool. This is a JSON string.
+     * 
+     */
+    @Import(name="vmTemplate")
+    private @Nullable Output<String> vmTemplate;
+
+    /**
+     * @return A VM template for session hosts configuration within hostpool. This is a JSON string.
+     * 
+     */
+    public Optional<Output<String>> vmTemplate() {
+        return Optional.ofNullable(this.vmTemplate);
+    }
+
     private HostPoolArgs() {}
 
     private HostPoolArgs(HostPoolArgs $) {
@@ -273,6 +288,7 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
         this.tags = $.tags;
         this.type = $.type;
         this.validateEnvironment = $.validateEnvironment;
+        this.vmTemplate = $.vmTemplate;
     }
 
     public static Builder builder() {
@@ -616,6 +632,27 @@ public final class HostPoolArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder validateEnvironment(Boolean validateEnvironment) {
             return validateEnvironment(Output.of(validateEnvironment));
+        }
+
+        /**
+         * @param vmTemplate A VM template for session hosts configuration within hostpool. This is a JSON string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vmTemplate(@Nullable Output<String> vmTemplate) {
+            $.vmTemplate = vmTemplate;
+            return this;
+        }
+
+        /**
+         * @param vmTemplate A VM template for session hosts configuration within hostpool. This is a JSON string.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder vmTemplate(String vmTemplate) {
+            return vmTemplate(Output.of(vmTemplate));
         }
 
         public HostPoolArgs build() {

@@ -50,7 +50,7 @@ public final class AccountConsistencyPolicyArgs extends com.pulumi.resources.Res
     /**
      * When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
      * 
-     * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+     * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
      * 
      */
     @Import(name="maxStalenessPrefix")
@@ -59,7 +59,7 @@ public final class AccountConsistencyPolicyArgs extends com.pulumi.resources.Res
     /**
      * @return When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
      * 
-     * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+     * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
      * 
      */
     public Optional<Output<Integer>> maxStalenessPrefix() {
@@ -137,7 +137,7 @@ public final class AccountConsistencyPolicyArgs extends com.pulumi.resources.Res
         /**
          * @param maxStalenessPrefix When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
          * 
-         * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+         * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
          * 
          * @return builder
          * 
@@ -150,7 +150,7 @@ public final class AccountConsistencyPolicyArgs extends com.pulumi.resources.Res
         /**
          * @param maxStalenessPrefix When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
          * 
-         * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+         * &gt; **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
          * 
          * @return builder
          * 

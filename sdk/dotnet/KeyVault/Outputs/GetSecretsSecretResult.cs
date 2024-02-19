@@ -25,6 +25,10 @@ namespace Pulumi.Azure.KeyVault.Outputs
         /// The name of secret.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tags of this secret.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetSecretsSecretResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Azure.KeyVault.Outputs
 
             string id,
 
-            string name)
+            string name,
+
+            ImmutableDictionary<string, string> tags)
         {
             Enabled = enabled;
             Id = id;
             Name = name;
+            Tags = tags;
         }
     }
 }

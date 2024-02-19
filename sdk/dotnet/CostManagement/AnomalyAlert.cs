@@ -12,6 +12,8 @@ namespace Pulumi.Azure.CostManagement
     /// <summary>
     /// Manages a Cost Anomaly Alert.
     /// 
+    /// &gt; **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -30,6 +32,7 @@ namespace Pulumi.Azure.CostManagement
     ///             "example@test.net",
     ///         },
     ///         EmailSubject = "My Test Anomaly Alert",
+    ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
     /// });
@@ -75,6 +78,12 @@ namespace Pulumi.Azure.CostManagement
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        /// <summary>
+        /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        /// </summary>
+        [Output("subscriptionId")]
+        public Output<string> SubscriptionId { get; private set; } = null!;
 
 
         /// <summary>
@@ -158,6 +167,12 @@ namespace Pulumi.Azure.CostManagement
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
+
         public AnomalyAlertArgs()
         {
         }
@@ -201,6 +216,12 @@ namespace Pulumi.Azure.CostManagement
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+        /// </summary>
+        [Input("subscriptionId")]
+        public Input<string>? SubscriptionId { get; set; }
 
         public AnomalyAlertState()
         {

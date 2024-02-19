@@ -88,10 +88,14 @@ class AccountBackupArgs:
                  retention_in_hours: Optional[pulumi.Input[int]] = None,
                  storage_redundancy: Optional[pulumi.Input[str]] = None):
         """
-        :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
-        :param pulumi.Input[int] interval_in_minutes: The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
-        :param pulumi.Input[int] retention_in_hours: The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
-        :param pulumi.Input[str] storage_redundancy: The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        :param pulumi.Input[str] type: The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+               
+               > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+        :param pulumi.Input[int] interval_in_minutes: The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
+        :param pulumi.Input[int] retention_in_hours: The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
+        :param pulumi.Input[str] storage_redundancy: The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+               
+               > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
         """
         pulumi.set(__self__, "type", type)
         if interval_in_minutes is not None:
@@ -105,7 +109,9 @@ class AccountBackupArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[str]:
         """
-        The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+        The type of the `backup`. Possible values are `Continuous` and `Periodic`. 
+
+        > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
         """
         return pulumi.get(self, "type")
 
@@ -117,7 +123,7 @@ class AccountBackupArgs:
     @pulumi.getter(name="intervalInMinutes")
     def interval_in_minutes(self) -> Optional[pulumi.Input[int]]:
         """
-        The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+        The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
         """
         return pulumi.get(self, "interval_in_minutes")
 
@@ -129,7 +135,7 @@ class AccountBackupArgs:
     @pulumi.getter(name="retentionInHours")
     def retention_in_hours(self) -> Optional[pulumi.Input[int]]:
         """
-        The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+        The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
         """
         return pulumi.get(self, "retention_in_hours")
 
@@ -141,7 +147,9 @@ class AccountBackupArgs:
     @pulumi.getter(name="storageRedundancy")
     def storage_redundancy(self) -> Optional[pulumi.Input[str]]:
         """
-        The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+        The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+
+        > **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
         """
         return pulumi.get(self, "storage_redundancy")
 
@@ -205,7 +213,7 @@ class AccountConsistencyPolicyArgs:
         :param pulumi.Input[int] max_interval_in_seconds: When used with the Bounded Staleness consistency level, this value represents the time amount of staleness (in seconds) tolerated. The accepted range for this value is `5` - `86400` (1 day). Defaults to `5`. Required when `consistency_level` is set to `BoundedStaleness`.
         :param pulumi.Input[int] max_staleness_prefix: When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
                
-               > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+               > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
         """
         pulumi.set(__self__, "consistency_level", consistency_level)
         if max_interval_in_seconds is not None:
@@ -243,7 +251,7 @@ class AccountConsistencyPolicyArgs:
         """
         When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistency_level` is set to `BoundedStaleness`.
 
-        > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to custom values when `consistency_level` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+        > **Note:** `max_interval_in_seconds` and `max_staleness_prefix` can only be set to values other than default when the `consistency_level` is set to `BoundedStaleness`.
         """
         return pulumi.get(self, "max_staleness_prefix")
 
@@ -486,7 +494,7 @@ class AccountRestoreArgs:
         :param pulumi.Input[str] restore_timestamp_in_utc: The creation time of the database or the collection (Datetime Format `RFC 3339`). Changing this forces a new resource to be created.
         :param pulumi.Input[str] source_cosmosdb_account_id: The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
                
-               > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
+               > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreDatabaseArgs']]] databases: A `database` block as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input['AccountRestoreGremlinDatabaseArgs']]] gremlin_databases: One or more `gremlin_database` blocks as defined below. Changing this forces a new resource to be created.
         :param pulumi.Input[Sequence[pulumi.Input[str]]] tables_to_restores: A list of specific tables available for restore. Changing this forces a new resource to be created.
@@ -518,7 +526,7 @@ class AccountRestoreArgs:
         """
         The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 
-        > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
+        > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb_get_restorable_database_accounts`.
         """
         return pulumi.get(self, "source_cosmosdb_account_id")
 

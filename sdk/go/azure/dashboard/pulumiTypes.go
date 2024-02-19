@@ -304,6 +304,280 @@ func (o GrafanaIdentityPtrOutput) Type() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
+type GrafanaSmtp struct {
+	// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+	Enabled *bool `pulumi:"enabled"`
+	// Address used when sending emails.
+	FromAddress string `pulumi:"fromAddress"`
+	// Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+	FromName *string `pulumi:"fromName"`
+	// SMTP server hostname with port, e.g. test.email.net:587
+	Host string `pulumi:"host"`
+	// Password of SMTP authentication.
+	// *
+	Password string `pulumi:"password"`
+	// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+	StartTlsPolicy string `pulumi:"startTlsPolicy"`
+	// User of SMTP authentication.
+	User string `pulumi:"user"`
+	// Whether verify SSL for SMTP server. Defaults to `false`.
+	VerificationSkipEnabled *bool `pulumi:"verificationSkipEnabled"`
+}
+
+// GrafanaSmtpInput is an input type that accepts GrafanaSmtpArgs and GrafanaSmtpOutput values.
+// You can construct a concrete instance of `GrafanaSmtpInput` via:
+//
+//	GrafanaSmtpArgs{...}
+type GrafanaSmtpInput interface {
+	pulumi.Input
+
+	ToGrafanaSmtpOutput() GrafanaSmtpOutput
+	ToGrafanaSmtpOutputWithContext(context.Context) GrafanaSmtpOutput
+}
+
+type GrafanaSmtpArgs struct {
+	// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+	Enabled pulumi.BoolPtrInput `pulumi:"enabled"`
+	// Address used when sending emails.
+	FromAddress pulumi.StringInput `pulumi:"fromAddress"`
+	// Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+	FromName pulumi.StringPtrInput `pulumi:"fromName"`
+	// SMTP server hostname with port, e.g. test.email.net:587
+	Host pulumi.StringInput `pulumi:"host"`
+	// Password of SMTP authentication.
+	// *
+	Password pulumi.StringInput `pulumi:"password"`
+	// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+	StartTlsPolicy pulumi.StringInput `pulumi:"startTlsPolicy"`
+	// User of SMTP authentication.
+	User pulumi.StringInput `pulumi:"user"`
+	// Whether verify SSL for SMTP server. Defaults to `false`.
+	VerificationSkipEnabled pulumi.BoolPtrInput `pulumi:"verificationSkipEnabled"`
+}
+
+func (GrafanaSmtpArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaSmtp)(nil)).Elem()
+}
+
+func (i GrafanaSmtpArgs) ToGrafanaSmtpOutput() GrafanaSmtpOutput {
+	return i.ToGrafanaSmtpOutputWithContext(context.Background())
+}
+
+func (i GrafanaSmtpArgs) ToGrafanaSmtpOutputWithContext(ctx context.Context) GrafanaSmtpOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaSmtpOutput)
+}
+
+func (i GrafanaSmtpArgs) ToGrafanaSmtpPtrOutput() GrafanaSmtpPtrOutput {
+	return i.ToGrafanaSmtpPtrOutputWithContext(context.Background())
+}
+
+func (i GrafanaSmtpArgs) ToGrafanaSmtpPtrOutputWithContext(ctx context.Context) GrafanaSmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaSmtpOutput).ToGrafanaSmtpPtrOutputWithContext(ctx)
+}
+
+// GrafanaSmtpPtrInput is an input type that accepts GrafanaSmtpArgs, GrafanaSmtpPtr and GrafanaSmtpPtrOutput values.
+// You can construct a concrete instance of `GrafanaSmtpPtrInput` via:
+//
+//	        GrafanaSmtpArgs{...}
+//
+//	or:
+//
+//	        nil
+type GrafanaSmtpPtrInput interface {
+	pulumi.Input
+
+	ToGrafanaSmtpPtrOutput() GrafanaSmtpPtrOutput
+	ToGrafanaSmtpPtrOutputWithContext(context.Context) GrafanaSmtpPtrOutput
+}
+
+type grafanaSmtpPtrType GrafanaSmtpArgs
+
+func GrafanaSmtpPtr(v *GrafanaSmtpArgs) GrafanaSmtpPtrInput {
+	return (*grafanaSmtpPtrType)(v)
+}
+
+func (*grafanaSmtpPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrafanaSmtp)(nil)).Elem()
+}
+
+func (i *grafanaSmtpPtrType) ToGrafanaSmtpPtrOutput() GrafanaSmtpPtrOutput {
+	return i.ToGrafanaSmtpPtrOutputWithContext(context.Background())
+}
+
+func (i *grafanaSmtpPtrType) ToGrafanaSmtpPtrOutputWithContext(ctx context.Context) GrafanaSmtpPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GrafanaSmtpPtrOutput)
+}
+
+type GrafanaSmtpOutput struct{ *pulumi.OutputState }
+
+func (GrafanaSmtpOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GrafanaSmtp)(nil)).Elem()
+}
+
+func (o GrafanaSmtpOutput) ToGrafanaSmtpOutput() GrafanaSmtpOutput {
+	return o
+}
+
+func (o GrafanaSmtpOutput) ToGrafanaSmtpOutputWithContext(ctx context.Context) GrafanaSmtpOutput {
+	return o
+}
+
+func (o GrafanaSmtpOutput) ToGrafanaSmtpPtrOutput() GrafanaSmtpPtrOutput {
+	return o.ToGrafanaSmtpPtrOutputWithContext(context.Background())
+}
+
+func (o GrafanaSmtpOutput) ToGrafanaSmtpPtrOutputWithContext(ctx context.Context) GrafanaSmtpPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v GrafanaSmtp) *GrafanaSmtp {
+		return &v
+	}).(GrafanaSmtpPtrOutput)
+}
+
+// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+func (o GrafanaSmtpOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GrafanaSmtp) *bool { return v.Enabled }).(pulumi.BoolPtrOutput)
+}
+
+// Address used when sending emails.
+func (o GrafanaSmtpOutput) FromAddress() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaSmtp) string { return v.FromAddress }).(pulumi.StringOutput)
+}
+
+// Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+func (o GrafanaSmtpOutput) FromName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GrafanaSmtp) *string { return v.FromName }).(pulumi.StringPtrOutput)
+}
+
+// SMTP server hostname with port, e.g. test.email.net:587
+func (o GrafanaSmtpOutput) Host() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaSmtp) string { return v.Host }).(pulumi.StringOutput)
+}
+
+// Password of SMTP authentication.
+// *
+func (o GrafanaSmtpOutput) Password() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaSmtp) string { return v.Password }).(pulumi.StringOutput)
+}
+
+// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+func (o GrafanaSmtpOutput) StartTlsPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaSmtp) string { return v.StartTlsPolicy }).(pulumi.StringOutput)
+}
+
+// User of SMTP authentication.
+func (o GrafanaSmtpOutput) User() pulumi.StringOutput {
+	return o.ApplyT(func(v GrafanaSmtp) string { return v.User }).(pulumi.StringOutput)
+}
+
+// Whether verify SSL for SMTP server. Defaults to `false`.
+func (o GrafanaSmtpOutput) VerificationSkipEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v GrafanaSmtp) *bool { return v.VerificationSkipEnabled }).(pulumi.BoolPtrOutput)
+}
+
+type GrafanaSmtpPtrOutput struct{ *pulumi.OutputState }
+
+func (GrafanaSmtpPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**GrafanaSmtp)(nil)).Elem()
+}
+
+func (o GrafanaSmtpPtrOutput) ToGrafanaSmtpPtrOutput() GrafanaSmtpPtrOutput {
+	return o
+}
+
+func (o GrafanaSmtpPtrOutput) ToGrafanaSmtpPtrOutputWithContext(ctx context.Context) GrafanaSmtpPtrOutput {
+	return o
+}
+
+func (o GrafanaSmtpPtrOutput) Elem() GrafanaSmtpOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) GrafanaSmtp {
+		if v != nil {
+			return *v
+		}
+		var ret GrafanaSmtp
+		return ret
+	}).(GrafanaSmtpOutput)
+}
+
+// Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+func (o GrafanaSmtpPtrOutput) Enabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.Enabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Address used when sending emails.
+func (o GrafanaSmtpPtrOutput) FromAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.FromAddress
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+func (o GrafanaSmtpPtrOutput) FromName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FromName
+	}).(pulumi.StringPtrOutput)
+}
+
+// SMTP server hostname with port, e.g. test.email.net:587
+func (o GrafanaSmtpPtrOutput) Host() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Host
+	}).(pulumi.StringPtrOutput)
+}
+
+// Password of SMTP authentication.
+// *
+func (o GrafanaSmtpPtrOutput) Password() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Password
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+func (o GrafanaSmtpPtrOutput) StartTlsPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.StartTlsPolicy
+	}).(pulumi.StringPtrOutput)
+}
+
+// User of SMTP authentication.
+func (o GrafanaSmtpPtrOutput) User() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.User
+	}).(pulumi.StringPtrOutput)
+}
+
+// Whether verify SSL for SMTP server. Defaults to `false`.
+func (o GrafanaSmtpPtrOutput) VerificationSkipEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *GrafanaSmtp) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerificationSkipEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
 type GetGrafanaAzureMonitorWorkspaceIntegration struct {
 	ResourceId string `pulumi:"resourceId"`
 }
@@ -581,6 +855,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaAzureMonitorWorkspaceIntegrationArrayInput)(nil)).Elem(), GrafanaAzureMonitorWorkspaceIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityInput)(nil)).Elem(), GrafanaIdentityArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaIdentityPtrInput)(nil)).Elem(), GrafanaIdentityArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaSmtpInput)(nil)).Elem(), GrafanaSmtpArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GrafanaSmtpPtrInput)(nil)).Elem(), GrafanaSmtpArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegrationInput)(nil)).Elem(), GetGrafanaAzureMonitorWorkspaceIntegrationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaAzureMonitorWorkspaceIntegrationArrayInput)(nil)).Elem(), GetGrafanaAzureMonitorWorkspaceIntegrationArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetGrafanaIdentityInput)(nil)).Elem(), GetGrafanaIdentityArgs{})
@@ -589,6 +865,8 @@ func init() {
 	pulumi.RegisterOutputType(GrafanaAzureMonitorWorkspaceIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityOutput{})
 	pulumi.RegisterOutputType(GrafanaIdentityPtrOutput{})
+	pulumi.RegisterOutputType(GrafanaSmtpOutput{})
+	pulumi.RegisterOutputType(GrafanaSmtpPtrOutput{})
 	pulumi.RegisterOutputType(GetGrafanaAzureMonitorWorkspaceIntegrationOutput{})
 	pulumi.RegisterOutputType(GetGrafanaAzureMonitorWorkspaceIntegrationArrayOutput{})
 	pulumi.RegisterOutputType(GetGrafanaIdentityOutput{})

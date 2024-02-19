@@ -78,6 +78,12 @@ export class Environment extends pulumi.CustomResource {
      */
     public /*out*/ readonly dockerBridgeCidr!: pulumi.Output<string>;
     /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+     */
+    public readonly infrastructureResourceGroupName!: pulumi.Output<string>;
+    /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
      * > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -148,6 +154,7 @@ export class Environment extends pulumi.CustomResource {
             resourceInputs["daprApplicationInsightsConnectionString"] = state ? state.daprApplicationInsightsConnectionString : undefined;
             resourceInputs["defaultDomain"] = state ? state.defaultDomain : undefined;
             resourceInputs["dockerBridgeCidr"] = state ? state.dockerBridgeCidr : undefined;
+            resourceInputs["infrastructureResourceGroupName"] = state ? state.infrastructureResourceGroupName : undefined;
             resourceInputs["infrastructureSubnetId"] = state ? state.infrastructureSubnetId : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = state ? state.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = state ? state.location : undefined;
@@ -166,6 +173,7 @@ export class Environment extends pulumi.CustomResource {
                 throw new Error("Missing required property 'resourceGroupName'");
             }
             resourceInputs["daprApplicationInsightsConnectionString"] = args?.daprApplicationInsightsConnectionString ? pulumi.secret(args.daprApplicationInsightsConnectionString) : undefined;
+            resourceInputs["infrastructureResourceGroupName"] = args ? args.infrastructureResourceGroupName : undefined;
             resourceInputs["infrastructureSubnetId"] = args ? args.infrastructureSubnetId : undefined;
             resourceInputs["internalLoadBalancerEnabled"] = args ? args.internalLoadBalancerEnabled : undefined;
             resourceInputs["location"] = args ? args.location : undefined;
@@ -204,6 +212,12 @@ export interface EnvironmentState {
      * The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
      */
     dockerBridgeCidr?: pulumi.Input<string>;
+    /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+     */
+    infrastructureResourceGroupName?: pulumi.Input<string>;
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *
@@ -268,6 +282,12 @@ export interface EnvironmentArgs {
      * Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
      */
     daprApplicationInsightsConnectionString?: pulumi.Input<string>;
+    /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     *
+     * > **Note:** Only valid if a `workloadProfile` is specified. If `infrastructureSubnetId` is specified, this resource group will be created in the same subscription as `infrastructureSubnetId`.
+     */
+    infrastructureResourceGroupName?: pulumi.Input<string>;
     /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
      *

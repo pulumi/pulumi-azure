@@ -143,6 +143,12 @@ namespace Pulumi.Azure.Dashboard
         public Output<string?> Sku { get; private set; } = null!;
 
         /// <summary>
+        /// A `smtp` block as defined below.
+        /// </summary>
+        [Output("smtp")]
+        public Output<Outputs.GrafanaSmtp?> Smtp { get; private set; } = null!;
+
+        /// <summary>
         /// A mapping of tags which should be assigned to the Dashboard Grafana.
         /// </summary>
         [Output("tags")]
@@ -272,6 +278,12 @@ namespace Pulumi.Azure.Dashboard
         [Input("sku")]
         public Input<string>? Sku { get; set; }
 
+        /// <summary>
+        /// A `smtp` block as defined below.
+        /// </summary>
+        [Input("smtp")]
+        public Input<Inputs.GrafanaSmtpArgs>? Smtp { get; set; }
+
         [Input("tags")]
         private InputMap<string>? _tags;
 
@@ -393,6 +405,12 @@ namespace Pulumi.Azure.Dashboard
         /// </summary>
         [Input("sku")]
         public Input<string>? Sku { get; set; }
+
+        /// <summary>
+        /// A `smtp` block as defined below.
+        /// </summary>
+        [Input("smtp")]
+        public Input<Inputs.GrafanaSmtpGetArgs>? Smtp { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

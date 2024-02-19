@@ -12,50 +12,50 @@ import java.util.Objects;
 @CustomType
 public final class GetAccessConnectorIdentity {
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Access Connector.
      * 
      */
     private List<String> identityIds;
     /**
-     * @return The ID of the TODO.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     private String principalId;
     /**
-     * @return The ID of the TODO.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     private String tenantId;
     /**
-     * @return TODO.
+     * @return The type of Managed Service Identity that is configured on this Access Connector.
      * 
      */
     private String type;
 
     private GetAccessConnectorIdentity() {}
     /**
-     * @return A `identity_ids` block as defined below.
+     * @return The list of User Assigned Managed Identity IDs assigned to this Access Connector.
      * 
      */
     public List<String> identityIds() {
         return this.identityIds;
     }
     /**
-     * @return The ID of the TODO.
+     * @return The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public String principalId() {
         return this.principalId;
     }
     /**
-     * @return The ID of the TODO.
+     * @return The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public String tenantId() {
         return this.tenantId;
     }
     /**
-     * @return TODO.
+     * @return The type of Managed Service Identity that is configured on this Access Connector.
      * 
      */
     public String type() {

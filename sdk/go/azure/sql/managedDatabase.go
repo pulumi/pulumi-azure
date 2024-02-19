@@ -93,7 +93,7 @@ type ManagedDatabase struct {
 
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringOutput `pulumi:"location"`
-	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+	// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
 	SqlManagedInstanceId pulumi.StringOutput `pulumi:"sqlManagedInstanceId"`
@@ -134,7 +134,7 @@ func GetManagedDatabase(ctx *pulumi.Context,
 type managedDatabaseState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+	// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
 	SqlManagedInstanceId *string `pulumi:"sqlManagedInstanceId"`
@@ -143,7 +143,7 @@ type managedDatabaseState struct {
 type ManagedDatabaseState struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+	// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
 	SqlManagedInstanceId pulumi.StringPtrInput
@@ -156,7 +156,7 @@ func (ManagedDatabaseState) ElementType() reflect.Type {
 type managedDatabaseArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location *string `pulumi:"location"`
-	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+	// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 	Name *string `pulumi:"name"`
 	// The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
 	SqlManagedInstanceId string `pulumi:"sqlManagedInstanceId"`
@@ -166,7 +166,7 @@ type managedDatabaseArgs struct {
 type ManagedDatabaseArgs struct {
 	// Specifies the supported Azure location where the resource exists. Changing this forces a new resource to be created.
 	Location pulumi.StringPtrInput
-	// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+	// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 	Name pulumi.StringPtrInput
 	// The SQL Managed Instance ID that this Managed Database will be associated with. Changing this forces a new resource to be created.
 	SqlManagedInstanceId pulumi.StringInput
@@ -264,7 +264,7 @@ func (o ManagedDatabaseOutput) Location() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Location }).(pulumi.StringOutput)
 }
 
-// The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+// The name of the SQL Managed Database. Changing this forces a new resource to be created.
 func (o ManagedDatabaseOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ManagedDatabase) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }

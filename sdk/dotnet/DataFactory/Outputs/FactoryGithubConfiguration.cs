@@ -24,7 +24,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
         /// <summary>
         /// Specifies the GitHub Enterprise host name. For example: &lt;https://github.mydomain.com&gt;. Use &lt;https://github.com&gt; for open source repositories.
         /// </summary>
-        public readonly string GitUrl;
+        public readonly string? GitUrl;
         /// <summary>
         /// Is automated publishing enabled? Defaults to `true`.
         /// 
@@ -46,7 +46,7 @@ namespace Pulumi.Azure.DataFactory.Outputs
 
             string branchName,
 
-            string gitUrl,
+            string? gitUrl,
 
             bool? publishingEnabled,
 

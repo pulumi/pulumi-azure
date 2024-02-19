@@ -14,14 +14,21 @@ namespace Pulumi.Azure.KeyVault.Outputs
     public sealed class GetCertificatesCertificateResult
     {
         /// <summary>
-        /// Whether this secret is enabled.
+        /// Whether this certificate is enabled.
         /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The ID of this certificate.
+        /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The name of secret.
+        /// The name of certificate.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The tags of this certificate.
+        /// </summary>
+        public readonly ImmutableDictionary<string, string> Tags;
 
         [OutputConstructor]
         private GetCertificatesCertificateResult(
@@ -29,11 +36,14 @@ namespace Pulumi.Azure.KeyVault.Outputs
 
             string id,
 
-            string name)
+            string name,
+
+            ImmutableDictionary<string, string> tags)
         {
             Enabled = enabled;
             Id = id;
             Name = name;
+            Tags = tags;
         }
     }
 }

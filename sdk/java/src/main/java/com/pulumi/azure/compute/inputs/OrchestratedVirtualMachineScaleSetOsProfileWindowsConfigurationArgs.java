@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.inputs;
 
+import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecretArgs;
 import com.pulumi.azure.compute.inputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListenerArgs;
 import com.pulumi.core.Output;
@@ -19,6 +20,21 @@ import javax.annotation.Nullable;
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs Empty = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs();
+
+    /**
+     * One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    @Import(name="additionalUnattendContents")
+    private @Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>> additionalUnattendContents;
+
+    /**
+     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public Optional<Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>>> additionalUnattendContents() {
+        return Optional.ofNullable(this.additionalUnattendContents);
+    }
 
     /**
      * The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
@@ -200,6 +216,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs() {}
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs $) {
+        this.additionalUnattendContents = $.additionalUnattendContents;
         this.adminPassword = $.adminPassword;
         this.adminUsername = $.adminUsername;
         this.computerNamePrefix = $.computerNamePrefix;
@@ -229,6 +246,37 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
 
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs defaults) {
             $ = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalUnattendContents(@Nullable Output<List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs>> additionalUnattendContents) {
+            $.additionalUnattendContents = additionalUnattendContents;
+            return this;
+        }
+
+        /**
+         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalUnattendContents(List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs> additionalUnattendContents) {
+            return additionalUnattendContents(Output.of(additionalUnattendContents));
+        }
+
+        /**
+         * @param additionalUnattendContents One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder additionalUnattendContents(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContentArgs... additionalUnattendContents) {
+            return additionalUnattendContents(List.of(additionalUnattendContents));
         }
 
         /**

@@ -18,14 +18,14 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     public static final AccountBackupArgs Empty = new AccountBackupArgs();
 
     /**
-     * The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+     * The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
      * 
      */
     @Import(name="intervalInMinutes")
     private @Nullable Output<Integer> intervalInMinutes;
 
     /**
-     * @return The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+     * @return The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
      * 
      */
     public Optional<Output<Integer>> intervalInMinutes() {
@@ -33,14 +33,14 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+     * The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
      * 
      */
     @Import(name="retentionInHours")
     private @Nullable Output<Integer> retentionInHours;
 
     /**
-     * @return The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+     * @return The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
      * 
      */
     public Optional<Output<Integer>> retentionInHours() {
@@ -48,14 +48,18 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * 
+     * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
      * 
      */
     @Import(name="storageRedundancy")
     private @Nullable Output<String> storageRedundancy;
 
     /**
-     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * 
+     * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
      * 
      */
     public Optional<Output<String>> storageRedundancy() {
@@ -63,14 +67,18 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+     * 
+     * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     @Import(name="type", required=true)
     private Output<String> type;
 
     /**
-     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+     * 
+     * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     public Output<String> type() {
@@ -105,7 +113,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param intervalInMinutes The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         * @param intervalInMinutes The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
          * 
          * @return builder
          * 
@@ -116,7 +124,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param intervalInMinutes The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+         * @param intervalInMinutes The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
          * 
          * @return builder
          * 
@@ -126,7 +134,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionInHours The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         * @param retentionInHours The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
          * 
          * @return builder
          * 
@@ -137,7 +145,7 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param retentionInHours The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+         * @param retentionInHours The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
          * 
          * @return builder
          * 
@@ -147,7 +155,9 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         * 
+         * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
          * 
          * @return builder
          * 
@@ -158,7 +168,9 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+         * @param storageRedundancy The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+         * 
+         * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
          * 
          * @return builder
          * 
@@ -168,7 +180,9 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+         * @param type The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+         * 
+         * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -179,7 +193,9 @@ public final class AccountBackupArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+         * @param type The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+         * 
+         * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
          * 
          * @return builder
          * 

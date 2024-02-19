@@ -7,6 +7,8 @@ import * as utilities from "../utilities";
 /**
  * Manages a Cost Anomaly Alert.
  *
+ * > **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+ *
  * ## Example Usage
  *
  * ```typescript
@@ -17,6 +19,7 @@ import * as utilities from "../utilities";
  *     displayName: "Alert DisplayName",
  *     emailAddresses: ["example@test.net"],
  *     emailSubject: "My Test Anomaly Alert",
+ *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",
  * });
  * ```
  *
@@ -76,6 +79,10 @@ export class AnomalyAlert extends pulumi.CustomResource {
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
     public readonly name!: pulumi.Output<string>;
+    /**
+     * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+     */
+    public readonly subscriptionId!: pulumi.Output<string>;
 
     /**
      * Create a AnomalyAlert resource with the given unique name, arguments, and options.
@@ -95,6 +102,7 @@ export class AnomalyAlert extends pulumi.CustomResource {
             resourceInputs["emailSubject"] = state ? state.emailSubject : undefined;
             resourceInputs["message"] = state ? state.message : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["subscriptionId"] = state ? state.subscriptionId : undefined;
         } else {
             const args = argsOrState as AnomalyAlertArgs | undefined;
             if ((!args || args.displayName === undefined) && !opts.urn) {
@@ -111,6 +119,7 @@ export class AnomalyAlert extends pulumi.CustomResource {
             resourceInputs["emailSubject"] = args ? args.emailSubject : undefined;
             resourceInputs["message"] = args ? args.message : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["subscriptionId"] = args ? args.subscriptionId : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(AnomalyAlert.__pulumiType, name, resourceInputs, opts);
@@ -141,6 +150,10 @@ export interface AnomalyAlertState {
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }
 
 /**
@@ -167,4 +180,8 @@ export interface AnomalyAlertArgs {
      * The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
      */
     name?: pulumi.Input<string>;
+    /**
+     * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+     */
+    subscriptionId?: pulumi.Input<string>;
 }

@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
+import java.util.Map;
 import java.util.Objects;
 
 @CustomType
@@ -26,6 +27,11 @@ public final class GetSecretsSecret {
      * 
      */
     private String name;
+    /**
+     * @return The tags of this secret.
+     * 
+     */
+    private Map<String,String> tags;
 
     private GetSecretsSecret() {}
     /**
@@ -49,6 +55,13 @@ public final class GetSecretsSecret {
     public String name() {
         return this.name;
     }
+    /**
+     * @return The tags of this secret.
+     * 
+     */
+    public Map<String,String> tags() {
+        return this.tags;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -62,12 +75,14 @@ public final class GetSecretsSecret {
         private Boolean enabled;
         private String id;
         private String name;
+        private Map<String,String> tags;
         public Builder() {}
         public Builder(GetSecretsSecret defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.enabled = defaults.enabled;
     	      this.id = defaults.id;
     	      this.name = defaults.name;
+    	      this.tags = defaults.tags;
         }
 
         @CustomType.Setter
@@ -94,11 +109,20 @@ public final class GetSecretsSecret {
             this.name = name;
             return this;
         }
+        @CustomType.Setter
+        public Builder tags(Map<String,String> tags) {
+            if (tags == null) {
+              throw new MissingRequiredPropertyException("GetSecretsSecret", "tags");
+            }
+            this.tags = tags;
+            return this;
+        }
         public GetSecretsSecret build() {
             final var _resultValue = new GetSecretsSecret();
             _resultValue.enabled = enabled;
             _resultValue.id = id;
             _resultValue.name = name;
+            _resultValue.tags = tags;
             return _resultValue;
         }
     }

@@ -122,6 +122,24 @@ public class Environment extends com.pulumi.resources.CustomResource {
         return this.dockerBridgeCidr;
     }
     /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * 
+     */
+    @Export(name="infrastructureResourceGroupName", refs={String.class}, tree="[0]")
+    private Output<String> infrastructureResourceGroupName;
+
+    /**
+     * @return Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * 
+     */
+    public Output<String> infrastructureResourceGroupName() {
+        return this.infrastructureResourceGroupName;
+    }
+    /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.

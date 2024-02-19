@@ -19,7 +19,7 @@ public final class LinuxWebAppSlotLogsApplicationLogs {
      */
     private @Nullable LinuxWebAppSlotLogsApplicationLogsAzureBlobStorage azureBlobStorage;
     /**
-     * @return Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+     * @return Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
      * 
      */
     private String fileSystemLevel;
@@ -33,7 +33,7 @@ public final class LinuxWebAppSlotLogsApplicationLogs {
         return Optional.ofNullable(this.azureBlobStorage);
     }
     /**
-     * @return Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+     * @return Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
      * 
      */
     public String fileSystemLevel() {

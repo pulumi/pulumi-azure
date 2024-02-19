@@ -65,6 +65,25 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * 
+     */
+    @Import(name="infrastructureResourceGroupName")
+    private @Nullable Output<String> infrastructureResourceGroupName;
+
+    /**
+     * @return Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+     * 
+     * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+     * 
+     */
+    public Optional<Output<String>> infrastructureResourceGroupName() {
+        return Optional.ofNullable(this.infrastructureResourceGroupName);
+    }
+
+    /**
      * The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created.
      * 
      * &gt; **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -262,6 +281,7 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
         this.daprApplicationInsightsConnectionString = $.daprApplicationInsightsConnectionString;
         this.defaultDomain = $.defaultDomain;
         this.dockerBridgeCidr = $.dockerBridgeCidr;
+        this.infrastructureResourceGroupName = $.infrastructureResourceGroupName;
         this.infrastructureSubnetId = $.infrastructureSubnetId;
         this.internalLoadBalancerEnabled = $.internalLoadBalancerEnabled;
         this.location = $.location;
@@ -355,6 +375,31 @@ public final class EnvironmentState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dockerBridgeCidr(String dockerBridgeCidr) {
             return dockerBridgeCidr(Output.of(dockerBridgeCidr));
+        }
+
+        /**
+         * @param infrastructureResourceGroupName Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureResourceGroupName(@Nullable Output<String> infrastructureResourceGroupName) {
+            $.infrastructureResourceGroupName = infrastructureResourceGroupName;
+            return this;
+        }
+
+        /**
+         * @param infrastructureResourceGroupName Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+         * 
+         * &gt; **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder infrastructureResourceGroupName(String infrastructureResourceGroupName) {
+            return infrastructureResourceGroupName(Output.of(infrastructureResourceGroupName));
         }
 
         /**

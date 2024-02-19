@@ -14,19 +14,19 @@ namespace Pulumi.Azure.DataBricks.Outputs
     public sealed class GetAccessConnectorIdentityResult
     {
         /// <summary>
-        /// A `identity_ids` block as defined below.
+        /// The list of User Assigned Managed Identity IDs assigned to this Access Connector.
         /// </summary>
         public readonly ImmutableArray<string> IdentityIds;
         /// <summary>
-        /// The ID of the TODO.
+        /// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         public readonly string PrincipalId;
         /// <summary>
-        /// The ID of the TODO.
+        /// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         public readonly string TenantId;
         /// <summary>
-        /// TODO.
+        /// The type of Managed Service Identity that is configured on this Access Connector.
         /// </summary>
         public readonly string Type;
 

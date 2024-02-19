@@ -15953,7 +15953,7 @@ class LinuxWebAppLogsApplicationLogsArgs:
                  file_system_level: pulumi.Input[str],
                  azure_blob_storage: Optional[pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
         """
-        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param pulumi.Input['LinuxWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -15964,7 +15964,7 @@ class LinuxWebAppLogsApplicationLogsArgs:
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> pulumi.Input[str]:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -20096,7 +20096,7 @@ class LinuxWebAppSlotLogsApplicationLogsArgs:
                  file_system_level: pulumi.Input[str],
                  azure_blob_storage: Optional[pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
         """
-        :param pulumi.Input[str] file_system_level: Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param pulumi.Input['LinuxWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -20107,7 +20107,7 @@ class LinuxWebAppSlotLogsApplicationLogsArgs:
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> pulumi.Input[str]:
         """
-        Log level. Possible values include `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -34117,7 +34117,7 @@ class WindowsWebAppLogsApplicationLogsArgs:
                  file_system_level: pulumi.Input[str],
                  azure_blob_storage: Optional[pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs']] = None):
         """
-        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param pulumi.Input['WindowsWebAppLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -34128,7 +34128,7 @@ class WindowsWebAppLogsApplicationLogsArgs:
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> pulumi.Input[str]:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 
@@ -38557,7 +38557,7 @@ class WindowsWebAppSlotLogsApplicationLogsArgs:
                  file_system_level: pulumi.Input[str],
                  azure_blob_storage: Optional[pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs']] = None):
         """
-        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        :param pulumi.Input[str] file_system_level: Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         :param pulumi.Input['WindowsWebAppSlotLogsApplicationLogsAzureBlobStorageArgs'] azure_blob_storage: An `azure_blob_storage` block as defined below.
         """
         pulumi.set(__self__, "file_system_level", file_system_level)
@@ -38568,7 +38568,7 @@ class WindowsWebAppSlotLogsApplicationLogsArgs:
     @pulumi.getter(name="fileSystemLevel")
     def file_system_level(self) -> pulumi.Input[str]:
         """
-        Log level. Possible values include: `Verbose`, `Information`, `Warning`, and `Error`.
+        Log level. Possible values include: `Off`, `Verbose`, `Information`, `Warning`, and `Error`.
         """
         return pulumi.get(self, "file_system_level")
 

@@ -95,6 +95,8 @@ type Grafana struct {
 	ResourceGroupName pulumi.StringOutput `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrOutput `pulumi:"sku"`
+	// A `smtp` block as defined below.
+	Smtp GrafanaSmtpPtrOutput `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -162,6 +164,8 @@ type grafanaState struct {
 	ResourceGroupName *string `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
+	// A `smtp` block as defined below.
+	Smtp *GrafanaSmtp `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -197,6 +201,8 @@ type GrafanaState struct {
 	ResourceGroupName pulumi.StringPtrInput
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
+	// A `smtp` block as defined below.
+	Smtp GrafanaSmtpPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapInput
 	// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -230,6 +236,8 @@ type grafanaArgs struct {
 	ResourceGroupName string `pulumi:"resourceGroupName"`
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku *string `pulumi:"sku"`
+	// A `smtp` block as defined below.
+	Smtp *GrafanaSmtp `pulumi:"smtp"`
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags map[string]string `pulumi:"tags"`
 	// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -260,6 +268,8 @@ type GrafanaArgs struct {
 	ResourceGroupName pulumi.StringInput
 	// The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 	Sku pulumi.StringPtrInput
+	// A `smtp` block as defined below.
+	Smtp GrafanaSmtpPtrInput
 	// A mapping of tags which should be assigned to the Dashboard Grafana.
 	Tags pulumi.StringMapInput
 	// Whether to enable the zone redundancy setting of the Grafana instance. Defaults to `false`. Changing this forces a new Dashboard Grafana to be created.
@@ -423,6 +433,11 @@ func (o GrafanaOutput) ResourceGroupName() pulumi.StringOutput {
 // The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
 func (o GrafanaOutput) Sku() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Grafana) pulumi.StringPtrOutput { return v.Sku }).(pulumi.StringPtrOutput)
+}
+
+// A `smtp` block as defined below.
+func (o GrafanaOutput) Smtp() GrafanaSmtpPtrOutput {
+	return o.ApplyT(func(v *Grafana) GrafanaSmtpPtrOutput { return v.Smtp }).(GrafanaSmtpPtrOutput)
 }
 
 // A mapping of tags which should be assigned to the Dashboard Grafana.

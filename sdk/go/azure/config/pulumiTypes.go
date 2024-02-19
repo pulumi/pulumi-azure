@@ -14,18 +14,19 @@ import (
 var _ = internal.GetEnvOrDefault
 
 type Features struct {
-	ApiManagement          *FeaturesApiManagement          `pulumi:"apiManagement"`
-	AppConfiguration       *FeaturesAppConfiguration       `pulumi:"appConfiguration"`
-	ApplicationInsights    *FeaturesApplicationInsights    `pulumi:"applicationInsights"`
-	CognitiveAccount       *FeaturesCognitiveAccount       `pulumi:"cognitiveAccount"`
-	KeyVault               *FeaturesKeyVault               `pulumi:"keyVault"`
-	LogAnalyticsWorkspace  *FeaturesLogAnalyticsWorkspace  `pulumi:"logAnalyticsWorkspace"`
-	ManagedDisk            *FeaturesManagedDisk            `pulumi:"managedDisk"`
-	ResourceGroup          *FeaturesResourceGroup          `pulumi:"resourceGroup"`
-	Subscription           *FeaturesSubscription           `pulumi:"subscription"`
-	TemplateDeployment     *FeaturesTemplateDeployment     `pulumi:"templateDeployment"`
-	VirtualMachine         *FeaturesVirtualMachine         `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet *FeaturesVirtualMachineScaleSet `pulumi:"virtualMachineScaleSet"`
+	ApiManagement            *FeaturesApiManagement            `pulumi:"apiManagement"`
+	AppConfiguration         *FeaturesAppConfiguration         `pulumi:"appConfiguration"`
+	ApplicationInsights      *FeaturesApplicationInsights      `pulumi:"applicationInsights"`
+	CognitiveAccount         *FeaturesCognitiveAccount         `pulumi:"cognitiveAccount"`
+	KeyVault                 *FeaturesKeyVault                 `pulumi:"keyVault"`
+	LogAnalyticsWorkspace    *FeaturesLogAnalyticsWorkspace    `pulumi:"logAnalyticsWorkspace"`
+	ManagedDisk              *FeaturesManagedDisk              `pulumi:"managedDisk"`
+	PostgresqlFlexibleServer *FeaturesPostgresqlFlexibleServer `pulumi:"postgresqlFlexibleServer"`
+	ResourceGroup            *FeaturesResourceGroup            `pulumi:"resourceGroup"`
+	Subscription             *FeaturesSubscription             `pulumi:"subscription"`
+	TemplateDeployment       *FeaturesTemplateDeployment       `pulumi:"templateDeployment"`
+	VirtualMachine           *FeaturesVirtualMachine           `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet   *FeaturesVirtualMachineScaleSet   `pulumi:"virtualMachineScaleSet"`
 }
 
 // FeaturesInput is an input type that accepts FeaturesArgs and FeaturesOutput values.
@@ -40,18 +41,19 @@ type FeaturesInput interface {
 }
 
 type FeaturesArgs struct {
-	ApiManagement          FeaturesApiManagementPtrInput          `pulumi:"apiManagement"`
-	AppConfiguration       FeaturesAppConfigurationPtrInput       `pulumi:"appConfiguration"`
-	ApplicationInsights    FeaturesApplicationInsightsPtrInput    `pulumi:"applicationInsights"`
-	CognitiveAccount       FeaturesCognitiveAccountPtrInput       `pulumi:"cognitiveAccount"`
-	KeyVault               FeaturesKeyVaultPtrInput               `pulumi:"keyVault"`
-	LogAnalyticsWorkspace  FeaturesLogAnalyticsWorkspacePtrInput  `pulumi:"logAnalyticsWorkspace"`
-	ManagedDisk            FeaturesManagedDiskPtrInput            `pulumi:"managedDisk"`
-	ResourceGroup          FeaturesResourceGroupPtrInput          `pulumi:"resourceGroup"`
-	Subscription           FeaturesSubscriptionPtrInput           `pulumi:"subscription"`
-	TemplateDeployment     FeaturesTemplateDeploymentPtrInput     `pulumi:"templateDeployment"`
-	VirtualMachine         FeaturesVirtualMachinePtrInput         `pulumi:"virtualMachine"`
-	VirtualMachineScaleSet FeaturesVirtualMachineScaleSetPtrInput `pulumi:"virtualMachineScaleSet"`
+	ApiManagement            FeaturesApiManagementPtrInput            `pulumi:"apiManagement"`
+	AppConfiguration         FeaturesAppConfigurationPtrInput         `pulumi:"appConfiguration"`
+	ApplicationInsights      FeaturesApplicationInsightsPtrInput      `pulumi:"applicationInsights"`
+	CognitiveAccount         FeaturesCognitiveAccountPtrInput         `pulumi:"cognitiveAccount"`
+	KeyVault                 FeaturesKeyVaultPtrInput                 `pulumi:"keyVault"`
+	LogAnalyticsWorkspace    FeaturesLogAnalyticsWorkspacePtrInput    `pulumi:"logAnalyticsWorkspace"`
+	ManagedDisk              FeaturesManagedDiskPtrInput              `pulumi:"managedDisk"`
+	PostgresqlFlexibleServer FeaturesPostgresqlFlexibleServerPtrInput `pulumi:"postgresqlFlexibleServer"`
+	ResourceGroup            FeaturesResourceGroupPtrInput            `pulumi:"resourceGroup"`
+	Subscription             FeaturesSubscriptionPtrInput             `pulumi:"subscription"`
+	TemplateDeployment       FeaturesTemplateDeploymentPtrInput       `pulumi:"templateDeployment"`
+	VirtualMachine           FeaturesVirtualMachinePtrInput           `pulumi:"virtualMachine"`
+	VirtualMachineScaleSet   FeaturesVirtualMachineScaleSetPtrInput   `pulumi:"virtualMachineScaleSet"`
 }
 
 func (FeaturesArgs) ElementType() reflect.Type {
@@ -106,6 +108,10 @@ func (o FeaturesOutput) LogAnalyticsWorkspace() FeaturesLogAnalyticsWorkspacePtr
 
 func (o FeaturesOutput) ManagedDisk() FeaturesManagedDiskPtrOutput {
 	return o.ApplyT(func(v Features) *FeaturesManagedDisk { return v.ManagedDisk }).(FeaturesManagedDiskPtrOutput)
+}
+
+func (o FeaturesOutput) PostgresqlFlexibleServer() FeaturesPostgresqlFlexibleServerPtrOutput {
+	return o.ApplyT(func(v Features) *FeaturesPostgresqlFlexibleServer { return v.PostgresqlFlexibleServer }).(FeaturesPostgresqlFlexibleServerPtrOutput)
 }
 
 func (o FeaturesOutput) ResourceGroup() FeaturesResourceGroupPtrOutput {
@@ -1245,6 +1251,139 @@ func (o FeaturesManagedDiskPtrOutput) ExpandWithoutDowntime() pulumi.BoolPtrOutp
 	}).(pulumi.BoolPtrOutput)
 }
 
+type FeaturesPostgresqlFlexibleServer struct {
+	RestartServerOnConfigurationValueChange *bool `pulumi:"restartServerOnConfigurationValueChange"`
+}
+
+// FeaturesPostgresqlFlexibleServerInput is an input type that accepts FeaturesPostgresqlFlexibleServerArgs and FeaturesPostgresqlFlexibleServerOutput values.
+// You can construct a concrete instance of `FeaturesPostgresqlFlexibleServerInput` via:
+//
+//	FeaturesPostgresqlFlexibleServerArgs{...}
+type FeaturesPostgresqlFlexibleServerInput interface {
+	pulumi.Input
+
+	ToFeaturesPostgresqlFlexibleServerOutput() FeaturesPostgresqlFlexibleServerOutput
+	ToFeaturesPostgresqlFlexibleServerOutputWithContext(context.Context) FeaturesPostgresqlFlexibleServerOutput
+}
+
+type FeaturesPostgresqlFlexibleServerArgs struct {
+	RestartServerOnConfigurationValueChange pulumi.BoolPtrInput `pulumi:"restartServerOnConfigurationValueChange"`
+}
+
+func (FeaturesPostgresqlFlexibleServerArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesPostgresqlFlexibleServer)(nil)).Elem()
+}
+
+func (i FeaturesPostgresqlFlexibleServerArgs) ToFeaturesPostgresqlFlexibleServerOutput() FeaturesPostgresqlFlexibleServerOutput {
+	return i.ToFeaturesPostgresqlFlexibleServerOutputWithContext(context.Background())
+}
+
+func (i FeaturesPostgresqlFlexibleServerArgs) ToFeaturesPostgresqlFlexibleServerOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesPostgresqlFlexibleServerOutput)
+}
+
+func (i FeaturesPostgresqlFlexibleServerArgs) ToFeaturesPostgresqlFlexibleServerPtrOutput() FeaturesPostgresqlFlexibleServerPtrOutput {
+	return i.ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(context.Background())
+}
+
+func (i FeaturesPostgresqlFlexibleServerArgs) ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesPostgresqlFlexibleServerOutput).ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(ctx)
+}
+
+// FeaturesPostgresqlFlexibleServerPtrInput is an input type that accepts FeaturesPostgresqlFlexibleServerArgs, FeaturesPostgresqlFlexibleServerPtr and FeaturesPostgresqlFlexibleServerPtrOutput values.
+// You can construct a concrete instance of `FeaturesPostgresqlFlexibleServerPtrInput` via:
+//
+//	        FeaturesPostgresqlFlexibleServerArgs{...}
+//
+//	or:
+//
+//	        nil
+type FeaturesPostgresqlFlexibleServerPtrInput interface {
+	pulumi.Input
+
+	ToFeaturesPostgresqlFlexibleServerPtrOutput() FeaturesPostgresqlFlexibleServerPtrOutput
+	ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(context.Context) FeaturesPostgresqlFlexibleServerPtrOutput
+}
+
+type featuresPostgresqlFlexibleServerPtrType FeaturesPostgresqlFlexibleServerArgs
+
+func FeaturesPostgresqlFlexibleServerPtr(v *FeaturesPostgresqlFlexibleServerArgs) FeaturesPostgresqlFlexibleServerPtrInput {
+	return (*featuresPostgresqlFlexibleServerPtrType)(v)
+}
+
+func (*featuresPostgresqlFlexibleServerPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesPostgresqlFlexibleServer)(nil)).Elem()
+}
+
+func (i *featuresPostgresqlFlexibleServerPtrType) ToFeaturesPostgresqlFlexibleServerPtrOutput() FeaturesPostgresqlFlexibleServerPtrOutput {
+	return i.ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(context.Background())
+}
+
+func (i *featuresPostgresqlFlexibleServerPtrType) ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(FeaturesPostgresqlFlexibleServerPtrOutput)
+}
+
+type FeaturesPostgresqlFlexibleServerOutput struct{ *pulumi.OutputState }
+
+func (FeaturesPostgresqlFlexibleServerOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*FeaturesPostgresqlFlexibleServer)(nil)).Elem()
+}
+
+func (o FeaturesPostgresqlFlexibleServerOutput) ToFeaturesPostgresqlFlexibleServerOutput() FeaturesPostgresqlFlexibleServerOutput {
+	return o
+}
+
+func (o FeaturesPostgresqlFlexibleServerOutput) ToFeaturesPostgresqlFlexibleServerOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerOutput {
+	return o
+}
+
+func (o FeaturesPostgresqlFlexibleServerOutput) ToFeaturesPostgresqlFlexibleServerPtrOutput() FeaturesPostgresqlFlexibleServerPtrOutput {
+	return o.ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(context.Background())
+}
+
+func (o FeaturesPostgresqlFlexibleServerOutput) ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v FeaturesPostgresqlFlexibleServer) *FeaturesPostgresqlFlexibleServer {
+		return &v
+	}).(FeaturesPostgresqlFlexibleServerPtrOutput)
+}
+
+func (o FeaturesPostgresqlFlexibleServerOutput) RestartServerOnConfigurationValueChange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v FeaturesPostgresqlFlexibleServer) *bool { return v.RestartServerOnConfigurationValueChange }).(pulumi.BoolPtrOutput)
+}
+
+type FeaturesPostgresqlFlexibleServerPtrOutput struct{ *pulumi.OutputState }
+
+func (FeaturesPostgresqlFlexibleServerPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**FeaturesPostgresqlFlexibleServer)(nil)).Elem()
+}
+
+func (o FeaturesPostgresqlFlexibleServerPtrOutput) ToFeaturesPostgresqlFlexibleServerPtrOutput() FeaturesPostgresqlFlexibleServerPtrOutput {
+	return o
+}
+
+func (o FeaturesPostgresqlFlexibleServerPtrOutput) ToFeaturesPostgresqlFlexibleServerPtrOutputWithContext(ctx context.Context) FeaturesPostgresqlFlexibleServerPtrOutput {
+	return o
+}
+
+func (o FeaturesPostgresqlFlexibleServerPtrOutput) Elem() FeaturesPostgresqlFlexibleServerOutput {
+	return o.ApplyT(func(v *FeaturesPostgresqlFlexibleServer) FeaturesPostgresqlFlexibleServer {
+		if v != nil {
+			return *v
+		}
+		var ret FeaturesPostgresqlFlexibleServer
+		return ret
+	}).(FeaturesPostgresqlFlexibleServerOutput)
+}
+
+func (o FeaturesPostgresqlFlexibleServerPtrOutput) RestartServerOnConfigurationValueChange() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FeaturesPostgresqlFlexibleServer) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.RestartServerOnConfigurationValueChange
+	}).(pulumi.BoolPtrOutput)
+}
+
 type FeaturesResourceGroup struct {
 	PreventDeletionIfContainsResources *bool `pulumi:"preventDeletionIfContainsResources"`
 }
@@ -1986,6 +2125,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesLogAnalyticsWorkspacePtrInput)(nil)).Elem(), FeaturesLogAnalyticsWorkspaceArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesManagedDiskPtrInput)(nil)).Elem(), FeaturesManagedDiskArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesPostgresqlFlexibleServerInput)(nil)).Elem(), FeaturesPostgresqlFlexibleServerArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesPostgresqlFlexibleServerPtrInput)(nil)).Elem(), FeaturesPostgresqlFlexibleServerArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesResourceGroupPtrInput)(nil)).Elem(), FeaturesResourceGroupArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*FeaturesSubscriptionInput)(nil)).Elem(), FeaturesSubscriptionArgs{})
@@ -2011,6 +2152,8 @@ func init() {
 	pulumi.RegisterOutputType(FeaturesLogAnalyticsWorkspacePtrOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskOutput{})
 	pulumi.RegisterOutputType(FeaturesManagedDiskPtrOutput{})
+	pulumi.RegisterOutputType(FeaturesPostgresqlFlexibleServerOutput{})
+	pulumi.RegisterOutputType(FeaturesPostgresqlFlexibleServerPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupOutput{})
 	pulumi.RegisterOutputType(FeaturesResourceGroupPtrOutput{})
 	pulumi.RegisterOutputType(FeaturesSubscriptionOutput{})

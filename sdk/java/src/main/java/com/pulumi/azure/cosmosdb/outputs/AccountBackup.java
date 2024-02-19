@@ -14,50 +14,58 @@ import javax.annotation.Nullable;
 @CustomType
 public final class AccountBackup {
     /**
-     * @return The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+     * @return The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
      * 
      */
     private @Nullable Integer intervalInMinutes;
     /**
-     * @return The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+     * @return The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
      * 
      */
     private @Nullable Integer retentionInHours;
     /**
-     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * 
+     * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
      * 
      */
     private @Nullable String storageRedundancy;
     /**
-     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+     * 
+     * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     private String type;
 
     private AccountBackup() {}
     /**
-     * @return The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+     * @return The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
      * 
      */
     public Optional<Integer> intervalInMinutes() {
         return Optional.ofNullable(this.intervalInMinutes);
     }
     /**
-     * @return The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+     * @return The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
      * 
      */
     public Optional<Integer> retentionInHours() {
         return Optional.ofNullable(this.retentionInHours);
     }
     /**
-     * @return The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+     * @return The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+     * 
+     * &gt; **Note:** You can only configure `interval_in_minutes`, `retention_in_hours` and `storage_redundancy` when the `type` field is set to `Periodic`.
      * 
      */
     public Optional<String> storageRedundancy() {
         return Optional.ofNullable(this.storageRedundancy);
     }
     /**
-     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+     * @return The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+     * 
+     * &gt; **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
      * 
      */
     public String type() {

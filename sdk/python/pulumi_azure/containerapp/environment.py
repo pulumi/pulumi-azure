@@ -18,6 +18,7 @@ class EnvironmentArgs:
     def __init__(__self__, *,
                  resource_group_name: pulumi.Input[str],
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 infrastructure_resource_group_name: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -30,6 +31,9 @@ class EnvironmentArgs:
         The set of arguments for constructing a Environment resource.
         :param pulumi.Input[str] resource_group_name: The name of the resource group in which the Container App Environment is to be created. Changing this forces a new resource to be created.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+               
+               > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -48,6 +52,8 @@ class EnvironmentArgs:
         pulumi.set(__self__, "resource_group_name", resource_group_name)
         if dapr_application_insights_connection_string is not None:
             pulumi.set(__self__, "dapr_application_insights_connection_string", dapr_application_insights_connection_string)
+        if infrastructure_resource_group_name is not None:
+            pulumi.set(__self__, "infrastructure_resource_group_name", infrastructure_resource_group_name)
         if infrastructure_subnet_id is not None:
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
         if internal_load_balancer_enabled is not None:
@@ -88,6 +94,20 @@ class EnvironmentArgs:
     @dapr_application_insights_connection_string.setter
     def dapr_application_insights_connection_string(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "dapr_application_insights_connection_string", value)
+
+    @property
+    @pulumi.getter(name="infrastructureResourceGroupName")
+    def infrastructure_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+
+        > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        """
+        return pulumi.get(self, "infrastructure_resource_group_name")
+
+    @infrastructure_resource_group_name.setter
+    def infrastructure_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure_resource_group_name", value)
 
     @property
     @pulumi.getter(name="infrastructureSubnetId")
@@ -198,6 +218,7 @@ class _EnvironmentState:
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
                  default_domain: Optional[pulumi.Input[str]] = None,
                  docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+                 infrastructure_resource_group_name: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -215,6 +236,9 @@ class _EnvironmentState:
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+        :param pulumi.Input[str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+               
+               > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -240,6 +264,8 @@ class _EnvironmentState:
             pulumi.set(__self__, "default_domain", default_domain)
         if docker_bridge_cidr is not None:
             pulumi.set(__self__, "docker_bridge_cidr", docker_bridge_cidr)
+        if infrastructure_resource_group_name is not None:
+            pulumi.set(__self__, "infrastructure_resource_group_name", infrastructure_resource_group_name)
         if infrastructure_subnet_id is not None:
             pulumi.set(__self__, "infrastructure_subnet_id", infrastructure_subnet_id)
         if internal_load_balancer_enabled is not None:
@@ -300,6 +326,20 @@ class _EnvironmentState:
     @docker_bridge_cidr.setter
     def docker_bridge_cidr(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "docker_bridge_cidr", value)
+
+    @property
+    @pulumi.getter(name="infrastructureResourceGroupName")
+    def infrastructure_resource_group_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+
+        > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        """
+        return pulumi.get(self, "infrastructure_resource_group_name")
+
+    @infrastructure_resource_group_name.setter
+    def infrastructure_resource_group_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "infrastructure_resource_group_name", value)
 
     @property
     @pulumi.getter(name="infrastructureSubnetId")
@@ -458,6 +498,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 infrastructure_resource_group_name: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -500,6 +541,9 @@ class Environment(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
+        :param pulumi.Input[str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+               
+               > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -567,6 +611,7 @@ class Environment(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
+                 infrastructure_resource_group_name: Optional[pulumi.Input[str]] = None,
                  infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
                  internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
                  location: Optional[pulumi.Input[str]] = None,
@@ -586,6 +631,7 @@ class Environment(pulumi.CustomResource):
             __props__ = EnvironmentArgs.__new__(EnvironmentArgs)
 
             __props__.__dict__["dapr_application_insights_connection_string"] = None if dapr_application_insights_connection_string is None else pulumi.Output.secret(dapr_application_insights_connection_string)
+            __props__.__dict__["infrastructure_resource_group_name"] = infrastructure_resource_group_name
             __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
             __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
             __props__.__dict__["location"] = location
@@ -617,6 +663,7 @@ class Environment(pulumi.CustomResource):
             dapr_application_insights_connection_string: Optional[pulumi.Input[str]] = None,
             default_domain: Optional[pulumi.Input[str]] = None,
             docker_bridge_cidr: Optional[pulumi.Input[str]] = None,
+            infrastructure_resource_group_name: Optional[pulumi.Input[str]] = None,
             infrastructure_subnet_id: Optional[pulumi.Input[str]] = None,
             internal_load_balancer_enabled: Optional[pulumi.Input[bool]] = None,
             location: Optional[pulumi.Input[str]] = None,
@@ -639,6 +686,9 @@ class Environment(pulumi.CustomResource):
         :param pulumi.Input[str] dapr_application_insights_connection_string: Application Insights connection string used by Dapr to export Service to Service communication telemetry. Changing this forces a new resource to be created.
         :param pulumi.Input[str] default_domain: The default, publicly resolvable, name of this Container App Environment.
         :param pulumi.Input[str] docker_bridge_cidr: The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
+        :param pulumi.Input[str] infrastructure_resource_group_name: Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+               
+               > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
         :param pulumi.Input[str] infrastructure_subnet_id: The existing Subnet to use for the Container Apps Control Plane. Changing this forces a new resource to be created. 
                
                > **NOTE:** The Subnet must have a `/21` or larger address space.
@@ -665,6 +715,7 @@ class Environment(pulumi.CustomResource):
         __props__.__dict__["dapr_application_insights_connection_string"] = dapr_application_insights_connection_string
         __props__.__dict__["default_domain"] = default_domain
         __props__.__dict__["docker_bridge_cidr"] = docker_bridge_cidr
+        __props__.__dict__["infrastructure_resource_group_name"] = infrastructure_resource_group_name
         __props__.__dict__["infrastructure_subnet_id"] = infrastructure_subnet_id
         __props__.__dict__["internal_load_balancer_enabled"] = internal_load_balancer_enabled
         __props__.__dict__["location"] = location
@@ -702,6 +753,16 @@ class Environment(pulumi.CustomResource):
         The network addressing in which the Container Apps in this Container App Environment will reside in CIDR notation.
         """
         return pulumi.get(self, "docker_bridge_cidr")
+
+    @property
+    @pulumi.getter(name="infrastructureResourceGroupName")
+    def infrastructure_resource_group_name(self) -> pulumi.Output[str]:
+        """
+        Name of the platform-managed resource group created for the Managed Environment to host infrastructure resources. Changing this forces a new resource to be created.
+
+        > **Note:** Only valid if a `workload_profile` is specified. If `infrastructure_subnet_id` is specified, this resource group will be created in the same subscription as `infrastructure_subnet_id`.
+        """
+        return pulumi.get(self, "infrastructure_resource_group_name")
 
     @property
     @pulumi.getter(name="infrastructureSubnetId")

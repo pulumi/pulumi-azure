@@ -80,7 +80,7 @@ export class ManagedDatabase extends pulumi.CustomResource {
      */
     public readonly location!: pulumi.Output<string>;
     /**
-     * The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+     * The name of the SQL Managed Database. Changing this forces a new resource to be created.
      */
     public readonly name!: pulumi.Output<string>;
     /**
@@ -127,7 +127,7 @@ export interface ManagedDatabaseState {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+     * The name of the SQL Managed Database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**
@@ -145,7 +145,7 @@ export interface ManagedDatabaseArgs {
      */
     location?: pulumi.Input<string>;
     /**
-     * The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+     * The name of the SQL Managed Database. Changing this forces a new resource to be created.
      */
     name?: pulumi.Input<string>;
     /**

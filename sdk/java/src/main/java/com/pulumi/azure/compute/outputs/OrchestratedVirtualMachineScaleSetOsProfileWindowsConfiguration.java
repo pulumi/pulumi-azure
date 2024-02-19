@@ -3,6 +3,7 @@
 
 package com.pulumi.azure.compute.outputs;
 
+import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationSecret;
 import com.pulumi.azure.compute.outputs.OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener;
 import com.pulumi.core.annotations.CustomType;
@@ -16,6 +17,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration {
+    /**
+     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents;
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
@@ -79,6 +85,13 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationWinrmListener> winrmListeners;
 
     private OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration() {}
+    /**
+     * @return One or more `additional_unattend_content` blocks as defined below. Changing this forces a new resource to be created.
+     * 
+     */
+    public List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents() {
+        return this.additionalUnattendContents == null ? List.of() : this.additionalUnattendContents;
+    }
     /**
      * @return The Password which should be used for the local-administrator on this Virtual Machine. Changing this forces a new resource to be created.
      * 
@@ -172,6 +185,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents;
         private String adminPassword;
         private String adminUsername;
         private @Nullable String computerNamePrefix;
@@ -186,6 +200,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         public Builder() {}
         public Builder(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.additionalUnattendContents = defaults.additionalUnattendContents;
     	      this.adminPassword = defaults.adminPassword;
     	      this.adminUsername = defaults.adminUsername;
     	      this.computerNamePrefix = defaults.computerNamePrefix;
@@ -199,6 +214,15 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
     	      this.winrmListeners = defaults.winrmListeners;
         }
 
+        @CustomType.Setter
+        public Builder additionalUnattendContents(@Nullable List<OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent> additionalUnattendContents) {
+
+            this.additionalUnattendContents = additionalUnattendContents;
+            return this;
+        }
+        public Builder additionalUnattendContents(OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurationAdditionalUnattendContent... additionalUnattendContents) {
+            return additionalUnattendContents(List.of(additionalUnattendContents));
+        }
         @CustomType.Setter
         public Builder adminPassword(String adminPassword) {
             if (adminPassword == null) {
@@ -277,6 +301,7 @@ public final class OrchestratedVirtualMachineScaleSetOsProfileWindowsConfigurati
         }
         public OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration build() {
             final var _resultValue = new OrchestratedVirtualMachineScaleSetOsProfileWindowsConfiguration();
+            _resultValue.additionalUnattendContents = additionalUnattendContents;
             _resultValue.adminPassword = adminPassword;
             _resultValue.adminUsername = adminUsername;
             _resultValue.computerNamePrefix = computerNamePrefix;

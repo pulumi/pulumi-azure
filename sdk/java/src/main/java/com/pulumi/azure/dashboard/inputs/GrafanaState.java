@@ -5,6 +5,7 @@ package com.pulumi.azure.dashboard.inputs;
 
 import com.pulumi.azure.dashboard.inputs.GrafanaAzureMonitorWorkspaceIntegrationArgs;
 import com.pulumi.azure.dashboard.inputs.GrafanaIdentityArgs;
+import com.pulumi.azure.dashboard.inputs.GrafanaSmtpArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import java.lang.Boolean;
@@ -231,6 +232,21 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * A `smtp` block as defined below.
+     * 
+     */
+    @Import(name="smtp")
+    private @Nullable Output<GrafanaSmtpArgs> smtp;
+
+    /**
+     * @return A `smtp` block as defined below.
+     * 
+     */
+    public Optional<Output<GrafanaSmtpArgs>> smtp() {
+        return Optional.ofNullable(this.smtp);
+    }
+
+    /**
      * A mapping of tags which should be assigned to the Dashboard Grafana.
      * 
      */
@@ -277,6 +293,7 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
         this.publicNetworkAccessEnabled = $.publicNetworkAccessEnabled;
         this.resourceGroupName = $.resourceGroupName;
         this.sku = $.sku;
+        this.smtp = $.smtp;
         this.tags = $.tags;
         this.zoneRedundancyEnabled = $.zoneRedundancyEnabled;
     }
@@ -611,6 +628,27 @@ public final class GrafanaState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder sku(String sku) {
             return sku(Output.of(sku));
+        }
+
+        /**
+         * @param smtp A `smtp` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smtp(@Nullable Output<GrafanaSmtpArgs> smtp) {
+            $.smtp = smtp;
+            return this;
+        }
+
+        /**
+         * @param smtp A `smtp` block as defined below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder smtp(GrafanaSmtpArgs smtp) {
+            return smtp(Output.of(smtp));
         }
 
         /**

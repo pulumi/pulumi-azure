@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'GrafanaAzureMonitorWorkspaceIntegrationArgs',
     'GrafanaIdentityArgs',
+    'GrafanaSmtpArgs',
     'GetGrafanaIdentityArgs',
 ]
 
@@ -105,6 +106,138 @@ class GrafanaIdentityArgs:
     @tenant_id.setter
     def tenant_id(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "tenant_id", value)
+
+
+@pulumi.input_type
+class GrafanaSmtpArgs:
+    def __init__(__self__, *,
+                 from_address: pulumi.Input[str],
+                 host: pulumi.Input[str],
+                 password: pulumi.Input[str],
+                 start_tls_policy: pulumi.Input[str],
+                 user: pulumi.Input[str],
+                 enabled: Optional[pulumi.Input[bool]] = None,
+                 from_name: Optional[pulumi.Input[str]] = None,
+                 verification_skip_enabled: Optional[pulumi.Input[bool]] = None):
+        """
+        :param pulumi.Input[str] from_address: Address used when sending emails.
+        :param pulumi.Input[str] host: SMTP server hostname with port, e.g. test.email.net:587
+        :param pulumi.Input[str] password: Password of SMTP authentication.
+               *
+        :param pulumi.Input[str] start_tls_policy: Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+        :param pulumi.Input[str] user: User of SMTP authentication.
+        :param pulumi.Input[bool] enabled: Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        :param pulumi.Input[str] from_name: Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+        :param pulumi.Input[bool] verification_skip_enabled: Whether verify SSL for SMTP server. Defaults to `false`.
+        """
+        pulumi.set(__self__, "from_address", from_address)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "start_tls_policy", start_tls_policy)
+        pulumi.set(__self__, "user", user)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if from_name is not None:
+            pulumi.set(__self__, "from_name", from_name)
+        if verification_skip_enabled is not None:
+            pulumi.set(__self__, "verification_skip_enabled", verification_skip_enabled)
+
+    @property
+    @pulumi.getter(name="fromAddress")
+    def from_address(self) -> pulumi.Input[str]:
+        """
+        Address used when sending emails.
+        """
+        return pulumi.get(self, "from_address")
+
+    @from_address.setter
+    def from_address(self, value: pulumi.Input[str]):
+        pulumi.set(self, "from_address", value)
+
+    @property
+    @pulumi.getter
+    def host(self) -> pulumi.Input[str]:
+        """
+        SMTP server hostname with port, e.g. test.email.net:587
+        """
+        return pulumi.get(self, "host")
+
+    @host.setter
+    def host(self, value: pulumi.Input[str]):
+        pulumi.set(self, "host", value)
+
+    @property
+    @pulumi.getter
+    def password(self) -> pulumi.Input[str]:
+        """
+        Password of SMTP authentication.
+        *
+        """
+        return pulumi.get(self, "password")
+
+    @password.setter
+    def password(self, value: pulumi.Input[str]):
+        pulumi.set(self, "password", value)
+
+    @property
+    @pulumi.getter(name="startTlsPolicy")
+    def start_tls_policy(self) -> pulumi.Input[str]:
+        """
+        Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+        """
+        return pulumi.get(self, "start_tls_policy")
+
+    @start_tls_policy.setter
+    def start_tls_policy(self, value: pulumi.Input[str]):
+        pulumi.set(self, "start_tls_policy", value)
+
+    @property
+    @pulumi.getter
+    def user(self) -> pulumi.Input[str]:
+        """
+        User of SMTP authentication.
+        """
+        return pulumi.get(self, "user")
+
+    @user.setter
+    def user(self, value: pulumi.Input[str]):
+        pulumi.set(self, "user", value)
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @enabled.setter
+    def enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "enabled", value)
+
+    @property
+    @pulumi.getter(name="fromName")
+    def from_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+        """
+        return pulumi.get(self, "from_name")
+
+    @from_name.setter
+    def from_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "from_name", value)
+
+    @property
+    @pulumi.getter(name="verificationSkipEnabled")
+    def verification_skip_enabled(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether verify SSL for SMTP server. Defaults to `false`.
+        """
+        return pulumi.get(self, "verification_skip_enabled")
+
+    @verification_skip_enabled.setter
+    def verification_skip_enabled(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "verification_skip_enabled", value)
 
 
 @pulumi.input_type

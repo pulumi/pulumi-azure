@@ -124,6 +124,10 @@ export class Grafana extends pulumi.CustomResource {
      */
     public readonly sku!: pulumi.Output<string | undefined>;
     /**
+     * A `smtp` block as defined below.
+     */
+    public readonly smtp!: pulumi.Output<outputs.dashboard.GrafanaSmtp | undefined>;
+    /**
      * A mapping of tags which should be assigned to the Dashboard Grafana.
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -159,6 +163,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = state ? state.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = state ? state.resourceGroupName : undefined;
             resourceInputs["sku"] = state ? state.sku : undefined;
+            resourceInputs["smtp"] = state ? state.smtp : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["zoneRedundancyEnabled"] = state ? state.zoneRedundancyEnabled : undefined;
         } else {
@@ -177,6 +182,7 @@ export class Grafana extends pulumi.CustomResource {
             resourceInputs["publicNetworkAccessEnabled"] = args ? args.publicNetworkAccessEnabled : undefined;
             resourceInputs["resourceGroupName"] = args ? args.resourceGroupName : undefined;
             resourceInputs["sku"] = args ? args.sku : undefined;
+            resourceInputs["smtp"] = args ? args.smtp : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["zoneRedundancyEnabled"] = args ? args.zoneRedundancyEnabled : undefined;
             resourceInputs["endpoint"] = undefined /*out*/;
@@ -249,6 +255,10 @@ export interface GrafanaState {
      */
     sku?: pulumi.Input<string>;
     /**
+     * A `smtp` block as defined below.
+     */
+    smtp?: pulumi.Input<inputs.dashboard.GrafanaSmtp>;
+    /**
      * A mapping of tags which should be assigned to the Dashboard Grafana.
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -306,6 +316,10 @@ export interface GrafanaArgs {
      * The name of the SKU used for the Grafana instance. Possible values are `Standard` and `Essential`. Defaults to `Standard`. Changing this forces a new Dashboard Grafana to be created.
      */
     sku?: pulumi.Input<string>;
+    /**
+     * A `smtp` block as defined below.
+     */
+    smtp?: pulumi.Input<inputs.dashboard.GrafanaSmtp>;
     /**
      * A mapping of tags which should be assigned to the Dashboard Grafana.
      */

@@ -15,6 +15,11 @@ export type ApplicationGroup = import("./applicationGroup").ApplicationGroup;
 export const ApplicationGroup: typeof import("./applicationGroup").ApplicationGroup = null as any;
 utilities.lazyLoad(exports, ["ApplicationGroup"], () => require("./applicationGroup"));
 
+export { GetApplicationGroupArgs, GetApplicationGroupResult, GetApplicationGroupOutputArgs } from "./getApplicationGroup";
+export const getApplicationGroup: typeof import("./getApplicationGroup").getApplicationGroup = null as any;
+export const getApplicationGroupOutput: typeof import("./getApplicationGroup").getApplicationGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getApplicationGroup","getApplicationGroupOutput"], () => require("./getApplicationGroup"));
+
 export { GetHostPoolArgs, GetHostPoolResult, GetHostPoolOutputArgs } from "./getHostPool";
 export const getHostPool: typeof import("./getHostPool").getHostPool = null as any;
 export const getHostPoolOutput: typeof import("./getHostPool").getHostPoolOutput = null as any;

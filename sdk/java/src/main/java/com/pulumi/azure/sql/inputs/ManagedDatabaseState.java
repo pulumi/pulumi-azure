@@ -31,14 +31,14 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
     }
 
     /**
-     * The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+     * The name of the SQL Managed Database. Changing this forces a new resource to be created.
      * 
      */
     @Import(name="name")
     private @Nullable Output<String> name;
 
     /**
-     * @return The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+     * @return The name of the SQL Managed Database. Changing this forces a new resource to be created.
      * 
      */
     public Optional<Output<String>> name() {
@@ -108,7 +108,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+         * @param name The name of the SQL Managed Database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 
@@ -119,7 +119,7 @@ public final class ManagedDatabaseState extends com.pulumi.resources.ResourceArg
         }
 
         /**
-         * @param name The name of the SQL Managed Instance. Changing this forces a new resource to be created.
+         * @param name The name of the SQL Managed Database. Changing this forces a new resource to be created.
          * 
          * @return builder
          * 

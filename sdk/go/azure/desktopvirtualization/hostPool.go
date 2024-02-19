@@ -112,6 +112,8 @@ type HostPool struct {
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrOutput `pulumi:"validateEnvironment"`
+	// A VM template for session hosts configuration within hostpool. This is a JSON string.
+	VmTemplate pulumi.StringPtrOutput `pulumi:"vmTemplate"`
 }
 
 // NewHostPool registers a new resource with the given unique name, arguments, and options.
@@ -188,6 +190,8 @@ type hostPoolState struct {
 	Type *string `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
+	// A VM template for session hosts configuration within hostpool. This is a JSON string.
+	VmTemplate *string `pulumi:"vmTemplate"`
 }
 
 type HostPoolState struct {
@@ -226,6 +230,8 @@ type HostPoolState struct {
 	Type pulumi.StringPtrInput
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
+	// A VM template for session hosts configuration within hostpool. This is a JSON string.
+	VmTemplate pulumi.StringPtrInput
 }
 
 func (HostPoolState) ElementType() reflect.Type {
@@ -268,6 +274,8 @@ type hostPoolArgs struct {
 	Type string `pulumi:"type"`
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment *bool `pulumi:"validateEnvironment"`
+	// A VM template for session hosts configuration within hostpool. This is a JSON string.
+	VmTemplate *string `pulumi:"vmTemplate"`
 }
 
 // The set of arguments for constructing a HostPool resource.
@@ -307,6 +315,8 @@ type HostPoolArgs struct {
 	Type pulumi.StringInput
 	// Allows you to test service changes before they are deployed to production. Defaults to `false`.
 	ValidateEnvironment pulumi.BoolPtrInput
+	// A VM template for session hosts configuration within hostpool. This is a JSON string.
+	VmTemplate pulumi.StringPtrInput
 }
 
 func (HostPoolArgs) ElementType() reflect.Type {
@@ -474,6 +484,11 @@ func (o HostPoolOutput) Type() pulumi.StringOutput {
 // Allows you to test service changes before they are deployed to production. Defaults to `false`.
 func (o HostPoolOutput) ValidateEnvironment() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *HostPool) pulumi.BoolPtrOutput { return v.ValidateEnvironment }).(pulumi.BoolPtrOutput)
+}
+
+// A VM template for session hosts configuration within hostpool. This is a JSON string.
+func (o HostPoolOutput) VmTemplate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *HostPool) pulumi.StringPtrOutput { return v.VmTemplate }).(pulumi.StringPtrOutput)
 }
 
 type HostPoolArrayOutput struct{ *pulumi.OutputState }

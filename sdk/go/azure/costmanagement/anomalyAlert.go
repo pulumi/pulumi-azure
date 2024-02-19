@@ -14,6 +14,8 @@ import (
 
 // Manages a Cost Anomaly Alert.
 //
+// > **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+//
 // ## Example Usage
 //
 // ```go
@@ -33,7 +35,8 @@ import (
 //				EmailAddresses: pulumi.StringArray{
 //					pulumi.String("example@test.net"),
 //				},
-//				EmailSubject: pulumi.String("My Test Anomaly Alert"),
+//				EmailSubject:   pulumi.String("My Test Anomaly Alert"),
+//				SubscriptionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {
 //				return err
@@ -64,6 +67,8 @@ type AnomalyAlert struct {
 	Message pulumi.StringPtrOutput `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+	SubscriptionId pulumi.StringOutput `pulumi:"subscriptionId"`
 }
 
 // NewAnomalyAlert registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +120,8 @@ type anomalyAlertState struct {
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
+	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 type AnomalyAlertState struct {
@@ -128,6 +135,8 @@ type AnomalyAlertState struct {
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
+	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (AnomalyAlertState) ElementType() reflect.Type {
@@ -145,6 +154,8 @@ type anomalyAlertArgs struct {
 	Message *string `pulumi:"message"`
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name *string `pulumi:"name"`
+	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+	SubscriptionId *string `pulumi:"subscriptionId"`
 }
 
 // The set of arguments for constructing a AnomalyAlert resource.
@@ -159,6 +170,8 @@ type AnomalyAlertArgs struct {
 	Message pulumi.StringPtrInput
 	// The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 	Name pulumi.StringPtrInput
+	// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+	SubscriptionId pulumi.StringPtrInput
 }
 
 func (AnomalyAlertArgs) ElementType() reflect.Type {
@@ -271,6 +284,11 @@ func (o AnomalyAlertOutput) Message() pulumi.StringPtrOutput {
 // The name which should be used for this Cost Anomaly Alert. Changing this forces a new resource to be created. The name can contain only lowercase letters, numbers and hyphens.
 func (o AnomalyAlertOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+func (o AnomalyAlertOutput) SubscriptionId() pulumi.StringOutput {
+	return o.ApplyT(func(v *AnomalyAlert) pulumi.StringOutput { return v.SubscriptionId }).(pulumi.StringOutput)
 }
 
 type AnomalyAlertArrayOutput struct{ *pulumi.OutputState }

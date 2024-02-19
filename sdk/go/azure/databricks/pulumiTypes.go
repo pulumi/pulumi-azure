@@ -808,13 +808,13 @@ func (o WorkspaceStorageAccountIdentityArrayOutput) Index(i pulumi.IntInput) Wor
 }
 
 type GetAccessConnectorIdentity struct {
-	// A `identityIds` block as defined below.
+	// The list of User Assigned Managed Identity IDs assigned to this Access Connector.
 	IdentityIds []string `pulumi:"identityIds"`
-	// The ID of the TODO.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId string `pulumi:"principalId"`
-	// The ID of the TODO.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	TenantId string `pulumi:"tenantId"`
-	// TODO.
+	// The type of Managed Service Identity that is configured on this Access Connector.
 	Type string `pulumi:"type"`
 }
 
@@ -830,13 +830,13 @@ type GetAccessConnectorIdentityInput interface {
 }
 
 type GetAccessConnectorIdentityArgs struct {
-	// A `identityIds` block as defined below.
+	// The list of User Assigned Managed Identity IDs assigned to this Access Connector.
 	IdentityIds pulumi.StringArrayInput `pulumi:"identityIds"`
-	// The ID of the TODO.
+	// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	PrincipalId pulumi.StringInput `pulumi:"principalId"`
-	// The ID of the TODO.
+	// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 	TenantId pulumi.StringInput `pulumi:"tenantId"`
-	// TODO.
+	// The type of Managed Service Identity that is configured on this Access Connector.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -891,22 +891,22 @@ func (o GetAccessConnectorIdentityOutput) ToGetAccessConnectorIdentityOutputWith
 	return o
 }
 
-// A `identityIds` block as defined below.
+// The list of User Assigned Managed Identity IDs assigned to this Access Connector.
 func (o GetAccessConnectorIdentityOutput) IdentityIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetAccessConnectorIdentity) []string { return v.IdentityIds }).(pulumi.StringArrayOutput)
 }
 
-// The ID of the TODO.
+// The Principal ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o GetAccessConnectorIdentityOutput) PrincipalId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.PrincipalId }).(pulumi.StringOutput)
 }
 
-// The ID of the TODO.
+// The Tenant ID of the System Assigned Managed Service Identity that is configured on this Access Connector.
 func (o GetAccessConnectorIdentityOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.TenantId }).(pulumi.StringOutput)
 }
 
-// TODO.
+// The type of Managed Service Identity that is configured on this Access Connector.
 func (o GetAccessConnectorIdentityOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetAccessConnectorIdentity) string { return v.Type }).(pulumi.StringOutput)
 }

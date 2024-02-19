@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
 /**
  * Manages a Cost Anomaly Alert.
  * 
+ * &gt; **Note:** Anomaly alerts are sent based on the current access of the rule creator at the time that the email is sent. Learn more [here](https://learn.microsoft.com/en-us/azure/cost-management-billing/understand/analyze-unexpected-charges#create-an-anomaly-alert).
+ * 
  * ## Example Usage
  * ```java
  * package generated_program;
@@ -44,6 +46,7 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Alert DisplayName&#34;)
  *             .emailAddresses(&#34;example@test.net&#34;)
  *             .emailSubject(&#34;My Test Anomaly Alert&#34;)
+ *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *     }
@@ -130,6 +133,20 @@ public class AnomalyAlert extends com.pulumi.resources.CustomResource {
      */
     public Output<String> name() {
         return this.name;
+    }
+    /**
+     * The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+     * 
+     */
+    @Export(name="subscriptionId", refs={String.class}, tree="[0]")
+    private Output<String> subscriptionId;
+
+    /**
+     * @return The ID of the Subscription this Cost Anomaly Alert is scoped to. Changing this forces a new resource to be created. When not supplied this defaults to the subscription configured in the provider.
+     * 
+     */
+    public Output<String> subscriptionId() {
+        return this.subscriptionId;
     }
 
     /**

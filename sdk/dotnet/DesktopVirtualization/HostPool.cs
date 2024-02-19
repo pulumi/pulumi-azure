@@ -164,6 +164,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Output("validateEnvironment")]
         public Output<bool?> ValidateEnvironment { get; private set; } = null!;
 
+        /// <summary>
+        /// A VM template for session hosts configuration within hostpool. This is a JSON string.
+        /// </summary>
+        [Output("vmTemplate")]
+        public Output<string?> VmTemplate { get; private set; } = null!;
+
 
         /// <summary>
         /// Create a HostPool resource with the given unique name, arguments, and options.
@@ -311,6 +317,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }
 
+        /// <summary>
+        /// A VM template for session hosts configuration within hostpool. This is a JSON string.
+        /// </summary>
+        [Input("vmTemplate")]
+        public Input<string>? VmTemplate { get; set; }
+
         public HostPoolArgs()
         {
         }
@@ -419,6 +431,12 @@ namespace Pulumi.Azure.DesktopVirtualization
         /// </summary>
         [Input("validateEnvironment")]
         public Input<bool>? ValidateEnvironment { get; set; }
+
+        /// <summary>
+        /// A VM template for session hosts configuration within hostpool. This is a JSON string.
+        /// </summary>
+        [Input("vmTemplate")]
+        public Input<string>? VmTemplate { get; set; }
 
         public HostPoolState()
         {

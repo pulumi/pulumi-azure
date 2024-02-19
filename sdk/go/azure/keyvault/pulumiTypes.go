@@ -5898,11 +5898,14 @@ func (o GetCertificateIssuerAdminArrayOutput) Index(i pulumi.IntInput) GetCertif
 }
 
 type GetCertificatesCertificate struct {
-	// Whether this secret is enabled.
-	Enabled bool   `pulumi:"enabled"`
-	Id      string `pulumi:"id"`
-	// The name of secret.
+	// Whether this certificate is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The ID of this certificate.
+	Id string `pulumi:"id"`
+	// The name of certificate.
 	Name string `pulumi:"name"`
+	// The tags of this certificate.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // GetCertificatesCertificateInput is an input type that accepts GetCertificatesCertificateArgs and GetCertificatesCertificateOutput values.
@@ -5917,11 +5920,14 @@ type GetCertificatesCertificateInput interface {
 }
 
 type GetCertificatesCertificateArgs struct {
-	// Whether this secret is enabled.
-	Enabled pulumi.BoolInput   `pulumi:"enabled"`
-	Id      pulumi.StringInput `pulumi:"id"`
-	// The name of secret.
+	// Whether this certificate is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of this certificate.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of certificate.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The tags of this certificate.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetCertificatesCertificateArgs) ElementType() reflect.Type {
@@ -5975,18 +5981,24 @@ func (o GetCertificatesCertificateOutput) ToGetCertificatesCertificateOutputWith
 	return o
 }
 
-// Whether this secret is enabled.
+// Whether this certificate is enabled.
 func (o GetCertificatesCertificateOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetCertificatesCertificate) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The ID of this certificate.
 func (o GetCertificatesCertificateOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificatesCertificate) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// The name of secret.
+// The name of certificate.
 func (o GetCertificatesCertificateOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetCertificatesCertificate) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of this certificate.
+func (o GetCertificatesCertificateOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetCertificatesCertificate) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type GetCertificatesCertificateArrayOutput struct{ *pulumi.OutputState }
@@ -6403,6 +6415,8 @@ type GetSecretsSecret struct {
 	Id string `pulumi:"id"`
 	// The name of secret.
 	Name string `pulumi:"name"`
+	// The tags of this secret.
+	Tags map[string]string `pulumi:"tags"`
 }
 
 // GetSecretsSecretInput is an input type that accepts GetSecretsSecretArgs and GetSecretsSecretOutput values.
@@ -6423,6 +6437,8 @@ type GetSecretsSecretArgs struct {
 	Id pulumi.StringInput `pulumi:"id"`
 	// The name of secret.
 	Name pulumi.StringInput `pulumi:"name"`
+	// The tags of this secret.
+	Tags pulumi.StringMapInput `pulumi:"tags"`
 }
 
 func (GetSecretsSecretArgs) ElementType() reflect.Type {
@@ -6489,6 +6505,11 @@ func (o GetSecretsSecretOutput) Id() pulumi.StringOutput {
 // The name of secret.
 func (o GetSecretsSecretOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetSecretsSecret) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The tags of this secret.
+func (o GetSecretsSecretOutput) Tags() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetSecretsSecret) map[string]string { return v.Tags }).(pulumi.StringMapOutput)
 }
 
 type GetSecretsSecretArrayOutput struct{ *pulumi.OutputState }

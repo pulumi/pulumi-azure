@@ -12,6 +12,7 @@ from .. import _utilities
 __all__ = [
     'GrafanaAzureMonitorWorkspaceIntegration',
     'GrafanaIdentity',
+    'GrafanaSmtp',
     'GetGrafanaAzureMonitorWorkspaceIntegrationResult',
     'GetGrafanaIdentityResult',
 ]
@@ -124,6 +125,129 @@ class GrafanaIdentity(dict):
         The Tenant ID associated with this Managed Service Identity.
         """
         return pulumi.get(self, "tenant_id")
+
+
+@pulumi.output_type
+class GrafanaSmtp(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "fromAddress":
+            suggest = "from_address"
+        elif key == "startTlsPolicy":
+            suggest = "start_tls_policy"
+        elif key == "fromName":
+            suggest = "from_name"
+        elif key == "verificationSkipEnabled":
+            suggest = "verification_skip_enabled"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in GrafanaSmtp. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        GrafanaSmtp.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        GrafanaSmtp.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 from_address: str,
+                 host: str,
+                 password: str,
+                 start_tls_policy: str,
+                 user: str,
+                 enabled: Optional[bool] = None,
+                 from_name: Optional[str] = None,
+                 verification_skip_enabled: Optional[bool] = None):
+        """
+        :param str from_address: Address used when sending emails.
+        :param str host: SMTP server hostname with port, e.g. test.email.net:587
+        :param str password: Password of SMTP authentication.
+               *
+        :param str start_tls_policy: Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+        :param str user: User of SMTP authentication.
+        :param bool enabled: Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        :param str from_name: Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+        :param bool verification_skip_enabled: Whether verify SSL for SMTP server. Defaults to `false`.
+        """
+        pulumi.set(__self__, "from_address", from_address)
+        pulumi.set(__self__, "host", host)
+        pulumi.set(__self__, "password", password)
+        pulumi.set(__self__, "start_tls_policy", start_tls_policy)
+        pulumi.set(__self__, "user", user)
+        if enabled is not None:
+            pulumi.set(__self__, "enabled", enabled)
+        if from_name is not None:
+            pulumi.set(__self__, "from_name", from_name)
+        if verification_skip_enabled is not None:
+            pulumi.set(__self__, "verification_skip_enabled", verification_skip_enabled)
+
+    @property
+    @pulumi.getter(name="fromAddress")
+    def from_address(self) -> str:
+        """
+        Address used when sending emails.
+        """
+        return pulumi.get(self, "from_address")
+
+    @property
+    @pulumi.getter
+    def host(self) -> str:
+        """
+        SMTP server hostname with port, e.g. test.email.net:587
+        """
+        return pulumi.get(self, "host")
+
+    @property
+    @pulumi.getter
+    def password(self) -> str:
+        """
+        Password of SMTP authentication.
+        *
+        """
+        return pulumi.get(self, "password")
+
+    @property
+    @pulumi.getter(name="startTlsPolicy")
+    def start_tls_policy(self) -> str:
+        """
+        Whether to use TLS when connecting to SMTP server. Possible values are `OpportunisticStartTLS`, `NoStartTLS`, `MandatoryStartTLS`.
+        """
+        return pulumi.get(self, "start_tls_policy")
+
+    @property
+    @pulumi.getter
+    def user(self) -> str:
+        """
+        User of SMTP authentication.
+        """
+        return pulumi.get(self, "user")
+
+    @property
+    @pulumi.getter
+    def enabled(self) -> Optional[bool]:
+        """
+        Whether to enable the smtp setting of the Grafana instance. Defaults to `false`.
+        """
+        return pulumi.get(self, "enabled")
+
+    @property
+    @pulumi.getter(name="fromName")
+    def from_name(self) -> Optional[str]:
+        """
+        Name used when sending emails. Defaults to `Azure Managed Grafana Notification`.
+        """
+        return pulumi.get(self, "from_name")
+
+    @property
+    @pulumi.getter(name="verificationSkipEnabled")
+    def verification_skip_enabled(self) -> Optional[bool]:
+        """
+        Whether verify SSL for SMTP server. Defaults to `false`.
+        """
+        return pulumi.get(self, "verification_skip_enabled")
 
 
 @pulumi.output_type

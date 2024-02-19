@@ -140,6 +140,10 @@ export class HostPool extends pulumi.CustomResource {
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
     public readonly validateEnvironment!: pulumi.Output<boolean | undefined>;
+    /**
+     * A VM template for session hosts configuration within hostpool. This is a JSON string.
+     */
+    public readonly vmTemplate!: pulumi.Output<string | undefined>;
 
     /**
      * Create a HostPool resource with the given unique name, arguments, and options.
@@ -169,6 +173,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["validateEnvironment"] = state ? state.validateEnvironment : undefined;
+            resourceInputs["vmTemplate"] = state ? state.vmTemplate : undefined;
         } else {
             const args = argsOrState as HostPoolArgs | undefined;
             if ((!args || args.loadBalancerType === undefined) && !opts.urn) {
@@ -195,6 +200,7 @@ export class HostPool extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["validateEnvironment"] = args ? args.validateEnvironment : undefined;
+            resourceInputs["vmTemplate"] = args ? args.vmTemplate : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(HostPool.__pulumiType, name, resourceInputs, opts);
@@ -270,6 +276,10 @@ export interface HostPoolState {
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
     validateEnvironment?: pulumi.Input<boolean>;
+    /**
+     * A VM template for session hosts configuration within hostpool. This is a JSON string.
+     */
+    vmTemplate?: pulumi.Input<string>;
 }
 
 /**
@@ -341,4 +351,8 @@ export interface HostPoolArgs {
      * Allows you to test service changes before they are deployed to production. Defaults to `false`.
      */
     validateEnvironment?: pulumi.Input<boolean>;
+    /**
+     * A VM template for session hosts configuration within hostpool. This is a JSON string.
+     */
+    vmTemplate?: pulumi.Input<string>;
 }

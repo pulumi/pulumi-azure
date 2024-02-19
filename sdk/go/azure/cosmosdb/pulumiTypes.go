@@ -151,13 +151,17 @@ func (o AccountAnalyticalStoragePtrOutput) SchemaType() pulumi.StringPtrOutput {
 }
 
 type AccountBackup struct {
-	// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+	// The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
 	IntervalInMinutes *int `pulumi:"intervalInMinutes"`
-	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+	// The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
 	RetentionInHours *int `pulumi:"retentionInHours"`
-	// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+	// The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+	//
+	// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 	StorageRedundancy *string `pulumi:"storageRedundancy"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+	//
+	// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type string `pulumi:"type"`
 }
 
@@ -173,13 +177,17 @@ type AccountBackupInput interface {
 }
 
 type AccountBackupArgs struct {
-	// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+	// The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
 	IntervalInMinutes pulumi.IntPtrInput `pulumi:"intervalInMinutes"`
-	// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+	// The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
 	RetentionInHours pulumi.IntPtrInput `pulumi:"retentionInHours"`
-	// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+	// The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+	//
+	// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 	StorageRedundancy pulumi.StringPtrInput `pulumi:"storageRedundancy"`
-	// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+	// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+	//
+	// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 	Type pulumi.StringInput `pulumi:"type"`
 }
 
@@ -260,22 +268,26 @@ func (o AccountBackupOutput) ToAccountBackupPtrOutputWithContext(ctx context.Con
 	}).(AccountBackupPtrOutput)
 }
 
-// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+// The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
 func (o AccountBackupOutput) IntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *int { return v.IntervalInMinutes }).(pulumi.IntPtrOutput)
 }
 
-// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+// The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
 func (o AccountBackupOutput) RetentionInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *int { return v.RetentionInHours }).(pulumi.IntPtrOutput)
 }
 
-// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+// The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+//
+// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 func (o AccountBackupOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v AccountBackup) *string { return v.StorageRedundancy }).(pulumi.StringPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+//
+// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountBackup) string { return v.Type }).(pulumi.StringOutput)
 }
@@ -304,7 +316,7 @@ func (o AccountBackupPtrOutput) Elem() AccountBackupOutput {
 	}).(AccountBackupOutput)
 }
 
-// The interval in minutes between two backups. This is configurable only when `type` is `Periodic`. Possible values are between 60 and 1440.
+// The interval in minutes between two backups. Possible values are between 60 and 1440. Defaults to `240`.
 func (o AccountBackupPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *int {
 		if v == nil {
@@ -314,7 +326,7 @@ func (o AccountBackupPtrOutput) IntervalInMinutes() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The time in hours that each backup is retained. This is configurable only when `type` is `Periodic`. Possible values are between 8 and 720.
+// The time in hours that each backup is retained. Possible values are between 8 and 720. Defaults to `8`.
 func (o AccountBackupPtrOutput) RetentionInHours() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *int {
 		if v == nil {
@@ -324,7 +336,9 @@ func (o AccountBackupPtrOutput) RetentionInHours() pulumi.IntPtrOutput {
 	}).(pulumi.IntPtrOutput)
 }
 
-// The storage redundancy is used to indicate the type of backup residency. This is configurable only when `type` is `Periodic`. Possible values are `Geo`, `Local` and `Zone`.
+// The storage redundancy is used to indicate the type of backup residency. Possible values are `Geo`, `Local` and `Zone`. Defaults to `Geo`.
+//
+// > **Note:** You can only configure `intervalInMinutes`, `retentionInHours` and `storageRedundancy` when the `type` field is set to `Periodic`.
 func (o AccountBackupPtrOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *string {
 		if v == nil {
@@ -334,7 +348,9 @@ func (o AccountBackupPtrOutput) StorageRedundancy() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// The type of the `backup`. Possible values are `Continuous` and `Periodic`. Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
+// The type of the `backup`. Possible values are `Continuous` and `Periodic`.
+//
+// > **Note:** Migration of `Periodic` to `Continuous` is one-way, changing `Continuous` to `Periodic` forces a new resource to be created.
 func (o AccountBackupPtrOutput) Type() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountBackup) *string {
 		if v == nil {
@@ -585,7 +601,7 @@ type AccountConsistencyPolicy struct {
 	MaxIntervalInSeconds *int `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 	//
-	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
 	MaxStalenessPrefix *int `pulumi:"maxStalenessPrefix"`
 }
 
@@ -607,7 +623,7 @@ type AccountConsistencyPolicyArgs struct {
 	MaxIntervalInSeconds pulumi.IntPtrInput `pulumi:"maxIntervalInSeconds"`
 	// When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 	//
-	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+	// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
 	MaxStalenessPrefix pulumi.IntPtrInput `pulumi:"maxStalenessPrefix"`
 }
 
@@ -700,7 +716,7 @@ func (o AccountConsistencyPolicyOutput) MaxIntervalInSeconds() pulumi.IntPtrOutp
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 //
-// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v AccountConsistencyPolicy) *int { return v.MaxStalenessPrefix }).(pulumi.IntPtrOutput)
 }
@@ -751,7 +767,7 @@ func (o AccountConsistencyPolicyPtrOutput) MaxIntervalInSeconds() pulumi.IntPtrO
 
 // When used with the Bounded Staleness consistency level, this value represents the number of stale requests tolerated. The accepted range for this value is `10` – `2147483647`. Defaults to `100`. Required when `consistencyLevel` is set to `BoundedStaleness`.
 //
-// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to custom values when `consistencyLevel` is set to `BoundedStaleness` - otherwise they will return the default values shown above.
+// > **Note:** `maxIntervalInSeconds` and `maxStalenessPrefix` can only be set to values other than default when the `consistencyLevel` is set to `BoundedStaleness`.
 func (o AccountConsistencyPolicyPtrOutput) MaxStalenessPrefix() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AccountConsistencyPolicy) *int {
 		if v == nil {
@@ -1301,7 +1317,7 @@ type AccountRestore struct {
 	RestoreTimestampInUtc string `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
+	// > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId string `pulumi:"sourceCosmosdbAccountId"`
 	// A list of specific tables available for restore. Changing this forces a new resource to be created.
 	TablesToRestores []string `pulumi:"tablesToRestores"`
@@ -1327,7 +1343,7 @@ type AccountRestoreArgs struct {
 	RestoreTimestampInUtc pulumi.StringInput `pulumi:"restoreTimestampInUtc"`
 	// The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 	//
-	// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
+	// > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 	SourceCosmosdbAccountId pulumi.StringInput `pulumi:"sourceCosmosdbAccountId"`
 	// A list of specific tables available for restore. Changing this forces a new resource to be created.
 	TablesToRestores pulumi.StringArrayInput `pulumi:"tablesToRestores"`
@@ -1427,7 +1443,7 @@ func (o AccountRestoreOutput) RestoreTimestampInUtc() pulumi.StringOutput {
 
 // The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
+// > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 func (o AccountRestoreOutput) SourceCosmosdbAccountId() pulumi.StringOutput {
 	return o.ApplyT(func(v AccountRestore) string { return v.SourceCosmosdbAccountId }).(pulumi.StringOutput)
 }
@@ -1493,7 +1509,7 @@ func (o AccountRestorePtrOutput) RestoreTimestampInUtc() pulumi.StringPtrOutput 
 
 // The resource ID of the restorable database account from which the restore has to be initiated. The example is `/subscriptions/{subscriptionId}/providers/Microsoft.DocumentDB/locations/{location}/restorableDatabaseAccounts/{restorableDatabaseAccountName}`. Changing this forces a new resource to be created.
 //
-// > **NOTE:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
+// > **Note:** Any database account with `Continuous` type (live account or accounts deleted in last 30 days) is a restorable database account and there cannot be Create/Update/Delete operations on the restorable database accounts. They can only be read and retrieved by `cosmosdb.getRestorableDatabaseAccounts`.
 func (o AccountRestorePtrOutput) SourceCosmosdbAccountId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *AccountRestore) *string {
 		if v == nil {
