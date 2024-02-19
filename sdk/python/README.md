@@ -51,7 +51,7 @@ To use from Go, use `go get` to grab the latest version of the library
 
 To use from .NET, install using `dotnet add package`:
 
-   $ dotnet add package Pulumi.Azure
+    $ dotnet add package Pulumi.Azure
 
 ## Concepts
 
