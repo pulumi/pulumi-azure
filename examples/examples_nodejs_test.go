@@ -40,6 +40,7 @@ func TestAccMultiCallback(t *testing.T) {
 }
 
 func TestAccLoadbalancer(t *testing.T) {
+	t.Skipf("Skipping due to flake: https://github.com/pulumi/pulumi-azure/issues/1703")
 	skipIfShort(t)
 	test := getJSBaseOptions(t).
 		With(integration.ProgramTestOptions{
