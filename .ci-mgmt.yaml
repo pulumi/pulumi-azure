@@ -24,10 +24,6 @@ plugins:
   - name: local
     version: "0.0.1"
 goBuildParallelism: 2
-runner:
-  prerequisites: pulumi-ubuntu-8core
-  buildSdk: pulumi-ubuntu-8core
-  publish: pulumi-ubuntu-8core
 actions:
   preTest:
 
