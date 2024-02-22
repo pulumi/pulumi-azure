@@ -20,11 +20,11 @@ import * as utilities from "../utilities";
  * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
  *     resourceGroupId: exampleResourceGroup.id,
  *     policyDefinitionId: examplePolicyDefintion.then(examplePolicyDefintion => examplePolicyDefintion.id),
- *     parameters: exampleResourceGroup.location.apply(location => JSON.stringify({
+ *     parameters: pulumi.jsonStringify({
  *         listOfAllowedLocations: {
- *             value: [location],
+ *             value: [exampleResourceGroup.location],
  *         },
- *     })),
+ *     }),
  * });
  * const exampleResourceGroupPolicyExemption = new azure.core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", {
  *     resourceGroupId: exampleResourceGroup.id,

@@ -37,13 +37,13 @@ namespace Pulumi.Azure.Core
     ///     {
     ///         ResourceGroupId = exampleResourceGroup.Id,
     ///         PolicyDefinitionId = examplePolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
-    ///         Parameters = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Parameters = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
     ///             {
     ///                 ["value"] = new[]
     ///                 {
-    ///                     location,
+    ///                     exampleResourceGroup.Location,
     ///                 },
     ///             },
     ///         })),
