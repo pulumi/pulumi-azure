@@ -13,7 +13,7 @@ import (
 	"github.com/pulumi/pulumi-azure/provider/v5/pkg/version"
 )
 
-func providerServer(t *testing.T) pulumirpc.ResourceProviderServer {
+func providerServer() pulumirpc.ResourceProviderServer {
 	ctx := context.Background()
 	version.Version = "0.0.1"
 	info := Provider()
@@ -33,7 +33,7 @@ func test(t *testing.T, dir string, opts ...providertest.Option) {
 	opts = append(opts,
 		providertest.WithProviderName("azure"),
 		providertest.WithBaselineVersion("5.60.0"),
-		providertest.WithResourceProviderServer(providerServer(t)),
+		providertest.WithResourceProviderServer(providerServer()),
 		providertest.WithSkippedUpgradeTestMode(providertest.UpgradeTestMode_Quick, "Using PreviewOnly mode instead"),
 	)
 	ptest := providertest.NewProviderTest(dir, opts...)
