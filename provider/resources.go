@@ -429,7 +429,7 @@ func detectCloudShell() cloudShellProfile {
 }
 
 // preConfigureCallback returns an error when cloud provider setup is misconfigured
-func preConfigureCallback(vars resource.PropertyMap, c tfshim.ResourceConfig) error {
+func preConfigureCallback(vars resource.PropertyMap, _ tfshim.ResourceConfig) error {
 	envName := tfbridge.ConfigStringValue(vars, "environment", []string{"ARM_ENVIRONMENT"})
 	if envName == "" {
 		envName = "public"
