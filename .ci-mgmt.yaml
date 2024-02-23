@@ -39,7 +39,7 @@ plugins:
     version: "1.4.0"
   - name: terraform
     kind: converter
-    version: "1.0.13"
+    version: "1.0.14"
 goBuildParallelism: 2
 actions:
   preTest:
