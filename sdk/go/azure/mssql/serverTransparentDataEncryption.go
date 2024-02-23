@@ -118,6 +118,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                 exampleResourceGroup.Location,
 //				ResourceGroupName:        exampleResourceGroup.Name,
