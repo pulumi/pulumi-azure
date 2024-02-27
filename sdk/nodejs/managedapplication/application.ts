@@ -38,9 +38,9 @@ import * as utilities from "../utilities";
  *     kind: "ServiceCatalog",
  *     managedResourceGroupName: "infrastructureGroup",
  *     applicationDefinitionId: exampleDefinition.id,
- *     parameterValues: exampleResourceGroup.location.apply(location => JSON.stringify({
+ *     parameterValues: pulumi.jsonStringify({
  *         location: {
- *             value: location,
+ *             value: exampleResourceGroup.location,
  *         },
  *         storageAccountNamePrefix: {
  *             value: "storeNamePrefix",
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *         storageAccountType: {
  *             value: "Standard_LRS",
  *         },
- *     })),
+ *     }),
  * });
  * ```
  *
