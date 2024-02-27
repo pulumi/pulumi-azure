@@ -58,6 +58,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example: Creates alert using the new Scheduled Query Rules metric
 //			_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Scopes: pulumi.StringArray{
@@ -84,6 +85,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Example: LogToMetric Action for the named Computer
 //			_, err = monitoring.NewScheduledQueryRulesLog(ctx, "exampleScheduledQueryRulesLog", &monitoring.ScheduledQueryRulesLogArgs{
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
