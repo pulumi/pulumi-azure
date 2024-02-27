@@ -14,20 +14,26 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const primaryResourceGroup = new azure.core.ResourceGroup("primaryResourceGroup", {location: "West Europe"});
- * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primaryVirtualNetwork", {
- *     location: primaryResourceGroup.location,
- *     resourceGroupName: primaryResourceGroup.name,
+ * const primary = new azure.core.ResourceGroup("primary", {
+ *     name: "aadds-primary-rg",
+ *     location: "West Europe",
+ * });
+ * const primaryVirtualNetwork = new azure.network.VirtualNetwork("primary", {
+ *     name: "aadds-primary-vnet",
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
  *     addressSpaces: ["10.0.1.0/16"],
  * });
- * const primarySubnet = new azure.network.Subnet("primarySubnet", {
- *     resourceGroupName: primaryResourceGroup.name,
+ * const primarySubnet = new azure.network.Subnet("primary", {
+ *     name: "aadds-primary-subnet",
+ *     resourceGroupName: primary.name,
  *     virtualNetworkName: primaryVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primaryNetworkSecurityGroup", {
- *     location: primaryResourceGroup.location,
- *     resourceGroupName: primaryResourceGroup.name,
+ * const primaryNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("primary", {
+ *     name: "aadds-primary-nsg",
+ *     location: primary.location,
+ *     resourceGroupName: primary.name,
  *     securityRules: [
  *         {
  *             name: "AllowSyncWithAzureAD",
@@ -75,27 +81,30 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", {
+ * const primarySubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("primary", {
  *     subnetId: primarySubnet.id,
  *     networkSecurityGroupId: primaryNetworkSecurityGroup.id,
  * });
- * const dcAdmins = new azuread.Group("dcAdmins", {
+ * const dcAdmins = new azuread.Group("dc_admins", {
  *     displayName: "aad-dc-administrators",
  *     securityEnabled: true,
  * });
- * const adminUser = new azuread.User("adminUser", {
+ * const admin = new azuread.User("admin", {
  *     userPrincipalName: "dc-admin@hashicorp-example.net",
  *     displayName: "DC Administrator",
  *     password: "Pa55w0Rd!!1",
  * });
- * const adminGroupMember = new azuread.GroupMember("adminGroupMember", {
+ * const adminGroupMember = new azuread.GroupMember("admin", {
  *     groupObjectId: dcAdmins.objectId,
- *     memberObjectId: adminUser.objectId,
+ *     memberObjectId: admin.objectId,
  * });
- * const exampleServicePrincipal = new azuread.ServicePrincipal("exampleServicePrincipal", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
- * // published app for domain services
- * const aadds = new azure.core.ResourceGroup("aadds", {location: "westeurope"});
- * const exampleService = new azure.domainservices.Service("exampleService", {
+ * const example = new azuread.ServicePrincipal("example", {applicationId: "2565bd9d-da50-47d4-8b85-4c97f669dc36"});
+ * const aadds = new azure.core.ResourceGroup("aadds", {
+ *     name: "aadds-rg",
+ *     location: "westeurope",
+ * });
+ * const exampleService = new azure.domainservices.Service("example", {
+ *     name: "example-aadds",
  *     location: aadds.location,
  *     resourceGroupName: aadds.name,
  *     domainName: "widgetslogin.net",
@@ -121,26 +130,27 @@ import * as utilities from "../utilities";
  *     tags: {
  *         Environment: "prod",
  *     },
- * }, {
- *     dependsOn: [
- *         exampleServicePrincipal,
- *         primarySubnetNetworkSecurityGroupAssociation,
- *     ],
  * });
- * const replicaResourceGroup = new azure.core.ResourceGroup("replicaResourceGroup", {location: "North Europe"});
- * const replicaVirtualNetwork = new azure.network.VirtualNetwork("replicaVirtualNetwork", {
- *     location: replicaResourceGroup.location,
- *     resourceGroupName: replicaResourceGroup.name,
+ * const replica = new azure.core.ResourceGroup("replica", {
+ *     name: "aadds-replica-rg",
+ *     location: "North Europe",
+ * });
+ * const replicaVirtualNetwork = new azure.network.VirtualNetwork("replica", {
+ *     name: "aadds-replica-vnet",
+ *     location: replica.location,
+ *     resourceGroupName: replica.name,
  *     addressSpaces: ["10.20.0.0/16"],
  * });
- * const aaddsReplicaSubnet = new azure.network.Subnet("aaddsReplicaSubnet", {
- *     resourceGroupName: replicaResourceGroup.name,
+ * const aaddsReplica = new azure.network.Subnet("aadds_replica", {
+ *     name: "aadds-replica-subnet",
+ *     resourceGroupName: replica.name,
  *     virtualNetworkName: replicaVirtualNetwork.name,
  *     addressPrefixes: ["10.20.0.0/24"],
  * });
- * const aaddsReplicaNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", {
- *     location: replicaResourceGroup.location,
- *     resourceGroupName: replicaResourceGroup.name,
+ * const aaddsReplicaNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("aadds_replica", {
+ *     name: "aadds-replica-nsg",
+ *     location: replica.location,
+ *     resourceGroupName: replica.name,
  *     securityRules: [
  *         {
  *             name: "AllowSyncWithAzureAD",
@@ -188,11 +198,12 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", {
- *     subnetId: aaddsReplicaSubnet.id,
+ * const replicaSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("replica", {
+ *     subnetId: aaddsReplica.id,
  *     networkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.id,
  * });
- * const primaryReplica = new azure.network.VirtualNetworkPeering("primaryReplica", {
+ * const primaryReplica = new azure.network.VirtualNetworkPeering("primary_replica", {
+ *     name: "aadds-primary-replica",
  *     resourceGroupName: primaryVirtualNetwork.resourceGroupName,
  *     virtualNetworkName: primaryVirtualNetwork.name,
  *     remoteVirtualNetworkId: replicaVirtualNetwork.id,
@@ -201,7 +212,8 @@ import * as utilities from "../utilities";
  *     allowVirtualNetworkAccess: true,
  *     useRemoteGateways: false,
  * });
- * const replicaPrimary = new azure.network.VirtualNetworkPeering("replicaPrimary", {
+ * const replicaPrimary = new azure.network.VirtualNetworkPeering("replica_primary", {
+ *     name: "aadds-replica-primary",
  *     resourceGroupName: replicaVirtualNetwork.resourceGroupName,
  *     virtualNetworkName: replicaVirtualNetwork.name,
  *     remoteVirtualNetworkId: primaryVirtualNetwork.id,
@@ -210,20 +222,14 @@ import * as utilities from "../utilities";
  *     allowVirtualNetworkAccess: true,
  *     useRemoteGateways: false,
  * });
- * const replicaVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", {
+ * const replicaVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("replica", {
  *     virtualNetworkId: replicaVirtualNetwork.id,
  *     dnsServers: exampleService.initialReplicaSet.apply(initialReplicaSet => initialReplicaSet.domainControllerIpAddresses),
  * });
- * const replicaReplicaSet = new azure.domainservices.ReplicaSet("replicaReplicaSet", {
+ * const replicaReplicaSet = new azure.domainservices.ReplicaSet("replica", {
  *     domainServiceId: exampleService.id,
- *     location: replicaResourceGroup.location,
- *     subnetId: aaddsReplicaSubnet.id,
- * }, {
- *     dependsOn: [
- *         replicaSubnetNetworkSecurityGroupAssociation,
- *         primaryReplica,
- *         replicaPrimary,
- *     ],
+ *     location: replica.location,
+ *     subnetId: aaddsReplica.id,
  * });
  * ```
  *

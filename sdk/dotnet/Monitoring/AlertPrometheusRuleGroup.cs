@@ -12,6 +12,120 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an Alert Management Prometheus Rule Group.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     {
+    ///         Name = "example-mag",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "testag",
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Monitoring.Workspace("example", new()
+    ///     {
+    ///         Name = "example-amw",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
+    ///     {
+    ///         Name = "example-cluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         DnsPrefix = "example-aks",
+    ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
+    ///         {
+    ///             Name = "default",
+    ///             NodeCount = 1,
+    ///             VmSize = "Standard_DS2_v2",
+    ///             EnableHostEncryption = true,
+    ///         },
+    ///         Identity = new Azure.ContainerService.Inputs.KubernetesClusterIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAlertPrometheusRuleGroup = new Azure.Monitoring.AlertPrometheusRuleGroup("example", new()
+    ///     {
+    ///         Name = "example-amprg",
+    ///         Location = "West Europe",
+    ///         ResourceGroupName = example.Name,
+    ///         ClusterName = exampleKubernetesCluster.Name,
+    ///         Description = "This is the description of the following rule group",
+    ///         RuleGroupEnabled = false,
+    ///         Interval = "PT1M",
+    ///         Scopes = new[]
+    ///         {
+    ///             exampleWorkspace.Id,
+    ///         },
+    ///         Rules = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
+    ///             {
+    ///                 Enabled = false,
+    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    /// ",
+    ///                 Record = "job_type:billing_jobs_duration_seconds:99p5m",
+    ///                 Labels = 
+    ///                 {
+    ///                     { "team", "prod" },
+    ///                 },
+    ///             },
+    ///             new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleArgs
+    ///             {
+    ///                 Alert = "Billing_Processing_Very_Slow",
+    ///                 Enabled = true,
+    ///                 Expression = @"histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=""billing-processing""}[5m])) by (job_type))
+    /// ",
+    ///                 For = "PT5M",
+    ///                 Severity = 2,
+    ///                 Actions = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleActionArgs
+    ///                     {
+    ///                         ActionGroupId = exampleActionGroup.Id,
+    ///                     },
+    ///                 },
+    ///                 AlertResolution = new Azure.Monitoring.Inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs
+    ///                 {
+    ///                     AutoResolved = true,
+    ///                     TimeToResolve = "PT10M",
+    ///                 },
+    ///                 Annotations = 
+    ///                 {
+    ///                     { "annotationName", "annotationValue" },
+    ///                 },
+    ///                 Labels = 
+    ///                 {
+    ///                     { "team", "prod" },
+    ///                 },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Alert Management Prometheus Rule Group can be imported using the `resource id`, e.g.

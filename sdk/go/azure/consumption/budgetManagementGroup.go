@@ -30,20 +30,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
+//			example, err := management.NewGroup(ctx, "example", &management.GroupArgs{
 //				DisplayName: pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("eastus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = consumption.NewBudgetManagementGroup(ctx, "exampleBudgetManagementGroup", &consumption.BudgetManagementGroupArgs{
-//				ManagementGroupId: exampleGroup.ID(),
+//			_, err = consumption.NewBudgetManagementGroup(ctx, "example", &consumption.BudgetManagementGroupArgs{
+//				Name:              pulumi.String("example"),
+//				ManagementGroupId: example.ID(),
 //				Amount:            pulumi.Float64(1000),
 //				TimeGrain:         pulumi.String("Monthly"),
 //				TimePeriod: &consumption.BudgetManagementGroupTimePeriodArgs{

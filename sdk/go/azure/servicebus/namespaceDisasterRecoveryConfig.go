@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("servicebus-replication"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			primary, err := servicebus.NewNamespace(ctx, "primary", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Name:              pulumi.String("servicebus-primary"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Premium"),
 //				Capacity:          pulumi.Int(1),
 //			})
@@ -47,16 +49,18 @@ import (
 //				return err
 //			}
 //			secondary, err := servicebus.NewNamespace(ctx, "secondary", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Name:              pulumi.String("servicebus-secondary"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Premium"),
 //				Capacity:          pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
-//				NamespaceId: pulumi.Any(azurerm_servicebus_namespace.Example.Id),
+//			exampleNamespaceAuthorizationRule, err := servicebus.NewNamespaceAuthorizationRule(ctx, "example", &servicebus.NamespaceAuthorizationRuleArgs{
+//				Name:        pulumi.String("examplerule"),
+//				NamespaceId: pulumi.Any(exampleAzurermServicebusNamespace.Id),
 //				Listen:      pulumi.Bool(true),
 //				Send:        pulumi.Bool(true),
 //				Manage:      pulumi.Bool(false),
@@ -64,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "exampleNamespaceDisasterRecoveryConfig", &servicebus.NamespaceDisasterRecoveryConfigArgs{
+//			_, err = servicebus.NewNamespaceDisasterRecoveryConfig(ctx, "example", &servicebus.NamespaceDisasterRecoveryConfigArgs{
+//				Name:                     pulumi.String("servicebus-alias-name"),
 //				PrimaryNamespaceId:       primary.ID(),
 //				PartnerNamespaceId:       secondary.ID(),
 //				AliasAuthorizationRuleId: exampleNamespaceAuthorizationRule.ID(),

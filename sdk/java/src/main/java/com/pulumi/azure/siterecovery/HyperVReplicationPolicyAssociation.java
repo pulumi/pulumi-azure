@@ -46,21 +46,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleHyperVSite = new HyperVSite(&#34;exampleHyperVSite&#34;, HyperVSiteArgs.builder()        
  *             .recoveryVaultId(exampleVault.id())
+ *             .name(&#34;example-site&#34;)
  *             .build());
  * 
  *         var exampleHyperVReplicationPolicy = new HyperVReplicationPolicy(&#34;exampleHyperVReplicationPolicy&#34;, HyperVReplicationPolicyArgs.builder()        
+ *             .name(&#34;policy&#34;)
  *             .recoveryVaultId(exampleVault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)
@@ -68,6 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHyperVReplicationPolicyAssociation = new HyperVReplicationPolicyAssociation(&#34;exampleHyperVReplicationPolicyAssociation&#34;, HyperVReplicationPolicyAssociationArgs.builder()        
+ *             .name(&#34;example-association&#34;)
  *             .hypervSiteId(exampleHyperVSite.id())
  *             .policyId(exampleHyperVReplicationPolicy.id())
  *             .build());

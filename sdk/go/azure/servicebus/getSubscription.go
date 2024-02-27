@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("servicebusSubscription", data.Azurerm_servicebus_namespace.Example)
+//			ctx.Export("servicebusSubscription", exampleAzurermServicebusNamespace)
 //			return nil
 //		})
 //	}

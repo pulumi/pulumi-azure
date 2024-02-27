@@ -503,18 +503,23 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        deploy_resource_group = azure.core.ResourceGroup("deployResourceGroup", location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deployVirtualNetwork",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
+        deploy = azure.core.ResourceGroup("deploy",
+            name="example-resources",
+            location="West Europe")
+        deploy_virtual_network = azure.network.VirtualNetwork("deploy",
+            name="deploy-vnet",
+            location=deploy.location,
+            resource_group_name=deploy.name,
             address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploySubnet",
-            resource_group_name=deploy_resource_group.name,
+        deploy_subnet = azure.network.Subnet("deploy",
+            name="deploy-subnet",
+            resource_group_name=deploy.name,
             virtual_network_name=deploy_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deployNetworkSecurityGroup",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
+        deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
+            name="deploy-nsg",
+            location=deploy.location,
+            resource_group_name=deploy.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -561,23 +566,25 @@ class Service(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation",
+        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
+        dc_admins = azuread.Group("dc_admins",
             display_name="AAD DC Administrators",
             security_enabled=True)
-        admin_user = azuread.User("adminUser",
+        admin = azuread.User("admin",
             user_principal_name="dc-admin@hashicorp-example.com",
             display_name="DC Administrator",
             password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
+        admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
+            member_object_id=admin.object_id)
+        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        aadds = azure.core.ResourceGroup("aadds",
+            name="aadds-rg",
+            location="westeurope")
+        example_service = azure.domainservices.Service("example",
+            name="example-aadds",
             location=aadds.location,
             resource_group_name=aadds.name,
             domain_name="widgetslogin.net",
@@ -601,11 +608,7 @@ class Service(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    deploy_subnet_network_security_group_association,
-                ]))
+            })
         ```
 
         ## Import
@@ -645,18 +648,23 @@ class Service(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        deploy_resource_group = azure.core.ResourceGroup("deployResourceGroup", location="West Europe")
-        deploy_virtual_network = azure.network.VirtualNetwork("deployVirtualNetwork",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
+        deploy = azure.core.ResourceGroup("deploy",
+            name="example-resources",
+            location="West Europe")
+        deploy_virtual_network = azure.network.VirtualNetwork("deploy",
+            name="deploy-vnet",
+            location=deploy.location,
+            resource_group_name=deploy.name,
             address_spaces=["10.0.1.0/16"])
-        deploy_subnet = azure.network.Subnet("deploySubnet",
-            resource_group_name=deploy_resource_group.name,
+        deploy_subnet = azure.network.Subnet("deploy",
+            name="deploy-subnet",
+            resource_group_name=deploy.name,
             virtual_network_name=deploy_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        deploy_network_security_group = azure.network.NetworkSecurityGroup("deployNetworkSecurityGroup",
-            location=deploy_resource_group.location,
-            resource_group_name=deploy_resource_group.name,
+        deploy_network_security_group = azure.network.NetworkSecurityGroup("deploy",
+            name="deploy-nsg",
+            location=deploy.location,
+            resource_group_name=deploy.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -703,23 +711,25 @@ class Service(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation",
+        deploy_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("deploy",
             subnet_id=deploy_subnet.id,
             network_security_group_id=deploy_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
+        dc_admins = azuread.Group("dc_admins",
             display_name="AAD DC Administrators",
             security_enabled=True)
-        admin_user = azuread.User("adminUser",
+        admin = azuread.User("admin",
             user_principal_name="dc-admin@hashicorp-example.com",
             display_name="DC Administrator",
             password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
+        admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
+            member_object_id=admin.object_id)
+        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        aadds = azure.core.ResourceGroup("aadds",
+            name="aadds-rg",
+            location="westeurope")
+        example_service = azure.domainservices.Service("example",
+            name="example-aadds",
             location=aadds.location,
             resource_group_name=aadds.name,
             domain_name="widgetslogin.net",
@@ -743,11 +753,7 @@ class Service(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    deploy_subnet_network_security_group_association,
-                ]))
+            })
         ```
 
         ## Import

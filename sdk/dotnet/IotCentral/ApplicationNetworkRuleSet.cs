@@ -22,15 +22,17 @@ namespace Pulumi.Azure.IotCentral
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resource",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.IotCentral.Application("exampleApplication", new()
+    ///     var exampleApplication = new Azure.IotCentral.Application("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-iotcentral-app",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SubDomain = "example-iotcentral-app-subdomain",
     ///         DisplayName = "example-iotcentral-app-display-name",
     ///         Sku = "ST1",
@@ -40,7 +42,7 @@ namespace Pulumi.Azure.IotCentral
     ///         },
     ///     });
     /// 
-    ///     var exampleApplicationNetworkRuleSet = new Azure.IotCentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", new()
+    ///     var exampleApplicationNetworkRuleSet = new Azure.IotCentral.ApplicationNetworkRuleSet("example", new()
     ///     {
     ///         IotcentralApplicationId = exampleApplication.Id,
     ///         IpRules = new[]

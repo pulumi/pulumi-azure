@@ -22,26 +22,30 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new()
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ampls",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService", new()
+    ///     var examplePrivateLinkScopedService = new Azure.Monitoring.PrivateLinkScopedService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-amplsservice",
+    ///         ResourceGroupName = example.Name,
     ///         ScopeName = examplePrivateLinkScope.Name,
     ///         LinkedResourceId = exampleInsights.Id,
     ///     });

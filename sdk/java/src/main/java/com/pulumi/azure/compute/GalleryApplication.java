@@ -44,18 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplegallery&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleGalleryApplication = new GalleryApplication(&#34;exampleGalleryApplication&#34;, GalleryApplicationArgs.builder()        
+ *             .name(&#34;example-app&#34;)
  *             .galleryId(exampleSharedImageGallery.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .supportedOsType(&#34;Linux&#34;)
  *             .build());
  * 

@@ -288,11 +288,14 @@ class NetworkManager(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -339,11 +342,14 @@ class NetworkManager(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),

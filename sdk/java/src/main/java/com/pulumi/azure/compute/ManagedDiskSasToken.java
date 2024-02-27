@@ -50,13 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;testrg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var testManagedDisk = new ManagedDisk(&#34;testManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .location(testResourceGroup.location())
- *             .resourceGroupName(testResourceGroup.name())
+ *             .name(&#34;tst-disk-export&#34;)
+ *             .location(test.location())
+ *             .resourceGroupName(test.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(&#34;1&#34;)

@@ -113,20 +113,23 @@ class CertificateContacts(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             certificate_permissions=["ManageContacts"],
             key_permissions=["Create"],
             secret_permissions=["Set"])
-        example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
+        example_certificate_contacts = azure.keyvault.CertificateContacts("example",
             key_vault_id=example_key_vault.id,
             contacts=[
                 azure.keyvault.CertificateContactsContactArgs(
@@ -137,8 +140,7 @@ class CertificateContacts(pulumi.CustomResource):
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example2@example.com",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_access_policy]))
+            ])
         ```
 
         ## Import
@@ -174,20 +176,23 @@ class CertificateContacts(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium")
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=current.tenant_id,
             object_id=current.object_id,
             certificate_permissions=["ManageContacts"],
             key_permissions=["Create"],
             secret_permissions=["Set"])
-        example_certificate_contacts = azure.keyvault.CertificateContacts("exampleCertificateContacts",
+        example_certificate_contacts = azure.keyvault.CertificateContacts("example",
             key_vault_id=example_key_vault.id,
             contacts=[
                 azure.keyvault.CertificateContactsContactArgs(
@@ -198,8 +203,7 @@ class CertificateContacts(pulumi.CustomResource):
                 azure.keyvault.CertificateContactsContactArgs(
                     email="example2@example.com",
                 ),
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_access_policy]))
+            ])
         ```
 
         ## Import

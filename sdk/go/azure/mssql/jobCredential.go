@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("northeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example-server"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -45,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Name:      pulumi.String("example-db"),
 //				ServerId:  exampleServer.ID(),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
 //				SkuName:   pulumi.String("S1"),
@@ -53,14 +56,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleJobAgent, err := mssql.NewJobAgent(ctx, "exampleJobAgent", &mssql.JobAgentArgs{
-//				Location:   exampleResourceGroup.Location,
+//			exampleJobAgent, err := mssql.NewJobAgent(ctx, "example", &mssql.JobAgentArgs{
+//				Name:       pulumi.String("example-job-agent"),
+//				Location:   example.Location,
 //				DatabaseId: exampleDatabase.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewJobCredential(ctx, "exampleJobCredential", &mssql.JobCredentialArgs{
+//			_, err = mssql.NewJobCredential(ctx, "example", &mssql.JobCredentialArgs{
+//				Name:       pulumi.String("example-credential"),
 //				JobAgentId: exampleJobAgent.ID(),
 //				Username:   pulumi.String("my-username"),
 //				Password:   pulumi.String("MyP4ssw0rd!!!"),

@@ -21,34 +21,26 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
@@ -57,11 +49,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewCertificate(ctx, "exampleCertificate", &iot.CertificateArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example.cer",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewCertificate(ctx, "example", &iot.CertificateArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupName:  example.Name,
 //				IothubName:         exampleIoTHub.Name,
 //				IsVerified:         pulumi.Bool(true),
-//				CertificateContent: filebase64OrPanic("example.cer"),
+//				CertificateContent: invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

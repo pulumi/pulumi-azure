@@ -350,17 +350,22 @@ class Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.2.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-compute",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.0.0/24"])
         example2 = azure.network.Subnet("example2",
-            resource_group_name=example_resource_group.name,
+            name="example-hsmsubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.1.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -374,16 +379,19 @@ class Module(pulumi.CustomResource):
                 ),
             )])
         example3 = azure.network.Subnet("example3",
-            resource_group_name=example_resource_group.name,
+            name="gatewaysubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            name="example-vnetgateway",
+            location=example.location,
+            resource_group_name=example.name,
             type="ExpressRoute",
             vpn_type="PolicyBased",
             sku="Standard",
@@ -392,9 +400,10 @@ class Module(pulumi.CustomResource):
                 private_ip_address_allocation="Dynamic",
                 subnet_id=example3.id,
             )])
-        example_module = azure.hsm.Module("exampleModule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_module = azure.hsm.Module("example",
+            name="example-hsm",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
             management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
                 network_interface_private_ip_addresses=["10.2.1.7"],
@@ -407,8 +416,7 @@ class Module(pulumi.CustomResource):
             stamp_id="stamp2",
             tags={
                 "env": "Test",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+            })
         ```
 
         ## Import
@@ -452,17 +460,22 @@ class Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.2.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-compute",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.0.0/24"])
         example2 = azure.network.Subnet("example2",
-            resource_group_name=example_resource_group.name,
+            name="example-hsmsubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.1.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -476,16 +489,19 @@ class Module(pulumi.CustomResource):
                 ),
             )])
         example3 = azure.network.Subnet("example3",
-            resource_group_name=example_resource_group.name,
+            name="gatewaysubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.2.255.0/26"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Dynamic")
-        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_gateway = azure.network.VirtualNetworkGateway("example",
+            name="example-vnetgateway",
+            location=example.location,
+            resource_group_name=example.name,
             type="ExpressRoute",
             vpn_type="PolicyBased",
             sku="Standard",
@@ -494,9 +510,10 @@ class Module(pulumi.CustomResource):
                 private_ip_address_allocation="Dynamic",
                 subnet_id=example3.id,
             )])
-        example_module = azure.hsm.Module("exampleModule",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_module = azure.hsm.Module("example",
+            name="example-hsm",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="payShield10K_LMK1_CPS60",
             management_network_profile=azure.hsm.ModuleManagementNetworkProfileArgs(
                 network_interface_private_ip_addresses=["10.2.1.7"],
@@ -509,8 +526,7 @@ class Module(pulumi.CustomResource):
             stamp_id="stamp2",
             tags={
                 "env": "Test",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_network_gateway]))
+            })
         ```
 
         ## Import

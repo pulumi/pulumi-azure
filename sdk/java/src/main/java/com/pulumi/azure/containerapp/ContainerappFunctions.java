@@ -350,14 +350,14 @@ public final class ContainerappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEnvironment = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .name(&#34;example-environment&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
+     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
      *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(exampleEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
@@ -394,14 +394,14 @@ public final class ContainerappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEnvironment = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .name(&#34;example-environment&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
+     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
      *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(exampleEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
@@ -438,14 +438,14 @@ public final class ContainerappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEnvironment = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .name(&#34;example-environment&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
+     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
      *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(exampleEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
      *             .build());
      * 
      *     }
@@ -482,14 +482,14 @@ public final class ContainerappFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleEnvironment = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
+     *         final var example = ContainerappFunctions.getEnvironment(GetEnvironmentArgs.builder()
      *             .name(&#34;example-environment&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
+     *         final var exampleGetEnvironmentCertificate = ContainerappFunctions.getEnvironmentCertificate(GetEnvironmentCertificateArgs.builder()
      *             .name(&#34;mycertificate&#34;)
-     *             .containerAppEnvironmentId(exampleEnvironment.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
+     *             .containerAppEnvironmentId(example.applyValue(getEnvironmentResult -&gt; getEnvironmentResult.id()))
      *             .build());
      * 
      *     }

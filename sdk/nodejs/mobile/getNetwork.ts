@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -84,7 +84,7 @@ export interface GetNetworkResult {
  *
  * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */

@@ -13,38 +13,43 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     name: "example-backup-vault",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Backup Contributor",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
- * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", {
+ * const exampleBackupPolicyBlobStorage = new azure.dataprotection.BackupPolicyBlobStorage("example", {
+ *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     retentionDuration: "P30D",
  * });
- * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", {
+ * const exampleBackupInstanceBlogStorage = new azure.dataprotection.BackupInstanceBlogStorage("example", {
+ *     name: "example-backup-instance",
  *     vaultId: exampleBackupVault.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     storageAccountId: exampleAccount.id,
  *     backupPolicyId: exampleBackupPolicyBlobStorage.id,
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

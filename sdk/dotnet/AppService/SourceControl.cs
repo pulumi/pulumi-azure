@@ -22,28 +22,31 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         OsType = "Linux",
     ///         SkuName = "P1v2",
     ///     });
     /// 
-    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleSourceControl = new Azure.AppService.SourceControl("exampleSourceControl", new()
+    ///     var exampleSourceControl = new Azure.AppService.SourceControl("example", new()
     ///     {
     ///         AppId = exampleLinuxWebApp.Id,
     ///         RepoUrl = "https://github.com/Azure-Samples/python-docs-hello-world",

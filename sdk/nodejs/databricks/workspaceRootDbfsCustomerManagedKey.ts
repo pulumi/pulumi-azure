@@ -14,23 +14,46 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ *     name: "databricks-test",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "premium",
  *     customerManagedKeyEnabled: true,
  *     tags: {
  *         Environment: "Production",
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     purgeProtectionEnabled: true,
  *     softDeleteRetentionDays: 7,
+ * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-certificate",
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleWorkspaceRootDbfsCustomerManagedKey = new azure.databricks.WorkspaceRootDbfsCustomerManagedKey("example", {
+ *     workspaceId: exampleWorkspace.id,
+ *     keyVaultKeyId: exampleKey.id,
  * });
  * const terraform = new azure.keyvault.AccessPolicy("terraform", {
  *     keyVaultId: exampleKeyVault.id,
@@ -49,21 +72,6 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [terraform],
- * });
  * const databricks = new azure.keyvault.AccessPolicy("databricks", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleWorkspace.storageAccountIdentities.apply(storageAccountIdentities => storageAccountIdentities[0].tenantId),
@@ -79,14 +87,6 @@ import * as utilities from "../utilities";
  *         "Decrypt",
  *         "Sign",
  *     ],
- * }, {
- *     dependsOn: [exampleWorkspace],
- * });
- * const exampleWorkspaceRootDbfsCustomerManagedKey = new azure.databricks.WorkspaceRootDbfsCustomerManagedKey("exampleWorkspaceRootDbfsCustomerManagedKey", {
- *     workspaceId: exampleWorkspace.id,
- *     keyVaultKeyId: exampleKey.id,
- * }, {
- *     dependsOn: [databricks],
  * });
  * ```
  * ## Example HCL Configurations

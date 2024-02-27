@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.policy.getPolicyAssignment({
  *     name: "existing",
- *     scopeId: data.azurerm_resource_group.example.id,
+ *     scopeId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -107,7 +107,7 @@ export interface GetPolicyAssignmentResult {
  *
  * const example = azure.policy.getPolicyAssignment({
  *     name: "existing",
- *     scopeId: data.azurerm_resource_group.example.id,
+ *     scopeId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
  * ```

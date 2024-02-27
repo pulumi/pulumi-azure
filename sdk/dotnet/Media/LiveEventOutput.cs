@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemediaacc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
     ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
@@ -49,16 +52,18 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     var exampleAsset = new Azure.Media.Asset("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "inputAsset",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///     });
     /// 
-    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("exampleLiveEvent", new()
+    ///     var exampleLiveEvent = new Azure.Media.LiveEvent("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleevent",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "My Event Description",
     ///         Input = new Azure.Media.Inputs.LiveEventInputArgs
@@ -77,8 +82,9 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("exampleLiveEventOutput", new()
+    ///     var exampleLiveEventOutput = new Azure.Media.LiveEventOutput("example", new()
     ///     {
+    ///         Name = "exampleoutput",
     ///         LiveEventId = exampleLiveEvent.Id,
     ///         ArchiveWindowDuration = "PT5M",
     ///         AssetName = exampleAsset.Name,

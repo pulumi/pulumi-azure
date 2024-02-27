@@ -22,35 +22,40 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cache",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Capacity = 0,
     ///         Family = "C",
     ///         SkuName = "Basic",
     ///         EnableNonSslPort = true,
     ///     });
     /// 
-    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("exampleSpringCloudAppRedisAssociation", new()
+    ///     var exampleSpringCloudAppRedisAssociation = new Azure.AppPlatform.SpringCloudAppRedisAssociation("example", new()
     ///     {
+    ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         RedisCacheId = exampleCache.Id,
     ///         RedisAccessKey = exampleCache.PrimaryAccessKey,

@@ -29,12 +29,12 @@ namespace Pulumi.Azure.MariaDB
         ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
         ///     {
         ///         Name = "mariadb-server",
-        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
+        ///         ResourceGroupName = example.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
+        ///         ["mariadbServerId"] = exampleAzurermMariadbServer.Id,
         ///     };
         /// });
         /// ```
@@ -62,12 +62,12 @@ namespace Pulumi.Azure.MariaDB
         ///     var dbServer = Azure.MariaDB.GetMariaDbServer.Invoke(new()
         ///     {
         ///         Name = "mariadb-server",
-        ///         ResourceGroupName = azurerm_mariadb_server.Example.Resource_group_name,
+        ///         ResourceGroupName = example.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["mariadbServerId"] = data.Azurerm_mariadb_server.Example.Id,
+        ///         ["mariadbServerId"] = exampleAzurermMariadbServer.Id,
         ///     };
         /// });
         /// ```

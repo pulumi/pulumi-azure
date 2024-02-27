@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = dns.NewZone(ctx, "example-public", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
 //				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {

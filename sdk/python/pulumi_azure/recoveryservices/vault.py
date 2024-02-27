@@ -528,8 +528,11 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-recovery_vault",
+            location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",
@@ -582,8 +585,11 @@ class Vault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-recovery_vault",
+            location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard",

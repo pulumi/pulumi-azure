@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "production-nwwatcher",
+ *     location: "West Europe",
+ * });
+ * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
+ *     name: "production-nwwatcher",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

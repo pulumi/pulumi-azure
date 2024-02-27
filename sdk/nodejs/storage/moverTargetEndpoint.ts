@@ -13,23 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestr",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     allowNestedItemsToBePublic: true,
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "example-sc",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "blob",
  * });
- * const exampleMover = new azure.storage.Mover("exampleMover", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleMover = new azure.storage.Mover("example", {
+ *     name: "example-ssm",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  * });
- * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", {
+ * const exampleMoverTargetEndpoint = new azure.storage.MoverTargetEndpoint("example", {
+ *     name: "example-se",
  *     storageMoverId: exampleMover.id,
  *     storageAccountId: exampleAccount.id,
  *     storageContainerName: exampleContainer.name,

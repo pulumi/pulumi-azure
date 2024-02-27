@@ -229,10 +229,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-signalr",
+            location="east us")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -244,14 +247,16 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 secret_permissions=["Set"],
             )])
         test = azure.signalr.Service("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            name="tfex-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             sku=azure.signalr.ServiceSkuArgs(
                 name="Standard_S1",
                 capacity=1,
             ))
-        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            signalr_service_id=azurerm_signalr_service["example"]["id"],
+        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
+            name="tfex-signalr-splr",
+            signalr_service_id=example_azurerm_signalr_service["id"],
             sub_resource_name="vault",
             target_resource_id=example_key_vault.id)
         ```
@@ -290,10 +295,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-signalr",
+            location="east us")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -305,14 +313,16 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 secret_permissions=["Set"],
             )])
         test = azure.signalr.Service("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            name="tfex-signalr",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             sku=azure.signalr.ServiceSkuArgs(
                 name="Standard_S1",
                 capacity=1,
             ))
-        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
-            signalr_service_id=azurerm_signalr_service["example"]["id"],
+        example_shared_private_link_resource = azure.signalr.SharedPrivateLinkResource("example",
+            name="tfex-signalr-splr",
+            signalr_service_id=example_azurerm_signalr_service["id"],
             sub_resource_name="vault",
             target_resource_id=example_key_vault.id)
         ```

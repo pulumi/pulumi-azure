@@ -13,13 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-cdn-frontdoor",
+ *     location: "West Europe",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     name: "sub-domain.domain.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
  *     skuName: "Standard_AzureFrontDoor",
  * });
- * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("exampleFrontdoorCustomDomain", {
+ * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
+ *     name: "example-customDomain",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     dnsZoneId: exampleZone.id,
  *     hostName: "contoso.fabrikam.com",
@@ -29,6 +37,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * ## Example DNS Auth TXT Record Usage
+ *
+ * The name of your DNS TXT record should be in the format of `_dnsauth.<your_subdomain>`. So, for example, if we use the `hostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.dns.TxtRecord("example", {
+ *     name: std.join({
+ *         separator: ".",
+ *         input: [
+ *             "_dnsauth",
+ *             "contoso",
+ *         ],
+ *     }).then(invoke => invoke.result),
+ *     zoneName: exampleAzurermDnsZone.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     ttl: 3600,
+ *     records: [{
+ *         value: exampleAzurermCdnFrontdoorCustomDomain.validationToken,
+ *     }],
+ * });
+ * ```
+ *
  * ## Example CNAME Record Usage
  *
  * !>**IMPORTANT:** You **must** include the `dependsOn` meta-argument which references both the `azure.cdn.FrontdoorRoute` and the `azure.cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
@@ -38,15 +72,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.CNameRecord("example", {
- *     zoneName: azurerm_dns_zone.example.name,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     name: "contoso",
+ *     zoneName: exampleAzurermDnsZone.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  *     ttl: 3600,
- *     record: azurerm_cdn_frontdoor_endpoint.example.host_name,
- * }, {
- *     dependsOn: [
- *         azurerm_cdn_frontdoor_route.example,
- *         azurerm_cdn_frontdoor_security_policy.example,
- *     ],
+ *     record: exampleAzurermCdnFrontdoorEndpoint.hostName,
  * });
  * ```
  *

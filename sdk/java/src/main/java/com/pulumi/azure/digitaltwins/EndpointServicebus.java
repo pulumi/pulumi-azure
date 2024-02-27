@@ -50,26 +50,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example_resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-DT&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleservicebusnamespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;exampleservicebustopic&#34;)
  *             .namespaceId(exampleNamespace.id())
  *             .build());
  * 
  *         var exampleTopicAuthorizationRule = new TopicAuthorizationRule(&#34;exampleTopicAuthorizationRule&#34;, TopicAuthorizationRuleArgs.builder()        
+ *             .name(&#34;example-rule&#34;)
  *             .topicId(exampleTopic.id())
  *             .listen(false)
  *             .send(true)
@@ -77,6 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpointServicebus = new EndpointServicebus(&#34;exampleEndpointServicebus&#34;, EndpointServicebusArgs.builder()        
+ *             .name(&#34;example-EndpointSB&#34;)
  *             .digitalTwinsId(exampleInstance.id())
  *             .servicebusPrimaryConnectionString(exampleTopicAuthorizationRule.primaryConnectionString())
  *             .servicebusSecondaryConnectionString(exampleTopicAuthorizationRule.secondaryConnectionString())

@@ -26,15 +26,15 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         Name = azurerm_key_vault.Example.Name,
-        ///         ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
+        ///         Name = exampleAzurermKeyVault.Name,
+        ///         ResourceGroupName = exampleAzurermKeyVault.ResourceGroupName,
         ///     });
         /// 
-        ///     var exampleDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
+        ///     var exampleGetDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
         ///     {
-        ///         ResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///         ResourceId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
         /// });
@@ -60,15 +60,15 @@ namespace Pulumi.Azure.Monitoring
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
-        ///         Name = azurerm_key_vault.Example.Name,
-        ///         ResourceGroupName = azurerm_key_vault.Example.Resource_group_name,
+        ///         Name = exampleAzurermKeyVault.Name,
+        ///         ResourceGroupName = exampleAzurermKeyVault.ResourceGroupName,
         ///     });
         /// 
-        ///     var exampleDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
+        ///     var exampleGetDiagnosticCategories = Azure.Monitoring.GetDiagnosticCategories.Invoke(new()
         ///     {
-        ///         ResourceId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///         ResourceId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
         /// });

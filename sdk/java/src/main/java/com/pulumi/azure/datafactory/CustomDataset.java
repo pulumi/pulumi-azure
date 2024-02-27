@@ -54,27 +54,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountKind(&#34;BlobStorage&#34;)
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleLinkedCustomService = new LinkedCustomService(&#34;exampleLinkedCustomService&#34;, LinkedCustomServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;AzureBlobStorage&#34;)
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
@@ -85,11 +89,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;content&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleCustomDataset = new CustomDataset(&#34;exampleCustomDataset&#34;, CustomDatasetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;Json&#34;)
  *             .linkedService(CustomDatasetLinkedServiceArgs.builder()

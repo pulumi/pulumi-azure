@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//			example, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 //				Name:              "search-api",
 //				ApiManagementName: "search-api-management",
 //				ResourceGroupName: "search-service",
@@ -37,11 +37,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "example", &apimanagement.ApiOperationArgs{
 //				OperationId:       pulumi.String("user-delete"),
-//				ApiName:           *pulumi.String(exampleApi.Name),
-//				ApiManagementName: *pulumi.String(exampleApi.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(exampleApi.ResourceGroupName),
+//				ApiName:           *pulumi.String(example.Name),
+//				ApiManagementName: *pulumi.String(example.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //				DisplayName:       pulumi.String("Delete User Operation"),
 //				Method:            pulumi.String("DELETE"),
 //				UrlTemplate:       pulumi.String("/users/{id}/delete"),
@@ -62,7 +62,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiOperationTag(ctx, "exampleApiOperationTag", &apimanagement.ApiOperationTagArgs{
+//			_, err = apimanagement.NewApiOperationTag(ctx, "example", &apimanagement.ApiOperationTagArgs{
+//				Name:           pulumi.String("example-Tag"),
 //				ApiOperationId: exampleApiOperation.ID(),
 //				DisplayName:    pulumi.String("example-Tag"),
 //			})

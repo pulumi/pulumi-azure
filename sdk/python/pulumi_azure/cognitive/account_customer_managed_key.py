@@ -142,13 +142,17 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West US")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example.name,
+            location=example.location,
+            name="example-identity")
+        example_account = azure.cognitive.Account("example",
+            name="example-account",
+            location=example.location,
+            resource_group_name=example.name,
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
@@ -156,9 +160,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                 type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-vault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True,
@@ -224,7 +229,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -236,7 +242,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ])
-        example_account_customer_managed_key = azure.cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey",
+        example_account_customer_managed_key = azure.cognitive.AccountCustomerManagedKey("example",
             cognitive_account_id=example_account.id,
             key_vault_key_id=example_key.id,
             identity_client_id=example_user_assigned_identity.client_id)
@@ -274,13 +280,17 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West US")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example.name,
+            location=example.location,
+            name="example-identity")
+        example_account = azure.cognitive.Account("example",
+            name="example-account",
+            location=example.location,
+            resource_group_name=example.name,
             kind="Face",
             sku_name="E0",
             custom_subdomain_name="example-account",
@@ -288,9 +298,10 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                 type="SystemAssigned, UserAssigned",
                 identity_ids=[example_user_assigned_identity.id],
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-vault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True,
@@ -356,7 +367,8 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -368,7 +380,7 @@ class AccountCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ])
-        example_account_customer_managed_key = azure.cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey",
+        example_account_customer_managed_key = azure.cognitive.AccountCustomerManagedKey("example",
             cognitive_account_id=example_account.id,
             key_vault_key_id=example_key.id,
             identity_client_id=example_user_assigned_identity.client_id)

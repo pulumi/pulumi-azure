@@ -22,25 +22,29 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("exampleLinkedServicePostgresql", new()
+    ///     var exampleLinkedServicePostgresql = new Azure.DataFactory.LinkedServicePostgresql("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Host=example;Port=5432;Database=example;UID=example;EncryptionMethod=0;Password=example",
     ///     });
     /// 
-    ///     var exampleDatasetPostgresql = new Azure.DataFactory.DatasetPostgresql("exampleDatasetPostgresql", new()
+    ///     var exampleDatasetPostgresql = new Azure.DataFactory.DatasetPostgresql("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServicePostgresql.Name,
     ///     });

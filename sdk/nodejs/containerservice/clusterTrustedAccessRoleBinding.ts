@@ -17,27 +17,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = new azure.appinsights.Insights("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     applicationType: "example-value",
  * });
  * const test = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: data.azurerm_client_config.example.tenant_id,
+ *     tenantId: exampleAzurermClientConfig.tenantId,
  *     skuName: "example-value",
  *     softDeleteRetentionDays: "example-value",
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: data.azurerm_client_config.example.tenant_id,
- *     objectId: data.azurerm_client_config.example.object_id,
+ *     tenantId: exampleAzurermClientConfig.tenantId,
+ *     objectId: exampleAzurermClientConfig.objectId,
  *     keyPermissions: "example-value",
  * });
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     dnsPrefix: "acctestaksexample",
@@ -50,24 +56,27 @@ import * as utilities from "../utilities";
  *         type: "example-value",
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountTier: "example-value",
  *     accountReplicationType: "example-value",
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
- *     applicationInsightsId: exampleInsights.id,
+ *     applicationInsightsId: example.id,
  *     identity: {
  *         type: "example-value",
  *     },
  * });
- * const exampleClusterTrustedAccessRoleBinding = new azure.containerservice.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding", {
+ * const exampleClusterTrustedAccessRoleBinding = new azure.containerservice.ClusterTrustedAccessRoleBinding("example", {
  *     kubernetesClusterId: exampleKubernetesCluster.id,
+ *     name: "example",
  *     roles: "example-value",
  *     sourceResourceId: exampleWorkspace.id,
  * });

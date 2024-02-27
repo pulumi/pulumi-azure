@@ -41,13 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = DomainservicesFunctions.getService(GetServiceArgs.builder()
+ *         final var example = DomainservicesFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-ds&#34;)
  *             .resourceGroupName(&#34;example-rg&#34;)
  *             .build());
  * 
  *         var exampleServiceTrust = new ServiceTrust(&#34;exampleServiceTrust&#34;, ServiceTrustArgs.builder()        
- *             .domainServiceId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+ *             .name(&#34;example-trust&#34;)
+ *             .domainServiceId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
  *             .trustedDomainFqdn(&#34;example.com&#34;)
  *             .trustedDomainDnsIps(            
  *                 &#34;10.1.0.3&#34;,

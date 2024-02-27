@@ -332,22 +332,27 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="KustoRG",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.kusto.Database("example",
+            name="KustoDatabase",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=example_cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=example_resource_group.name,
+        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
+            name="KustoPrincipalAssignment",
+            resource_group_name=example.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=current.tenant_id,
@@ -391,22 +396,27 @@ class DatabasePrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="KustoRG",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.kusto.Database("example",
+            name="KustoDatabase",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=example_cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
-        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment",
-            resource_group_name=example_resource_group.name,
+        example_database_principal_assignment = azure.kusto.DatabasePrincipalAssignment("example",
+            name="KustoPrincipalAssignment",
+            resource_group_name=example.name,
             cluster_name=example_cluster.name,
             database_name=example_database.name,
             tenant_id=current.tenant_id,

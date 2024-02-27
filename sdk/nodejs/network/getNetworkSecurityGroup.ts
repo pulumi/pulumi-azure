@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.network.getNetworkSecurityGroup({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const location = example.then(example => example.location);
  * ```
@@ -82,7 +82,7 @@ export interface GetNetworkSecurityGroupResult {
  *
  * const example = azure.network.getNetworkSecurityGroup({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const location = example.then(example => example.location);
  * ```

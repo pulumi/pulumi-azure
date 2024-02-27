@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG1"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/22"),
 //				},
@@ -49,7 +51,8 @@ import (
 //				return err
 //			}
 //			isesubnet1, err := network.NewSubnet(ctx, "isesubnet1", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("isesubnet1"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/27"),
@@ -67,7 +70,8 @@ import (
 //				return err
 //			}
 //			isesubnet2, err := network.NewSubnet(ctx, "isesubnet2", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("isesubnet2"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.32/27"),
@@ -77,7 +81,8 @@ import (
 //				return err
 //			}
 //			isesubnet3, err := network.NewSubnet(ctx, "isesubnet3", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("isesubnet3"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.64/27"),
@@ -87,7 +92,8 @@ import (
 //				return err
 //			}
 //			isesubnet4, err := network.NewSubnet(ctx, "isesubnet4", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("isesubnet4"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.96/27"),
@@ -96,9 +102,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewInterationServiceEnvironment(ctx, "exampleInterationServiceEnvironment", &logicapps.InterationServiceEnvironmentArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			_, err = logicapps.NewInterationServiceEnvironment(ctx, "example", &logicapps.InterationServiceEnvironmentArgs{
+//				Name:               pulumi.String("example-ise"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				SkuName:            pulumi.String("Developer_0"),
 //				AccessEndpointType: pulumi.String("Internal"),
 //				VirtualNetworkSubnetIds: pulumi.StringArray{

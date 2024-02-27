@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleRegistry = new azure.containerservice.Registry("example", {
+ *     name: "exampleacr",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Premium",
  *     dataEndpointEnabled: true,
  * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
+ * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
+ *     name: "examplescopemap",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: exampleRegistry.resourceGroupName,
  *     actions: [
@@ -37,12 +42,14 @@ import * as utilities from "../utilities";
  *         "gateway/examplecr/message/write",
  *     ],
  * });
- * const exampleRegistryToken = new azure.containerservice.RegistryToken("exampleRegistryToken", {
+ * const exampleRegistryToken = new azure.containerservice.RegistryToken("example", {
+ *     name: "exampletoken",
  *     containerRegistryName: exampleRegistry.name,
  *     resourceGroupName: exampleRegistry.resourceGroupName,
  *     scopeMapId: exampleRegistryScopeMap.id,
  * });
- * const exampleConnectedRegistry = new azure.containerservice.ConnectedRegistry("exampleConnectedRegistry", {
+ * const exampleConnectedRegistry = new azure.containerservice.ConnectedRegistry("example", {
+ *     name: "examplecr",
  *     containerRegistryId: exampleRegistry.id,
  *     syncTokenId: exampleRegistryToken.id,
  * });

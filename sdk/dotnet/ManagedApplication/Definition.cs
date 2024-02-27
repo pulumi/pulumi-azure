@@ -24,15 +24,17 @@ namespace Pulumi.Azure.ManagedApplication
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
+    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemanagedapplicationdefinition",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LockLevel = "ReadOnly",
     ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
     ///         DisplayName = "TestManagedApplicationDefinition",

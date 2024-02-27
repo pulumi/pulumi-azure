@@ -49,7 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroup;
  * import com.pulumi.azure.mssql.ManagedInstanceFailoverGroupArgs;
  * import com.pulumi.azure.mssql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -63,25 +62,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;exampleSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
@@ -90,8 +93,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        
@@ -100,8 +104,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-primary&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
@@ -110,15 +115,12 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnetNetworkSecurityGroupAssociation,
- *                     exampleSubnetRouteTableAssociation)
- *                 .build());
+ *             .build());
  * 
  *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-secondary&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
@@ -127,13 +129,10 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnetNetworkSecurityGroupAssociation,
- *                     exampleSubnetRouteTableAssociation)
- *                 .build());
+ *             .build());
  * 
  *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
+ *             .name(&#34;example-failover-group&#34;)
  *             .location(primary.location())
  *             .managedInstanceId(primary.id())
  *             .partnerManagedInstanceId(secondary.id())

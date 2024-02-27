@@ -33,12 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-sql-server-vnet-rule"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vnet, err := network.NewVirtualNetwork(ctx, "vnet", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
 //				},
@@ -49,6 +51,7 @@ import (
 //				return err
 //			}
 //			subnet, err := network.NewSubnet(ctx, "subnet", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
 //				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: vnet.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -62,6 +65,7 @@ import (
 //				return err
 //			}
 //			sqlserver, err := sql.NewSqlServer(ctx, "sqlserver", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("uniqueazuresqlserver"),
 //				ResourceGroupName:          example.Name,
 //				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
@@ -72,6 +76,7 @@ import (
 //				return err
 //			}
 //			_, err = sql.NewVirtualNetworkRule(ctx, "sqlvnetrule", &sql.VirtualNetworkRuleArgs{
+//				Name:              pulumi.String("sql-vnet-rule"),
 //				ResourceGroupName: example.Name,
 //				ServerName:        sqlserver.Name,
 //				SubnetId:          subnet.ID(),

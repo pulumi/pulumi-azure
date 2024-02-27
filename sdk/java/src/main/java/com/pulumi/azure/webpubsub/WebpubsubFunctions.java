@@ -47,17 +47,19 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;terraform-webpubsub&#34;)
      *             .location(&#34;east us&#34;)
      *             .build());
      * 
      *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;tfex-webpubsub&#34;)
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
      *             .sku(&#34;Standard_S1&#34;)
      *             .capacity(1)
      *             .build());
      * 
-     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
      *             .webPubsubId(testService.id())
      *             .build());
      * 
@@ -99,17 +101,19 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;terraform-webpubsub&#34;)
      *             .location(&#34;east us&#34;)
      *             .build());
      * 
      *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;tfex-webpubsub&#34;)
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
      *             .sku(&#34;Standard_S1&#34;)
      *             .capacity(1)
      *             .build());
      * 
-     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
      *             .webPubsubId(testService.id())
      *             .build());
      * 
@@ -151,17 +155,19 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;terraform-webpubsub&#34;)
      *             .location(&#34;east us&#34;)
      *             .build());
      * 
      *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;tfex-webpubsub&#34;)
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
      *             .sku(&#34;Standard_S1&#34;)
      *             .capacity(1)
      *             .build());
      * 
-     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
      *             .webPubsubId(testService.id())
      *             .build());
      * 
@@ -203,17 +209,19 @@ public final class WebpubsubFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;terraform-webpubsub&#34;)
      *             .location(&#34;east us&#34;)
      *             .build());
      * 
      *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
+     *             .name(&#34;tfex-webpubsub&#34;)
      *             .location(testResourceGroup.location())
      *             .resourceGroupName(testResourceGroup.name())
      *             .sku(&#34;Standard_S1&#34;)
      *             .capacity(1)
      *             .build());
      * 
-     *         final var testPrivateLinkResource = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
+     *         final var test = WebpubsubFunctions.getPrivateLinkResource(GetPrivateLinkResourceArgs.builder()
      *             .webPubsubId(testService.id())
      *             .build());
      * 

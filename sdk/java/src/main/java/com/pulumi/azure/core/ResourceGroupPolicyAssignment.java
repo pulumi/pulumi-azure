@@ -49,11 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
+ *             .name(&#34;only-deploy-in-westeurope&#34;)
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
  *             .displayName(&#34;my-policy-definition&#34;)
@@ -73,7 +75,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
- *             .resourceGroupId(exampleResourceGroup.id())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupId(example.id())
  *             .policyDefinitionId(exampleDefinition.id())
  *             .parameters(&#34;&#34;&#34;
  *     {

@@ -26,21 +26,21 @@ namespace Pulumi.Azure.DataShare
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.DataShare.GetAccount.Invoke(new()
+        ///     var example = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
         ///         Name = "example-account",
         ///         ResourceGroupName = "example-resource-group",
         ///     });
         /// 
-        ///     var exampleShare = Azure.DataShare.GetShare.Invoke(new()
+        ///     var exampleGetShare = Azure.DataShare.GetShare.Invoke(new()
         ///     {
         ///         Name = "existing",
-        ///         AccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         AccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleShare.Apply(getShareResult =&gt; getShareResult.Id),
+        ///         ["id"] = exampleGetShare.Apply(getShareResult =&gt; getShareResult.Id),
         ///     };
         /// });
         /// ```
@@ -65,21 +65,21 @@ namespace Pulumi.Azure.DataShare
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.DataShare.GetAccount.Invoke(new()
+        ///     var example = Azure.DataShare.GetAccount.Invoke(new()
         ///     {
         ///         Name = "example-account",
         ///         ResourceGroupName = "example-resource-group",
         ///     });
         /// 
-        ///     var exampleShare = Azure.DataShare.GetShare.Invoke(new()
+        ///     var exampleGetShare = Azure.DataShare.GetShare.Invoke(new()
         ///     {
         ///         Name = "existing",
-        ///         AccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         AccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleShare.Apply(getShareResult =&gt; getShareResult.Id),
+        ///         ["id"] = exampleGetShare.Apply(getShareResult =&gt; getShareResult.Id),
         ///     };
         /// });
         /// ```

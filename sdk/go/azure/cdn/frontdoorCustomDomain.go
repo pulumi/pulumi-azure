@@ -28,26 +28,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-cdn-frontdoor"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("sub-domain.domain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorCustomDomain(ctx, "exampleFrontdoorCustomDomain", &cdn.FrontdoorCustomDomainArgs{
+//			_, err = cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
+//				Name:                  pulumi.String("example-customDomain"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				DnsZoneId:             exampleZone.ID(),
 //				HostName:              pulumi.String("contoso.fabrikam.com"),
@@ -64,6 +68,53 @@ import (
 //	}
 //
 // ```
+// ## Example DNS Auth TXT Record Usage
+//
+// The name of your DNS TXT record should be in the format of `_dnsauth.<your_subdomain>`. So, for example, if we use the `hostName` in the example usage above you would create a DNS TXT record with the name of `_dnsauth.contoso` which contains the value of the Front Door Custom Domains `validationToken` field. See the [product documentation](https://learn.microsoft.com/azure/frontdoor/standard-premium/how-to-add-custom-domain) for more information.
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			invokeJoin, err := std.Join(ctx, &std.JoinArgs{
+//				Separator: ".",
+//				Input: []string{
+//					"_dnsauth",
+//					"contoso",
+//				},
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//				Name:              invokeJoin.Result,
+//				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Ttl:               pulumi.Int(3600),
+//				Records: dns.TxtRecordRecordArray{
+//					&dns.TxtRecordRecordArgs{
+//						Value: pulumi.Any(exampleAzurermCdnFrontdoorCustomDomain.ValidationToken),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Example CNAME Record Usage
 //
 // !>**IMPORTANT:** You **must** include the `dependsOn` meta-argument which references both the `cdn.FrontdoorRoute` and the `cdn.FrontdoorSecurityPolicy` that are associated with your Custom Domain. The reason for these `dependsOn` meta-arguments is because all of the resources for the Custom Domain need to be associated within Front Door before the CNAME record can be written to the domains DNS, else the CNAME validation will fail and Front Door will not enable traffic to the Domain.
@@ -81,14 +132,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
-//				ZoneName:          pulumi.Any(azurerm_dns_zone.Example.Name),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Example.Name),
+//				Name:              pulumi.String("contoso"),
+//				ZoneName:          pulumi.Any(exampleAzurermDnsZone.Name),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResourceGroup.Name),
 //				Ttl:               pulumi.Int(3600),
-//				Record:            pulumi.Any(azurerm_cdn_frontdoor_endpoint.Example.Host_name),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_cdn_frontdoor_route.Example,
-//				azurerm_cdn_frontdoor_security_policy.Example,
-//			}))
+//				Record:            pulumi.Any(exampleAzurermCdnFrontdoorEndpoint.HostName),
+//			})
 //			if err != nil {
 //				return err
 //			}

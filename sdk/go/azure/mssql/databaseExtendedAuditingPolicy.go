@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example-sqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
@@ -46,22 +48,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Name:     pulumi.String("example-db"),
 //				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "exampleDatabaseExtendedAuditingPolicy", &mssql.DatabaseExtendedAuditingPolicyArgs{
+//			_, err = mssql.NewDatabaseExtendedAuditingPolicy(ctx, "example", &mssql.DatabaseExtendedAuditingPolicyArgs{
 //				DatabaseId:                         exampleDatabase.ID(),
 //				StorageEndpoint:                    exampleAccount.PrimaryBlobEndpoint,
 //				StorageAccountAccessKey:            exampleAccount.PrimaryAccessKey,

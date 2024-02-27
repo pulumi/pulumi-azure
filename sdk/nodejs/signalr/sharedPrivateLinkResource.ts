@@ -14,10 +14,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "terraform-signalr",
+ *     location: "east us",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     softDeleteRetentionDays: 7,
@@ -30,15 +34,17 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const test = new azure.signalr.Service("test", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     name: "tfex-signalr",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  *     sku: {
  *         name: "Standard_S1",
  *         capacity: 1,
  *     },
  * });
- * const exampleSharedPrivateLinkResource = new azure.signalr.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", {
- *     signalrServiceId: azurerm_signalr_service.example.id,
+ * const exampleSharedPrivateLinkResource = new azure.signalr.SharedPrivateLinkResource("example", {
+ *     name: "tfex-signalr-splr",
+ *     signalrServiceId: exampleAzurermSignalrService.id,
  *     subResourceName: "vault",
  *     targetResourceId: exampleKeyVault.id,
  * });

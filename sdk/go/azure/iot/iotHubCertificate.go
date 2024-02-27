@@ -21,34 +21,26 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "example", &iot.IotHubDpsArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IotHubDpsSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
@@ -57,10 +49,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewIotHubCertificate(ctx, "exampleIotHubCertificate", &iot.IotHubCertificateArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example.cer",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewIotHubCertificate(ctx, "example", &iot.IotHubCertificateArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupName:  example.Name,
 //				IotDpsName:         exampleIotHubDps.Name,
-//				CertificateContent: filebase64OrPanic("example.cer"),
+//				CertificateContent: invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

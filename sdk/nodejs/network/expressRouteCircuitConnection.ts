@@ -13,17 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("exampleExpressRoutePort", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ *     name: "example-erport",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     peeringLocation: "Equinix-Seattle-SE2",
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "example-ercircuit",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     expressRoutePortId: exampleExpressRoutePort.id,
  *     bandwidthInGbps: 5,
  *     sku: {
@@ -31,44 +36,47 @@ import * as utilities from "../utilities";
  *         family: "MeteredData",
  *     },
  * });
- * const example2ExpressRoutePort = new azure.network.ExpressRoutePort("example2ExpressRoutePort", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example2 = new azure.network.ExpressRoutePort("example2", {
+ *     name: "example-erport2",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     peeringLocation: "Allied-Toronto-King-West",
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const example2ExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example2ExpressRouteCircuit", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     expressRoutePortId: example2ExpressRoutePort.id,
+ * const example2ExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example2", {
+ *     name: "example-ercircuit2",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     expressRoutePortId: example2.id,
  *     bandwidthInGbps: 5,
  *     sku: {
  *         tier: "Standard",
  *         family: "MeteredData",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sharedKey: "ItsASecret",
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "192.168.1.0/30",
  *     secondaryPeerAddressPrefix: "192.168.1.0/30",
  *     vlanId: 100,
  * });
- * const example2ExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example2ExpressRouteCircuitPeering", {
+ * const example2ExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example2", {
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: example2ExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sharedKey: "ItsASecret",
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "192.168.1.0/30",
  *     secondaryPeerAddressPrefix: "192.168.1.0/30",
  *     vlanId: 100,
  * });
- * const exampleExpressRouteCircuitConnection = new azure.network.ExpressRouteCircuitConnection("exampleExpressRouteCircuitConnection", {
+ * const exampleExpressRouteCircuitConnection = new azure.network.ExpressRouteCircuitConnection("example", {
+ *     name: "example-ercircuitconnection",
  *     peeringId: exampleExpressRouteCircuitPeering.id,
  *     peerPeeringId: example2ExpressRouteCircuitPeering.id,
  *     addressPrefixIpv4: "192.169.9.0/29",

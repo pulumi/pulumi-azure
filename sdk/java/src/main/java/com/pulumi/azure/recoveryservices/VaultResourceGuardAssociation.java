@@ -44,25 +44,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleResourceGuard = new ResourceGuard(&#34;exampleResourceGuard&#34;, ResourceGuardArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-resourceguard&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .softDeleteEnabled(true)
  *             .build());
  * 
  *         var test = new VaultResourceGuardAssociation(&#34;test&#34;, VaultResourceGuardAssociationArgs.builder()        
- *             .vaultId(azurerm_recovery_services_vault.test().id())
- *             .resourceGuardId(azurerm_data_protection_resource_guard.test().id())
+ *             .name(&#34;VaultProxy&#34;)
+ *             .vaultId(testAzurermRecoveryServicesVault.id())
+ *             .resourceGuardId(testAzurermDataProtectionResourceGuard.id())
  *             .build());
  * 
  *     }

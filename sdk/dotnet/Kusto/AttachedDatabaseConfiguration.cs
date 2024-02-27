@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-kusto-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var followerCluster = new Azure.Kusto.Cluster("followerCluster", new()
+    ///     var followerCluster = new Azure.Kusto.Cluster("follower_cluster", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "cluster1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
@@ -38,10 +40,11 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var followedCluster = new Azure.Kusto.Cluster("followedCluster", new()
+    ///     var followedCluster = new Azure.Kusto.Cluster("followed_cluster", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "cluster2",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
@@ -49,24 +52,27 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var followedDatabase = new Azure.Kusto.Database("followedDatabase", new()
+    ///     var followedDatabase = new Azure.Kusto.Database("followed_database", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "my-followed-database",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = followerCluster.Name,
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = followerCluster.Name,
     ///     });
     /// 
-    ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", new()
+    ///     var exampleAttachedDatabaseConfiguration = new Azure.Kusto.AttachedDatabaseConfiguration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "configuration1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = followerCluster.Name,
     ///         ClusterResourceId = followedCluster.Id,
     ///         DatabaseName = exampleDatabase.Name,

@@ -205,16 +205,20 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
@@ -243,7 +247,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="tfex-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -254,12 +259,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    cluster,
-                ]))
-        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
+            ])
+        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("example",
             cluster_id=example_cluster.id,
             key_vault_id=example_key_vault.id,
             key_name=example_key.name,
@@ -298,16 +299,20 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
@@ -336,7 +341,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="tfex-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -347,12 +353,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    cluster,
-                ]))
-        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
+            ])
+        example_cluster_customer_managed_key = azure.kusto.ClusterCustomerManagedKey("example",
             cluster_id=example_cluster.id,
             key_vault_id=example_key_vault.id,
             key_name=example_key.name,

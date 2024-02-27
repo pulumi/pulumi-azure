@@ -30,17 +30,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//			example := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 //				Name:              pulumi.String("example-job"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("example-server"),
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
@@ -50,7 +52,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := sql.NewDatabase(ctx, "exampleDatabase", &sql.DatabaseArgs{
+//			exampleDatabase, err := sql.NewDatabase(ctx, "example", &sql.DatabaseArgs{
+//				Name:                          pulumi.String("exampledb"),
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
 //				ServerName:                    exampleSqlServer.Name,
@@ -62,12 +65,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewOutputMssql(ctx, "exampleOutputMssql", &streamanalytics.OutputMssqlArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.Name, nil
+//			_, err = streamanalytics.NewOutputMssql(ctx, "example", &streamanalytics.OutputMssqlArgs{
+//				Name: pulumi.String("example-output-sql"),
+//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.Name, nil
 //				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.ResourceGroupName, nil
+//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput),
 //				Server:   exampleSqlServer.FullyQualifiedDomainName,
 //				User:     exampleSqlServer.AdministratorLogin,

@@ -501,14 +501,18 @@ class RunBook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
+            location=example.location,
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             log_verbose=True,
             log_progress=True,
@@ -525,13 +529,21 @@ class RunBook(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_local as local
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_file = local.get_file(filename=f"{path['module']}/example.ps1")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
+        example = local.get_file(filename=f"{not_implemented('path.module')}/example.ps1")
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
@@ -539,7 +551,7 @@ class RunBook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShell",
-            content=example_file.content)
+            content=example.content)
         ```
 
         ## Import
@@ -583,14 +595,18 @@ class RunBook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
+            location=example.location,
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             log_verbose=True,
             log_progress=True,
@@ -607,13 +623,21 @@ class RunBook(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_local as local
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_file = local.get_file(filename=f"{path['module']}/example.ps1")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
+        example = local.get_file(filename=f"{not_implemented('path.module')}/example.ps1")
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
@@ -621,7 +645,7 @@ class RunBook(pulumi.CustomResource):
             log_progress=True,
             description="This is an example runbook",
             runbook_type="PowerShell",
-            content=example_file.content)
+            content=example.content)
         ```
 
         ## Import

@@ -29,13 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-law"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("PerGB2018"),
@@ -43,19 +45,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
 //				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAlertRuleAnomaly := sentinel.GetAlertRuleAnomalyOutput(ctx, sentinel.GetAlertRuleAnomalyOutputArgs{
+//			example := sentinel.GetAlertRuleAnomalyOutput(ctx, sentinel.GetAlertRuleAnomalyOutputArgs{
 //				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("Potential data staging"),
 //			}, nil)
-//			ctx.Export("id", exampleAlertRuleAnomaly.ApplyT(func(exampleAlertRuleAnomaly sentinel.GetAlertRuleAnomalyResult) (*string, error) {
-//				return &exampleAlertRuleAnomaly.Id, nil
+//			ctx.Export("id", example.ApplyT(func(example sentinel.GetAlertRuleAnomalyResult) (*string, error) {
+//				return &example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

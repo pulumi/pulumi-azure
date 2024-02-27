@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new Service(&#34;example&#34;, ServiceArgs.builder()        
+ *             .name(&#34;uniquefhirname&#34;)
  *             .resourceGroupName(&#34;sample-resource-group&#34;)
  *             .location(&#34;westus2&#34;)
  *             .kind(&#34;fhir-R4&#34;)

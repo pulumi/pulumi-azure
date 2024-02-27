@@ -172,16 +172,21 @@ class ShareDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="azuretest",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="azureteststorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
+        example_share = azure.storage.Share("example",
+            name="sharename",
             storage_account_name=example_account.name,
             quota=50)
-        example_share_directory = azure.storage.ShareDirectory("exampleShareDirectory",
+        example_share_directory = azure.storage.ShareDirectory("example",
+            name="example",
             share_name=example_share.name,
             storage_account_name=example_account.name)
         ```
@@ -216,16 +221,21 @@ class ShareDirectory(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="azuretest",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="azureteststorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
+        example_share = azure.storage.Share("example",
+            name="sharename",
             storage_account_name=example_account.name,
             quota=50)
-        example_share_directory = azure.storage.ShareDirectory("exampleShareDirectory",
+        example_share_directory = azure.storage.ShareDirectory("example",
+            name="example",
             share_name=example_share.name,
             storage_account_name=example_account.name)
         ```

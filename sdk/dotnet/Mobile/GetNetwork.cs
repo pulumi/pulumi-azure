@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Mobile
         ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Mobile
         ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

@@ -29,12 +29,12 @@ namespace Pulumi.Azure.MixedReality
         ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["accountDomain"] = data.Azurerm_spatial_anchors_account.Account_domain,
+        ///         ["accountDomain"] = accountDomainAzurermSpatialAnchorsAccount,
         ///     };
         /// });
         /// ```
@@ -62,12 +62,12 @@ namespace Pulumi.Azure.MixedReality
         ///     var example = Azure.MixedReality.GetSpatialAnchorsAccount.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["accountDomain"] = data.Azurerm_spatial_anchors_account.Account_domain,
+        ///         ["accountDomain"] = accountDomainAzurermSpatialAnchorsAccount,
         ///     };
         /// });
         /// ```

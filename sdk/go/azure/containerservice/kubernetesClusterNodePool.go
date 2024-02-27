@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
+//				Name:              pulumi.String("example-aks1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				DnsPrefix:         pulumi.String("exampleaks1"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
@@ -56,7 +58,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewKubernetesClusterNodePool(ctx, "exampleKubernetesClusterNodePool", &containerservice.KubernetesClusterNodePoolArgs{
+//			_, err = containerservice.NewKubernetesClusterNodePool(ctx, "example", &containerservice.KubernetesClusterNodePoolArgs{
+//				Name:                pulumi.String("internal"),
 //				KubernetesClusterId: exampleKubernetesCluster.ID(),
 //				VmSize:              pulumi.String("Standard_DS2_v2"),
 //				NodeCount:           pulumi.Int(1),

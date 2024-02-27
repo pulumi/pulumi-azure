@@ -30,30 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
 //				Name:              "tfex-cosmosdb-account",
 //				ResourceGroupName: "tfex-cosmosdb-account-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "exampleLinkedServiceCosmosDb", &datafactory.LinkedServiceCosmosDbArgs{
+//			_, err = datafactory.NewLinkedServiceCosmosDb(ctx, "example", &datafactory.LinkedServiceCosmosDbArgs{
+//				Name:            pulumi.String("example"),
 //				DataFactoryId:   exampleFactory.ID(),
-//				AccountEndpoint: *pulumi.String(exampleAccount.Endpoint),
-//				AccountKey:      *pulumi.String(exampleAccount.PrimaryKey),
+//				AccountEndpoint: *pulumi.String(example.Endpoint),
+//				AccountKey:      *pulumi.String(example.PrimaryKey),
 //				Database:        pulumi.String("foo"),
 //			})
 //			if err != nil {

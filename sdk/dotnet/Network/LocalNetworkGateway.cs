@@ -24,11 +24,13 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "localNetworkGWTest",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var home = new Azure.Network.LocalNetworkGateway("home", new()
     ///     {
+    ///         Name = "backHome",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         GatewayAddress = "12.13.14.15",

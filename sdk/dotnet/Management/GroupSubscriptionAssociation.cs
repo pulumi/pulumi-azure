@@ -24,20 +24,20 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var example = Azure.Management.GetGroup.Invoke(new()
     ///     {
     ///         Name = "exampleManagementGroup",
     ///     });
     /// 
-    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke(new()
+    ///     var exampleGetSubscription = Azure.Core.GetSubscription.Invoke(new()
     ///     {
     ///         SubscriptionId = "12345678-1234-1234-1234-123456789012",
     ///     });
     /// 
-    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", new()
+    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("example", new()
     ///     {
-    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         SubscriptionId = exampleGetSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
     /// });

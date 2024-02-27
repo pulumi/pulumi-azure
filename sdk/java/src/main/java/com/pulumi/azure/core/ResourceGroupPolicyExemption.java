@@ -48,16 +48,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;resourceGroup1&#34;)
  *             .location(&#34;westus&#34;)
  *             .build());
  * 
- *         final var examplePolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+ *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
  *             .displayName(&#34;Allowed locations&#34;)
  *             .build());
  * 
  *         var exampleResourceGroupPolicyAssignment = new ResourceGroupPolicyAssignment(&#34;exampleResourceGroupPolicyAssignment&#34;, ResourceGroupPolicyAssignmentArgs.builder()        
+ *             .name(&#34;exampleAssignment&#34;)
  *             .resourceGroupId(exampleResourceGroup.id())
- *             .policyDefinitionId(examplePolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
  *             .parameters(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourceGroupPolicyExemption = new ResourceGroupPolicyExemption(&#34;exampleResourceGroupPolicyExemption&#34;, ResourceGroupPolicyExemptionArgs.builder()        
+ *             .name(&#34;exampleExemption&#34;)
  *             .resourceGroupId(exampleResourceGroup.id())
  *             .policyAssignmentId(exampleResourceGroupPolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)

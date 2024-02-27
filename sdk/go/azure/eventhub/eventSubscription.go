@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("exampleasa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				Tags: pulumi.StringMap{
@@ -48,14 +50,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := storage.NewQueue(ctx, "exampleQueue", &storage.QueueArgs{
+//			exampleQueue, err := storage.NewQueue(ctx, "example", &storage.QueueArgs{
+//				Name:               pulumi.String("example-astq"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventgrid.NewEventSubscription(ctx, "exampleEventSubscription", &eventgrid.EventSubscriptionArgs{
-//				Scope: exampleResourceGroup.ID(),
+//			_, err = eventgrid.NewEventSubscription(ctx, "example", &eventgrid.EventSubscriptionArgs{
+//				Name:  pulumi.String("example-aees"),
+//				Scope: example.ID(),
 //				StorageQueueEndpoint: &eventgrid.EventSubscriptionStorageQueueEndpointArgs{
 //					StorageAccountId: exampleAccount.ID(),
 //					QueueName:        exampleQueue.Name,

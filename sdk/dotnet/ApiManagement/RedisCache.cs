@@ -22,24 +22,27 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "pub1",
     ///         PublisherEmail = "pub1@email.com",
     ///         SkuName = "Consumption_0",
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cache",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Capacity = 1,
     ///         Family = "C",
     ///         SkuName = "Basic",
@@ -48,8 +51,9 @@ namespace Pulumi.Azure.ApiManagement
     ///         RedisConfiguration = null,
     ///     });
     /// 
-    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("exampleRedisCache", new()
+    ///     var exampleRedisCache = new Azure.ApiManagement.RedisCache("example", new()
     ///     {
+    ///         Name = "example-Redis-Cache",
     ///         ApiManagementId = exampleService.Id,
     ///         ConnectionString = exampleCache.PrimaryConnectionString,
     ///         Description = "Redis cache instances",

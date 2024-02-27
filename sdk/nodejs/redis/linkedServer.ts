@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example_primaryResourceGroup = new azure.core.ResourceGroup("example-primaryResourceGroup", {location: "East US"});
- * const example_primaryCache = new azure.redis.Cache("example-primaryCache", {
- *     location: example_primaryResourceGroup.location,
- *     resourceGroupName: example_primaryResourceGroup.name,
+ * const example_primary = new azure.core.ResourceGroup("example-primary", {
+ *     name: "example-resources-primary",
+ *     location: "East US",
+ * });
+ * const example_primaryCache = new azure.redis.Cache("example-primary", {
+ *     name: "example-cache1",
+ *     location: example_primary.location,
+ *     resourceGroupName: example_primary.name,
  *     capacity: 1,
  *     family: "P",
  *     skuName: "Premium",
@@ -27,10 +31,14 @@ import * as utilities from "../utilities";
  *         maxmemoryPolicy: "allkeys-lru",
  *     },
  * });
- * const example_secondaryResourceGroup = new azure.core.ResourceGroup("example-secondaryResourceGroup", {location: "West US"});
- * const example_secondaryCache = new azure.redis.Cache("example-secondaryCache", {
- *     location: example_secondaryResourceGroup.location,
- *     resourceGroupName: example_secondaryResourceGroup.name,
+ * const example_secondary = new azure.core.ResourceGroup("example-secondary", {
+ *     name: "example-resources-secondary",
+ *     location: "West US",
+ * });
+ * const example_secondaryCache = new azure.redis.Cache("example-secondary", {
+ *     name: "example-cache2",
+ *     location: example_secondary.location,
+ *     resourceGroupName: example_secondary.name,
  *     capacity: 1,
  *     family: "P",
  *     skuName: "Premium",

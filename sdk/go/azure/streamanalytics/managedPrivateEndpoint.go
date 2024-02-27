@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageacc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				AccountKind:            pulumi.String("StorageV2"),
@@ -47,16 +49,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := streamanalytics.NewCluster(ctx, "exampleCluster", &streamanalytics.ClusterArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleCluster, err := streamanalytics.NewCluster(ctx, "example", &streamanalytics.ClusterArgs{
+//				Name:              pulumi.String("examplestreamanalyticscluster"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				StreamingCapacity: pulumi.Int(36),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewManagedPrivateEndpoint(ctx, "exampleManagedPrivateEndpoint", &streamanalytics.ManagedPrivateEndpointArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			_, err = streamanalytics.NewManagedPrivateEndpoint(ctx, "example", &streamanalytics.ManagedPrivateEndpointArgs{
+//				Name:                       pulumi.String("exampleprivateendpoint"),
+//				ResourceGroupName:          example.Name,
 //				StreamAnalyticsClusterName: exampleCluster.Name,
 //				TargetResourceId:           exampleAccount.ID(),
 //				SubresourceName:            pulumi.String("blob"),

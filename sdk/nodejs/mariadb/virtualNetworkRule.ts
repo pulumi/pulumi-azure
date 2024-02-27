@@ -15,29 +15,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServer = new azure.mariadb.Server("example", {
+ *     name: "mariadb-server-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     administratorLogin: "mariadbadminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "10.2",
  *     sslEnforcementEnabled: true,
  *     skuName: "GP_Gen5_2",
  * });
- * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("exampleVirtualNetworkRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetworkRule = new azure.mariadb.VirtualNetworkRule("example", {
+ *     name: "mariadb-vnet-rule",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     subnetId: internal.id,
  * });

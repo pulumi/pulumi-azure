@@ -13,45 +13,55 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "example-kusto-database",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "eventhubnamespace-example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "eventhub-example",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "consumergroup-example",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
- * const exampleEventSubscription = new azure.eventgrid.EventSubscription("exampleEventSubscription", {
+ * const exampleEventSubscription = new azure.eventgrid.EventSubscription("example", {
+ *     name: "eventgrid-example",
  *     scope: exampleAccount.id,
  *     eventhubEndpointId: exampleEventHub.id,
  *     eventDeliverySchema: "EventGridSchema",
@@ -64,9 +74,10 @@ import * as utilities from "../utilities";
  *         maxDeliveryAttempts: 10,
  *     },
  * });
- * const exampleEventGridDataConnection = new azure.kusto.EventGridDataConnection("exampleEventGridDataConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleEventGridDataConnection = new azure.kusto.EventGridDataConnection("example", {
+ *     name: "my-kusto-eventgrid-data-connection",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     storageAccountId: exampleAccount.id,
@@ -75,8 +86,6 @@ import * as utilities from "../utilities";
  *     tableName: "my-table",
  *     mappingRuleName: "my-table-mapping",
  *     dataFormat: "JSON",
- * }, {
- *     dependsOn: [exampleEventSubscription],
  * });
  * ```
  *

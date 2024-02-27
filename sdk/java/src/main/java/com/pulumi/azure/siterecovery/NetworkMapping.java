@@ -33,7 +33,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkArgs;
  * import com.pulumi.azure.siterecovery.NetworkMapping;
  * import com.pulumi.azure.siterecovery.NetworkMappingArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -47,48 +46,54 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryResourceGroup = new ResourceGroup(&#34;primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-primary&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
- *         var secondaryResourceGroup = new ResourceGroup(&#34;secondaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var secondary = new ResourceGroup(&#34;secondary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-secondary&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .location(secondaryResourceGroup.location())
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(secondary.location())
+ *             .resourceGroupName(secondary.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var primaryFabric = new Fabric(&#34;primaryFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;primary-fabric&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
- *             .location(primaryResourceGroup.location())
+ *             .location(primary.location())
  *             .build());
  * 
  *         var secondaryFabric = new Fabric(&#34;secondaryFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;secondary-fabric&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
- *             .location(secondaryResourceGroup.location())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(primaryFabric)
- *                 .build());
+ *             .location(secondary.location())
+ *             .build());
  * 
  *         var primaryVirtualNetwork = new VirtualNetwork(&#34;primaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(primaryResourceGroup.name())
+ *             .name(&#34;network1&#34;)
+ *             .resourceGroupName(primary.name())
  *             .addressSpaces(&#34;192.168.1.0/24&#34;)
- *             .location(primaryResourceGroup.location())
+ *             .location(primary.location())
  *             .build());
  * 
  *         var secondaryVirtualNetwork = new VirtualNetwork(&#34;secondaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;network2&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .addressSpaces(&#34;192.168.2.0/24&#34;)
- *             .location(secondaryResourceGroup.location())
+ *             .location(secondary.location())
  *             .build());
  * 
  *         var recovery_mapping = new NetworkMapping(&#34;recovery-mapping&#34;, NetworkMappingArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;recovery-network-mapping-1&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .sourceRecoveryFabricName(&#34;primary-fabric&#34;)
  *             .targetRecoveryFabricName(&#34;secondary-fabric&#34;)

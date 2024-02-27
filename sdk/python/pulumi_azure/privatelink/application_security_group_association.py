@@ -107,37 +107,45 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-PEASGAsso",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="examplevnet",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
         service = azure.network.Subnet("service",
-            resource_group_name=example_resource_group.name,
+            name="examplenetservice",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"],
             enforce_private_link_service_network_policies=True)
         endpoint = azure.network.Subnet("endpoint",
-            resource_group_name=example_resource_group.name,
+            name="examplenetendpoint",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="examplepip",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="examplelb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="examplePLS",
+            location=example.location,
+            resource_group_name=example.name,
             auto_approval_subscription_ids=[current.subscription_id],
             visibility_subscription_ids=[current.subscription_id],
             nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
@@ -146,19 +154,21 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
                 subnet_id=service.id,
             )],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
             subnet_id=endpoint.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name=example_link_service.name,
                 is_manual_connection=False,
                 private_connection_resource_id=example_link_service.id,
             ))
-        example_application_security_group = azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_application_security_group_association = azure.privatelink.ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation",
+        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_application_security_group_association = azure.privatelink.ApplicationSecurityGroupAssociation("example",
             private_endpoint_id=example_endpoint.id,
             application_security_group_id=example_application_security_group.id)
         ```
@@ -192,37 +202,45 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-PEASGAsso",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="examplevnet",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
         service = azure.network.Subnet("service",
-            resource_group_name=example_resource_group.name,
+            name="examplenetservice",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"],
             enforce_private_link_service_network_policies=True)
         endpoint = azure.network.Subnet("endpoint",
-            resource_group_name=example_resource_group.name,
+            name="examplenetendpoint",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="examplepip",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="examplelb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="examplePLS",
+            location=example.location,
+            resource_group_name=example.name,
             auto_approval_subscription_ids=[current.subscription_id],
             visibility_subscription_ids=[current.subscription_id],
             nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
@@ -231,19 +249,21 @@ class ApplicationSecurityGroupAssociation(pulumi.CustomResource):
                 subnet_id=service.id,
             )],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
             subnet_id=endpoint.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name=example_link_service.name,
                 is_manual_connection=False,
                 private_connection_resource_id=example_link_service.id,
             ))
-        example_application_security_group = azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_application_security_group_association = azure.privatelink.ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation",
+        example_application_security_group = azure.network.ApplicationSecurityGroup("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_application_security_group_association = azure.privatelink.ApplicationSecurityGroupAssociation("example",
             private_endpoint_id=example_endpoint.id,
             application_security_group_id=example_application_security_group.id)
         ```

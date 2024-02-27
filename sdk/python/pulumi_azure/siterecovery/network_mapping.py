@@ -267,32 +267,40 @@ class NetworkMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary = azure.core.ResourceGroup("primary",
+            name="tfex-network-mapping-primary",
+            location="West US")
+        secondary = azure.core.ResourceGroup("secondary",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
+            name="example-recovery-vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
             sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
+        primary_fabric = azure.siterecovery.Fabric("primary",
+            name="primary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondary",
+            name="secondary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=secondary_resource_group.location,
-            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
-        # Avoids issues with creating fabrics simultaneously
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
+            location=secondary.location)
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name="network1",
+            resource_group_name=primary.name,
             address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondary",
+            name="network2",
+            resource_group_name=secondary.name,
             address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
+            location=secondary.location)
         recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
-            resource_group_name=secondary_resource_group.name,
+            name="recovery-network-mapping-1",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             source_recovery_fabric_name="primary-fabric",
             target_recovery_fabric_name="secondary-fabric",
@@ -333,32 +341,40 @@ class NetworkMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary = azure.core.ResourceGroup("primary",
+            name="tfex-network-mapping-primary",
+            location="West US")
+        secondary = azure.core.ResourceGroup("secondary",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
+            name="example-recovery-vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
             sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
+        primary_fabric = azure.siterecovery.Fabric("primary",
+            name="primary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondary",
+            name="secondary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=secondary_resource_group.location,
-            opts=pulumi.ResourceOptions(depends_on=[primary_fabric]))
-        # Avoids issues with creating fabrics simultaneously
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            resource_group_name=primary_resource_group.name,
+            location=secondary.location)
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name="network1",
+            resource_group_name=primary.name,
             address_spaces=["192.168.1.0/24"],
-            location=primary_resource_group.location)
-        secondary_virtual_network = azure.network.VirtualNetwork("secondaryVirtualNetwork",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_virtual_network = azure.network.VirtualNetwork("secondary",
+            name="network2",
+            resource_group_name=secondary.name,
             address_spaces=["192.168.2.0/24"],
-            location=secondary_resource_group.location)
+            location=secondary.location)
         recovery_mapping = azure.siterecovery.NetworkMapping("recovery-mapping",
-            resource_group_name=secondary_resource_group.name,
+            name="recovery-network-mapping-1",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             source_recovery_fabric_name="primary-fabric",
             target_recovery_fabric_name="secondary-fabric",

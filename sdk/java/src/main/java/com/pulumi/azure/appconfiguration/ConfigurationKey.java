@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationKey;
  * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,10 +52,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .name(&#34;appConf1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
@@ -74,9 +75,7 @@ import javax.annotation.Nullable;
  *             .key(&#34;appConfKey1&#34;)
  *             .label(&#34;somelabel&#34;)
  *             .value(&#34;a test&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(appconfDataowner)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }
@@ -102,7 +101,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.appconfiguration.ConfigurationKey;
  * import com.pulumi.azure.appconfiguration.ConfigurationKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -117,10 +115,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .name(&#34;appConf1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
@@ -128,8 +128,9 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var kv = new KeyVault(&#34;kv&#34;, KeyVaultArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;kv&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .softDeleteRetentionDays(7)
@@ -149,6 +150,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var kvs = new Secret(&#34;kvs&#34;, SecretArgs.builder()        
+ *             .name(&#34;kvs&#34;)
  *             .value(&#34;szechuan&#34;)
  *             .keyVaultId(kv.id())
  *             .build());
@@ -160,14 +162,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var test = new ConfigurationKey(&#34;test&#34;, ConfigurationKeyArgs.builder()        
- *             .configurationStoreId(azurerm_app_configuration.test().id())
+ *             .configurationStoreId(testAzurermAppConfiguration.id())
  *             .key(&#34;key1&#34;)
  *             .type(&#34;vault&#34;)
  *             .label(&#34;label1&#34;)
  *             .vaultKeyReference(kvs.versionlessId())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(appconfDataowner)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

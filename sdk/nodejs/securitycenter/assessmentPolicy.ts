@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.securitycenter.AssessmentPolicy("example", {
- *     description: "Test Description",
  *     displayName: "Test Display Name",
  *     severity: "Medium",
+ *     description: "Test Description",
  * });
  * ```
  *

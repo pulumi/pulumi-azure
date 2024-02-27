@@ -235,36 +235,44 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_workspace = azure.healthcare.Workspace("example",
+            name="exampleworkspace",
+            location=example.location,
+            resource_group_name=example.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-ehn",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+        example_event_hub = azure.eventhub.EventHub("example",
+            name="example-eh",
             namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+        example_consumer_group = azure.eventhub.ConsumerGroup("example",
+            name="$default",
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name)
+        example_fhir_service = azure.healthcare.FhirService("example",
+            name="examplefhir",
+            location=example.location,
+            resource_group_name=example.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
             authentication=azure.healthcare.FhirServiceAuthenticationArgs(
                 authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 audience="https://examplefhir.fhir.azurehealthcareapis.com",
             ))
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+        example_medtech_service = azure.healthcare.MedtechService("example",
+            name="examplemt",
             workspace_id=example_workspace.id,
-            location=example_resource_group.location,
+            location=example.location,
             eventhub_namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             eventhub_consumer_group_name=example_consumer_group.name,
@@ -272,7 +280,8 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
                 "templateType": "CollectionContent",
                 "template": [],
             }))
-        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination",
+        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("example",
+            name="examplemtdes",
             location="east us",
             medtech_service_id=example_medtech_service.id,
             destination_fhir_service_id=example_fhir_service.id,
@@ -331,36 +340,44 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_workspace = azure.healthcare.Workspace("example",
+            name="exampleworkspace",
+            location=example.location,
+            resource_group_name=example.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-ehn",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+        example_event_hub = azure.eventhub.EventHub("example",
+            name="example-eh",
             namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
-        example_consumer_group = azure.eventhub.ConsumerGroup("exampleConsumerGroup",
+        example_consumer_group = azure.eventhub.ConsumerGroup("example",
+            name="$default",
             namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name)
+        example_fhir_service = azure.healthcare.FhirService("example",
+            name="examplefhir",
+            location=example.location,
+            resource_group_name=example.name,
             workspace_id=example_workspace.id,
             kind="fhir-R4",
             authentication=azure.healthcare.FhirServiceAuthenticationArgs(
                 authority="https://login.microsoftonline.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx",
                 audience="https://examplefhir.fhir.azurehealthcareapis.com",
             ))
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+        example_medtech_service = azure.healthcare.MedtechService("example",
+            name="examplemt",
             workspace_id=example_workspace.id,
-            location=example_resource_group.location,
+            location=example.location,
             eventhub_namespace_name=example_event_hub_namespace.name,
             eventhub_name=example_event_hub.name,
             eventhub_consumer_group_name=example_consumer_group.name,
@@ -368,7 +385,8 @@ class MedtechServiceFhirDestination(pulumi.CustomResource):
                 "templateType": "CollectionContent",
                 "template": [],
             }))
-        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination",
+        example_medtech_service_fhir_destination = azure.healthcare.MedtechServiceFhirDestination("example",
+            name="examplemtdes",
             location="east us",
             medtech_service_id=example_medtech_service.id,
             destination_fhir_service_id=example_fhir_service.id,

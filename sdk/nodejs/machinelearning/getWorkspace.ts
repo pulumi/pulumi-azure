@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = azurerm_machine_learning_workspace.existing.id;
+ * export const id = existingAzurermMachineLearningWorkspace.id;
  * ```
  */
 export function getWorkspace(args: GetWorkspaceArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkspaceResult> {
@@ -81,7 +81,7 @@ export interface GetWorkspaceResult {
  *     name: "example-workspace",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = azurerm_machine_learning_workspace.existing.id;
+ * export const id = existingAzurermMachineLearningWorkspace.id;
  * ```
  */
 export function getWorkspaceOutput(args: GetWorkspaceOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkspaceResult> {

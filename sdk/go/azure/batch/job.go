@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("west europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := batch.NewAccount(ctx, "exampleAccount", &batch.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleAccount, err := batch.NewAccount(ctx, "example", &batch.AccountArgs{
+//				Name:              pulumi.String("exampleaccount"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := batch.NewPool(ctx, "examplePool", &batch.PoolArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePool, err := batch.NewPool(ctx, "example", &batch.PoolArgs{
+//				Name:              pulumi.String("examplepool"),
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				NodeAgentSkuId:    pulumi.String("batch.node.ubuntu 16.04"),
 //				VmSize:            pulumi.String("Standard_A1"),
@@ -60,7 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewJob(ctx, "exampleJob", &batch.JobArgs{
+//			_, err = batch.NewJob(ctx, "example", &batch.JobArgs{
+//				Name:        pulumi.String("examplejob"),
 //				BatchPoolId: examplePool.ID(),
 //			})
 //			if err != nil {

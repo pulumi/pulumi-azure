@@ -13,23 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const currentClientConfig = azure.core.getClientConfig({});
- * const currentSubscription = azure.core.getSubscription({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const current = azure.core.getClientConfig({});
+ * const currentGetSubscription = azure.core.getSubscription({});
  * const alt = azure.core.getSubscription({
  *     subscriptionId: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-networkmanager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scope: {
- *         subscriptionIds: [currentSubscription.then(currentSubscription => currentSubscription.id)],
+ *         subscriptionIds: [currentGetSubscription.then(currentGetSubscription => currentGetSubscription.id)],
  *     },
  *     scopeAccesses: ["SecurityAdmin"],
  * });
- * const exampleNetworkManagerScopeConnection = new azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", {
+ * const exampleNetworkManagerScopeConnection = new azure.network.NetworkManagerScopeConnection("example", {
+ *     name: "example-nsc",
  *     networkManagerId: exampleNetworkManager.id,
- *     tenantId: currentClientConfig.then(currentClientConfig => currentClientConfig.tenantId),
+ *     tenantId: current.then(current => current.tenantId),
  *     targetScopeId: alt.then(alt => alt.id),
  *     description: "example",
  * });

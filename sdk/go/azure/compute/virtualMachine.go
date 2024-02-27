@@ -30,6 +30,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
@@ -46,12 +48,14 @@ import (
 //				prefix = param
 //			}
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+//			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
+//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -62,8 +66,9 @@ import (
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
 //				ResourceGroupName:  example.Name,
-//				VirtualNetworkName: mainVirtualNetwork.Name,
+//				VirtualNetworkName: main.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
@@ -71,7 +76,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
+//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -85,7 +91,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewVirtualMachine(ctx, "mainVirtualMachine", &compute.VirtualMachineArgs{
+//			_, err = compute.NewVirtualMachine(ctx, "main", &compute.VirtualMachineArgs{
+//				Name:              pulumi.String(fmt.Sprintf("%v-vm", prefix)),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{

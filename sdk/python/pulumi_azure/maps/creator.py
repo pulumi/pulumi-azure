@@ -205,16 +205,20 @@ class Creator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.maps.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.maps.Account("example",
+            name="example-maps-account",
+            resource_group_name=example.name,
             sku_name="G2",
             tags={
                 "environment": "Test",
             })
-        example_creator = azure.maps.Creator("exampleCreator",
+        example_creator = azure.maps.Creator("example",
+            name="example-maps-creator",
             maps_account_id=example_account.id,
-            location=example_resource_group.location,
+            location=example.location,
             storage_units=1,
             tags={
                 "environment": "Test",
@@ -252,16 +256,20 @@ class Creator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.maps.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.maps.Account("example",
+            name="example-maps-account",
+            resource_group_name=example.name,
             sku_name="G2",
             tags={
                 "environment": "Test",
             })
-        example_creator = azure.maps.Creator("exampleCreator",
+        example_creator = azure.maps.Creator("example",
+            name="example-maps-creator",
             maps_account_id=example_account.id,
-            location=example_resource_group.location,
+            location=example.location,
             storage_units=1,
             tags={
                 "environment": "Test",

@@ -22,31 +22,35 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     var example = Azure.Storage.GetAccount.Invoke(new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", new()
+    ///     var exampleLinkedServiceAzureBlobStorage = new Azure.DataFactory.LinkedServiceAzureBlobStorage("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///         ConnectionString = example.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
     ///     });
     /// 
-    ///     var exampleDatasetAzureBlob = new Azure.DataFactory.DatasetAzureBlob("exampleDatasetAzureBlob", new()
+    ///     var exampleDatasetAzureBlob = new Azure.DataFactory.DatasetAzureBlob("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServiceAzureBlobStorage.Name,
     ///         Path = "foo",

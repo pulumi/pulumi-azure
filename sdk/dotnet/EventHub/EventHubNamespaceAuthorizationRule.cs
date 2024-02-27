@@ -22,15 +22,17 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourcegroup",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acceptanceTestEventHubNamespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Basic",
     ///         Capacity = 2,
     ///         Tags = 
@@ -39,10 +41,11 @@ namespace Pulumi.Azure.EventHub
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHubNamespaceAuthorizationRule = new Azure.EventHub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", new()
+    ///     var exampleEventHubNamespaceAuthorizationRule = new Azure.EventHub.EventHubNamespaceAuthorizationRule("example", new()
     ///     {
+    ///         Name = "navi",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Listen = true,
     ///         Send = false,
     ///         Manage = false,

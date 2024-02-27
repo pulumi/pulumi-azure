@@ -30,27 +30,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
 //				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWatchlist, err := sentinel.NewWatchlist(ctx, "exampleWatchlist", &sentinel.WatchlistArgs{
+//			exampleWatchlist, err := sentinel.NewWatchlist(ctx, "example", &sentinel.WatchlistArgs{
+//				Name:                    pulumi.String("example-watchlist"),
 //				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("example-wl"),
 //				ItemSearchKey:           pulumi.String("Key"),
@@ -58,7 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewWatchlistItem(ctx, "exampleWatchlistItem", &sentinel.WatchlistItemArgs{
+//			_, err = sentinel.NewWatchlistItem(ctx, "example", &sentinel.WatchlistItemArgs{
+//				Name:        pulumi.String("0aac6fa5-223e-49cf-9bfd-3554dc9d2b76"),
 //				WatchlistId: exampleWatchlist.ID(),
 //				Properties: pulumi.StringMap{
 //					"k1": pulumi.String("v1"),

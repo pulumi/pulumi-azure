@@ -185,14 +185,13 @@ class Group(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_parent = azure.management.Group("exampleParent",
+        example_parent = azure.management.Group("example_parent",
             display_name="ParentGroup",
             subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("exampleChild",
+        example_child = azure.management.Group("example_child",
             display_name="ChildGroup",
             parent_management_group_id=example_parent.id,
             subscription_ids=[current.subscription_id])
-        # other subscription IDs can go here
         ```
 
         ## Import
@@ -230,14 +229,13 @@ class Group(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_parent = azure.management.Group("exampleParent",
+        example_parent = azure.management.Group("example_parent",
             display_name="ParentGroup",
             subscription_ids=[current.subscription_id])
-        example_child = azure.management.Group("exampleChild",
+        example_child = azure.management.Group("example_child",
             display_name="ChildGroup",
             parent_management_group_id=example_parent.id,
             subscription_ids=[current.subscription_id])
-        # other subscription IDs can go here
         ```
 
         ## Import

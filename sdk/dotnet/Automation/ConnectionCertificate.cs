@@ -15,48 +15,48 @@ namespace Pulumi.Azure.Automation
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourceGroup-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
+    ///         Name = "account-example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.Automation.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.Automation.Certificate("example", new()
     ///     {
+    ///         Name = "certificate-example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
-    ///         Base64 = ReadFileBase64("certificate.pfx"),
+    ///         Base64 = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("exampleConnectionCertificate", new()
+    ///     var exampleConnectionCertificate = new Azure.Automation.ConnectionCertificate("example", new()
     ///     {
+    ///         Name = "connection-example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         AutomationCertificateName = exampleCertificate.Name,
-    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
+    ///         SubscriptionId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
     ///     });
     /// 
     /// });

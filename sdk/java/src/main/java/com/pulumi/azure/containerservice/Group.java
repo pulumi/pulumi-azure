@@ -55,13 +55,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-continst&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipAddressType(&#34;Public&#34;)
  *             .dnsNameLabel(&#34;aci-label&#34;)
  *             .osType(&#34;Linux&#34;)

@@ -26,20 +26,22 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("test", new()
         ///     {
+        ///         Name = "terraform-webpubsub",
         ///         Location = "east us",
         ///     });
         /// 
-        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     var testService = new Azure.WebPubSub.Service("test", new()
         ///     {
+        ///         Name = "tfex-webpubsub",
         ///         Location = testResourceGroup.Location,
         ///         ResourceGroupName = testResourceGroup.Name,
         ///         Sku = "Standard_S1",
         ///         Capacity = 1,
         ///     });
         /// 
-        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     var test = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
         ///     {
         ///         WebPubsubId = testService.Id,
         ///     });
@@ -67,20 +69,22 @@ namespace Pulumi.Azure.WebPubSub
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+        ///     var testResourceGroup = new Azure.Core.ResourceGroup("test", new()
         ///     {
+        ///         Name = "terraform-webpubsub",
         ///         Location = "east us",
         ///     });
         /// 
-        ///     var testService = new Azure.WebPubSub.Service("testService", new()
+        ///     var testService = new Azure.WebPubSub.Service("test", new()
         ///     {
+        ///         Name = "tfex-webpubsub",
         ///         Location = testResourceGroup.Location,
         ///         ResourceGroupName = testResourceGroup.Name,
         ///         Sku = "Standard_S1",
         ///         Capacity = 1,
         ///     });
         /// 
-        ///     var testPrivateLinkResource = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
+        ///     var test = Azure.WebPubSub.GetPrivateLinkResource.Invoke(new()
         ///     {
         ///         WebPubsubId = testService.Id,
         ///     });

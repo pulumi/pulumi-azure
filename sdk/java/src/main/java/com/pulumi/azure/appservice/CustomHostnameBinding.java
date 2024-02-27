@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *             .byteLength(8)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;some-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;some-app-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -66,15 +68,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(server.hex())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         var exampleCustomHostnameBinding = new CustomHostnameBinding(&#34;exampleCustomHostnameBinding&#34;, CustomHostnameBindingArgs.builder()        
  *             .hostname(&#34;www.mywebsite.com&#34;)
  *             .appServiceName(exampleAppService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

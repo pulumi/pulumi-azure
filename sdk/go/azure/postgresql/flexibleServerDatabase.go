@@ -27,15 +27,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-psqlflexibleserver"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
 //				Version:               pulumi.String("12"),
 //				AdministratorLogin:    pulumi.String("psqladmin"),
 //				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
@@ -45,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewFlexibleServerDatabase(ctx, "exampleFlexibleServerDatabase", &postgresql.FlexibleServerDatabaseArgs{
+//			_, err = postgresql.NewFlexibleServerDatabase(ctx, "example", &postgresql.FlexibleServerDatabaseArgs{
+//				Name:      pulumi.String("example-db"),
 //				ServerId:  exampleFlexibleServer.ID(),
 //				Collation: pulumi.String("en_US.utf8"),
 //				Charset:   pulumi.String("utf8"),

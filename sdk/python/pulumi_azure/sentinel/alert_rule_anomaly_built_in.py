@@ -404,17 +404,20 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-law",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
             workspace_id=example_analytics_workspace.id,
             customer_managed_key_enabled=False)
-        example_alert_rule_anomaly = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+        example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="Potential data staging")
-        example_alert_rule_anomaly_built_in = azure.sentinel.AlertRuleAnomalyBuiltIn("exampleAlertRuleAnomalyBuiltIn",
+        example_alert_rule_anomaly_built_in = azure.sentinel.AlertRuleAnomalyBuiltIn("example",
             display_name="Potential data staging",
             log_analytics_workspace_id=example_analytics_workspace.id,
             mode="Production",
@@ -452,17 +455,20 @@ class AlertRuleAnomalyBuiltIn(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-law",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding",
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example",
             workspace_id=example_analytics_workspace.id,
             customer_managed_key_enabled=False)
-        example_alert_rule_anomaly = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
+        example = azure.sentinel.get_alert_rule_anomaly_output(log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="Potential data staging")
-        example_alert_rule_anomaly_built_in = azure.sentinel.AlertRuleAnomalyBuiltIn("exampleAlertRuleAnomalyBuiltIn",
+        example_alert_rule_anomaly_built_in = azure.sentinel.AlertRuleAnomalyBuiltIn("example",
             display_name="Potential data staging",
             log_analytics_workspace_id=example_analytics_workspace.id,
             mode="Production",

@@ -180,23 +180,29 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-sql-server-vnet-rule",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="uniqueazuresqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_virtual_network_rule = azure.mssql.VirtualNetworkRule("exampleVirtualNetworkRule",
+        example_virtual_network_rule = azure.mssql.VirtualNetworkRule("example",
+            name="sql-vnet-rule",
             server_id=example_server.id,
             subnet_id=example_subnet.id)
         ```
@@ -233,23 +239,29 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-sql-server-vnet-rule",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="uniqueazuresqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_virtual_network_rule = azure.mssql.VirtualNetworkRule("exampleVirtualNetworkRule",
+        example_virtual_network_rule = azure.mssql.VirtualNetworkRule("example",
+            name="sql-vnet-rule",
             server_id=example_server.id,
             subnet_id=example_subnet.id)
         ```

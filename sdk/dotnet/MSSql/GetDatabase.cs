@@ -26,13 +26,15 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "example-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+        ///     var exampleServer = new Azure.MSSql.Server("example", new()
         ///     {
+        ///         Name = "example",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         Location = exampleResourceGroup.Location,
         ///         Version = "12.0",
@@ -40,7 +42,7 @@ namespace Pulumi.Azure.MSSql
         ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
         ///     });
         /// 
-        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
+        ///     var example = Azure.MSSql.GetDatabase.Invoke(new()
         ///     {
         ///         Name = "example-mssql-db",
         ///         ServerId = exampleServer.Id,
@@ -48,7 +50,7 @@ namespace Pulumi.Azure.MSSql
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///         ["databaseId"] = example.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
         ///     };
         /// });
         /// ```
@@ -73,13 +75,15 @@ namespace Pulumi.Azure.MSSql
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "example-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+        ///     var exampleServer = new Azure.MSSql.Server("example", new()
         ///     {
+        ///         Name = "example",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         Location = exampleResourceGroup.Location,
         ///         Version = "12.0",
@@ -87,7 +91,7 @@ namespace Pulumi.Azure.MSSql
         ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
         ///     });
         /// 
-        ///     var exampleDatabase = Azure.MSSql.GetDatabase.Invoke(new()
+        ///     var example = Azure.MSSql.GetDatabase.Invoke(new()
         ///     {
         ///         Name = "example-mssql-db",
         ///         ServerId = exampleServer.Id,
@@ -95,7 +99,7 @@ namespace Pulumi.Azure.MSSql
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["databaseId"] = exampleDatabase.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
+        ///         ["databaseId"] = example.Apply(getDatabaseResult =&gt; getDatabaseResult.Id),
         ///     };
         /// });
         /// ```

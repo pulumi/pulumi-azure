@@ -26,18 +26,20 @@ namespace Pulumi.Azure.AppConfiguration
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
     ///     {
+    ///         Name = "appConf1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconf_dataowner", new()
     ///     {
     ///         Scope = appconf.Id,
     ///         RoleDefinitionName = "App Configuration Data Owner",
@@ -48,6 +50,7 @@ namespace Pulumi.Azure.AppConfiguration
     ///     {
     ///         ConfigurationStoreId = appconf.Id,
     ///         Description = "test description",
+    ///         Name = "test-ackey",
     ///         Label = "test-ackeylabel",
     ///         Enabled = true,
     ///     });

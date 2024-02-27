@@ -544,21 +544,26 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard",
             tags={
                 "environment": "Production",
             })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -568,10 +573,11 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
+        example_deployment = azure.nginx.Deployment("example",
+            name="example-nginx",
+            resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
+            location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
@@ -626,21 +632,26 @@ class Deployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard",
             tags={
                 "environment": "Production",
             })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -650,10 +661,11 @@ class Deployment(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
+        example_deployment = azure.nginx.Deployment("example",
+            name="example-nginx",
+            resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
+            location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public=azure.nginx.DeploymentFrontendPublicArgs(

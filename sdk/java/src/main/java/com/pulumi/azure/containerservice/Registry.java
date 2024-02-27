@@ -52,10 +52,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
+ *             .name(&#34;containerRegistry1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(&#34;Premium&#34;)
@@ -107,20 +109,23 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
+ *             .name(&#34;registry-uai&#34;)
  *             .build());
  * 
- *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
+ *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
  *             .name(&#34;super-secret&#34;)
- *             .keyVaultId(data.azurerm_key_vault().existing().id())
+ *             .keyVaultId(existing.id())
  *             .build());
  * 
  *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
+ *             .name(&#34;containerRegistry1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .sku(&#34;Premium&#34;)
@@ -130,7 +135,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .encryption(RegistryEncryptionArgs.builder()
  *                 .enabled(true)
- *                 .keyVaultKeyId(exampleKey.applyValue(getKeyResult -&gt; getKeyResult.id()))
+ *                 .keyVaultKeyId(example.applyValue(getKeyResult -&gt; getKeyResult.id()))
  *                 .identityClientId(exampleUserAssignedIdentity.clientId())
  *                 .build())
  *             .build());
@@ -168,19 +173,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;containerRegistry1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Premium&#34;)
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-aks1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;exampleaks1&#34;)
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name(&#34;default&#34;)

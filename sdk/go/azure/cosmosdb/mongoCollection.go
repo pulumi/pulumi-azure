@@ -28,23 +28,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
 //				Name:              "tfex-cosmosdb-account",
 //				ResourceGroupName: "tfex-cosmosdb-account-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "exampleMongoDatabase", &cosmosdb.MongoDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			exampleMongoDatabase, err := cosmosdb.NewMongoDatabase(ctx, "example", &cosmosdb.MongoDatabaseArgs{
+//				Name:              pulumi.String("tfex-cosmos-mongo-db"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewMongoCollection(ctx, "exampleMongoCollection", &cosmosdb.MongoCollectionArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			_, err = cosmosdb.NewMongoCollection(ctx, "example", &cosmosdb.MongoCollectionArgs{
+//				Name:              pulumi.String("tfex-cosmos-mongo-db"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //				DatabaseName:      exampleMongoDatabase.Name,
 //				DefaultTtlSeconds: pulumi.Int(777),
 //				ShardKey:          pulumi.String("uniqueKey"),

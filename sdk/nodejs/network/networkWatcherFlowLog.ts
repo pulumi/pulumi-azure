@@ -17,16 +17,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const testNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("testNetworkSecurityGroup", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const test = new azure.network.NetworkSecurityGroup("test", {
+ *     name: "acctestnsg",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const testNetworkWatcher = new azure.network.NetworkWatcher("testNetworkWatcher", {
+ * const testNetworkWatcher = new azure.network.NetworkWatcher("test", {
+ *     name: "acctestnw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
- * const testAccount = new azure.storage.Account("testAccount", {
+ * const testAccount = new azure.storage.Account("test", {
+ *     name: "acctestsa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
@@ -34,15 +40,17 @@ import * as utilities from "../utilities";
  *     accountReplicationType: "LRS",
  *     enableHttpsTrafficOnly: true,
  * });
- * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("testAnalyticsWorkspace", {
+ * const testAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("test", {
+ *     name: "acctestlaw",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", {
+ * const testNetworkWatcherFlowLog = new azure.network.NetworkWatcherFlowLog("test", {
  *     networkWatcherName: testNetworkWatcher.name,
  *     resourceGroupName: example.name,
- *     networkSecurityGroupId: testNetworkSecurityGroup.id,
+ *     name: "example-log",
+ *     networkSecurityGroupId: test.id,
  *     storageAccountId: testAccount.id,
  *     enabled: true,
  *     retentionPolicy: {

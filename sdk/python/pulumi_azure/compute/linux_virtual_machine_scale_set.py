@@ -2041,18 +2041,23 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi_azure as azure
 
         first_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
@@ -2204,18 +2209,23 @@ class LinuxVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi_azure as azure
 
         first_public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com"
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",

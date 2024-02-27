@@ -13,26 +13,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "acceptanceTestEventHubNamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Basic",
  *     capacity: 2,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "acceptanceTestEventHub",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 2,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "acceptanceTestEventHubConsumerGroup",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     userMetadata: "some-meta-data",
  * });
  * ```

@@ -30,29 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("terraform-webpubsub"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("tfex-uai"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
+//				Name:              pulumi.String("tfex-webpubsub"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard_S1"),
 //				Capacity:          pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = webpubsub.NewHub(ctx, "exampleHub", &webpubsub.HubArgs{
+//			_, err = webpubsub.NewHub(ctx, "example", &webpubsub.HubArgs{
+//				Name:        pulumi.String("tfex_wpsh"),
 //				WebPubsubId: exampleService.ID(),
 //				EventHandlers: webpubsub.HubEventHandlerArray{
 //					&webpubsub.HubEventHandlerArgs{
@@ -83,8 +87,8 @@ import (
 //							pulumi.String("event1"),
 //							pulumi.String("event2"),
 //						},
-//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
-//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//						EventhubNamespaceName: pulumi.Any(test.Name),
+//						EventhubName:          pulumi.Any(test1.Name),
 //					},
 //					&webpubsub.HubEventListenerArgs{
 //						SystemEventNameFilters: pulumi.StringArray{
@@ -93,8 +97,8 @@ import (
 //						UserEventNameFilters: pulumi.StringArray{
 //							pulumi.String("*"),
 //						},
-//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
-//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//						EventhubNamespaceName: pulumi.Any(test.Name),
+//						EventhubName:          pulumi.Any(test1.Name),
 //					},
 //					&webpubsub.HubEventListenerArgs{
 //						SystemEventNameFilters: pulumi.StringArray{
@@ -103,14 +107,12 @@ import (
 //						UserEventNameFilters: pulumi.StringArray{
 //							pulumi.String("event1"),
 //						},
-//						EventhubNamespaceName: pulumi.Any(azurerm_eventhub_namespace.Test.Name),
-//						EventhubName:          pulumi.Any(azurerm_eventhub.Test1.Name),
+//						EventhubNamespaceName: pulumi.Any(test.Name),
+//						EventhubName:          pulumi.Any(test1.Name),
 //					},
 //				},
 //				AnonymousConnectionsEnabled: pulumi.Bool(true),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleService,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

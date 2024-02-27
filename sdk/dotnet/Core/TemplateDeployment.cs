@@ -28,14 +28,16 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("exampleTemplateDeployment", new()
+    ///     var exampleTemplateDeployment = new Azure.Core.TemplateDeployment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctesttemplate-01",
+    ///         ResourceGroupName = example.Name,
     ///         TemplateBody = @"{
     ///   ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
     ///   ""contentVersion"": ""1.0.0.0"",

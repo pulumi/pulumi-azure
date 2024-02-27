@@ -48,17 +48,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;E0&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring = new SpringCloudAppDynamicsApplicationPerformanceMonitoring(&#34;exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring&#34;, SpringCloudAppDynamicsApplicationPerformanceMonitoringArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .agentAccountName(&#34;example-agent-account-name&#34;)
  *             .agentAccountAccessKey(&#34;example-agent-account-access-key&#34;)

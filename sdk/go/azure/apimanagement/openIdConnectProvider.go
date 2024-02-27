@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@exmaple.com"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,9 +47,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewOpenIdConnectProvider(ctx, "exampleOpenIdConnectProvider", &apimanagement.OpenIdConnectProviderArgs{
+//			_, err = apimanagement.NewOpenIdConnectProvider(ctx, "example", &apimanagement.OpenIdConnectProviderArgs{
+//				Name:              pulumi.String("example-provider"),
 //				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				ClientId:          pulumi.String("00001111-2222-3333-4444-555566667777"),
 //				ClientSecret:      pulumi.String("00001111-423egvwdcsjx-00001111"),
 //				DisplayName:       pulumi.String("Example Provider"),

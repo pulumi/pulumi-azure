@@ -15,9 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCertificateOrder = new azure.appservice.CertificateOrder("exampleCertificateOrder", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCertificateOrder = new azure.appservice.CertificateOrder("example", {
+ *     name: "example-cert-order",
+ *     resourceGroupName: example.name,
  *     location: "global",
  *     distinguishedName: "CN=example.com",
  *     productType: "Standard",

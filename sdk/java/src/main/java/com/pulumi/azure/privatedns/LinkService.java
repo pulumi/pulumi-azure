@@ -57,34 +57,39 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-network&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.5.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;example-api&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;example-lb&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -92,8 +97,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-privatelink&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .autoApprovalSubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .visibilitySubscriptionIds(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .loadBalancerFrontendIpConfigurationIds(exampleLoadBalancer.frontendIpConfigurations().applyValue(frontendIpConfigurations -&gt; frontendIpConfigurations[0].id()))

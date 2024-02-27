@@ -17,22 +17,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "LoadBalancerRG",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "PublicIPForLB",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "TestLoadBalancer",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("exampleBackendAddressPool", {loadbalancerId: exampleLoadBalancer.id});
- * const exampleOutboundRule = new azure.lb.OutboundRule("exampleOutboundRule", {
+ * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
+ *     name: "example",
+ *     loadbalancerId: exampleLoadBalancer.id,
+ * });
+ * const exampleOutboundRule = new azure.lb.OutboundRule("example", {
+ *     name: "OutboundRule",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
  *     backendAddressPoolId: exampleBackendAddressPool.id,

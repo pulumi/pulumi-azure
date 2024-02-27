@@ -17,15 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "west europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountKind: "StorageV2",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAadDiagnosticSetting = new azure.monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", {
+ * const exampleAadDiagnosticSetting = new azure.monitoring.AadDiagnosticSetting("example", {
+ *     name: "setting1",
  *     storageAccountId: exampleAccount.id,
  *     enabledLogs: [
  *         {

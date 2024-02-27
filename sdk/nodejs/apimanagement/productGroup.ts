@@ -13,25 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleProduct = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ * const exampleGetProduct = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getProduct({
  *     productId: "my-product",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
+ *     apiManagementName: example.name,
+ *     resourceGroupName: example1.resourceGroupName,
  * }));
- * const exampleGroup = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getGroup({
+ * const exampleGetGroup = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getGroup({
  *     name: "my-group",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
+ *     apiManagementName: example.name,
+ *     resourceGroupName: example1.resourceGroupName,
  * }));
- * const exampleProductGroup = new azure.apimanagement.ProductGroup("exampleProductGroup", {
- *     productId: exampleProduct.then(exampleProduct => exampleProduct.productId),
- *     groupName: exampleGroup.then(exampleGroup => exampleGroup.name),
- *     apiManagementName: exampleService.then(exampleService => exampleService.name),
- *     resourceGroupName: exampleService.then(exampleService => exampleService.resourceGroupName),
+ * const exampleProductGroup = new azure.apimanagement.ProductGroup("example", {
+ *     productId: exampleGetProduct.then(exampleGetProduct => exampleGetProduct.productId),
+ *     groupName: exampleGetGroup.then(exampleGetGroup => exampleGetGroup.name),
+ *     apiManagementName: example.then(example => example.name),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  * });
  * ```
  *

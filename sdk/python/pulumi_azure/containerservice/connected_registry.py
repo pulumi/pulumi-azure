@@ -446,13 +446,17 @@ class ConnectedRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="exampleacr",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
+            name="examplescopemap",
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             actions=[
@@ -466,11 +470,13 @@ class ConnectedRegistry(pulumi.CustomResource):
                 "gateway/examplecr/message/read",
                 "gateway/examplecr/message/write",
             ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
+        example_registry_token = azure.containerservice.RegistryToken("example",
+            name="exampletoken",
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
+        example_connected_registry = azure.containerservice.ConnectedRegistry("example",
+            name="examplecr",
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```
@@ -515,13 +521,17 @@ class ConnectedRegistry(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="exampleacr",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             data_endpoint_enabled=True)
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
+            name="examplescopemap",
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             actions=[
@@ -535,11 +545,13 @@ class ConnectedRegistry(pulumi.CustomResource):
                 "gateway/examplecr/message/read",
                 "gateway/examplecr/message/write",
             ])
-        example_registry_token = azure.containerservice.RegistryToken("exampleRegistryToken",
+        example_registry_token = azure.containerservice.RegistryToken("example",
+            name="exampletoken",
             container_registry_name=example_registry.name,
             resource_group_name=example_registry.resource_group_name,
             scope_map_id=example_registry_scope_map.id)
-        example_connected_registry = azure.containerservice.ConnectedRegistry("exampleConnectedRegistry",
+        example_connected_registry = azure.containerservice.ConnectedRegistry("example",
+            name="examplecr",
             container_registry_id=example_registry.id,
             sync_token_id=example_registry_token.id)
         ```

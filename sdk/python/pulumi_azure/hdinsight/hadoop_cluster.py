@@ -705,18 +705,23 @@ class HadoopCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="hdinsightstor",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="hdinsight",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_hadoop_cluster = azure.hdinsight.HadoopCluster("exampleHadoopCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_hadoop_cluster = azure.hdinsight.HadoopCluster("example",
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_version="3.6",
             tier="Standard",
             component_version=azure.hdinsight.HadoopClusterComponentVersionArgs(
@@ -798,18 +803,23 @@ class HadoopCluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="hdinsightstor",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="hdinsight",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_hadoop_cluster = azure.hdinsight.HadoopCluster("exampleHadoopCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_hadoop_cluster = azure.hdinsight.HadoopCluster("example",
+            name="example-hdicluster",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_version="3.6",
             tier="Standard",
             component_version=azure.hdinsight.HadoopClusterComponentVersionArgs(

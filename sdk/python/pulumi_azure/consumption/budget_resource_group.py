@@ -304,12 +304,16 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example",
+            resource_group_name=example.name,
             short_name="example")
-        example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
-            resource_group_id=example_resource_group.id,
+        example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
+            name="example",
+            resource_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(
@@ -388,12 +392,16 @@ class BudgetResourceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example",
+            resource_group_name=example.name,
             short_name="example")
-        example_budget_resource_group = azure.consumption.BudgetResourceGroup("exampleBudgetResourceGroup",
-            resource_group_id=example_resource_group.id,
+        example_budget_resource_group = azure.consumption.BudgetResourceGroup("example",
+            name="example",
+            resource_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetResourceGroupTimePeriodArgs(

@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.batch.getPool({
- *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
+ *     accountName: "testbatchaccount",
  *     resourceGroupName: "test",
  * });
  * ```
@@ -158,8 +158,8 @@ export interface GetPoolResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.batch.getPool({
- *     accountName: "testbatchaccount",
  *     name: "testbatchpool",
+ *     accountName: "testbatchaccount",
  *     resourceGroupName: "test",
  * });
  * ```

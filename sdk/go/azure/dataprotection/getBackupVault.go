@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azurermDataProtectionBackupVaultId", data.Azurerm_vpn_gateway.Example.Id)
+//			ctx.Export("azurermDataProtectionBackupVaultId", exampleAzurermVpnGateway.Id)
 //			ctx.Export("azurermDataProtectionBackupVaultPrincipalId", example.Identities[0].PrincipalId)
 //			return nil
 //		})

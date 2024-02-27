@@ -13,26 +13,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const testUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("testUserAssignedIdentity", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const testDevCenter = new azure.devcenter.DevCenter("testDevCenter", {
- *     resourceGroupName: azurerm_resource_group.test.name,
- *     location: azurerm_resource_group.test.location,
+ * const testUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("test", {
+ *     name: "example-uai",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ * });
+ * const test = new azure.devcenter.DevCenter("test", {
+ *     name: "example-devcenter",
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     location: testAzurermResourceGroup.location,
  *     identity: {
  *         type: "UserAssigned",
  *         identityIds: [testUserAssignedIdentity.id],
  *     },
  * });
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("exampleSharedImageGallery", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
+ *     name: "example-image-gallery",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleGallery = new azure.devcenter.Gallery("exampleGallery", {
- *     devCenterId: azurerm_dev_center.example.id,
+ * const exampleGallery = new azure.devcenter.Gallery("example", {
+ *     devCenterId: exampleAzurermDevCenter.id,
  *     sharedGalleryId: exampleSharedImageGallery.id,
+ *     name: "example",
  * });
  * ```
  *

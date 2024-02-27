@@ -29,13 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
+//				Name:        pulumi.String("my-policy-definition"),
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("my-policy-definition"),
@@ -70,15 +72,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
-//				ResourceGroupId:    exampleResourceGroup.ID(),
+//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupId:    example.ID(),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceGroupPolicyRemediation(ctx, "exampleResourceGroupPolicyRemediation", &core.ResourceGroupPolicyRemediationArgs{
-//				ResourceGroupId:    exampleResourceGroup.ID(),
+//			_, err = core.NewResourceGroupPolicyRemediation(ctx, "example", &core.ResourceGroupPolicyRemediationArgs{
+//				Name:               pulumi.String("example-policy-remediation"),
+//				ResourceGroupId:    example.ID(),
 //				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
 //				LocationFilters: pulumi.StringArray{
 //					pulumi.String("West Europe"),

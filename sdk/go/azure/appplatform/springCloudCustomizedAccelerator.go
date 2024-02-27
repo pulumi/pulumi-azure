@@ -29,27 +29,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("west europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("E0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudAccelerator, err := appplatform.NewSpringCloudAccelerator(ctx, "exampleSpringCloudAccelerator", &appplatform.SpringCloudAcceleratorArgs{
+//			exampleSpringCloudAccelerator, err := appplatform.NewSpringCloudAccelerator(ctx, "example", &appplatform.SpringCloudAcceleratorArgs{
+//				Name:                 pulumi.String("default"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "exampleSpringCloudCustomizedAccelerator", &appplatform.SpringCloudCustomizedAcceleratorArgs{
+//			_, err = appplatform.NewSpringCloudCustomizedAccelerator(ctx, "example", &appplatform.SpringCloudCustomizedAcceleratorArgs{
+//				Name:                     pulumi.String("example"),
 //				SpringCloudAcceleratorId: exampleSpringCloudAccelerator.ID(),
 //				GitRepository: &appplatform.SpringCloudCustomizedAcceleratorGitRepositoryArgs{
 //					Url:               pulumi.String("https://github.com/Azure-Samples/piggymetrics"),

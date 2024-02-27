@@ -107,11 +107,16 @@ class SyncGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sync = azure.storage.Sync("example",
+            name="example-ss",
+            resource_group_name=example.name,
+            location=example.location)
+        example_sync_group = azure.storage.SyncGroup("example",
+            name="example-ss-group",
+            storage_sync_id=example_sync.id)
         ```
 
         ## Import
@@ -142,11 +147,16 @@ class SyncGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sync = azure.storage.Sync("example",
+            name="example-ss",
+            resource_group_name=example.name,
+            location=example.location)
+        example_sync_group = azure.storage.SyncGroup("example",
+            name="example-ss-group",
+            storage_sync_id=example_sync.id)
         ```
 
         ## Import

@@ -12,12 +12,15 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const example = new azure.compute.SshPublicKey("example", {
+ *     name: "example",
  *     resourceGroupName: "example",
  *     location: "West Europe",
- *     publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
+ *     publicKey: std.file({
+ *         input: "~/.ssh/id_rsa.pub",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

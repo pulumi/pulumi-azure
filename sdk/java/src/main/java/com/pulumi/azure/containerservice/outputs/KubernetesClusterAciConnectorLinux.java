@@ -51,8 +51,8 @@ public final class KubernetesClusterAciConnectorLinux {
      *             .delegations(SubnetDelegationArgs.builder()
      *                 .name(&#34;aciDelegation&#34;)
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
      *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
+     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
      *                     .build())
      *                 .build())
      *             .build());
@@ -105,8 +105,8 @@ public final class KubernetesClusterAciConnectorLinux {
      *             .delegations(SubnetDelegationArgs.builder()
      *                 .name(&#34;aciDelegation&#34;)
      *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
-     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
      *                     .name(&#34;Microsoft.ContainerInstance/containerGroups&#34;)
+     *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/action&#34;)
      *                     .build())
      *                 .build())
      *             .build());

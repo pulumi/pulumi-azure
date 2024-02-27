@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Bot
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWebApp = new Azure.Bot.WebApp("exampleWebApp", new()
+    ///     var exampleWebApp = new Azure.Bot.WebApp("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "F0",
     ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///     });

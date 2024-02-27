@@ -16,6 +16,106 @@ import (
 //
 // > **NOTE:** Enrichment can be defined either directly on the `iot.IoTHub` resource, or using the `iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/iot"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example"),
+//				StorageAccountName:  exampleAccount.Name,
+//				ContainerAccessType: pulumi.String("private"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("exampleIothub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku: &iot.IoTHubSkuArgs{
+//					Name:     pulumi.String("S1"),
+//					Capacity: pulumi.Int(1),
+//				},
+//				Tags: pulumi.StringMap{
+//					"purpose": pulumi.String("testing"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEndpointStorageContainer, err := iot.NewEndpointStorageContainer(ctx, "example", &iot.EndpointStorageContainerArgs{
+//				ResourceGroupName:       example.Name,
+//				IothubId:                exampleIoTHub.ID(),
+//				Name:                    pulumi.String("example"),
+//				ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
+//				BatchFrequencyInSeconds: pulumi.Int(60),
+//				MaxChunkSizeInBytes:     pulumi.Int(10485760),
+//				ContainerName:           exampleContainer.Name,
+//				Encoding:                pulumi.String("Avro"),
+//				FileNameFormat:          pulumi.String("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewRoute(ctx, "example", &iot.RouteArgs{
+//				ResourceGroupName: example.Name,
+//				IothubName:        exampleIoTHub.Name,
+//				Name:              pulumi.String("example"),
+//				Source:            pulumi.String("DeviceMessages"),
+//				Condition:         pulumi.String("true"),
+//				EndpointNames:     exampleEndpointStorageContainer.Name,
+//				Enabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = iot.NewEnrichment(ctx, "example", &iot.EnrichmentArgs{
+//				ResourceGroupName: example.Name,
+//				IothubName:        exampleIoTHub.Name,
+//				Key:               pulumi.String("example"),
+//				Value:             pulumi.String("my value"),
+//				EndpointNames: pulumi.StringArray{
+//					exampleEndpointStorageContainer.Name,
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // IoTHub Enrichment can be imported using the `resource id`, e.g.

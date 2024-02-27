@@ -23,24 +23,27 @@ namespace Pulumi.Azure.DomainServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
+    ///         Name = "aadds-primary-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primary", new()
     ///     {
-    ///         Location = primaryResourceGroup.Location,
-    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         Name = "aadds-primary-vnet",
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.1.0/16",
     ///         },
     ///     });
     /// 
-    ///     var primarySubnet = new Azure.Network.Subnet("primarySubnet", new()
+    ///     var primarySubnet = new Azure.Network.Subnet("primary", new()
     ///     {
-    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         Name = "aadds-primary-subnet",
+    ///         ResourceGroupName = primary.Name,
     ///         VirtualNetworkName = primaryVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -48,10 +51,11 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var primaryNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("primaryNetworkSecurityGroup", new()
+    ///     var primaryNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("primary", new()
     ///     {
-    ///         Location = primaryResourceGroup.Location,
-    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         Name = "aadds-primary-nsg",
+    ///         Location = primary.Location,
+    ///         ResourceGroupName = primary.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -105,44 +109,45 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var primarySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation", new()
+    ///     var primarySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("primary", new()
     ///     {
     ///         SubnetId = primarySubnet.Id,
     ///         NetworkSecurityGroupId = primaryNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dcAdmins", new()
+    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "aad-dc-administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var adminUser = new AzureAD.User("adminUser", new()
+    ///     var admin = new AzureAD.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.net",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("adminGroupMember", new()
+    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
-    ///         MemberObjectId = adminUser.ObjectId,
+    ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var exampleServicePrincipal = new AzureAD.ServicePrincipal("exampleServicePrincipal", new()
+    ///     var example = new AzureAD.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });
     /// 
-    ///     // published app for domain services
     ///     var aadds = new Azure.Core.ResourceGroup("aadds", new()
     ///     {
+    ///         Name = "aadds-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleService = new Azure.DomainServices.Service("exampleService", new()
+    ///     var exampleService = new Azure.DomainServices.Service("example", new()
     ///     {
+    ///         Name = "example-aadds",
     ///         Location = aadds.Location,
     ///         ResourceGroupName = aadds.Name,
     ///         DomainName = "widgetslogin.net",
@@ -173,33 +178,29 @@ namespace Pulumi.Azure.DomainServices
     ///         {
     ///             { "Environment", "prod" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleServicePrincipal,
-    ///             primarySubnetNetworkSecurityGroupAssociation,
-    ///         },
     ///     });
     /// 
-    ///     var replicaResourceGroup = new Azure.Core.ResourceGroup("replicaResourceGroup", new()
+    ///     var replica = new Azure.Core.ResourceGroup("replica", new()
     ///     {
+    ///         Name = "aadds-replica-rg",
     ///         Location = "North Europe",
     ///     });
     /// 
-    ///     var replicaVirtualNetwork = new Azure.Network.VirtualNetwork("replicaVirtualNetwork", new()
+    ///     var replicaVirtualNetwork = new Azure.Network.VirtualNetwork("replica", new()
     ///     {
-    ///         Location = replicaResourceGroup.Location,
-    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         Name = "aadds-replica-vnet",
+    ///         Location = replica.Location,
+    ///         ResourceGroupName = replica.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.20.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var aaddsReplicaSubnet = new Azure.Network.Subnet("aaddsReplicaSubnet", new()
+    ///     var aaddsReplica = new Azure.Network.Subnet("aadds_replica", new()
     ///     {
-    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         Name = "aadds-replica-subnet",
+    ///         ResourceGroupName = replica.Name,
     ///         VirtualNetworkName = replicaVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -207,10 +208,11 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var aaddsReplicaNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup", new()
+    ///     var aaddsReplicaNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("aadds_replica", new()
     ///     {
-    ///         Location = replicaResourceGroup.Location,
-    ///         ResourceGroupName = replicaResourceGroup.Name,
+    ///         Name = "aadds-replica-nsg",
+    ///         Location = replica.Location,
+    ///         ResourceGroupName = replica.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -264,14 +266,15 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var replicaSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation", new()
+    ///     var replicaSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("replica", new()
     ///     {
-    ///         SubnetId = aaddsReplicaSubnet.Id,
+    ///         SubnetId = aaddsReplica.Id,
     ///         NetworkSecurityGroupId = aaddsReplicaNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var primaryReplica = new Azure.Network.VirtualNetworkPeering("primaryReplica", new()
+    ///     var primaryReplica = new Azure.Network.VirtualNetworkPeering("primary_replica", new()
     ///     {
+    ///         Name = "aadds-primary-replica",
     ///         ResourceGroupName = primaryVirtualNetwork.ResourceGroupName,
     ///         VirtualNetworkName = primaryVirtualNetwork.Name,
     ///         RemoteVirtualNetworkId = replicaVirtualNetwork.Id,
@@ -281,8 +284,9 @@ namespace Pulumi.Azure.DomainServices
     ///         UseRemoteGateways = false,
     ///     });
     /// 
-    ///     var replicaPrimary = new Azure.Network.VirtualNetworkPeering("replicaPrimary", new()
+    ///     var replicaPrimary = new Azure.Network.VirtualNetworkPeering("replica_primary", new()
     ///     {
+    ///         Name = "aadds-replica-primary",
     ///         ResourceGroupName = replicaVirtualNetwork.ResourceGroupName,
     ///         VirtualNetworkName = replicaVirtualNetwork.Name,
     ///         RemoteVirtualNetworkId = primaryVirtualNetwork.Id,
@@ -292,25 +296,17 @@ namespace Pulumi.Azure.DomainServices
     ///         UseRemoteGateways = false,
     ///     });
     /// 
-    ///     var replicaVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers", new()
+    ///     var replicaVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("replica", new()
     ///     {
     ///         VirtualNetworkId = replicaVirtualNetwork.Id,
     ///         DnsServers = exampleService.InitialReplicaSet.Apply(initialReplicaSet =&gt; initialReplicaSet.DomainControllerIpAddresses),
     ///     });
     /// 
-    ///     var replicaReplicaSet = new Azure.DomainServices.ReplicaSet("replicaReplicaSet", new()
+    ///     var replicaReplicaSet = new Azure.DomainServices.ReplicaSet("replica", new()
     ///     {
     ///         DomainServiceId = exampleService.Id,
-    ///         Location = replicaResourceGroup.Location,
-    ///         SubnetId = aaddsReplicaSubnet.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             replicaSubnetNetworkSecurityGroupAssociation,
-    ///             primaryReplica,
-    ///             replicaPrimary,
-    ///         },
+    ///         Location = replica.Location,
+    ///         SubnetId = aaddsReplica.Id,
     ///     });
     /// 
     /// });

@@ -549,8 +549,11 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -560,14 +563,18 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-identity",
+            location=example.location,
+            resource_group_name=example.name)
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="exampleKVt123",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -603,7 +610,8 @@ class ConfigurationStore(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="exampleKVkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -614,14 +622,11 @@ class ConfigurationStore(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("exampleConfigurationStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            ])
+        example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
+            name="appConf2",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard",
             local_auth_enabled=True,
             public_network_access="Enabled",
@@ -641,11 +646,7 @@ class ConfigurationStore(pulumi.CustomResource):
             )],
             tags={
                 "environment": "development",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
+            })
         ```
 
         ## Import
@@ -692,8 +693,11 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         ```
@@ -703,14 +707,18 @@ class ConfigurationStore(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-identity",
+            location=example.location,
+            resource_group_name=example.name)
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="exampleKVt123",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -746,7 +754,8 @@ class ConfigurationStore(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="exampleKVkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -757,14 +766,11 @@ class ConfigurationStore(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_configuration_store = azure.appconfiguration.ConfigurationStore("exampleConfigurationStore",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            ])
+        example_configuration_store = azure.appconfiguration.ConfigurationStore("example",
+            name="appConf2",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard",
             local_auth_enabled=True,
             public_network_access="Enabled",
@@ -784,11 +790,7 @@ class ConfigurationStore(pulumi.CustomResource):
             )],
             tags={
                 "environment": "development",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
+            })
         ```
 
         ## Import

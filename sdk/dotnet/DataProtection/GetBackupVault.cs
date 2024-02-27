@@ -34,7 +34,7 @@ namespace Pulumi.Azure.DataProtection
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
+        ///         ["azurermDataProtectionBackupVaultId"] = exampleAzurermVpnGateway.Id,
         ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
         ///     };
         /// });
@@ -68,7 +68,7 @@ namespace Pulumi.Azure.DataProtection
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["azurermDataProtectionBackupVaultId"] = data.Azurerm_vpn_gateway.Example.Id,
+        ///         ["azurermDataProtectionBackupVaultId"] = exampleAzurermVpnGateway.Id,
         ///         ["azurermDataProtectionBackupVaultPrincipalId"] = example.Apply(getBackupVaultResult =&gt; getBackupVaultResult.Identities[0]?.PrincipalId),
         ///     };
         /// });

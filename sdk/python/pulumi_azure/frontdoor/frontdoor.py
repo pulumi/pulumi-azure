@@ -543,9 +543,12 @@ class Frontdoor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="FrontDoorExampleResourceGroup",
+            location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example-FrontDoor",
+            resource_group_name=example.name,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[
@@ -631,9 +634,12 @@ class Frontdoor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="FrontDoorExampleResourceGroup",
+            location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example-FrontDoor",
+            resource_group_name=example.name,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[

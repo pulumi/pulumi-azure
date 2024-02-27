@@ -22,41 +22,45 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleProduct = new Azure.ApiManagement.Product("exampleProduct", new()
+    ///     var exampleProduct = new Azure.ApiManagement.Product("example", new()
     ///     {
     ///         ProductId = "test-product",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         DisplayName = "Test Product",
     ///         SubscriptionRequired = true,
     ///         ApprovalRequired = true,
     ///         Published = true,
     ///     });
     /// 
-    ///     var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new()
+    ///     var exampleTag = new Azure.ApiManagement.Tag("example", new()
     ///     {
     ///         ApiManagementId = exampleService.Id,
+    ///         Name = "example-tag",
     ///     });
     /// 
-    ///     var exampleProductTag = new Azure.ApiManagement.ProductTag("exampleProductTag", new()
+    ///     var exampleProductTag = new Azure.ApiManagement.ProductTag("example", new()
     ///     {
     ///         ApiManagementProductId = exampleProduct.ProductId,
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Name = exampleTag.Name,
     ///     });
     /// 
     /// });

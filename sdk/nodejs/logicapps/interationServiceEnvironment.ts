@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exampleRG1",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/22"],
  * });
  * const isesubnet1 = new azure.network.Subnet("isesubnet1", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "isesubnet1",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/27"],
  *     delegations: [{
@@ -33,23 +38,27 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const isesubnet2 = new azure.network.Subnet("isesubnet2", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "isesubnet2",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.32/27"],
  * });
  * const isesubnet3 = new azure.network.Subnet("isesubnet3", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "isesubnet3",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.64/27"],
  * });
  * const isesubnet4 = new azure.network.Subnet("isesubnet4", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "isesubnet4",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.96/27"],
  * });
- * const exampleInterationServiceEnvironment = new azure.logicapps.InterationServiceEnvironment("exampleInterationServiceEnvironment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInterationServiceEnvironment = new azure.logicapps.InterationServiceEnvironment("example", {
+ *     name: "example-ise",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Developer_0",
  *     accessEndpointType: "Internal",
  *     virtualNetworkSubnetIds: [

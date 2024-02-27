@@ -22,29 +22,31 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var currentClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var currentSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var currentGetSubscription = Azure.Core.GetSubscription.Invoke();
     /// 
     ///     var alt = Azure.Core.GetSubscription.Invoke(new()
     ///     {
     ///         SubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-networkmanager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
     ///             {
-    ///                 currentSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///                 currentGetSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
     ///         ScopeAccesses = new[]
@@ -53,10 +55,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkManagerScopeConnection = new Azure.Network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection", new()
+    ///     var exampleNetworkManagerScopeConnection = new Azure.Network.NetworkManagerScopeConnection("example", new()
     ///     {
+    ///         Name = "example-nsc",
     ///         NetworkManagerId = exampleNetworkManager.Id,
-    ///         TenantId = currentClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         TargetScopeId = alt.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Description = "example",
     ///     });

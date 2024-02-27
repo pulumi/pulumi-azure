@@ -28,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//			testResourceGroup, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("terraform-webpubsub"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testService, err := webpubsub.NewService(ctx, "testService", &webpubsub.ServiceArgs{
+//			testService, err := webpubsub.NewService(ctx, "test", &webpubsub.ServiceArgs{
+//				Name:              pulumi.String("tfex-webpubsub"),
 //				Location:          testResourceGroup.Location,
 //				ResourceGroupName: testResourceGroup.Name,
 //				Sku:               pulumi.String("Standard_S1"),

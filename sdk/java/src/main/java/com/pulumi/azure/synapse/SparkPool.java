@@ -24,6 +24,106 @@ import javax.annotation.Nullable;
 /**
  * Manages a Synapse Spark Pool.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
+ * import com.pulumi.azure.storage.DataLakeGen2Filesystem;
+ * import com.pulumi.azure.storage.DataLakeGen2FilesystemArgs;
+ * import com.pulumi.azure.synapse.Workspace;
+ * import com.pulumi.azure.synapse.WorkspaceArgs;
+ * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
+ * import com.pulumi.azure.synapse.SparkPool;
+ * import com.pulumi.azure.synapse.SparkPoolArgs;
+ * import com.pulumi.azure.synapse.inputs.SparkPoolAutoScaleArgs;
+ * import com.pulumi.azure.synapse.inputs.SparkPoolAutoPauseArgs;
+ * import com.pulumi.azure.synapse.inputs.SparkPoolLibraryRequirementArgs;
+ * import com.pulumi.azure.synapse.inputs.SparkPoolSparkConfigArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplestorageacc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;LRS&#34;)
+ *             .accountKind(&#34;StorageV2&#34;)
+ *             .isHnsEnabled(&#34;true&#34;)
+ *             .build());
+ * 
+ *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .storageAccountId(exampleAccount.id())
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
+ *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
+ *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
+ *             .identity(WorkspaceIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleSparkPool = new SparkPool(&#34;exampleSparkPool&#34;, SparkPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .synapseWorkspaceId(exampleWorkspace.id())
+ *             .nodeSizeFamily(&#34;MemoryOptimized&#34;)
+ *             .nodeSize(&#34;Small&#34;)
+ *             .cacheSize(100)
+ *             .autoScale(SparkPoolAutoScaleArgs.builder()
+ *                 .maxNodeCount(50)
+ *                 .minNodeCount(3)
+ *                 .build())
+ *             .autoPause(SparkPoolAutoPauseArgs.builder()
+ *                 .delayInMinutes(15)
+ *                 .build())
+ *             .libraryRequirement(SparkPoolLibraryRequirementArgs.builder()
+ *                 .content(&#34;&#34;&#34;
+ * appnope==0.1.0
+ * beautifulsoup4==4.6.3
+ *                 &#34;&#34;&#34;)
+ *                 .filename(&#34;requirements.txt&#34;)
+ *                 .build())
+ *             .sparkConfig(SparkPoolSparkConfigArgs.builder()
+ *                 .content(&#34;&#34;&#34;
+ * spark.shuffle.spill                true
+ *                 &#34;&#34;&#34;)
+ *                 .filename(&#34;config.txt&#34;)
+ *                 .build())
+ *             .tags(Map.of(&#34;ENV&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Synapse Spark Pool can be imported using the `resource id`, e.g.

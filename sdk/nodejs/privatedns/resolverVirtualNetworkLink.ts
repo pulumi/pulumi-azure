@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "west europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "outbounddns",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.0.64/28"],
  *     delegations: [{
@@ -31,12 +36,14 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleResolver = new azure.privatedns.Resolver("exampleResolver", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleResolver = new azure.privatedns.Resolver("example", {
+ *     name: "example-resolver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
- * const exampleResolverOutboundEndpoint = new azure.privatedns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", {
+ * const exampleResolverOutboundEndpoint = new azure.privatedns.ResolverOutboundEndpoint("example", {
+ *     name: "example-endpoint",
  *     privateDnsResolverId: exampleResolver.id,
  *     location: exampleResolver.location,
  *     subnetId: exampleSubnet.id,
@@ -44,15 +51,17 @@ import * as utilities from "../utilities";
  *         key: "value",
  *     },
  * });
- * const exampleResolverDnsForwardingRuleset = new azure.privatedns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleResolverDnsForwardingRuleset = new azure.privatedns.ResolverDnsForwardingRuleset("example", {
+ *     name: "example-ruleset",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     privateDnsResolverOutboundEndpointIds: [exampleResolverOutboundEndpoint.id],
  *     tags: {
  *         key: "value",
  *     },
  * });
- * const exampleResolverVirtualNetworkLink = new azure.privatedns.ResolverVirtualNetworkLink("exampleResolverVirtualNetworkLink", {
+ * const exampleResolverVirtualNetworkLink = new azure.privatedns.ResolverVirtualNetworkLink("example", {
+ *     name: "example-link",
  *     dnsForwardingRulesetId: exampleResolverDnsForwardingRuleset.id,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  *     metadata: {

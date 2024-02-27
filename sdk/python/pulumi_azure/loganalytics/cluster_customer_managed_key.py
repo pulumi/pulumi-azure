@@ -106,17 +106,21 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_cluster = azure.loganalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_cluster = azure.loganalytics.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.loganalytics.ClusterIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="keyvaultkeyexample",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
@@ -143,7 +147,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="generated-certificate",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -155,7 +160,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ])
-        example_cluster_customer_managed_key = azure.loganalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
+        example_cluster_customer_managed_key = azure.loganalytics.ClusterCustomerManagedKey("example",
             log_analytics_cluster_id=example_cluster.id,
             key_vault_key_id=example_key.id)
         ```
@@ -188,17 +193,21 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_cluster = azure.loganalytics.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_cluster = azure.loganalytics.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.loganalytics.ClusterIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="keyvaultkeyexample",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[
@@ -225,7 +234,8 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="generated-certificate",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -237,7 +247,7 @@ class ClusterCustomerManagedKey(pulumi.CustomResource):
                 "verify",
                 "wrapKey",
             ])
-        example_cluster_customer_managed_key = azure.loganalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey",
+        example_cluster_customer_managed_key = azure.loganalytics.ClusterCustomerManagedKey("example",
             log_analytics_cluster_id=example_cluster.id,
             key_vault_key_id=example_key.id)
         ```

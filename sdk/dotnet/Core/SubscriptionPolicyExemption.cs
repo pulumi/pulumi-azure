@@ -22,17 +22,18 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var example = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     var exampleGetPolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
     ///     {
     ///         DisplayName = "Audit machines with insecure password security settings",
     ///     });
     /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
+    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         Name = "exampleAssignment",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         PolicyDefinitionId = exampleGetPolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
     ///         Location = "westus",
     ///         Identity = new Azure.Core.Inputs.SubscriptionPolicyAssignmentIdentityArgs
     ///         {
@@ -40,9 +41,10 @@ namespace Pulumi.Azure.Core
     ///         },
     ///     });
     /// 
-    ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", new()
+    ///     var exampleSubscriptionPolicyExemption = new Azure.Core.SubscriptionPolicyExemption("example", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Name = "exampleExemption",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
     ///         ExemptionCategory = "Mitigated",
     ///     });

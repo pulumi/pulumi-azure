@@ -15,22 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "windowsfunctionappsa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-app-service-plan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     osType: "Windows",
  *     skuName: "Y1",
  * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     name: "example-windows-function-app",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     servicePlanId: exampleServicePlan.id,

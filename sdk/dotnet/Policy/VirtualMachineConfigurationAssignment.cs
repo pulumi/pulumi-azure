@@ -24,24 +24,27 @@ namespace Pulumi.Azure.Policy
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-gca",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -49,10 +52,11 @@ namespace Pulumi.Azure.Policy
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-nic",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -64,10 +68,11 @@ namespace Pulumi.Azure.Policy
     ///         },
     ///     });
     /// 
-    ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", new()
+    ///     var exampleWindowsVirtualMachine = new Azure.Compute.WindowsVirtualMachine("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplevm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Size = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         AdminPassword = "P@$$w0rd1234!",
@@ -93,8 +98,9 @@ namespace Pulumi.Azure.Policy
     ///         },
     ///     });
     /// 
-    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     var exampleExtension = new Azure.Compute.Extension("example", new()
     ///     {
+    ///         Name = "AzurePolicyforWindows",
     ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///         Publisher = "Microsoft.GuestConfiguration",
     ///         Type = "ConfigurationforWindows",
@@ -102,8 +108,9 @@ namespace Pulumi.Azure.Policy
     ///         AutoUpgradeMinorVersion = true,
     ///     });
     /// 
-    ///     var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", new()
+    ///     var exampleVirtualMachineConfigurationAssignment = new Azure.Policy.VirtualMachineConfigurationAssignment("example", new()
     ///     {
+    ///         Name = "AzureWindowsBaseline",
     ///         Location = exampleWindowsVirtualMachine.Location,
     ///         VirtualMachineId = exampleWindowsVirtualMachine.Id,
     ///         Configuration = new Azure.Policy.Inputs.VirtualMachineConfigurationAssignmentConfigurationArgs

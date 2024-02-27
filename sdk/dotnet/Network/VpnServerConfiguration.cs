@@ -24,11 +24,13 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var test = new Azure.Network.VpnServerConfiguration("test", new()
     ///     {
+    ///         Name = "example-config",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         VpnAuthenticationTypes = new[]

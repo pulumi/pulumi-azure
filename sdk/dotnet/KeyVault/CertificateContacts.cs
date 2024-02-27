@@ -28,20 +28,22 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///     });
     /// 
-    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
@@ -60,7 +62,7 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificateContacts = new Azure.KeyVault.CertificateContacts("exampleCertificateContacts", new()
+    ///     var exampleCertificateContacts = new Azure.KeyVault.CertificateContacts("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         Contacts = new[]
@@ -75,12 +77,6 @@ namespace Pulumi.Azure.KeyVault
     ///             {
     ///                 Email = "example2@example.com",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAccessPolicy,
     ///         },
     ///     });
     /// 

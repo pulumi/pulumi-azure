@@ -49,7 +49,7 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var server = new RandomId(&#34;server&#34;);
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;);
+ *         var example = new ResourceGroup(&#34;example&#34;);
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;);
  * 
@@ -58,7 +58,7 @@ import javax.annotation.Nullable;
  *         var exampleSlot = new Slot(&#34;exampleSlot&#34;);
  * 
  *         var exampleActiveSlot = new ActiveSlot(&#34;exampleActiveSlot&#34;, ActiveSlotArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .appServiceSlotName(exampleSlot.name())
  *             .build());

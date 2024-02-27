@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const barracuda = new azure.marketplace.Agreement("barracuda", {
+ *     publisher: "barracudanetworks",
  *     offer: "waf",
  *     plan: "hourly",
- *     publisher: "barracudanetworks",
  * });
  * ```
  *

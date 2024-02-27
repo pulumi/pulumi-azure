@@ -21,44 +21,37 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/batch"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("testbatch"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("teststorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
-//				ResourceGroupName:                exampleResourceGroup.Name,
-//				Location:                         exampleResourceGroup.Location,
+//			exampleAccount2, err := batch.NewAccount(ctx, "example", &batch.AccountArgs{
+//				Name:                             pulumi.String("testbatchaccount"),
+//				ResourceGroupName:                example.Name,
+//				Location:                         example.Location,
 //				PoolAllocationMode:               pulumi.String("BatchService"),
 //				StorageAccountId:                 exampleAccount.ID(),
 //				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),
@@ -69,10 +62,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewCertificate(ctx, "exampleCertificate", &batch.CertificateArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				AccountName:         exampleBatch / accountAccount.Name,
-//				Certificate:         filebase64OrPanic("certificate.pfx"),
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = batch.NewCertificate(ctx, "example", &batch.CertificateArgs{
+//				ResourceGroupName:   example.Name,
+//				AccountName:         exampleAccount2.Name,
+//				Certificate:         invokeFilebase64.Result,
 //				Format:              pulumi.String("Pfx"),
 //				Password:            pulumi.String("password"),
 //				Thumbprint:          pulumi.String("42C107874FD0E4A9583292A2F1098E8FE4B2EDDA"),

@@ -62,20 +62,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;azure-functions-test-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;functionsapptestsa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -83,8 +86,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test-azure-functions&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -122,20 +126,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;azure-functions-cptest-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;functionsapptestsa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;FunctionApp&#34;)
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Dynamic&#34;)
@@ -144,8 +151,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test-azure-functions&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -183,20 +191,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;azure-functions-cptest-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;functionsapptestsa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;azure-functions-test-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
@@ -206,8 +217,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test-azure-functions&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -251,20 +263,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;azure-functions-example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;functionsappexamlpesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;azure-functions-example-sp&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;Linux&#34;)
  *             .reserved(true)
  *             .sku(PlanSkuArgs.builder()
@@ -274,14 +289,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionApp = new FunctionApp(&#34;exampleFunctionApp&#34;, FunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-azure-function&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
  *             .osType(&#34;linux&#34;)
  *             .version(&#34;~4&#34;)
- *             .appSettings(Map.of(&#34;FUNCTIONSWORKERRUNTIME&#34;, &#34;python&#34;))
+ *             .appSettings(Map.of(&#34;FUNCTIONS_WORKER_RUNTIME&#34;, &#34;python&#34;))
  *             .siteConfig(FunctionAppSiteConfigArgs.builder()
  *                 .linuxFxVersion(&#34;python|3.9&#34;)
  *                 .build())

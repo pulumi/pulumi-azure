@@ -17,10 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mysql.Server("example", {
+ *     name: "example-mysqlserver",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     skuName: "B_Gen5_2",
@@ -34,9 +38,9 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
- * const exampleConfiguration = new azure.mysql.Configuration("exampleConfiguration", {
+ * const exampleConfiguration = new azure.mysql.Configuration("example", {
  *     name: "interactive_timeout",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     value: "600",
  * });

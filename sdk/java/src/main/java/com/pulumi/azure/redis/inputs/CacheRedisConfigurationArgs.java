@@ -70,28 +70,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * Second Storage Account connection string for AOF persistence.
      * 
      * Example usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Import(name="aofStorageConnectionString1")
@@ -101,28 +79,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * @return Second Storage Account connection string for AOF persistence.
      * 
      * Example usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Optional<Output<String>> aofStorageConnectionString1() {
@@ -225,28 +181,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Import(name="notifyKeyspaceEvents")
@@ -254,28 +188,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
     /**
      * @return Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Optional<Output<String>> notifyKeyspaceEvents() {
@@ -375,7 +287,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }
@@ -411,7 +323,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }
@@ -533,28 +445,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param aofStorageConnectionString1 Second Storage Account connection string for AOF persistence.
          * 
          * Example usage:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -568,28 +458,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * @param aofStorageConnectionString1 Second Storage Account connection string for AOF persistence.
          * 
          * Example usage:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -730,28 +598,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param notifyKeyspaceEvents Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -763,28 +609,6 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
 
         /**
          * @param notifyKeyspaceEvents Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -910,7 +734,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+         *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
          *             .build());
          * 
          *     }
@@ -950,7 +774,7 @@ public final class CacheRedisConfigurationArgs extends com.pulumi.resources.Reso
          * 
          *     public static void stack(Context ctx) {
          *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-         *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+         *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
          *             .build());
          * 
          *     }

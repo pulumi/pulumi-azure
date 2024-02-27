@@ -139,15 +139,15 @@ class ApiOperationTag(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="search-api",
+        example = azure.apimanagement.get_api(name="search-api",
             api_management_name="search-api-management",
             resource_group_name="search-service",
             revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
+        example_api_operation = azure.apimanagement.ApiOperation("example",
             operation_id="user-delete",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             display_name="Delete User Operation",
             method="DELETE",
             url_template="/users/{id}/delete",
@@ -160,7 +160,8 @@ class ApiOperationTag(pulumi.CustomResource):
             responses=[azure.apimanagement.ApiOperationResponseArgs(
                 status_code=200,
             )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
+        example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
+            name="example-Tag",
             api_operation_id=example_api_operation.id,
             display_name="example-Tag")
         ```
@@ -194,15 +195,15 @@ class ApiOperationTag(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="search-api",
+        example = azure.apimanagement.get_api(name="search-api",
             api_management_name="search-api-management",
             resource_group_name="search-service",
             revision="2")
-        example_api_operation = azure.apimanagement.ApiOperation("exampleApiOperation",
+        example_api_operation = azure.apimanagement.ApiOperation("example",
             operation_id="user-delete",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             display_name="Delete User Operation",
             method="DELETE",
             url_template="/users/{id}/delete",
@@ -215,7 +216,8 @@ class ApiOperationTag(pulumi.CustomResource):
             responses=[azure.apimanagement.ApiOperationResponseArgs(
                 status_code=200,
             )])
-        example_api_operation_tag = azure.apimanagement.ApiOperationTag("exampleApiOperationTag",
+        example_api_operation_tag = azure.apimanagement.ApiOperationTag("example",
+            name="example-Tag",
             api_operation_id=example_api_operation.id,
             display_name="example-Tag")
         ```

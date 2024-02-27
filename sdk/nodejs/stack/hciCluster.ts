@@ -14,15 +14,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleApplication = azuread.getApplication({
+ * const example = azuread.getApplication({
  *     displayName: "Allowed resource types",
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleHciCluster = new azure.stack.HciCluster("exampleHciCluster", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleHciCluster = new azure.stack.HciCluster("example", {
+ *     name: "example-cluster",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
- *     clientId: exampleApplication.then(exampleApplication => exampleApplication.applicationId),
+ *     clientId: example.then(example => example.applicationId),
  *     tenantId: current.then(current => current.tenantId),
  * });
  * ```

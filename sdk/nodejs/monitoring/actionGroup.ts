@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const current = azure.core.getClientConfig({});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "monitoring-resources",
+ *     location: "West Europe",
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const current = azure.core.getClientConfig({});
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "workspace-01",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "CriticalAlertsAction",
+ *     resourceGroupName: example.name,
  *     shortName: "p0action",
  *     armRoleReceivers: [{
  *         name: "armroleaction",

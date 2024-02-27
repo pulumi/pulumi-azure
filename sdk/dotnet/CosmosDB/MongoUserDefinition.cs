@@ -22,15 +22,17 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "MongoDB",
     ///         Capabilities = new[]
@@ -52,19 +54,20 @@ namespace Pulumi.Azure.CosmosDB
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = exampleResourceGroup.Location,
+    ///                 Location = example.Location,
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new()
+    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("example", new()
     ///     {
+    ///         Name = "example-mongodb",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleMongoUserDefinition = new Azure.CosmosDB.MongoUserDefinition("exampleMongoUserDefinition", new()
+    ///     var exampleMongoUserDefinition = new Azure.CosmosDB.MongoUserDefinition("example", new()
     ///     {
     ///         CosmosMongoDatabaseId = exampleMongoDatabase.Id,
     ///         Username = "myUserName",

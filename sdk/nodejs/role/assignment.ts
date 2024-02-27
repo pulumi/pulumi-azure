@@ -15,11 +15,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const example = azure.core.getClientConfig({});
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionName: "Reader",
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
  * ```
  * ### Custom Role & Service Principal)
@@ -29,9 +29,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ * const example = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
  *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -39,11 +40,11 @@ import * as utilities from "../utilities";
  *     }],
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
  * ```
  * ### Custom Role & User)
@@ -53,9 +54,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ * const example = azure.core.getClientConfig({});
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
  *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -63,11 +65,11 @@ import * as utilities from "../utilities";
  *     }],
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
  * ```
  * ### Custom Role & Management Group)
@@ -77,12 +79,13 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleGroup = azure.management.getGroup({
+ * const example = azure.core.getClientConfig({});
+ * const exampleGetGroup = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "my-custom-role-definition",
  *     scope: primary.then(primary => primary.id),
  *     permissions: [{
  *         actions: ["Microsoft.Resources/subscriptions/resourceGroups/read"],
@@ -90,11 +93,11 @@ import * as utilities from "../utilities";
  *     }],
  *     assignableScopes: [primary.then(primary => primary.id)],
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: "00000000-0000-0000-0000-000000000000",
- *     scope: data.azurerm_management_group.primary.id,
+ *     scope: primaryAzurermManagementGroup.id,
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
  * ```
  *

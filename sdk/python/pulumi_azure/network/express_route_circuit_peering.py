@@ -513,10 +513,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -528,10 +531,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
+        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
@@ -555,10 +558,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -570,10 +576,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
+        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
@@ -629,10 +635,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -644,10 +653,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
+        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="MicrosoftPeering",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",
@@ -671,10 +680,13 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -686,10 +698,10 @@ class ExpressRouteCircuitPeering(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering",
+        example_express_route_circuit_peering = azure.network.ExpressRouteCircuitPeering("example",
             peering_type="AzurePrivatePeering",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             peer_asn=100,
             primary_peer_address_prefix="123.0.0.0/30",
             secondary_peer_address_prefix="123.0.0.4/30",

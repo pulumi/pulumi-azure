@@ -22,20 +22,23 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "account1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var examplePowershell72Module = new Azure.Automation.Powershell72Module("examplePowershell72Module", new()
+    ///     var examplePowershell72Module = new Azure.Automation.Powershell72Module("example", new()
     ///     {
+    ///         Name = "xActiveDirectory",
     ///         AutomationAccountId = exampleAccount.Id,
     ///         ModuleLink = new Azure.Automation.Inputs.Powershell72ModuleModuleLinkArgs
     ///         {

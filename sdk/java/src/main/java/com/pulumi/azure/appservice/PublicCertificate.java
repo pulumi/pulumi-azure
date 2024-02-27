@@ -45,13 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-app-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -59,17 +61,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-app-service&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         var examplePublicCertificate = new PublicCertificate(&#34;examplePublicCertificate&#34;, PublicCertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .certificateName(&#34;example-public-certificate&#34;)
  *             .certificateLocation(&#34;Unknown&#34;)
- *             .blob(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;app_service_public_certificate.cer&#34;))))
+ *             .blob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;app_service_public_certificate.cer&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

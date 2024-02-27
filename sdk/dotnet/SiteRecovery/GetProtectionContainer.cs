@@ -29,9 +29,9 @@ namespace Pulumi.Azure.SiteRecovery
         ///     var container = Azure.SiteRecovery.GetProtectionContainer.Invoke(new()
         ///     {
         ///         Name = "primary-container",
-        ///         RecoveryFabricName = "primary-fabric",
         ///         RecoveryVaultName = "tfex-recovery_vault",
         ///         ResourceGroupName = "tfex-resource_group",
+        ///         RecoveryFabricName = "primary-fabric",
         ///     });
         /// 
         /// });
@@ -60,9 +60,9 @@ namespace Pulumi.Azure.SiteRecovery
         ///     var container = Azure.SiteRecovery.GetProtectionContainer.Invoke(new()
         ///     {
         ///         Name = "primary-container",
-        ///         RecoveryFabricName = "primary-fabric",
         ///         RecoveryVaultName = "tfex-recovery_vault",
         ///         ResourceGroupName = "tfex-resource_group",
+        ///         RecoveryFabricName = "primary-fabric",
         ///     });
         /// 
         /// });

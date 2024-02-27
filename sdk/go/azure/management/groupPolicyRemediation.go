@@ -31,13 +31,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", &management.GroupArgs{
+//			exampleGroup, err := management.NewGroup(ctx, "example", &management.GroupArgs{
 //				DisplayName: pulumi.String("Example Management Group"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
+//			example, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
 //				DisplayName: pulumi.StringRef("Allowed locations"),
 //			}, nil)
 //			if err != nil {
@@ -54,15 +54,17 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "exampleGroupPolicyAssignment", &management.GroupPolicyAssignmentArgs{
+//			exampleGroupPolicyAssignment, err := management.NewGroupPolicyAssignment(ctx, "example", &management.GroupPolicyAssignmentArgs{
+//				Name:               pulumi.String("exampleAssignment"),
 //				ManagementGroupId:  exampleGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
+//				PolicyDefinitionId: *pulumi.String(example.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupPolicyRemediation(ctx, "exampleGroupPolicyRemediation", &management.GroupPolicyRemediationArgs{
+//			_, err = management.NewGroupPolicyRemediation(ctx, "example", &management.GroupPolicyRemediationArgs{
+//				Name:               pulumi.String("example"),
 //				ManagementGroupId:  exampleGroup.ID(),
 //				PolicyAssignmentId: exampleGroupPolicyAssignment.ID(),
 //			})

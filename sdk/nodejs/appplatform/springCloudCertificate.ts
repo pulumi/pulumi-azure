@@ -14,12 +14,16 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getClientConfig({});
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const example = azuread.getServicePrincipal({
  *     displayName: "Azure Spring Cloud Resource Provider",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "keyvaultcertexample",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
@@ -38,7 +42,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             tenantId: current.then(current => current.tenantId),
- *             objectId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *             objectId: example.then(example => example.objectId),
  *             secretPermissions: [
  *                 "Get",
  *                 "List",
@@ -50,7 +54,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "cert-example",
  *     keyVaultId: exampleKeyVault.id,
  *     certificatePolicy: {
  *         issuerParameters: {
@@ -87,11 +92,13 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
- * const exampleSpringCloudCertificate = new azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate", {
+ * const exampleSpringCloudCertificate = new azure.appplatform.SpringCloudCertificate("example", {
+ *     name: "example-scc",
  *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
  *     serviceName: exampleSpringCloudService.name,
  *     keyVaultCertificateId: exampleCertificate.id,

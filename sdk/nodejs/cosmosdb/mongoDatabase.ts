@@ -15,13 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.cosmosdb.getAccount({
+ * const example = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
- * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("exampleMongoDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleMongoDatabase = new azure.cosmosdb.MongoDatabase("example", {
+ *     name: "tfex-cosmos-mongo-db",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     throughput: 400,
  * });
  * ```

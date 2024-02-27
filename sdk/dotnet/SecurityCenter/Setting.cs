@@ -28,8 +28,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example = new Azure.SecurityCenter.Setting("example", new()
     ///     {
-    ///         Enabled = true,
     ///         SettingName = "MCAS",
+    ///         Enabled = true,
     ///     });
     /// 
     /// });

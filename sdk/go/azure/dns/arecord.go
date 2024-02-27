@@ -27,21 +27,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
+//			_, err = dns.NewARecord(ctx, "example", &dns.ARecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				Records: pulumi.StringArray{
 //					pulumi.String("10.0.180.17"),
@@ -71,30 +74,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("mypublicip"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Dynamic"),
 //				IpVersion:         pulumi.String("IPv4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewARecord(ctx, "exampleARecord", &dns.ARecordArgs{
+//			_, err = dns.NewARecord(ctx, "example", &dns.ARecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				TargetResourceId:  examplePublicIp.ID(),
 //			})

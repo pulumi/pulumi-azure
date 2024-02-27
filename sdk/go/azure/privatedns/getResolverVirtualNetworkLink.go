@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := privatedns.LookupResolverVirtualNetworkLink(ctx, &privatedns.LookupResolverVirtualNetworkLinkArgs{
-//				DnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
 //				Name:                   "example-link",
+//				DnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -50,18 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleacr&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Premium&#34;)
  *             .dataEndpointEnabled(true)
  *             .build());
  * 
  *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
+ *             .name(&#34;examplescopemap&#34;)
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(exampleRegistry.resourceGroupName())
  *             .actions(            
@@ -77,12 +80,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryToken = new RegistryToken(&#34;exampleRegistryToken&#34;, RegistryTokenArgs.builder()        
+ *             .name(&#34;exampletoken&#34;)
  *             .containerRegistryName(exampleRegistry.name())
  *             .resourceGroupName(exampleRegistry.resourceGroupName())
  *             .scopeMapId(exampleRegistryScopeMap.id())
  *             .build());
  * 
  *         var exampleConnectedRegistry = new ConnectedRegistry(&#34;exampleConnectedRegistry&#34;, ConnectedRegistryArgs.builder()        
+ *             .name(&#34;examplecr&#34;)
  *             .containerRegistryId(exampleRegistry.id())
  *             .syncTokenId(exampleRegistryToken.id())
  *             .build());

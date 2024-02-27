@@ -144,8 +144,8 @@ class SourceCodeToken(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.appservice.SourceCodeToken("example",
-            token="7e57735e77e577e57",
-            type="GitHub")
+            type="GitHub",
+            token="7e57735e77e577e57")
         ```
 
         ## Import
@@ -182,8 +182,8 @@ class SourceCodeToken(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.appservice.SourceCodeToken("example",
-            token="7e57735e77e577e57",
-            type="GitHub")
+            type="GitHub",
+            token="7e57735e77e577e57")
         ```
 
         ## Import

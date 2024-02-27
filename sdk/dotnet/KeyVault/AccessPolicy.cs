@@ -29,20 +29,22 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
+    ///         Name = "examplekeyvault",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///     });
     /// 
-    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
@@ -57,7 +59,7 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "example-app",
     ///     });
@@ -66,7 +68,7 @@ namespace Pulumi.Azure.KeyVault
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         ObjectId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///         KeyPermissions = new[]
     ///         {
     ///             "Get",

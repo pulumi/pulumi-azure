@@ -25,15 +25,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
@@ -53,15 +55,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "FunctionApp",
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
@@ -82,15 +86,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "Linux",
     ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
@@ -112,15 +118,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "api-appserviceplan-pro",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "xenon",
     ///         IsXenon = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs

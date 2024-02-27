@@ -22,23 +22,26 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("exampleKubernetesFleetManager", new()
+    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
     ///         {
     ///             DnsPrefix = "example-dns-prefix",
     ///         },
     ///     });
     /// 
-    ///     var exampleFleetUpdateStrategy = new Azure.ContainerService.FleetUpdateStrategy("exampleFleetUpdateStrategy", new()
+    ///     var exampleFleetUpdateStrategy = new Azure.ContainerService.FleetUpdateStrategy("example", new()
     ///     {
+    ///         Name = "example",
     ///         KubernetesFleetManagerId = exampleKubernetesFleetManager.Id,
     ///         Stages = new[]
     ///         {

@@ -22,14 +22,16 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.PrivateDns.Zone("exampleZone", new()
+    ///     var exampleZone = new Azure.PrivateDns.Zone("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mydomain.com",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

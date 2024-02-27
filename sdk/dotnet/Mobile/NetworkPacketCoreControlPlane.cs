@@ -23,36 +23,41 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mn",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite("exampleNetworkSite", new()
+    ///     var exampleNetworkSite = new Azure.Mobile.NetworkSite("example", new()
     ///     {
-    ///         MobileNetworkId = azurerm_mobile_network.Test.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mns",
+    ///         MobileNetworkId = test.Id,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleDevice = new Azure.DataboxEdge.Device("exampleDevice", new()
+    ///     var exampleDevice = new Azure.DataboxEdge.Device("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-device",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "EdgeP_Base-Standard",
     ///     });
     /// 
-    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", new()
+    ///     var exampleNetworkPacketCoreControlPlane = new Azure.Mobile.NetworkPacketCoreControlPlane("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mnpccp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "G0",
     ///         ControlPlaneAccessName = "default-interface",
     ///         ControlPlaneAccessIpv4Address = "192.168.1.199",

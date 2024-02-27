@@ -50,13 +50,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
+ *             .name(&#34;example-bcr&#34;)
  *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;F0&#34;)
  *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
  *             .build());
@@ -64,7 +66,7 @@ import javax.annotation.Nullable;
  *         var exampleChannelLine = new ChannelLine(&#34;exampleChannelLine&#34;, ChannelLineArgs.builder()        
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .lineChannels(ChannelLineLineChannelArgs.builder()
  *                 .accessToken(&#34;asdfdsdfTYUIOIoj1231hkjhk&#34;)
  *                 .secret(&#34;aagfdgfd123567&#34;)

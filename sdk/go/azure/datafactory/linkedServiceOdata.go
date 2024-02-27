@@ -31,27 +31,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = datafactory.NewLinkedServiceOdata(ctx, "anonymous", &datafactory.LinkedServiceOdataArgs{
+//				Name:          pulumi.String("anonymous"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceOdata(ctx, "basicAuth", &datafactory.LinkedServiceOdataArgs{
+//			_, err = datafactory.NewLinkedServiceOdata(ctx, "basic_auth", &datafactory.LinkedServiceOdataArgs{
+//				Name:          pulumi.String("basic_auth"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Url:           pulumi.String("https://services.odata.org/v4/TripPinServiceRW/People"),
 //				BasicAuthentication: &datafactory.LinkedServiceOdataBasicAuthenticationArgs{

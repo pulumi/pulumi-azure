@@ -15,26 +15,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const exampleQueue = new azure.storage.Queue("exampleQueue", {storageAccountName: exampleAccount.name});
- * const exampleSystemTopic = new azure.eventgrid.SystemTopic("exampleSystemTopic", {
+ * const exampleQueue = new azure.storage.Queue("example", {
+ *     name: "examplestoragequeue",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleSystemTopic = new azure.eventgrid.SystemTopic("example", {
+ *     name: "example-system-topic",
  *     location: "Global",
- *     resourceGroupName: exampleResourceGroup.name,
- *     sourceArmResourceId: exampleResourceGroup.id,
+ *     resourceGroupName: example.name,
+ *     sourceArmResourceId: example.id,
  *     topicType: "Microsoft.Resources.ResourceGroups",
  * });
- * const exampleSystemTopicEventSubscription = new azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", {
+ * const exampleSystemTopicEventSubscription = new azure.eventgrid.SystemTopicEventSubscription("example", {
+ *     name: "example-event-subscription",
  *     systemTopic: exampleSystemTopic.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     storageQueueEndpoint: {
  *         storageAccountId: exampleAccount.id,
  *         queueName: exampleQueue.name,

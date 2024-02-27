@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "examplegroup",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "examplevnet",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.1.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "examplesubnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.1.0.0/24"],
  *     delegations: [{
@@ -33,9 +38,10 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleProfile = new azure.network.Profile("exampleProfile", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleProfile = new azure.network.Profile("example", {
+ *     name: "examplenetprofile",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     containerNetworkInterface: {
  *         name: "examplecnic",
  *         ipConfigurations: [{

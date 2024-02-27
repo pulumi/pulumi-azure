@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String("example-disk"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
 //				CreateOption:       pulumi.String("Empty"),
 //				DiskSizeGb:         pulumi.Int(1),
@@ -47,9 +49,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Name:              pulumi.String("example-backup-vault"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
 //				Identity: &dataprotection.BackupVaultIdentityArgs{
@@ -60,7 +63,7 @@ import (
 //				return err
 //			}
 //			_, err = authorization.NewAssignment(ctx, "example1", &authorization.AssignmentArgs{
-//				Scope:              exampleResourceGroup.ID(),
+//				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Disk Snapshot Contributor"),
 //				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
@@ -79,7 +82,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackupPolicyDisk, err := dataprotection.NewBackupPolicyDisk(ctx, "exampleBackupPolicyDisk", &dataprotection.BackupPolicyDiskArgs{
+//			exampleBackupPolicyDisk, err := dataprotection.NewBackupPolicyDisk(ctx, "example", &dataprotection.BackupPolicyDiskArgs{
+//				Name:    pulumi.String("example-backup-policy"),
 //				VaultId: exampleBackupVault.ID(),
 //				BackupRepeatingTimeIntervals: pulumi.StringArray{
 //					pulumi.String("R/2021-05-19T06:33:16+00:00/PT4H"),
@@ -89,11 +93,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dataprotection.NewBackupInstanceDisk(ctx, "exampleBackupInstanceDisk", &dataprotection.BackupInstanceDiskArgs{
+//			_, err = dataprotection.NewBackupInstanceDisk(ctx, "example", &dataprotection.BackupInstanceDiskArgs{
+//				Name:                      pulumi.String("example-backup-instance"),
 //				Location:                  exampleBackupVault.Location,
 //				VaultId:                   exampleBackupVault.ID(),
 //				DiskId:                    exampleManagedDisk.ID(),
-//				SnapshotResourceGroupName: exampleResourceGroup.Name,
+//				SnapshotResourceGroupName: example.Name,
 //				BackupPolicyId:            exampleBackupPolicyDisk.ID(),
 //			})
 //			if err != nil {

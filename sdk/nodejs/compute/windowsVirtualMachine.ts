@@ -29,29 +29,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("example", {
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     adminPassword: "P@$$w0rd1234!",

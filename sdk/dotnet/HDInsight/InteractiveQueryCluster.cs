@@ -22,29 +22,33 @@ namespace Pulumi.Azure.HDInsight
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "hdinsightstor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "hdinsight",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("exampleInteractiveQueryCluster", new()
+    ///     var exampleInteractiveQueryCluster = new Azure.HDInsight.InteractiveQueryCluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-hdicluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterVersion = "3.6",
     ///         Tier = "Standard",
     ///         ComponentVersion = new Azure.HDInsight.Inputs.InteractiveQueryClusterComponentVersionArgs

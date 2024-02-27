@@ -24,7 +24,9 @@ namespace Pulumi.Azure.ServiceFabric
     /// {
     ///     var example = new Azure.ServiceFabric.ManagedCluster("example", new()
     ///     {
-    ///         ClientConnectionPort = 12345,
+    ///         Name = "example",
+    ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
     ///         HttpGatewayPort = 4567,
     ///         LbRules = new[]
     ///         {
@@ -37,25 +39,24 @@ namespace Pulumi.Azure.ServiceFabric
     ///                 Protocol = "tcp",
     ///             },
     ///         },
-    ///         Location = "West Europe",
+    ///         ClientConnectionPort = 12345,
     ///         NodeTypes = new[]
     ///         {
     ///             new Azure.ServiceFabric.Inputs.ManagedClusterNodeTypeArgs
     ///             {
-    ///                 ApplicationPortRange = "30000-49000",
     ///                 DataDiskSizeGb = 130,
-    ///                 EphemeralPortRange = "10000-20000",
     ///                 Name = "test1",
     ///                 Primary = true,
-    ///                 VmImageOffer = "WindowsServer",
+    ///                 ApplicationPortRange = "30000-49000",
+    ///                 EphemeralPortRange = "10000-20000",
+    ///                 VmSize = "Standard_DS1_v2",
     ///                 VmImagePublisher = "MicrosoftWindowsServer",
     ///                 VmImageSku = "2019-Datacenter-with-Containers",
+    ///                 VmImageOffer = "WindowsServer",
     ///                 VmImageVersion = "latest",
     ///                 VmInstanceCount = 5,
-    ///                 VmSize = "Standard_DS1_v2",
     ///             },
     ///         },
-    ///         ResourceGroupName = "example",
     ///     });
     /// 
     /// });

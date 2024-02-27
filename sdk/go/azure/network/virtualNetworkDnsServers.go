@@ -27,18 +27,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Subnets: network.VirtualNetworkSubnetArray{
 //					&network.VirtualNetworkSubnetArgs{
 //						Name:          pulumi.String("subnet1"),
@@ -49,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkDnsServers(ctx, "exampleVirtualNetworkDnsServers", &network.VirtualNetworkDnsServersArgs{
+//			_, err = network.NewVirtualNetworkDnsServers(ctx, "example", &network.VirtualNetworkDnsServersArgs{
 //				VirtualNetworkId: exampleVirtualNetwork.ID(),
 //				DnsServers: pulumi.StringArray{
 //					pulumi.String("10.7.7.2"),

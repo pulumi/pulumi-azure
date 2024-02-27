@@ -12,18 +12,23 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "testbatch",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "teststorage",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount2 = new azure.batch.Account("example", {
+ *     name: "testbatchaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     poolAllocationMode: "BatchService",
  *     storageAccountId: exampleAccount.id,
  *     storageAccountAuthenticationMode: "StorageKeys",
@@ -31,10 +36,12 @@ import * as utilities from "../utilities";
  *         env: "test",
  *     },
  * });
- * const exampleCertificate = new azure.batch.Certificate("exampleCertificate", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleBatch / accountAccount.name,
- *     certificate: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
+ * const exampleCertificate = new azure.batch.Certificate("example", {
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount2.name,
+ *     certificate: std.filebase64({
+ *         input: "certificate.pfx",
+ *     }).then(invoke => invoke.result),
  *     format: "Pfx",
  *     password: "password",
  *     thumbprint: "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

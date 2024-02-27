@@ -238,13 +238,17 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("example",
+            name="example-ia",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration",
-            resource_group_name=example_resource_group.name,
+        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("example",
+            name="exampleiabc",
+            resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
             release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(
@@ -284,13 +288,17 @@ class IntegrationAccountBatchConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("example",
+            name="example-ia",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration",
-            resource_group_name=example_resource_group.name,
+        example_integration_account_batch_configuration = azure.logicapps.IntegrationAccountBatchConfiguration("example",
+            name="exampleiabc",
+            resource_group_name=example.name,
             integration_account_name=example_integration_account.name,
             batch_group_name="TestBatchGroup",
             release_criteria=azure.logicapps.IntegrationAccountBatchConfigurationReleaseCriteriaArgs(

@@ -24,22 +24,25 @@ namespace Pulumi.Azure.Lb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "LoadBalancerRG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
+    ///         Name = "PublicIPForLB",
     ///         Location = "West US",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
+    ///         Name = "TestLoadBalancer",
     ///         Location = "West US",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -50,9 +53,10 @@ namespace Pulumi.Azure.Lb
     ///         },
     ///     });
     /// 
-    ///     var exampleRule = new Azure.Lb.Rule("exampleRule", new()
+    ///     var exampleRule = new Azure.Lb.Rule("example", new()
     ///     {
     ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "LBRule",
     ///         Protocol = "Tcp",
     ///         FrontendPort = 3389,
     ///         BackendPort = 3389,

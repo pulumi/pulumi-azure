@@ -36,34 +36,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("example-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Capacity:          pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("acceptanceTestEventHub"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				PartitionCount:    pulumi.Int(2),
 //				MessageRetention:  pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "example", &eventhub.AuthorizationRuleArgs{
+//				Name:              pulumi.String("example-rule"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:      exampleEventHub.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Listen:            pulumi.Bool(true),
 //				Send:              pulumi.Bool(false),
 //				Manage:            pulumi.Bool(false),
@@ -71,9 +75,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securitycenter.NewAutomation(ctx, "exampleAutomation", &securitycenter.AutomationArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = securitycenter.NewAutomation(ctx, "example", &securitycenter.AutomationArgs{
+//				Name:              pulumi.String("example-automation"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Actions: securitycenter.AutomationActionArray{
 //					&securitycenter.AutomationActionArgs{
 //						Type:             pulumi.String("EventHub"),

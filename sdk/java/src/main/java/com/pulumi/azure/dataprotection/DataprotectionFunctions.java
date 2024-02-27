@@ -44,7 +44,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
      *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
@@ -84,7 +84,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
      *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
@@ -124,7 +124,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
      *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }
@@ -164,7 +164,7 @@ public final class DataprotectionFunctions {
      *             .resourceGroupName(&#34;existing-resource-group&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, data.azurerm_vpn_gateway().example().id());
+     *         ctx.export(&#34;azurermDataProtectionBackupVaultId&#34;, exampleAzurermVpnGateway.id());
      *         ctx.export(&#34;azurermDataProtectionBackupVaultPrincipalId&#34;, example.applyValue(getBackupVaultResult -&gt; getBackupVaultResult.identities()[0].principalId()));
      *     }
      * }

@@ -44,16 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
- *             .resourceGroupName(azurerm_resrouce_group.example().name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(exampleAzurermResrouceGroup.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleLocalRulestackFqdnList = new LocalRulestackFqdnList(&#34;exampleLocalRulestackFqdnList&#34;, LocalRulestackFqdnListArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .rulestackId(exampleLocalRulestack.id())
  *             .fullyQualifiedDomainNames(&#34;contoso.com&#34;)
  *             .build());

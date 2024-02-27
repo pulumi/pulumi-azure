@@ -163,23 +163,29 @@ class JobSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="example",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",
             source=pulumi.FileAsset("example.csv"))
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_job = azure.streamanalytics.Job("example",
+            name="example-job",
+            resource_group_name=example.name,
+            location=example.location,
             compatibility_level="1.2",
             data_locale="en-GB",
             events_late_arrival_max_delay_in_seconds=60,
@@ -194,7 +200,8 @@ class JobSchedule(pulumi.CustomResource):
             INTO [exampleoutput]
             FROM [exampleinput]
         \"\"\")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
+        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            name="exampleinput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
@@ -208,7 +215,8 @@ class JobSchedule(pulumi.CustomResource):
                 encoding="UTF8",
                 field_delimiter=",",
             ))
-        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
+        example_output_blob = azure.streamanalytics.OutputBlob("example",
+            name="exampleoutput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
@@ -220,15 +228,10 @@ class JobSchedule(pulumi.CustomResource):
             serialization=azure.streamanalytics.OutputBlobSerializationArgs(
                 type="Avro",
             ))
-        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
+        example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_job,
-                    example_stream_input_blob,
-                    example_output_blob,
-                ]))
+            start_time="2022-09-21T00:00:00Z")
         ```
 
         ## Import
@@ -262,23 +265,29 @@ class JobSchedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="example",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",
             source=pulumi.FileAsset("example.csv"))
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_job = azure.streamanalytics.Job("example",
+            name="example-job",
+            resource_group_name=example.name,
+            location=example.location,
             compatibility_level="1.2",
             data_locale="en-GB",
             events_late_arrival_max_delay_in_seconds=60,
@@ -293,7 +302,8 @@ class JobSchedule(pulumi.CustomResource):
             INTO [exampleoutput]
             FROM [exampleinput]
         \"\"\")
-        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("exampleStreamInputBlob",
+        example_stream_input_blob = azure.streamanalytics.StreamInputBlob("example",
+            name="exampleinput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
@@ -307,7 +317,8 @@ class JobSchedule(pulumi.CustomResource):
                 encoding="UTF8",
                 field_delimiter=",",
             ))
-        example_output_blob = azure.streamanalytics.OutputBlob("exampleOutputBlob",
+        example_output_blob = azure.streamanalytics.OutputBlob("example",
+            name="exampleoutput",
             stream_analytics_job_name=example_job.name,
             resource_group_name=example_job.resource_group_name,
             storage_account_name=example_account.name,
@@ -319,15 +330,10 @@ class JobSchedule(pulumi.CustomResource):
             serialization=azure.streamanalytics.OutputBlobSerializationArgs(
                 type="Avro",
             ))
-        example_job_schedule = azure.streamanalytics.JobSchedule("exampleJobSchedule",
+        example_job_schedule = azure.streamanalytics.JobSchedule("example",
             stream_analytics_job_id=example_job.id,
             start_mode="CustomTime",
-            start_time="2022-09-21T00:00:00Z",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_job,
-                    example_stream_input_blob,
-                    example_output_blob,
-                ]))
+            start_time="2022-09-21T00:00:00Z")
         ```
 
         ## Import

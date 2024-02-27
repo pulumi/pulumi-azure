@@ -82,33 +82,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;acctvn&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctsub&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
- *             .domainNameLabel(exampleResourceGroup.name())
+ *             .domainNameLabel(example.name())
  *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(&#34;PublicIPAddress&#34;)
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -117,10 +122,12 @@ import javax.annotation.Nullable;
  * 
  *         var bpepool = new BackendAddressPool(&#34;bpepool&#34;, BackendAddressPoolArgs.builder()        
  *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name(&#34;BackEndAddressPool&#34;)
  *             .build());
  * 
  *         var lbnatpool = new NatPool(&#34;lbnatpool&#34;, NatPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
+ *             .name(&#34;ssh&#34;)
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .protocol(&#34;Tcp&#34;)
  *             .frontendPortStart(50000)
@@ -131,14 +138,16 @@ import javax.annotation.Nullable;
  * 
  *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
  *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name(&#34;http-probe&#34;)
  *             .protocol(&#34;Http&#34;)
  *             .requestPath(&#34;/health&#34;)
  *             .port(8080)
  *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mytestscaleset-1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .automaticOsUpgrade(true)
  *             .upgradePolicyMode(&#34;Rolling&#34;)
  *             .rollingUpgradePolicy(ScaleSetRollingUpgradePolicyArgs.builder()
@@ -179,7 +188,9 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
- *                     .keyData(Files.readString(Paths.get(&#34;~/.ssh/demo_key.pub&#34;)))
+ *                     .keyData(StdFunctions.file(FileArgs.builder()
+ *                         .input(&#34;~/.ssh/demo_key.pub&#34;)
+ *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
@@ -237,38 +248,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;acctvn&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctsub&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;accsa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;vhds&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mytestscaleset-1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .upgradePolicyMode(&#34;Manual&#34;)
  *             .sku(ScaleSetSkuArgs.builder()
  *                 .name(&#34;Standard_F2&#34;)
@@ -283,7 +300,9 @@ import javax.annotation.Nullable;
  *                 .disablePasswordAuthentication(true)
  *                 .sshKeys(ScaleSetOsProfileLinuxConfigSshKeyArgs.builder()
  *                     .path(&#34;/home/myadmin/.ssh/authorized_keys&#34;)
- *                     .keyData(Files.readString(Paths.get(&#34;~/.ssh/demo_key.pub&#34;)))
+ *                     .keyData(StdFunctions.file(FileArgs.builder()
+ *                         .input(&#34;~/.ssh/demo_key.pub&#34;)
+ *                         .build()).result())
  *                     .build())
  *                 .build())
  *             .networkProfiles(ScaleSetNetworkProfileArgs.builder()
@@ -324,6 +343,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.compute.Image;
+ * import com.pulumi.azure.compute.ImageArgs;
  * import com.pulumi.azure.compute.ScaleSet;
  * import com.pulumi.azure.compute.ScaleSetArgs;
  * import com.pulumi.azure.compute.inputs.ScaleSetStorageProfileImageReferenceArgs;
@@ -340,11 +360,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleImage = new Image(&#34;exampleImage&#34;);
+ *         var example = new Image(&#34;example&#34;, ImageArgs.builder()        
+ *             .name(&#34;test&#34;)
+ *             .build());
  * 
  *         var exampleScaleSet = new ScaleSet(&#34;exampleScaleSet&#34;, ScaleSetArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .storageProfileImageReference(ScaleSetStorageProfileImageReferenceArgs.builder()
- *                 .id(exampleImage.id())
+ *                 .id(example.id())
  *                 .build())
  *             .build());
  * 

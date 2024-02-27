@@ -303,9 +303,12 @@ class Spacecraft(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("example",
+            name="example-spacecraft",
+            resource_group_name=example.name,
             location="westeurope",
             norad_id="12345",
             links=[azure.orbital.SpacecraftLinkArgs(
@@ -359,9 +362,12 @@ class Spacecraft(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spacecraft = azure.orbital.Spacecraft("exampleSpacecraft",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_spacecraft = azure.orbital.Spacecraft("example",
+            name="example-spacecraft",
+            resource_group_name=example.name,
             location="westeurope",
             norad_id="12345",
             links=[azure.orbital.SpacecraftLinkArgs(

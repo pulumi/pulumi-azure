@@ -338,13 +338,17 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example-action-group",
+            resource_group_name=example.name,
             short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
+        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
+            name="example",
             resource_group_name="example",
-            scopes=[example_resource_group.id],
+            scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
             condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
                 target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(
@@ -417,13 +421,17 @@ class AlertProcessingRuleActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example-action-group",
+            resource_group_name=example.name,
             short_name="action")
-        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup",
+        example_alert_processing_rule_action_group = azure.monitoring.AlertProcessingRuleActionGroup("example",
+            name="example",
             resource_group_name="example",
-            scopes=[example_resource_group.id],
+            scopes=[example.id],
             add_action_group_ids=[example_action_group.id],
             condition=azure.monitoring.AlertProcessingRuleActionGroupConditionArgs(
                 target_resource_type=azure.monitoring.AlertProcessingRuleActionGroupConditionTargetResourceTypeArgs(

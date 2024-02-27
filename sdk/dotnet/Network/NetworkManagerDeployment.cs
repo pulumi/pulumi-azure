@@ -24,17 +24,19 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -50,15 +52,17 @@ namespace Pulumi.Azure.Network
     ///         Description = "example network manager",
     ///     });
     /// 
-    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("example", new()
     ///     {
+    ///         Name = "example-group",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-net",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -66,8 +70,9 @@ namespace Pulumi.Azure.Network
     ///         FlowTimeoutInMinutes = 10,
     ///     });
     /// 
-    ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", new()
+    ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("example", new()
     ///     {
+    ///         Name = "example-connectivity-conf",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         ConnectivityTopology = "HubAndSpoke",
     ///         AppliesToGroups = new[]
@@ -85,7 +90,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkManagerDeployment = new Azure.Network.NetworkManagerDeployment("exampleNetworkManagerDeployment", new()
+    ///     var exampleNetworkManagerDeployment = new Azure.Network.NetworkManagerDeployment("example", new()
     ///     {
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         Location = "eastus",
@@ -93,6 +98,135 @@ namespace Pulumi.Azure.Network
     ///         ConfigurationIds = new[]
     ///         {
     ///             exampleNetworkManagerConnectivityConfiguration.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Triggers)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
+    ///     {
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///             "SecurityAdmin",
+    ///         },
+    ///         Description = "example network manager",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("example", new()
+    ///     {
+    ///         Name = "example-group",
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-net",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         FlowTimeoutInMinutes = 10,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerSecurityAdminConfiguration = new Azure.Network.NetworkManagerSecurityAdminConfiguration("example", new()
+    ///     {
+    ///         Name = "example-nmsac",
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerAdminRuleCollection = new Azure.Network.NetworkManagerAdminRuleCollection("example", new()
+    ///     {
+    ///         Name = "example-nmarc",
+    ///         SecurityAdminConfigurationId = exampleNetworkManagerSecurityAdminConfiguration.Id,
+    ///         NetworkGroupIds = new[]
+    ///         {
+    ///             exampleNetworkManagerNetworkGroup.Id,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerAdminRule = new Azure.Network.NetworkManagerAdminRule("example", new()
+    ///     {
+    ///         Name = "example-nmar",
+    ///         AdminRuleCollectionId = exampleNetworkManagerAdminRuleCollection.Id,
+    ///         Action = "Deny",
+    ///         Description = "example",
+    ///         Direction = "Inbound",
+    ///         Priority = 1,
+    ///         Protocol = "Tcp",
+    ///         SourcePortRanges = new[]
+    ///         {
+    ///             "80",
+    ///         },
+    ///         DestinationPortRanges = new[]
+    ///         {
+    ///             "80",
+    ///         },
+    ///         Sources = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleSourceArgs
+    ///             {
+    ///                 AddressPrefixType = "ServiceTag",
+    ///                 AddressPrefix = "Internet",
+    ///             },
+    ///         },
+    ///         Destinations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkManagerAdminRuleDestinationArgs
+    ///             {
+    ///                 AddressPrefixType = "IPPrefix",
+    ///                 AddressPrefix = "*",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerDeployment = new Azure.Network.NetworkManagerDeployment("example", new()
+    ///     {
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         Location = "eastus",
+    ///         ScopeAccess = "SecurityAdmin",
+    ///         ConfigurationIds = new[]
+    ///         {
+    ///             exampleNetworkManagerSecurityAdminConfiguration.Id,
+    ///         },
+    ///         Triggers = 
+    ///         {
+    ///             { "source_port_ranges", exampleNetworkManagerAdminRule.SourcePortRanges.Apply(sourcePortRanges =&gt; Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = sourcePortRanges,
+    ///             })).Apply(invoke =&gt; invoke.Result) },
     ///         },
     ///     });
     /// 

@@ -23,13 +23,15 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
+    ///         Name = "example-dsa",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
@@ -38,14 +40,16 @@ namespace Pulumi.Azure.DataShare
     ///         },
     ///     });
     /// 
-    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.DataShare.Share("example", new()
     ///     {
+    ///         Name = "example_ds",
     ///         AccountId = exampleAccount.Id,
     ///         Kind = "CopyBased",
     ///     });
     /// 
-    ///     var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new()
+    ///     var exampleAccount2 = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "examplestr",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountKind = "BlobStorage",
@@ -53,35 +57,31 @@ namespace Pulumi.Azure.DataShare
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
     ///     {
-    ///         StorageAccountId = exampleStorage / accountAccount.Id,
+    ///         Name = "example-dlg2fs",
+    ///         StorageAccountId = exampleAccount2.Id,
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
-    ///         Scope = exampleStorage / accountAccount.Id,
+    ///         Scope = exampleAccount2.Id,
     ///         RoleDefinitionName = "Storage Blob Data Reader",
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleDatasetDataLakeGen2 = new Azure.DataShare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2", new()
+    ///     var exampleDatasetDataLakeGen2 = new Azure.DataShare.DatasetDataLakeGen2("example", new()
     ///     {
+    ///         Name = "accexample-dlg2ds",
     ///         ShareId = exampleShare.Id,
-    ///         StorageAccountId = exampleStorage / accountAccount.Id,
+    ///         StorageAccountId = exampleAccount2.Id,
     ///         FileSystemName = exampleDataLakeGen2Filesystem.Name,
     ///         FilePath = "myfile.txt",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///         },
     ///     });
     /// 
     /// });

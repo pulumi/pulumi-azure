@@ -338,18 +338,23 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_mode="Manual",
             sku="Standard_F2",
             instances=2,
@@ -377,9 +382,10 @@ class AutoscaleSetting(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
+            resource_group_name=example.name,
+            location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
                 name="defaultProfile",
@@ -445,24 +451,29 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### For Fixed Dates)
+        ### Repeating On Weekends)
 
         ```python
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_mode="Manual",
             sku="Standard_F2",
             instances=2,
@@ -490,10 +501,129 @@ class AutoscaleSetting(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
+            resource_group_name=example.name,
+            location=example.location,
+            target_resource_id=example_linux_virtual_machine_scale_set.id,
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="Weekends",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                ],
+                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
+                    timezone="Pacific Standard Time",
+                    days=[
+                        "Saturday",
+                        "Sunday",
+                    ],
+                    hours=12,
+                    minutes=0,
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
+        ```
+        ### For Fixed Dates)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
+            upgrade_mode="Manual",
+            sku="Standard_F2",
+            instances=2,
+            admin_username="myadmin",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="myadmin",
+                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            )],
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="StandardSSD_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
+                version="latest",
+            ))
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
             enabled=True,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
                 name="forJuly",
@@ -590,18 +720,23 @@ class AutoscaleSetting(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_mode="Manual",
             sku="Standard_F2",
             instances=2,
@@ -629,9 +764,10 @@ class AutoscaleSetting(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
+            resource_group_name=example.name,
+            location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
                 name="defaultProfile",
@@ -697,24 +833,29 @@ class AutoscaleSetting(pulumi.CustomResource):
                 ),
             ))
         ```
-        ### For Fixed Dates)
+        ### Repeating On Weekends)
 
         ```python
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_mode="Manual",
             sku="Standard_F2",
             instances=2,
@@ -742,10 +883,129 @@ class AutoscaleSetting(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_autoscale_setting = azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting",
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
+            resource_group_name=example.name,
+            location=example.location,
+            target_resource_id=example_linux_virtual_machine_scale_set.id,
+            profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
+                name="Weekends",
+                capacity=azure.monitoring.AutoscaleSettingProfileCapacityArgs(
+                    default=1,
+                    minimum=1,
+                    maximum=10,
+                ),
+                rules=[
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="GreaterThan",
+                            threshold=90,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Increase",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                    azure.monitoring.AutoscaleSettingProfileRuleArgs(
+                        metric_trigger=azure.monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs(
+                            metric_name="Percentage CPU",
+                            metric_resource_id=example_linux_virtual_machine_scale_set.id,
+                            time_grain="PT1M",
+                            statistic="Average",
+                            time_window="PT5M",
+                            time_aggregation="Average",
+                            operator="LessThan",
+                            threshold=10,
+                        ),
+                        scale_action=azure.monitoring.AutoscaleSettingProfileRuleScaleActionArgs(
+                            direction="Decrease",
+                            type="ChangeCount",
+                            value=2,
+                            cooldown="PT1M",
+                        ),
+                    ),
+                ],
+                recurrence=azure.monitoring.AutoscaleSettingProfileRecurrenceArgs(
+                    timezone="Pacific Standard Time",
+                    days=[
+                        "Saturday",
+                        "Sunday",
+                    ],
+                    hours=12,
+                    minutes=0,
+                ),
+            )],
+            notification=azure.monitoring.AutoscaleSettingNotificationArgs(
+                email=azure.monitoring.AutoscaleSettingNotificationEmailArgs(
+                    send_to_subscription_administrator=True,
+                    send_to_subscription_co_administrator=True,
+                    custom_emails=["admin@contoso.com"],
+                ),
+            ))
+        ```
+        ### For Fixed Dates)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="autoscalingTest",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
+            address_spaces=["10.0.0.0/16"],
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
+            virtual_network_name=example_virtual_network.name,
+            address_prefixes=["10.0.2.0/24"])
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="exampleset",
+            location=example.location,
+            resource_group_name=example.name,
+            upgrade_mode="Manual",
+            sku="Standard_F2",
+            instances=2,
+            admin_username="myadmin",
+            admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
+                username="myadmin",
+                public_key="ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+            )],
+            network_interfaces=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs(
+                name="TestNetworkProfile",
+                primary=True,
+                ip_configurations=[azure.compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs(
+                    name="TestIPConfiguration",
+                    primary=True,
+                    subnet_id=example_subnet.id,
+                )],
+            )],
+            os_disk=azure.compute.LinuxVirtualMachineScaleSetOsDiskArgs(
+                caching="ReadWrite",
+                storage_account_type="StandardSSD_LRS",
+            ),
+            source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
+                publisher="Canonical",
+                offer="0001-com-ubuntu-server-jammy",
+                sku="22_04-lts",
+                version="latest",
+            ))
+        example_autoscale_setting = azure.monitoring.AutoscaleSetting("example",
+            name="myAutoscaleSetting",
             enabled=True,
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             profiles=[azure.monitoring.AutoscaleSettingProfileArgs(
                 name="forJuly",

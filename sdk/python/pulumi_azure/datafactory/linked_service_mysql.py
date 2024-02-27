@@ -304,11 +304,15 @@ class LinkedServiceMysql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("example",
+            name="example",
             data_factory_id=example_factory.id,
             connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
         ```
@@ -347,11 +351,15 @@ class LinkedServiceMysql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_mysql = azure.datafactory.LinkedServiceMysql("example",
+            name="example",
             data_factory_id=example_factory.id,
             connection_string="Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test")
         ```

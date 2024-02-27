@@ -51,7 +51,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupEncryptionArgs;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupIdentityArgs;
  * import com.pulumi.azure.elasticsan.inputs.VolumeGroupNetworkRuleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,13 +64,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleElasticSan = new ElasticSan(&#34;exampleElasticSan&#34;, ElasticSanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplees-es&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .baseSizeInTib(1)
  *             .sku(ElasticSanSkuArgs.builder()
  *                 .name(&#34;Premium_LRS&#34;)
@@ -81,26 +82,30 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-uai&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .serviceEndpoints(&#34;Microsoft.Storage.Global&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
@@ -142,6 +147,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;example-kvk&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -152,13 +158,10 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     userAssignedIdentity,
- *                     client)
- *                 .build());
+ *             .build());
  * 
  *         var exampleVolumeGroup = new VolumeGroup(&#34;exampleVolumeGroup&#34;, VolumeGroupArgs.builder()        
+ *             .name(&#34;example-esvg&#34;)
  *             .elasticSanId(exampleElasticSan.id())
  *             .encryptionType(&#34;EncryptionAtRestWithCustomerManagedKey&#34;)
  *             .encryption(VolumeGroupEncryptionArgs.builder()

@@ -391,11 +391,12 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_subscription = azure.core.get_subscription()
-        example_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
-            subscription_id=example_subscription.id,
-            policy_definition_id=example_policy_defintion.id,
+        example = azure.core.get_subscription()
+        example_get_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            name="exampleAssignment",
+            subscription_id=example.id,
+            policy_definition_id=example_get_policy_defintion.id,
             parameters=json.dumps({
                 "listOfAllowedLocations": {
                     "value": [
@@ -404,8 +405,9 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                     ],
                 },
             }))
-        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation",
-            subscription_id=example_subscription.id,
+        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("example",
+            name="example",
+            subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id)
         ```
 
@@ -448,11 +450,12 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_subscription = azure.core.get_subscription()
-        example_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
-            subscription_id=example_subscription.id,
-            policy_definition_id=example_policy_defintion.id,
+        example = azure.core.get_subscription()
+        example_get_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed resource types")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            name="exampleAssignment",
+            subscription_id=example.id,
+            policy_definition_id=example_get_policy_defintion.id,
             parameters=json.dumps({
                 "listOfAllowedLocations": {
                     "value": [
@@ -461,8 +464,9 @@ class SubscriptionPolicyRemediation(pulumi.CustomResource):
                     ],
                 },
             }))
-        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation",
-            subscription_id=example_subscription.id,
+        example_subscription_policy_remediation = azure.core.SubscriptionPolicyRemediation("example",
+            name="example",
+            subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id)
         ```
 

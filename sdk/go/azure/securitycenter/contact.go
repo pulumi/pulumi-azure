@@ -31,10 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewContact(ctx, "example", &securitycenter.ContactArgs{
-//				AlertNotifications: pulumi.Bool(true),
-//				AlertsToAdmins:     pulumi.Bool(true),
+//				Name:               pulumi.String("contact"),
 //				Email:              pulumi.String("contact@example.com"),
 //				Phone:              pulumi.String("+1-555-555-5555"),
+//				AlertNotifications: pulumi.Bool(true),
+//				AlertsToAdmins:     pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

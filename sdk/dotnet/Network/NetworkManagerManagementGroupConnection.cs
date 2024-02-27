@@ -22,44 +22,46 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup");
+    ///     var example = new Azure.Management.Group("example");
     /// 
     ///     var alt = Azure.Core.GetSubscription.Invoke(new()
     ///     {
     ///         SubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", new()
+    ///     var exampleGroupSubscriptionAssociation = new Azure.Management.GroupSubscriptionAssociation("example", new()
     ///     {
-    ///         ManagementGroupId = exampleGroup.Id,
+    ///         ManagementGroupId = example.Id,
     ///         SubscriptionId = alt.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
-    ///     var currentSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var currentClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var currentGetClientConfig = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var networkContributor = new Azure.Authorization.Assignment("networkContributor", new()
+    ///     var networkContributor = new Azure.Authorization.Assignment("network_contributor", new()
     ///     {
-    ///         Scope = exampleGroup.Id,
+    ///         Scope = example.Id,
     ///         RoleDefinitionName = "Network Contributor",
-    ///         PrincipalId = currentClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = currentGetClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
+    ///         Name = "example-networkmanager",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
     ///             {
-    ///                 currentSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///             },
     ///         },
     ///         ScopeAccesses = new[]
@@ -68,17 +70,12 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkManagerManagementGroupConnection = new Azure.Network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", new()
+    ///     var exampleNetworkManagerManagementGroupConnection = new Azure.Network.NetworkManagerManagementGroupConnection("example", new()
     ///     {
-    ///         ManagementGroupId = exampleGroup.Id,
+    ///         Name = "example-nmmgc",
+    ///         ManagementGroupId = example.Id,
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         Description = "example",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             networkContributor,
-    ///         },
     ///     });
     /// 
     /// });

@@ -49,13 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-lab&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .title(&#34;Test Title&#34;)
  *             .security(LabSecurityArgs.builder()
  *                 .openAccessEnabled(false)
@@ -79,6 +81,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
+ *             .name(&#34;example-labschedule&#34;)
  *             .labId(exampleLab.id())
  *             .stopTime(&#34;2022-11-28T00:00:00Z&#34;)
  *             .timeZone(&#34;America/Los_Angeles&#34;)

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("database-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			primary, err := mssql.NewServer(ctx, "primary", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//				Name:                       pulumi.String("mssqlserver-primary"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
@@ -46,7 +48,8 @@ import (
 //				return err
 //			}
 //			secondary, err := mssql.NewServer(ctx, "secondary", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//				Name:                       pulumi.String("mssqlserver-secondary"),
+//				ResourceGroupName:          example.Name,
 //				Location:                   pulumi.String("North Europe"),
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
@@ -55,7 +58,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Name:      pulumi.String("exampledb"),
 //				ServerId:  primary.ID(),
 //				SkuName:   pulumi.String("S1"),
 //				Collation: pulumi.String("SQL_Latin1_General_CP1_CI_AS"),
@@ -64,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewFailoverGroup(ctx, "exampleFailoverGroup", &mssql.FailoverGroupArgs{
+//			_, err = mssql.NewFailoverGroup(ctx, "example", &mssql.FailoverGroupArgs{
+//				Name:     pulumi.String("example"),
 //				ServerId: primary.ID(),
 //				Databases: pulumi.StringArray{
 //					exampleDatabase.ID(),

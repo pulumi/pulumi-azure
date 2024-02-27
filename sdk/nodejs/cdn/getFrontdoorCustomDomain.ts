@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: azurerm_cdn_frontdoor_custom_domain.example.name,
- *     profileName: azurerm_cdn_frontdoor_profile.example.name,
- *     resourceGroupName: azurerm_cdn_frontdoor_profile.example.resource_group_name,
+ *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
+ *     profileName: exampleAzurermCdnFrontdoorProfile.name,
+ *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
  * });
  * ```
  */
@@ -93,9 +93,9 @@ export interface GetFrontdoorCustomDomainResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cdn.getFrontdoorCustomDomain({
- *     name: azurerm_cdn_frontdoor_custom_domain.example.name,
- *     profileName: azurerm_cdn_frontdoor_profile.example.name,
- *     resourceGroupName: azurerm_cdn_frontdoor_profile.example.resource_group_name,
+ *     name: exampleAzurermCdnFrontdoorCustomDomain.name,
+ *     profileName: exampleAzurermCdnFrontdoorProfile.name,
+ *     resourceGroupName: exampleAzurermCdnFrontdoorProfile.resourceGroupName,
  * });
  * ```
  */

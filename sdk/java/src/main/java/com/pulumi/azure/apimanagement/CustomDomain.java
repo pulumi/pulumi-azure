@@ -66,15 +66,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+ *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
  *             .name(&#34;mykeyvault&#34;)
  *             .resourceGroupName(&#34;some-resource-group&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-apim&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .publisherName(&#34;pub1&#34;)
@@ -83,7 +85,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *             .name(&#34;example-certificate&#34;)
+ *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
  *                     .name(&#34;Self&#34;)

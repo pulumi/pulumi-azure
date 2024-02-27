@@ -13,24 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.cosmosdb.getAccount({
+ * const example = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "tfex-cosmos-db",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/id",
  * });
- * const exampleSqlStoredProcedure = new azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleSqlStoredProcedure = new azure.cosmosdb.SqlStoredProcedure("example", {
+ *     name: "test-stored-proc",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     databaseName: exampleSqlDatabase.name,
  *     containerName: exampleSqlContainer.name,
  *     body: "   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\n",

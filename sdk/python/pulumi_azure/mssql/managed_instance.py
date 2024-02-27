@@ -730,11 +730,15 @@ class ManagedInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
             priority=106,
             direction="Inbound",
             access="Allow",
@@ -749,9 +753,10 @@ class ManagedInstance(pulumi.CustomResource):
             ],
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
             priority=200,
             direction="Inbound",
             access="Allow",
@@ -760,9 +765,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="10.0.0.0/24",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
             priority=300,
             direction="Inbound",
             access="Allow",
@@ -771,9 +777,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="AzureLoadBalancer",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
             priority=1000,
             direction="Inbound",
             access="Allow",
@@ -782,9 +789,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="1433",
             source_address_prefix="VirtualNetwork",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
             priority=4096,
             direction="Inbound",
             access="Deny",
@@ -793,9 +801,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
             priority=102,
             direction="Outbound",
             access="Allow",
@@ -808,9 +817,10 @@ class ManagedInstance(pulumi.CustomResource):
             ],
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
             priority=200,
             direction="Outbound",
             access="Allow",
@@ -819,9 +829,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="10.0.0.0/24",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
             priority=4096,
             direction="Outbound",
             access="Deny",
@@ -830,14 +841,16 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -851,31 +864,28 @@ class ManagedInstance(pulumi.CustomResource):
                     ],
                 ),
             )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            disable_bgp_route_propagation=False)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             license_type="BasePrice",
             sku_name="GP_Gen5",
             storage_size_in_gb=32,
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
+            administrator_login_password="thisIsDog11")
         ```
 
         ## Import
@@ -926,11 +936,15 @@ class ManagedInstance(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        allow_management_inbound = azure.network.NetworkSecurityRule("allowManagementInbound",
+        example = azure.core.ResourceGroup("example",
+            name="database-rg",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="mi-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        allow_management_inbound = azure.network.NetworkSecurityRule("allow_management_inbound",
+            name="allow_management_inbound",
             priority=106,
             direction="Inbound",
             access="Allow",
@@ -945,9 +959,10 @@ class ManagedInstance(pulumi.CustomResource):
             ],
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allowMisubnetInbound",
+        allow_misubnet_inbound = azure.network.NetworkSecurityRule("allow_misubnet_inbound",
+            name="allow_misubnet_inbound",
             priority=200,
             direction="Inbound",
             access="Allow",
@@ -956,9 +971,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="10.0.0.0/24",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allowHealthProbeInbound",
+        allow_health_probe_inbound = azure.network.NetworkSecurityRule("allow_health_probe_inbound",
+            name="allow_health_probe_inbound",
             priority=300,
             direction="Inbound",
             access="Allow",
@@ -967,9 +983,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="AzureLoadBalancer",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_tds_inbound = azure.network.NetworkSecurityRule("allowTdsInbound",
+        allow_tds_inbound = azure.network.NetworkSecurityRule("allow_tds_inbound",
+            name="allow_tds_inbound",
             priority=1000,
             direction="Inbound",
             access="Allow",
@@ -978,9 +995,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="1433",
             source_address_prefix="VirtualNetwork",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        deny_all_inbound = azure.network.NetworkSecurityRule("denyAllInbound",
+        deny_all_inbound = azure.network.NetworkSecurityRule("deny_all_inbound",
+            name="deny_all_inbound",
             priority=4096,
             direction="Inbound",
             access="Deny",
@@ -989,9 +1007,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_management_outbound = azure.network.NetworkSecurityRule("allowManagementOutbound",
+        allow_management_outbound = azure.network.NetworkSecurityRule("allow_management_outbound",
+            name="allow_management_outbound",
             priority=102,
             direction="Outbound",
             access="Allow",
@@ -1004,9 +1023,10 @@ class ManagedInstance(pulumi.CustomResource):
             ],
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allowMisubnetOutbound",
+        allow_misubnet_outbound = azure.network.NetworkSecurityRule("allow_misubnet_outbound",
+            name="allow_misubnet_outbound",
             priority=200,
             direction="Outbound",
             access="Allow",
@@ -1015,9 +1035,10 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="10.0.0.0/24",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        deny_all_outbound = azure.network.NetworkSecurityRule("denyAllOutbound",
+        deny_all_outbound = azure.network.NetworkSecurityRule("deny_all_outbound",
+            name="deny_all_outbound",
             priority=4096,
             direction="Outbound",
             access="Deny",
@@ -1026,14 +1047,16 @@ class ManagedInstance(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet-mi",
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location)
+        example_subnet = azure.network.Subnet("example",
+            name="subnet-mi",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -1047,31 +1070,28 @@ class ManagedInstance(pulumi.CustomResource):
                     ],
                 ),
             )])
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            disable_bgp_route_propagation=False,
-            opts=pulumi.ResourceOptions(depends_on=[example_subnet]))
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+        example_route_table = azure.network.RouteTable("example",
+            name="routetable-mi",
+            location=example.location,
+            resource_group_name=example.name,
+            disable_bgp_route_propagation=False)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             license_type="BasePrice",
             sku_name="GP_Gen5",
             storage_size_in_gb=32,
             subnet_id=example_subnet.id,
             vcores=4,
             administrator_login="mradministrator",
-            administrator_login_password="thisIsDog11",
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
+            administrator_login_password="thisIsDog11")
         ```
 
         ## Import

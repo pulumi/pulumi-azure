@@ -51,6 +51,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
+ *             .name(&#34;Sample definition&#34;)
  *             .description(&#34;This is a lighthouse definition created IaC&#34;)
  *             .managingTenantId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .scope(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)

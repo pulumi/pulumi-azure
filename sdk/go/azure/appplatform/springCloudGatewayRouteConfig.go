@@ -31,34 +31,39 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("E0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
+//				Name:                 pulumi.String("default"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "exampleSpringCloudGatewayRouteConfig", &appplatform.SpringCloudGatewayRouteConfigArgs{
+//			_, err = appplatform.NewSpringCloudGatewayRouteConfig(ctx, "example", &appplatform.SpringCloudGatewayRouteConfigArgs{
+//				Name:                 pulumi.String("example"),
 //				SpringCloudGatewayId: exampleSpringCloudGateway.ID(),
 //				SpringCloudAppId:     exampleSpringCloudApp.ID(),
 //				Protocol:             pulumi.String("HTTPS"),

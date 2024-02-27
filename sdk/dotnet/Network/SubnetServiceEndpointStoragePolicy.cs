@@ -12,6 +12,56 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Subnet Service Endpoint Storage Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleSubnetServiceEndpointStoragePolicy = new Azure.Network.SubnetServiceEndpointStoragePolicy("example", new()
+    ///     {
+    ///         Name = "example-policy",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Definition = new Azure.Network.Inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs
+    ///         {
+    ///             Name = "name2",
+    ///             Description = "definition2",
+    ///             Service = "Global",
+    ///             ServiceResources = new[]
+    ///             {
+    ///                 "/services/Azure",
+    ///                 "/services/Azure/Batch",
+    ///                 "/services/Azure/DataFactory",
+    ///                 "/services/Azure/MachineLearning",
+    ///                 "/services/Azure/ManagedInstance",
+    ///                 "/services/Azure/WebPI",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageacct",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "GRS",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Subnet Service Endpoint Policies can be imported using the `resource id`, e.g.

@@ -22,47 +22,46 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         AddressPrefix = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new()
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vpngw",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
-    ///     var exampleSecurityPartnerProvider = new Azure.Network.SecurityPartnerProvider("exampleSecurityPartnerProvider", new()
+    ///     var exampleSecurityPartnerProvider = new Azure.Network.SecurityPartnerProvider("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-spp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         SecurityProviderName = "IBoss",
     ///         Tags = 
     ///         {
     ///             { "ENV", "Prod" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVpnGateway,
     ///         },
     ///     });
     /// 

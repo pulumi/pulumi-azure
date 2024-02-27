@@ -49,12 +49,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualNetwork = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
+ *         final var example = NetworkFunctions.getVirtualNetwork(GetVirtualNetworkArgs.builder()
  *             .name(&#34;production&#34;)
  *             .resourceGroupName(&#34;networking&#34;)
  *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
+ *             .name(&#34;only-deploy-in-westeurope&#34;)
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
  *             .displayName(&#34;my-policy-definition&#34;)
@@ -74,7 +75,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
- *             .resourceId(exampleVirtualNetwork.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
+ *             .name(&#34;example-policy-assignment&#34;)
+ *             .resourceId(example.applyValue(getVirtualNetworkResult -&gt; getVirtualNetworkResult.id()))
  *             .policyDefinitionId(exampleDefinition.id())
  *             .build());
  * 

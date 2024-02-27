@@ -512,8 +512,11 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -529,8 +532,9 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id,
             parameters=\"\"\"    {
               "tagName": {
@@ -585,8 +589,11 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -602,8 +609,9 @@ class ResourceGroupPolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id,
             parameters=\"\"\"    {
               "tagName": {

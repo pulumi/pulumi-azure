@@ -22,21 +22,24 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleStandardWebTest = new Azure.AppInsights.StandardWebTest("exampleStandardWebTest", new()
+    ///     var exampleStandardWebTest = new Azure.AppInsights.StandardWebTest("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-test",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         GeoLocations = new[]

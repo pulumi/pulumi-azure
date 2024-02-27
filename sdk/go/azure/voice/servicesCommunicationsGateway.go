@@ -35,7 +35,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -46,9 +47,10 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = voice.NewServicesCommunicationsGateway(ctx, "exampleServicesCommunicationsGateway", &voice.ServicesCommunicationsGatewayArgs{
+//			_, err = voice.NewServicesCommunicationsGateway(ctx, "example", &voice.ServicesCommunicationsGatewayArgs{
+//				Name:              pulumi.String("example-vcg"),
 //				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Connectivity:      pulumi.String("PublicAddress"),
 //				Codecs:            pulumi.String("PCMA"),
 //				E911Type:          pulumi.String("DirectToEsrp"),

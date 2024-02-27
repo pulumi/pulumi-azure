@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "localNetworkGWTest",
+ *     location: "West Europe",
+ * });
  * const home = new azure.network.LocalNetworkGateway("home", {
+ *     name: "backHome",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     gatewayAddress: "12.13.14.15",

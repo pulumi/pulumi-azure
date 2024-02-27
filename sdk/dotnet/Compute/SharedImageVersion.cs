@@ -22,13 +22,13 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var existingImage = Azure.Compute.GetImage.Invoke(new()
+    ///     var existing = Azure.Compute.GetImage.Invoke(new()
     ///     {
     ///         Name = "search-api",
     ///         ResourceGroupName = "packerimages",
     ///     });
     /// 
-    ///     var existingSharedImage = Azure.Compute.GetSharedImage.Invoke(new()
+    ///     var existingGetSharedImage = Azure.Compute.GetSharedImage.Invoke(new()
     ///     {
     ///         Name = "existing-image",
     ///         GalleryName = "existing_gallery",
@@ -37,16 +37,17 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var example = new Azure.Compute.SharedImageVersion("example", new()
     ///     {
-    ///         GalleryName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
-    ///         ImageName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
-    ///         ResourceGroupName = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
-    ///         Location = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
-    ///         ManagedImageId = existingImage.Apply(getImageResult =&gt; getImageResult.Id),
+    ///         Name = "0.0.1",
+    ///         GalleryName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.GalleryName),
+    ///         ImageName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Name),
+    ///         ResourceGroupName = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.ResourceGroupName),
+    ///         Location = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
+    ///         ManagedImageId = existing.Apply(getImageResult =&gt; getImageResult.Id),
     ///         TargetRegions = new[]
     ///         {
     ///             new Azure.Compute.Inputs.SharedImageVersionTargetRegionArgs
     ///             {
-    ///                 Name = existingSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
+    ///                 Name = existingGetSharedImage.Apply(getSharedImageResult =&gt; getSharedImageResult.Location),
     ///                 RegionalReplicaCount = 5,
     ///                 StorageAccountType = "Standard_LRS",
     ///             },

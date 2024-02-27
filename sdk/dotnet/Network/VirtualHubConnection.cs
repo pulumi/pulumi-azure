@@ -22,37 +22,42 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "172.16.0.0/12",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-hub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         AddressPrefix = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("exampleVirtualHubConnection", new()
+    ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("example", new()
     ///     {
+    ///         Name = "example-vhub",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });

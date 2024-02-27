@@ -14,10 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.privatedns.TxtRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const privateDnsTxtRecordId = example.id;
+ * export const privateDnsTxtRecordId = exampleAzurermPrivateDnsTxtRecord.id;
  * ```
  */
 export function getTxtRecord(args: GetTxtRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetTxtRecordResult> {
@@ -84,10 +85,11 @@ export interface GetTxtRecordResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.privatedns.TxtRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const privateDnsTxtRecordId = example.id;
+ * export const privateDnsTxtRecordId = exampleAzurermPrivateDnsTxtRecord.id;
  * ```
  */
 export function getTxtRecordOutput(args: GetTxtRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTxtRecordResult> {

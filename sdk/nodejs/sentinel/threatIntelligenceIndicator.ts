@@ -15,26 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "east us",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-law",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
+ *     resourceGroupName: example.name,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  * });
- * const exampleThreatIntelligenceIndicator = new azure.sentinel.ThreatIntelligenceIndicator("exampleThreatIntelligenceIndicator", {
+ * const exampleThreatIntelligenceIndicator = new azure.sentinel.ThreatIntelligenceIndicator("example", {
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     patternType: "domain-name",
  *     pattern: "http://example.com",
  *     source: "Microsoft Sentinel",
  *     validateFromUtc: "2022-12-14T16:00:00Z",
  *     displayName: "example-indicator",
- * }, {
- *     dependsOn: [azurerm_sentinel_log_analytics_workspace_onboarding.test],
  * });
  * ```
  *

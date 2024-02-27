@@ -31,7 +31,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", nil)
+//			example, err := management.NewGroup(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
@@ -41,41 +41,43 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
-//				ManagementGroupId: exampleGroup.ID(),
+//			_, err = management.NewGroupSubscriptionAssociation(ctx, "example", &management.GroupSubscriptionAssociationArgs{
+//				ManagementGroupId: example.ID(),
 //				SubscriptionId:    *pulumi.String(alt.Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			currentSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			current, err := core.LookupSubscription(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			currentGetClientConfig, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			networkContributor, err := authorization.NewAssignment(ctx, "networkContributor", &authorization.AssignmentArgs{
-//				Scope:              exampleGroup.ID(),
+//			_, err = authorization.NewAssignment(ctx, "network_contributor", &authorization.AssignmentArgs{
+//				Scope:              example.ID(),
 //				RoleDefinitionName: pulumi.String("Network Contributor"),
-//				PrincipalId:        *pulumi.String(currentClientConfig.ObjectId),
+//				PrincipalId:        *pulumi.String(currentGetClientConfig.ObjectId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
+//				Name:              pulumi.String("example-networkmanager"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(currentSubscription.Id),
+//						*pulumi.String(current.Id),
 //					},
 //				},
 //				ScopeAccesses: pulumi.StringArray{
@@ -85,13 +87,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkManagerManagementGroupConnection(ctx, "exampleNetworkManagerManagementGroupConnection", &network.NetworkManagerManagementGroupConnectionArgs{
-//				ManagementGroupId: exampleGroup.ID(),
+//			_, err = network.NewNetworkManagerManagementGroupConnection(ctx, "example", &network.NetworkManagerManagementGroupConnectionArgs{
+//				Name:              pulumi.String("example-nmmgc"),
+//				ManagementGroupId: example.ID(),
 //				NetworkManagerId:  exampleNetworkManager.ID(),
 //				Description:       pulumi.String("example"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				networkContributor,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

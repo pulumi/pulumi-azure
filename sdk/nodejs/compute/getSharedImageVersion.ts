@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSharedImageVersion({
- *     galleryName: "my-image-gallery",
- *     imageName: "my-image",
  *     name: "1.0.0",
+ *     imageName: "my-image",
+ *     galleryName: "my-image-gallery",
  *     resourceGroupName: "example-resources",
  * });
  * ```
@@ -120,9 +120,9 @@ export interface GetSharedImageVersionResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSharedImageVersion({
- *     galleryName: "my-image-gallery",
- *     imageName: "my-image",
  *     name: "1.0.0",
+ *     imageName: "my-image",
+ *     galleryName: "my-image-gallery",
  *     resourceGroupName: "example-resources",
  * });
  * ```

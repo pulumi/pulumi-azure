@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Name:                  pulumi.String("example-postgre-server"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				SkuName:               pulumi.String("GP_Gen5_2"),
 //				Version:               pulumi.String("11"),
 //				SslEnforcementEnabled: pulumi.Bool(true),
@@ -46,8 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewFirewallRule(ctx, "exampleFirewallRule", &postgresql.FirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = postgresql.NewFirewallRule(ctx, "example", &postgresql.FirewallRuleArgs{
+//				Name:              pulumi.String("office"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				StartIpAddress:    pulumi.String("40.112.8.12"),
 //				EndIpAddress:      pulumi.String("40.112.8.12"),
@@ -75,18 +78,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", nil)
+//			exampleServer, err := postgresql.NewServer(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewFirewallRule(ctx, "exampleFirewallRule", &postgresql.FirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = postgresql.NewFirewallRule(ctx, "example", &postgresql.FirewallRuleArgs{
+//				Name:              pulumi.String("office"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				StartIpAddress:    pulumi.String("40.112.0.0"),
 //				EndIpAddress:      pulumi.String("40.112.255.255"),

@@ -22,6 +22,153 @@ import javax.annotation.Nullable;
 /**
  * Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.NetworkSecurityGroup;
+ * import com.pulumi.azure.network.NetworkSecurityGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociation;
+ * import com.pulumi.azure.network.SubnetNetworkSecurityGroupAssociationArgs;
+ * import com.pulumi.azure.paloalto.LocalRulestack;
+ * import com.pulumi.azure.paloalto.LocalRulestackArgs;
+ * import com.pulumi.azure.paloalto.LocalRulestackRule;
+ * import com.pulumi.azure.paloalto.LocalRulestackRuleArgs;
+ * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleDestinationArgs;
+ * import com.pulumi.azure.paloalto.inputs.LocalRulestackRuleSourceArgs;
+ * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack;
+ * import com.pulumi.azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestackArgs;
+ * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs;
+ * import com.pulumi.azure.paloalto.inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resource-group&#34;)
+ *             .location(&#34;westeurope&#34;)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;example-public-ip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .sku(&#34;Standard&#34;)
+ *             .build());
+ * 
+ *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
+ *             .name(&#34;example-nsg&#34;)
+ *             .location(test.location())
+ *             .resourceGroupName(test.name())
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var trust = new Subnet(&#34;trust&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-trust-subnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;trusted&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;trustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *             .subnetId(trust.id())
+ *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var untrust = new Subnet(&#34;untrust&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-untrust-subnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;untrusted&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;PaloAltoNetworks.Cloudngfw/firewalls&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;untrustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
+ *             .subnetId(untrust.id())
+ *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
+ *             .build());
+ * 
+ *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
+ *             .name(&#34;example-rulestack&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.locatio())
+ *             .build());
+ * 
+ *         var exampleLocalRulestackRule = new LocalRulestackRule(&#34;exampleLocalRulestackRule&#34;, LocalRulestackRuleArgs.builder()        
+ *             .name(&#34;example-rulestack-rule&#34;)
+ *             .rulestackId(exampleLocalRulestack.id())
+ *             .priority(1001)
+ *             .action(&#34;Allow&#34;)
+ *             .applications(&#34;any&#34;)
+ *             .destination(LocalRulestackRuleDestinationArgs.builder()
+ *                 .cidrs(&#34;any&#34;)
+ *                 .build())
+ *             .source(LocalRulestackRuleSourceArgs.builder()
+ *                 .cidrs(&#34;any&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new NextGenerationFirewallVirtualNetworkLocalRulestack(&#34;exampleNextGenerationFirewallVirtualNetworkLocalRulestack&#34;, NextGenerationFirewallVirtualNetworkLocalRulestackArgs.builder()        
+ *             .name(&#34;example-ngfwvn&#34;)
+ *             .resourceGroupName(example.name())
+ *             .rulestackId(exampleLocalRulestack.id())
+ *             .networkProfile(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs.builder()
+ *                 .publicIpAddressIds(examplePublicIp.id())
+ *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs.builder()
+ *                     .virtualNetworkId(exampleVirtualNetwork.id())
+ *                     .trustedSubnetId(trust.id())
+ *                     .untrustedSubnetId(untrust.id())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Palo Alto Next Generation Firewall Virtual Network Local Rulestacks can be imported using the `resource id`, e.g.

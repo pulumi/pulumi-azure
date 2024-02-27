@@ -22,22 +22,25 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "pub1",
     ///         PublisherEmail = "pub1@email.com",
     ///         SkuName = "Consumption_0",
     ///     });
     /// 
-    ///     var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new()
+    ///     var exampleGateway = new Azure.ApiManagement.Gateway("example", new()
     ///     {
+    ///         Name = "example-gateway",
     ///         ApiManagementId = exampleService.Id,
     ///         Description = "Example API Management gateway",
     ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs

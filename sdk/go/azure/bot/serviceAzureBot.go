@@ -30,21 +30,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleApiKey, err := appinsights.NewApiKey(ctx, "exampleApiKey", &appinsights.ApiKeyArgs{
+//			exampleApiKey, err := appinsights.NewApiKey(ctx, "example", &appinsights.ApiKeyArgs{
+//				Name:                  pulumi.String("example-appinsightsapikey"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("aggregate"),
@@ -61,8 +64,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewServiceAzureBot(ctx, "exampleServiceAzureBot", &bot.ServiceAzureBotArgs{
-//				ResourceGroupName:                 exampleResourceGroup.Name,
+//			_, err = bot.NewServiceAzureBot(ctx, "example", &bot.ServiceAzureBotArgs{
+//				Name:                              pulumi.String("exampleazurebot"),
+//				ResourceGroupName:                 example.Name,
 //				Location:                          pulumi.String("global"),
 //				MicrosoftAppId:                    *pulumi.String(current.ClientId),
 //				Sku:                               pulumi.String("F0"),

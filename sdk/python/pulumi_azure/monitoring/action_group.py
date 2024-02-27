@@ -603,13 +603,17 @@ class ActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="monitoring-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="workspace-01",
+            location=example.location,
+            resource_group_name=example.name)
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="CriticalAlertsAction",
+            resource_group_name=example.name,
             short_name="p0action",
             arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
                 name="armroleaction",
@@ -727,13 +731,17 @@ class ActionGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="monitoring-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="workspace-01",
+            location=example.location,
+            resource_group_name=example.name)
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="CriticalAlertsAction",
+            resource_group_name=example.name,
             short_name="p0action",
             arm_role_receivers=[azure.monitoring.ActionGroupArmRoleReceiverArgs(
                 name="armroleaction",

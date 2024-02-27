@@ -45,16 +45,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-primary&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
+ *             .name(&#34;example-recovery-vault&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var sa = new Account(&#34;sa&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplesa&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .accountTier(&#34;Standard&#34;)

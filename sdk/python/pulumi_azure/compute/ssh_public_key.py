@@ -204,11 +204,13 @@ class SshPublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.compute.SshPublicKey("example",
+            name="example",
             resource_group_name="example",
             location="West Europe",
-            public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import
@@ -241,11 +243,13 @@ class SshPublicKey(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
         example = azure.compute.SshPublicKey("example",
+            name="example",
             resource_group_name="example",
             location="West Europe",
-            public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"))
+            public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
 
         ## Import

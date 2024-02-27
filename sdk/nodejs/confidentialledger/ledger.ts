@@ -16,8 +16,12 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const ledger = new azure.confidentialledger.Ledger("ledger", {
+ *     name: "example-ledger",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     ledgerType: "Private",

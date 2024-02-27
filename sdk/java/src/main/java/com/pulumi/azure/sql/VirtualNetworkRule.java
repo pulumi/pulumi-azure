@@ -51,16 +51,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-sql-server-vnet-rule&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var vnet = new VirtualNetwork(&#34;vnet&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.7.29.0/29&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var subnet = new Subnet(&#34;subnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-subnet&#34;)
  *             .resourceGroupName(example.name())
  *             .virtualNetworkName(vnet.name())
  *             .addressPrefixes(&#34;10.7.29.0/29&#34;)
@@ -68,6 +71,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sqlserver = new SqlServer(&#34;sqlserver&#34;, SqlServerArgs.builder()        
+ *             .name(&#34;uniqueazuresqlserver&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .version(&#34;12.0&#34;)
@@ -76,6 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
+ *             .name(&#34;sql-vnet-rule&#34;)
  *             .resourceGroupName(example.name())
  *             .serverName(sqlserver.name())
  *             .subnetId(subnet.id())

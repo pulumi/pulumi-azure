@@ -411,17 +411,19 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="Example Management Group")
-        example_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+        example_group = azure.management.Group("example", display_name="Example Management Group")
+        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            name="exampleAssignment",
             management_group_id=example_group.id,
-            policy_definition_id=example_policy_defintion.id,
+            policy_definition_id=example.id,
             parameters=json.dumps({
                 "listOfAllowedLocations": {
                     "value": ["East US"],
                 },
             }))
-        example_group_policy_remediation = azure.management.GroupPolicyRemediation("exampleGroupPolicyRemediation",
+        example_group_policy_remediation = azure.management.GroupPolicyRemediation("example",
+            name="example",
             management_group_id=example_group.id,
             policy_assignment_id=example_group_policy_assignment.id)
         ```
@@ -467,17 +469,19 @@ class GroupPolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="Example Management Group")
-        example_policy_defintion = azure.policy.get_policy_defintion(display_name="Allowed locations")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+        example_group = azure.management.Group("example", display_name="Example Management Group")
+        example = azure.policy.get_policy_defintion(display_name="Allowed locations")
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            name="exampleAssignment",
             management_group_id=example_group.id,
-            policy_definition_id=example_policy_defintion.id,
+            policy_definition_id=example.id,
             parameters=json.dumps({
                 "listOfAllowedLocations": {
                     "value": ["East US"],
                 },
             }))
-        example_group_policy_remediation = azure.management.GroupPolicyRemediation("exampleGroupPolicyRemediation",
+        example_group_policy_remediation = azure.management.GroupPolicyRemediation("example",
+            name="example",
             management_group_id=example_group.id,
             policy_assignment_id=example_group_policy_assignment.id)
         ```

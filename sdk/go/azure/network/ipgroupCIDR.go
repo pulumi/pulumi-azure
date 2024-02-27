@@ -33,20 +33,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("test-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIPGroup, err := network.NewIPGroup(ctx, "exampleIPGroup", &network.IPGroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleIPGroup, err := network.NewIPGroup(ctx, "example", &network.IPGroupArgs{
+//				Name:              pulumi.String("test-ipgroup"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewIPGroupCIDR(ctx, "exampleIPGroupCIDR", &network.IPGroupCIDRArgs{
+//			_, err = network.NewIPGroupCIDR(ctx, "example", &network.IPGroupCIDRArgs{
 //				IpGroupId: exampleIPGroup.ID(),
 //				Cidr:      pulumi.String("10.10.10.0/24"),
 //			})

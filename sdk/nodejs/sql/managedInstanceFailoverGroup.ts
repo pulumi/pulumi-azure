@@ -19,47 +19,43 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
  * const primary = new azure.sql.ManagedInstance("primary", {
- *     resourceGroupName: azurerm_resource_group.primary.name,
- *     location: azurerm_resource_group.primary.location,
+ *     name: "example-primary",
+ *     resourceGroupName: primaryAzurermResourceGroup.name,
+ *     location: primaryAzurermResourceGroup.location,
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
  *     licenseType: "BasePrice",
- *     subnetId: azurerm_subnet.primary.id,
+ *     subnetId: primaryAzurermSubnet.id,
  *     skuName: "GP_Gen5",
  *     vcores: 4,
  *     storageSizeInGb: 32,
  *     tags: {
  *         environment: "prod",
  *     },
- * }, {
- *     dependsOn: [
- *         azurerm_subnet_network_security_group_association.primary,
- *         azurerm_subnet_route_table_association.primary,
- *     ],
  * });
  * const secondary = new azure.sql.ManagedInstance("secondary", {
- *     resourceGroupName: azurerm_resource_group.secondary.name,
- *     location: azurerm_resource_group.secondary.location,
+ *     name: "example-secondary",
+ *     resourceGroupName: secondaryAzurermResourceGroup.name,
+ *     location: secondaryAzurermResourceGroup.location,
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
  *     licenseType: "BasePrice",
- *     subnetId: azurerm_subnet.secondary.id,
+ *     subnetId: secondaryAzurermSubnet.id,
  *     skuName: "GP_Gen5",
  *     vcores: 4,
  *     storageSizeInGb: 32,
  *     tags: {
  *         environment: "prod",
  *     },
- * }, {
- *     dependsOn: [
- *         azurerm_subnet_network_security_group_association.secondary,
- *         azurerm_subnet_route_table_association.secondary,
- *     ],
  * });
- * const exampleManagedInstanceFailoverGroup = new azure.sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", {
- *     resourceGroupName: azurerm_resource_group.primary.name,
+ * const exampleManagedInstanceFailoverGroup = new azure.sql.ManagedInstanceFailoverGroup("example", {
+ *     name: "example-failover-group",
+ *     resourceGroupName: primaryAzurermResourceGroup.name,
  *     location: primary.location,
  *     managedInstanceName: primary.name,
  *     partnerManagedInstanceId: secondary.id,

@@ -23,35 +23,33 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/arckubernetes"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = arckubernetes.NewCluster(ctx, "exampleCluster", &arckubernetes.ClusterArgs{
-//				ResourceGroupName:         exampleResourceGroup.Name,
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "testdata/public.cer",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = arckubernetes.NewCluster(ctx, "example", &arckubernetes.ClusterArgs{
+//				Name:                      pulumi.String("example-akcc"),
+//				ResourceGroupName:         example.Name,
 //				Location:                  pulumi.String("West Europe"),
-//				AgentPublicKeyCertificate: filebase64OrPanic("testdata/public.cer"),
+//				AgentPublicKeyCertificate: invokeFilebase64.Result,
 //				Identity: &arckubernetes.ClusterIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

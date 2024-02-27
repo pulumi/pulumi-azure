@@ -22,27 +22,30 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFunctionApp = Azure.AppService.GetFunctionApp.Invoke(new()
+    ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
     ///     {
     ///         Name = "test-azure-functions",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceAzureFunction = new Azure.DataFactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", new()
+    ///     var exampleLinkedServiceAzureFunction = new Azure.DataFactory.LinkedServiceAzureFunction("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         Url = $"https://{exampleFunctionApp.Apply(getFunctionAppResult =&gt; getFunctionAppResult.DefaultHostname)}",
+    ///         Url = $"https://{example.Apply(getFunctionAppResult =&gt; getFunctionAppResult.DefaultHostname)}",
     ///         Key = "foo",
     ///     });
     /// 

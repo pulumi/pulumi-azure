@@ -486,12 +486,16 @@ class FhirService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+        example_workspace = azure.healthcare.Workspace("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_fhir_service = azure.healthcare.FhirService("example",
+            name="tfexfhir",
             location="east us",
             resource_group_name="tfex-resource_group",
             workspace_id=example_workspace.id,
@@ -561,12 +565,16 @@ class FhirService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_fhir_service = azure.healthcare.FhirService("exampleFhirService",
+        example_workspace = azure.healthcare.Workspace("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_fhir_service = azure.healthcare.FhirService("example",
+            name="tfexfhir",
             location="east us",
             resource_group_name="tfex-resource_group",
             workspace_id=example_workspace.id,

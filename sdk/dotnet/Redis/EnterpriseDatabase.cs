@@ -22,28 +22,32 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-redisenterprise",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-redisenterprise",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "Enterprise_E20-4",
     ///     });
     /// 
     ///     var example1 = new Azure.Redis.EnterpriseCluster("example1", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-redisenterprise1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "Enterprise_E20-4",
     ///     });
     /// 
-    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("exampleEnterpriseDatabase", new()
+    ///     var exampleEnterpriseDatabase = new Azure.Redis.EnterpriseDatabase("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "default",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterId = exampleEnterpriseCluster.Id,
     ///         ClientProtocol = "Encrypted",
     ///         ClusteringPolicy = "EnterpriseCluster",

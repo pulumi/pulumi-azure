@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "East Us",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mn",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("exampleNetworkDataNetwork", new()
+    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("example", new()
     ///     {
+    ///         Name = "example-mndn",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         Description = "example description",
     ///         Tags = 
     ///         {

@@ -22,28 +22,32 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctest-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Example-Environment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleEnvironmentDaprComponent = new Azure.ContainerApp.EnvironmentDaprComponent("exampleEnvironmentDaprComponent", new()
+    ///     var exampleEnvironmentDaprComponent = new Azure.ContainerApp.EnvironmentDaprComponent("example", new()
     ///     {
+    ///         Name = "example-component",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
     ///         ComponentType = "state.azure.blobstorage",
     ///         Version = "v1",

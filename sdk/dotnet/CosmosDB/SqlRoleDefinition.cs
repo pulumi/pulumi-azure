@@ -24,15 +24,17 @@ namespace Pulumi.Azure.CosmosDB
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cosmosdb",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
@@ -43,17 +45,18 @@ namespace Pulumi.Azure.CosmosDB
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = exampleResourceGroup.Location,
+    ///                 Location = example.Location,
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlRoleDefinition = new Azure.CosmosDB.SqlRoleDefinition("exampleSqlRoleDefinition", new()
+    ///     var exampleSqlRoleDefinition = new Azure.CosmosDB.SqlRoleDefinition("example", new()
     ///     {
     ///         RoleDefinitionId = "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
+    ///         Name = "acctestsqlrole",
     ///         AssignableScopes = new[]
     ///         {
     ///             exampleAccount.Id.Apply(id =&gt; $"{id}/dbs/sales"),

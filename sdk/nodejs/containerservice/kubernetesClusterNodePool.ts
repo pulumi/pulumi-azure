@@ -19,10 +19,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example-aks1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     dnsPrefix: "exampleaks1",
  *     defaultNodePool: {
  *         name: "default",
@@ -34,7 +38,8 @@ import * as utilities from "../utilities";
  *         clientSecret: "00000000000000000000000000000000",
  *     },
  * });
- * const exampleKubernetesClusterNodePool = new azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool", {
+ * const exampleKubernetesClusterNodePool = new azure.containerservice.KubernetesClusterNodePool("example", {
+ *     name: "internal",
  *     kubernetesClusterId: exampleKubernetesCluster.id,
  *     vmSize: "Standard_DS2_v2",
  *     nodeCount: 1,

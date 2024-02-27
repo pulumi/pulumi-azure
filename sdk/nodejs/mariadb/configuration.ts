@@ -13,19 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "api-rg-pro",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mariadb.Server("example", {
+ *     name: "mariadb-server-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "B_Gen5_2",
  *     sslEnforcementEnabled: true,
  *     administratorLogin: "mariadbadmin",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     version: "10.2",
  * });
- * const exampleConfiguration = new azure.mariadb.Configuration("exampleConfiguration", {
+ * const exampleConfiguration = new azure.mariadb.Configuration("example", {
  *     name: "interactive_timeout",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     value: "600",
  * });

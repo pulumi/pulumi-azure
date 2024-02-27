@@ -45,24 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testResourceGroup = new ResourceGroup(&#34;testResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resourceGroup&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var testService = new Service(&#34;testService&#34;, ServiceArgs.builder()        
- *             .resourceGroupName(testResourceGroup.name())
- *             .location(testResourceGroup.location())
+ *             .name(&#34;example-search&#34;)
+ *             .resourceGroupName(test.name())
+ *             .location(test.location())
  *             .sku(&#34;standard&#34;)
  *             .build());
  * 
  *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(testResourceGroup.name())
- *             .location(testResourceGroup.location())
+ *             .name(&#34;xiaxintestsaforsearchspl&#34;)
+ *             .resourceGroupName(test.name())
+ *             .location(test.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var testSharedPrivateLinkService = new SharedPrivateLinkService(&#34;testSharedPrivateLinkService&#34;, SharedPrivateLinkServiceArgs.builder()        
+ *             .name(&#34;example-spl&#34;)
  *             .searchServiceId(testService.id())
  *             .subresourceName(&#34;blob&#34;)
  *             .targetResourceId(testAccount.id())

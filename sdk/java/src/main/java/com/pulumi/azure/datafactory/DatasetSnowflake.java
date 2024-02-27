@@ -48,21 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinkedServiceSnowflake = new LinkedServiceSnowflake(&#34;exampleLinkedServiceSnowflake&#34;, LinkedServiceSnowflakeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .connectionString(&#34;jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh&#34;)
  *             .build());
  * 
  *         var exampleDatasetSnowflake = new DatasetSnowflake(&#34;exampleDatasetSnowflake&#34;, DatasetSnowflakeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceSnowflake.name())
  *             .schemaName(&#34;foo_schema&#34;)

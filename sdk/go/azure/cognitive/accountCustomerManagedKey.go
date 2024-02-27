@@ -37,22 +37,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Name:              pulumi.String("example-identity"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Name:                pulumi.String("example-account"),
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
 //				Kind:                pulumi.String("Face"),
 //				SkuName:             pulumi.String("E0"),
 //				CustomSubdomainName: pulumi.String("example-account"),
@@ -66,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("example-vault"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -148,7 +152,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("example-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -164,7 +169,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognitive.NewAccountCustomerManagedKey(ctx, "exampleAccountCustomerManagedKey", &cognitive.AccountCustomerManagedKeyArgs{
+//			_, err = cognitive.NewAccountCustomerManagedKey(ctx, "example", &cognitive.AccountCustomerManagedKeyArgs{
 //				CognitiveAccountId: exampleAccount.ID(),
 //				KeyVaultKeyId:      exampleKey.ID(),
 //				IdentityClientId:   exampleUserAssignedIdentity.ClientId,

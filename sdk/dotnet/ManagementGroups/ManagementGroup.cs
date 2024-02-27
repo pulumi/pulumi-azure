@@ -26,7 +26,7 @@ namespace Pulumi.Azure.ManagementGroups
     /// {
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleParent = new Azure.Management.Group("exampleParent", new()
+    ///     var exampleParent = new Azure.Management.Group("example_parent", new()
     ///     {
     ///         DisplayName = "ParentGroup",
     ///         SubscriptionIds = new[]
@@ -35,7 +35,7 @@ namespace Pulumi.Azure.ManagementGroups
     ///         },
     ///     });
     /// 
-    ///     var exampleChild = new Azure.Management.Group("exampleChild", new()
+    ///     var exampleChild = new Azure.Management.Group("example_child", new()
     ///     {
     ///         DisplayName = "ChildGroup",
     ///         ParentManagementGroupId = exampleParent.Id,
@@ -45,7 +45,6 @@ namespace Pulumi.Azure.ManagementGroups
     ///         },
     ///     });
     /// 
-    ///     // other subscription IDs can go here
     /// });
     /// ```
     /// 

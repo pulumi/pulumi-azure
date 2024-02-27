@@ -107,16 +107,20 @@ class ServerKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             purge_protection_enabled=True)
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_server = azure.mysql.Server("example",
+            name="example-mysql-server",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="GP_Gen5_2",
             administrator_login="acctestun",
             administrator_login_password="H@Sh1CoR3!",
@@ -158,7 +162,8 @@ class ServerKey(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="tfex-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -169,12 +174,8 @@ class ServerKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_server_key = azure.mysql.ServerKey("exampleServerKey",
+            ])
+        example_server_key = azure.mysql.ServerKey("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```
@@ -208,16 +209,20 @@ class ServerKey(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             purge_protection_enabled=True)
-        example_server = azure.mysql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_server = azure.mysql.Server("example",
+            name="example-mysql-server",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="GP_Gen5_2",
             administrator_login="acctestun",
             administrator_login_password="H@Sh1CoR3!",
@@ -259,7 +264,8 @@ class ServerKey(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="tfex-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -270,12 +276,8 @@ class ServerKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    client,
-                    server,
-                ]))
-        example_server_key = azure.mysql.ServerKey("exampleServerKey",
+            ])
+        example_server_key = azure.mysql.ServerKey("example",
             server_id=example_server.id,
             key_vault_key_id=example_key.id)
         ```

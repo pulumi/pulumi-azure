@@ -30,14 +30,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpacecraft, err := orbital.NewSpacecraft(ctx, "exampleSpacecraft", &orbital.SpacecraftArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpacecraft, err := orbital.NewSpacecraft(ctx, "example", &orbital.SpacecraftArgs{
+//				Name:              pulumi.String("example-spacecraft"),
+//				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("westeurope"),
 //				NoradId:           pulumi.String("12345"),
 //				Links: orbital.SpacecraftLinkArray{
@@ -61,18 +63,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -95,9 +99,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContactProfile, err := orbital.NewContactProfile(ctx, "exampleContactProfile", &orbital.ContactProfileArgs{
-//				ResourceGroupName:              exampleResourceGroup.Name,
-//				Location:                       exampleResourceGroup.Location,
+//			exampleContactProfile, err := orbital.NewContactProfile(ctx, "example", &orbital.ContactProfileArgs{
+//				Name:                           pulumi.String("example-contactprofile"),
+//				ResourceGroupName:              example.Name,
+//				Location:                       example.Location,
 //				MinimumVariableContactDuration: pulumi.String("PT1M"),
 //				AutoTracking:                   pulumi.String("disabled"),
 //				Links: orbital.ContactProfileLinkArray{
@@ -127,7 +132,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = orbital.NewContact(ctx, "exampleContact", &orbital.ContactArgs{
+//			_, err = orbital.NewContact(ctx, "example", &orbital.ContactArgs{
+//				Name:                 pulumi.String("example-contact"),
 //				SpacecraftId:         exampleSpacecraft.ID(),
 //				ReservationStartTime: pulumi.String("2020-07-16T20:35:00.00Z"),
 //				ReservationEndTime:   pulumi.String("2020-07-16T20:55:00.00Z"),

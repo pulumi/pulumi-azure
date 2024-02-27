@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const example = azure.iot.getSharedAccessPolicy({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     iothubName: azurerm_iothub.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     iothubName: exampleAzurermIothub.name,
  * });
  * ```
  */
@@ -87,8 +87,8 @@ export interface GetSharedAccessPolicyResult {
  *
  * const example = azure.iot.getSharedAccessPolicy({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     iothubName: azurerm_iothub.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     iothubName: exampleAzurermIothub.name,
  * });
  * ```
  */

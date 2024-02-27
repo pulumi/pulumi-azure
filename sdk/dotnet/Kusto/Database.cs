@@ -22,11 +22,13 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-kusto-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var cluster = new Azure.Kusto.Cluster("cluster", new()
     ///     {
+    ///         Name = "kustocluster",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
@@ -38,6 +40,7 @@ namespace Pulumi.Azure.Kusto
     /// 
     ///     var database = new Azure.Kusto.Database("database", new()
     ///     {
+    ///         Name = "my-kusto-database",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         ClusterName = cluster.Name,

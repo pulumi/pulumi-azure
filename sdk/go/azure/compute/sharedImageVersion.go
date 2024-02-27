@@ -28,14 +28,14 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			existingImage, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
+//			existing, err := compute.LookupImage(ctx, &compute.LookupImageArgs{
 //				Name:              pulumi.StringRef("search-api"),
 //				ResourceGroupName: "packerimages",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			existingSharedImage, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
+//			existingGetSharedImage, err := compute.LookupSharedImage(ctx, &compute.LookupSharedImageArgs{
 //				Name:              "existing-image",
 //				GalleryName:       "existing_gallery",
 //				ResourceGroupName: "existing-resources",
@@ -44,14 +44,15 @@ import (
 //				return err
 //			}
 //			_, err = compute.NewSharedImageVersion(ctx, "example", &compute.SharedImageVersionArgs{
-//				GalleryName:       *pulumi.String(existingSharedImage.GalleryName),
-//				ImageName:         *pulumi.String(existingSharedImage.Name),
-//				ResourceGroupName: *pulumi.String(existingSharedImage.ResourceGroupName),
-//				Location:          *pulumi.String(existingSharedImage.Location),
-//				ManagedImageId:    *pulumi.String(existingImage.Id),
+//				Name:              pulumi.String("0.0.1"),
+//				GalleryName:       *pulumi.String(existingGetSharedImage.GalleryName),
+//				ImageName:         *pulumi.String(existingGetSharedImage.Name),
+//				ResourceGroupName: *pulumi.String(existingGetSharedImage.ResourceGroupName),
+//				Location:          *pulumi.String(existingGetSharedImage.Location),
+//				ManagedImageId:    *pulumi.String(existing.Id),
 //				TargetRegions: compute.SharedImageVersionTargetRegionArray{
 //					&compute.SharedImageVersionTargetRegionArgs{
-//						Name:                 *pulumi.String(existingSharedImage.Location),
+//						Name:                 *pulumi.String(existingGetSharedImage.Location),
 //						RegionalReplicaCount: pulumi.Int(5),
 //						StorageAccountType:   pulumi.String("Standard_LRS"),
 //					},

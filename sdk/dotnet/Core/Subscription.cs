@@ -21,16 +21,16 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleEnrollmentAccountScope = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
+    ///     var example = Azure.Billing.GetEnrollmentAccountScope.Invoke(new()
     ///     {
     ///         BillingAccountName = "1234567890",
     ///         EnrollmentAccountName = "0123456",
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
     ///     {
     ///         SubscriptionName = "My Example EA Subscription",
-    ///         BillingScopeId = exampleEnrollmentAccountScope.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
+    ///         BillingScopeId = example.Apply(getEnrollmentAccountScopeResult =&gt; getEnrollmentAccountScopeResult.Id),
     ///     });
     /// 
     /// });
@@ -45,17 +45,17 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleMcaAccountScope = Azure.Billing.GetMcaAccountScope.Invoke(new()
+    ///     var example = Azure.Billing.GetMcaAccountScope.Invoke(new()
     ///     {
     ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
     ///         BillingProfileName = "PE2Q-NOIT-BG7-TGB",
     ///         InvoiceSectionName = "MTT4-OBS7-PJA-TGB",
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
     ///     {
     ///         SubscriptionName = "My Example MCA Subscription",
-    ///         BillingScopeId = exampleMcaAccountScope.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
+    ///         BillingScopeId = example.Apply(getMcaAccountScopeResult =&gt; getMcaAccountScopeResult.Id),
     ///     });
     /// 
     /// });
@@ -70,16 +70,16 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleMpaAccountScope = Azure.Billing.GetMpaAccountScope.Invoke(new()
+    ///     var example = Azure.Billing.GetMpaAccountScope.Invoke(new()
     ///     {
     ///         BillingAccountName = "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
     ///         CustomerName = "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.Core.Subscription("exampleSubscription", new()
+    ///     var exampleSubscription = new Azure.Core.Subscription("example", new()
     ///     {
     ///         SubscriptionName = "My Example MPA Subscription",
-    ///         BillingScopeId = exampleMpaAccountScope.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
+    ///         BillingScopeId = example.Apply(getMpaAccountScopeResult =&gt; getMpaAccountScopeResult.Id),
     ///     });
     /// 
     /// });
@@ -97,8 +97,8 @@ namespace Pulumi.Azure.Core
     ///     var example = new Azure.Core.Subscription("example", new()
     ///     {
     ///         Alias = "examplesub",
-    ///         SubscriptionId = "12345678-12234-5678-9012-123456789012",
     ///         SubscriptionName = "My Example Subscription",
+    ///         SubscriptionId = "12345678-12234-5678-9012-123456789012",
     ///     });
     /// 
     /// });

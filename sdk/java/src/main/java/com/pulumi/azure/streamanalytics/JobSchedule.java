@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.streamanalytics.inputs.OutputBlobSerializationArgs;
  * import com.pulumi.azure.streamanalytics.JobSchedule;
  * import com.pulumi.azure.streamanalytics.JobScheduleArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import com.pulumi.asset.FileAsset;
  * import java.util.List;
  * import java.util.ArrayList;
@@ -56,23 +55,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleBlob = new Blob(&#34;exampleBlob&#34;, BlobArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type(&#34;Block&#34;)
@@ -80,8 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-job&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .compatibilityLevel(&#34;1.2&#34;)
  *             .dataLocale(&#34;en-GB&#34;)
  *             .eventsLateArrivalMaxDelayInSeconds(60)
@@ -98,6 +102,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamInputBlob = new StreamInputBlob(&#34;exampleStreamInputBlob&#34;, StreamInputBlobArgs.builder()        
+ *             .name(&#34;exampleinput&#34;)
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .storageAccountName(exampleAccount.name())
@@ -114,6 +119,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputBlob = new OutputBlob(&#34;exampleOutputBlob&#34;, OutputBlobArgs.builder()        
+ *             .name(&#34;exampleoutput&#34;)
  *             .streamAnalyticsJobName(exampleJob.name())
  *             .resourceGroupName(exampleJob.resourceGroupName())
  *             .storageAccountName(exampleAccount.name())
@@ -131,12 +137,7 @@ import javax.annotation.Nullable;
  *             .streamAnalyticsJobId(exampleJob.id())
  *             .startMode(&#34;CustomTime&#34;)
  *             .startTime(&#34;2022-09-21T00:00:00Z&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleJob,
- *                     exampleStreamInputBlob,
- *                     exampleOutputBlob)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -53,13 +53,14 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Example Management Group&#34;)
  *             .build());
  * 
- *         final var examplePolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+ *         final var example = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
  *             .displayName(&#34;Allowed locations&#34;)
  *             .build());
  * 
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
+ *             .name(&#34;exampleAssignment&#34;)
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(examplePolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .policyDefinitionId(example.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
  *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
@@ -69,6 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupPolicyRemediation = new GroupPolicyRemediation(&#34;exampleGroupPolicyRemediation&#34;, GroupPolicyRemediationArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
  *             .build());

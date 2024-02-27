@@ -26,28 +26,28 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
         ///         Name = "example-apim",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     var exampleGetGateway = Azure.ApiManagement.GetGateway.Invoke(new()
         ///     {
         ///         Name = "example-gateway",
-        ///         ApiManagementId = data.Azurerm_api_management.Main.Id,
+        ///         ApiManagementId = main.Id,
         ///     });
         /// 
-        ///     var exampleGatewayHostNameConfiguration = Azure.ApiManagement.GetGatewayHostNameConfiguration.Invoke(new()
+        ///     var exampleGetGatewayHostNameConfiguration = Azure.ApiManagement.GetGatewayHostNameConfiguration.Invoke(new()
         ///     {
         ///         Name = "example-host-configuration",
-        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
-        ///         GatewayName = exampleGateway.Apply(getGatewayResult =&gt; getGatewayResult.Name),
+        ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         GatewayName = exampleGetGateway.Apply(getGatewayResult =&gt; getGatewayResult.Name),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["hostName"] = exampleGatewayHostNameConfiguration.Apply(getGatewayHostNameConfigurationResult =&gt; getGatewayHostNameConfigurationResult.HostName),
+        ///         ["hostName"] = exampleGetGatewayHostNameConfiguration.Apply(getGatewayHostNameConfigurationResult =&gt; getGatewayHostNameConfigurationResult.HostName),
         ///     };
         /// });
         /// ```
@@ -72,28 +72,28 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
         ///         Name = "example-apim",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     var exampleGetGateway = Azure.ApiManagement.GetGateway.Invoke(new()
         ///     {
         ///         Name = "example-gateway",
-        ///         ApiManagementId = data.Azurerm_api_management.Main.Id,
+        ///         ApiManagementId = main.Id,
         ///     });
         /// 
-        ///     var exampleGatewayHostNameConfiguration = Azure.ApiManagement.GetGatewayHostNameConfiguration.Invoke(new()
+        ///     var exampleGetGatewayHostNameConfiguration = Azure.ApiManagement.GetGatewayHostNameConfiguration.Invoke(new()
         ///     {
         ///         Name = "example-host-configuration",
-        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
-        ///         GatewayName = exampleGateway.Apply(getGatewayResult =&gt; getGatewayResult.Name),
+        ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         GatewayName = exampleGetGateway.Apply(getGatewayResult =&gt; getGatewayResult.Name),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["hostName"] = exampleGatewayHostNameConfiguration.Apply(getGatewayHostNameConfigurationResult =&gt; getGatewayHostNameConfigurationResult.HostName),
+        ///         ["hostName"] = exampleGetGatewayHostNameConfiguration.Apply(getGatewayHostNameConfigurationResult =&gt; getGatewayHostNameConfigurationResult.HostName),
         ///     };
         /// });
         /// ```

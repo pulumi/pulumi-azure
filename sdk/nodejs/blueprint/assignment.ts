@@ -20,39 +20,42 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleSubscription = azure.core.getSubscription({});
- * const exampleDefinition = exampleSubscription.then(exampleSubscription => azure.blueprint.getDefinition({
+ * const example = azure.core.getSubscription({});
+ * const exampleGetDefinition = example.then(example => azure.blueprint.getDefinition({
  *     name: "exampleBlueprint",
- *     scopeId: exampleSubscription.id,
+ *     scopeId: example.id,
  * }));
- * const examplePublishedVersion = Promise.all([exampleDefinition, exampleDefinition]).then(([exampleDefinition, exampleDefinition1]) => azure.blueprint.getPublishedVersion({
- *     scopeId: exampleDefinition.scopeId,
- *     blueprintName: exampleDefinition1.name,
+ * const exampleGetPublishedVersion = Promise.all([exampleGetDefinition, exampleGetDefinition]).then(([exampleGetDefinition, exampleGetDefinition1]) => azure.blueprint.getPublishedVersion({
+ *     scopeId: exampleGetDefinition.scopeId,
+ *     blueprintName: exampleGetDefinition1.name,
  *     version: "v1.0.0",
  * }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "exampleRG-bp",
  *     location: "West Europe",
  *     tags: {
  *         Environment: "example",
  *     },
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
+ *     name: "bp-user-example",
  * });
  * const operator = new azure.authorization.Assignment("operator", {
- *     scope: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ *     scope: example.then(example => example.id),
  *     roleDefinitionName: "Blueprint Operator",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
  * const owner = new azure.authorization.Assignment("owner", {
- *     scope: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ *     scope: example.then(example => example.id),
  *     roleDefinitionName: "Owner",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const exampleAssignment = new azure.blueprint.Assignment("exampleAssignment", {
- *     targetSubscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
- *     versionId: examplePublishedVersion.then(examplePublishedVersion => examplePublishedVersion.id),
+ * const exampleAssignment = new azure.blueprint.Assignment("example", {
+ *     name: "testAccBPAssignment",
+ *     targetSubscriptionId: example.then(example => example.id),
+ *     versionId: exampleGetPublishedVersion.then(exampleGetPublishedVersion => exampleGetPublishedVersion.id),
  *     location: exampleResourceGroup.location,
  *     lockMode: "AllResourcesDoNotDelete",
  *     lockExcludePrincipals: [current.then(current => current.objectId)],
@@ -72,11 +75,6 @@ import * as utilities from "../utilities";
  *       }
  *     }
  * `,
- * }, {
- *     dependsOn: [
- *         operator,
- *         owner,
- *     ],
  * });
  * ```
  *

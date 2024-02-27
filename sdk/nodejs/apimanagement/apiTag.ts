@@ -13,18 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = azure.apimanagement.getServiceOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.apimanagement.getServiceOutput({
  *     name: "example-apim",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleApi = new azure.apimanagement.Api("exampleApi", {
+ * const exampleApi = new azure.apimanagement.Api("example", {
+ *     name: "example-api",
  *     resourceGroupName: exampleResourceGroup.name,
- *     apiManagementName: exampleService.apply(exampleService => exampleService.name),
+ *     apiManagementName: example.apply(example => example.name),
  *     revision: "1",
  * });
- * const exampleTag = new azure.apimanagement.Tag("exampleTag", {apiManagementId: exampleService.apply(exampleService => exampleService.id)});
- * const exampleApiTag = new azure.apimanagement.ApiTag("exampleApiTag", {apiId: exampleApi.id});
+ * const exampleTag = new azure.apimanagement.Tag("example", {
+ *     apiManagementId: example.apply(example => example.id),
+ *     name: "example-tag",
+ * });
+ * const exampleApiTag = new azure.apimanagement.ApiTag("example", {
+ *     apiId: exampleApi.id,
+ *     name: exampleTag.name,
+ * });
  * ```
  *
  * ## Import

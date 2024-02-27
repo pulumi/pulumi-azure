@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.monitoring.getWorkspace({
  *     name: "example-workspace",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const queryEndpoint = example.then(example => example.queryEndpoint);
  * ```
@@ -89,7 +89,7 @@ export interface GetWorkspaceResult {
  *
  * const example = azure.monitoring.getWorkspace({
  *     name: "example-workspace",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const queryEndpoint = example.then(example => example.queryEndpoint);
  * ```

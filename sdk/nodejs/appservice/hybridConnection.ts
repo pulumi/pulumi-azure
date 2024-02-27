@@ -17,33 +17,40 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exampleResourceGroup1",
+ *     location: "West Europe",
+ * });
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "exampleAppServicePlan1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     name: "exampleAppService1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  * });
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNamespace = new azure.relay.Namespace("example", {
+ *     name: "exampleRN1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ *     name: "exampleRHC1",
+ *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,
  *     userMetadata: "examplemetadata",
  * });
- * const exampleAppservice_hybridConnectionHybridConnection = new azure.appservice.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", {
+ * const exampleHybridConnection2 = new azure.appservice.HybridConnection("example", {
  *     appServiceName: exampleAppService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     relayId: exampleHybridConnection.id,
  *     hostname: "testhostname.example",
  *     port: 8080,

@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
     ///         Name = "my-api",
     ///         ApiManagementName = "example-apim",
@@ -30,11 +30,11 @@ namespace Pulumi.Azure.ApiManagement
     ///         Revision = "2",
     ///     });
     /// 
-    ///     var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("exampleApiPolicy", new()
+    ///     var exampleApiPolicy = new Azure.ApiManagement.ApiPolicy("example", new()
     ///     {
-    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
-    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         ApiName = example.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = example.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
     ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
     ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;

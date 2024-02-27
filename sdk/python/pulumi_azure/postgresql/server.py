@@ -773,10 +773,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.postgresql.Server("example",
+            name="example-psqlserver",
+            location=example.location,
+            resource_group_name=example.name,
             administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             sku_name="GP_Gen5_4",
@@ -843,10 +846,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.postgresql.Server("example",
+            name="example-psqlserver",
+            location=example.location,
+            resource_group_name=example.name,
             administrator_login="psqladmin",
             administrator_login_password="H@Sh1CoR3!",
             sku_name="GP_Gen5_4",

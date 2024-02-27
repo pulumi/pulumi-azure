@@ -26,13 +26,15 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var example = new Azure.AppInsights.Insights("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         ApplicationType = "example-value",
@@ -40,25 +42,27 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var test = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = data.Azurerm_client_config.Example.Tenant_id,
+    ///         TenantId = exampleAzurermClientConfig.TenantId,
     ///         SkuName = "example-value",
     ///         SoftDeleteRetentionDays = "example-value",
     ///     });
     /// 
-    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
-    ///         TenantId = data.Azurerm_client_config.Example.Tenant_id,
-    ///         ObjectId = data.Azurerm_client_config.Example.Object_id,
+    ///         TenantId = exampleAzurermClientConfig.TenantId,
+    ///         ObjectId = exampleAzurermClientConfig.ObjectId,
     ///         KeyPermissions = "example-value",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         DnsPrefix = "acctestaksexample",
@@ -74,30 +78,33 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AccountTier = "example-value",
     ///         AccountReplicationType = "example-value",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
-    ///         ApplicationInsightsId = exampleInsights.Id,
+    ///         ApplicationInsightsId = example.Id,
     ///         Identity = new Azure.MachineLearning.Inputs.WorkspaceIdentityArgs
     ///         {
     ///             Type = "example-value",
     ///         },
     ///     });
     /// 
-    ///     var exampleClusterTrustedAccessRoleBinding = new Azure.ContainerService.ClusterTrustedAccessRoleBinding("exampleClusterTrustedAccessRoleBinding", new()
+    ///     var exampleClusterTrustedAccessRoleBinding = new Azure.ContainerService.ClusterTrustedAccessRoleBinding("example", new()
     ///     {
     ///         KubernetesClusterId = exampleKubernetesCluster.Id,
+    ///         Name = "example",
     ///         Roles = "example-value",
     ///         SourceResourceId = exampleWorkspace.Id,
     ///     });

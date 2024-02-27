@@ -14,6 +14,125 @@ import (
 
 // Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("monitoring-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example2, err := appinsights.NewInsights(ctx, "example2", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("appinsights2"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example: Alerting Action with result count trigger
+//			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example", &monitoring.ScheduledQueryRulesAlertArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
+//					ActionGroups:         pulumi.StringArray{},
+//					EmailSubject:         pulumi.String("Email Header"),
+//					CustomWebhookPayload: pulumi.String("{}"),
+//				},
+//				DataSourceId: exampleInsights.ID(),
+//				Description:  pulumi.String("Alert when total results cross threshold"),
+//				Enabled:      pulumi.Bool(true),
+//				Query:        pulumi.String("requests\n  | where tolong(resultCode) >= 500\n  | summarize count() by bin(timestamp, 5m)\n"),
+//				Severity:     pulumi.Int(1),
+//				Frequency:    pulumi.Int(5),
+//				TimeWindow:   pulumi.Int(30),
+//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
+//					Operator:  pulumi.String("GreaterThan"),
+//					Threshold: pulumi.Float64(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			// Example: Alerting Action Cross-Resource
+//			_, err = monitoring.NewScheduledQueryRulesAlert(ctx, "example2", &monitoring.ScheduledQueryRulesAlertArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				AuthorizedResourceIds: pulumi.StringArray{
+//					example2.ID(),
+//				},
+//				Action: &monitoring.ScheduledQueryRulesAlertActionArgs{
+//					ActionGroups:         pulumi.StringArray{},
+//					EmailSubject:         pulumi.String("Email Header"),
+//					CustomWebhookPayload: pulumi.String("{}"),
+//				},
+//				DataSourceId: exampleInsights.ID(),
+//				Description:  pulumi.String("Query may access data within multiple resources"),
+//				Enabled:      pulumi.Bool(true),
+//				Query: notImplemented(`format(<<-QUERY
+//	  let a=requests
+//	    | where toint(resultCode) >= 500
+//	    | extend fail=1; let b=app('%s').requests
+//	    | where toint(resultCode) >= 500 | extend fail=1; a
+//	    | join b on fail
+//
+// QUERY
+// ,azurerm_application_insights.example2.id)`),
+//
+//				Severity:   pulumi.Int(1),
+//				Frequency:  pulumi.Int(5),
+//				TimeWindow: pulumi.Int(30),
+//				Trigger: &monitoring.ScheduledQueryRulesAlertTriggerArgs{
+//					Operator:  pulumi.String("GreaterThan"),
+//					Threshold: pulumi.Float64(3),
+//				},
+//				Tags: pulumi.StringMap{
+//					"foo": pulumi.String("bar"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

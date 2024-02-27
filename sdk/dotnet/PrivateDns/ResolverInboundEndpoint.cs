@@ -22,31 +22,35 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleResolver = new Azure.PrivateDns.Resolver("exampleResolver", new()
+    ///     var exampleResolver = new Azure.PrivateDns.Resolver("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "inbounddns",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -69,8 +73,9 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleResolverInboundEndpoint = new Azure.PrivateDns.ResolverInboundEndpoint("exampleResolverInboundEndpoint", new()
+    ///     var exampleResolverInboundEndpoint = new Azure.PrivateDns.ResolverInboundEndpoint("example", new()
     ///     {
+    ///         Name = "example-drie",
     ///         PrivateDnsResolverId = exampleResolver.Id,
     ///         Location = exampleResolver.Location,
     ///         IpConfigurations = new[]

@@ -13,15 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const example = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ * const exampleGetAccountSAS = azure.storage.getAccountSASOutput({
  *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     resourceTypes: {
@@ -50,14 +54,15 @@ import * as utilities from "../utilities";
  *         filter: false,
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvault",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
- *     tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
+ *     tenantId: example.then(example => example.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
- *         tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
- *         objectId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *         tenantId: example.then(example => example.tenantId),
+ *         objectId: example.then(example => example.objectId),
  *         secretPermissions: [
  *             "Get",
  *             "Delete",
@@ -74,17 +79,19 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount", {
+ * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("example", {
+ *     name: "examplemanagedstorage",
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     storageAccountKey: "key1",
  *     regenerateKeyAutomatically: false,
  *     regenerationPeriod: "P1D",
  * });
- * const exampleManagedStorageAccountSasTokenDefinition = new azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", {
+ * const exampleManagedStorageAccountSasTokenDefinition = new azure.keyvault.ManagedStorageAccountSasTokenDefinition("example", {
+ *     name: "examplesasdefinition",
  *     validityPeriod: "P1D",
  *     managedStorageAccountId: exampleManagedStorageAccount.id,
- *     sasTemplateUri: exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas),
+ *     sasTemplateUri: exampleGetAccountSAS.apply(exampleGetAccountSAS => exampleGetAccountSAS.sas),
  *     sasType: "account",
  * });
  * ```

@@ -24,14 +24,16 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new()
+    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         BackendPools = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FrontdoorBackendPoolArgs
@@ -95,8 +97,9 @@ namespace Pulumi.Azure.FrontDoor
     ///         },
     ///     });
     /// 
-    ///     var exampleRulesEngine = new Azure.FrontDoor.RulesEngine("exampleRulesEngine", new()
+    ///     var exampleRulesEngine = new Azure.FrontDoor.RulesEngine("example_rules_engine", new()
     ///     {
+    ///         Name = "exampleRulesEngineConfig1",
     ///         FrontdoorName = exampleFrontdoor.Name,
     ///         ResourceGroupName = exampleFrontdoor.ResourceGroupName,
     ///         Rules = new[]

@@ -1569,10 +1569,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
             dns_prefix="exampleaks1",
             default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
                 name="default",
@@ -1583,7 +1586,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 client_id="00000000-0000-0000-0000-000000000000",
                 client_secret="00000000000000000000000000000000",
             ))
-        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
+        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
+            name="internal",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             vm_size="Standard_DS2_v2",
             node_count=1,
@@ -1691,10 +1695,13 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("example",
+            name="example-aks1",
+            location=example.location,
+            resource_group_name=example.name,
             dns_prefix="exampleaks1",
             default_node_pool=azure.containerservice.KubernetesClusterDefaultNodePoolArgs(
                 name="default",
@@ -1705,7 +1712,8 @@ class KubernetesClusterNodePool(pulumi.CustomResource):
                 client_id="00000000-0000-0000-0000-000000000000",
                 client_secret="00000000000000000000000000000000",
             ))
-        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("exampleKubernetesClusterNodePool",
+        example_kubernetes_cluster_node_pool = azure.containerservice.KubernetesClusterNodePool("example",
+            name="internal",
             kubernetes_cluster_id=example_kubernetes_cluster.id,
             vm_size="Standard_DS2_v2",
             node_count=1,

@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AllocationMethod:  pulumi.String("Static"),
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
@@ -48,18 +50,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -79,10 +83,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = nginx.NewDeployment(ctx, "exampleDeployment", &nginx.DeploymentArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			_, err = nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
+//				Name:                   pulumi.String("example-nginx"),
+//				ResourceGroupName:      example.Name,
 //				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               exampleResourceGroup.Location,
+//				Location:               example.Location,
 //				ManagedResourceGroup:   pulumi.String("example"),
 //				DiagnoseSupportEnabled: pulumi.Bool(true),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{

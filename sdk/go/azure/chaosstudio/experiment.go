@@ -32,31 +32,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -65,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("example"),
@@ -79,9 +84,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:                          pulumi.String("example"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
 //				Size:                          pulumi.String("Standard_F2"),
 //				AdminUsername:                 pulumi.String("adminuser"),
 //				AdminPassword:                 pulumi.String("example"),
@@ -103,24 +109,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTarget, err := chaosstudio.NewTarget(ctx, "exampleTarget", &chaosstudio.TargetArgs{
-//				Location:         exampleResourceGroup.Location,
+//			exampleTarget, err := chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
+//				Location:         example.Location,
 //				TargetResourceId: exampleLinuxVirtualMachine.ID(),
 //				TargetType:       pulumi.String("Microsoft-VirtualMachine"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCapability, err := chaosstudio.NewCapability(ctx, "exampleCapability", &chaosstudio.CapabilityArgs{
+//			exampleCapability, err := chaosstudio.NewCapability(ctx, "example", &chaosstudio.CapabilityArgs{
 //				ChaosStudioTargetId: exampleTarget.ID(),
 //				CapabilityType:      pulumi.String("Shutdown-1.0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chaosstudio.NewExperiment(ctx, "exampleExperiment", &chaosstudio.ExperimentArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = chaosstudio.NewExperiment(ctx, "example", &chaosstudio.ExperimentArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				Identity: &chaosstudio.ExperimentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

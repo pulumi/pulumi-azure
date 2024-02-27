@@ -33,12 +33,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				Name:              pulumi.String("appConf1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //			})
@@ -49,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        *pulumi.String(current.ObjectId),
@@ -60,6 +62,7 @@ import (
 //			_, err = appconfiguration.NewConfigurationFeature(ctx, "test", &appconfiguration.ConfigurationFeatureArgs{
 //				ConfigurationStoreId: appconf.ID(),
 //				Description:          pulumi.String("test description"),
+//				Name:                 pulumi.String("test-ackey"),
 //				Label:                pulumi.String("test-ackeylabel"),
 //				Enabled:              pulumi.Bool(true),
 //			})

@@ -46,18 +46,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDedicatedHostGroup = new DedicatedHostGroup(&#34;exampleDedicatedHostGroup&#34;, DedicatedHostGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-host-group&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .platformFaultDomainCount(2)
  *             .build());
  * 
  *         var exampleDedicatedHost = new DedicatedHost(&#34;exampleDedicatedHost&#34;, DedicatedHostArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-host&#34;)
+ *             .location(example.location())
  *             .dedicatedHostGroupId(exampleDedicatedHostGroup.id())
  *             .skuName(&#34;DSv3-Type3&#34;)
  *             .platformFaultDomain(1)

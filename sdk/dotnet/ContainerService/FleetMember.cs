@@ -24,13 +24,15 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         DnsPrefix = "acctestaksexample",
@@ -46,8 +48,9 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("exampleKubernetesFleetManager", new()
+    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         HubProfile = new Azure.ContainerService.Inputs.KubernetesFleetManagerHubProfileArgs
@@ -56,10 +59,11 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleFleetMember = new Azure.ContainerService.FleetMember("exampleFleetMember", new()
+    ///     var exampleFleetMember = new Azure.ContainerService.FleetMember("example", new()
     ///     {
-    ///         KubernetesClusterId = exampleKubernetesCluster.Id,
+    ///         KubernetesClusterId = example.Id,
     ///         KubernetesFleetId = exampleKubernetesFleetManager.Id,
+    ///         Name = "example",
     ///     });
     /// 
     /// });

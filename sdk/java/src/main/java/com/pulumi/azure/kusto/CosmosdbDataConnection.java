@@ -69,6 +69,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exampleRG&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
@@ -77,6 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;examplekc&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
@@ -95,6 +97,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example-ca&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .offerType(&#34;Standard&#34;)
@@ -111,11 +114,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
+ *             .name(&#34;examplecosmosdbsqldb&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
+ *             .name(&#34;examplecosmosdbsqlcon&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
@@ -123,7 +128,7 @@ import javax.annotation.Nullable;
  *             .throughput(400)
  *             .build());
  * 
- *         final var exampleSqlRoleDefinition = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
+ *         final var example = CosmosdbFunctions.getSqlRoleDefinition(GetSqlRoleDefinitionArgs.builder()
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000001&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
@@ -132,18 +137,20 @@ import javax.annotation.Nullable;
  *         var exampleSqlRoleAssignment = new SqlRoleAssignment(&#34;exampleSqlRoleAssignment&#34;, SqlRoleAssignmentArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
- *             .roleDefinitionId(exampleSqlRoleDefinition.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult).applyValue(exampleSqlRoleDefinition -&gt; exampleSqlRoleDefinition.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult.id())))
+ *             .roleDefinitionId(example.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult).applyValue(example -&gt; example.applyValue(getSqlRoleDefinitionResult -&gt; getSqlRoleDefinitionResult.id())))
  *             .principalId(exampleCluster.identity().applyValue(identity -&gt; identity.principalId()))
  *             .scope(exampleAccount.id())
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;examplekd&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
  *         var exampleScript = new Script(&#34;exampleScript&#34;, ScriptArgs.builder()        
+ *             .name(&#34;create-table-script&#34;)
  *             .databaseId(exampleDatabase.id())
  *             .scriptContent(&#34;&#34;&#34;
  * .create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
@@ -159,6 +166,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCosmosdbDataConnection = new CosmosdbDataConnection(&#34;exampleCosmosdbDataConnection&#34;, CosmosdbDataConnectionArgs.builder()        
+ *             .name(&#34;examplekcdcd&#34;)
  *             .location(exampleResourceGroup.location())
  *             .cosmosdbContainerId(exampleSqlContainer.id())
  *             .kustoDatabaseId(exampleDatabase.id())

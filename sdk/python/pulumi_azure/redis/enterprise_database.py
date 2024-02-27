@@ -433,17 +433,22 @@ class EnterpriseDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-redisenterprise",
+            location="West Europe")
+        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
+            name="example-redisenterprise",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Enterprise_E20-4")
         example1 = azure.redis.EnterpriseCluster("example1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-redisenterprise1",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
-            resource_group_name=example_resource_group.name,
+        example_enterprise_database = azure.redis.EnterpriseDatabase("example",
+            name="default",
+            resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
             client_protocol="Encrypted",
             clustering_policy="EnterpriseCluster",
@@ -496,17 +501,22 @@ class EnterpriseDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_enterprise_cluster = azure.redis.EnterpriseCluster("exampleEnterpriseCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-redisenterprise",
+            location="West Europe")
+        example_enterprise_cluster = azure.redis.EnterpriseCluster("example",
+            name="example-redisenterprise",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Enterprise_E20-4")
         example1 = azure.redis.EnterpriseCluster("example1",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-redisenterprise1",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Enterprise_E20-4")
-        example_enterprise_database = azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase",
-            resource_group_name=example_resource_group.name,
+        example_enterprise_database = azure.redis.EnterpriseDatabase("example",
+            name="default",
+            resource_group_name=example.name,
             cluster_id=example_enterprise_cluster.id,
             client_protocol="Encrypted",
             clustering_policy="EnterpriseCluster",

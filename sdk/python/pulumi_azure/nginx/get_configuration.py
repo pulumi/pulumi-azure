@@ -110,7 +110,7 @@ def get_configuration(nginx_deployment_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_configuration(nginx_deployment_id=azurerm_nginx_deployment["example"]["id"])
+    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
 
@@ -143,7 +143,7 @@ def get_configuration_output(nginx_deployment_id: Optional[pulumi.Input[str]] = 
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.nginx.get_configuration(nginx_deployment_id=azurerm_nginx_deployment["example"]["id"])
+    example = azure.nginx.get_configuration(nginx_deployment_id=example_azurerm_nginx_deployment["id"])
     pulumi.export("id", example.id)
     ```
 

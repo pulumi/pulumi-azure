@@ -52,7 +52,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.PacketCapture;
  * import com.pulumi.azure.compute.PacketCaptureArgs;
  * import com.pulumi.azure.compute.inputs.PacketCaptureStorageLocationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,30 +65,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetworkWatcher = new NetworkWatcher(&#34;exampleNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-nw&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;testconfiguration1&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -98,8 +102,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vm&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .vmSize(&#34;Standard_F2&#34;)
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
@@ -125,6 +130,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
+ *             .name(&#34;network-watcher&#34;)
  *             .virtualMachineId(exampleVirtualMachine.id())
  *             .publisher(&#34;Microsoft.Azure.NetworkWatcher&#34;)
  *             .type(&#34;NetworkWatcherAgentLinux&#34;)
@@ -133,21 +139,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var examplePacketCapture = new PacketCapture(&#34;examplePacketCapture&#34;, PacketCaptureArgs.builder()        
+ *             .name(&#34;example-pc&#34;)
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .virtualMachineId(exampleVirtualMachine.id())
  *             .storageLocation(PacketCaptureStorageLocationArgs.builder()
  *                 .storageAccountId(exampleAccount.id())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleExtension)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

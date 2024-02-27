@@ -19,29 +19,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "example-sb-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Premium",
  *     capacity: 1,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["172.17.0.0/16"],
  *     dnsServers: [
  *         "10.0.0.4",
  *         "10.0.0.5",
  *     ],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "default",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["172.17.0.0/24"],
  *     serviceEndpoints: ["Microsoft.ServiceBus"],
  * });
- * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", {
+ * const exampleNamespaceNetworkRuleSet = new azure.servicebus.NamespaceNetworkRuleSet("example", {
  *     namespaceId: exampleNamespace.id,
  *     defaultAction: "Deny",
  *     publicNetworkAccessEnabled: true,

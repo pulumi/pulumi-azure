@@ -30,34 +30,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resource-group"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example-public-ip"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("example-nsg"),
+//				Location:          pulumi.Any(test.Location),
+//				ResourceGroupName: pulumi.Any(test.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},
@@ -65,8 +69,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			trustSubnet, err := network.NewSubnet(ctx, "trustSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			trust, err := network.NewSubnet(ctx, "trust", &network.SubnetArgs{
+//				Name:               pulumi.String("example-trust-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -86,15 +91,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trustSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               trustSubnet.ID(),
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "trust", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               trust.ID(),
 //				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			untrustSubnet, err := network.NewSubnet(ctx, "untrustSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			untrust, err := network.NewSubnet(ctx, "untrust", &network.SubnetArgs{
+//				Name:               pulumi.String("example-untrust-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -114,16 +120,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrustSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
-//				SubnetId:               untrustSubnet.ID(),
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "untrust", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//				SubnetId:               untrust.ID(),
 //				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkPanorama(ctx, "exampleNextGenerationFirewallVirtualNetworkPanorama", &paloalto.NextGenerationFirewallVirtualNetworkPanoramaArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
-//				Location:             exampleResourceGroup.Location,
+//			_, err = paloalto.NewNextGenerationFirewallVirtualNetworkPanorama(ctx, "example", &paloalto.NextGenerationFirewallVirtualNetworkPanoramaArgs{
+//				Name:                 pulumi.String("example-ngfwvh"),
+//				ResourceGroupName:    example.Name,
+//				Location:             example.Location,
 //				PanoramaBase64Config: pulumi.String("e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg=="),
 //				NetworkProfile: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs{
 //					PublicIpAddressIds: pulumi.StringArray{
@@ -131,8 +138,8 @@ import (
 //					},
 //					VnetConfiguration: &paloalto.NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs{
 //						VirtualNetworkId:  exampleVirtualNetwork.ID(),
-//						TrustedSubnetId:   trustSubnet.ID(),
-//						UntrustedSubnetId: untrustSubnet.ID(),
+//						TrustedSubnetId:   trust.ID(),
+//						UntrustedSubnetId: untrust.ID(),
 //					},
 //				},
 //			})

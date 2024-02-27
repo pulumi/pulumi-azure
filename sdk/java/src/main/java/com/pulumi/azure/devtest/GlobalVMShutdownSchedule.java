@@ -58,25 +58,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;sample-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;sample-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;sample-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;sample-nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;testconfiguration1&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -85,8 +89,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;SampleVM&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .size(&#34;Standard_B2s&#34;)
  *             .sourceImageReference(LinuxVirtualMachineSourceImageReferenceArgs.builder()
@@ -107,7 +112,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleGlobalVMShutdownSchedule = new GlobalVMShutdownSchedule(&#34;exampleGlobalVMShutdownSchedule&#34;, GlobalVMShutdownScheduleArgs.builder()        
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .enabled(true)
  *             .dailyRecurrenceTime(&#34;1100&#34;)
  *             .timezone(&#34;Pacific Standard Time&#34;)

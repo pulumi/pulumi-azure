@@ -5976,12 +5976,13 @@ class ScaleSetIdentityArgs:
                import pulumi_azure as azure
                
                example = azure.compute.ScaleSet("example",
-                   resource_group_name=azurerm_resource_group["example"]["name"],
-                   location=azurerm_resource_group["example"]["location"],
+                   name="vm-scaleset",
+                   resource_group_name=example_azurerm_resource_group["name"],
+                   location=example_azurerm_resource_group["location"],
                    sku=azure.compute.ScaleSetSkuArgs(
-                       name=var["vm_sku"],
+                       name=vm_sku,
                        tier="Standard",
-                       capacity=var["instance_count"],
+                       capacity=instance_count,
                    ),
                    identity=azure.compute.ScaleSetIdentityArgs(
                        type="SystemAssigned",
@@ -5993,7 +5994,6 @@ class ScaleSetIdentityArgs:
                        type_handler_version="1.0",
                        settings="{\\"port\\": 50342}",
                    )])
-               # ...
                pulumi.export("principalId", example.identity.principal_id)
                ```
         """
@@ -6026,12 +6026,13 @@ class ScaleSetIdentityArgs:
         import pulumi_azure as azure
 
         example = azure.compute.ScaleSet("example",
-            resource_group_name=azurerm_resource_group["example"]["name"],
-            location=azurerm_resource_group["example"]["location"],
+            name="vm-scaleset",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
             sku=azure.compute.ScaleSetSkuArgs(
-                name=var["vm_sku"],
+                name=vm_sku,
                 tier="Standard",
-                capacity=var["instance_count"],
+                capacity=instance_count,
             ),
             identity=azure.compute.ScaleSetIdentityArgs(
                 type="SystemAssigned",
@@ -6043,7 +6044,6 @@ class ScaleSetIdentityArgs:
                 type_handler_version="1.0",
                 settings="{\\"port\\": 50342}",
             )])
-        # ...
         pulumi.export("principalId", example.identity.principal_id)
         ```
         """

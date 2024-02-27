@@ -16,17 +16,21 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
+ *     name: "example-bcr",
  *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sku: "F0",
  *     microsoftAppId: current.then(current => current.clientId),
  * });
- * const exampleChannelSms = new azure.bot.ChannelSms("exampleChannelSms", {
+ * const exampleChannelSms = new azure.bot.ChannelSms("example", {
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     smsChannelAccountSecurityId: "BG61f7cf5157f439b084e98256409c2815",
  *     smsChannelAuthToken: "jh8980432610052ed4e29565c5e232f",
  *     phoneNumber: "+12313803556",

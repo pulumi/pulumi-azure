@@ -25,15 +25,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-route-table",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         DisableBgpRoutePropagation = false,
     ///         Routes = new[]
     ///         {

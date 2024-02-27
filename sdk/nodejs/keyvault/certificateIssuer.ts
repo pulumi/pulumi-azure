@@ -16,14 +16,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "standard",
  *     tenantId: current.then(current => current.tenantId),
  * });
- * const exampleCertificateIssuer = new azure.keyvault.CertificateIssuer("exampleCertificateIssuer", {
+ * const exampleCertificateIssuer = new azure.keyvault.CertificateIssuer("example", {
+ *     name: "example-issuer",
  *     orgId: "ExampleOrgName",
  *     keyVaultId: exampleKeyVault.id,
  *     providerName: "DigiCert",

@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.mssql.getManagedInstance({
  *     name: "managedsqlinstance",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -139,7 +139,7 @@ export interface GetManagedInstanceResult {
  *
  * const example = azure.mssql.getManagedInstance({
  *     name: "managedsqlinstance",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */

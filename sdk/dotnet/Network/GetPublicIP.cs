@@ -53,13 +53,15 @@ namespace Pulumi.Azure.Network
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "test-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+        ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
         ///     {
+        ///         Name = "test-network",
         ///         AddressSpaces = new[]
         ///         {
         ///             "10.0.0.0/16",
@@ -68,8 +70,9 @@ namespace Pulumi.Azure.Network
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///     });
         /// 
-        ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+        ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
         ///     {
+        ///         Name = "acctsub",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         VirtualNetworkName = exampleVirtualNetwork.Name,
         ///         AddressPrefixes = new[]
@@ -78,8 +81,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+        ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
         ///     {
+        ///         Name = "test-pip",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         AllocationMethod = "Dynamic",
@@ -90,8 +94,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+        ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
         ///     {
+        ///         Name = "test-nic",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         IpConfigurations = new[]
@@ -107,8 +112,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+        ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
         ///     {
+        ///         Name = "test-vm",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         NetworkInterfaceIds = new[]
@@ -117,8 +123,7 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     // ...
-        ///     var examplePublicIP = Azure.Network.GetPublicIP.Invoke(new()
+        ///     var example = Azure.Network.GetPublicIP.Invoke(new()
         ///     {
         ///         Name = examplePublicIp.Name,
         ///         ResourceGroupName = exampleVirtualMachine.ResourceGroupName,
@@ -126,7 +131,7 @@ namespace Pulumi.Azure.Network
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["publicIpAddress"] = examplePublicIp.IpAddress,
+        ///         ["publicIpAddress"] = example.Apply(getPublicIPResult =&gt; getPublicIPResult.IpAddress),
         ///     };
         /// });
         /// ```
@@ -178,13 +183,15 @@ namespace Pulumi.Azure.Network
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "test-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+        ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
         ///     {
+        ///         Name = "test-network",
         ///         AddressSpaces = new[]
         ///         {
         ///             "10.0.0.0/16",
@@ -193,8 +200,9 @@ namespace Pulumi.Azure.Network
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///     });
         /// 
-        ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+        ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
         ///     {
+        ///         Name = "acctsub",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         VirtualNetworkName = exampleVirtualNetwork.Name,
         ///         AddressPrefixes = new[]
@@ -203,8 +211,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+        ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
         ///     {
+        ///         Name = "test-pip",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         AllocationMethod = "Dynamic",
@@ -215,8 +224,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+        ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
         ///     {
+        ///         Name = "test-nic",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         IpConfigurations = new[]
@@ -232,8 +242,9 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+        ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
         ///     {
+        ///         Name = "test-vm",
         ///         Location = exampleResourceGroup.Location,
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         NetworkInterfaceIds = new[]
@@ -242,8 +253,7 @@ namespace Pulumi.Azure.Network
         ///         },
         ///     });
         /// 
-        ///     // ...
-        ///     var examplePublicIP = Azure.Network.GetPublicIP.Invoke(new()
+        ///     var example = Azure.Network.GetPublicIP.Invoke(new()
         ///     {
         ///         Name = examplePublicIp.Name,
         ///         ResourceGroupName = exampleVirtualMachine.ResourceGroupName,
@@ -251,7 +261,7 @@ namespace Pulumi.Azure.Network
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["publicIpAddress"] = examplePublicIp.IpAddress,
+        ///         ["publicIpAddress"] = example.Apply(getPublicIPResult =&gt; getPublicIPResult.IpAddress),
         ///     };
         /// });
         /// ```

@@ -49,15 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleSubscription = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription();
  * 
- *         final var examplePolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
+ *         final var exampleGetPolicyDefintion = PolicyFunctions.getPolicyDefintion(GetPolicyDefintionArgs.builder()
  *             .displayName(&#34;Allowed resource types&#34;)
  *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(examplePolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
+ *             .name(&#34;exampleAssignment&#34;)
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .policyDefinitionId(exampleGetPolicyDefintion.applyValue(getPolicyDefintionResult -&gt; getPolicyDefintionResult.id()))
  *             .parameters(serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;listOfAllowedLocations&#34;, jsonObject(
@@ -70,7 +71,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyRemediation = new SubscriptionPolicyRemediation(&#34;exampleSubscriptionPolicyRemediation&#34;, SubscriptionPolicyRemediationArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .name(&#34;example&#34;)
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .build());
  * 

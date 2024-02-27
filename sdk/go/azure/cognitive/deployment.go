@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Name:              pulumi.String("example-ca"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.String("OpenAI"),
 //				SkuName:           pulumi.String("S0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognitive.NewDeployment(ctx, "exampleDeployment", &cognitive.DeploymentArgs{
+//			_, err = cognitive.NewDeployment(ctx, "example", &cognitive.DeploymentArgs{
+//				Name:               pulumi.String("example-cd"),
 //				CognitiveAccountId: exampleAccount.ID(),
 //				Model: &cognitive.DeploymentModelArgs{
 //					Format:  pulumi.String("OpenAI"),

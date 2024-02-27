@@ -24,24 +24,27 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -49,25 +52,27 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new()
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleRouteTable = new Azure.Network.RouteTable("exampleRouteTable", new()
+    ///     var exampleRouteTable = new Azure.Network.RouteTable("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation", new()
+    ///     var exampleSubnetRouteTableAssociation = new Azure.Network.SubnetRouteTableAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         RouteTableId = exampleRouteTable.Id,
@@ -75,8 +80,9 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var primary = new Azure.MSSql.ManagedInstance("primary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-primary",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
@@ -87,20 +93,14 @@ namespace Pulumi.Azure.MSSql
     ///         Tags = 
     ///         {
     ///             { "environment", "prod" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleSubnetNetworkSecurityGroupAssociation,
-    ///             exampleSubnetRouteTableAssociation,
     ///         },
     ///     });
     /// 
     ///     var secondary = new Azure.MSSql.ManagedInstance("secondary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-secondary",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
@@ -112,17 +112,11 @@ namespace Pulumi.Azure.MSSql
     ///         {
     ///             { "environment", "prod" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleSubnetNetworkSecurityGroupAssociation,
-    ///             exampleSubnetRouteTableAssociation,
-    ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceFailoverGroup = new Azure.MSSql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", new()
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.MSSql.ManagedInstanceFailoverGroup("example", new()
     ///     {
+    ///         Name = "example-failover-group",
     ///         Location = primary.Location,
     ///         ManagedInstanceId = primary.Id,
     ///         PartnerManagedInstanceId = secondary.Id,

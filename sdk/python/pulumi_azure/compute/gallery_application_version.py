@@ -436,28 +436,36 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
+            name="examplegallery",
+            resource_group_name=example.name,
+            location=example.location)
+        example_gallery_application = azure.compute.GalleryApplication("example",
+            name="example-app",
             gallery_id=example_shared_image_gallery.id,
-            location=example_resource_group.location,
+            location=example.location,
             supported_os_type="Linux")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplestorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example-container",
             storage_account_name=example_account.name,
             container_access_type="blob")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="scripts",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",
             source_content="[scripts file content]")
-        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
+        example_gallery_application_version = azure.compute.GalleryApplicationVersion("example",
+            name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
             manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(
@@ -511,28 +519,36 @@ class GalleryApplicationVersion(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_shared_image_gallery = azure.compute.SharedImageGallery("exampleSharedImageGallery",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_gallery_application = azure.compute.GalleryApplication("exampleGalleryApplication",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_shared_image_gallery = azure.compute.SharedImageGallery("example",
+            name="examplegallery",
+            resource_group_name=example.name,
+            location=example.location)
+        example_gallery_application = azure.compute.GalleryApplication("example",
+            name="example-app",
             gallery_id=example_shared_image_gallery.id,
-            location=example_resource_group.location,
+            location=example.location,
             supported_os_type="Linux")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplestorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example-container",
             storage_account_name=example_account.name,
             container_access_type="blob")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="scripts",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",
             source_content="[scripts file content]")
-        example_gallery_application_version = azure.compute.GalleryApplicationVersion("exampleGalleryApplicationVersion",
+        example_gallery_application_version = azure.compute.GalleryApplicationVersion("example",
+            name="0.0.1",
             gallery_application_id=example_gallery_application.id,
             location=example_gallery_application.location,
             manage_action=azure.compute.GalleryApplicationVersionManageActionArgs(

@@ -26,24 +26,26 @@ namespace Pulumi.Azure.Bot
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("example", new()
     ///     {
+    ///         Name = "example-bcr",
     ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "F0",
     ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///     });
     /// 
-    ///     var exampleChannelSms = new Azure.Bot.ChannelSms("exampleChannelSms", new()
+    ///     var exampleChannelSms = new Azure.Bot.ChannelSms("example", new()
     ///     {
     ///         BotName = exampleChannelsRegistration.Name,
     ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         SmsChannelAccountSecurityId = "BG61f7cf5157f439b084e98256409c2815",
     ///         SmsChannelAuthToken = "jh8980432610052ed4e29565c5e232f",
     ///         PhoneNumber = "+12313803556",

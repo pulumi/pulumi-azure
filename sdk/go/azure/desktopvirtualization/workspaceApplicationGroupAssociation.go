@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example-virtualdesktop"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
+//				Name:              pulumi.String("pooledbreadthfirst"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("Pooled"),
@@ -45,6 +47,7 @@ import (
 //				return err
 //			}
 //			remoteapp, err := desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Name:              pulumi.String("remoteapp"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("RemoteApp"),
@@ -54,6 +57,7 @@ import (
 //				return err
 //			}
 //			workspace, err := desktopvirtualization.NewWorkspace(ctx, "workspace", &desktopvirtualization.WorkspaceArgs{
+//				Name:              pulumi.String("workspace"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //			})

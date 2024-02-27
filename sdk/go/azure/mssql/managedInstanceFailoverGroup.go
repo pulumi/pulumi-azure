@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -48,8 +50,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -58,28 +61,30 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "exampleSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "example", &network.SubnetNetworkSecurityGroupAssociationArgs{
 //				SubnetId:               exampleSubnet.ID(),
 //				NetworkSecurityGroupId: exampleNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRouteTable, err := network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnetRouteTableAssociation, err := network.NewSubnetRouteTableAssociation(ctx, "exampleSubnetRouteTableAssociation", &network.SubnetRouteTableAssociationArgs{
+//			_, err = network.NewSubnetRouteTableAssociation(ctx, "example", &network.SubnetRouteTableAssociationArgs{
 //				SubnetId:     exampleSubnet.ID(),
 //				RouteTableId: exampleRouteTable.ID(),
 //			})
@@ -87,8 +92,9 @@ import (
 //				return err
 //			}
 //			primary, err := mssql.NewManagedInstance(ctx, "primary", &mssql.ManagedInstanceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//				Name:                       pulumi.String("example-primary"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
@@ -99,16 +105,14 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("prod"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSubnetNetworkSecurityGroupAssociation,
-//				exampleSubnetRouteTableAssociation,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			secondary, err := mssql.NewManagedInstance(ctx, "secondary", &mssql.ManagedInstanceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//				Name:                       pulumi.String("example-secondary"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
@@ -119,14 +123,12 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("prod"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSubnetNetworkSecurityGroupAssociation,
-//				exampleSubnetRouteTableAssociation,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewManagedInstanceFailoverGroup(ctx, "exampleManagedInstanceFailoverGroup", &mssql.ManagedInstanceFailoverGroupArgs{
+//			_, err = mssql.NewManagedInstanceFailoverGroup(ctx, "example", &mssql.ManagedInstanceFailoverGroupArgs{
+//				Name:                     pulumi.String("example-failover-group"),
 //				Location:                 primary.Location,
 //				ManagedInstanceId:        primary.ID(),
 //				PartnerManagedInstanceId: secondary.ID(),

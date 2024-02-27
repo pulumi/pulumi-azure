@@ -141,22 +141,27 @@ class Policy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("exampleNamedValue",
-            resource_group_name=example_resource_group.name,
+        example_named_value = azure.apimanagement.NamedValue("example",
+            name="example-apimg",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             display_name="ExampleProperty",
             value="Example Value")
-        example_policy = azure.apimanagement.Policy("examplePolicy",
+        example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=(lambda path: open(path).read())("example.xml"))
+            xml_content=std.file(input="example.xml").result)
         ```
 
         ## Import
@@ -189,22 +194,27 @@ class Policy(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
-        example_named_value = azure.apimanagement.NamedValue("exampleNamedValue",
-            resource_group_name=example_resource_group.name,
+        example_named_value = azure.apimanagement.NamedValue("example",
+            name="example-apimg",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             display_name="ExampleProperty",
             value="Example Value")
-        example_policy = azure.apimanagement.Policy("examplePolicy",
+        example_policy = azure.apimanagement.Policy("example",
             api_management_id=example_service.id,
-            xml_content=(lambda path: open(path).read())("example.xml"))
+            xml_content=std.file(input="example.xml").result)
         ```
 
         ## Import

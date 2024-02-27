@@ -114,6 +114,22 @@ def get_variable_object(automation_account_name: Optional[str] = None,
     """
     Use this data source to access information about an existing Automation Object Variable.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = azure.automation.get_variable_object(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variable", not_implemented("jsondecode(data.azurerm_automation_variable_object.example.value)"))
+    ```
+
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.
     :param str name: The name of the Automation Variable.
@@ -143,6 +159,22 @@ def get_variable_object_output(automation_account_name: Optional[pulumi.Input[st
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetVariableObjectResult]:
     """
     Use this data source to access information about an existing Automation Object Variable.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = azure.automation.get_variable_object(name="tfex-example-var",
+        resource_group_name="tfex-example-rg",
+        automation_account_name="tfex-example-account")
+    pulumi.export("variable", not_implemented("jsondecode(data.azurerm_automation_variable_object.example.value)"))
+    ```
 
 
     :param str automation_account_name: The name of the automation account in which the Automation Variable exists.

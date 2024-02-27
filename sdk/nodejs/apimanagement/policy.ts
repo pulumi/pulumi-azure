@@ -14,25 +14,32 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Developer_1",
  * });
- * const exampleNamedValue = new azure.apimanagement.NamedValue("exampleNamedValue", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNamedValue = new azure.apimanagement.NamedValue("example", {
+ *     name: "example-apimg",
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     displayName: "ExampleProperty",
  *     value: "Example Value",
  * });
- * const examplePolicy = new azure.apimanagement.Policy("examplePolicy", {
+ * const examplePolicy = new azure.apimanagement.Policy("example", {
  *     apiManagementId: exampleService.id,
- *     xmlContent: fs.readFileSync("example.xml", "utf8"),
+ *     xmlContent: std.file({
+ *         input: "example.xml",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

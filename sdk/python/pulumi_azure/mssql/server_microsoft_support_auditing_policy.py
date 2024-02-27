@@ -247,19 +247,23 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             server_id=example_server.id,
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key)
@@ -270,13 +274,17 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
@@ -285,7 +293,8 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
                 "Microsoft.Storage",
             ],
             enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
@@ -295,20 +304,23 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             identity=azure.mssql.ServerIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
             principal_id=example_server.identity.principal_id)
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.sql.FirewallRule("example",
+            name="FirewallRule1",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             start_ip_address="0.0.0.0",
             end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
+        example_account = azure.storage.Account("example",
+            name="examplesa",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
@@ -324,15 +336,11 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
 
         ## Import
@@ -369,19 +377,23 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             server_id=example_server.id,
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key)
@@ -392,13 +404,17 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
@@ -407,7 +423,8 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
                 "Microsoft.Storage",
             ],
             enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
@@ -417,20 +434,23 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             identity=azure.mssql.ServerIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
             principal_id=example_server.identity.principal_id)
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.sql.FirewallRule("example",
+            name="FirewallRule1",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             start_ip_address="0.0.0.0",
             end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
+        example_account = azure.storage.Account("example",
+            name="examplesa",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
@@ -446,15 +466,11 @@ class ServerMicrosoftSupportAuditingPolicy(pulumi.CustomResource):
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("exampleServerMicrosoftSupportAuditingPolicy",
+        example_server_microsoft_support_auditing_policy = azure.mssql.ServerMicrosoftSupportAuditingPolicy("example",
             blob_storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
 
         ## Import

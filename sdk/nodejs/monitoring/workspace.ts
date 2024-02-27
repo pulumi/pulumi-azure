@@ -13,9 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleWorkspace = new azure.monitoring.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleWorkspace = new azure.monitoring.Workspace("example", {
+ *     name: "example-mamw",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     tags: {
  *         key: "value",

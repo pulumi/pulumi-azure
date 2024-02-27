@@ -52,18 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleIotHubDeviceUpdateAccount = new IotHubDeviceUpdateAccount(&#34;exampleIotHubDeviceUpdateAccount&#34;, IotHubDeviceUpdateAccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;S1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -71,13 +74,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleIotHubDeviceUpdateInstance = new IotHubDeviceUpdateInstance(&#34;exampleIotHubDeviceUpdateInstance&#34;, IotHubDeviceUpdateInstanceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .deviceUpdateAccountId(exampleIotHubDeviceUpdateAccount.id())
  *             .iothubId(exampleIoTHub.id())
  *             .diagnosticEnabled(true)

@@ -141,12 +141,16 @@ class Powershell72Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_powershell72_module = azure.automation.Powershell72Module("examplePowershell72Module",
+        example_powershell72_module = azure.automation.Powershell72Module("example",
+            name="xActiveDirectory",
             automation_account_id=example_account.id,
             module_link=azure.automation.Powershell72ModuleModuleLinkArgs(
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",
@@ -182,12 +186,16 @@ class Powershell72Module(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_powershell72_module = azure.automation.Powershell72Module("examplePowershell72Module",
+        example_powershell72_module = azure.automation.Powershell72Module("example",
+            name="xActiveDirectory",
             automation_account_id=example_account.id,
             module_link=azure.automation.Powershell72ModuleModuleLinkArgs(
                 uri="https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",

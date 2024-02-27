@@ -217,7 +217,7 @@ def get_topic_authorization_rule(name: Optional[str] = None,
         resource_group_name="example-resources",
         namespace_name="example-namespace",
         topic_name="example-servicebus_topic")
-    pulumi.export("servicebusAuthorizationRuleId", data["azurem_servicebus_topic_authorization_rule"]["example"]["id"])
+    pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
 
 
@@ -276,7 +276,7 @@ def get_topic_authorization_rule_output(name: Optional[pulumi.Input[str]] = None
         resource_group_name="example-resources",
         namespace_name="example-namespace",
         topic_name="example-servicebus_topic")
-    pulumi.export("servicebusAuthorizationRuleId", data["azurem_servicebus_topic_authorization_rule"]["example"]["id"])
+    pulumi.export("servicebusAuthorizationRuleId", example_azurem_servicebus_topic_authorization_rule["id"])
     ```
 
 

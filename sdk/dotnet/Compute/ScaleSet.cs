@@ -17,31 +17,34 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "acctvn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctsub",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -49,22 +52,24 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
-    ///         DomainNameLabel = exampleResourceGroup.Name,
+    ///         DomainNameLabel = example.Name,
     ///         Tags = 
     ///         {
     ///             { "environment", "staging" },
     ///         },
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -78,11 +83,13 @@ namespace Pulumi.Azure.Compute
     ///     var bpepool = new Azure.Lb.BackendAddressPool("bpepool", new()
     ///     {
     ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "BackEndAddressPool",
     ///     });
     /// 
     ///     var lbnatpool = new Azure.Lb.NatPool("lbnatpool", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         Name = "ssh",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///         Protocol = "Tcp",
     ///         FrontendPortStart = 50000,
@@ -91,18 +98,20 @@ namespace Pulumi.Azure.Compute
     ///         FrontendIpConfigurationName = "PublicIPAddress",
     ///     });
     /// 
-    ///     var exampleProbe = new Azure.Lb.Probe("exampleProbe", new()
+    ///     var exampleProbe = new Azure.Lb.Probe("example", new()
     ///     {
     ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "http-probe",
     ///         Protocol = "Http",
     ///         RequestPath = "/health",
     ///         Port = 8080,
     ///     });
     /// 
-    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mytestscaleset-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AutomaticOsUpgrade = true,
     ///         UpgradePolicyMode = "Rolling",
     ///         RollingUpgradePolicy = new Azure.Compute.Inputs.ScaleSetRollingUpgradePolicyArgs
@@ -156,7 +165,10 @@ namespace Pulumi.Azure.Compute
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
     ///                 {
     ///                     Path = "/home/myadmin/.ssh/authorized_keys",
-    ///                     KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
+    ///                     KeyData = Std.File.Invoke(new()
+    ///                     {
+    ///                         Input = "~/.ssh/demo_key.pub",
+    ///                     }).Apply(invoke =&gt; invoke.Result),
     ///                 },
     ///             },
     ///         },
@@ -197,31 +209,34 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "acctvn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctsub",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -229,10 +244,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "accsa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         Tags = 
@@ -241,16 +257,18 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "vhds",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mytestscaleset-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         UpgradePolicyMode = "Manual",
     ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
     ///         {
@@ -271,7 +289,10 @@ namespace Pulumi.Azure.Compute
     ///                 new Azure.Compute.Inputs.ScaleSetOsProfileLinuxConfigSshKeyArgs
     ///                 {
     ///                     Path = "/home/myadmin/.ssh/authorized_keys",
-    ///                     KeyData = File.ReadAllText("~/.ssh/demo_key.pub"),
+    ///                     KeyData = Std.File.Invoke(new()
+    ///                     {
+    ///                         Input = "~/.ssh/demo_key.pub",
+    ///                     }).Apply(invoke =&gt; invoke.Result),
     ///                 },
     ///             },
     ///         },
@@ -328,18 +349,20 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleImage = new Azure.Compute.Image("exampleImage");
-    /// 
-    ///     // ...
-    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("exampleScaleSet", new()
+    ///     var example = new Azure.Compute.Image("example", new()
     ///     {
+    ///         Name = "test",
+    ///     });
+    /// 
+    ///     var exampleScaleSet = new Azure.Compute.ScaleSet("example", new()
+    ///     {
+    ///         Name = "test",
     ///         StorageProfileImageReference = new Azure.Compute.Inputs.ScaleSetStorageProfileImageReferenceArgs
     ///         {
-    ///             Id = exampleImage.Id,
+    ///             Id = example.Id,
     ///         },
     ///     });
     /// 
-    ///     // ...
     /// });
     /// ```
     /// 

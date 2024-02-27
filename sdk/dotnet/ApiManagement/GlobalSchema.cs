@@ -16,34 +16,39 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "pub1",
     ///         PublisherEmail = "pub1@email.com",
     ///         SkuName = "Consumption_0",
     ///     });
     /// 
-    ///     var exampleGlobalSchema = new Azure.ApiManagement.GlobalSchema("exampleGlobalSchema", new()
+    ///     var exampleGlobalSchema = new Azure.ApiManagement.GlobalSchema("example", new()
     ///     {
     ///         SchemaId = "example-schema1",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Type = "xml",
-    ///         Value = File.ReadAllText("api_management_api_schema.xml"),
+    ///         Value = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "api_management_api_schema.xml",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

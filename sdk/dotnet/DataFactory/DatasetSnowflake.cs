@@ -22,25 +22,29 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", new()
+    ///     var exampleLinkedServiceSnowflake = new Azure.DataFactory.LinkedServiceSnowflake("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&amp;db=db&amp;warehouse=wh",
     ///     });
     /// 
-    ///     var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("exampleDatasetSnowflake", new()
+    ///     var exampleDatasetSnowflake = new Azure.DataFactory.DatasetSnowflake("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServiceSnowflake.Name,
     ///         SchemaName = "foo_schema",

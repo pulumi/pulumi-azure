@@ -30,43 +30,48 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			remoteVirtualNetwork, err := network.NewVirtualNetwork(ctx, "remoteVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			remote, err := network.NewVirtualNetwork(ctx, "remote", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("remote-vnet"),
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
 //				},
-//				Location: exampleResourceGroup.Location,
+//				Location: example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "exampleWorkspace", &databricks.WorkspaceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleWorkspace, err := databricks.NewWorkspace(ctx, "example", &databricks.WorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetworkPeering, err := databricks.NewVirtualNetworkPeering(ctx, "exampleVirtualNetworkPeering", &databricks.VirtualNetworkPeeringArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleVirtualNetworkPeering, err := databricks.NewVirtualNetworkPeering(ctx, "example", &databricks.VirtualNetworkPeeringArgs{
+//				Name:                       pulumi.String("databricks-vnet-peer"),
+//				ResourceGroupName:          example.Name,
 //				WorkspaceId:                exampleWorkspace.ID(),
-//				RemoteAddressSpacePrefixes: remoteVirtualNetwork.AddressSpaces,
-//				RemoteVirtualNetworkId:     remoteVirtualNetwork.ID(),
+//				RemoteAddressSpacePrefixes: remote.AddressSpaces,
+//				RemoteVirtualNetworkId:     remote.ID(),
 //				AllowVirtualNetworkAccess:  pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkPeering(ctx, "remoteVirtualNetworkPeering", &network.VirtualNetworkPeeringArgs{
-//				ResourceGroupName:         exampleResourceGroup.Name,
-//				VirtualNetworkName:        remoteVirtualNetwork.Name,
+//			_, err = network.NewVirtualNetworkPeering(ctx, "remote", &network.VirtualNetworkPeeringArgs{
+//				Name:                      pulumi.String("peer-to-databricks"),
+//				ResourceGroupName:         example.Name,
+//				VirtualNetworkName:        remote.Name,
 //				RemoteVirtualNetworkId:    exampleVirtualNetworkPeering.VirtualNetworkId,
 //				AllowVirtualNetworkAccess: pulumi.Bool(true),
 //			})

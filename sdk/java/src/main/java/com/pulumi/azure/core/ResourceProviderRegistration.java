@@ -33,6 +33,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.Pulumi;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceProviderRegistration;
+ * import com.pulumi.azure.core.ResourceProviderRegistrationArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,7 +47,9 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example = new ResourceProviderRegistration(&#34;example&#34;);
+ *         var example = new ResourceProviderRegistration(&#34;example&#34;, ResourceProviderRegistrationArgs.builder()        
+ *             .name(&#34;Microsoft.PolicyInsights&#34;)
+ *             .build());
  * 
  *     }
  * }
@@ -75,6 +78,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceProviderRegistration(&#34;example&#34;, ResourceProviderRegistrationArgs.builder()        
+ *             .name(&#34;Microsoft.ContainerService&#34;)
  *             .features(ResourceProviderRegistrationFeatureArgs.builder()
  *                 .name(&#34;AKS-DataPlaneAutoApprove&#34;)
  *                 .registered(true)

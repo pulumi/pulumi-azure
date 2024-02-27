@@ -14,23 +14,28 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cognitive.Account("example", {
+ *     name: "example-cogacct",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     kind: "SpeechServices",
  *     skuName: "S0",
  * });
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
+ *     name: "example-bcr",
  *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sku: "F0",
  *     microsoftAppId: current.then(current => current.clientId),
  * });
- * const exampleChannelDirectLineSpeech = new azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech", {
+ * const exampleChannelDirectLineSpeech = new azure.bot.ChannelDirectLineSpeech("example", {
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     cognitiveServiceLocation: exampleAccount.location,
  *     cognitiveServiceAccessKey: exampleAccount.primaryAccessKey,
  * });

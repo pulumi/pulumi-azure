@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.NetworkAclArgs;
  * import com.pulumi.azure.webpubsub.inputs.NetworkAclPublicNetworkArgs;
  * import com.pulumi.azure.webpubsub.inputs.NetworkAclPrivateEndpointArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,33 +55,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;terraform-webpubsub&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-webpubsub&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard_S1&#34;)
  *             .capacity(1)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.5.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.5.2.0/24&#34;)
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-privateendpoint&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .subnetId(exampleSubnet.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name(&#34;psc-sig-test&#34;)
@@ -104,9 +108,7 @@ import javax.annotation.Nullable;
  *                     &#34;RESTAPI&#34;,
  *                     &#34;ClientConnection&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleEndpoint)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

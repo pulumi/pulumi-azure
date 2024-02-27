@@ -22,32 +22,36 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountKind = "BlobStorage",
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
@@ -56,14 +60,16 @@ namespace Pulumi.Azure.DataFactory
     /// "),
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "content",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleCustomDataset = new Azure.DataFactory.CustomDataset("exampleCustomDataset", new()
+    ///     var exampleCustomDataset = new Azure.DataFactory.CustomDataset("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "Json",
     ///         LinkedService = new Azure.DataFactory.Inputs.CustomDatasetLinkedServiceArgs

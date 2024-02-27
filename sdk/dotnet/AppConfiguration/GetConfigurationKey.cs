@@ -30,7 +30,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {
         ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
         ///     {
-        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///         ConfigurationStoreId = appconf.Id,
         ///         Key = "appConfKey1",
         ///         Label = "somelabel",
         ///     });
@@ -66,7 +66,7 @@ namespace Pulumi.Azure.AppConfiguration
         /// {
         ///     var test = Azure.AppConfiguration.GetConfigurationKey.Invoke(new()
         ///     {
-        ///         ConfigurationStoreId = azurerm_app_configuration.Appconf.Id,
+        ///         ConfigurationStoreId = appconf.Id,
         ///         Key = "appConfKey1",
         ///         Label = "somelabel",
         ///     });

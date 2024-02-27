@@ -52,25 +52,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;acctestcont&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;S1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -78,8 +82,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpointStorageContainer = new EndpointStorageContainer(&#34;exampleEndpointStorageContainer&#34;, EndpointStorageContainerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
+ *             .name(&#34;acctest&#34;)
  *             .containerName(&#34;acctestcont&#34;)
  *             .connectionString(exampleAccount.primaryBlobConnectionString())
  *             .fileNameFormat(&#34;{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}&#34;)

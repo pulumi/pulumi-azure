@@ -15,8 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const example_public = new azure.dns.Zone("example-public", {resourceGroupName: example.name});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example_public = new azure.dns.Zone("example-public", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: example.name,
+ * });
  * ```
  *
  * ## Import

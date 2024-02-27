@@ -14,24 +14,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-plan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     osType: "Windows",
  *     skuName: "P1v2",
  * });
- * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     name: "example-windows-web-app",
+ *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("exampleWindowsWebAppSlot", {
+ * const exampleWindowsWebAppSlot = new azure.appservice.WindowsWebAppSlot("example", {
+ *     name: "example-windows-web-app-slot",
  *     appServiceId: exampleWindowsWebApp.name,
  *     siteConfig: {},
  * });
- * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("exampleWebAppActiveSlot", {slotId: exampleWindowsWebAppSlot.id});
+ * const exampleWebAppActiveSlot = new azure.appservice.WebAppActiveSlot("example", {slotId: exampleWindowsWebAppSlot.id});
  * ```
  *
  * ## Import

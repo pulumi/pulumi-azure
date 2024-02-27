@@ -141,14 +141,18 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="westeurope")
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name,
             hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
                 dns_prefix="example-dns-prefix",
             ))
-        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("exampleFleetUpdateStrategy",
+        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
+            name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
                 name="example-stage-1",
@@ -188,14 +192,18 @@ class FleetUpdateStrategy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="westeurope")
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="westeurope")
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name,
             hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
                 dns_prefix="example-dns-prefix",
             ))
-        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("exampleFleetUpdateStrategy",
+        example_fleet_update_strategy = azure.containerservice.FleetUpdateStrategy("example",
+            name="example",
             kubernetes_fleet_manager_id=example_kubernetes_fleet_manager.id,
             stages=[azure.containerservice.FleetUpdateStrategyStageArgs(
                 name="example-stage-1",

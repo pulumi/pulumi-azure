@@ -15,22 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "LoadBalancerRG",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "PublicIPForLB",
  *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "TestLoadBalancer",
  *     location: "West US",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleRule = new azure.lb.Rule("exampleRule", {
+ * const exampleRule = new azure.lb.Rule("example", {
  *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "LBRule",
  *     protocol: "Tcp",
  *     frontendPort: 3389,
  *     backendPort: 3389,

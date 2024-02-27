@@ -44,16 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLocalRulestack = new LocalRulestack(&#34;exampleLocalRulestack&#34;, LocalRulestackArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleLocalRulestackPrefixList = new LocalRulestackPrefixList(&#34;exampleLocalRulestackPrefixList&#34;, LocalRulestackPrefixListArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .rulestackId(exampleLocalRulestack.id())
  *             .prefixLists(&#34;10.0.1.0/24&#34;)
  *             .build());

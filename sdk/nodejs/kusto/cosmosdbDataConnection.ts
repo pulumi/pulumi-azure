@@ -14,11 +14,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "exampleRG",
+ *     location: "West Europe",
+ * });
  * const builtin = azure.authorization.getRoleDefinition({
  *     roleDefinitionId: "fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
  * });
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekc",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
@@ -29,12 +33,13 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleResourceGroup.id,
  *     roleDefinitionName: builtin.then(builtin => builtin.name),
  *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
  * });
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-ca",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     offerType: "Standard",
@@ -49,35 +54,39 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "examplecosmosdbsqldb",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "examplecosmosdbsqlcon",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/part",
  *     throughput: 400,
  * });
- * const exampleSqlRoleDefinition = azure.cosmosdb.getSqlRoleDefinitionOutput({
+ * const example = azure.cosmosdb.getSqlRoleDefinitionOutput({
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000001",
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleAccount.name,
  * });
- * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment", {
+ * const exampleSqlRoleAssignment = new azure.cosmosdb.SqlRoleAssignment("example", {
  *     resourceGroupName: exampleResourceGroup.name,
  *     accountName: exampleAccount.name,
- *     roleDefinitionId: exampleSqlRoleDefinition.apply(exampleSqlRoleDefinition => exampleSqlRoleDefinition.id),
+ *     roleDefinitionId: example.apply(example => example.id),
  *     principalId: exampleCluster.identity.apply(identity => identity?.principalId),
  *     scope: exampleAccount.id,
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "examplekd",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleScript = new azure.kusto.Script("exampleScript", {
+ * const exampleScript = new azure.kusto.Script("example", {
+ *     name: "create-table-script",
  *     databaseId: exampleDatabase.id,
  *     scriptContent: `.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
  * .create table TestTable ingestion json mapping "TestMapping"
@@ -90,7 +99,8 @@ import * as utilities from "../utilities";
  * .alter table TestTable policy ingestionbatching "{'MaximumBatchingTimeSpan': '0:0:10', 'MaximumNumberOfItems': 10000}"
  * `,
  * });
- * const exampleCosmosdbDataConnection = new azure.kusto.CosmosdbDataConnection("exampleCosmosdbDataConnection", {
+ * const exampleCosmosdbDataConnection = new azure.kusto.CosmosdbDataConnection("example", {
+ *     name: "examplekcdcd",
  *     location: exampleResourceGroup.location,
  *     cosmosdbContainerId: exampleSqlContainer.id,
  *     kustoDatabaseId: exampleDatabase.id,

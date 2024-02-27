@@ -31,17 +31,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//			example := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 //				Name:              pulumi.String("example-job"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageacc"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -52,13 +54,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example"),
 //				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Name:                            pulumi.String("example"),
 //				ResourceGroupName:               exampleResourceGroup.Name,
 //				Location:                        exampleResourceGroup.Location,
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
@@ -71,12 +75,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewOutputSynapse(ctx, "exampleOutputSynapse", &streamanalytics.OutputSynapseArgs{
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.Name, nil
+//			_, err = streamanalytics.NewOutputSynapse(ctx, "example", &streamanalytics.OutputSynapseArgs{
+//				Name: pulumi.String("example-output-synapse"),
+//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.Name, nil
 //				}).(pulumi.StringPtrOutput),
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.ResourceGroupName, nil
+//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput),
 //				Server: exampleWorkspace.ConnectivityEndpoints.ApplyT(func(connectivityEndpoints map[string]string) (string, error) {
 //					return connectivityEndpoints.SqlOnDemand, nil

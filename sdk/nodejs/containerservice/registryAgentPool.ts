@@ -13,15 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europ"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europ",
+ * });
+ * const exampleRegistry = new azure.containerservice.Registry("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Premium",
  * });
- * const exampleRegistryAgentPool = new azure.containerservice.RegistryAgentPool("exampleRegistryAgentPool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleRegistryAgentPool = new azure.containerservice.RegistryAgentPool("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     containerRegistryName: exampleRegistry.name,
  * });
  * ```

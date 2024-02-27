@@ -43,17 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleMover = new Mover(&#34;exampleMover&#34;, MoverArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ssm&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleMoverAgent = new MoverAgent(&#34;exampleMoverAgent&#34;, MoverAgentArgs.builder()        
+ *             .name(&#34;example-sa&#34;)
  *             .storageMoverId(exampleMover.id())
- *             .arcVirtualMachineId(exampleResourceGroup.id().applyValue(id -&gt; String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, id)))
+ *             .arcVirtualMachineId(example.id().applyValue(id -&gt; String.format(&#34;%s/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName&#34;, id)))
  *             .arcVirtualMachineUuid(&#34;3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9&#34;)
  *             .description(&#34;Example Agent Description&#34;)
  *             .build());

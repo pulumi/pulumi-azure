@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
@@ -39,13 +41,14 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("exampleBlobInventoryPolicy", new()
+    ///     var exampleBlobInventoryPolicy = new Azure.Storage.BlobInventoryPolicy("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         Rules = new[]

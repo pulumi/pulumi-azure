@@ -19,10 +19,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
  *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("example", {
+ *     name: "example-vcg",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
  *     connectivity: "PublicAddress",
  *     codecs: "PCMA",
  *     e911Type: "DirectToEsrp",

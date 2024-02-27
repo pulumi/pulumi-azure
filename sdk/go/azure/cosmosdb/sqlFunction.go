@@ -28,31 +28,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
 //				Name:              "tfex-cosmosdb-account",
 //				ResourceGroupName: "tfex-cosmosdb-account-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("tfex-cosmos-db"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //				Throughput:        pulumi.Int(400),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("example-container"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //				DatabaseName:      exampleSqlDatabase.Name,
 //				PartitionKeyPath:  pulumi.String("/id"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewSqlFunction(ctx, "exampleSqlFunction", &cosmosdb.SqlFunctionArgs{
+//			_, err = cosmosdb.NewSqlFunction(ctx, "example", &cosmosdb.SqlFunctionArgs{
+//				Name:        pulumi.String("test-function"),
 //				ContainerId: exampleSqlContainer.ID(),
 //				Body:        pulumi.String("function trigger(){}"),
 //			})

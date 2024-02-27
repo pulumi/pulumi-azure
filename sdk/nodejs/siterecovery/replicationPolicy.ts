@@ -13,13 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "East US"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-network-mapping-secondary",
+ *     location: "East US",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
+ *     name: "example-recovery-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
  * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
+ *     name: "policy",
  *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     recoveryPointRetentionInMinutes: 24 * 60,

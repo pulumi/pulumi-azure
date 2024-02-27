@@ -13,20 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.254.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.254.0.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     allocationMethod: "Dynamic",
  * });
  * const backendAddressPoolName = pulumi.interpolate`${exampleVirtualNetwork.name}-beap`;
@@ -37,8 +43,9 @@ import * as utilities from "../utilities";
  * const requestRoutingRuleName = pulumi.interpolate`${exampleVirtualNetwork.name}-rqrt`;
  * const redirectConfigurationName = pulumi.interpolate`${exampleVirtualNetwork.name}-rdrcfg`;
  * const network = new azure.network.ApplicationGateway("network", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     name: "example-appgateway",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "Standard_v2",
  *         tier: "Standard_v2",

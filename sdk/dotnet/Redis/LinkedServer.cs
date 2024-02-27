@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example_primaryResourceGroup = new Azure.Core.ResourceGroup("example-primaryResourceGroup", new()
+    ///     var example_primary = new Azure.Core.ResourceGroup("example-primary", new()
     ///     {
+    ///         Name = "example-resources-primary",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var example_primaryCache = new Azure.Redis.Cache("example-primaryCache", new()
+    ///     var example_primaryCache = new Azure.Redis.Cache("example-primary", new()
     ///     {
-    ///         Location = example_primaryResourceGroup.Location,
-    ///         ResourceGroupName = example_primaryResourceGroup.Name,
+    ///         Name = "example-cache1",
+    ///         Location = example_primary.Location,
+    ///         ResourceGroupName = example_primary.Name,
     ///         Capacity = 1,
     ///         Family = "P",
     ///         SkuName = "Premium",
@@ -43,15 +45,17 @@ namespace Pulumi.Azure.Redis
     ///         },
     ///     });
     /// 
-    ///     var example_secondaryResourceGroup = new Azure.Core.ResourceGroup("example-secondaryResourceGroup", new()
+    ///     var example_secondary = new Azure.Core.ResourceGroup("example-secondary", new()
     ///     {
+    ///         Name = "example-resources-secondary",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var example_secondaryCache = new Azure.Redis.Cache("example-secondaryCache", new()
+    ///     var example_secondaryCache = new Azure.Redis.Cache("example-secondary", new()
     ///     {
-    ///         Location = example_secondaryResourceGroup.Location,
-    ///         ResourceGroupName = example_secondaryResourceGroup.Name,
+    ///         Name = "example-cache2",
+    ///         Location = example_secondary.Location,
+    ///         ResourceGroupName = example_secondary.Name,
     ///         Capacity = 1,
     ///         Family = "P",
     ///         SkuName = "Premium",

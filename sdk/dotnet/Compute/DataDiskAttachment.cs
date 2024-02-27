@@ -30,35 +30,39 @@ namespace Pulumi.Azure.Compute
     ///     var prefix = config.Get("prefix") ?? "example";
     ///     var vmName = $"{prefix}-vm";
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = $"{prefix}-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new()
+    ///     var main = new Azure.Network.VirtualNetwork("main", new()
     ///     {
+    ///         Name = $"{prefix}-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var @internal = new Azure.Network.Subnet("internal", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = mainVirtualNetwork.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = main.Name,
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
-    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new()
+    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("main", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = $"{prefix}-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -70,10 +74,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = vmName,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         NetworkInterfaceIds = new[]
     ///         {
     ///             mainNetworkInterface.Id,
@@ -105,16 +110,17 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = $"{vmName}-disk1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
     ///         DiskSizeGb = 10,
     ///     });
     /// 
-    ///     var exampleDataDiskAttachment = new Azure.Compute.DataDiskAttachment("exampleDataDiskAttachment", new()
+    ///     var exampleDataDiskAttachment = new Azure.Compute.DataDiskAttachment("example", new()
     ///     {
     ///         ManagedDiskId = exampleManagedDisk.Id,
     ///         VirtualMachineId = exampleVirtualMachine.Id,

@@ -237,9 +237,14 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Central US")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
+            name="example-vcg",
+            resource_group_name=example.name)
+        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("example",
+            name="example-vtl",
             location="West Central US",
             voice_services_communications_gateway_id=example_services_communications_gateway.id,
             phone_number="123456789",
@@ -281,9 +286,14 @@ class ServicesCommunicationsGatewayTestLine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Central US")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", resource_group_name=example_resource_group.name)
-        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Central US")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
+            name="example-vcg",
+            resource_group_name=example.name)
+        example_services_communications_gateway_test_line = azure.voice.ServicesCommunicationsGatewayTestLine("example",
+            name="example-vtl",
             location="West Central US",
             voice_services_communications_gateway_id=example_services_communications_gateway.id,
             phone_number="123456789",

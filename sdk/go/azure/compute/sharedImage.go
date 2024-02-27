@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
+//				Name:              pulumi.String("example_image_gallery"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Description:       pulumi.String("Shared images and things."),
 //				Tags: pulumi.StringMap{
 //					"Hello": pulumi.String("There"),
@@ -47,10 +49,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewSharedImage(ctx, "exampleSharedImage", &compute.SharedImageArgs{
+//			_, err = compute.NewSharedImage(ctx, "example", &compute.SharedImageArgs{
+//				Name:              pulumi.String("my-image"),
 //				GalleryName:       exampleSharedImageGallery.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OsType:            pulumi.String("Linux"),
 //				Identifier: &compute.SharedImageIdentifierArgs{
 //					Publisher: pulumi.String("PublisherName"),

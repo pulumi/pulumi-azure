@@ -31,46 +31,52 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("acctest-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //				RetentionInDays:   pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "exampleEnvironment", &containerapp.EnvironmentArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
+//				Name:                    pulumi.String("myEnvironment"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("azureteststorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
+//				Name:               pulumi.String("sharename"),
 //				StorageAccountName: exampleAccount.Name,
 //				Quota:              pulumi.Int(5),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerapp.NewEnvironmentStorage(ctx, "exampleEnvironmentStorage", &containerapp.EnvironmentStorageArgs{
+//			_, err = containerapp.NewEnvironmentStorage(ctx, "example", &containerapp.EnvironmentStorageArgs{
+//				Name:                      pulumi.String("mycontainerappstorage"),
 //				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				AccountName:               exampleAccount.Name,
 //				ShareName:                 exampleShare.Name,

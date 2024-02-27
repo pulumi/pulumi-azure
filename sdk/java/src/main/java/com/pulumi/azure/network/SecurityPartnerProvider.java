@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VpnGatewayArgs;
  * import com.pulumi.azure.network.SecurityPartnerProvider;
  * import com.pulumi.azure.network.SecurityPartnerProviderArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,37 +48,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vwan&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressPrefix(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vpngw&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
  *         var exampleSecurityPartnerProvider = new SecurityPartnerProvider(&#34;exampleSecurityPartnerProvider&#34;, SecurityPartnerProviderArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-spp&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .securityProviderName(&#34;IBoss&#34;)
  *             .tags(Map.of(&#34;ENV&#34;, &#34;Prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleVpnGateway)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

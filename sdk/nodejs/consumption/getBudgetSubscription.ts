@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "existing",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
  * });
- * export const id = data.azurerm_consumption_budget.example.id;
+ * export const id = exampleAzurermConsumptionBudget.id;
  * ```
  */
 export function getBudgetSubscription(args: GetBudgetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetBudgetSubscriptionResult> {
@@ -92,7 +92,7 @@ export interface GetBudgetSubscriptionResult {
  *     name: "existing",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000/",
  * });
- * export const id = data.azurerm_consumption_budget.example.id;
+ * export const id = exampleAzurermConsumptionBudget.id;
  * ```
  */
 export function getBudgetSubscriptionOutput(args: GetBudgetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBudgetSubscriptionResult> {

@@ -472,10 +472,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.automanage.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-automanage",
+            location="West Europe")
+        example_configuration = azure.automanage.Configuration("example",
+            name="example-acmp",
+            resource_group_name=example.name,
+            location=example.location,
             antimalware=azure.automanage.ConfigurationAntimalwareArgs(
                 exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
                     extensions="exe;dll",
@@ -572,10 +575,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_configuration = azure.automanage.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-automanage",
+            location="West Europe")
+        example_configuration = azure.automanage.Configuration("example",
+            name="example-acmp",
+            resource_group_name=example.name,
+            location=example.location,
             antimalware=azure.automanage.ConfigurationAntimalwareArgs(
                 exclusions=azure.automanage.ConfigurationAntimalwareExclusionsArgs(
                     extensions="exe;dll",

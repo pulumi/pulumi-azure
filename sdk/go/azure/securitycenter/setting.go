@@ -33,8 +33,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewSetting(ctx, "example", &securitycenter.SettingArgs{
-//				Enabled:     pulumi.Bool(true),
 //				SettingName: pulumi.String("MCAS"),
+//				Enabled:     pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err

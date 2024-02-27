@@ -56,18 +56,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;EastUs&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctest-vnet1-mssql&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(azurerm_resource_group.test().location())
+ *             .location(test.location())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;subnet1-mssql&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -83,8 +86,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;mssqlinstance&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .licenseType(&#34;BasePrice&#34;)
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .storageSizeInGb(32)
@@ -130,7 +134,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryption;
  * import com.pulumi.azure.mssql.ManagedInstanceTransparentDataEncryptionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -146,18 +149,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;EastUs&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctest-vnet1-mssql&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(azurerm_resource_group.test().location())
+ *             .location(test.location())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;subnet1-mssql&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -173,8 +179,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;mssqlinstance&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .licenseType(&#34;BasePrice&#34;)
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .storageSizeInGb(32)
@@ -188,8 +195,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .softDeleteRetentionDays(7)
@@ -220,15 +228,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;byok&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
  *             .keyOpts(            
  *                 &#34;unwrapKey&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKeyVault)
- *                 .build());
+ *             .build());
  * 
  *         var exampleManagedInstanceTransparentDataEncryption = new ManagedInstanceTransparentDataEncryption(&#34;exampleManagedInstanceTransparentDataEncryption&#34;, ManagedInstanceTransparentDataEncryptionArgs.builder()        
  *             .managedInstanceId(exampleManagedInstance.id())

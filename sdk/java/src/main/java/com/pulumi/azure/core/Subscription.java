@@ -41,14 +41,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleEnrollmentAccountScope = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
+ *         final var example = BillingFunctions.getEnrollmentAccountScope(GetEnrollmentAccountScopeArgs.builder()
  *             .billingAccountName(&#34;1234567890&#34;)
  *             .enrollmentAccountName(&#34;0123456&#34;)
  *             .build());
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
  *             .subscriptionName(&#34;My Example EA Subscription&#34;)
- *             .billingScopeId(exampleEnrollmentAccountScope.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()))
+ *             .billingScopeId(example.applyValue(getEnrollmentAccountScopeResult -&gt; getEnrollmentAccountScopeResult.id()))
  *             .build());
  * 
  *     }
@@ -78,7 +78,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleMcaAccountScope = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
+ *         final var example = BillingFunctions.getMcaAccountScope(GetMcaAccountScopeArgs.builder()
  *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
  *             .billingProfileName(&#34;PE2Q-NOIT-BG7-TGB&#34;)
  *             .invoiceSectionName(&#34;MTT4-OBS7-PJA-TGB&#34;)
@@ -86,7 +86,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
  *             .subscriptionName(&#34;My Example MCA Subscription&#34;)
- *             .billingScopeId(exampleMcaAccountScope.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()))
+ *             .billingScopeId(example.applyValue(getMcaAccountScopeResult -&gt; getMcaAccountScopeResult.id()))
  *             .build());
  * 
  *     }
@@ -116,14 +116,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleMpaAccountScope = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
+ *         final var example = BillingFunctions.getMpaAccountScope(GetMpaAccountScopeArgs.builder()
  *             .billingAccountName(&#34;e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31&#34;)
  *             .customerName(&#34;2281f543-7321-4cf9-1e23-edb4Oc31a31c&#34;)
  *             .build());
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
  *             .subscriptionName(&#34;My Example MPA Subscription&#34;)
- *             .billingScopeId(exampleMpaAccountScope.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()))
+ *             .billingScopeId(example.applyValue(getMpaAccountScopeResult -&gt; getMpaAccountScopeResult.id()))
  *             .build());
  * 
  *     }
@@ -153,8 +153,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         var example = new Subscription(&#34;example&#34;, SubscriptionArgs.builder()        
  *             .alias(&#34;examplesub&#34;)
- *             .subscriptionId(&#34;12345678-12234-5678-9012-123456789012&#34;)
  *             .subscriptionName(&#34;My Example Subscription&#34;)
+ *             .subscriptionId(&#34;12345678-12234-5678-9012-123456789012&#34;)
  *             .build());
  * 
  *     }

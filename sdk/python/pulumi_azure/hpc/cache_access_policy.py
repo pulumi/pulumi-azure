@@ -141,22 +141,28 @@ class CacheAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="examplevn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="examplesubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_cache = azure.hpc.Cache("example",
+            name="examplehpccache",
+            resource_group_name=example.name,
+            location=example.location,
             cache_size_in_gb=3072,
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("exampleCacheAccessPolicy",
+        example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
+            name="example",
             hpc_cache_id=example_cache.id,
             access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
                 scope="default",
@@ -193,22 +199,28 @@ class CacheAccessPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="examplevn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="examplesubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        example_cache = azure.hpc.Cache("exampleCache",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_cache = azure.hpc.Cache("example",
+            name="examplehpccache",
+            resource_group_name=example.name,
+            location=example.location,
             cache_size_in_gb=3072,
             subnet_id=example_subnet.id,
             sku_name="Standard_2G")
-        example_cache_access_policy = azure.hpc.CacheAccessPolicy("exampleCacheAccessPolicy",
+        example_cache_access_policy = azure.hpc.CacheAccessPolicy("example",
+            name="example",
             hpc_cache_id=example_cache.id,
             access_rules=[azure.hpc.CacheAccessPolicyAccessRuleArgs(
                 scope="default",

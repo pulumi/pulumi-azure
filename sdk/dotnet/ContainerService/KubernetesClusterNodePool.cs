@@ -26,15 +26,17 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-aks1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "exampleaks1",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
@@ -49,8 +51,9 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesClusterNodePool = new Azure.ContainerService.KubernetesClusterNodePool("exampleKubernetesClusterNodePool", new()
+    ///     var exampleKubernetesClusterNodePool = new Azure.ContainerService.KubernetesClusterNodePool("example", new()
     ///     {
+    ///         Name = "internal",
     ///         KubernetesClusterId = exampleKubernetesCluster.Id,
     ///         VmSize = "Standard_DS2_v2",
     ///         NodeCount = 1,

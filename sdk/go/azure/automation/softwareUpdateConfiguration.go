@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRunBook, err := automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleRunBook, err := automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				Name:                  pulumi.String("Get-AzureVMTutorial"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				LogVerbose:            pulumi.Bool(true),
 //				LogProgress:           pulumi.Bool(true),
@@ -59,7 +62,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "exampleSoftwareUpdateConfiguration", &automation.SoftwareUpdateConfigurationArgs{
+//			_, err = automation.NewSoftwareUpdateConfiguration(ctx, "example", &automation.SoftwareUpdateConfigurationArgs{
+//				Name:                pulumi.String("example"),
 //				AutomationAccountId: exampleAccount.ID(),
 //				OperatingSystem:     pulumi.String("Linux"),
 //				Linuxes: automation.SoftwareUpdateConfigurationLinuxArray{

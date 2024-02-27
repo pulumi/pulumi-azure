@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatedns.getResolverVirtualNetworkLink({
- *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  *     name: "example-link",
+ *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
  */
@@ -71,8 +71,8 @@ export interface GetResolverVirtualNetworkLinkResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatedns.getResolverVirtualNetworkLink({
- *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  *     name: "example-link",
+ *     dnsForwardingRulesetId: "example-dns-forwarding-ruleset-id",
  * });
  * ```
  */

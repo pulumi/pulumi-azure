@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("exampleSharedImageGallery", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
  * });
- * const exampleGalleryApplication = new azure.compute.GalleryApplication("exampleGalleryApplication", {
+ * const exampleSharedImageGallery = new azure.compute.SharedImageGallery("example", {
+ *     name: "examplegallery",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleGalleryApplication = new azure.compute.GalleryApplication("example", {
+ *     name: "example-app",
  *     galleryId: exampleSharedImageGallery.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     supportedOsType: "Linux",
  * });
  * ```

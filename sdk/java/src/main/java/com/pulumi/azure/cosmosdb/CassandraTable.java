@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tflex-cosmosdb-account-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;tfex-cosmosdb-account&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .offerType(&#34;Standard&#34;)
  *             .capabilities(AccountCapabilityArgs.builder()
  *                 .name(&#34;EnableCassandra&#34;)
@@ -67,18 +69,20 @@ import javax.annotation.Nullable;
  *                 .consistencyLevel(&#34;Strong&#34;)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleCassandraKeyspace = new CassandraKeyspace(&#34;exampleCassandraKeyspace&#34;, CassandraKeyspaceArgs.builder()        
+ *             .name(&#34;tfex-cosmos-cassandra-keyspace&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
  *         var exampleCassandraTable = new CassandraTable(&#34;exampleCassandraTable&#34;, CassandraTableArgs.builder()        
+ *             .name(&#34;testtable&#34;)
  *             .cassandraKeyspaceId(exampleCassandraKeyspace.id())
  *             .schema(CassandraTableSchemaArgs.builder()
  *                 .columns(                

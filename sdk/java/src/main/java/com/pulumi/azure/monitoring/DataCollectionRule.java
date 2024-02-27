@@ -60,7 +60,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleStreamDeclarationArgs;
  * import com.pulumi.azure.monitoring.inputs.DataCollectionRuleIdentityArgs;
  * import static com.pulumi.codegen.internal.Serialization.*;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -74,24 +73,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-uai&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-workspace&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
  *             .solutionName(&#34;WindowsEventForwarding&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()
@@ -101,39 +103,45 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exeventns&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .capacity(1)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;exevent2&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examstorage&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;examplecontainer&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-dcre&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleDataCollectionRule = new DataCollectionRule(&#34;exampleDataCollectionRule&#34;, DataCollectionRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-rule&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .dataCollectionEndpointId(exampleDataCollectionEndpoint.id())
  *             .destinations(DataCollectionRuleDestinationsArgs.builder()
  *                 .logAnalytics(DataCollectionRuleDestinationsLogAnalyticArgs.builder()
@@ -241,9 +249,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .description(&#34;data collection rule example&#34;)
  *             .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAnalyticsSolution)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

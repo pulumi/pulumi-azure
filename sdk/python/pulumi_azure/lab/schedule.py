@@ -272,10 +272,13 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,
@@ -296,7 +299,8 @@ class Schedule(pulumi.CustomResource):
                     capacity=1,
                 ),
             ))
-        example_schedule = azure.lab.Schedule("exampleSchedule",
+        example_schedule = azure.lab.Schedule("example",
+            name="example-labschedule",
             lab_id=example_lab.id,
             stop_time="2022-11-28T00:00:00Z",
             time_zone="America/Los_Angeles")
@@ -335,10 +339,13 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,
@@ -359,7 +366,8 @@ class Schedule(pulumi.CustomResource):
                     capacity=1,
                 ),
             ))
-        example_schedule = azure.lab.Schedule("exampleSchedule",
+        example_schedule = azure.lab.Schedule("example",
+            name="example-labschedule",
             lab_id=example_lab.id,
             stop_time="2022-11-28T00:00:00Z",
             time_zone="America/Los_Angeles")

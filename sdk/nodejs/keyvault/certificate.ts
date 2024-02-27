@@ -22,13 +22,17 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [{
@@ -78,10 +82,13 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "imported-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("certificate-to-import.pfx", { encoding: "base64" }),
+ *         contents: std.filebase64({
+ *             input: "certificate-to-import.pfx",
+ *         }).then(invoke => invoke.result),
  *         password: "",
  *     },
  * });
@@ -93,10 +100,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     softDeleteRetentionDays: 7,
@@ -148,7 +159,8 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "generated-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificatePolicy: {
  *         issuerParameters: {

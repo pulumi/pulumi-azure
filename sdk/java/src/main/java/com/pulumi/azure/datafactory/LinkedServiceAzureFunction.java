@@ -49,22 +49,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleFunctionApp = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
+ *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
  *             .name(&#34;test-azure-functions&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleLinkedServiceAzureFunction = new LinkedServiceAzureFunction(&#34;exampleLinkedServiceAzureFunction&#34;, LinkedServiceAzureFunctionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .url(exampleFunctionApp.applyValue(getFunctionAppResult -&gt; getFunctionAppResult).applyValue(exampleFunctionApp -&gt; String.format(&#34;https://%s&#34;, exampleFunctionApp.applyValue(getFunctionAppResult -&gt; getFunctionAppResult.defaultHostname()))))
+ *             .url(example.applyValue(getFunctionAppResult -&gt; getFunctionAppResult).applyValue(example -&gt; String.format(&#34;https://%s&#34;, example.applyValue(getFunctionAppResult -&gt; getFunctionAppResult.defaultHostname()))))
  *             .key(&#34;foo&#34;)
  *             .build());
  * 

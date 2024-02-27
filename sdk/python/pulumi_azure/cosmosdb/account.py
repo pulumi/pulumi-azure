@@ -1401,13 +1401,16 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        rg = azure.core.ResourceGroup("rg", location="westus")
+        rg = azure.core.ResourceGroup("rg",
+            name="sample-rg",
+            location="westus")
         ri = random.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
+            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            location=example["location"],
+            resource_group_name=example["name"],
             offer_type="Standard",
             kind="MongoDB",
             enable_automatic_failover=True,
@@ -1440,6 +1443,43 @@ class Account(pulumi.CustomResource):
                     failover_priority=0,
                 ),
             ])
+        ```
+        ## User Assigned Identity Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            name="example-resource")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-resource",
+            location=example_azurerm_resource_group["location"],
+            resource_group_name=example_azurerm_resource_group["name"],
+            default_identity_type=std.join_output(separator="=",
+                input=[
+                    "UserAssignedIdentity",
+                    example.id,
+                ]).apply(lambda invoke: invoke.result),
+            offer_type="Standard",
+            kind="MongoDB",
+            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+                name="EnableMongo",
+            )],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location="westus",
+                failover_priority=0,
+            )],
+            identity=azure.cosmosdb.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example.id],
+            ))
         ```
 
         ## Import
@@ -1513,13 +1553,16 @@ class Account(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        rg = azure.core.ResourceGroup("rg", location="westus")
+        rg = azure.core.ResourceGroup("rg",
+            name="sample-rg",
+            location="westus")
         ri = random.RandomInteger("ri",
             min=10000,
             max=99999)
         db = azure.cosmosdb.Account("db",
-            location=azurerm_resource_group["example"]["location"],
-            resource_group_name=azurerm_resource_group["example"]["name"],
+            name=ri.result.apply(lambda result: f"tfex-cosmos-db-{result}"),
+            location=example["location"],
+            resource_group_name=example["name"],
             offer_type="Standard",
             kind="MongoDB",
             enable_automatic_failover=True,
@@ -1552,6 +1595,43 @@ class Account(pulumi.CustomResource):
                     failover_priority=0,
                 ),
             ])
+        ```
+        ## User Assigned Identity Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.authorization.UserAssignedIdentity("example",
+            resource_group_name=example_azurerm_resource_group["name"],
+            location=example_azurerm_resource_group["location"],
+            name="example-resource")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-resource",
+            location=example_azurerm_resource_group["location"],
+            resource_group_name=example_azurerm_resource_group["name"],
+            default_identity_type=std.join_output(separator="=",
+                input=[
+                    "UserAssignedIdentity",
+                    example.id,
+                ]).apply(lambda invoke: invoke.result),
+            offer_type="Standard",
+            kind="MongoDB",
+            capabilities=[azure.cosmosdb.AccountCapabilityArgs(
+                name="EnableMongo",
+            )],
+            consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
+                consistency_level="Strong",
+            ),
+            geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
+                location="westus",
+                failover_priority=0,
+            )],
+            identity=azure.cosmosdb.AccountIdentityArgs(
+                type="UserAssigned",
+                identity_ids=[example.id],
+            ))
         ```
 
         ## Import

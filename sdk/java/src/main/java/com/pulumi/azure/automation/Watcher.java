@@ -50,24 +50,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Get-AzureVMTutorial&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .logVerbose(&#34;true&#34;)
  *             .logProgress(&#34;true&#34;)
@@ -79,6 +83,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWatcher = new Watcher(&#34;exampleWatcher&#34;, WatcherArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .automationAccountId(exampleAccount.id())
  *             .location(&#34;West Europe&#34;)
  *             .scriptName(exampleRunBook.name())

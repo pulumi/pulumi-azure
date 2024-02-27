@@ -25,13 +25,13 @@ namespace Pulumi.Azure.Role
     /// {
     ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Reader",
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
     /// });
@@ -48,11 +48,12 @@ namespace Pulumi.Azure.Role
     /// {
     ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
+    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
@@ -71,12 +72,12 @@ namespace Pulumi.Azure.Role
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
     /// });
@@ -93,11 +94,12 @@ namespace Pulumi.Azure.Role
     /// {
     ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
+    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
@@ -116,12 +118,12 @@ namespace Pulumi.Azure.Role
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
     /// });
@@ -138,16 +140,17 @@ namespace Pulumi.Azure.Role
     /// {
     ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var exampleGetGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
+    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+    ///         Name = "my-custom-role-definition",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Permissions = new[]
     ///         {
@@ -166,12 +169,12 @@ namespace Pulumi.Azure.Role
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
-    ///         Scope = data.Azurerm_management_group.Primary.Id,
+    ///         Scope = primaryAzurermManagementGroup.Id,
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
     /// });

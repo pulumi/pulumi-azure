@@ -9,6 +9,69 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** Enrichment can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Enrichment` resources - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ * });
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "example",
+ *     storageAccountName: exampleAccount.name,
+ *     containerAccessType: "private",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     sku: {
+ *         name: "S1",
+ *         capacity: 1,
+ *     },
+ *     tags: {
+ *         purpose: "testing",
+ *     },
+ * });
+ * const exampleEndpointStorageContainer = new azure.iot.EndpointStorageContainer("example", {
+ *     resourceGroupName: example.name,
+ *     iothubId: exampleIoTHub.id,
+ *     name: "example",
+ *     connectionString: exampleAccount.primaryBlobConnectionString,
+ *     batchFrequencyInSeconds: 60,
+ *     maxChunkSizeInBytes: 10485760,
+ *     containerName: exampleContainer.name,
+ *     encoding: "Avro",
+ *     fileNameFormat: "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+ * });
+ * const exampleRoute = new azure.iot.Route("example", {
+ *     resourceGroupName: example.name,
+ *     iothubName: exampleIoTHub.name,
+ *     name: "example",
+ *     source: "DeviceMessages",
+ *     condition: "true",
+ *     endpointNames: exampleEndpointStorageContainer.name,
+ *     enabled: true,
+ * });
+ * const exampleEnrichment = new azure.iot.Enrichment("example", {
+ *     resourceGroupName: example.name,
+ *     iothubName: exampleIoTHub.name,
+ *     key: "example",
+ *     value: "my value",
+ *     endpointNames: [exampleEndpointStorageContainer.name],
+ * });
+ * ```
+ *
  * ## Import
  *
  * IoTHub Enrichment can be imported using the `resource id`, e.g.

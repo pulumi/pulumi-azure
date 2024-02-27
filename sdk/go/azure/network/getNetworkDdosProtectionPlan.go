@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.GetNetworkDdosProtectionPlan(ctx, &network.GetNetworkDdosProtectionPlanArgs{
-//				Name:              azurerm_network_ddos_protection_plan.Example.Name,
-//				ResourceGroupName: azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+//				Name:              exampleAzurermNetworkDdosProtectionPlan.Name,
+//				ResourceGroupName: exampleAzurermNetworkDdosProtectionPlan.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err

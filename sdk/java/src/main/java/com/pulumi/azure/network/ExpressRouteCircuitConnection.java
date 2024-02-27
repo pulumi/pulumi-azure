@@ -49,21 +49,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-erport&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .peeringLocation(&#34;Equinix-Seattle-SE2&#34;)
  *             .bandwidthInGbps(10)
  *             .encapsulation(&#34;Dot1Q&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ercircuit&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
@@ -72,18 +75,20 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example2ExpressRoutePort = new ExpressRoutePort(&#34;example2ExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *         var example2 = new ExpressRoutePort(&#34;example2&#34;, ExpressRoutePortArgs.builder()        
+ *             .name(&#34;example-erport2&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .peeringLocation(&#34;Allied-Toronto-King-West&#34;)
  *             .bandwidthInGbps(10)
  *             .encapsulation(&#34;Dot1Q&#34;)
  *             .build());
  * 
  *         var example2ExpressRouteCircuit = new ExpressRouteCircuit(&#34;example2ExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .expressRoutePortId(example2ExpressRoutePort.id())
+ *             .name(&#34;example-ercircuit2&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .expressRoutePortId(example2.id())
  *             .bandwidthInGbps(5)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
@@ -94,7 +99,7 @@ import javax.annotation.Nullable;
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;AzurePrivatePeering&#34;)
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .sharedKey(&#34;ItsASecret&#34;)
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;192.168.1.0/30&#34;)
@@ -105,7 +110,7 @@ import javax.annotation.Nullable;
  *         var example2ExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;example2ExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;AzurePrivatePeering&#34;)
  *             .expressRouteCircuitName(example2ExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .sharedKey(&#34;ItsASecret&#34;)
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;192.168.1.0/30&#34;)
@@ -114,6 +119,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteCircuitConnection = new ExpressRouteCircuitConnection(&#34;exampleExpressRouteCircuitConnection&#34;, ExpressRouteCircuitConnectionArgs.builder()        
+ *             .name(&#34;example-ercircuitconnection&#34;)
  *             .peeringId(exampleExpressRouteCircuitPeering.id())
  *             .peerPeeringId(example2ExpressRouteCircuitPeering.id())
  *             .addressPrefixIpv4(&#34;192.169.9.0/29&#34;)

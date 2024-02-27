@@ -16,11 +16,15 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleApplication = new azuread.Application("exampleApplication", {displayName: "example-app"});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.graph.Account("exampleAccount", {
+ * const example = new azuread.Application("example", {displayName: "example-app"});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.graph.Account("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
- *     applicationId: exampleApplication.applicationId,
+ *     applicationId: example.applicationId,
  *     tags: {
  *         environment: "Production",
  *     },

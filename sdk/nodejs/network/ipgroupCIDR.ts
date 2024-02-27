@@ -17,12 +17,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIPGroup = new azure.network.IPGroup("exampleIPGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "test-rg",
+ *     location: "West Europe",
  * });
- * const exampleIPGroupCIDR = new azure.network.IPGroupCIDR("exampleIPGroupCIDR", {
+ * const exampleIPGroup = new azure.network.IPGroup("example", {
+ *     name: "test-ipgroup",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleIPGroupCIDR = new azure.network.IPGroupCIDR("example", {
  *     ipGroupId: exampleIPGroup.id,
  *     cidr: "10.10.10.0/24",
  * });

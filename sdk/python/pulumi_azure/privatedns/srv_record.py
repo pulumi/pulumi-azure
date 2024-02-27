@@ -254,10 +254,15 @@ class SRVRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_srv_record = azure.privatedns.SRVRecord("exampleSRVRecord",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_srv_record = azure.privatedns.SRVRecord("example",
+            name="test",
+            resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
@@ -311,10 +316,15 @@ class SRVRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_srv_record = azure.privatedns.SRVRecord("exampleSRVRecord",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_srv_record = azure.privatedns.SRVRecord("example",
+            name="test",
+            resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[

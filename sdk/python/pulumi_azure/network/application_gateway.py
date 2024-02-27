@@ -1146,18 +1146,23 @@ class ApplicationGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.254.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Dynamic")
         backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
         frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
@@ -1167,8 +1172,9 @@ class ApplicationGateway(pulumi.CustomResource):
         request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
         redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
         network = azure.network.ApplicationGateway("network",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-appgateway",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.network.ApplicationGatewaySkuArgs(
                 name="Standard_v2",
                 tier="Standard_v2",
@@ -1272,18 +1278,23 @@ class ApplicationGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.254.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.254.0.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Dynamic")
         backend_address_pool_name = example_virtual_network.name.apply(lambda name: f"{name}-beap")
         frontend_port_name = example_virtual_network.name.apply(lambda name: f"{name}-feport")
@@ -1293,8 +1304,9 @@ class ApplicationGateway(pulumi.CustomResource):
         request_routing_rule_name = example_virtual_network.name.apply(lambda name: f"{name}-rqrt")
         redirect_configuration_name = example_virtual_network.name.apply(lambda name: f"{name}-rdrcfg")
         network = azure.network.ApplicationGateway("network",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-appgateway",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.network.ApplicationGatewaySkuArgs(
                 name="Standard_v2",
                 tier="Standard_v2",

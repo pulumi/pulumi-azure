@@ -305,8 +305,11 @@ class Ledger(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         ledger = azure.confidentialledger.Ledger("ledger",
+            name="example-ledger",
             resource_group_name=example.name,
             location=example.location,
             ledger_type="Private",
@@ -351,8 +354,11 @@ class Ledger(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         ledger = azure.confidentialledger.Ledger("ledger",
+            name="example-ledger",
             resource_group_name=example.name,
             location=example.location,
             ledger_type="Private",

@@ -31,18 +31,21 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-primary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-secondary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-recovery-vault"),
 //				Location:          secondary.Location,
 //				ResourceGroupName: secondary.Name,
 //				Sku:               pulumi.String("Standard"),
@@ -51,6 +54,7 @@ import (
 //				return err
 //			}
 //			_, err = siterecovery.NewFabric(ctx, "fabric", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("primary-fabric"),
 //				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
 //				Location:          primary.Location,

@@ -525,9 +525,12 @@ class CertificateOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_certificate_order = azure.appservice.CertificateOrder("example",
+            name="example-cert-order",
+            resource_group_name=example.name,
             location="global",
             distinguished_name="CN=example.com",
             product_type="Standard")
@@ -571,9 +574,12 @@ class CertificateOrder(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate_order = azure.appservice.CertificateOrder("exampleCertificateOrder",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_certificate_order = azure.appservice.CertificateOrder("example",
+            name="example-cert-order",
+            resource_group_name=example.name,
             location="global",
             distinguished_name="CN=example.com",
             product_type="Standard")

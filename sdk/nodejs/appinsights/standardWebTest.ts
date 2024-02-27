@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleStandardWebTest = new azure.appinsights.StandardWebTest("exampleStandardWebTest", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleStandardWebTest = new azure.appinsights.StandardWebTest("example", {
+ *     name: "example-test",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     applicationInsightsId: exampleInsights.id,
  *     geoLocations: ["example"],

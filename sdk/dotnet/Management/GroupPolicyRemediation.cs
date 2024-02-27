@@ -23,20 +23,21 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
+    ///     var exampleGroup = new Azure.Management.Group("example", new()
     ///     {
     ///         DisplayName = "Example Management Group",
     ///     });
     /// 
-    ///     var examplePolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
+    ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
     ///     {
     ///         DisplayName = "Allowed locations",
     ///     });
     /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
+    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
     ///     {
+    ///         Name = "exampleAssignment",
     ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyDefinitionId = examplePolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+    ///         PolicyDefinitionId = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
     ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
@@ -49,8 +50,9 @@ namespace Pulumi.Azure.Management
     ///         }),
     ///     });
     /// 
-    ///     var exampleGroupPolicyRemediation = new Azure.Management.GroupPolicyRemediation("exampleGroupPolicyRemediation", new()
+    ///     var exampleGroupPolicyRemediation = new Azure.Management.GroupPolicyRemediation("example", new()
     ///     {
+    ///         Name = "example",
     ///         ManagementGroupId = exampleGroup.Id,
     ///         PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
     ///     });

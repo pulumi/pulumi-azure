@@ -35,7 +35,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azuread.ApplicationPasswordArgs;
  * import com.pulumi.azure.apimanagement.IdentityProviderAadb2c;
  * import com.pulumi.azure.apimanagement.IdentityProviderAadb2cArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -49,13 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;My Company&#34;)
  *             .publisherEmail(&#34;company@terraform.io&#34;)
  *             .skuName(&#34;Developer_1&#34;)
@@ -71,7 +72,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleIdentityProviderAadb2c = new IdentityProviderAadb2c(&#34;exampleIdentityProviderAadb2c&#34;, IdentityProviderAadb2cArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .clientId(exampleApplication.applicationId())
  *             .clientSecret(&#34;P@55w0rD!&#34;)
@@ -80,9 +81,7 @@ import javax.annotation.Nullable;
  *             .authority(&#34;myb2ctenant.b2clogin.com&#34;)
  *             .signinPolicy(&#34;B2C_1_Login&#34;)
  *             .signupPolicy(&#34;B2C_1_Signup&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleApplicationPassword)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

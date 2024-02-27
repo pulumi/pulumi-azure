@@ -303,13 +303,17 @@ class Python3Package(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="%[2]s")
+        example_account = azure.automation.Account("example",
+            name="accexample",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("examplePython3Package",
-            resource_group_name=example_resource_group.name,
+        example_python3_package = azure.automation.Python3Package("example",
+            name="example",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
             content_version="2.31.0",
@@ -354,13 +358,17 @@ class Python3Package(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="%[2]s")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="%[2]s")
+        example_account = azure.automation.Account("example",
+            name="accexample",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_python3_package = azure.automation.Python3Package("examplePython3Package",
-            resource_group_name=example_resource_group.name,
+        example_python3_package = azure.automation.Python3Package("example",
+            name="example",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             content_uri="https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz",
             content_version="2.31.0",

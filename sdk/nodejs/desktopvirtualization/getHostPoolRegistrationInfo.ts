@@ -13,15 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
- * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-hostpool",
+ *     location: "westeurope",
+ * });
+ * const exampleHostPool = new azure.desktopvirtualization.HostPool("example", {
+ *     name: "example-HP",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     type: "Pooled",
  *     validateEnvironment: true,
  *     loadBalancerType: "BreadthFirst",
  * });
- * const examplegetHostPoolRegistrationInfo = new azure.desktopvirtualization.GetHostPoolRegistrationInfo("examplegetHostPoolRegistrationInfo", {
+ * const exampleGetHostPoolRegistrationInfo = new azure.desktopvirtualization.GetHostPoolRegistrationInfo("example", {
  *     hostpoolId: exampleHostPool.id,
  *     expirationDate: "2022-01-01T23:40:52Z",
  * });

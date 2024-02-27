@@ -47,23 +47,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleManagedApi = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
+ *         final var example = ConnectionsFunctions.getManagedApi(GetManagedApiArgs.builder()
  *             .name(&#34;servicebus&#34;)
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
+ *             .name(&#34;acctestsbn-conn-example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleApiConnection = new ApiConnection(&#34;exampleApiConnection&#34;, ApiConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .managedApiId(exampleManagedApi.applyValue(getManagedApiResult -&gt; getManagedApiResult).applyValue(exampleManagedApi -&gt; exampleManagedApi.applyValue(getManagedApiResult -&gt; getManagedApiResult.id())))
+ *             .managedApiId(example.applyValue(getManagedApiResult -&gt; getManagedApiResult).applyValue(example -&gt; example.applyValue(getManagedApiResult -&gt; getManagedApiResult.id())))
  *             .displayName(&#34;Example 1&#34;)
  *             .parameterValues(Map.of(&#34;connectionString&#34;, exampleNamespace.defaultPrimaryConnectionString()))
  *             .tags(Map.of(&#34;Hello&#34;, &#34;World&#34;))

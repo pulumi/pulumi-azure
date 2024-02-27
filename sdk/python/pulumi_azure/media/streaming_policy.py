@@ -306,21 +306,26 @@ class StreamingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_content_key_policy = azure.media.ContentKeyPolicy("exampleContentKeyPolicy",
-            resource_group_name=example_resource_group.name,
+        example_content_key_policy = azure.media.ContentKeyPolicy("example",
+            name="example",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             policy_options=[azure.media.ContentKeyPolicyPolicyOptionArgs(
                 name="fairPlay",
@@ -333,8 +338,9 @@ class StreamingPolicy(pulumi.CustomResource):
                 ),
                 open_restriction_enabled=True,
             )])
-        example_streaming_policy = azure.media.StreamingPolicy("exampleStreamingPolicy",
-            resource_group_name=example_resource_group.name,
+        example_streaming_policy = azure.media.StreamingPolicy("example",
+            name="Policy-1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             common_encryption_cenc=azure.media.StreamingPolicyCommonEncryptionCencArgs(
                 clear_tracks=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackArgs(
@@ -408,21 +414,26 @@ class StreamingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_content_key_policy = azure.media.ContentKeyPolicy("exampleContentKeyPolicy",
-            resource_group_name=example_resource_group.name,
+        example_content_key_policy = azure.media.ContentKeyPolicy("example",
+            name="example",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             policy_options=[azure.media.ContentKeyPolicyPolicyOptionArgs(
                 name="fairPlay",
@@ -435,8 +446,9 @@ class StreamingPolicy(pulumi.CustomResource):
                 ),
                 open_restriction_enabled=True,
             )])
-        example_streaming_policy = azure.media.StreamingPolicy("exampleStreamingPolicy",
-            resource_group_name=example_resource_group.name,
+        example_streaming_policy = azure.media.StreamingPolicy("example",
+            name="Policy-1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             common_encryption_cenc=azure.media.StreamingPolicyCommonEncryptionCencArgs(
                 clear_tracks=[azure.media.StreamingPolicyCommonEncryptionCencClearTrackArgs(

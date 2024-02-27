@@ -22,42 +22,47 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-recovery_vault",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-recovery-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
     ///     var sa = new Azure.Storage.Account("sa", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplesa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
+    ///         Name = "example-share",
     ///         StorageAccountName = sa.Name,
     ///         Quota = 1,
     ///     });
     /// 
     ///     var protection_container = new Azure.Backup.ContainerStorageAccount("protection-container", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         StorageAccountId = sa.Id,
     ///     });
     /// 
-    ///     var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("examplePolicyFileShare", new()
+    ///     var examplePolicyFileShare = new Azure.Backup.PolicyFileShare("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-recovery-vault-policy",
+    ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         Backup = new Azure.Backup.Inputs.PolicyFileShareBackupArgs
     ///         {
@@ -72,7 +77,7 @@ namespace Pulumi.Azure.Backup
     /// 
     ///     var share1 = new Azure.Backup.ProtectedFileShare("share1", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         SourceStorageAccountId = protection_container.StorageAccountId,
     ///         SourceFileShareName = exampleShare.Name,

@@ -108,11 +108,11 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.get_group(name="exampleManagementGroup")
-        example_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=example_subscription.id)
+        example = azure.management.get_group(name="exampleManagementGroup")
+        example_get_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
+        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
+            management_group_id=example.id,
+            subscription_id=example_get_subscription.id)
         ```
 
         ## Import
@@ -145,11 +145,11 @@ class GroupSubscriptionAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.get_group(name="exampleManagementGroup")
-        example_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
-            subscription_id=example_subscription.id)
+        example = azure.management.get_group(name="exampleManagementGroup")
+        example_get_subscription = azure.core.get_subscription(subscription_id="12345678-1234-1234-1234-123456789012")
+        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
+            management_group_id=example.id,
+            subscription_id=example_get_subscription.id)
         ```
 
         ## Import

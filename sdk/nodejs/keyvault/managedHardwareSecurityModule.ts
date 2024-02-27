@@ -18,10 +18,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedHardwareSecurityModule = new azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleManagedHardwareSecurityModule = new azure.keyvault.ManagedHardwareSecurityModule("example", {
+ *     name: "exampleKVHsm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Standard_B1",
  *     purgeProtectionEnabled: false,
  *     softDeleteRetentionDays: 90,

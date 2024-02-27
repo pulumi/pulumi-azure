@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMover, err := storage.NewMover(ctx, "exampleMover", &storage.MoverArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleMover, err := storage.NewMover(ctx, "example", &storage.MoverArgs{
+//				Name:              pulumi.String("example-ssm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewMoverProject(ctx, "exampleMoverProject", &storage.MoverProjectArgs{
+//			_, err = storage.NewMoverProject(ctx, "example", &storage.MoverProjectArgs{
+//				Name:           pulumi.String("example-sp"),
 //				StorageMoverId: exampleMover.ID(),
 //				Description:    pulumi.String("Example Project Description"),
 //			})

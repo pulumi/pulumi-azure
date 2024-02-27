@@ -31,13 +31,15 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "resourceGroupName",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+        ///     var exampleAccount = new Azure.Storage.Account("example", new()
         ///     {
+        ///         Name = "storageaccountname",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         Location = exampleResourceGroup.Location,
         ///         AccountTier = "Standard",
@@ -48,7 +50,7 @@ namespace Pulumi.Azure.Storage
         ///         },
         ///     });
         /// 
-        ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+        ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
         ///     {
         ///         ConnectionString = exampleAccount.PrimaryConnectionString,
         ///         HttpsOnly = true,
@@ -85,7 +87,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["sasUrlQueryString"] = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
         ///     };
         /// });
         /// ```
@@ -115,13 +117,15 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "resourceGroupName",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+        ///     var exampleAccount = new Azure.Storage.Account("example", new()
         ///     {
+        ///         Name = "storageaccountname",
         ///         ResourceGroupName = exampleResourceGroup.Name,
         ///         Location = exampleResourceGroup.Location,
         ///         AccountTier = "Standard",
@@ -132,7 +136,7 @@ namespace Pulumi.Azure.Storage
         ///         },
         ///     });
         /// 
-        ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+        ///     var example = Azure.Storage.GetAccountSAS.Invoke(new()
         ///     {
         ///         ConnectionString = exampleAccount.PrimaryConnectionString,
         ///         HttpsOnly = true,
@@ -169,7 +173,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["sasUrlQueryString"] = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+        ///         ["sasUrlQueryString"] = example.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
         ///     };
         /// });
         /// ```

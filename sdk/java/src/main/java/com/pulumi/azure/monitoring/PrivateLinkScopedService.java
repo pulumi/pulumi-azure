@@ -44,22 +44,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var examplePrivateLinkScope = new PrivateLinkScope(&#34;examplePrivateLinkScope&#34;, PrivateLinkScopeArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ampls&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePrivateLinkScopedService = new PrivateLinkScopedService(&#34;examplePrivateLinkScopedService&#34;, PrivateLinkScopedServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-amplsservice&#34;)
+ *             .resourceGroupName(example.name())
  *             .scopeName(examplePrivateLinkScope.name())
  *             .linkedResourceId(exampleInsights.id())
  *             .build());

@@ -15,14 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.automation.getAccount({
+ * const example = azure.automation.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleVariables = exampleAccount.then(exampleAccount => azure.automation.getVariables({
- *     automationAccountId: exampleAccount.id,
+ * const exampleGetVariables = example.then(example => azure.automation.getVariables({
+ *     automationAccountId: example.id,
  * }));
- * export const stringVars = data.azurerm_automation_variable_string.example.string;
+ * export const stringVars = exampleAzurermAutomationVariableString.string;
  * ```
  */
 export function getVariables(args: GetVariablesArgs, opts?: pulumi.InvokeOptions): Promise<GetVariablesResult> {
@@ -87,14 +87,14 @@ export interface GetVariablesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.automation.getAccount({
+ * const example = azure.automation.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleVariables = exampleAccount.then(exampleAccount => azure.automation.getVariables({
- *     automationAccountId: exampleAccount.id,
+ * const exampleGetVariables = example.then(example => azure.automation.getVariables({
+ *     automationAccountId: example.id,
  * }));
- * export const stringVars = data.azurerm_automation_variable_string.example.string;
+ * export const stringVars = exampleAzurermAutomationVariableString.string;
  * ```
  */
 export function getVariablesOutput(args: GetVariablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVariablesResult> {

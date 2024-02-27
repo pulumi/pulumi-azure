@@ -140,7 +140,7 @@ def get_budget_subscription(name: Optional[str] = None,
 
     example = azure.consumption.get_budget_subscription(name="existing",
         subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
-    pulumi.export("id", data["azurerm_consumption_budget"]["example"]["id"])
+    pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
 
 
@@ -179,7 +179,7 @@ def get_budget_subscription_output(name: Optional[pulumi.Input[str]] = None,
 
     example = azure.consumption.get_budget_subscription(name="existing",
         subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000/")
-    pulumi.export("id", data["azurerm_consumption_budget"]["example"]["id"])
+    pulumi.export("id", example_azurerm_consumption_budget["id"])
     ```
 
 

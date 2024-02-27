@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;pub1&#34;)
  *             .publisherEmail(&#34;pub1@email.com&#34;)
  *             .skuName(&#34;Consumption_0&#34;)
@@ -58,9 +60,11 @@ import javax.annotation.Nullable;
  *         var exampleGlobalSchema = new GlobalSchema(&#34;exampleGlobalSchema&#34;, GlobalSchemaArgs.builder()        
  *             .schemaId(&#34;example-schema1&#34;)
  *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .type(&#34;xml&#34;)
- *             .value(Files.readString(Paths.get(&#34;api_management_api_schema.xml&#34;)))
+ *             .value(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;api_management_api_schema.xml&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

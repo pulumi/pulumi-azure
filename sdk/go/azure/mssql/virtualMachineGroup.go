@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewVirtualMachineGroup(ctx, "exampleVirtualMachineGroup", &mssql.VirtualMachineGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = mssql.NewVirtualMachineGroup(ctx, "example", &mssql.VirtualMachineGroupArgs{
+//				Name:              pulumi.String("examplegroup"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SqlImageOffer:     pulumi.String("SQL2017-WS2016"),
 //				SqlImageSku:       pulumi.String("Developer"),
 //				WsfcDomainProfile: &mssql.VirtualMachineGroupWsfcDomainProfileArgs{

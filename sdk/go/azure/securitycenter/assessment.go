@@ -21,35 +21,28 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/securitycenter"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -58,7 +51,8 @@ import (
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -67,16 +61,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:              pulumi.String("example-vmss"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("Standard_F2"),
 //				Instances:         pulumi.Int(1),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//						PublicKey: invokeFile.Result,
 //					},
 //				},
 //				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
@@ -106,7 +107,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAssessmentPolicy, err := securitycenter.NewAssessmentPolicy(ctx, "exampleAssessmentPolicy", &securitycenter.AssessmentPolicyArgs{
+//			exampleAssessmentPolicy, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
 //				DisplayName: pulumi.String("Test Display Name"),
 //				Severity:    pulumi.String("Medium"),
 //				Description: pulumi.String("Test Description"),
@@ -114,7 +115,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securitycenter.NewAssessment(ctx, "exampleAssessment", &securitycenter.AssessmentArgs{
+//			_, err = securitycenter.NewAssessment(ctx, "example", &securitycenter.AssessmentArgs{
 //				AssessmentPolicyId: exampleAssessmentPolicy.ID(),
 //				TargetResourceId:   exampleLinuxVirtualMachineScaleSet.ID(),
 //				Status: &securitycenter.AssessmentStatusArgs{

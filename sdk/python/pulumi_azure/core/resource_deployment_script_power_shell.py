@@ -618,12 +618,16 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("example",
+            name="example-rdsaps",
+            resource_group_name=example.name,
             location="West Europe",
             version="8.3",
             retention_interval="P1D",
@@ -689,12 +693,16 @@ class ResourceDeploymentScriptPowerShell(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_resource_deployment_script_power_shell = azure.core.ResourceDeploymentScriptPowerShell("example",
+            name="example-rdsaps",
+            resource_group_name=example.name,
             location="West Europe",
             version="8.3",
             retention_interval="P1D",

@@ -29,22 +29,12 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -52,15 +42,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("examplekeyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -115,10 +107,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate-to-import.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("imported-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: filebase64OrPanic("certificate-to-import.pfx"),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
 //			})
@@ -149,15 +148,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("examplekeyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -214,7 +215,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			_, err = keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("generated-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{

@@ -135,7 +135,7 @@ def get_network(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     ```
 
 
@@ -173,7 +173,7 @@ def get_network_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     ```
 
 

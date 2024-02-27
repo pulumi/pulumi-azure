@@ -26,16 +26,16 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEnvironment = Azure.ContainerApp.GetEnvironment.Invoke(new()
+        ///     var example = Azure.ContainerApp.GetEnvironment.Invoke(new()
         ///     {
         ///         Name = "example-environment",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
+        ///     var exampleGetEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
         ///     {
         ///         Name = "mycertificate",
-        ///         ContainerAppEnvironmentId = exampleEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
+        ///         ContainerAppEnvironmentId = example.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.ContainerApp
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleEnvironment = Azure.ContainerApp.GetEnvironment.Invoke(new()
+        ///     var example = Azure.ContainerApp.GetEnvironment.Invoke(new()
         ///     {
         ///         Name = "example-environment",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
+        ///     var exampleGetEnvironmentCertificate = Azure.ContainerApp.GetEnvironmentCertificate.Invoke(new()
         ///     {
         ///         Name = "mycertificate",
-        ///         ContainerAppEnvironmentId = exampleEnvironment.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
+        ///         ContainerAppEnvironmentId = example.Apply(getEnvironmentResult =&gt; getEnvironmentResult.Id),
         ///     });
         /// 
         /// });

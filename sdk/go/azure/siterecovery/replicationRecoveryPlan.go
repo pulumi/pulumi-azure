@@ -33,30 +33,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryResourceGroup, err := core.NewResourceGroup(ctx, "primaryResourceGroup", &core.ResourceGroupArgs{
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-replicated-vm-primary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryResourceGroup, err := core.NewResourceGroup(ctx, "secondaryResourceGroup", &core.ResourceGroupArgs{
+//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-replicated-vm-secondary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primaryVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: primaryResourceGroup.Name,
+//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network1"),
+//				ResourceGroupName: primary.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.1.0/24"),
 //				},
-//				Location: primaryResourceGroup.Location,
+//				Location: primary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primarySubnet, err := network.NewSubnet(ctx, "primarySubnet", &network.SubnetArgs{
-//				ResourceGroupName:  primaryResourceGroup.Name,
+//			primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
+//				Name:               pulumi.String("network1-subnet"),
+//				ResourceGroupName:  primary.Name,
 //				VirtualNetworkName: primaryVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("192.168.1.0/24"),
@@ -65,18 +69,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryPublicIp, err := network.NewPublicIp(ctx, "primaryPublicIp", &network.PublicIpArgs{
+//			primaryPublicIp, err := network.NewPublicIp(ctx, "primary", &network.PublicIpArgs{
+//				Name:              pulumi.String("vm-public-ip-primary"),
 //				AllocationMethod:  pulumi.String("Static"),
-//				Location:          primaryResourceGroup.Location,
-//				ResourceGroupName: primaryResourceGroup.Name,
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
 //				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			vmNetworkInterface, err := network.NewNetworkInterface(ctx, "vmNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          primaryResourceGroup.Location,
-//				ResourceGroupName: primaryResourceGroup.Name,
+//			vmNetworkInterface, err := network.NewNetworkInterface(ctx, "vm", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("vm-nic"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("vm"),
@@ -89,9 +95,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			vmVirtualMachine, err := compute.NewVirtualMachine(ctx, "vmVirtualMachine", &compute.VirtualMachineArgs{
-//				Location:          primaryResourceGroup.Location,
-//				ResourceGroupName: primaryResourceGroup.Name,
+//			vm, err := compute.NewVirtualMachine(ctx, "vm", &compute.VirtualMachineArgs{
+//				Name:              pulumi.String("vm"),
+//				Location:          primary.Location,
+//				ResourceGroupName: primary.Name,
 //				VmSize:            pulumi.String("Standard_B1s"),
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					vmNetworkInterface.ID(),
@@ -122,39 +129,44 @@ import (
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Location:          secondaryResourceGroup.Location,
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryFabric, err := siterecovery.NewFabric(ctx, "primaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			primaryFabric, err := siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("primary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          primaryResourceGroup.Location,
+//				Location:          primary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryFabric, err := siterecovery.NewFabric(ctx, "secondaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			secondaryFabric, err := siterecovery.NewFabric(ctx, "secondary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("secondary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          secondaryResourceGroup.Location,
+//				Location:          secondary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "primaryProtectionContainer", &siterecovery.ProtectionContainerArgs{
-//				ResourceGroupName:  secondaryResourceGroup.Name,
+//			primaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "primary", &siterecovery.ProtectionContainerArgs{
+//				Name:               pulumi.String("primary-protection-container"),
+//				ResourceGroupName:  secondary.Name,
 //				RecoveryVaultName:  vault.Name,
 //				RecoveryFabricName: primaryFabric.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "secondaryProtectionContainer", &siterecovery.ProtectionContainerArgs{
-//				ResourceGroupName:  secondaryResourceGroup.Name,
+//			secondaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "secondary", &siterecovery.ProtectionContainerArgs{
+//				Name:               pulumi.String("secondary-protection-container"),
+//				ResourceGroupName:  secondary.Name,
 //				RecoveryVaultName:  vault.Name,
 //				RecoveryFabricName: secondaryFabric.Name,
 //			})
@@ -162,16 +174,18 @@ import (
 //				return err
 //			}
 //			policy, err := siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
-//				ResourceGroupName:                               secondaryResourceGroup.Name,
-//				RecoveryVaultName:                               vault.Name,
-//				RecoveryPointRetentionInMinutes:                 24 * 60,
+//				Name:                            pulumi.String("policy"),
+//				ResourceGroupName:               secondary.Name,
+//				RecoveryVaultName:               vault.Name,
+//				RecoveryPointRetentionInMinutes: 24 * 60,
 //				ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
-//				ResourceGroupName:                     secondaryResourceGroup.Name,
+//				Name:                                  pulumi.String("container-mapping"),
+//				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
 //				RecoveryFabricName:                    primaryFabric.Name,
 //				RecoverySourceProtectionContainerName: primaryProtectionContainer.Name,
@@ -181,18 +195,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondaryVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondary", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network2"),
+//				ResourceGroupName: secondary.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
 //				},
-//				Location: secondaryResourceGroup.Location,
+//				Location: secondary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewNetworkMapping(ctx, "network-mapping", &siterecovery.NetworkMappingArgs{
-//				ResourceGroupName:        secondaryResourceGroup.Name,
+//				Name:                     pulumi.String("network-mapping"),
+//				ResourceGroupName:        secondary.Name,
 //				RecoveryVaultName:        vault.Name,
 //				SourceRecoveryFabricName: primaryFabric.Name,
 //				TargetRecoveryFabricName: secondaryFabric.Name,
@@ -202,17 +218,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			primaryAccount, err := storage.NewAccount(ctx, "primaryAccount", &storage.AccountArgs{
-//				Location:               primaryResourceGroup.Location,
-//				ResourceGroupName:      primaryResourceGroup.Name,
+//			primaryAccount, err := storage.NewAccount(ctx, "primary", &storage.AccountArgs{
+//				Name:                   pulumi.String("primaryrecoverycache"),
+//				Location:               primary.Location,
+//				ResourceGroupName:      primary.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondarySubnet, err := network.NewSubnet(ctx, "secondarySubnet", &network.SubnetArgs{
-//				ResourceGroupName:  secondaryResourceGroup.Name,
+//			secondarySubnet, err := network.NewSubnet(ctx, "secondary", &network.SubnetArgs{
+//				Name:               pulumi.String("network2-subnet"),
+//				ResourceGroupName:  secondary.Name,
 //				VirtualNetworkName: secondaryVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
@@ -221,32 +239,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			secondaryPublicIp, err := network.NewPublicIp(ctx, "secondaryPublicIp", &network.PublicIpArgs{
+//			secondaryPublicIp, err := network.NewPublicIp(ctx, "secondary", &network.PublicIpArgs{
+//				Name:              pulumi.String("vm-public-ip-secondary"),
 //				AllocationMethod:  pulumi.String("Static"),
-//				Location:          secondaryResourceGroup.Location,
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
 //				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewReplicatedVM(ctx, "vm-replication", &siterecovery.ReplicatedVMArgs{
-//				ResourceGroupName:                     secondaryResourceGroup.Name,
+//				Name:                                  pulumi.String("vm-replication"),
+//				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
 //				SourceRecoveryFabricName:              primaryFabric.Name,
-//				SourceVmId:                            vmVirtualMachine.ID(),
+//				SourceVmId:                            vm.ID(),
 //				RecoveryReplicationPolicyId:           policy.ID(),
 //				SourceRecoveryProtectionContainerName: primaryProtectionContainer.Name,
-//				TargetResourceGroupId:                 secondaryResourceGroup.ID(),
+//				TargetResourceGroupId:                 secondary.ID(),
 //				TargetRecoveryFabricId:                secondaryFabric.ID(),
 //				TargetRecoveryProtectionContainerId:   secondaryProtectionContainer.ID(),
 //				ManagedDisks: siterecovery.ReplicatedVMManagedDiskArray{
 //					&siterecovery.ReplicatedVMManagedDiskArgs{
-//						DiskId: vmVirtualMachine.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (*string, error) {
+//						DiskId: vm.StorageOsDisk.ApplyT(func(storageOsDisk compute.VirtualMachineStorageOsDisk) (*string, error) {
 //							return &storageOsDisk.ManagedDiskId, nil
 //						}).(pulumi.StringPtrOutput),
 //						StagingStorageAccountId: primaryAccount.ID(),
-//						TargetResourceGroupId:   secondaryResourceGroup.ID(),
+//						TargetResourceGroupId:   secondary.ID(),
 //						TargetDiskType:          pulumi.String("Premium_LRS"),
 //						TargetReplicaDiskType:   pulumi.String("Premium_LRS"),
 //					},
@@ -258,14 +278,12 @@ import (
 //						RecoveryPublicIpAddressId: secondaryPublicIp.ID(),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				container_mapping,
-//				network_mapping,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewReplicationRecoveryPlan(ctx, "example", &siterecovery.ReplicationRecoveryPlanArgs{
+//				Name:                   pulumi.String("example-recover-plan"),
 //				RecoveryVaultId:        vault.ID(),
 //				SourceRecoveryFabricId: primaryFabric.ID(),
 //				TargetRecoveryFabricId: secondaryFabric.ID(),

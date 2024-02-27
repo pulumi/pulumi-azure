@@ -21,34 +21,26 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("pub1"),
 //				PublisherEmail:    pulumi.String("pub1@email.com"),
 //				SkuName:           pulumi.String("Consumption_0"),
@@ -56,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleGateway, err := apimanagement.NewGateway(ctx, "exampleGateway", &apimanagement.GatewayArgs{
+//			exampleGateway, err := apimanagement.NewGateway(ctx, "example", &apimanagement.GatewayArgs{
+//				Name:            pulumi.String("example-gateway"),
 //				ApiManagementId: exampleService.ID(),
 //				Description:     pulumi.String("Example API Management gateway"),
 //				LocationData: &apimanagement.GatewayLocationDataArgs{
@@ -69,15 +62,22 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := apimanagement.NewCertificate(ctx, "exampleCertificate", &apimanagement.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "example.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := apimanagement.NewCertificate(ctx, "example", &apimanagement.CertificateArgs{
+//				Name:              pulumi.String("example-cert"),
 //				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Data:              filebase64OrPanic("example.pfx"),
+//				ResourceGroupName: example.Name,
+//				Data:              invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewGatewayCertificateAuthority(ctx, "exampleGatewayCertificateAuthority", &apimanagement.GatewayCertificateAuthorityArgs{
+//			_, err = apimanagement.NewGatewayCertificateAuthority(ctx, "example", &apimanagement.GatewayCertificateAuthorityArgs{
 //				ApiManagementId: exampleService.ID(),
 //				CertificateName: exampleCertificate.Name,
 //				GatewayName:     exampleGateway.Name,

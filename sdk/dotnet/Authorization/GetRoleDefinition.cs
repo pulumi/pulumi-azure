@@ -13,12 +13,108 @@ namespace Pulumi.Azure.Authorization
     {
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var primary = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var customRoleDefinition = new Azure.Authorization.RoleDefinition("custom", new()
+        ///     {
+        ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+        ///         Name = "CustomRoleDef",
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var custom = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         RoleDefinitionId = customRoleDefinition.RoleDefinitionId,
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var custom_byname = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = customRoleDefinition.Name,
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = "Contributor",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["customRoleDefinitionId"] = custom.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+        ///         ["contributorRoleDefinitionId"] = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetRoleDefinitionResult> InvokeAsync(GetRoleDefinitionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Role Definition.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var primary = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var customRoleDefinition = new Azure.Authorization.RoleDefinition("custom", new()
+        ///     {
+        ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
+        ///         Name = "CustomRoleDef",
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var custom = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         RoleDefinitionId = customRoleDefinition.RoleDefinitionId,
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var custom_byname = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = customRoleDefinition.Name,
+        ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///     });
+        /// 
+        ///     var builtin = Azure.Authorization.GetRoleDefinition.Invoke(new()
+        ///     {
+        ///         Name = "Contributor",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["customRoleDefinitionId"] = custom.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+        ///         ["contributorRoleDefinitionId"] = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetRoleDefinitionResult> Invoke(GetRoleDefinitionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRoleDefinitionResult>("azure:authorization/getRoleDefinition:getRoleDefinition", args ?? new GetRoleDefinitionInvokeArgs(), options.WithDefaults());

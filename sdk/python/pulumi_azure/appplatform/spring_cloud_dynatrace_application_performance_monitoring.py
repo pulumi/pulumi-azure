@@ -337,12 +337,16 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("exampleSpringCloudDynatraceApplicationPerformanceMonitoring",
+        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
+            name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
             api_url="https://example-api-url.com",
@@ -390,12 +394,16 @@ class SpringCloudDynatraceApplicationPerformanceMonitoring(pulumi.CustomResource
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("exampleSpringCloudDynatraceApplicationPerformanceMonitoring",
+        example_spring_cloud_dynatrace_application_performance_monitoring = azure.appplatform.SpringCloudDynatraceApplicationPerformanceMonitoring("example",
+            name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
             globally_enabled=True,
             api_url="https://example-api-url.com",

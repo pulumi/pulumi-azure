@@ -13,8 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example-virtualdesktop",
+ *     location: "West Europe",
+ * });
  * const workspace = new azure.desktopvirtualization.Workspace("workspace", {
+ *     name: "workspace",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     friendlyName: "FriendlyName",

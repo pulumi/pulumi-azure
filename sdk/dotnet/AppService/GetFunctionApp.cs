@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService
         ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
         ///     {
         ///         Name = "test-azure-functions",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.AppService
         ///     var example = Azure.AppService.GetFunctionApp.Invoke(new()
         ///     {
         ///         Name = "test-azure-functions",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

@@ -395,20 +395,25 @@ class FunctionAppFunction(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-group",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Linux",
             sku_name="S1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            name="example-function-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
@@ -417,7 +422,8 @@ class FunctionAppFunction(pulumi.CustomResource):
                     python_version="3.9",
                 ),
             ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
+        example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
             language="Python",
             test_data=json.dumps({
@@ -449,21 +455,27 @@ class FunctionAppFunction(pulumi.CustomResource):
         import pulumi
         import json
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-group",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Windows",
             sku_name="S1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            name="example-function-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
@@ -472,12 +484,13 @@ class FunctionAppFunction(pulumi.CustomResource):
                     dotnet_version="6",
                 ),
             ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
+        example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
             files=[azure.appservice.FunctionAppFunctionFileArgs(
                 name="run.csx",
-                content=(lambda path: open(path).read())("exampledata/run.csx"),
+                content=std.file(input="exampledata/run.csx").result,
             )],
             test_data=json.dumps({
                 "name": "Azure",
@@ -540,20 +553,25 @@ class FunctionAppFunction(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-group",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Linux",
             sku_name="S1")
-        example_linux_function_app = azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_linux_function_app = azure.appservice.LinuxFunctionApp("example",
+            name="example-function-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
@@ -562,7 +580,8 @@ class FunctionAppFunction(pulumi.CustomResource):
                     python_version="3.9",
                 ),
             ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
+        example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            name="example-function-app-function",
             function_app_id=example_linux_function_app.id,
             language="Python",
             test_data=json.dumps({
@@ -594,21 +613,27 @@ class FunctionAppFunction(pulumi.CustomResource):
         import pulumi
         import json
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-group",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Windows",
             sku_name="S1")
-        example_windows_function_app = azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_windows_function_app = azure.appservice.WindowsFunctionApp("example",
+            name="example-function-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             storage_account_name=example_account.name,
             storage_account_access_key=example_account.primary_access_key,
@@ -617,12 +642,13 @@ class FunctionAppFunction(pulumi.CustomResource):
                     dotnet_version="6",
                 ),
             ))
-        example_function_app_function = azure.appservice.FunctionAppFunction("exampleFunctionAppFunction",
+        example_function_app_function = azure.appservice.FunctionAppFunction("example",
+            name="example-function-app-function",
             function_app_id=example_windows_function_app.id,
             language="CSharp",
             files=[azure.appservice.FunctionAppFunctionFileArgs(
                 name="run.csx",
-                content=(lambda path: open(path).read())("exampledata/run.csx"),
+                content=std.file(input="exampledata/run.csx").result,
             )],
             test_data=json.dumps({
                 "name": "Azure",

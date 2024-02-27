@@ -22,26 +22,30 @@ namespace Pulumi.Azure.Billing
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleAccountCostManagementExport = new Azure.Billing.AccountCostManagementExport("exampleAccountCostManagementExport", new()
+    ///     var exampleAccountCostManagementExport = new Azure.Billing.AccountCostManagementExport("example", new()
     ///     {
+    ///         Name = "example",
     ///         BillingAccountId = "example",
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",

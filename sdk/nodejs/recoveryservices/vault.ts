@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-recovery_vault",
+ *     location: "West Europe",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
+ *     name: "example-recovery-vault",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",

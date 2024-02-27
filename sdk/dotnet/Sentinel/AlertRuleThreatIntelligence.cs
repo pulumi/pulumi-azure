@@ -22,19 +22,21 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
+    ///         Name = "example-workspace",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "pergb2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "SecurityInsights",
     ///         Location = exampleResourceGroup.Location,
@@ -48,16 +50,17 @@ namespace Pulumi.Azure.Sentinel
     ///         },
     ///     });
     /// 
-    ///     var exampleAlertRuleTemplate = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
+    ///     var example = Azure.Sentinel.GetAlertRuleTemplate.Invoke(new()
     ///     {
     ///         DisplayName = "(Preview) Microsoft Defender Threat Intelligence Analytics",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///     });
     /// 
-    ///     var exampleAlertRuleThreatIntelligence = new Azure.Sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", new()
+    ///     var exampleAlertRuleThreatIntelligence = new Azure.Sentinel.AlertRuleThreatIntelligence("example", new()
     ///     {
+    ///         Name = "example-rule",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
-    ///         AlertRuleTemplateGuid = exampleAlertRuleTemplate.Apply(getAlertRuleTemplateResult =&gt; getAlertRuleTemplateResult.Name),
+    ///         AlertRuleTemplateGuid = example.Apply(getAlertRuleTemplateResult =&gt; getAlertRuleTemplateResult.Name),
     ///     });
     /// 
     /// });

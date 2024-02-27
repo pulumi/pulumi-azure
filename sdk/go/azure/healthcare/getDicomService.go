@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := healthcare.LookupDicomService(ctx, &healthcare.LookupDicomServiceArgs{
 //				Name:        "example-healthcare_dicom_service",
-//				WorkspaceId: data.Azurerm_healthcare_workspace.Example.Id,
+//				WorkspaceId: exampleAzurermHealthcareWorkspace.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -15,26 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-ehnamespace",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     capacity: 1,
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "example-eventhub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("exampleOutputEventHub", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleOutputEventHub = new azure.streamanalytics.OutputEventHub("example", {
+ *     name: "output-to-eventhub",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     eventhubName: exampleEventHub.name,
  *     servicebusNamespace: exampleEventHubNamespace.name,
  *     sharedAccessPolicyKey: exampleEventHubNamespace.defaultPrimaryKey,

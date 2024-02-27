@@ -16,35 +16,41 @@ namespace Pulumi.Azure.Automation
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourceGroup-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
+    ///         Name = "account-example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleConnectionServicePrincipal = new Azure.Automation.ConnectionServicePrincipal("exampleConnectionServicePrincipal", new()
+    ///     var exampleConnectionServicePrincipal = new Azure.Automation.ConnectionServicePrincipal("example", new()
     ///     {
+    ///         Name = "connection-example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         ApplicationId = "00000000-0000-0000-0000-000000000000",
-    ///         TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
-    ///         CertificateThumbprint = File.ReadAllText("automation_certificate_test.thumb"),
+    ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         SubscriptionId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
+    ///         CertificateThumbprint = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "automation_certificate_test.thumb",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

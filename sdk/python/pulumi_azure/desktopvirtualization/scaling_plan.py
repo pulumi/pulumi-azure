@@ -379,9 +379,12 @@ class ScalingPlan(pulumi.CustomResource):
         import pulumi_azuread as azuread
         import pulumi_random as random
 
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+        example_random_uuid = random.RandomUuid("example")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_role_definition = azure.authorization.RoleDefinition("example",
+            name="AVD-AutoScale",
             scope=example_resource_group.id,
             description="AVD AutoScale Role",
             permissions=[azure.authorization.RoleDefinitionPermissionArgs(
@@ -404,20 +407,22 @@ class ScalingPlan(pulumi.CustomResource):
                 not_actions=[],
             )],
             assignable_scopes=[example_resource_group.id])
-        example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
+        example_assignment = azure.authorization.Assignment("example",
             name=example_random_uuid.result,
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.id,
+            principal_id=example.id,
             skip_service_principal_aad_check=True)
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+        example_host_pool = azure.desktopvirtualization.HostPool("example",
+            name="example-hostpool",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             type="Pooled",
             validate_environment=True,
             load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("exampleScalingPlan",
+        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("example",
+            name="example-scaling-plan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             friendly_name="Scaling Plan Example",
@@ -499,9 +504,12 @@ class ScalingPlan(pulumi.CustomResource):
         import pulumi_azuread as azuread
         import pulumi_random as random
 
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_role_definition = azure.authorization.RoleDefinition("exampleRoleDefinition",
+        example_random_uuid = random.RandomUuid("example")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_role_definition = azure.authorization.RoleDefinition("example",
+            name="AVD-AutoScale",
             scope=example_resource_group.id,
             description="AVD AutoScale Role",
             permissions=[azure.authorization.RoleDefinitionPermissionArgs(
@@ -524,20 +532,22 @@ class ScalingPlan(pulumi.CustomResource):
                 not_actions=[],
             )],
             assignable_scopes=[example_resource_group.id])
-        example_service_principal = azuread.get_service_principal(display_name="Windows Virtual Desktop")
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example = azuread.get_service_principal(display_name="Windows Virtual Desktop")
+        example_assignment = azure.authorization.Assignment("example",
             name=example_random_uuid.result,
             scope=example_resource_group.id,
             role_definition_id=example_role_definition.role_definition_resource_id,
-            principal_id=example_service_principal.id,
+            principal_id=example.id,
             skip_service_principal_aad_check=True)
-        example_host_pool = azure.desktopvirtualization.HostPool("exampleHostPool",
+        example_host_pool = azure.desktopvirtualization.HostPool("example",
+            name="example-hostpool",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             type="Pooled",
             validate_environment=True,
             load_balancer_type="BreadthFirst")
-        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("exampleScalingPlan",
+        example_scaling_plan = azure.desktopvirtualization.ScalingPlan("example",
+            name="example-scaling-plan",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             friendly_name="Scaling Plan Example",

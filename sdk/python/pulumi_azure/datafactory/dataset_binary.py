@@ -446,18 +446,23 @@ class DatasetBinary(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("example",
+            name="example",
             data_factory_id=example_factory.id,
             authentication_type="Basic",
             host="http://www.bing.com",
             port=22,
             username="foo",
             password="bar")
-        example_dataset_binary = azure.datafactory.DatasetBinary("exampleDatasetBinary",
+        example_dataset_binary = azure.datafactory.DatasetBinary("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
             sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(
@@ -506,18 +511,23 @@ class DatasetBinary(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("exampleLinkedServiceSftp",
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_sftp = azure.datafactory.LinkedServiceSftp("example",
+            name="example",
             data_factory_id=example_factory.id,
             authentication_type="Basic",
             host="http://www.bing.com",
             port=22,
             username="foo",
             password="bar")
-        example_dataset_binary = azure.datafactory.DatasetBinary("exampleDatasetBinary",
+        example_dataset_binary = azure.datafactory.DatasetBinary("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_sftp.name,
             sftp_server_location=azure.datafactory.DatasetBinarySftpServerLocationArgs(

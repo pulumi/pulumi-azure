@@ -237,14 +237,20 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="test-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="test",
+            resource_group_name=example.name,
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```
@@ -281,14 +287,20 @@ class ZoneVirtualNetworkLink(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="test-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="test",
+            resource_group_name=example.name,
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```

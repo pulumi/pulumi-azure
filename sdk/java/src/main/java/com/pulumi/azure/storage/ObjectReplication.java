@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var srcResourceGroup = new ResourceGroup(&#34;srcResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var src = new ResourceGroup(&#34;src&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;srcResourceGroupName&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var srcAccount = new Account(&#34;srcAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(srcResourceGroup.name())
- *             .location(srcResourceGroup.location())
+ *             .name(&#34;srcstorageaccount&#34;)
+ *             .resourceGroupName(src.name())
+ *             .location(src.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .blobProperties(AccountBlobPropertiesArgs.builder()
@@ -64,17 +66,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var srcContainer = new Container(&#34;srcContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;srcstrcontainer&#34;)
  *             .storageAccountName(srcAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
- *         var dstResourceGroup = new ResourceGroup(&#34;dstResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var dst = new ResourceGroup(&#34;dst&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;dstResourceGroupName&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var dstAccount = new Account(&#34;dstAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(dstResourceGroup.name())
- *             .location(dstResourceGroup.location())
+ *             .name(&#34;dststorageaccount&#34;)
+ *             .resourceGroupName(dst.name())
+ *             .location(dst.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .blobProperties(AccountBlobPropertiesArgs.builder()
@@ -84,6 +89,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var dstContainer = new Container(&#34;dstContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;dststrcontainer&#34;)
  *             .storageAccountName(dstAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());

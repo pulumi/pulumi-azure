@@ -51,21 +51,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;my-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;my-sql-server&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
  *         var exampleElasticPool = new ElasticPool(&#34;exampleElasticPool&#34;, ElasticPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;test-epool&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .serverName(exampleServer.name())
  *             .licenseType(&#34;LicenseIncluded&#34;)
  *             .maxSizeGb(756)

@@ -26,15 +26,17 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "postgresql-server-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "B_Gen5_2",
     ///         StorageMb = 5120,
     ///         BackupRetentionDays = 7,
@@ -46,10 +48,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.PostgreSql.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.PostgreSql.Configuration("example", new()
     ///     {
     ///         Name = "backslash_quote",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         Value = "on",
     ///     });

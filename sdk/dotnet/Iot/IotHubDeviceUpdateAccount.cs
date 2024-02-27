@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleIotHubDeviceUpdateAccount = new Azure.Iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", new()
+    ///     var exampleIotHubDeviceUpdateAccount = new Azure.Iot.IotHubDeviceUpdateAccount("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Identity = new Azure.Iot.Inputs.IotHubDeviceUpdateAccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",

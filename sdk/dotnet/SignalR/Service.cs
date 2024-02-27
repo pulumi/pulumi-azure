@@ -22,15 +22,17 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-signalr",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
+    ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Free_F1",

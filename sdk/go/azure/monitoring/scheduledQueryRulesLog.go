@@ -30,23 +30,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("monitoring-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("loganalytics"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //				RetentionInDays:   pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-actiongroup"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("exampleact"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 //					&monitoring.ActionGroupWebhookReceiverArgs{
@@ -59,8 +62,9 @@ import (
 //				return err
 //			}
 //			// Example: Creates alert using the new Scheduled Query Rules metric
-//			_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
+//				Name:              pulumi.String("example-metricalert"),
+//				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
 //					exampleAnalyticsWorkspace.ID(),
 //				},
@@ -86,9 +90,10 @@ import (
 //				return err
 //			}
 //			// Example: LogToMetric Action for the named Computer
-//			_, err = monitoring.NewScheduledQueryRulesLog(ctx, "exampleScheduledQueryRulesLog", &monitoring.ScheduledQueryRulesLogArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewScheduledQueryRulesLog(ctx, "example", &monitoring.ScheduledQueryRulesLogArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Criteria: &monitoring.ScheduledQueryRulesLogCriteriaArgs{
 //					MetricName: pulumi.String("Average_% Idle Time"),
 //					Dimensions: monitoring.ScheduledQueryRulesLogCriteriaDimensionArray{

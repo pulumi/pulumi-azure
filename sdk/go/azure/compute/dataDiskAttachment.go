@@ -43,25 +43,28 @@ import (
 //				prefix = param
 //			}
 //			vmName := fmt.Sprintf("%v-vm", prefix)
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String(fmt.Sprintf("%v-resources", prefix)),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			mainVirtualNetwork, err := network.NewVirtualNetwork(ctx, "mainVirtualNetwork", &network.VirtualNetworkArgs{
+//			main, err := network.NewVirtualNetwork(ctx, "main", &network.VirtualNetworkArgs{
+//				Name: pulumi.String(fmt.Sprintf("%v-network", prefix)),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				VirtualNetworkName: mainVirtualNetwork.Name,
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: main.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
 //				},
@@ -69,9 +72,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "mainNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			mainNetworkInterface, err := network.NewNetworkInterface(ctx, "main", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String(fmt.Sprintf("%v-nic", prefix)),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -83,9 +87,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
+//				Name:              pulumi.String(vmName),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					mainNetworkInterface.ID(),
 //				},
@@ -114,9 +119,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String(fmt.Sprintf("%v-disk1", vmName)),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
 //				CreateOption:       pulumi.String("Empty"),
 //				DiskSizeGb:         pulumi.Int(10),
@@ -124,7 +130,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewDataDiskAttachment(ctx, "exampleDataDiskAttachment", &compute.DataDiskAttachmentArgs{
+//			_, err = compute.NewDataDiskAttachment(ctx, "example", &compute.DataDiskAttachmentArgs{
 //				ManagedDiskId:    exampleManagedDisk.ID(),
 //				VirtualMachineId: exampleVirtualMachine.ID(),
 //				Lun:              pulumi.Int(10),

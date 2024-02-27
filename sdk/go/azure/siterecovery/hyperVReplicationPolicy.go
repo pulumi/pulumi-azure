@@ -31,12 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-recovery-vault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
@@ -45,8 +47,9 @@ import (
 //				return err
 //			}
 //			_, err = siterecovery.NewHyperVReplicationPolicy(ctx, "policy", &siterecovery.HyperVReplicationPolicyArgs{
-//				RecoveryVaultId:                               vault.ID(),
-//				RecoveryPointRetentionInHours:                 pulumi.Int(2),
+//				Name:                          pulumi.String("policy"),
+//				RecoveryVaultId:               vault.ID(),
+//				RecoveryPointRetentionInHours: pulumi.Int(2),
 //				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
 //				ReplicationIntervalInSeconds:                  pulumi.Int(300),
 //			})

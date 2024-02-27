@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("pub1"),
 //				PublisherEmail:    pulumi.String("pub1@email.com"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewNamedValue(ctx, "exampleNamedValue", &apimanagement.NamedValueArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = apimanagement.NewNamedValue(ctx, "example", &apimanagement.NamedValueArgs{
+//				Name:              pulumi.String("example-apimg"),
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				DisplayName:       pulumi.String("ExampleProperty"),
 //				Value:             pulumi.String("Example Value"),

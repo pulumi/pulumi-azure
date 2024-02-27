@@ -26,16 +26,16 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
         ///         Name = "example-apim",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     var exampleGetGateway = Azure.ApiManagement.GetGateway.Invoke(new()
         ///     {
         ///         Name = "example-api-gateway",
-        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.ApiManagement
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+        ///     var example = Azure.ApiManagement.GetService.Invoke(new()
         ///     {
         ///         Name = "example-apim",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+        ///     var exampleGetGateway = Azure.ApiManagement.GetGateway.Invoke(new()
         ///     {
         ///         Name = "example-api-gateway",
-        ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+        ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
         ///     });
         /// 
         /// });

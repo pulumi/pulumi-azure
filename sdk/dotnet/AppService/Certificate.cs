@@ -17,31 +17,29 @@ namespace Pulumi.Azure.AppService
     /// This example provisions an App Service Certificate from a Local File.
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.AppService.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.AppService.Certificate("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         PfxBlob = ReadFileBase64("certificate.pfx"),
+    ///         Name = "example-cert",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         PfxBlob = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Password = "password123!",
     ///     });
     /// 

@@ -58,25 +58,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
+ *             .name(&#34;example-mndn&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
+ *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .servicePrecedence(0)
  *             .pccRules(NetworkServicePccRuleArgs.builder()
  *                 .name(&#34;default-rule&#34;)
@@ -93,16 +97,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
+ *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
  *                 .sliceServiceType(1)
  *                 .build())
  *             .build());
  * 
  *         var exampleNetworkSimPolicy = new NetworkSimPolicy(&#34;exampleNetworkSimPolicy&#34;, NetworkSimPolicyArgs.builder()        
+ *             .name(&#34;example-mnsp&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .registrationTimerInSeconds(3240)
  *             .defaultSliceId(exampleNetworkSlice.id())
  *             .slices(NetworkSimPolicySliceArgs.builder()

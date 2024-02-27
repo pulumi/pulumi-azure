@@ -13,9 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleAzureTrafficCollector = new azure.networkfunction.AzureTrafficCollector("exampleAzureTrafficCollector", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West US",
+ * });
+ * const exampleAzureTrafficCollector = new azure.networkfunction.AzureTrafficCollector("example", {
+ *     name: "example-nfatc",
+ *     resourceGroupName: example.name,
  *     location: "West US",
  *     tags: {
  *         key: "value",

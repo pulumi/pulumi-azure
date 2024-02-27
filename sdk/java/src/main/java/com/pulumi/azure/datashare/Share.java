@@ -46,13 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-dsa&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
@@ -60,6 +62,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
+ *             .name(&#34;example_dss&#34;)
  *             .accountId(exampleAccount.id())
  *             .kind(&#34;CopyBased&#34;)
  *             .description(&#34;example desc&#34;)

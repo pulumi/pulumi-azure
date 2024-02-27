@@ -56,30 +56,39 @@ import javax.annotation.Nullable;
  *             .name(&#34;Contributor&#34;)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemanagedapplicationdefinition&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .lockLevel(&#34;ReadOnly&#34;)
  *             .packageFileUri(&#34;https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip&#34;)
  *             .displayName(&#34;TestManagedAppDefinition&#34;)
  *             .description(&#34;Test Managed App Definition&#34;)
  *             .authorizations(DefinitionAuthorizationArgs.builder()
  *                 .servicePrincipalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
- *                 .roleDefinitionId(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()).split(&#34;/&#34;)[builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()).split(&#34;/&#34;).length() - 1])
+ *                 .roleDefinitionId(StdFunctions.split(SplitArgs.builder()
+ *                     .separator(&#34;/&#34;)
+ *                     .text(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
+ *                     .build()).result()[StdFunctions.split(SplitArgs.builder()
+ *                     .separator(&#34;/&#34;)
+ *                     .text(builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
+ *                     .build()).result().length() - 1])
  *                 .build())
  *             .build());
  * 
  *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-managedapplication&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;ServiceCatalog&#34;)
  *             .managedResourceGroupName(&#34;infrastructureGroup&#34;)
  *             .applicationDefinitionId(exampleDefinition.id())
- *             .parameterValues(exampleResourceGroup.location().applyValue(location -&gt; serializeJson(
+ *             .parameterValues(example.location().applyValue(location -&gt; serializeJson(
  *                 jsonObject(
  *                     jsonProperty(&#34;location&#34;, jsonObject(
  *                         jsonProperty(&#34;value&#34;, location)

@@ -53,20 +53,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;media-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemediaacc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .isPrimary(true)
@@ -74,8 +77,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;endpoint1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .scaleUnits(2)
  *             .build());
@@ -113,20 +117,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;media-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemediaacc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .isPrimary(true)
@@ -134,8 +141,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamingEndpoint = new StreamingEndpoint(&#34;exampleStreamingEndpoint&#34;, StreamingEndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;endpoint1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .scaleUnits(2)
  *             .accessControl(StreamingEndpointAccessControlArgs.builder()

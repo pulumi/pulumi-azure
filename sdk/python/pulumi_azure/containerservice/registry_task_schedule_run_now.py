@@ -74,12 +74,16 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="example-acr",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+        example_registry_task = azure.containerservice.RegistryTask("example",
+            name="example-task",
             container_registry_id=example_registry.id,
             platform=azure.containerservice.RegistryTaskPlatformArgs(
                 os="Linux",
@@ -90,7 +94,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 context_access_token="<github personal access token>",
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
-        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", container_registry_task_id=example_registry_task.id)
+        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
         :param str resource_name: The name of the resource.
@@ -112,12 +116,16 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="example-acr",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Basic")
-        example_registry_task = azure.containerservice.RegistryTask("exampleRegistryTask",
+        example_registry_task = azure.containerservice.RegistryTask("example",
+            name="example-task",
             container_registry_id=example_registry.id,
             platform=azure.containerservice.RegistryTaskPlatformArgs(
                 os="Linux",
@@ -128,7 +136,7 @@ class RegistryTaskScheduleRunNow(pulumi.CustomResource):
                 context_access_token="<github personal access token>",
                 image_names=["helloworld:{{.Run.ID}}"],
             ))
-        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("exampleRegistryTaskScheduleRunNow", container_registry_task_id=example_registry_task.id)
+        example_registry_task_schedule_run_now = azure.containerservice.RegistryTaskScheduleRunNow("example", container_registry_task_id=example_registry_task.id)
         ```
 
         :param str resource_name: The name of the resource.

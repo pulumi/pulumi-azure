@@ -207,10 +207,13 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_profile = azure.cdn.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_profile = azure.cdn.Profile("example",
+            name="exampleCdnProfile",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_Verizon",
             tags={
                 "environment": "Production",
@@ -251,10 +254,13 @@ class Profile(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_profile = azure.cdn.Profile("exampleProfile",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_profile = azure.cdn.Profile("example",
+            name="exampleCdnProfile",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_Verizon",
             tags={
                 "environment": "Production",

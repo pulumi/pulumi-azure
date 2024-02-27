@@ -15,24 +15,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-vhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressPrefix: "10.0.1.0/24",
  *     virtualWanId: exampleVirtualWan.id,
  * });
- * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVpnGateway = new azure.network.VpnGateway("example", {
+ *     name: "example-vpngateway",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  * });
- * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("exampleVnpGatewayNatRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVnpGatewayNatRule = new azure.network.VnpGatewayNatRule("example", {
+ *     name: "example-vpngatewaynatrule",
+ *     resourceGroupName: example.name,
  *     vpnGatewayId: exampleVpnGateway.id,
  *     externalMappings: [{
  *         addressSpace: "192.168.21.0/26",

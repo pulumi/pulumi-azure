@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Name:              pulumi.String("example-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.String("Face"),
 //				SkuName:           pulumi.String("S0"),
 //				Tags: pulumi.StringMap{

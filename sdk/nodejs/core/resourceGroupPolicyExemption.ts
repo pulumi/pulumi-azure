@@ -13,20 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus"});
- * const examplePolicyDefintion = azure.policy.getPolicyDefintion({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroup1",
+ *     location: "westus",
+ * });
+ * const example = azure.policy.getPolicyDefintion({
  *     displayName: "Allowed locations",
  * });
- * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
+ * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("example", {
+ *     name: "exampleAssignment",
  *     resourceGroupId: exampleResourceGroup.id,
- *     policyDefinitionId: examplePolicyDefintion.then(examplePolicyDefintion => examplePolicyDefintion.id),
+ *     policyDefinitionId: example.then(example => example.id),
  *     parameters: pulumi.jsonStringify({
  *         listOfAllowedLocations: {
  *             value: [exampleResourceGroup.location],
  *         },
  *     }),
  * });
- * const exampleResourceGroupPolicyExemption = new azure.core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", {
+ * const exampleResourceGroupPolicyExemption = new azure.core.ResourceGroupPolicyExemption("example", {
+ *     name: "exampleExemption",
  *     resourceGroupId: exampleResourceGroup.id,
  *     policyAssignmentId: exampleResourceGroupPolicyAssignment.id,
  *     exemptionCategory: "Mitigated",

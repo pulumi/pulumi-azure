@@ -50,10 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var test = new VpnServerConfiguration(&#34;test&#34;, VpnServerConfigurationArgs.builder()        
+ *             .name(&#34;example-config&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .vpnAuthenticationTypes(&#34;Certificate&#34;)

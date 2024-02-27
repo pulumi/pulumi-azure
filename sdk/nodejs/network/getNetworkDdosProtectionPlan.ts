@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkDdosProtectionPlan({
- *     name: azurerm_network_ddos_protection_plan.example.name,
- *     resourceGroupName: azurerm_network_ddos_protection_plan.example.resource_group_name,
+ *     name: exampleAzurermNetworkDdosProtectionPlan.name,
+ *     resourceGroupName: exampleAzurermNetworkDdosProtectionPlan.resourceGroupName,
  * });
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```
@@ -76,8 +76,8 @@ export interface GetNetworkDdosProtectionPlanResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkDdosProtectionPlan({
- *     name: azurerm_network_ddos_protection_plan.example.name,
- *     resourceGroupName: azurerm_network_ddos_protection_plan.example.resource_group_name,
+ *     name: exampleAzurermNetworkDdosProtectionPlan.name,
+ *     resourceGroupName: exampleAzurermNetworkDdosProtectionPlan.resourceGroupName,
  * });
  * export const ddosProtectionPlanId = example.then(example => example.id);
  * ```

@@ -22,27 +22,31 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-action-group",
+    ///         ResourceGroupName = example.Name,
     ///         ShortName = "example",
     ///     });
     /// 
-    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", new()
+    ///     var exampleSmartDetectorAlertRule = new Azure.Monitoring.SmartDetectorAlertRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-smart-detector-alert-rule",
+    ///         ResourceGroupName = example.Name,
     ///         Severity = "Sev0",
     ///         ScopeResourceIds = new[]
     ///         {

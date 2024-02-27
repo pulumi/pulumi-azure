@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Redis
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-redisenterprise",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("exampleEnterpriseCluster", new()
+    ///     var exampleEnterpriseCluster = new Azure.Redis.EnterpriseCluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-redisenterprise",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "EnterpriseFlash_F300-3",
     ///     });
     /// 

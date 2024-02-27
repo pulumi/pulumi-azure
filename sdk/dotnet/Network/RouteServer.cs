@@ -22,47 +22,52 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
+    ///         Name = "RouteServerSubnet",
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.0.1.0/24",
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-pip",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AllocationMethod = "Static",
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleRouteServer = new Azure.Network.RouteServer("exampleRouteServer", new()
+    ///     var exampleRouteServer = new Azure.Network.RouteServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-routerserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard",
     ///         PublicIpAddressId = examplePublicIp.Id,
     ///         SubnetId = exampleSubnet.Id,

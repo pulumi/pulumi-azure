@@ -248,11 +248,15 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            name="example-origin-group",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,
@@ -303,11 +307,15 @@ class FrontdoorOriginGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup",
+        example_frontdoor_origin_group = azure.cdn.FrontdoorOriginGroup("example",
+            name="example-origin-group",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             session_affinity_enabled=True,
             restore_traffic_time_to_healed_or_new_endpoint_in_minutes=10,

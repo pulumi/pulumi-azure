@@ -47,21 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-sqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
@@ -105,7 +108,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.mssql.ServerMicrosoftSupportAuditingPolicy;
  * import com.pulumi.azure.mssql.ServerMicrosoftSupportAuditingPolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -121,19 +123,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;virtnetname-1&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;subnetname-1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
@@ -144,6 +149,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+ *             .name(&#34;example-sqlserver&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .version(&#34;12.0&#34;)
@@ -162,12 +168,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
+ *             .name(&#34;sql-vnet-rule&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
+ *             .name(&#34;FirewallRule1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
@@ -175,6 +183,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplesa&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -196,12 +205,8 @@ import javax.annotation.Nullable;
  *             .blobStorageEndpoint(exampleAccount.primaryBlobEndpoint())
  *             .serverId(exampleServer.id())
  *             .logMonitoringEnabled(false)
- *             .storageAccountSubscriptionId(azurerm_subscription.primary().subscription_id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAssignment,
- *                     exampleAccount)
- *                 .build());
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
+ *             .build());
  * 
  *     }
  * }

@@ -12,13 +12,17 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.signalr.Service("exampleService", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.signalr.Service("example", {
+ *     name: "example-signalr",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  *     sku: {
  *         name: "Premium_P1",
  *         capacity: 1,
@@ -27,9 +31,10 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [
@@ -48,7 +53,7 @@ import * as utilities from "../utilities";
  *         },
  *         {
  *             tenantId: current.then(current => current.tenantId),
- *             objectId: azurerm_signalr_service.test.identity[0].principal_id,
+ *             objectId: testAzurermSignalrService.identity[0].principalId,
  *             certificatePermissions: [
  *                 "Create",
  *                 "Get",
@@ -61,18 +66,20 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "imported-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("certificate-to-import.pfx", { encoding: "base64" }),
+ *         contents: std.filebase64({
+ *             input: "certificate-to-import.pfx",
+ *         }).then(invoke => invoke.result),
  *         password: "",
  *     },
  * });
  * const test = new azure.signalr.ServiceCustomCertificate("test", {
+ *     name: "example-cert",
  *     signalrServiceId: exampleService.id,
  *     customCertificateId: exampleCertificate.id,
- * }, {
- *     dependsOn: [azurerm_key_vault_access_policy.example],
  * });
  * ```
  *

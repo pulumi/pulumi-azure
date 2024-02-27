@@ -15,19 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-sql-server-vnet-rule",
+ *     location: "West Europe",
+ * });
  * const vnet = new azure.network.VirtualNetwork("vnet", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
  * const subnet = new azure.network.Subnet("subnet", {
+ *     name: "example-subnet",
  *     resourceGroupName: example.name,
  *     virtualNetworkName: vnet.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
  * const sqlserver = new azure.sql.SqlServer("sqlserver", {
+ *     name: "uniqueazuresqlserver",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     version: "12.0",
@@ -35,6 +41,7 @@ import * as utilities from "../utilities";
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     name: "sql-vnet-rule",
  *     resourceGroupName: example.name,
  *     serverName: sqlserver.name,
  *     subnetId: subnet.id,

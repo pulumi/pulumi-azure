@@ -24,8 +24,9 @@ namespace Pulumi.Azure.Healthcare
     /// {
     ///     var test = new Azure.Healthcare.Workspace("test", new()
     ///     {
-    ///         Location = "east us",
+    ///         Name = "tfexworkspace",
     ///         ResourceGroupName = "tfex-resource_group",
+    ///         Location = "east us",
     ///     });
     /// 
     /// });

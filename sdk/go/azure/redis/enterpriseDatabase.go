@@ -31,30 +31,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-redisenterprise"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEnterpriseCluster, err := redis.NewEnterpriseCluster(ctx, "exampleEnterpriseCluster", &redis.EnterpriseClusterArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleEnterpriseCluster, err := redis.NewEnterpriseCluster(ctx, "example", &redis.EnterpriseClusterArgs{
+//				Name:              pulumi.String("example-redisenterprise"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("Enterprise_E20-4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			example1, err := redis.NewEnterpriseCluster(ctx, "example1", &redis.EnterpriseClusterArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				Name:              pulumi.String("example-redisenterprise1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("Enterprise_E20-4"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redis.NewEnterpriseDatabase(ctx, "exampleEnterpriseDatabase", &redis.EnterpriseDatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = redis.NewEnterpriseDatabase(ctx, "example", &redis.EnterpriseDatabaseArgs{
+//				Name:              pulumi.String("default"),
+//				ResourceGroupName: example.Name,
 //				ClusterId:         exampleEnterpriseCluster.ID(),
 //				ClientProtocol:    pulumi.String("Encrypted"),
 //				ClusteringPolicy:  pulumi.String("EnterpriseCluster"),

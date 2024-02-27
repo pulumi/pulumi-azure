@@ -13,16 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Developer_1",
  * });
- * const exampleApiVersionSet = new azure.apimanagement.ApiVersionSet("exampleApiVersionSet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleApiVersionSet = new azure.apimanagement.ApiVersionSet("example", {
+ *     name: "example-apimapi-1_0_0",
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     displayName: "ExampleAPIVersionSet",
  *     versioningScheme: "Segment",

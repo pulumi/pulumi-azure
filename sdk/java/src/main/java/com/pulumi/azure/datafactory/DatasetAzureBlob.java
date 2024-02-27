@@ -52,25 +52,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+ *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;storageaccountname&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleLinkedServiceAzureBlobStorage = new LinkedServiceAzureBlobStorage(&#34;exampleLinkedServiceAzureBlobStorage&#34;, LinkedServiceAzureBlobStorageArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .connectionString(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult).applyValue(exampleAccount -&gt; exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
+ *             .connectionString(example.applyValue(getAccountResult -&gt; getAccountResult).applyValue(example -&gt; example.applyValue(getAccountResult -&gt; getAccountResult.primaryConnectionString())))
  *             .build());
  * 
  *         var exampleDatasetAzureBlob = new DatasetAzureBlob(&#34;exampleDatasetAzureBlob&#34;, DatasetAzureBlobArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceAzureBlobStorage.name())
  *             .path(&#34;foo&#34;)

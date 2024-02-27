@@ -55,13 +55,13 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+ *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
  *             .name(&#34;example-vm&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
  *             .build());
  * 
- *         var exampleMssql_virtualMachineVirtualMachine = new VirtualMachine(&#34;exampleMssql/virtualMachineVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .virtualMachineId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
+ *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+ *             .virtualMachineId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
  *             .sqlLicenseType(&#34;PAYG&#34;)
  *             .rServicesEnabled(true)
  *             .sqlConnectivityPort(1433)

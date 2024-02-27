@@ -22,34 +22,38 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
+    ///         Name = "example-namespace",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
     ///     {
+    ///         Name = "example-topic",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("exampleOutputServicebusTopic", new()
+    ///     var exampleOutputServicebusTopic = new Azure.StreamAnalytics.OutputServicebusTopic("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "service-bus-topic-output",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         TopicName = exampleTopic.Name,
     ///         ServicebusNamespace = exampleNamespace.Name,
     ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,

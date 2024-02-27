@@ -15,18 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFunctionApp = azure.appservice.getFunctionAppOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.appservice.getFunctionAppOutput({
  *     name: "test-azure-functions",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("exampleLinkedServiceAzureFunction", {
+ * const exampleLinkedServiceAzureFunction = new azure.datafactory.LinkedServiceAzureFunction("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     url: exampleFunctionApp.apply(exampleFunctionApp => `https://${exampleFunctionApp.defaultHostname}`),
+ *     url: example.apply(example => `https://${example.defaultHostname}`),
  *     key: "foo",
  * });
  * ```

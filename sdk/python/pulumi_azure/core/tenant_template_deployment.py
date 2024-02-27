@@ -287,12 +287,13 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_template_spec_version = azure.core.get_template_spec_version(name="myTemplateForTenant",
+        example = azure.core.get_template_spec_version(name="myTemplateForTenant",
             resource_group_name="myResourceGroup",
             version="v0.1")
-        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("exampleTenantTemplateDeployment",
+        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("example",
+            name="example",
             location="West Europe",
-            template_spec_version_id=example_template_spec_version.id)
+            template_spec_version_id=example.id)
         ```
 
         ## Import
@@ -326,12 +327,13 @@ class TenantTemplateDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_template_spec_version = azure.core.get_template_spec_version(name="myTemplateForTenant",
+        example = azure.core.get_template_spec_version(name="myTemplateForTenant",
             resource_group_name="myResourceGroup",
             version="v0.1")
-        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("exampleTenantTemplateDeployment",
+        example_tenant_template_deployment = azure.core.TenantTemplateDeployment("example",
+            name="example",
             location="West Europe",
-            template_spec_version_id=example_template_spec_version.id)
+            template_spec_version_id=example.id)
         ```
 
         ## Import

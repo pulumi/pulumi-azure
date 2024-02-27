@@ -107,15 +107,22 @@ class ApiTag(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.get_service_output(name="example-apim",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.apimanagement.get_service_output(name="example-apim",
             resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("exampleApi",
+        example_api = azure.apimanagement.Api("example",
+            name="example-api",
             resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
+            api_management_name=example.name,
             revision="1")
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_api_tag = azure.apimanagement.ApiTag("exampleApiTag", api_id=example_api.id)
+        example_tag = azure.apimanagement.Tag("example",
+            api_management_id=example.id,
+            name="example-tag")
+        example_api_tag = azure.apimanagement.ApiTag("example",
+            api_id=example_api.id,
+            name=example_tag.name)
         ```
 
         ## Import
@@ -146,15 +153,22 @@ class ApiTag(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.get_service_output(name="example-apim",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.apimanagement.get_service_output(name="example-apim",
             resource_group_name=example_resource_group.name)
-        example_api = azure.apimanagement.Api("exampleApi",
+        example_api = azure.apimanagement.Api("example",
+            name="example-api",
             resource_group_name=example_resource_group.name,
-            api_management_name=example_service.name,
+            api_management_name=example.name,
             revision="1")
-        example_tag = azure.apimanagement.Tag("exampleTag", api_management_id=example_service.id)
-        example_api_tag = azure.apimanagement.ApiTag("exampleApiTag", api_id=example_api.id)
+        example_tag = azure.apimanagement.Tag("example",
+            api_management_id=example.id,
+            name="example-tag")
+        example_api_tag = azure.apimanagement.ApiTag("example",
+            api_id=example_api.id,
+            name=example_tag.name)
         ```
 
         ## Import

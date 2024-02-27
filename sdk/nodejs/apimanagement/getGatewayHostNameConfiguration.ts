@@ -13,20 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGateway = azure.apimanagement.getGateway({
+ * const exampleGetGateway = azure.apimanagement.getGateway({
  *     name: "example-gateway",
- *     apiManagementId: data.azurerm_api_management.main.id,
+ *     apiManagementId: main.id,
  * });
- * const exampleGatewayHostNameConfiguration = Promise.all([exampleService, exampleGateway]).then(([exampleService, exampleGateway]) => azure.apimanagement.getGatewayHostNameConfiguration({
+ * const exampleGetGatewayHostNameConfiguration = Promise.all([example, exampleGetGateway]).then(([example, exampleGetGateway]) => azure.apimanagement.getGatewayHostNameConfiguration({
  *     name: "example-host-configuration",
- *     apiManagementId: exampleService.id,
- *     gatewayName: exampleGateway.name,
+ *     apiManagementId: example.id,
+ *     gatewayName: exampleGetGateway.name,
  * }));
- * export const hostName = exampleGatewayHostNameConfiguration.then(exampleGatewayHostNameConfiguration => exampleGatewayHostNameConfiguration.hostName);
+ * export const hostName = exampleGetGatewayHostNameConfiguration.then(exampleGetGatewayHostNameConfiguration => exampleGetGatewayHostNameConfiguration.hostName);
  * ```
  */
 export function getGatewayHostNameConfiguration(args: GetGatewayHostNameConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetGatewayHostNameConfigurationResult> {
@@ -103,20 +103,20 @@ export interface GetGatewayHostNameConfigurationResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleGateway = azure.apimanagement.getGateway({
+ * const exampleGetGateway = azure.apimanagement.getGateway({
  *     name: "example-gateway",
- *     apiManagementId: data.azurerm_api_management.main.id,
+ *     apiManagementId: main.id,
  * });
- * const exampleGatewayHostNameConfiguration = Promise.all([exampleService, exampleGateway]).then(([exampleService, exampleGateway]) => azure.apimanagement.getGatewayHostNameConfiguration({
+ * const exampleGetGatewayHostNameConfiguration = Promise.all([example, exampleGetGateway]).then(([example, exampleGetGateway]) => azure.apimanagement.getGatewayHostNameConfiguration({
  *     name: "example-host-configuration",
- *     apiManagementId: exampleService.id,
- *     gatewayName: exampleGateway.name,
+ *     apiManagementId: example.id,
+ *     gatewayName: exampleGetGateway.name,
  * }));
- * export const hostName = exampleGatewayHostNameConfiguration.then(exampleGatewayHostNameConfiguration => exampleGatewayHostNameConfiguration.hostName);
+ * export const hostName = exampleGetGatewayHostNameConfiguration.then(exampleGetGatewayHostNameConfiguration => exampleGetGatewayHostNameConfiguration.hostName);
  * ```
  */
 export function getGatewayHostNameConfigurationOutput(args: GetGatewayHostNameConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGatewayHostNameConfigurationResult> {

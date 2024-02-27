@@ -252,14 +252,17 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="storageaccountname",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
+        example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -286,14 +289,15 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 tag=False,
                 filter=False,
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            tenant_id=example_client_config.tenant_id,
+            tenant_id=example.tenant_id,
             sku_name="standard",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example_client_config.tenant_id,
-                object_id=example_client_config.object_id,
+                tenant_id=example.tenant_id,
+                object_id=example.object_id,
                 secret_permissions=[
                     "Get",
                     "Delete",
@@ -309,16 +313,18 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "RegenerateKey",
                 ],
             )])
-        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount",
+        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
+            name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             storage_account_key="key1",
             regenerate_key_automatically=False,
             regeneration_period="P1D")
-        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition",
+        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("example",
+            name="examplesasdefinition",
             validity_period="P1D",
             managed_storage_account_id=example_managed_storage_account.id,
-            sas_template_uri=example_account_sas.sas,
+            sas_template_uri=example_get_account_sas.sas,
             sas_type="account")
         ```
 
@@ -354,14 +360,17 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="storageaccountname",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
+        example_get_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
             https_only=True,
             resource_types=azure.storage.GetAccountSASResourceTypesArgs(
                 service=True,
@@ -388,14 +397,15 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                 tag=False,
                 filter=False,
             ))
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
-            tenant_id=example_client_config.tenant_id,
+            tenant_id=example.tenant_id,
             sku_name="standard",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
-                tenant_id=example_client_config.tenant_id,
-                object_id=example_client_config.object_id,
+                tenant_id=example.tenant_id,
+                object_id=example.object_id,
                 secret_permissions=[
                     "Get",
                     "Delete",
@@ -411,16 +421,18 @@ class ManagedStorageAccountSasTokenDefinition(pulumi.CustomResource):
                     "RegenerateKey",
                 ],
             )])
-        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount",
+        example_managed_storage_account = azure.keyvault.ManagedStorageAccount("example",
+            name="examplemanagedstorage",
             key_vault_id=example_key_vault.id,
             storage_account_id=example_account.id,
             storage_account_key="key1",
             regenerate_key_automatically=False,
             regeneration_period="P1D")
-        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition",
+        example_managed_storage_account_sas_token_definition = azure.keyvault.ManagedStorageAccountSasTokenDefinition("example",
+            name="examplesasdefinition",
             validity_period="P1D",
             managed_storage_account_id=example_managed_storage_account.id,
-            sas_template_uri=example_account_sas.sas,
+            sas_template_uri=example_get_account_sas.sas,
             sas_type="account")
         ```
 

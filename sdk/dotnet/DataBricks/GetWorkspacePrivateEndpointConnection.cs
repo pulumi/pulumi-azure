@@ -28,8 +28,8 @@ namespace Pulumi.Azure.DataBricks
         /// {
         ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
         ///     {
-        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
-        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///         WorkspaceId = exampleAzurermDatabricksWorkspace.Id,
+        ///         PrivateEndpointId = exampleAzurermPrivateEndpoint.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.DataBricks
         /// {
         ///     var example = Azure.DataBricks.GetWorkspacePrivateEndpointConnection.Invoke(new()
         ///     {
-        ///         WorkspaceId = azurerm_databricks_workspace.Example.Id,
-        ///         PrivateEndpointId = azurerm_private_endpoint.Example.Id,
+        ///         WorkspaceId = exampleAzurermDatabricksWorkspace.Id,
+        ///         PrivateEndpointId = exampleAzurermPrivateEndpoint.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -544,23 +544,29 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="testvnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="AzureFirewallSubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="testpip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_firewall = azure.network.Firewall("example",
+            name="testfirewall",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
             ip_configurations=[azure.network.FirewallIpConfigurationArgs(
@@ -613,23 +619,29 @@ class Firewall(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="testvnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="AzureFirewallSubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="testpip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             sku="Standard")
-        example_firewall = azure.network.Firewall("exampleFirewall",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_firewall = azure.network.Firewall("example",
+            name="testfirewall",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="AZFW_VNet",
             sku_tier="Standard",
             ip_configurations=[azure.network.FirewallIpConfigurationArgs(

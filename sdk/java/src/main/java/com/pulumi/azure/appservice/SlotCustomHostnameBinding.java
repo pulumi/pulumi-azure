@@ -47,13 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;some-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;some-app-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -61,14 +63,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;some-app-service&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         var exampleSlot = new Slot(&#34;exampleSlot&#34;, SlotArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;staging&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServiceName(exampleAppService.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());

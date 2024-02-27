@@ -30,30 +30,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("acctest-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //				RetentionInDays:   pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "exampleEnvironment", &containerapp.EnvironmentArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleEnvironment, err := containerapp.NewEnvironment(ctx, "example", &containerapp.EnvironmentArgs{
+//				Name:                    pulumi.String("Example-Environment"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerapp.NewEnvironmentDaprComponent(ctx, "exampleEnvironmentDaprComponent", &containerapp.EnvironmentDaprComponentArgs{
+//			_, err = containerapp.NewEnvironmentDaprComponent(ctx, "example", &containerapp.EnvironmentDaprComponentArgs{
+//				Name:                      pulumi.String("example-component"),
 //				ContainerAppEnvironmentId: exampleEnvironment.ID(),
 //				ComponentType:             pulumi.String("state.azure.blobstorage"),
 //				Version:                   pulumi.String("v1"),

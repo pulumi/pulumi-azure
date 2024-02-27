@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.devtest.Lab("exampleLab", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSchedule = new azure.devtest.Schedule("exampleSchedule", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLab = new azure.devtest.Lab("example", {
+ *     name: "YourDevTestLab",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSchedule = new azure.devtest.Schedule("example", {
+ *     name: "LabVmAutoStart",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     labName: exampleLab.name,
  *     weeklyRecurrence: {
  *         time: "1100",

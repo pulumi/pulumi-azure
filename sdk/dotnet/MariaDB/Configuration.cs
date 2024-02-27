@@ -22,15 +22,17 @@ namespace Pulumi.Azure.MariaDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MariaDB.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MariaDB.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mariadb-server-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "B_Gen5_2",
     ///         SslEnforcementEnabled = true,
     ///         AdministratorLogin = "mariadbadmin",
@@ -38,10 +40,10 @@ namespace Pulumi.Azure.MariaDB
     ///         Version = "10.2",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.MariaDB.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.MariaDB.Configuration("example", new()
     ///     {
     ///         Name = "interactive_timeout",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         Value = "600",
     ///     });

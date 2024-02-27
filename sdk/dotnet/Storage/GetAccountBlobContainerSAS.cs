@@ -30,11 +30,13 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var rg = new Azure.Core.ResourceGroup("rg", new()
         ///     {
+        ///         Name = "resourceGroupName",
         ///         Location = "West Europe",
         ///     });
         /// 
         ///     var storage = new Azure.Storage.Account("storage", new()
         ///     {
+        ///         Name = "storageaccountname",
         ///         ResourceGroupName = rg.Name,
         ///         Location = rg.Location,
         ///         AccountTier = "Standard",
@@ -43,6 +45,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var container = new Azure.Storage.Container("container", new()
         ///     {
+        ///         Name = "mycontainer",
         ///         StorageAccountName = storage.Name,
         ///         ContainerAccessType = "private",
         ///     });
@@ -102,11 +105,13 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var rg = new Azure.Core.ResourceGroup("rg", new()
         ///     {
+        ///         Name = "resourceGroupName",
         ///         Location = "West Europe",
         ///     });
         /// 
         ///     var storage = new Azure.Storage.Account("storage", new()
         ///     {
+        ///         Name = "storageaccountname",
         ///         ResourceGroupName = rg.Name,
         ///         Location = rg.Location,
         ///         AccountTier = "Standard",
@@ -115,6 +120,7 @@ namespace Pulumi.Azure.Storage
         /// 
         ///     var container = new Azure.Storage.Container("container", new()
         ///     {
+        ///         Name = "mycontainer",
         ///         StorageAccountName = storage.Name,
         ///         ContainerAccessType = "private",
         ///     });

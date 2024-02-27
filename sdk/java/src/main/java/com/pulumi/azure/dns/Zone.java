@@ -46,10 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var example_public = new Zone(&#34;example-public&#34;, ZoneArgs.builder()        
+ *             .name(&#34;mydomain.com&#34;)
  *             .resourceGroupName(example.name())
  *             .build());
  * 

@@ -28,15 +28,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-appserviceplan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
@@ -44,10 +46,11 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-app-service",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
     ///         SiteConfig = new Azure.AppService.Inputs.AppServiceSiteConfigArgs
     ///         {

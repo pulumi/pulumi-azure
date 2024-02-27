@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:                 exampleResourceGroup.Name,
-//				Location:                          exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                              pulumi.String("mysqlserver"),
+//				ResourceGroupName:                 example.Name,
+//				Location:                          example.Location,
 //				Version:                           pulumi.String("12.0"),
 //				AdministratorLogin:                pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword:        pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -46,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewOutboundFirewallRule(ctx, "exampleOutboundFirewallRule", &mssql.OutboundFirewallRuleArgs{
+//			_, err = mssql.NewOutboundFirewallRule(ctx, "example", &mssql.OutboundFirewallRuleArgs{
+//				Name:     pulumi.String("sqlexamplefdqn.database.windows.net"),
 //				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {

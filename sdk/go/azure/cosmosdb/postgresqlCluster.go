@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewPostgresqlCluster(ctx, "examplePostgresqlCluster", &cosmosdb.PostgresqlClusterArgs{
-//				ResourceGroupName:           exampleResourceGroup.Name,
-//				Location:                    exampleResourceGroup.Location,
+//			_, err = cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
+//				Name:                        pulumi.String("example-cluster"),
+//				ResourceGroupName:           example.Name,
+//				Location:                    example.Location,
 //				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
 //				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
 //				CoordinatorVcoreCount:       pulumi.Int(2),

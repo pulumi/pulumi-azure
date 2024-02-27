@@ -345,23 +345,68 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        example_1_virtual_network = azure.network.VirtualNetwork("example-1VirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="peeredvnets-rg",
+            location="West Europe")
+        example_1 = azure.network.VirtualNetwork("example-1",
+            name="peternetwork1",
             resource_group_name=example.name,
             address_spaces=["10.0.1.0/24"],
             location=example.location)
-        example_2_virtual_network = azure.network.VirtualNetwork("example-2VirtualNetwork",
+        example_2 = azure.network.VirtualNetwork("example-2",
+            name="peternetwork2",
             resource_group_name=example.name,
             address_spaces=["10.0.2.0/24"],
             location=example.location)
-        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering",
+        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1",
+            name="peer1to2",
             resource_group_name=example.name,
-            virtual_network_name=example_1_virtual_network.name,
-            remote_virtual_network_id=example_2_virtual_network.id)
-        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2VirtualNetworkPeering",
+            virtual_network_name=example_1.name,
+            remote_virtual_network_id=example_2.id)
+        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
+            name="peer2to1",
             resource_group_name=example.name,
-            virtual_network_name=example_2_virtual_network.name,
-            remote_virtual_network_id=example_1_virtual_network.id)
+            virtual_network_name=example_2.name,
+            remote_virtual_network_id=example_1.id)
+        ```
+        ### Triggers)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="peeredvnets-rg",
+            location="West Europe")
+        example_1 = azure.network.VirtualNetwork("example-1",
+            name="peternetwork1",
+            resource_group_name=example.name,
+            address_spaces=["10.0.1.0/24"],
+            location=example.location)
+        example_2 = azure.network.VirtualNetwork("example-2",
+            name="peternetwork2",
+            resource_group_name=example.name,
+            address_spaces=["10.0.2.0/24"],
+            location=example.location)
+        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1",
+            name="peer1to2",
+            resource_group_name=example.name,
+            virtual_network_name=example_1.name,
+            remote_virtual_network_id=example_2.id,
+            triggers={
+                "remote_address_space": std.join_output(separator=",",
+                    input=example_2.address_spaces).apply(lambda invoke: invoke.result),
+            })
+        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
+            name="peer2to1",
+            resource_group_name=example.name,
+            virtual_network_name=example_2.name,
+            remote_virtual_network_id=example_1.id,
+            triggers={
+                "remote_address_space": std.join_output(separator=",",
+                    input=example_1.address_spaces).apply(lambda invoke: invoke.result),
+            })
         ```
         ## Note
 
@@ -405,23 +450,68 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        example_1_virtual_network = azure.network.VirtualNetwork("example-1VirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="peeredvnets-rg",
+            location="West Europe")
+        example_1 = azure.network.VirtualNetwork("example-1",
+            name="peternetwork1",
             resource_group_name=example.name,
             address_spaces=["10.0.1.0/24"],
             location=example.location)
-        example_2_virtual_network = azure.network.VirtualNetwork("example-2VirtualNetwork",
+        example_2 = azure.network.VirtualNetwork("example-2",
+            name="peternetwork2",
             resource_group_name=example.name,
             address_spaces=["10.0.2.0/24"],
             location=example.location)
-        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering",
+        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1",
+            name="peer1to2",
             resource_group_name=example.name,
-            virtual_network_name=example_1_virtual_network.name,
-            remote_virtual_network_id=example_2_virtual_network.id)
-        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2VirtualNetworkPeering",
+            virtual_network_name=example_1.name,
+            remote_virtual_network_id=example_2.id)
+        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
+            name="peer2to1",
             resource_group_name=example.name,
-            virtual_network_name=example_2_virtual_network.name,
-            remote_virtual_network_id=example_1_virtual_network.id)
+            virtual_network_name=example_2.name,
+            remote_virtual_network_id=example_1.id)
+        ```
+        ### Triggers)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="peeredvnets-rg",
+            location="West Europe")
+        example_1 = azure.network.VirtualNetwork("example-1",
+            name="peternetwork1",
+            resource_group_name=example.name,
+            address_spaces=["10.0.1.0/24"],
+            location=example.location)
+        example_2 = azure.network.VirtualNetwork("example-2",
+            name="peternetwork2",
+            resource_group_name=example.name,
+            address_spaces=["10.0.2.0/24"],
+            location=example.location)
+        example_1_virtual_network_peering = azure.network.VirtualNetworkPeering("example-1",
+            name="peer1to2",
+            resource_group_name=example.name,
+            virtual_network_name=example_1.name,
+            remote_virtual_network_id=example_2.id,
+            triggers={
+                "remote_address_space": std.join_output(separator=",",
+                    input=example_2.address_spaces).apply(lambda invoke: invoke.result),
+            })
+        example_2_virtual_network_peering = azure.network.VirtualNetworkPeering("example-2",
+            name="peer2to1",
+            resource_group_name=example.name,
+            virtual_network_name=example_2.name,
+            remote_virtual_network_id=example_1.id,
+            triggers={
+                "remote_address_space": std.join_output(separator=",",
+                    input=example_1.address_spaces).apply(lambda invoke: invoke.result),
+            })
         ```
         ## Note
 

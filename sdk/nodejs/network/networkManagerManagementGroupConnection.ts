@@ -13,36 +13,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = new azure.management.Group("exampleGroup", {});
+ * const example = new azure.management.Group("example", {});
  * const alt = azure.core.getSubscription({
  *     subscriptionId: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", {
- *     managementGroupId: exampleGroup.id,
+ * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("example", {
+ *     managementGroupId: example.id,
  *     subscriptionId: alt.then(alt => alt.id),
  * });
- * const currentSubscription = azure.core.getSubscription({});
- * const currentClientConfig = azure.core.getClientConfig({});
- * const networkContributor = new azure.authorization.Assignment("networkContributor", {
- *     scope: exampleGroup.id,
+ * const current = azure.core.getSubscription({});
+ * const currentGetClientConfig = azure.core.getClientConfig({});
+ * const networkContributor = new azure.authorization.Assignment("network_contributor", {
+ *     scope: example.id,
  *     roleDefinitionName: "Network Contributor",
- *     principalId: currentClientConfig.then(currentClientConfig => currentClientConfig.objectId),
+ *     principalId: currentGetClientConfig.then(currentGetClientConfig => currentGetClientConfig.objectId),
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-networkmanager",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     scope: {
- *         subscriptionIds: [currentSubscription.then(currentSubscription => currentSubscription.id)],
+ *         subscriptionIds: [current.then(current => current.id)],
  *     },
  *     scopeAccesses: ["SecurityAdmin"],
  * });
- * const exampleNetworkManagerManagementGroupConnection = new azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection", {
- *     managementGroupId: exampleGroup.id,
+ * const exampleNetworkManagerManagementGroupConnection = new azure.network.NetworkManagerManagementGroupConnection("example", {
+ *     name: "example-nmmgc",
+ *     managementGroupId: example.id,
  *     networkManagerId: exampleNetworkManager.id,
  *     description: "example",
- * }, {
- *     dependsOn: [networkContributor],
  * });
  * ```
  *

@@ -493,13 +493,17 @@ class StandardWebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("exampleStandardWebTest",
-            resource_group_name=example_resource_group.name,
+        example_standard_web_test = azure.appinsights.StandardWebTest("example",
+            name="example-test",
+            resource_group_name=example.name,
             location="West Europe",
             application_insights_id=example_insights.id,
             geo_locations=["example"],
@@ -549,13 +553,17 @@ class StandardWebTest(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_standard_web_test = azure.appinsights.StandardWebTest("exampleStandardWebTest",
-            resource_group_name=example_resource_group.name,
+        example_standard_web_test = azure.appinsights.StandardWebTest("example",
+            name="example-test",
+            resource_group_name=example.name,
             location="West Europe",
             application_insights_id=example_insights.id,
             geo_locations=["example"],

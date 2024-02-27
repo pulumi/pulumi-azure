@@ -32,13 +32,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+//			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
+//				Name:              pulumi.String("example-dsa"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Identity: &datashare.AccountIdentityArgs{
@@ -48,14 +50,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+//			exampleShare, err := datashare.NewShare(ctx, "example", &datashare.ShareArgs{
+//				Name:      pulumi.String("example_ds"),
 //				AccountId: exampleAccount.ID(),
 //				Kind:      pulumi.String("CopyBased"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
+//			exampleAccount2, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestr"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountKind:            pulumi.String("BlobStorage"),
@@ -65,33 +69,33 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
-//				StorageAccountId: exampleStorage / accountAccount.Id,
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example-dlg2fs"),
+//				StorageAccountId: exampleAccount2.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
+//			example := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
 //				DisplayName: exampleAccount.Name,
 //			}, nil)
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-//				Scope:              exampleStorage / accountAccount.Id,
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount2.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-//				PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.GetServicePrincipalResult) (*string, error) {
-//					return &exampleServicePrincipal.ObjectId, nil
+//				PrincipalId: example.ApplyT(func(example azuread.GetServicePrincipalResult) (*string, error) {
+//					return &example.ObjectId, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datashare.NewDatasetDataLakeGen2(ctx, "exampleDatasetDataLakeGen2", &datashare.DatasetDataLakeGen2Args{
+//			_, err = datashare.NewDatasetDataLakeGen2(ctx, "example", &datashare.DatasetDataLakeGen2Args{
+//				Name:             pulumi.String("accexample-dlg2ds"),
 //				ShareId:          exampleShare.ID(),
-//				StorageAccountId: exampleStorage / accountAccount.Id,
+//				StorageAccountId: exampleAccount2.ID(),
 //				FileSystemName:   exampleDataLakeGen2Filesystem.Name,
 //				FilePath:         pulumi.String("myfile.txt"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

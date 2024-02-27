@@ -236,6 +236,54 @@ class FallbackRoute(pulumi.CustomResource):
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("example",
+            name="example",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ),
+            tags={
+                "purpose": "testing",
+            })
+        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+            resource_group_name=example.name,
+            iothub_id=example_io_t_hub.id,
+            name="example",
+            connection_string=example_account.primary_blob_connection_string,
+            batch_frequency_in_seconds=60,
+            max_chunk_size_in_bytes=10485760,
+            container_name=example_container.name,
+            encoding="Avro",
+            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
+        example_fallback_route = azure.iot.FallbackRoute("example",
+            resource_group_name=example.name,
+            iothub_name=example_io_t_hub.name,
+            condition="true",
+            endpoint_names=example_endpoint_storage_container.name,
+            enabled=True)
+        ```
+
         ## Import
 
         IoTHub Fallback Route can be imported using the `resource id`, e.g.
@@ -267,6 +315,54 @@ class FallbackRoute(pulumi.CustomResource):
         > **Note:** Fallback route can be defined either directly on the `iot.IoTHub` resource, or using the `iot.FallbackRoute` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
 
         > **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS")
+        example_container = azure.storage.Container("example",
+            name="example",
+            storage_account_name=example_account.name,
+            container_access_type="private")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
+            sku=azure.iot.IoTHubSkuArgs(
+                name="S1",
+                capacity=1,
+            ),
+            tags={
+                "purpose": "testing",
+            })
+        example_endpoint_storage_container = azure.iot.EndpointStorageContainer("example",
+            resource_group_name=example.name,
+            iothub_id=example_io_t_hub.id,
+            name="example",
+            connection_string=example_account.primary_blob_connection_string,
+            batch_frequency_in_seconds=60,
+            max_chunk_size_in_bytes=10485760,
+            container_name=example_container.name,
+            encoding="Avro",
+            file_name_format="{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}")
+        example_fallback_route = azure.iot.FallbackRoute("example",
+            resource_group_name=example.name,
+            iothub_name=example_io_t_hub.name,
+            condition="true",
+            endpoint_names=example_endpoint_storage_container.name,
+            enabled=True)
+        ```
 
         ## Import
 

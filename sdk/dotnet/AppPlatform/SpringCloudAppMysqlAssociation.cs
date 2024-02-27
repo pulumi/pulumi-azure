@@ -22,27 +22,31 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = example.Name,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MySql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mysqlserver",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AdministratorLogin = "mysqladminun",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
     ///         SkuName = "B_Gen5_2",
@@ -52,16 +56,18 @@ namespace Pulumi.Azure.AppPlatform
     ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MySql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.MySql.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampledb",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         Charset = "utf8",
     ///         Collation = "utf8_unicode_ci",
     ///     });
     /// 
-    ///     var exampleSpringCloudAppMysqlAssociation = new Azure.AppPlatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", new()
+    ///     var exampleSpringCloudAppMysqlAssociation = new Azure.AppPlatform.SpringCloudAppMysqlAssociation("example", new()
     ///     {
+    ///         Name = "example-bind",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         MysqlServerId = exampleServer.Id,
     ///         DatabaseName = exampleDatabase.Name,

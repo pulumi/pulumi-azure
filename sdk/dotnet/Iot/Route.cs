@@ -14,6 +14,81 @@ namespace Pulumi.Azure.Iot
     /// 
     /// &gt; **NOTE:** Routes can be defined either directly on the `azure.iot.IoTHub` resource, or using the `azure.iot.Route` resource - but the two cannot be used together. If both are used against the same IoTHub, spurious changes will occur.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///     });
+    /// 
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         StorageAccountName = exampleAccount.Name,
+    ///         ContainerAccessType = "private",
+    ///     });
+    /// 
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
+    ///     {
+    ///         Name = "exampleIothub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
+    ///         {
+    ///             Name = "S1",
+    ///             Capacity = 1,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "purpose", "testing" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleEndpointStorageContainer = new Azure.Iot.EndpointStorageContainer("example", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         IothubId = exampleIoTHub.Id,
+    ///         Name = "example",
+    ///         ConnectionString = exampleAccount.PrimaryBlobConnectionString,
+    ///         BatchFrequencyInSeconds = 60,
+    ///         MaxChunkSizeInBytes = 10485760,
+    ///         ContainerName = exampleContainer.Name,
+    ///         Encoding = "Avro",
+    ///         FileNameFormat = "{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}",
+    ///     });
+    /// 
+    ///     var exampleRoute = new Azure.Iot.Route("example", new()
+    ///     {
+    ///         ResourceGroupName = example.Name,
+    ///         IothubName = exampleIoTHub.Name,
+    ///         Name = "example",
+    ///         Source = "DeviceMessages",
+    ///         Condition = "true",
+    ///         EndpointNames = exampleEndpointStorageContainer.Name,
+    ///         Enabled = true,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// IoTHub Route can be imported using the `resource id`, e.g.

@@ -50,19 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-bpvmw&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-rsv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .softDeleteEnabled(false)
  *             .build());
  * 
  *         var examplePolicyVMWorkload = new PolicyVMWorkload(&#34;examplePolicyVMWorkload&#34;, PolicyVMWorkloadArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-bpvmw&#34;)
+ *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .workloadType(&#34;SQLDataBase&#34;)
  *             .settings(PolicyVMWorkloadSettingsArgs.builder()

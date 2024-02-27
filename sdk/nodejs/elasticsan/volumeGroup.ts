@@ -15,34 +15,42 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleElasticSan = new azure.elasticsan.ElasticSan("exampleElasticSan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleElasticSan = new azure.elasticsan.ElasticSan("example", {
+ *     name: "examplees-es",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     baseSizeInTib: 1,
  *     sku: {
  *         name: "Premium_LRS",
  *     },
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     serviceEndpoints: ["Microsoft.Storage.Global"],
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,
@@ -82,7 +90,8 @@ import * as utilities from "../utilities";
  *     ],
  *     secretPermissions: ["Get"],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-kvk",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -94,13 +103,9 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         userAssignedIdentity,
- *         client,
- *     ],
  * });
- * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("exampleVolumeGroup", {
+ * const exampleVolumeGroup = new azure.elasticsan.VolumeGroup("example", {
+ *     name: "example-esvg",
  *     elasticSanId: exampleElasticSan.id,
  *     encryptionType: "EncryptionAtRestWithCustomerManagedKey",
  *     encryption: {

@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * Manages a Firewall Policy Rule Collection Group.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -52,16 +51,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFirewallPolicy = new FirewallPolicy(&#34;exampleFirewallPolicy&#34;, FirewallPolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-fwpolicy&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleFirewallPolicyRuleCollectionGroup = new FirewallPolicyRuleCollectionGroup(&#34;exampleFirewallPolicyRuleCollectionGroup&#34;, FirewallPolicyRuleCollectionGroupArgs.builder()        
+ *             .name(&#34;example-fwpolicy-rcg&#34;)
  *             .firewallPolicyId(exampleFirewallPolicy.id())
  *             .priority(500)
  *             .applicationRuleCollections(FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs.builder()

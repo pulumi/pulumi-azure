@@ -24,17 +24,19 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -50,15 +52,17 @@ namespace Pulumi.Azure.Network
     ///         Description = "example network manager",
     ///     });
     /// 
-    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("example", new()
     ///     {
+    ///         Name = "example-group",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-net",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -68,11 +72,13 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var example2 = new Azure.Network.NetworkManagerNetworkGroup("example2", new()
     ///     {
+    ///         Name = "example-group2",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///     });
     /// 
-    ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", new()
+    ///     var exampleNetworkManagerConnectivityConfiguration = new Azure.Network.NetworkManagerConnectivityConfiguration("example", new()
     ///     {
+    ///         Name = "example-connectivity-conf",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         ConnectivityTopology = "HubAndSpoke",
     ///         AppliesToGroups = new[]

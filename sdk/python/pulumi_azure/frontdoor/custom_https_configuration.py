@@ -149,11 +149,14 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="FrontDoorExampleResourceGroup",
+            location="West Europe")
         vault = azure.keyvault.get_key_vault(name="example-vault",
             resource_group_name="example-vault-rg")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example-FrontDoor",
+            resource_group_name=example.name,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[
@@ -194,10 +197,10 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                     host_name="examplefd1.examplefd.net",
                 ),
             ])
-        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
+        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
             custom_https_provisioning_enabled=False)
-        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
+        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
             custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(
@@ -244,11 +247,14 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="FrontDoorExampleResourceGroup",
+            location="West Europe")
         vault = azure.keyvault.get_key_vault(name="example-vault",
             resource_group_name="example-vault-rg")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example-FrontDoor",
+            resource_group_name=example.name,
             routing_rules=[azure.frontdoor.FrontdoorRoutingRuleArgs(
                 name="exampleRoutingRule1",
                 accepted_protocols=[
@@ -289,10 +295,10 @@ class CustomHttpsConfiguration(pulumi.CustomResource):
                     host_name="examplefd1.examplefd.net",
                 ),
             ])
-        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0",
+        example_custom_https0 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint1"],
             custom_https_provisioning_enabled=False)
-        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1",
+        example_custom_https1 = azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1",
             frontend_endpoint_id=example_frontdoor.frontend_endpoints_map["exampleFrontendEndpoint2"],
             custom_https_provisioning_enabled=True,
             custom_https_configuration=azure.frontdoor.CustomHttpsConfigurationCustomHttpsConfigurationArgs(

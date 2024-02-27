@@ -21,23 +21,13 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/signalr"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -45,15 +35,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//			exampleService, err := signalr.NewService(ctx, "example", &signalr.ServiceArgs{
+//				Name:              pulumi.String("example-signalr"),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
 //				Sku: &signalr.ServiceSkuArgs{
 //					Name:     pulumi.String("Premium_P1"),
 //					Capacity: pulumi.Int(1),
@@ -65,9 +57,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("example-keyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -86,7 +79,7 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: pulumi.Any(azurerm_signalr_service.Test.Identity[0].Principal_id),
+//						ObjectId: pulumi.Any(testAzurermSignalrService.Identity[0].PrincipalId),
 //						CertificatePermissions: pulumi.StringArray{
 //							pulumi.String("Create"),
 //							pulumi.String("Get"),
@@ -102,10 +95,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate-to-import.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("imported-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: filebase64OrPanic("certificate-to-import.pfx"),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
 //			})
@@ -113,11 +113,10 @@ import (
 //				return err
 //			}
 //			_, err = signalr.NewServiceCustomCertificate(ctx, "test", &signalr.ServiceCustomCertificateArgs{
+//				Name:                pulumi.String("example-cert"),
 //				SignalrServiceId:    exampleService.ID(),
 //				CustomCertificateId: exampleCertificate.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_key_vault_access_policy.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

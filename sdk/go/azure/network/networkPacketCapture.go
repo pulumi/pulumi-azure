@@ -33,31 +33,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("packet-capture-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "example", &network.NetworkWatcherArgs{
+//				Name:              pulumi.String("network-watcher"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("production-network"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -66,9 +70,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("pctest-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -80,9 +85,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
+//				Name:              pulumi.String("pctest-vm"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
 //					exampleNetworkInterface.ID(),
 //				},
@@ -111,7 +117,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleExtension, err := compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
+//				Name:                    pulumi.String("network-watcher"),
 //				VirtualMachineId:        exampleVirtualMachine.ID(),
 //				Publisher:               pulumi.String("Microsoft.Azure.NetworkWatcher"),
 //				Type:                    pulumi.String("NetworkWatcherAgentLinux"),
@@ -121,25 +128,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("pctestsa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkPacketCapture(ctx, "exampleNetworkPacketCapture", &network.NetworkPacketCaptureArgs{
+//			_, err = network.NewNetworkPacketCapture(ctx, "example", &network.NetworkPacketCaptureArgs{
+//				Name:               pulumi.String("pctestcapture"),
 //				NetworkWatcherName: exampleNetworkWatcher.Name,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				ResourceGroupName:  example.Name,
 //				TargetResourceId:   exampleVirtualMachine.ID(),
 //				StorageLocation: &network.NetworkPacketCaptureStorageLocationArgs{
 //					StorageAccountId: exampleAccount.ID(),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleExtension,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

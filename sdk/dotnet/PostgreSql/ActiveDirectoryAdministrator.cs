@@ -24,15 +24,17 @@ namespace Pulumi.Azure.PostgreSql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-psqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "9.6",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
@@ -40,10 +42,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.PostgreSql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new()
+    ///     var exampleActiveDirectoryAdministrator = new Azure.PostgreSql.ActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ServerName = exampleServer.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Login = "sqladmin",
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),

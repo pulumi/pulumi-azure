@@ -48,21 +48,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-sqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
@@ -108,7 +111,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.storage.inputs.AccountIdentityArgs;
  * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicy;
  * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -124,19 +126,22 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;virtnetname-1&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;subnetname-1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
@@ -147,6 +152,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+ *             .name(&#34;example-sqlserver&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .version(&#34;12.0&#34;)
@@ -165,12 +171,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var sqlvnetrule = new VirtualNetworkRule(&#34;sqlvnetrule&#34;, VirtualNetworkRuleArgs.builder()        
+ *             .name(&#34;sql-vnet-rule&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(exampleSubnet.id())
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
+ *             .name(&#34;FirewallRule1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
@@ -178,6 +186,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplesa&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -200,127 +209,7 @@ import javax.annotation.Nullable;
  *             .serverId(exampleServer.id())
  *             .retentionInDays(6)
  *             .logMonitoringEnabled(false)
- *             .storageAccountSubscriptionId(azurerm_subscription.primary().subscription_id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAssignment,
- *                     exampleAccount)
- *                 .build());
- * 
- *     }
- * }
- * ```
- * ### With Log Analytics Workspace And EventHub
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.mssql.Server;
- * import com.pulumi.azure.mssql.ServerArgs;
- * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicy;
- * import com.pulumi.azure.mssql.ServerExtendedAuditingPolicyArgs;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspace;
- * import com.pulumi.azure.operationalinsights.AnalyticsWorkspaceArgs;
- * import com.pulumi.azure.eventhub.EventHubNamespace;
- * import com.pulumi.azure.eventhub.EventHubNamespaceArgs;
- * import com.pulumi.azure.eventhub.EventHub;
- * import com.pulumi.azure.eventhub.EventHubArgs;
- * import com.pulumi.azure.eventhub.EventHubNamespaceAuthorizationRule;
- * import com.pulumi.azure.eventhub.EventHubNamespaceAuthorizationRuleArgs;
- * import com.pulumi.azure.monitoring.DiagnosticSetting;
- * import com.pulumi.azure.monitoring.DiagnosticSettingArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingLogRetentionPolicyArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricArgs;
- * import com.pulumi.azure.monitoring.inputs.DiagnosticSettingMetricRetentionPolicyArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .version(&#34;12.0&#34;)
- *             .administratorLogin(&#34;missadministrator&#34;)
- *             .administratorLoginPassword(&#34;AdminPassword123!&#34;)
- *             .build());
- * 
- *         var exampleServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy(&#34;exampleServerExtendedAuditingPolicy&#34;, ServerExtendedAuditingPolicyArgs.builder()        
- *             .serverId(exampleServer.id())
- *             .storageEndpoint(azurerm_storage_account.example().primary_blob_endpoint())
- *             .storageAccountAccessKey(azurerm_storage_account.example().primary_access_key())
- *             .storageAccountAccessKeyIsSecondary(false)
- *             .retentionInDays(6)
- *             .build());
- * 
- *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;PerGB2018&#34;)
- *             .retentionInDays(30)
- *             .build());
- * 
- *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .sku(&#34;Standard&#34;)
- *             .build());
- * 
- *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
- *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .partitionCount(2)
- *             .messageRetention(1)
- *             .build());
- * 
- *         var exampleEventHubNamespaceAuthorizationRule = new EventHubNamespaceAuthorizationRule(&#34;exampleEventHubNamespaceAuthorizationRule&#34;, EventHubNamespaceAuthorizationRuleArgs.builder()        
- *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .listen(true)
- *             .send(true)
- *             .manage(true)
- *             .build());
- * 
- *         var exampleMssql_serverExtendedAuditingPolicyServerExtendedAuditingPolicy = new ServerExtendedAuditingPolicy(&#34;exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy&#34;, ServerExtendedAuditingPolicyArgs.builder()        
- *             .serverId(exampleServer.id())
- *             .logMonitoringEnabled(true)
- *             .build());
- * 
- *         var exampleDiagnosticSetting = new DiagnosticSetting(&#34;exampleDiagnosticSetting&#34;, DiagnosticSettingArgs.builder()        
- *             .targetResourceId(exampleServer.id().applyValue(id -&gt; String.format(&#34;%s/databases/master&#34;, id)))
- *             .eventhubAuthorizationRuleId(exampleEventHubNamespaceAuthorizationRule.id())
- *             .eventhubName(exampleEventHub.name())
- *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
- *             .logs(DiagnosticSettingLogArgs.builder()
- *                 .category(&#34;SQLSecurityAuditEvents&#34;)
- *                 .enabled(true)
- *                 .retentionPolicy(DiagnosticSettingLogRetentionPolicyArgs.builder()
- *                     .enabled(false)
- *                     .build())
- *                 .build())
- *             .metrics(DiagnosticSettingMetricArgs.builder()
- *                 .category(&#34;AllMetrics&#34;)
- *                 .retentionPolicy(DiagnosticSettingMetricRetentionPolicyArgs.builder()
- *                     .enabled(false)
- *                     .build())
- *                 .build())
+ *             .storageAccountSubscriptionId(primaryAzurermSubscription.subscriptionId())
  *             .build());
  * 
  *     }

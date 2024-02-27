@@ -15,33 +15,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "westeurope",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     name: "example",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "example",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     adminPassword: "example",
@@ -58,18 +66,19 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleTarget = new azure.chaosstudio.Target("exampleTarget", {
- *     location: exampleResourceGroup.location,
+ * const exampleTarget = new azure.chaosstudio.Target("example", {
+ *     location: example.location,
  *     targetResourceId: exampleLinuxVirtualMachine.id,
  *     targetType: "Microsoft-VirtualMachine",
  * });
- * const exampleCapability = new azure.chaosstudio.Capability("exampleCapability", {
+ * const exampleCapability = new azure.chaosstudio.Capability("example", {
  *     chaosStudioTargetId: exampleTarget.id,
  *     capabilityType: "Shutdown-1.0",
  * });
- * const exampleExperiment = new azure.chaosstudio.Experiment("exampleExperiment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleExperiment = new azure.chaosstudio.Experiment("example", {
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },

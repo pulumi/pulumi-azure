@@ -11,6 +11,33 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azurerm/sdk/v1/go/azurerm"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := index.NewPrivateDnsSoaRecord(ctx, "example", &index.PrivateDnsSoaRecordArgs{
+//				ZoneName:          "test-zone",
+//				ResourceGroupName: "test-rg",
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("privateDnsSoaRecordId", exampleAzurermPrivateDnsSoaRecord.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSoaRecord(ctx *pulumi.Context, args *GetSoaRecordArgs, opts ...pulumi.InvokeOption) (*GetSoaRecordResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSoaRecordResult

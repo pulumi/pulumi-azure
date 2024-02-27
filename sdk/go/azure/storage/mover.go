@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewMover(ctx, "exampleMover", &storage.MoverArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = storage.NewMover(ctx, "example", &storage.MoverArgs{
+//				Name:              pulumi.String("example-ssm"),
+//				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				Description:       pulumi.String("Example Storage Mover Description"),
 //				Tags: pulumi.StringMap{

@@ -22,32 +22,36 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleWatchlist = new Azure.Sentinel.Watchlist("exampleWatchlist", new()
+    ///     var exampleWatchlist = new Azure.Sentinel.Watchlist("example", new()
     ///     {
+    ///         Name = "example-watchlist",
     ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         DisplayName = "example-wl",
     ///         ItemSearchKey = "Key",
     ///     });
     /// 
-    ///     var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("exampleWatchlistItem", new()
+    ///     var exampleWatchlistItem = new Azure.Sentinel.WatchlistItem("example", new()
     ///     {
+    ///         Name = "0aac6fa5-223e-49cf-9bfd-3554dc9d2b76",
     ///         WatchlistId = exampleWatchlist.Id,
     ///         Properties = 
     ///         {

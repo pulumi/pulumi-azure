@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.storage.getAccount({
+ * const example = azure.storage.getAccount({
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const exampleEncryptionScope = exampleAccount.then(exampleAccount => azure.storage.getEncryptionScope({
+ * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
  *     name: "existingStorageES",
- *     storageAccountId: exampleAccount.id,
+ *     storageAccountId: example.id,
  * }));
- * export const id = exampleEncryptionScope.then(exampleEncryptionScope => exampleEncryptionScope.id);
+ * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
  * ```
  */
 export function getEncryptionScope(args: GetEncryptionScopeArgs, opts?: pulumi.InvokeOptions): Promise<GetEncryptionScopeResult> {
@@ -75,15 +75,15 @@ export interface GetEncryptionScopeResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.storage.getAccount({
+ * const example = azure.storage.getAccount({
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const exampleEncryptionScope = exampleAccount.then(exampleAccount => azure.storage.getEncryptionScope({
+ * const exampleGetEncryptionScope = example.then(example => azure.storage.getEncryptionScope({
  *     name: "existingStorageES",
- *     storageAccountId: exampleAccount.id,
+ *     storageAccountId: example.id,
  * }));
- * export const id = exampleEncryptionScope.then(exampleEncryptionScope => exampleEncryptionScope.id);
+ * export const id = exampleGetEncryptionScope.then(exampleGetEncryptionScope => exampleGetEncryptionScope.id);
  * ```
  */
 export function getEncryptionScopeOutput(args: GetEncryptionScopeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionScopeResult> {

@@ -51,7 +51,8 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
+ *         var example = new Definition(&#34;example&#34;, DefinitionArgs.builder()        
+ *             .name(&#34;only-deploy-in-westeurope&#34;)
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
  *             .displayName(&#34;Allowed resource types&#34;)
@@ -71,7 +72,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .policyDefinitionId(exampleDefinition.id())
+ *             .name(&#34;example&#34;)
+ *             .policyDefinitionId(example.id())
  *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 

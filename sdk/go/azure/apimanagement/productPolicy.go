@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//			example, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
 //				ProductId:         "my-product",
 //				ApiManagementName: "example-apim",
 //				ResourceGroupName: "search-service",
@@ -36,10 +36,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewProductPolicy(ctx, "exampleProductPolicy", &apimanagement.ProductPolicyArgs{
-//				ProductId:         *pulumi.String(exampleProduct.ProductId),
-//				ApiManagementName: *pulumi.String(exampleProduct.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(exampleProduct.ResourceGroupName),
+//			_, err = apimanagement.NewProductPolicy(ctx, "example", &apimanagement.ProductPolicyArgs{
+//				ProductId:         *pulumi.String(example.ProductId),
+//				ApiManagementName: *pulumi.String(example.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
 //	    <find-and-replace from="xyz" to="abc" />

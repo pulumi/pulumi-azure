@@ -55,20 +55,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;storageaccountname&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+ *         final var exampleGetAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
  *             .connectionString(exampleAccount.primaryConnectionString())
  *             .httpsOnly(true)
  *             .resourceTypes(GetAccountSASResourceTypesArgs.builder()
@@ -99,13 +101,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .name(&#34;example-keyvault&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
- *                 .tenantId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                 .objectId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                 .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                 .objectId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *                 .secretPermissions(                
  *                     &#34;Get&#34;,
  *                     &#34;Delete&#34;)
@@ -122,6 +125,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
+ *             .name(&#34;examplemanagedstorage&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountKey(&#34;key1&#34;)
@@ -130,9 +134,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedStorageAccountSasTokenDefinition = new ManagedStorageAccountSasTokenDefinition(&#34;exampleManagedStorageAccountSasTokenDefinition&#34;, ManagedStorageAccountSasTokenDefinitionArgs.builder()        
+ *             .name(&#34;examplesasdefinition&#34;)
  *             .validityPeriod(&#34;P1D&#34;)
  *             .managedStorageAccountId(exampleManagedStorageAccount.id())
- *             .sasTemplateUri(exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())))
+ *             .sasTemplateUri(exampleGetAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleGetAccountSAS -&gt; exampleGetAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())))
  *             .sasType(&#34;account&#34;)
  *             .build());
  * 

@@ -15,22 +15,31 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "exampleNamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     name: "exampleTopic",
+ *     namespaceId: exampleNamespace.id,
+ * });
+ * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
+ *     name: "exampleRule",
  *     topicId: exampleTopic.id,
  *     listen: false,
  *     send: true,
  *     manage: false,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
@@ -39,9 +48,10 @@ import * as utilities from "../utilities";
  *         purpose: "example",
  *     },
  * });
- * const exampleEndpointServicebusTopic = new azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEndpointServicebusTopic = new azure.iot.EndpointServicebusTopic("example", {
+ *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
+ *     name: "example",
  *     connectionString: exampleTopicAuthorizationRule.primaryConnectionString,
  * });
  * ```

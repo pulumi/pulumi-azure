@@ -17,29 +17,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "sample-rg",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "sample-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "sample-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "sample-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "SampleVM",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     size: "Standard_B2s",
  *     sourceImageReference: {
@@ -57,9 +64,9 @@ import * as utilities from "../utilities";
  *     adminPassword: "Password1234!",
  *     disablePasswordAuthentication: false,
  * });
- * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("exampleGlobalVMShutdownSchedule", {
+ * const exampleGlobalVMShutdownSchedule = new azure.devtest.GlobalVMShutdownSchedule("example", {
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     enabled: true,
  *     dailyRecurrenceTime: "1100",
  *     timezone: "Pacific Standard Time",

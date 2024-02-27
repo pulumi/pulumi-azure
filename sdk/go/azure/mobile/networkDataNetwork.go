@@ -29,24 +29,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("East Us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
+//				Name:              pulumi.String("example-mn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				MobileCountryCode: pulumi.String("001"),
 //				MobileNetworkCode: pulumi.String("01"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetworkDataNetwork(ctx, "exampleNetworkDataNetwork", &mobile.NetworkDataNetworkArgs{
+//			_, err = mobile.NewNetworkDataNetwork(ctx, "example", &mobile.NetworkDataNetworkArgs{
+//				Name:            pulumi.String("example-mndn"),
 //				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //				Description:     pulumi.String("example description"),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

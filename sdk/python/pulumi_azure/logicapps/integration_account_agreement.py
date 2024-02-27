@@ -365,33 +365,40 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        test = azure.logicapps.IntegrationAccount("test",
+            name="example-ia",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
+            name="example-hostpartner",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
+            name="example-guestpartner",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
+            name="example-agreement",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             agreement_type="AS2",
             host_partner_name=host.name,
             guest_partner_name=guest.name,
-            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
             host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
@@ -437,33 +444,40 @@ class IntegrationAccountAgreement(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        test_integration_account = azure.logicapps.IntegrationAccount("testIntegrationAccount",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        test = azure.logicapps.IntegrationAccount("test",
+            name="example-ia",
             location=example.location,
             resource_group_name=example.name,
             sku_name="Standard")
         host = azure.logicapps.IntegrationAccountPartner("host",
+            name="example-hostpartner",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",
             )])
         guest = azure.logicapps.IntegrationAccountPartner("guest",
+            name="example-guestpartner",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             business_identities=[azure.logicapps.IntegrationAccountPartnerBusinessIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamDC",
             )])
-        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement",
+        test_integration_account_agreement = azure.logicapps.IntegrationAccountAgreement("test",
+            name="example-agreement",
             resource_group_name=example.name,
-            integration_account_name=test_integration_account.name,
+            integration_account_name=test.name,
             agreement_type="AS2",
             host_partner_name=host.name,
             guest_partner_name=guest.name,
-            content=(lambda path: open(path).read())("testdata/integration_account_agreement_content_as2.json"),
+            content=std.file(input="testdata/integration_account_agreement_content_as2.json").result,
             host_identity=azure.logicapps.IntegrationAccountAgreementHostIdentityArgs(
                 qualifier="AS2Identity",
                 value="FabrikamNY",

@@ -36,13 +36,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				AddressSpaces: pulumi.StringArray{
@@ -52,7 +54,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -73,7 +76,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDiskPool, err := compute.NewDiskPool(ctx, "exampleDiskPool", &compute.DiskPoolArgs{
+//			exampleDiskPool, err := compute.NewDiskPool(ctx, "example", &compute.DiskPoolArgs{
+//				Name:              pulumi.String("example-pool"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				SubnetId:          exampleSubnet.ID(),
@@ -85,7 +89,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String("example-disk"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				Location:           exampleResourceGroup.Location,
 //				CreateOption:       pulumi.String("Empty"),
@@ -97,7 +102,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("StoragePool Resource Provider"),
 //			}, nil)
 //			if err != nil {
@@ -111,8 +116,8 @@ import (
 //			for index := 0; index < len(roles); index++ {
 //				key0 := index
 //				val0 := index
-//				__res, err := authorization.NewAssignment(ctx, fmt.Sprintf("exampleAssignment-%v", key0), &authorization.AssignmentArgs{
-//					PrincipalId:        *pulumi.String(exampleServicePrincipal.Id),
+//				__res, err := authorization.NewAssignment(ctx, fmt.Sprintf("example-%v", key0), &authorization.AssignmentArgs{
+//					PrincipalId:        *pulumi.String(example.Id),
 //					RoleDefinitionName: roles[val0],
 //					Scope:              exampleManagedDisk.ID(),
 //				})
@@ -121,22 +126,19 @@ import (
 //				}
 //				exampleAssignment = append(exampleAssignment, __res)
 //			}
-//			exampleDiskPoolManagedDiskAttachment, err := compute.NewDiskPoolManagedDiskAttachment(ctx, "exampleDiskPoolManagedDiskAttachment", &compute.DiskPoolManagedDiskAttachmentArgs{
+//			_, err = compute.NewDiskPoolManagedDiskAttachment(ctx, "example", &compute.DiskPoolManagedDiskAttachmentArgs{
 //				DiskPoolId:    exampleDiskPool.ID(),
 //				ManagedDiskId: exampleManagedDisk.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewDiskPoolIscsiTarget(ctx, "exampleDiskPoolIscsiTarget", &compute.DiskPoolIscsiTargetArgs{
+//			_, err = compute.NewDiskPoolIscsiTarget(ctx, "example", &compute.DiskPoolIscsiTargetArgs{
+//				Name:        pulumi.String("example"),
 //				AclMode:     pulumi.String("Dynamic"),
 //				DisksPoolId: exampleDiskPool.ID(),
 //				TargetIqn:   pulumi.String("iqn.2021-11.com.microsoft:test"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleDiskPoolManagedDiskAttachment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

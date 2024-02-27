@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("example-acr"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "exampleRegistryTask", &containerservice.RegistryTaskArgs{
+//			exampleRegistryTask, err := containerservice.NewRegistryTask(ctx, "example", &containerservice.RegistryTaskArgs{
+//				Name:                pulumi.String("example-task"),
 //				ContainerRegistryId: exampleRegistry.ID(),
 //				Platform: &containerservice.RegistryTaskPlatformArgs{
 //					Os: pulumi.String("Linux"),
@@ -60,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewRegistryTaskScheduleRunNow(ctx, "exampleRegistryTaskScheduleRunNow", &containerservice.RegistryTaskScheduleRunNowArgs{
+//			_, err = containerservice.NewRegistryTaskScheduleRunNow(ctx, "example", &containerservice.RegistryTaskScheduleRunNowArgs{
 //				ContainerRegistryTaskId: exampleRegistryTask.ID(),
 //			})
 //			if err != nil {

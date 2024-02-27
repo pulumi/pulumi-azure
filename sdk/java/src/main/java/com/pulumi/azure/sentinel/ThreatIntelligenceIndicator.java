@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sentinel.LogAnalyticsWorkspaceOnboardingArgs;
  * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicator;
  * import com.pulumi.azure.sentinel.ThreatIntelligenceIndicatorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,19 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-law&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .retentionInDays(30)
  *             .build());
  * 
  *         var exampleLogAnalyticsWorkspaceOnboarding = new LogAnalyticsWorkspaceOnboarding(&#34;exampleLogAnalyticsWorkspaceOnboarding&#34;, LogAnalyticsWorkspaceOnboardingArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .build());
  * 
@@ -76,9 +77,7 @@ import javax.annotation.Nullable;
  *             .source(&#34;Microsoft Sentinel&#34;)
  *             .validateFromUtc(&#34;2022-12-14T16:00:00Z&#34;)
  *             .displayName(&#34;example-indicator&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(azurerm_sentinel_log_analytics_workspace_onboarding.test())
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

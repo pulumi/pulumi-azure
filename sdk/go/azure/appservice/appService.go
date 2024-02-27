@@ -35,15 +35,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("example-appserviceplan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -52,9 +54,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
+//				Name:              pulumi.String("example-app-service"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AppServicePlanId:  examplePlan.ID(),
 //				SiteConfig: &appservice.AppServiceSiteConfigArgs{
 //					DotnetFrameworkVersion: pulumi.String("v4.0"),

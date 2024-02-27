@@ -142,13 +142,18 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="azuretest",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="azureteststorage1",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
+        example_table = azure.storage.Table("example",
+            name="mysampletable",
+            storage_account_name=example_account.name)
         ```
 
         ## Import
@@ -180,13 +185,18 @@ class Table(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="azuretest",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="azureteststorage1",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_table = azure.storage.Table("exampleTable", storage_account_name=example_account.name)
+        example_table = azure.storage.Table("example",
+            name="mysampletable",
+            storage_account_name=example_account.name)
         ```
 
         ## Import

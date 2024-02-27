@@ -15,39 +15,50 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
- *     domainNameLabel: exampleResourceGroup.name,
+ *     domainNameLabel: example.name,
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "PublicIPAddress",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const bpepool = new azure.lb.BackendAddressPool("bpepool", {loadbalancerId: exampleLoadBalancer.id});
+ * const bpepool = new azure.lb.BackendAddressPool("bpepool", {
+ *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "BackEndAddressPool",
+ * });
  * const lbnatpool = new azure.lb.NatPool("lbnatpool", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
+ *     name: "ssh",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     protocol: "Tcp",
  *     frontendPortStart: 50000,
@@ -55,15 +66,17 @@ import * as utilities from "../utilities";
  *     backendPort: 22,
  *     frontendIpConfigurationName: "PublicIPAddress",
  * });
- * const exampleProbe = new azure.lb.Probe("exampleProbe", {
+ * const exampleProbe = new azure.lb.Probe("example", {
  *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "http-probe",
  *     protocol: "Http",
  *     requestPath: "/health",
  *     port: 8080,
  * });
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {
+ *     name: "mytestscaleset-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     automaticOsUpgrade: true,
  *     upgradePolicyMode: "Rolling",
  *     rollingUpgradePolicy: {
@@ -104,7 +117,9 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
- *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf8"),
+ *             keyData: std.file({
+ *                 input: "~/.ssh/demo_key.pub",
+ *             }).then(invoke => invoke.result),
  *         }],
  *     },
  *     networkProfiles: [{
@@ -128,35 +143,43 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "accsa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "vhds",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {
+ *     name: "mytestscaleset-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     upgradePolicyMode: "Manual",
  *     sku: {
  *         name: "Standard_F2",
@@ -171,7 +194,9 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: true,
  *         sshKeys: [{
  *             path: "/home/myadmin/.ssh/authorized_keys",
- *             keyData: fs.readFileSync("~/.ssh/demo_key.pub", "utf8"),
+ *             keyData: std.file({
+ *                 input: "~/.ssh/demo_key.pub",
+ *             }).then(invoke => invoke.result),
  *         }],
  *     },
  *     networkProfiles: [{
@@ -203,12 +228,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleImage = new azure.compute.Image("exampleImage", {});
- * // ...
- * const exampleScaleSet = new azure.compute.ScaleSet("exampleScaleSet", {storageProfileImageReference: {
- *     id: exampleImage.id,
- * }});
- * // ...
+ * const example = new azure.compute.Image("example", {name: "test"});
+ * const exampleScaleSet = new azure.compute.ScaleSet("example", {
+ *     name: "test",
+ *     storageProfileImageReference: {
+ *         id: example.id,
+ *     },
+ * });
  * ```
  *
  * ## Import

@@ -18,13 +18,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudDevToolPortal = new azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal", {
+ * const exampleSpringCloudDevToolPortal = new azure.appplatform.SpringCloudDevToolPortal("example", {
+ *     name: "default",
  *     springCloudServiceId: exampleSpringCloudService.id,
  *     publicNetworkAccessEnabled: true,
  *     sso: {

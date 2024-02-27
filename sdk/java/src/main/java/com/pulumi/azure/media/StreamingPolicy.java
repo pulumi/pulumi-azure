@@ -61,20 +61,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;media-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemediaacc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .isPrimary(true)
@@ -82,7 +85,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContentKeyPolicy = new ContentKeyPolicy(&#34;exampleContentKeyPolicy&#34;, ContentKeyPolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .policyOptions(ContentKeyPolicyPolicyOptionArgs.builder()
  *                 .name(&#34;fairPlay&#34;)
@@ -98,7 +102,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleStreamingPolicy = new StreamingPolicy(&#34;exampleStreamingPolicy&#34;, StreamingPolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Policy-1&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .commonEncryptionCenc(StreamingPolicyCommonEncryptionCencArgs.builder()
  *                 .clearTracks(StreamingPolicyCommonEncryptionCencClearTrackArgs.builder()

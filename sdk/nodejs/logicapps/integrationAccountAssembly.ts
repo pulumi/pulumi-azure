@@ -12,19 +12,26 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
+ *     name: "example-ia",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleIntegrationAccountAssembly = new azure.logicapps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIntegrationAccountAssembly = new azure.logicapps.IntegrationAccountAssembly("example", {
+ *     name: "example-assembly",
+ *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     assemblyName: "TestAssembly",
- *     content: fs.readFileSync("testdata/log4net.dll", { encoding: "base64" }),
+ *     content: std.filebase64({
+ *         input: "testdata/log4net.dll",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

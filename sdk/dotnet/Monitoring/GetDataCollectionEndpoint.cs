@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Monitoring
         ///     var example = Azure.Monitoring.GetDataCollectionEndpoint.Invoke(new()
         ///     {
         ///         Name = "example-mdce",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Monitoring
         ///     var example = Azure.Monitoring.GetDataCollectionEndpoint.Invoke(new()
         ///     {
         ///         Name = "example-mdce",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

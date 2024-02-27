@@ -52,16 +52,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-recovery_vault&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
+ *             .name(&#34;tfex-recovery-vault&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var examplePolicyVM = new PolicyVM(&#34;examplePolicyVM&#34;, PolicyVMArgs.builder()        
+ *             .name(&#34;tfex-recovery-vault-policy&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .backup(PolicyVMBackupArgs.builder()
@@ -73,7 +76,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+ *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
  *             .name(&#34;example-vm&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
@@ -81,7 +84,7 @@ import javax.annotation.Nullable;
  *         var vm1 = new ProtectedVM(&#34;vm1&#34;, ProtectedVMArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .recoveryVaultName(exampleVault.name())
- *             .sourceVmId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult).applyValue(exampleVirtualMachine -&gt; exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id())))
+ *             .sourceVmId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult).applyValue(example -&gt; example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id())))
  *             .backupPolicyId(examplePolicyVM.id())
  *             .build());
  * 

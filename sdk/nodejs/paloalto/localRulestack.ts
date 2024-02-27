@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("exampleLocalRulestack", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * ```
  *

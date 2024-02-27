@@ -53,34 +53,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkSimGroup = new NetworkSimGroup(&#34;exampleNetworkSimGroup&#34;, NetworkSimGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mnsg&#34;)
+ *             .location(example.location())
  *             .mobileNetworkId(exampleNetwork.id())
  *             .build());
  * 
  *         var exampleNetworkSlice = new NetworkSlice(&#34;exampleNetworkSlice&#34;, NetworkSliceArgs.builder()        
+ *             .name(&#34;example-slice&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .singleNetworkSliceSelectionAssistanceInformation(NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs.builder()
  *                 .sliceServiceType(1)
  *                 .build())
  *             .build());
  * 
  *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork(&#34;exampleNetworkAttachedDataNetwork&#34;, NetworkAttachedDataNetworkArgs.builder()        
- *             .mobileNetworkDataNetworkName(azurerm_mobile_network_data_network.example().name())
- *             .mobileNetworkPacketCoreDataPlaneId(azurerm_mobile_network_packet_core_data_plane.example().id())
- *             .location(exampleResourceGroup.location())
+ *             .mobileNetworkDataNetworkName(exampleAzurermMobileNetworkDataNetwork.name())
+ *             .mobileNetworkPacketCoreDataPlaneId(exampleAzurermMobileNetworkPacketCoreDataPlane.id())
+ *             .location(example.location())
  *             .dnsAddresses(&#34;1.1.1.1&#34;)
  *             .userEquipmentAddressPoolPrefixes(&#34;2.4.0.0/24&#34;)
  *             .userEquipmentStaticAddressPoolPrefixes(&#34;2.4.1.0/24&#34;)
@@ -91,14 +95,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkSim = new NetworkSim(&#34;exampleNetworkSim&#34;, NetworkSimArgs.builder()        
+ *             .name(&#34;example-sim&#34;)
  *             .mobileNetworkSimGroupId(exampleNetworkSimGroup.id())
  *             .authenticationKey(&#34;00000000000000000000000000000000&#34;)
  *             .integratedCircuitCardIdentifier(&#34;8900000000000000000&#34;)
  *             .internationalMobileSubscriberIdentity(&#34;000000000000000&#34;)
  *             .operatorKeyCode(&#34;00000000000000000000000000000000&#34;)
  *             .staticIpConfigurations(NetworkSimStaticIpConfigurationArgs.builder()
- *                 .attachedDataNetworkId(data.azurerm_mobile_network_attached_data_network().test().id())
- *                 .sliceId(azurerm_mobile_network_slice.test().id())
+ *                 .attachedDataNetworkId(test.id())
+ *                 .sliceId(testAzurermMobileNetworkSlice.id())
  *                 .staticIpv4Address(&#34;2.4.0.1&#34;)
  *                 .build())
  *             .build());

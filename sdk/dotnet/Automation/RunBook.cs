@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "account1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         LogVerbose = true,
     ///         LogProgress = true,
@@ -60,27 +63,36 @@ namespace Pulumi.Azure.Automation
     /// using Azure = Pulumi.Azure;
     /// using Local = Pulumi.Local;
     /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
+    ///         Name = "account1",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleFile = Local.GetFile.Invoke(new()
+    ///     var example = Local.GetFile.Invoke(new()
     ///     {
-    ///         Filename = $"{path.Module}/example.ps1",
+    ///         Filename = $"{NotImplemented("path.module")}/example.ps1",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
+    ///         Name = "Get-AzureVMTutorial",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
@@ -88,7 +100,7 @@ namespace Pulumi.Azure.Automation
     ///         LogProgress = true,
     ///         Description = "This is an example runbook",
     ///         RunbookType = "PowerShell",
-    ///         Content = exampleFile.Apply(getFileResult =&gt; getFileResult.Content),
+    ///         Content = example.Apply(getFileResult =&gt; getFileResult.Content),
     ///     });
     /// 
     /// });

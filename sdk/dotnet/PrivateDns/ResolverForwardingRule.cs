@@ -22,24 +22,27 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "outbounddns",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -62,15 +65,17 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleResolver = new Azure.PrivateDns.Resolver("exampleResolver", new()
+    ///     var exampleResolver = new Azure.PrivateDns.Resolver("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-resolver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });
     /// 
-    ///     var exampleResolverOutboundEndpoint = new Azure.PrivateDns.ResolverOutboundEndpoint("exampleResolverOutboundEndpoint", new()
+    ///     var exampleResolverOutboundEndpoint = new Azure.PrivateDns.ResolverOutboundEndpoint("example", new()
     ///     {
+    ///         Name = "example-endpoint",
     ///         PrivateDnsResolverId = exampleResolver.Id,
     ///         Location = exampleResolver.Location,
     ///         SubnetId = exampleSubnet.Id,
@@ -80,18 +85,20 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleResolverDnsForwardingRuleset = new Azure.PrivateDns.ResolverDnsForwardingRuleset("exampleResolverDnsForwardingRuleset", new()
+    ///     var exampleResolverDnsForwardingRuleset = new Azure.PrivateDns.ResolverDnsForwardingRuleset("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-drdfr",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         PrivateDnsResolverOutboundEndpointIds = new[]
     ///         {
     ///             exampleResolverOutboundEndpoint.Id,
     ///         },
     ///     });
     /// 
-    ///     var exampleResolverForwardingRule = new Azure.PrivateDns.ResolverForwardingRule("exampleResolverForwardingRule", new()
+    ///     var exampleResolverForwardingRule = new Azure.PrivateDns.ResolverForwardingRule("example", new()
     ///     {
+    ///         Name = "example-rule",
     ///         DnsForwardingRulesetId = exampleResolverDnsForwardingRuleset.Id,
     ///         DomainName = "onprem.local.",
     ///         Enabled = true,

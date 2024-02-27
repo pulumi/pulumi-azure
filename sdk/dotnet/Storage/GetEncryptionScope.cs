@@ -26,21 +26,21 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
         ///         Name = "storageaccountname",
         ///         ResourceGroupName = "resourcegroupname",
         ///     });
         /// 
-        ///     var exampleEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
+        ///     var exampleGetEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
         ///     {
         ///         Name = "existingStorageES",
-        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
+        ///         ["id"] = exampleGetEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
         ///     };
         /// });
         /// ```
@@ -65,21 +65,21 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
         ///         Name = "storageaccountname",
         ///         ResourceGroupName = "resourcegroupname",
         ///     });
         /// 
-        ///     var exampleEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
+        ///     var exampleGetEncryptionScope = Azure.Storage.GetEncryptionScope.Invoke(new()
         ///     {
         ///         Name = "existingStorageES",
-        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
+        ///         ["id"] = exampleGetEncryptionScope.Apply(getEncryptionScopeResult =&gt; getEncryptionScopeResult.Id),
         ///     };
         /// });
         /// ```

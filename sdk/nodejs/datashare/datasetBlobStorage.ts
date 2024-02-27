@@ -16,47 +16,53 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.datashare.Account("example", {
+ *     name: "example-dsa",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
+ * const exampleShare = new azure.datashare.Share("example", {
+ *     name: "example_ds",
  *     accountId: exampleAccount.id,
  *     kind: "CopyBased",
  * });
- * const exampleStorage_accountAccount = new azure.storage.Account("exampleStorage/accountAccount", {
+ * const exampleAccount2 = new azure.storage.Account("example", {
+ *     name: "examplestr",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "RAGRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
- *     storageAccountName: exampleStorage / accountAccount.name,
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "example-sc",
+ *     storageAccountName: exampleAccount2.name,
  *     containerAccessType: "container",
  * });
- * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ * const example = azuread.getServicePrincipalOutput({
  *     displayName: exampleAccount.name,
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     scope: exampleStorage / accountAccount.id,
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: exampleAccount2.id,
  *     roleDefinitionName: "Storage Blob Data Reader",
- *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     principalId: example.apply(example => example.objectId),
  * });
- * const exampleDatasetBlobStorage = new azure.datashare.DatasetBlobStorage("exampleDatasetBlobStorage", {
+ * const exampleDatasetBlobStorage = new azure.datashare.DatasetBlobStorage("example", {
+ *     name: "example-dsbsds-file",
  *     dataShareId: exampleShare.id,
  *     containerName: exampleContainer.name,
  *     storageAccount: {
- *         name: exampleStorage / accountAccount.name,
- *         resourceGroupName: exampleStorage / accountAccount.resourceGroupName,
+ *         name: exampleAccount2.name,
+ *         resourceGroupName: exampleAccount2.resourceGroupName,
  *         subscriptionId: "00000000-0000-0000-0000-000000000000",
  *     },
  *     filePath: "myfile.txt",
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

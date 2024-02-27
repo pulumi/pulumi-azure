@@ -255,10 +255,13 @@ class SpringCloudCertificate(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+        example = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="keyvaultcertexample",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
@@ -277,7 +280,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=example_service_principal.object_id,
+                    object_id=example.object_id,
                     secret_permissions=[
                         "Get",
                         "List",
@@ -288,7 +291,8 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     ],
                 ),
             ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="cert-example",
             key_vault_id=example_key_vault.id,
             certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
@@ -324,10 +328,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     validity_in_months=12,
                 ),
             ))
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
+        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("example",
+            name="example-scc",
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name,
             key_vault_certificate_id=example_certificate.id,
@@ -367,10 +373,13 @@ class SpringCloudCertificate(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
+        example = azuread.get_service_principal(display_name="Azure Spring Cloud Resource Provider")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="keyvaultcertexample",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
@@ -389,7 +398,7 @@ class SpringCloudCertificate(pulumi.CustomResource):
                 ),
                 azure.keyvault.KeyVaultAccessPolicyArgs(
                     tenant_id=current.tenant_id,
-                    object_id=example_service_principal.object_id,
+                    object_id=example.object_id,
                     secret_permissions=[
                         "Get",
                         "List",
@@ -400,7 +409,8 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     ],
                 ),
             ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="cert-example",
             key_vault_id=example_key_vault.id,
             certificate_policy=azure.keyvault.CertificateCertificatePolicyArgs(
                 issuer_parameters=azure.keyvault.CertificateCertificatePolicyIssuerParametersArgs(
@@ -436,10 +446,12 @@ class SpringCloudCertificate(pulumi.CustomResource):
                     validity_in_months=12,
                 ),
             ))
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("exampleSpringCloudCertificate",
+        example_spring_cloud_certificate = azure.appplatform.SpringCloudCertificate("example",
+            name="example-scc",
             resource_group_name=example_spring_cloud_service.resource_group_name,
             service_name=example_spring_cloud_service.name,
             key_vault_certificate_id=example_certificate.id,

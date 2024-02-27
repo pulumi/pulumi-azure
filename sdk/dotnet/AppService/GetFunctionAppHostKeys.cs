@@ -29,7 +29,7 @@ namespace Pulumi.Azure.AppService
         ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
         ///     {
         ///         Name = "example-function",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.AppService
         ///     var example = Azure.AppService.GetFunctionAppHostKeys.Invoke(new()
         ///     {
         ///         Name = "example-function",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

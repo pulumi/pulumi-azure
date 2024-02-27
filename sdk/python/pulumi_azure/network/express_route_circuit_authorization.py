@@ -171,10 +171,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -186,9 +189,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization",
+        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("example",
+            name="exampleERCAuth",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -220,10 +224,13 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_circuit = azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_circuit = azure.network.ExpressRouteCircuit("example",
+            name="expressRoute1",
+            resource_group_name=example.name,
+            location=example.location,
             service_provider_name="Equinix",
             peering_location="Silicon Valley",
             bandwidth_in_mbps=50,
@@ -235,9 +242,10 @@ class ExpressRouteCircuitAuthorization(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization",
+        example_express_route_circuit_authorization = azure.network.ExpressRouteCircuitAuthorization("example",
+            name="exampleERCAuth",
             express_route_circuit_name=example_express_route_circuit.name,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import

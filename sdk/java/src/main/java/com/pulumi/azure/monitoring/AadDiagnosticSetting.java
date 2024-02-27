@@ -50,19 +50,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestorageaccount&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountKind(&#34;StorageV2&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleAadDiagnosticSetting = new AadDiagnosticSetting(&#34;exampleAadDiagnosticSetting&#34;, AadDiagnosticSettingArgs.builder()        
+ *             .name(&#34;setting1&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .enabledLogs(            
  *                 AadDiagnosticSettingEnabledLogArgs.builder()

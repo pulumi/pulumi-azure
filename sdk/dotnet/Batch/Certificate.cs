@@ -15,38 +15,34 @@ namespace Pulumi.Azure.Batch
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "testbatch",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "teststorage",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new()
+    ///     var exampleAccount2 = new Azure.Batch.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "testbatchaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         PoolAllocationMode = "BatchService",
     ///         StorageAccountId = exampleAccount.Id,
     ///         StorageAccountAuthenticationMode = "StorageKeys",
@@ -56,11 +52,14 @@ namespace Pulumi.Azure.Batch
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.Batch.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.Batch.Certificate("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AccountName = exampleBatch / accountAccount.Name,
-    ///         BatchCertificate = ReadFileBase64("certificate.pfx"),
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount2.Name,
+    ///         BatchCertificate = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "certificate.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Format = "Pfx",
     ///         Password = "password",
     ///         Thumbprint = "42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

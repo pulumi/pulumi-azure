@@ -54,33 +54,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var primary = new SqlServer(&#34;primary&#34;, SqlServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;sql-primary&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;sqladmin&#34;)
  *             .administratorLoginPassword(&#34;pa$$w0rd&#34;)
  *             .build());
  * 
  *         var secondary = new SqlServer(&#34;secondary&#34;, SqlServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;sql-secondary&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;sqladmin&#34;)
  *             .administratorLoginPassword(&#34;pa$$w0rd&#34;)
  *             .build());
  * 
  *         var db1 = new Database(&#34;db1&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;db1&#34;)
  *             .resourceGroupName(primary.resourceGroupName())
  *             .location(primary.location())
  *             .serverName(primary.name())
  *             .build());
  * 
  *         var exampleFailoverGroup = new FailoverGroup(&#34;exampleFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *             .name(&#34;example-failover-group&#34;)
  *             .resourceGroupName(primary.resourceGroupName())
  *             .serverName(primary.name())
  *             .databases(db1.id())

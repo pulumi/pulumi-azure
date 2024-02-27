@@ -251,19 +251,23 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_certificate = azure.automation.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
+        example_certificate = azure.automation.Certificate("example",
+            name="certificate1",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             description="This is an example certificate",
-            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+            base64=std.filebase64(input="certificate.pfx").result,
             exportable=True)
         ```
 
@@ -297,19 +301,23 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="account1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_certificate = azure.automation.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
+        example_certificate = azure.automation.Certificate("example",
+            name="certificate1",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             description="This is an example certificate",
-            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+            base64=std.filebase64(input="certificate.pfx").result,
             exportable=True)
         ```
 

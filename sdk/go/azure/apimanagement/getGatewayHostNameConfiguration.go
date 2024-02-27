@@ -27,29 +27,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "example-apim",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
+//			exampleGetGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
 //				Name:            "example-gateway",
-//				ApiManagementId: data.Azurerm_api_management.Main.Id,
+//				ApiManagementId: main.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGatewayHostNameConfiguration, err := apimanagement.LookupGatewayHostNameConfiguration(ctx, &apimanagement.LookupGatewayHostNameConfigurationArgs{
+//			exampleGetGatewayHostNameConfiguration, err := apimanagement.LookupGatewayHostNameConfiguration(ctx, &apimanagement.LookupGatewayHostNameConfigurationArgs{
 //				Name:            "example-host-configuration",
-//				ApiManagementId: exampleService.Id,
-//				GatewayName:     exampleGateway.Name,
+//				ApiManagementId: example.Id,
+//				GatewayName:     exampleGetGateway.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("hostName", exampleGatewayHostNameConfiguration.HostName)
+//			ctx.Export("hostName", exampleGetGatewayHostNameConfiguration.HostName)
 //			return nil
 //		})
 //	}

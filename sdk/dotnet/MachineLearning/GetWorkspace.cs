@@ -34,7 +34,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///         ["id"] = existingAzurermMachineLearningWorkspace.Id,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.MachineLearning
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = azurerm_machine_learning_workspace.Existing.Id,
+        ///         ["id"] = existingAzurermMachineLearningWorkspace.Id,
         ///     };
         /// });
         /// ```

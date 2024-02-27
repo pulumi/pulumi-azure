@@ -48,7 +48,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
      *             .build());
@@ -90,7 +90,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
      *             .build());
@@ -132,7 +132,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
      *             .build());
@@ -174,7 +174,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKey(GetConfigurationKeyArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .key(&#34;appConfKey1&#34;)
      *             .label(&#34;somelabel&#34;)
      *             .build());
@@ -216,7 +216,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .build());
      * 
      *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
@@ -256,7 +256,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .build());
      * 
      *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
@@ -296,7 +296,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .build());
      * 
      *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));
@@ -336,7 +336,7 @@ public final class AppconfigurationFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var test = AppconfigurationFunctions.getConfigurationKeys(GetConfigurationKeysArgs.builder()
-     *             .configurationStoreId(azurerm_app_configuration.appconf().id())
+     *             .configurationStoreId(appconf.id())
      *             .build());
      * 
      *         ctx.export(&#34;value&#34;, test.applyValue(getConfigurationKeysResult -&gt; getConfigurationKeysResult.items()));

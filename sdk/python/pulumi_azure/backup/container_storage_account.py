@@ -146,12 +146,16 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-network-mapping-primary",
+            location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
+            name="examplesa",
             location=example.location,
             resource_group_name=example.name,
             account_tier="Standard",
@@ -195,12 +199,16 @@ class ContainerStorageAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-network-mapping-primary",
+            location="West Europe")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         sa = azure.storage.Account("sa",
+            name="examplesa",
             location=example.location,
             resource_group_name=example.name,
             account_tier="Standard",

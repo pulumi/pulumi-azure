@@ -171,10 +171,13 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resource",
+            location="West Europe")
+        example_application = azure.iotcentral.Application("example",
+            name="example-iotcentral-app",
+            resource_group_name=example.name,
+            location=example.location,
             sub_domain="example-iotcentral-app-subdomain",
             display_name="example-iotcentral-app-display-name",
             sku="ST1",
@@ -182,11 +185,11 @@ class Organization(pulumi.CustomResource):
             tags={
                 "Foo": "Bar",
             })
-        example_parent = azure.iotcentral.Organization("exampleParent",
+        example_parent = azure.iotcentral.Organization("example_parent",
             iotcentral_application_id=example_application.id,
             organization_id="example-parent-organization-id",
             display_name="Org example parent")
-        example_organization = azure.iotcentral.Organization("exampleOrganization",
+        example_organization = azure.iotcentral.Organization("example",
             iotcentral_application_id=example_application.id,
             organization_id="example-child-organization-id",
             display_name="Org example",
@@ -223,10 +226,13 @@ class Organization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_application = azure.iotcentral.Application("exampleApplication",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resource",
+            location="West Europe")
+        example_application = azure.iotcentral.Application("example",
+            name="example-iotcentral-app",
+            resource_group_name=example.name,
+            location=example.location,
             sub_domain="example-iotcentral-app-subdomain",
             display_name="example-iotcentral-app-display-name",
             sku="ST1",
@@ -234,11 +240,11 @@ class Organization(pulumi.CustomResource):
             tags={
                 "Foo": "Bar",
             })
-        example_parent = azure.iotcentral.Organization("exampleParent",
+        example_parent = azure.iotcentral.Organization("example_parent",
             iotcentral_application_id=example_application.id,
             organization_id="example-parent-organization-id",
             display_name="Org example parent")
-        example_organization = azure.iotcentral.Organization("exampleOrganization",
+        example_organization = azure.iotcentral.Organization("example",
             iotcentral_application_id=example_application.id,
             organization_id="example-child-organization-id",
             display_name="Org example",

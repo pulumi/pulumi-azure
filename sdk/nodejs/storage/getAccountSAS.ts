@@ -20,8 +20,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroupName",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
@@ -30,7 +34,7 @@ import * as utilities from "../utilities";
  *         environment: "staging",
  *     },
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ * const example = azure.storage.getAccountSASOutput({
  *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     signedVersion: "2017-07-29",
@@ -60,7 +64,7 @@ import * as utilities from "../utilities";
  *         filter: false,
  *     },
  * });
- * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
+ * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
 export function getAccountSAS(args: GetAccountSASArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountSASResult> {
@@ -159,8 +163,12 @@ export interface GetAccountSASResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroupName",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
@@ -169,7 +177,7 @@ export interface GetAccountSASResult {
  *         environment: "staging",
  *     },
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ * const example = azure.storage.getAccountSASOutput({
  *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     signedVersion: "2017-07-29",
@@ -199,7 +207,7 @@ export interface GetAccountSASResult {
  *         filter: false,
  *     },
  * });
- * export const sasUrlQueryString = exampleAccountSAS.apply(exampleAccountSAS => exampleAccountSAS.sas);
+ * export const sasUrlQueryString = example.apply(example => example.sas);
  * ```
  */
 export function getAccountSASOutput(args: GetAccountSASOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountSASResult> {

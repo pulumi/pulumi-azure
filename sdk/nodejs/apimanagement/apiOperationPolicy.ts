@@ -13,29 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApi = new azure.apimanagement.Api("exampleApi", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleApi = new azure.apimanagement.Api("example", {
+ *     name: "example-api",
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     revision: "1",
  * });
- * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {
+ * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {
  *     operationId: "acctest-operation",
  *     apiName: exampleApi.name,
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     displayName: "DELETE Resource",
  *     method: "DELETE",
  *     urlTemplate: "/resource",
  * });
- * const exampleApiOperationPolicy = new azure.apimanagement.ApiOperationPolicy("exampleApiOperationPolicy", {
+ * const exampleApiOperationPolicy = new azure.apimanagement.ApiOperationPolicy("example", {
  *     apiName: exampleApiOperation.apiName,
  *     apiManagementName: exampleApiOperation.apiManagementName,
  *     resourceGroupName: exampleApiOperation.resourceGroupName,

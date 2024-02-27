@@ -19,6 +19,63 @@ import javax.annotation.Nullable;
 /**
  * Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.datafactory.Factory;
+ * import com.pulumi.azure.datafactory.FactoryArgs;
+ * import com.pulumi.azure.search.Service;
+ * import com.pulumi.azure.search.ServiceArgs;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureSearch;
+ * import com.pulumi.azure.datafactory.LinkedServiceAzureSearchArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-search-service&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .sku(&#34;standard&#34;)
+ *             .build());
+ * 
+ *         var test = new LinkedServiceAzureSearch(&#34;test&#34;, LinkedServiceAzureSearchArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .dataFactoryId(exampleFactory.id())
+ *             .url(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
+ *             .searchServiceKey(exampleService.primaryKey())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Data Factory Linked Service&#39;s can be imported using the `resource id`, e.g.

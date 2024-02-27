@@ -80,6 +80,22 @@ def get_resource_group_template_deployment(name: Optional[str] = None,
     """
     Use this data source to access information about an existing Resource Group Template Deployment.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = azure.core.get_resource_group_template_deployment(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)")["exampleOutput"]["value"])
+    ```
+
 
     :param str name: The name of this Resource Group Template Deployment.
     :param str resource_group_name: The name of the Resource Group to which the Resource Group Template Deployment was applied.
@@ -103,6 +119,22 @@ def get_resource_group_template_deployment_output(name: Optional[pulumi.Input[st
                                                   opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetResourceGroupTemplateDeploymentResult]:
     """
     Use this data source to access information about an existing Resource Group Template Deployment.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+
+    def not_implemented(msg):
+        raise NotImplementedError(msg)
+
+    example = azure.core.get_resource_group_template_deployment(name="existing",
+        resource_group_name="existing")
+    pulumi.export("id", example.id)
+    pulumi.export("exampleOutput", not_implemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)")["exampleOutput"]["value"])
+    ```
 
 
     :param str name: The name of this Resource Group Template Deployment.

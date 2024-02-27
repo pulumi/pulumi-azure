@@ -27,15 +27,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-//				Location:                        exampleResourceGroup.Location,
-//				ResourceGroupName:               exampleResourceGroup.Name,
+//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
+//				Name:                            pulumi.String("example-mysqlserver"),
+//				Location:                        example.Location,
+//				ResourceGroupName:               example.Name,
 //				AdministratorLogin:              pulumi.String("mysqladminun"),
 //				AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                         pulumi.String("GP_Gen5_2"),
@@ -52,8 +54,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewDatabase(ctx, "exampleDatabase", &mysql.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewDatabase(ctx, "example", &mysql.DatabaseArgs{
+//				Name:              pulumi.String("exampledb"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				Charset:           pulumi.String("utf8"),
 //				Collation:         pulumi.String("utf8_unicode_ci"),

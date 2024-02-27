@@ -15,13 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
  *     resourceGroupName: exampleVirtualNetwork.resourceGroupName,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.0.0/24"],
@@ -33,9 +38,10 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleDiskPool = new azure.compute.DiskPool("exampleDiskPool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDiskPool = new azure.compute.DiskPool("example", {
+ *     name: "example-disk-pool",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Basic_B1",
  *     subnetId: exampleSubnet.id,
  *     zones: ["1"],

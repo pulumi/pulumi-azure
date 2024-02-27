@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "exampleVpnServerConfiguration", &network.VpnServerConfigurationArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVpnServerConfiguration, err := network.NewVpnServerConfiguration(ctx, "example", &network.VpnServerConfigurationArgs{
+//				Name:              pulumi.String("example-VPNSC"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				VpnAuthenticationTypes: pulumi.StringArray{
 //					pulumi.String("Radius"),
 //				},
@@ -54,7 +56,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVpnServerConfigurationPolicyGroup(ctx, "exampleVpnServerConfigurationPolicyGroup", &network.VpnServerConfigurationPolicyGroupArgs{
+//			_, err = network.NewVpnServerConfigurationPolicyGroup(ctx, "example", &network.VpnServerConfigurationPolicyGroupArgs{
+//				Name:                     pulumi.String("example-VPNSCPG"),
 //				VpnServerConfigurationId: exampleVpnServerConfiguration.ID(),
 //				Policies: network.VpnServerConfigurationPolicyGroupPolicyArray{
 //					&network.VpnServerConfigurationPolicyGroupPolicyArgs{

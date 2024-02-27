@@ -12,10 +12,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.AaaaRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsAaaaRecordId = example.id;
+ * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
  * ```
  */
 export function getAAAARecord(args: GetAAAARecordArgs, opts?: pulumi.InvokeOptions): Promise<GetAAAARecordResult> {
@@ -86,10 +87,11 @@ export interface GetAAAARecordResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.AaaaRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsAaaaRecordId = example.id;
+ * export const dnsAaaaRecordId = exampleAzurermDnsAaaaRecord.id;
  * ```
  */
 export function getAAAARecordOutput(args: GetAAAARecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAAAARecordResult> {

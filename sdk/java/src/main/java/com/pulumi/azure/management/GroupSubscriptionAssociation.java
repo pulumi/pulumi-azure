@@ -44,17 +44,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;exampleManagementGroup&#34;)
  *             .build());
  * 
- *         final var exampleSubscription = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
+ *         final var exampleGetSubscription = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .subscriptionId(&#34;12345678-1234-1234-1234-123456789012&#34;)
  *             .build());
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
- *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .subscriptionId(exampleGetSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
  *     }

@@ -14,6 +14,54 @@ import (
 
 // Manages a Federated Identity Credential.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/armmsi"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = armmsi.NewFederatedIdentityCredential(ctx, "example", &armmsi.FederatedIdentityCredentialArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Audience:          pulumi.String("foo"),
+//				Issuer:            pulumi.String("https://foo"),
+//				ParentId:          exampleUserAssignedIdentity.ID(),
+//				Subject:           pulumi.String("foo"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.

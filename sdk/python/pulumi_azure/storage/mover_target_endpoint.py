@@ -204,20 +204,26 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestr",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example-sc",
             storage_account_name=example_account.name,
             container_access_type="blob")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
+        example_mover = azure.storage.Mover("example",
+            name="example-ssm",
+            resource_group_name=example.name,
             location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
+        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("example",
+            name="example-se",
             storage_mover_id=example_mover.id,
             storage_account_id=example_account.id,
             storage_container_name=example_container.name,
@@ -255,20 +261,26 @@ class MoverTargetEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestr",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             allow_nested_items_to_be_public=True)
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="example-sc",
             storage_account_name=example_account.name,
             container_access_type="blob")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
+        example_mover = azure.storage.Mover("example",
+            name="example-ssm",
+            resource_group_name=example.name,
             location="West Europe")
-        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("exampleMoverTargetEndpoint",
+        example_mover_target_endpoint = azure.storage.MoverTargetEndpoint("example",
+            name="example-se",
             storage_mover_id=example_mover.id,
             storage_account_id=example_account.id,
             storage_container_name=example_container.name,

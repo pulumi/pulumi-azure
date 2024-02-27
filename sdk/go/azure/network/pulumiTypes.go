@@ -2181,20 +2181,6 @@ type ApplicationGatewayPrivateLinkConfiguration struct {
 	// One or more `ipConfiguration` blocks as defined below.
 	//
 	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IpConfigurations []ApplicationGatewayPrivateLinkConfigurationIpConfiguration `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name string `pulumi:"name"`
@@ -2217,20 +2203,6 @@ type ApplicationGatewayPrivateLinkConfigurationArgs struct {
 	// One or more `ipConfiguration` blocks as defined below.
 	//
 	// > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	IpConfigurations ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayInput `pulumi:"ipConfigurations"`
 	// The name of the private link configuration.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -2295,23 +2267,6 @@ func (o ApplicationGatewayPrivateLinkConfigurationOutput) Id() pulumi.StringPtrO
 // One or more `ipConfiguration` blocks as defined below.
 //
 // > **Please Note**: The `AllowApplicationGatewayPrivateLink` feature must be registered on the subscription before enabling private link
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o ApplicationGatewayPrivateLinkConfigurationOutput) IpConfigurations() ApplicationGatewayPrivateLinkConfigurationIpConfigurationArrayOutput {
 	return o.ApplyT(func(v ApplicationGatewayPrivateLinkConfiguration) []ApplicationGatewayPrivateLinkConfigurationIpConfiguration {
 		return v.IpConfigurations

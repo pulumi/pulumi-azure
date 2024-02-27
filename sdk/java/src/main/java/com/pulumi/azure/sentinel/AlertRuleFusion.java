@@ -49,20 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-workspace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
  *             .solutionName(&#34;SecurityInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()
@@ -72,6 +74,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAlertRuleFusion = new AlertRuleFusion(&#34;exampleAlertRuleFusion&#34;, AlertRuleFusionArgs.builder()        
+ *             .name(&#34;example-fusion-alert-rule&#34;)
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .alertRuleTemplateGuid(&#34;f71aba3d-28fb-450b-b192-4e76a83015c8&#34;)
  *             .build());

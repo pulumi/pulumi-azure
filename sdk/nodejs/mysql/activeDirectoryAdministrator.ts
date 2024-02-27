@@ -14,10 +14,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mysql.Server("example", {
+ *     name: "example-mysqlserver",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     sslEnforcementEnabled: true,
@@ -25,9 +29,9 @@ import * as utilities from "../utilities";
  *     storageMb: 5120,
  *     version: "5.7",
  * });
- * const exampleActiveDirectoryAdministrator = new azure.mysql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", {
+ * const exampleActiveDirectoryAdministrator = new azure.mysql.ActiveDirectoryAdministrator("example", {
  *     serverName: exampleServer.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     login: "sqladmin",
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),

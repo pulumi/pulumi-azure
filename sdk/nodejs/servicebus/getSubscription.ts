@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "examplesubscription",
  *     topicId: "exampletopic",
  * });
- * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
+ * export const servicebusSubscription = exampleAzurermServicebusNamespace;
  * ```
  */
 export function getSubscription(args: GetSubscriptionArgs, opts?: pulumi.InvokeOptions): Promise<GetSubscriptionResult> {
@@ -142,7 +142,7 @@ export interface GetSubscriptionResult {
  *     name: "examplesubscription",
  *     topicId: "exampletopic",
  * });
- * export const servicebusSubscription = data.azurerm_servicebus_namespace.example;
+ * export const servicebusSubscription = exampleAzurermServicebusNamespace;
  * ```
  */
 export function getSubscriptionOutput(args: GetSubscriptionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSubscriptionResult> {

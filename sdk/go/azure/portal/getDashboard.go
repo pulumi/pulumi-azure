@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", data.Azurerm_dashboard.Example.Id)
+//			ctx.Export("id", exampleAzurermDashboard.Id)
 //			return nil
 //		})
 //	}

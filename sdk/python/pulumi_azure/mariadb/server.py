@@ -656,10 +656,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mariadb.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mariadb.Server("example",
+            name="example-mariadb-server",
+            location=example.location,
+            resource_group_name=example.name,
             administrator_login="mariadbadmin",
             administrator_login_password="H@Sh1CoR3!",
             sku_name="B_Gen5_2",
@@ -719,10 +722,13 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mariadb.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mariadb.Server("example",
+            name="example-mariadb-server",
+            location=example.location,
+            resource_group_name=example.name,
             administrator_login="mariadbadmin",
             administrator_login_password="H@Sh1CoR3!",
             sku_name="B_Gen5_2",

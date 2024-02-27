@@ -24,13 +24,15 @@ namespace Pulumi.Azure.DevCenter
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDevCenter = new Azure.DevCenter.DevCenter("exampleDevCenter", new()
+    ///     var example = new Azure.DevCenter.DevCenter("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         Identity = new Azure.DevCenter.Inputs.DevCenterIdentityArgs
@@ -39,10 +41,11 @@ namespace Pulumi.Azure.DevCenter
     ///         },
     ///     });
     /// 
-    ///     var exampleProject = new Azure.DevCenter.Project("exampleProject", new()
+    ///     var exampleProject = new Azure.DevCenter.Project("example", new()
     ///     {
-    ///         DevCenterId = exampleDevCenter.Id,
+    ///         DevCenterId = example.Id,
     ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 

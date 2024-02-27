@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vn",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-sn",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: ["Microsoft.Storage"],
@@ -34,17 +39,20 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
+ * const exampleZone = new azure.privatedns.Zone("example", {
+ *     name: "example.postgres.database.azure.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
+ *     name: "exampleVnetZone.com",
  *     privateDnsZoneName: exampleZone.name,
  *     virtualNetworkId: exampleVirtualNetwork.id,
- *     resourceGroupName: exampleResourceGroup.name,
- * }, {
- *     dependsOn: [exampleSubnet],
+ *     resourceGroupName: example.name,
  * });
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
+ *     name: "example-psqlflexibleserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12",
  *     delegatedSubnetId: exampleSubnet.id,
  *     privateDnsZoneId: exampleZone.id,
@@ -53,8 +61,6 @@ import * as utilities from "../utilities";
  *     zone: "1",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
- * }, {
- *     dependsOn: [exampleZoneVirtualNetworkLink],
  * });
  * ```
  *

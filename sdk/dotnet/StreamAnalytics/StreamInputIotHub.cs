@@ -22,19 +22,21 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleIoTHub = new Azure.Iot.IoTHub("exampleIoTHub", new()
+    ///     var exampleIoTHub = new Azure.Iot.IoTHub("example", new()
     ///     {
+    ///         Name = "example-iothub",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         Sku = new Azure.Iot.Inputs.IoTHubSkuArgs
@@ -44,10 +46,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("exampleStreamInputIotHub", new()
+    ///     var exampleStreamInputIotHub = new Azure.StreamAnalytics.StreamInputIotHub("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "example-iothub-input",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         Endpoint = "messages/events",
     ///         EventhubConsumerGroupName = "$Default",
     ///         IothubNamespace = exampleIoTHub.Name,

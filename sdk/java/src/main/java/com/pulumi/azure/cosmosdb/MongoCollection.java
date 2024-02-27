@@ -49,19 +49,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAccount = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;tfex-cosmosdb-account&#34;)
  *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
  *             .build());
  * 
  *         var exampleMongoDatabase = new MongoDatabase(&#34;exampleMongoDatabase&#34;, MongoDatabaseArgs.builder()        
- *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *             .name(&#34;tfex-cosmos-mongo-db&#34;)
+ *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .build());
  * 
  *         var exampleMongoCollection = new MongoCollection(&#34;exampleMongoCollection&#34;, MongoCollectionArgs.builder()        
- *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *             .name(&#34;tfex-cosmos-mongo-db&#34;)
+ *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .databaseName(exampleMongoDatabase.name())
  *             .defaultTtlSeconds(&#34;777&#34;)
  *             .shardKey(&#34;uniqueKey&#34;)

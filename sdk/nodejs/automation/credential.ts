@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleCredential = new azure.automation.Credential("exampleCredential", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCredential = new azure.automation.Credential("example", {
+ *     name: "credential1",
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     username: "example_user",
  *     password: "example_pwd",

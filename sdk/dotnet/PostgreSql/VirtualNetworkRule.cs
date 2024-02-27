@@ -24,24 +24,27 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.7.29.0/29",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var @internal = new Azure.Network.Subnet("internal", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -53,10 +56,11 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "postgresql-server-1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "GP_Gen5_2",
     ///         StorageMb = 5120,
     ///         BackupRetentionDays = 7,
@@ -66,9 +70,10 @@ namespace Pulumi.Azure.PostgreSql
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleVirtualNetworkRule = new Azure.PostgreSql.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     var exampleVirtualNetworkRule = new Azure.PostgreSql.VirtualNetworkRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "postgresql-vnet-rule",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         SubnetId = @internal.Id,
     ///         IgnoreMissingVnetServiceEndpoint = true,

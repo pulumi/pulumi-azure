@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.datashare.getAccount({
+ * const example = azure.datashare.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "example-resource-group",
  * });
- * const exampleShare = exampleAccount.then(exampleAccount => azure.datashare.getShare({
+ * const exampleGetShare = example.then(example => azure.datashare.getShare({
  *     name: "existing",
- *     accountId: exampleAccount.id,
+ *     accountId: example.id,
  * }));
- * export const id = exampleShare.then(exampleShare => exampleShare.id);
+ * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);
  * ```
  */
 export function getShare(args: GetShareArgs, opts?: pulumi.InvokeOptions): Promise<GetShareResult> {
@@ -88,15 +88,15 @@ export interface GetShareResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.datashare.getAccount({
+ * const example = azure.datashare.getAccount({
  *     name: "example-account",
  *     resourceGroupName: "example-resource-group",
  * });
- * const exampleShare = exampleAccount.then(exampleAccount => azure.datashare.getShare({
+ * const exampleGetShare = example.then(example => azure.datashare.getShare({
  *     name: "existing",
- *     accountId: exampleAccount.id,
+ *     accountId: example.id,
  * }));
- * export const id = exampleShare.then(exampleShare => exampleShare.id);
+ * export const id = exampleGetShare.then(exampleGetShare => exampleGetShare.id);
  * ```
  */
 export function getShareOutput(args: GetShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetShareResult> {

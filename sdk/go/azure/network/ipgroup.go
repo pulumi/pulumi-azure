@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewIPGroup(ctx, "exampleIPGroup", &network.IPGroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = network.NewIPGroup(ctx, "example", &network.IPGroupArgs{
+//				Name:              pulumi.String("example1-ipgroup"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Cidrs: pulumi.StringArray{
 //					pulumi.String("192.168.0.1"),
 //					pulumi.String("172.16.240.0/20"),

@@ -35,11 +35,13 @@ namespace Pulumi.Azure.Compute
     ///     var prefix = config.Get("prefix") ?? "tfvmex";
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = $"{prefix}-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var mainVirtualNetwork = new Azure.Network.VirtualNetwork("mainVirtualNetwork", new()
+    ///     var main = new Azure.Network.VirtualNetwork("main", new()
     ///     {
+    ///         Name = $"{prefix}-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -50,16 +52,18 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var @internal = new Azure.Network.Subnet("internal", new()
     ///     {
+    ///         Name = "internal",
     ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = mainVirtualNetwork.Name,
+    ///         VirtualNetworkName = main.Name,
     ///         AddressPrefixes = new[]
     ///         {
     ///             "10.0.2.0/24",
     ///         },
     ///     });
     /// 
-    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("mainNetworkInterface", new()
+    ///     var mainNetworkInterface = new Azure.Network.NetworkInterface("main", new()
     ///     {
+    ///         Name = $"{prefix}-nic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
@@ -73,8 +77,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine("mainVirtualMachine", new()
+    ///     var mainVirtualMachine = new Azure.Compute.VirtualMachine("main", new()
     ///     {
+    ///         Name = $"{prefix}-vm",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         NetworkInterfaceIds = new[]

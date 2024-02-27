@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := relay.NewNamespace(ctx, "example", &relay.NamespaceArgs{
+//				Name:              pulumi.String("example-relay"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("terraform"),
@@ -46,8 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = relay.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &relay.NamespaceAuthorizationRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = relay.NewNamespaceAuthorizationRule(ctx, "example", &relay.NamespaceAuthorizationRuleArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				NamespaceName:     exampleNamespace.Name,
 //				Listen:            pulumi.Bool(true),
 //				Send:              pulumi.Bool(true),

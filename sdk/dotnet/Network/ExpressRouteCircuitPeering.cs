@@ -23,15 +23,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exprtTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "expressRoute1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ServiceProviderName = "Equinix",
     ///         PeeringLocation = "Silicon Valley",
     ///         BandwidthInMbps = 50,
@@ -47,11 +49,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()
     ///     {
     ///         PeeringType = "MicrosoftPeering",
     ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PeerAsn = 100,
     ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
     ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",
@@ -91,15 +93,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exprtTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "expressRoute1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ServiceProviderName = "Equinix",
     ///         PeeringLocation = "Silicon Valley",
     ///         BandwidthInMbps = 50,
@@ -115,11 +119,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", new()
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()
     ///     {
     ///         PeeringType = "AzurePrivatePeering",
     ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PeerAsn = 100,
     ///         PrimaryPeerAddressPrefix = "123.0.0.0/30",
     ///         SecondaryPeerAddressPrefix = "123.0.0.4/30",

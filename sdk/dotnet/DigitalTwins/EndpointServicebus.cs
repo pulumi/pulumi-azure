@@ -22,39 +22,45 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleservicebusnamespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
     ///     {
+    ///         Name = "exampleservicebustopic",
     ///         NamespaceId = exampleNamespace.Id,
     ///     });
     /// 
-    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("exampleTopicAuthorizationRule", new()
+    ///     var exampleTopicAuthorizationRule = new Azure.ServiceBus.TopicAuthorizationRule("example", new()
     ///     {
+    ///         Name = "example-rule",
     ///         TopicId = exampleTopic.Id,
     ///         Listen = false,
     ///         Send = true,
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("exampleEndpointServicebus", new()
+    ///     var exampleEndpointServicebus = new Azure.DigitalTwins.EndpointServicebus("example", new()
     ///     {
+    ///         Name = "example-EndpointSB",
     ///         DigitalTwinsId = exampleInstance.Id,
     ///         ServicebusPrimaryConnectionString = exampleTopicAuthorizationRule.PrimaryConnectionString,
     ///         ServicebusSecondaryConnectionString = exampleTopicAuthorizationRule.SecondaryConnectionString,

@@ -15,16 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleTimeSeriesInsightsStandardEnvironment = new azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleTimeSeriesInsightsStandardEnvironment = new azure.iot.TimeSeriesInsightsStandardEnvironment("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "S1_1",
  *     dataRetentionTime: "P30D",
  * });
- * const exampleTimeSeriesInsightsReferenceDataSet = new azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", {
+ * const exampleTimeSeriesInsightsReferenceDataSet = new azure.iot.TimeSeriesInsightsReferenceDataSet("example", {
+ *     name: "example",
  *     timeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     keyProperties: [{
  *         name: "keyProperty1",
  *         type: "String",

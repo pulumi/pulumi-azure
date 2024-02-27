@@ -50,25 +50,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vwan&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressPrefix(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleFirewall = new Firewall(&#34;exampleFirewall&#34;, FirewallArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-fw&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;AZFW_Hub&#34;)
  *             .skuTier(&#34;Standard&#34;)
  *             .virtualHub(FirewallVirtualHubArgs.builder()
@@ -78,6 +82,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRoutingIntent = new RoutingIntent(&#34;exampleRoutingIntent&#34;, RoutingIntentArgs.builder()        
+ *             .name(&#34;example-routingintent&#34;)
  *             .virtualHubId(exampleVirtualHub.id())
  *             .routingPolicies(RoutingIntentRoutingPolicyArgs.builder()
  *                 .name(&#34;InternetTrafficPolicy&#34;)

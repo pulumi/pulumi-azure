@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("eventhubAuthorizationRuleId", data.Azurem_eventhub_namespace_authorization_rule.Example.Id)
+//			ctx.Export("eventhubAuthorizationRuleId", exampleAzuremEventhubNamespaceAuthorizationRule.Id)
 //			return nil
 //		})
 //	}

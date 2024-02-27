@@ -44,20 +44,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;East Us&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
+ *             .name(&#34;example-mndn&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .description(&#34;example description&#34;)
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
  *             .build());

@@ -14,26 +14,81 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const example_1VirtualNetwork = new azure.network.VirtualNetwork("example-1VirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "peeredvnets-rg",
+ *     location: "West Europe",
+ * });
+ * const example_1 = new azure.network.VirtualNetwork("example-1", {
+ *     name: "peternetwork1",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.1.0/24"],
  *     location: example.location,
  * });
- * const example_2VirtualNetwork = new azure.network.VirtualNetwork("example-2VirtualNetwork", {
+ * const example_2 = new azure.network.VirtualNetwork("example-2", {
+ *     name: "peternetwork2",
  *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.2.0/24"],
  *     location: example.location,
  * });
- * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1VirtualNetworkPeering", {
+ * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1", {
+ *     name: "peer1to2",
  *     resourceGroupName: example.name,
- *     virtualNetworkName: example_1VirtualNetwork.name,
- *     remoteVirtualNetworkId: example_2VirtualNetwork.id,
+ *     virtualNetworkName: example_1.name,
+ *     remoteVirtualNetworkId: example_2.id,
  * });
- * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2VirtualNetworkPeering", {
+ * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
+ *     name: "peer2to1",
  *     resourceGroupName: example.name,
- *     virtualNetworkName: example_2VirtualNetwork.name,
- *     remoteVirtualNetworkId: example_1VirtualNetwork.id,
+ *     virtualNetworkName: example_2.name,
+ *     remoteVirtualNetworkId: example_1.id,
+ * });
+ * ```
+ * ### Triggers)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "peeredvnets-rg",
+ *     location: "West Europe",
+ * });
+ * const example_1 = new azure.network.VirtualNetwork("example-1", {
+ *     name: "peternetwork1",
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.0.1.0/24"],
+ *     location: example.location,
+ * });
+ * const example_2 = new azure.network.VirtualNetwork("example-2", {
+ *     name: "peternetwork2",
+ *     resourceGroupName: example.name,
+ *     addressSpaces: ["10.0.2.0/24"],
+ *     location: example.location,
+ * });
+ * const example_1VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-1", {
+ *     name: "peer1to2",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: example_1.name,
+ *     remoteVirtualNetworkId: example_2.id,
+ *     triggers: {
+ *         remote_address_space: std.joinOutput({
+ *             separator: ",",
+ *             input: example_2.addressSpaces,
+ *         }).apply(invoke => invoke.result),
+ *     },
+ * });
+ * const example_2VirtualNetworkPeering = new azure.network.VirtualNetworkPeering("example-2", {
+ *     name: "peer2to1",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: example_2.name,
+ *     remoteVirtualNetworkId: example_1.id,
+ *     triggers: {
+ *         remote_address_space: std.joinOutput({
+ *             separator: ",",
+ *             input: example_1.addressSpaces,
+ *         }).apply(invoke => invoke.result),
+ *     },
  * });
  * ```
  * ## Note

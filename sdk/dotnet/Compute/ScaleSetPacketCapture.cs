@@ -22,30 +22,34 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-nw",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -53,10 +57,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vmss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard_F2",
     ///         Instances = 4,
     ///         AdminUsername = "adminuser",
@@ -95,8 +100,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new()
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()
     ///     {
+    ///         Name = "network-watcher",
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         Publisher = "Microsoft.Azure.NetworkWatcher",
     ///         Type = "NetworkWatcherAgentLinux",
@@ -105,8 +111,9 @@ namespace Pulumi.Azure.Compute
     ///         AutomaticUpgradeEnabled = true,
     ///     });
     /// 
-    ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture("exampleScaleSetPacketCapture", new()
+    ///     var exampleScaleSetPacketCapture = new Azure.Compute.ScaleSetPacketCapture("example", new()
     ///     {
+    ///         Name = "example-pc",
     ///         NetworkWatcherId = exampleNetworkWatcher.Id,
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         StorageLocation = new Azure.Compute.Inputs.ScaleSetPacketCaptureStorageLocationArgs
@@ -123,12 +130,6 @@ namespace Pulumi.Azure.Compute
     ///             {
     ///                 "1",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVirtualMachineScaleSetExtension,
     ///         },
     ///     });
     /// 

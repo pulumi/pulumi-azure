@@ -24,11 +24,13 @@ namespace Pulumi.Azure.Monitoring
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var mainActionGroup = new Azure.Monitoring.ActionGroup("mainActionGroup", new()
+    ///     var main = new Azure.Monitoring.ActionGroup("main", new()
     ///     {
+    ///         Name = "example-actiongroup",
     ///         ResourceGroupName = example.Name,
     ///         ShortName = "p0action",
     ///         WebhookReceivers = new[]
@@ -41,16 +43,18 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var toMonitor = new Azure.Storage.Account("toMonitor", new()
+    ///     var toMonitor = new Azure.Storage.Account("to_monitor", new()
     ///     {
+    ///         Name = "examplesa",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("mainActivityLogAlert", new()
+    ///     var mainActivityLogAlert = new Azure.Monitoring.ActivityLogAlert("main", new()
     ///     {
+    ///         Name = "example-activitylogalert",
     ///         ResourceGroupName = example.Name,
     ///         Scopes = new[]
     ///         {
@@ -67,7 +71,7 @@ namespace Pulumi.Azure.Monitoring
     ///         {
     ///             new Azure.Monitoring.Inputs.ActivityLogAlertActionArgs
     ///             {
-    ///                 ActionGroupId = mainActionGroup.Id,
+    ///                 ActionGroupId = main.Id,
     ///                 WebhookProperties = 
     ///                 {
     ///                     { "from", "source" },

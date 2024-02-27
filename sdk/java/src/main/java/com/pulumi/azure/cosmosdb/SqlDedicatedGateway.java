@@ -45,20 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ca&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel(&#34;BoundedStaleness&#34;)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());

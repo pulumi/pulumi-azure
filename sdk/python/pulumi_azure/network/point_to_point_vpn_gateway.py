@@ -369,18 +369,23 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
+            name="example-config",
+            resource_group_name=example.name,
+            location=example.location,
             vpn_authentication_types=["Certificate"],
             client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
                 name="DigiCert-Federated-ID-Root-CA",
@@ -406,9 +411,10 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
             )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
+            name="example-vpn-gateway",
+            location=example.location,
+            resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,
@@ -456,18 +462,23 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-virtualwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-virtualhub",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.0.0/23")
-        example_vpn_server_configuration = azure.network.VpnServerConfiguration("exampleVpnServerConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_vpn_server_configuration = azure.network.VpnServerConfiguration("example",
+            name="example-config",
+            resource_group_name=example.name,
+            location=example.location,
             vpn_authentication_types=["Certificate"],
             client_root_certificates=[azure.network.VpnServerConfigurationClientRootCertificateArgs(
                 name="DigiCert-Federated-ID-Root-CA",
@@ -493,9 +504,10 @@ class PointToPointVpnGateway(pulumi.CustomResource):
         M/s/1JRtO3bDSzD9TazRVzn2oBqzSa8VgIo5C1nOnoAKJTlsClJKvIhnRlaLQqk=
         \"\"\",
             )])
-        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("examplePointToPointVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_point_to_point_vpn_gateway = azure.network.PointToPointVpnGateway("example",
+            name="example-vpn-gateway",
+            location=example.location,
+            resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id,
             vpn_server_configuration_id=example_vpn_server_configuration.id,
             scale_unit=1,

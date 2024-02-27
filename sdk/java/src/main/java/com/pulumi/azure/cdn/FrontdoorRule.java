@@ -23,7 +23,6 @@ import javax.annotation.Nullable;
  * !&gt;**IMPORTANT:** The Rules resource **must** include a `depends_on` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -50,7 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRuleActionsUrlRedirectActionArgs;
  * import com.pulumi.azure.cdn.inputs.FrontdoorRuleConditionsArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,21 +62,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-cdn-frontdoor&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Premium_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        
+ *             .name(&#34;example-endpoint&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .tags(Map.of(&#34;endpoint&#34;, &#34;contoso.com&#34;))
  *             .build());
  * 
  *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
+ *             .name(&#34;example-originGroup&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .sessionAffinityEnabled(true)
  *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
@@ -96,6 +98,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
+ *             .name(&#34;example-origin&#34;)
  *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
  *             .enabled(true)
  *             .certificateNameCheckEnabled(false)
@@ -108,10 +111,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet(&#34;exampleFrontdoorRuleSet&#34;, FrontdoorRuleSetArgs.builder()        
+ *             .name(&#34;exampleruleset&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 
  *         var exampleFrontdoorRule = new FrontdoorRule(&#34;exampleFrontdoorRule&#34;, FrontdoorRuleArgs.builder()        
+ *             .name(&#34;examplerule&#34;)
  *             .cdnFrontdoorRuleSetId(exampleFrontdoorRuleSet.id())
  *             .order(1)
  *             .behaviorOnMatch(&#34;Continue&#34;)
@@ -176,11 +181,7 @@ import javax.annotation.Nullable;
  *                         &#34;Trim&#34;)
  *                     .build())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleFrontdoorOriginGroup,
- *                     exampleFrontdoorOrigin)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

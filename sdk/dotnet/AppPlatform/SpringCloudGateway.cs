@@ -24,20 +24,23 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("exampleSpringCloudGateway", new()
+    ///     var exampleSpringCloudGateway = new Azure.AppPlatform.SpringCloudGateway("example", new()
     ///     {
+    ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         HttpsOnly = false,
     ///         PublicNetworkAccessEnabled = true,

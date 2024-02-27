@@ -573,10 +573,10 @@ class VirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_machine = azure.compute.get_virtual_machine(name="example-vm",
+        example = azure.compute.get_virtual_machine(name="example-vm",
             resource_group_name="example-resources")
-        example_mssql_virtual_machine_virtual_machine = azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine",
-            virtual_machine_id=example_virtual_machine.id,
+        example_virtual_machine = azure.mssql.VirtualMachine("example",
+            virtual_machine_id=example.id,
             sql_license_type="PAYG",
             r_services_enabled=True,
             sql_connectivity_port=1433,
@@ -634,10 +634,10 @@ class VirtualMachine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_machine = azure.compute.get_virtual_machine(name="example-vm",
+        example = azure.compute.get_virtual_machine(name="example-vm",
             resource_group_name="example-resources")
-        example_mssql_virtual_machine_virtual_machine = azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine",
-            virtual_machine_id=example_virtual_machine.id,
+        example_virtual_machine = azure.mssql.VirtualMachine("example",
+            virtual_machine_id=example.id,
             sql_license_type="PAYG",
             r_services_enabled=True,
             sql_connectivity_port=1433,

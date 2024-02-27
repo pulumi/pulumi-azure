@@ -188,18 +188,23 @@ class ReplicaSet(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West Europe")
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
+        primary = azure.core.ResourceGroup("primary",
+            name="aadds-primary-rg",
+            location="West Europe")
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name="aadds-primary-vnet",
+            location=primary.location,
+            resource_group_name=primary.name,
             address_spaces=["10.0.1.0/16"])
-        primary_subnet = azure.network.Subnet("primarySubnet",
-            resource_group_name=primary_resource_group.name,
+        primary_subnet = azure.network.Subnet("primary",
+            name="aadds-primary-subnet",
+            resource_group_name=primary.name,
             virtual_network_name=primary_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        primary_network_security_group = azure.network.NetworkSecurityGroup("primaryNetworkSecurityGroup",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
+        primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
+            name="aadds-primary-nsg",
+            location=primary.location,
+            resource_group_name=primary.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -246,23 +251,25 @@ class ReplicaSet(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation",
+        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
+        dc_admins = azuread.Group("dc_admins",
             display_name="aad-dc-administrators",
             security_enabled=True)
-        admin_user = azuread.User("adminUser",
+        admin = azuread.User("admin",
             user_principal_name="dc-admin@hashicorp-example.net",
             display_name="DC Administrator",
             password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
+        admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
+            member_object_id=admin.object_id)
+        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        aadds = azure.core.ResourceGroup("aadds",
+            name="aadds-rg",
+            location="westeurope")
+        example_service = azure.domainservices.Service("example",
+            name="example-aadds",
             location=aadds.location,
             resource_group_name=aadds.name,
             domain_name="widgetslogin.net",
@@ -287,23 +294,24 @@ class ReplicaSet(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    primary_subnet_network_security_group_association,
-                ]))
-        replica_resource_group = azure.core.ResourceGroup("replicaResourceGroup", location="North Europe")
-        replica_virtual_network = azure.network.VirtualNetwork("replicaVirtualNetwork",
-            location=replica_resource_group.location,
-            resource_group_name=replica_resource_group.name,
+            })
+        replica = azure.core.ResourceGroup("replica",
+            name="aadds-replica-rg",
+            location="North Europe")
+        replica_virtual_network = azure.network.VirtualNetwork("replica",
+            name="aadds-replica-vnet",
+            location=replica.location,
+            resource_group_name=replica.name,
             address_spaces=["10.20.0.0/16"])
-        aadds_replica_subnet = azure.network.Subnet("aaddsReplicaSubnet",
-            resource_group_name=replica_resource_group.name,
+        aadds_replica = azure.network.Subnet("aadds_replica",
+            name="aadds-replica-subnet",
+            resource_group_name=replica.name,
             virtual_network_name=replica_virtual_network.name,
             address_prefixes=["10.20.0.0/24"])
-        aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup",
-            location=replica_resource_group.location,
-            resource_group_name=replica_resource_group.name,
+        aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aadds_replica",
+            name="aadds-replica-nsg",
+            location=replica.location,
+            resource_group_name=replica.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -350,10 +358,11 @@ class ReplicaSet(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation",
-            subnet_id=aadds_replica_subnet.id,
+        replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replica",
+            subnet_id=aadds_replica.id,
             network_security_group_id=aadds_replica_network_security_group.id)
-        primary_replica = azure.network.VirtualNetworkPeering("primaryReplica",
+        primary_replica = azure.network.VirtualNetworkPeering("primary_replica",
+            name="aadds-primary-replica",
             resource_group_name=primary_virtual_network.resource_group_name,
             virtual_network_name=primary_virtual_network.name,
             remote_virtual_network_id=replica_virtual_network.id,
@@ -361,7 +370,8 @@ class ReplicaSet(pulumi.CustomResource):
             allow_gateway_transit=False,
             allow_virtual_network_access=True,
             use_remote_gateways=False)
-        replica_primary = azure.network.VirtualNetworkPeering("replicaPrimary",
+        replica_primary = azure.network.VirtualNetworkPeering("replica_primary",
+            name="aadds-replica-primary",
             resource_group_name=replica_virtual_network.resource_group_name,
             virtual_network_name=replica_virtual_network.name,
             remote_virtual_network_id=primary_virtual_network.id,
@@ -369,18 +379,13 @@ class ReplicaSet(pulumi.CustomResource):
             allow_gateway_transit=False,
             allow_virtual_network_access=True,
             use_remote_gateways=False)
-        replica_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers",
+        replica_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("replica",
             virtual_network_id=replica_virtual_network.id,
             dns_servers=example_service.initial_replica_set.domain_controller_ip_addresses)
-        replica_replica_set = azure.domainservices.ReplicaSet("replicaReplicaSet",
+        replica_replica_set = azure.domainservices.ReplicaSet("replica",
             domain_service_id=example_service.id,
-            location=replica_resource_group.location,
-            subnet_id=aadds_replica_subnet.id,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    replica_subnet_network_security_group_association,
-                    primary_replica,
-                    replica_primary,
-                ]))
+            location=replica.location,
+            subnet_id=aadds_replica.id)
         ```
 
         ## Import
@@ -413,18 +418,23 @@ class ReplicaSet(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West Europe")
-        primary_virtual_network = azure.network.VirtualNetwork("primaryVirtualNetwork",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
+        primary = azure.core.ResourceGroup("primary",
+            name="aadds-primary-rg",
+            location="West Europe")
+        primary_virtual_network = azure.network.VirtualNetwork("primary",
+            name="aadds-primary-vnet",
+            location=primary.location,
+            resource_group_name=primary.name,
             address_spaces=["10.0.1.0/16"])
-        primary_subnet = azure.network.Subnet("primarySubnet",
-            resource_group_name=primary_resource_group.name,
+        primary_subnet = azure.network.Subnet("primary",
+            name="aadds-primary-subnet",
+            resource_group_name=primary.name,
             virtual_network_name=primary_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
-        primary_network_security_group = azure.network.NetworkSecurityGroup("primaryNetworkSecurityGroup",
-            location=primary_resource_group.location,
-            resource_group_name=primary_resource_group.name,
+        primary_network_security_group = azure.network.NetworkSecurityGroup("primary",
+            name="aadds-primary-nsg",
+            location=primary.location,
+            resource_group_name=primary.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -471,23 +481,25 @@ class ReplicaSet(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primarySubnetNetworkSecurityGroupAssociation",
+        primary_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("primary",
             subnet_id=primary_subnet.id,
             network_security_group_id=primary_network_security_group.id)
-        dc_admins = azuread.Group("dcAdmins",
+        dc_admins = azuread.Group("dc_admins",
             display_name="aad-dc-administrators",
             security_enabled=True)
-        admin_user = azuread.User("adminUser",
+        admin = azuread.User("admin",
             user_principal_name="dc-admin@hashicorp-example.net",
             display_name="DC Administrator",
             password="Pa55w0Rd!!1")
-        admin_group_member = azuread.GroupMember("adminGroupMember",
+        admin_group_member = azuread.GroupMember("admin",
             group_object_id=dc_admins.object_id,
-            member_object_id=admin_user.object_id)
-        example_service_principal = azuread.ServicePrincipal("exampleServicePrincipal", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
-        # published app for domain services
-        aadds = azure.core.ResourceGroup("aadds", location="westeurope")
-        example_service = azure.domainservices.Service("exampleService",
+            member_object_id=admin.object_id)
+        example = azuread.ServicePrincipal("example", application_id="2565bd9d-da50-47d4-8b85-4c97f669dc36")
+        aadds = azure.core.ResourceGroup("aadds",
+            name="aadds-rg",
+            location="westeurope")
+        example_service = azure.domainservices.Service("example",
+            name="example-aadds",
             location=aadds.location,
             resource_group_name=aadds.name,
             domain_name="widgetslogin.net",
@@ -512,23 +524,24 @@ class ReplicaSet(pulumi.CustomResource):
             ),
             tags={
                 "Environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_service_principal,
-                    primary_subnet_network_security_group_association,
-                ]))
-        replica_resource_group = azure.core.ResourceGroup("replicaResourceGroup", location="North Europe")
-        replica_virtual_network = azure.network.VirtualNetwork("replicaVirtualNetwork",
-            location=replica_resource_group.location,
-            resource_group_name=replica_resource_group.name,
+            })
+        replica = azure.core.ResourceGroup("replica",
+            name="aadds-replica-rg",
+            location="North Europe")
+        replica_virtual_network = azure.network.VirtualNetwork("replica",
+            name="aadds-replica-vnet",
+            location=replica.location,
+            resource_group_name=replica.name,
             address_spaces=["10.20.0.0/16"])
-        aadds_replica_subnet = azure.network.Subnet("aaddsReplicaSubnet",
-            resource_group_name=replica_resource_group.name,
+        aadds_replica = azure.network.Subnet("aadds_replica",
+            name="aadds-replica-subnet",
+            resource_group_name=replica.name,
             virtual_network_name=replica_virtual_network.name,
             address_prefixes=["10.20.0.0/24"])
-        aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aaddsReplicaNetworkSecurityGroup",
-            location=replica_resource_group.location,
-            resource_group_name=replica_resource_group.name,
+        aadds_replica_network_security_group = azure.network.NetworkSecurityGroup("aadds_replica",
+            name="aadds-replica-nsg",
+            location=replica.location,
+            resource_group_name=replica.name,
             security_rules=[
                 azure.network.NetworkSecurityGroupSecurityRuleArgs(
                     name="AllowSyncWithAzureAD",
@@ -575,10 +588,11 @@ class ReplicaSet(pulumi.CustomResource):
                     destination_address_prefix="*",
                 ),
             ])
-        replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replicaSubnetNetworkSecurityGroupAssociation",
-            subnet_id=aadds_replica_subnet.id,
+        replica_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("replica",
+            subnet_id=aadds_replica.id,
             network_security_group_id=aadds_replica_network_security_group.id)
-        primary_replica = azure.network.VirtualNetworkPeering("primaryReplica",
+        primary_replica = azure.network.VirtualNetworkPeering("primary_replica",
+            name="aadds-primary-replica",
             resource_group_name=primary_virtual_network.resource_group_name,
             virtual_network_name=primary_virtual_network.name,
             remote_virtual_network_id=replica_virtual_network.id,
@@ -586,7 +600,8 @@ class ReplicaSet(pulumi.CustomResource):
             allow_gateway_transit=False,
             allow_virtual_network_access=True,
             use_remote_gateways=False)
-        replica_primary = azure.network.VirtualNetworkPeering("replicaPrimary",
+        replica_primary = azure.network.VirtualNetworkPeering("replica_primary",
+            name="aadds-replica-primary",
             resource_group_name=replica_virtual_network.resource_group_name,
             virtual_network_name=replica_virtual_network.name,
             remote_virtual_network_id=primary_virtual_network.id,
@@ -594,18 +609,13 @@ class ReplicaSet(pulumi.CustomResource):
             allow_gateway_transit=False,
             allow_virtual_network_access=True,
             use_remote_gateways=False)
-        replica_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("replicaVirtualNetworkDnsServers",
+        replica_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("replica",
             virtual_network_id=replica_virtual_network.id,
             dns_servers=example_service.initial_replica_set.domain_controller_ip_addresses)
-        replica_replica_set = azure.domainservices.ReplicaSet("replicaReplicaSet",
+        replica_replica_set = azure.domainservices.ReplicaSet("replica",
             domain_service_id=example_service.id,
-            location=replica_resource_group.location,
-            subnet_id=aadds_replica_subnet.id,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    replica_subnet_network_security_group_association,
-                    primary_replica,
-                    replica_primary,
-                ]))
+            location=replica.location,
+            subnet_id=aadds_replica.id)
         ```
 
         ## Import

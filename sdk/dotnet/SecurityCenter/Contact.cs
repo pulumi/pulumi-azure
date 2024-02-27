@@ -26,10 +26,11 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example = new Azure.SecurityCenter.Contact("example", new()
     ///     {
-    ///         AlertNotifications = true,
-    ///         AlertsToAdmins = true,
+    ///         Name = "contact",
     ///         Email = "contact@example.com",
     ///         Phone = "+1-555-555-5555",
+    ///         AlertNotifications = true,
+    ///         AlertsToAdmins = true,
     ///     });
     /// 
     /// });

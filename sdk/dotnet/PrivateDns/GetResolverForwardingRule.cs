@@ -28,8 +28,8 @@ namespace Pulumi.Azure.PrivateDns
         /// {
         ///     var example = Azure.PrivateDns.GetResolverForwardingRule.Invoke(new()
         ///     {
-        ///         DnsForwardingRulesetId = "example-forwarding-rulset-id",
         ///         Name = "example-rule",
+        ///         DnsForwardingRulesetId = "example-forwarding-rulset-id",
         ///     });
         /// 
         /// });
@@ -57,8 +57,8 @@ namespace Pulumi.Azure.PrivateDns
         /// {
         ///     var example = Azure.PrivateDns.GetResolverForwardingRule.Invoke(new()
         ///     {
-        ///         DnsForwardingRulesetId = "example-forwarding-rulset-id",
         ///         Name = "example-rule",
+        ///         DnsForwardingRulesetId = "example-forwarding-rulset-id",
         ///     });
         /// 
         /// });

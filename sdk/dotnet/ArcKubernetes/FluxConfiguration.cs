@@ -15,31 +15,29 @@ namespace Pulumi.Azure.ArcKubernetes
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.ArcKubernetes.Cluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-akcc",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
-    ///         AgentPublicKeyCertificate = ReadFileBase64("testdata/public.cer"),
+    ///         AgentPublicKeyCertificate = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "testdata/public.cer",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         Identity = new Azure.ArcKubernetes.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -50,15 +48,17 @@ namespace Pulumi.Azure.ArcKubernetes
     ///         },
     ///     });
     /// 
-    ///     var exampleClusterExtension = new Azure.ArcKubernetes.ClusterExtension("exampleClusterExtension", new()
+    ///     var exampleClusterExtension = new Azure.ArcKubernetes.ClusterExtension("example", new()
     ///     {
-    ///         ClusterId = azurerm_arc_kubernetes_cluster.Test.Id,
+    ///         Name = "example-ext",
+    ///         ClusterId = test.Id,
     ///         ExtensionType = "microsoft.flux",
     ///     });
     /// 
-    ///     var exampleFluxConfiguration = new Azure.ArcKubernetes.FluxConfiguration("exampleFluxConfiguration", new()
+    ///     var exampleFluxConfiguration = new Azure.ArcKubernetes.FluxConfiguration("example", new()
     ///     {
-    ///         ClusterId = azurerm_arc_kubernetes_cluster.Test.Id,
+    ///         Name = "example-fc",
+    ///         ClusterId = test.Id,
     ///         Namespace = "flux",
     ///         GitRepository = new Azure.ArcKubernetes.Inputs.FluxConfigurationGitRepositoryArgs
     ///         {
@@ -72,12 +72,6 @@ namespace Pulumi.Azure.ArcKubernetes
     ///             {
     ///                 Name = "kustomization-1",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleClusterExtension,
     ///         },
     ///     });
     /// 

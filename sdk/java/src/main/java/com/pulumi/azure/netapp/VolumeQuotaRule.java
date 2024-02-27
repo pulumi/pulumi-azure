@@ -54,18 +54,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-virtualnetwork&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -80,22 +83,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-netappaccount&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-netapppool&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .serviceLevel(&#34;Premium&#34;)
  *             .sizeInTb(4)
  *             .build());
  * 
  *         var exampleVolume = new Volume(&#34;exampleVolume&#34;, VolumeArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-netappvolume&#34;)
+ *             .location(example.location())
  *             .zone(&#34;1&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())
  *             .volumePath(&#34;my-unique-file-path&#34;)
@@ -109,7 +115,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var quota1 = new VolumeQuotaRule(&#34;quota1&#34;, VolumeQuotaRuleArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-quota-rule-1&#34;)
+ *             .location(example.location())
  *             .volumeId(exampleVolume.id())
  *             .quotaTarget(&#34;3001&#34;)
  *             .quotaSizeInKib(1024)
@@ -117,7 +124,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var quota2 = new VolumeQuotaRule(&#34;quota2&#34;, VolumeQuotaRuleArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-quota-rule-2&#34;)
+ *             .location(example.location())
  *             .volumeId(exampleVolume.id())
  *             .quotaTarget(&#34;2001&#34;)
  *             .quotaSizeInKib(1024)
@@ -125,14 +133,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var quota3 = new VolumeQuotaRule(&#34;quota3&#34;, VolumeQuotaRuleArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-quota-rule-3&#34;)
+ *             .location(example.location())
  *             .volumeId(exampleVolume.id())
  *             .quotaSizeInKib(1024)
  *             .quotaType(&#34;DefaultUserQuota&#34;)
  *             .build());
  * 
  *         var quota4 = new VolumeQuotaRule(&#34;quota4&#34;, VolumeQuotaRuleArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-quota-rule-4&#34;)
+ *             .location(example.location())
  *             .volumeId(exampleVolume.id())
  *             .quotaSizeInKib(1024)
  *             .quotaType(&#34;DefaultGroupQuota&#34;)

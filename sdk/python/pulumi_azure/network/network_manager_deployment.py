@@ -206,11 +206,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -219,13 +222,17 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
+            name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
@@ -236,11 +243,78 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
-        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",
             scope_access="Connectivity",
             configuration_ids=[example_network_manager_connectivity_configuration.id])
+        ```
+        ### Triggers)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            flow_timeout_in_minutes=10)
+        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("example",
+            name="example-nmsac",
+            network_manager_id=example_network_manager.id)
+        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("example",
+            name="example-nmarc",
+            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
+            network_group_ids=[example_network_manager_network_group.id])
+        example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("example",
+            name="example-nmar",
+            admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
+            action="Deny",
+            description="example",
+            direction="Inbound",
+            priority=1,
+            protocol="Tcp",
+            source_port_ranges=["80"],
+            destination_port_ranges=["80"],
+            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
+                address_prefix_type="ServiceTag",
+                address_prefix="Internet",
+            )],
+            destinations=[azure.network.NetworkManagerAdminRuleDestinationArgs(
+                address_prefix_type="IPPrefix",
+                address_prefix="*",
+            )])
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
+            network_manager_id=example_network_manager.id,
+            location="eastus",
+            scope_access="SecurityAdmin",
+            configuration_ids=[example_network_manager_security_admin_configuration.id],
+            triggers={
+                "source_port_ranges": example_network_manager_admin_rule.source_port_ranges.apply(lambda source_port_ranges: std.join_output(separator=",",
+                    input=source_port_ranges)).apply(lambda invoke: invoke.result),
+            })
         ```
 
         ## Import
@@ -276,11 +350,14 @@ class NetworkManagerDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -289,13 +366,17 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
+            name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[azure.network.NetworkManagerConnectivityConfigurationAppliesToGroupArgs(
@@ -306,11 +387,78 @@ class NetworkManagerDeployment(pulumi.CustomResource):
                 resource_id=example_virtual_network.id,
                 resource_type="Microsoft.Network/virtualNetworks",
             ))
-        example_network_manager_deployment = azure.network.NetworkManagerDeployment("exampleNetworkManagerDeployment",
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
             network_manager_id=example_network_manager.id,
             location="eastus",
             scope_access="Connectivity",
             configuration_ids=[example_network_manager_connectivity_configuration.id])
+        ```
+        ### Triggers)
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_subscription()
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
+            scope=azure.network.NetworkManagerScopeArgs(
+                subscription_ids=[current.id],
+            ),
+            scope_accesses=[
+                "Connectivity",
+                "SecurityAdmin",
+            ],
+            description="example network manager")
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
+            address_spaces=["10.0.0.0/16"],
+            flow_timeout_in_minutes=10)
+        example_network_manager_security_admin_configuration = azure.network.NetworkManagerSecurityAdminConfiguration("example",
+            name="example-nmsac",
+            network_manager_id=example_network_manager.id)
+        example_network_manager_admin_rule_collection = azure.network.NetworkManagerAdminRuleCollection("example",
+            name="example-nmarc",
+            security_admin_configuration_id=example_network_manager_security_admin_configuration.id,
+            network_group_ids=[example_network_manager_network_group.id])
+        example_network_manager_admin_rule = azure.network.NetworkManagerAdminRule("example",
+            name="example-nmar",
+            admin_rule_collection_id=example_network_manager_admin_rule_collection.id,
+            action="Deny",
+            description="example",
+            direction="Inbound",
+            priority=1,
+            protocol="Tcp",
+            source_port_ranges=["80"],
+            destination_port_ranges=["80"],
+            sources=[azure.network.NetworkManagerAdminRuleSourceArgs(
+                address_prefix_type="ServiceTag",
+                address_prefix="Internet",
+            )],
+            destinations=[azure.network.NetworkManagerAdminRuleDestinationArgs(
+                address_prefix_type="IPPrefix",
+                address_prefix="*",
+            )])
+        example_network_manager_deployment = azure.network.NetworkManagerDeployment("example",
+            network_manager_id=example_network_manager.id,
+            location="eastus",
+            scope_access="SecurityAdmin",
+            configuration_ids=[example_network_manager_security_admin_configuration.id],
+            triggers={
+                "source_port_ranges": example_network_manager_admin_rule.source_port_ranges.apply(lambda source_port_ranges: std.join_output(separator=",",
+                    input=source_port_ranges)).apply(lambda invoke: invoke.result),
+            })
         ```
 
         ## Import

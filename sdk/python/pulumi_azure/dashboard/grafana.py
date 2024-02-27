@@ -553,9 +553,12 @@ class Grafana(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_grafana = azure.dashboard.Grafana("exampleGrafana",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_grafana = azure.dashboard.Grafana("example",
+            name="example-dg",
+            resource_group_name=example.name,
             location="West Europe",
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,
@@ -608,9 +611,12 @@ class Grafana(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_grafana = azure.dashboard.Grafana("exampleGrafana",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_grafana = azure.dashboard.Grafana("example",
+            name="example-dg",
+            resource_group_name=example.name,
             location="West Europe",
             api_key_enabled=True,
             deterministic_outbound_ip_enabled=True,

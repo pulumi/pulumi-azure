@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestoracct"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				Tags: pulumi.StringMap{
@@ -48,9 +50,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventgrid.NewSystemTopic(ctx, "exampleSystemTopic", &eventgrid.SystemTopicArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//			_, err = eventgrid.NewSystemTopic(ctx, "example", &eventgrid.SystemTopicArgs{
+//				Name:                pulumi.String("example-topic"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				SourceArmResourceId: exampleAccount.ID(),
 //				TopicType:           pulumi.String("Microsoft.Storage.StorageAccounts"),
 //			})

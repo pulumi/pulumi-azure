@@ -307,11 +307,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -320,14 +323,20 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
-        example2 = azure.network.NetworkManagerNetworkGroup("example2", network_manager_id=example_network_manager.id)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+        example2 = azure.network.NetworkManagerNetworkGroup("example2",
+            name="example-group2",
+            network_manager_id=example_network_manager.id)
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
+            name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[
@@ -382,11 +391,14 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -395,14 +407,20 @@ class NetworkManagerConnectivityConfiguration(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", network_manager_id=example_network_manager.id)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
+            network_manager_id=example_network_manager.id)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-net",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             flow_timeout_in_minutes=10)
-        example2 = azure.network.NetworkManagerNetworkGroup("example2", network_manager_id=example_network_manager.id)
-        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration",
+        example2 = azure.network.NetworkManagerNetworkGroup("example2",
+            name="example-group2",
+            network_manager_id=example_network_manager.id)
+        example_network_manager_connectivity_configuration = azure.network.NetworkManagerConnectivityConfiguration("example",
+            name="example-connectivity-conf",
             network_manager_id=example_network_manager.id,
             connectivity_topology="HubAndSpoke",
             applies_to_groups=[

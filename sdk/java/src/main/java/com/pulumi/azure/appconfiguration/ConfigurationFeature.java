@@ -55,10 +55,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .name(&#34;appConf1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
@@ -74,6 +76,7 @@ import javax.annotation.Nullable;
  *         var test = new ConfigurationFeature(&#34;test&#34;, ConfigurationFeatureArgs.builder()        
  *             .configurationStoreId(appconf.id())
  *             .description(&#34;test description&#34;)
+ *             .name(&#34;test-ackey&#34;)
  *             .label(&#34;test-ackeylabel&#34;)
  *             .enabled(true)
  *             .build());

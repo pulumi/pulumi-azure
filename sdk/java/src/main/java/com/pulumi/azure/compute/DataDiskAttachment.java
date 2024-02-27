@@ -66,25 +66,29 @@ import javax.annotation.Nullable;
  *         final var prefix = config.get(&#34;prefix&#34;).orElse(&#34;example&#34;);
  *         final var vmName = String.format(&#34;%s-vm&#34;, prefix);
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(String.format(&#34;%s-resources&#34;, prefix))
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var mainVirtualNetwork = new VirtualNetwork(&#34;mainVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *         var main = new VirtualNetwork(&#34;main&#34;, VirtualNetworkArgs.builder()        
+ *             .name(String.format(&#34;%s-network&#34;, prefix))
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkName(mainVirtualNetwork.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(main.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var mainNetworkInterface = new NetworkInterface(&#34;mainNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(String.format(&#34;%s-nic&#34;, prefix))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;internal&#34;)
  *                 .subnetId(internal.id())
@@ -93,8 +97,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(vmName)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(mainNetworkInterface.id())
  *             .vmSize(&#34;Standard_F2&#34;)
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
@@ -120,8 +125,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(String.format(&#34;%s-disk1&#34;, vmName))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(10)

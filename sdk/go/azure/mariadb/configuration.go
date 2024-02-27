@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleServer, err := mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
+//				Name:                       pulumi.String("mariadb-server-1"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				SkuName:                    pulumi.String("B_Gen5_2"),
 //				SslEnforcementEnabled:      pulumi.Bool(true),
 //				AdministratorLogin:         pulumi.String("mariadbadmin"),
@@ -47,9 +49,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mariadb.NewConfiguration(ctx, "exampleConfiguration", &mariadb.ConfigurationArgs{
+//			_, err = mariadb.NewConfiguration(ctx, "example", &mariadb.ConfigurationArgs{
 //				Name:              pulumi.String("interactive_timeout"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				Value:             pulumi.String("600"),
 //			})

@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "KustoRG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
@@ -40,9 +42,10 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", new()
+    ///     var exampleClusterPrincipalAssignment = new Azure.Kusto.ClusterPrincipalAssignment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "KustoPrincipalAssignment",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         PrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),

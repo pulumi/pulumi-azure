@@ -15,10 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleSRVRecord = new azure.privatedns.SRVRecord("exampleSRVRecord", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleZone = new azure.privatedns.Zone("example", {
+ *     name: "contoso.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSRVRecord = new azure.privatedns.SRVRecord("example", {
+ *     name: "test",
+ *     resourceGroupName: example.name,
  *     zoneName: exampleZone.name,
  *     ttl: 300,
  *     records: [

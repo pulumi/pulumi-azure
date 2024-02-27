@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mdce",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Kind = "Windows",
     ///         PublicNetworkAccessEnabled = true,
     ///         Description = "monitor_data_collection_endpoint example",

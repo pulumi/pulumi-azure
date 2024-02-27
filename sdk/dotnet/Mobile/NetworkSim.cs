@@ -22,40 +22,44 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mn",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("exampleNetworkSimGroup", new()
+    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mnsg",
+    ///         Location = example.Location,
     ///         MobileNetworkId = exampleNetwork.Id,
     ///     });
     /// 
-    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("exampleNetworkSlice", new()
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("example", new()
     ///     {
+    ///         Name = "example-slice",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
     ///         {
     ///             SliceServiceType = 1,
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", new()
+    ///     var exampleNetworkAttachedDataNetwork = new Azure.Mobile.NetworkAttachedDataNetwork("example", new()
     ///     {
-    ///         MobileNetworkDataNetworkName = azurerm_mobile_network_data_network.Example.Name,
-    ///         MobileNetworkPacketCoreDataPlaneId = azurerm_mobile_network_packet_core_data_plane.Example.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         MobileNetworkDataNetworkName = exampleAzurermMobileNetworkDataNetwork.Name,
+    ///         MobileNetworkPacketCoreDataPlaneId = exampleAzurermMobileNetworkPacketCoreDataPlane.Id,
+    ///         Location = example.Location,
     ///         DnsAddresses = new[]
     ///         {
     ///             "1.1.1.1",
@@ -74,8 +78,9 @@ namespace Pulumi.Azure.Mobile
     ///         UserPlaneAccessIpv4Subnet = "10.204.141.0/24",
     ///     });
     /// 
-    ///     var exampleNetworkSim = new Azure.Mobile.NetworkSim("exampleNetworkSim", new()
+    ///     var exampleNetworkSim = new Azure.Mobile.NetworkSim("example", new()
     ///     {
+    ///         Name = "example-sim",
     ///         MobileNetworkSimGroupId = exampleNetworkSimGroup.Id,
     ///         AuthenticationKey = "00000000000000000000000000000000",
     ///         IntegratedCircuitCardIdentifier = "8900000000000000000",
@@ -85,8 +90,8 @@ namespace Pulumi.Azure.Mobile
     ///         {
     ///             new Azure.Mobile.Inputs.NetworkSimStaticIpConfigurationArgs
     ///             {
-    ///                 AttachedDataNetworkId = data.Azurerm_mobile_network_attached_data_network.Test.Id,
-    ///                 SliceId = azurerm_mobile_network_slice.Test.Id,
+    ///                 AttachedDataNetworkId = test.Id,
+    ///                 SliceId = testAzurermMobileNetworkSlice.Id,
     ///                 StaticIpv4Address = "2.4.0.1",
     ///             },
     ///         },

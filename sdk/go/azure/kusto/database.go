@@ -28,12 +28,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-kusto-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
@@ -45,6 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("my-kusto-database"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				ClusterName:       cluster.Name,

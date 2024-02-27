@@ -22,31 +22,35 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "windowsfunctionappsa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-app-service-plan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         OsType = "Windows",
     ///         SkuName = "Y1",
     ///     });
     /// 
-    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-windows-function-app",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         ServicePlanId = exampleServicePlan.Id,

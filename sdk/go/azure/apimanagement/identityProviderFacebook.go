@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@mycompany.io"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,8 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewIdentityProviderFacebook(ctx, "exampleIdentityProviderFacebook", &apimanagement.IdentityProviderFacebookArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = apimanagement.NewIdentityProviderFacebook(ctx, "example", &apimanagement.IdentityProviderFacebookArgs{
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				AppId:             pulumi.String("00000000000000000000000000000000"),
 //				AppSecret:         pulumi.String("00000000000000000000000000000000"),

@@ -285,11 +285,13 @@ class DicomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_workspace = azure.healthcare.Workspace("testWorkspace",
+        test = azure.healthcare.Workspace("test",
+            name="tfexworkspace",
             resource_group_name="tfex-resource_group",
             location="east us")
-        test_dicom_service = azure.healthcare.DicomService("testDicomService",
-            workspace_id=test_workspace.id,
+        test_dicom_service = azure.healthcare.DicomService("test",
+            name="tfexDicom",
+            workspace_id=test.id,
             location="east us",
             identity=azure.healthcare.DicomServiceIdentityArgs(
                 type="SystemAssigned",
@@ -331,11 +333,13 @@ class DicomService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_workspace = azure.healthcare.Workspace("testWorkspace",
+        test = azure.healthcare.Workspace("test",
+            name="tfexworkspace",
             resource_group_name="tfex-resource_group",
             location="east us")
-        test_dicom_service = azure.healthcare.DicomService("testDicomService",
-            workspace_id=test_workspace.id,
+        test_dicom_service = azure.healthcare.DicomService("test",
+            name="tfexDicom",
+            workspace_id=test.id,
             location="east us",
             identity=azure.healthcare.DicomServiceIdentityArgs(
                 type="SystemAssigned",

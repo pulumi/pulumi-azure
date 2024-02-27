@@ -173,7 +173,7 @@ def get_configuration(name: Optional[str] = None,
 
     existing = azure.maintenance.get_configuration(name="example-mc",
         resource_group_name="example-resources")
-    pulumi.export("id", azurerm_maintenance_configuration["existing"]["id"])
+    pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
 
 
@@ -215,7 +215,7 @@ def get_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     existing = azure.maintenance.get_configuration(name="example-mc",
         resource_group_name="example-resources")
-    pulumi.export("id", azurerm_maintenance_configuration["existing"]["id"])
+    pulumi.export("id", existing_azurerm_maintenance_configuration["id"])
     ```
 
 

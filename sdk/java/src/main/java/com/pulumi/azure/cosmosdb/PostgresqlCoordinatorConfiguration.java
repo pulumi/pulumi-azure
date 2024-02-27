@@ -43,12 +43,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var test = new ResourceGroup(&#34;test&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var examplePostgresqlCluster = new PostgresqlCluster(&#34;examplePostgresqlCluster&#34;, PostgresqlClusterArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.example().name())
- *             .location(azurerm_resource_group.example().location())
+ *         var example = new PostgresqlCluster(&#34;example&#34;, PostgresqlClusterArgs.builder()        
+ *             .name(&#34;examplecluster&#34;)
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
  *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
  *             .coordinatorStorageQuotaInMb(131072)
  *             .coordinatorVcoreCount(2)
@@ -58,7 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePostgresqlCoordinatorConfiguration = new PostgresqlCoordinatorConfiguration(&#34;examplePostgresqlCoordinatorConfiguration&#34;, PostgresqlCoordinatorConfigurationArgs.builder()        
- *             .clusterId(examplePostgresqlCluster.id())
+ *             .name(&#34;array_nulls&#34;)
+ *             .clusterId(example.id())
  *             .value(&#34;on&#34;)
  *             .build());
  * 

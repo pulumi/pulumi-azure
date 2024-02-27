@@ -27,8 +27,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appservice.NewSourceControlToken(ctx, "example", &appservice.SourceControlTokenArgs{
-//				Token: pulumi.String("ghp_sometokenvaluesecretsauce"),
 //				Type:  pulumi.String("GitHub"),
+//				Token: pulumi.String("ghp_sometokenvaluesecretsauce"),
 //			})
 //			if err != nil {
 //				return err

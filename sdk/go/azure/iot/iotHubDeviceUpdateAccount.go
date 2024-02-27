@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewIotHubDeviceUpdateAccount(ctx, "exampleIotHubDeviceUpdateAccount", &iot.IotHubDeviceUpdateAccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = iot.NewIotHubDeviceUpdateAccount(ctx, "example", &iot.IotHubDeviceUpdateAccountArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Identity: &iot.IotHubDeviceUpdateAccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

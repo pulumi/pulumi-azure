@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDataCollectionEndpoint = new DataCollectionEndpoint(&#34;exampleDataCollectionEndpoint&#34;, DataCollectionEndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mdce&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .kind(&#34;Windows&#34;)
  *             .publicNetworkAccessEnabled(true)
  *             .description(&#34;monitor_data_collection_endpoint example&#34;)

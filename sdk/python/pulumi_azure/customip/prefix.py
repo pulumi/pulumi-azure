@@ -421,6 +421,61 @@ class Prefix(pulumi.CustomResource):
         """
         Manages a custom IPv4 prefix or custom IPv6 prefix.
 
+        ## Example Usage
+
+        *IPv4 custom prefix*
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_prefix = azure.customip.Prefix("example",
+            name="example-CustomIPPrefix",
+            location=example.location,
+            resource_group_name=example.name,
+            cidr="1.2.3.4/22",
+            zones=[
+                "1",
+                "2",
+                "3",
+            ],
+            commissioning_enabled=True,
+            roa_validity_end_date="2099-12-12",
+            wan_validation_signed_message="signed message for WAN validation",
+            tags={
+                "env": "test",
+            })
+        ```
+
+        *IPv6 custom prefix*
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        global_ = azure.customip.Prefix("global",
+            name="example-Global-CustomIPPrefix",
+            location=test["location"],
+            resource_group_name=test["name"],
+            cidr="2001:db8:1::/48",
+            roa_validity_end_date="2199-12-12",
+            wan_validation_signed_message="signed message for WAN validation")
+        regional = azure.customip.Prefix("regional",
+            name="example-Regional-CustomIPPrefix",
+            location=test["location"],
+            resource_group_name=test["name"],
+            parent_custom_ip_prefix_id=global_.id,
+            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+                newbits=16,
+                netnum=1)).apply(lambda invoke: invoke.result),
+            zones=["1"])
+        ```
+
         ## Import
 
         A Custom IP Prefix can be imported using the `resource id`, e.g.
@@ -457,6 +512,61 @@ class Prefix(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a custom IPv4 prefix or custom IPv6 prefix.
+
+        ## Example Usage
+
+        *IPv4 custom prefix*
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_prefix = azure.customip.Prefix("example",
+            name="example-CustomIPPrefix",
+            location=example.location,
+            resource_group_name=example.name,
+            cidr="1.2.3.4/22",
+            zones=[
+                "1",
+                "2",
+                "3",
+            ],
+            commissioning_enabled=True,
+            roa_validity_end_date="2099-12-12",
+            wan_validation_signed_message="signed message for WAN validation",
+            tags={
+                "env": "test",
+            })
+        ```
+
+        *IPv6 custom prefix*
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        global_ = azure.customip.Prefix("global",
+            name="example-Global-CustomIPPrefix",
+            location=test["location"],
+            resource_group_name=test["name"],
+            cidr="2001:db8:1::/48",
+            roa_validity_end_date="2199-12-12",
+            wan_validation_signed_message="signed message for WAN validation")
+        regional = azure.customip.Prefix("regional",
+            name="example-Regional-CustomIPPrefix",
+            location=test["location"],
+            resource_group_name=test["name"],
+            parent_custom_ip_prefix_id=global_.id,
+            cidr=global_.cidr.apply(lambda cidr: std.cidrsubnet_output(input=cidr,
+                newbits=16,
+                netnum=1)).apply(lambda invoke: invoke.result),
+            zones=["1"])
+        ```
 
         ## Import
 

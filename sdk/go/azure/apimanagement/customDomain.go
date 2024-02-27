@@ -34,20 +34,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//			example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
 //				Name:              "mykeyvault",
 //				ResourceGroupName: "some-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				PublisherName:     pulumi.String("pub1"),
@@ -57,8 +59,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
-//				KeyVaultId: *pulumi.String(exampleKeyVault.Id),
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("example-certificate"),
+//				KeyVaultId: *pulumi.String(example.Id),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
 //						Name: pulumi.String("Self"),
@@ -105,7 +108,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewCustomDomain(ctx, "exampleCustomDomain", &apimanagement.CustomDomainArgs{
+//			_, err = apimanagement.NewCustomDomain(ctx, "example", &apimanagement.CustomDomainArgs{
 //				ApiManagementId: exampleService.ID(),
 //				Gateways: apimanagement.CustomDomainGatewayArray{
 //					&apimanagement.CustomDomainGatewayArgs{

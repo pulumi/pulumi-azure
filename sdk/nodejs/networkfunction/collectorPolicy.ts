@@ -9,6 +9,68 @@ import * as utilities from "../utilities";
 /**
  * Manages a Network Function Collector Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West US 2",
+ * });
+ * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ *     name: "example-erp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     peeringLocation: "Equinix-Seattle-SE2",
+ *     bandwidthInGbps: 10,
+ *     encapsulation: "Dot1Q",
+ * });
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "example-erc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     expressRoutePortId: exampleExpressRoutePort.id,
+ *     bandwidthInGbps: 1,
+ *     sku: {
+ *         tier: "Standard",
+ *         family: "MeteredData",
+ *     },
+ * });
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
+ *     peeringType: "MicrosoftPeering",
+ *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
+ *     resourceGroupName: example.name,
+ *     peerAsn: 100,
+ *     primaryPeerAddressPrefix: "192.168.199.0/30",
+ *     secondaryPeerAddressPrefix: "192.168.200.0/30",
+ *     vlanId: 300,
+ *     microsoftPeeringConfig: {
+ *         advertisedPublicPrefixes: ["123.6.0.0/24"],
+ *     },
+ * });
+ * const exampleAzureTrafficCollector = new azure.networkfunction.AzureTrafficCollector("example", {
+ *     name: "example-nfatc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleCollectorPolicy = new azure.networkfunction.CollectorPolicy("example", {
+ *     name: "example-nfcp",
+ *     trafficCollectorId: exampleAzureTrafficCollector.id,
+ *     location: example.location,
+ *     ipfxEmission: {
+ *         destinationTypes: "AzureMonitor",
+ *     },
+ *     ipfxIngestion: {
+ *         sourceResourceIds: [exampleExpressRouteCircuit.id],
+ *     },
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Network Function Collector Policy can be imported using the `resource id`, e.g.

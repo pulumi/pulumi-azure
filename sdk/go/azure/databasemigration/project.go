@@ -32,24 +32,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -58,19 +61,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := databasemigration.NewService(ctx, "exampleService", &databasemigration.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := databasemigration.NewService(ctx, "example", &databasemigration.ServiceArgs{
+//				Name:              pulumi.String("example-dbms"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SubnetId:          exampleSubnet.ID(),
 //				SkuName:           pulumi.String("Standard_1vCores"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = databasemigration.NewProject(ctx, "exampleProject", &databasemigration.ProjectArgs{
+//			_, err = databasemigration.NewProject(ctx, "example", &databasemigration.ProjectArgs{
+//				Name:              pulumi.String("example-dbms-project"),
 //				ServiceName:       exampleService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SourcePlatform:    pulumi.String("SQL"),
 //				TargetPlatform:    pulumi.String("SQLDB"),
 //			})

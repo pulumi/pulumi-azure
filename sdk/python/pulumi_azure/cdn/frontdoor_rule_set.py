@@ -107,11 +107,16 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", cdn_frontdoor_profile_id=example_frontdoor_profile.id)
+        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
+            name="ExampleRuleSet",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## Import
@@ -142,11 +147,16 @@ class FrontdoorRuleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", cdn_frontdoor_profile_id=example_frontdoor_profile.id)
+        example_frontdoor_rule_set = azure.cdn.FrontdoorRuleSet("example",
+            name="ExampleRuleSet",
+            cdn_frontdoor_profile_id=example_frontdoor_profile.id)
         ```
 
         ## Import

@@ -15,12 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testWorkspace = new azure.healthcare.Workspace("testWorkspace", {
+ * const test = new azure.healthcare.Workspace("test", {
+ *     name: "tfexworkspace",
  *     resourceGroupName: "tfex-resource_group",
  *     location: "east us",
  * });
- * const testDicomService = new azure.healthcare.DicomService("testDicomService", {
- *     workspaceId: testWorkspace.id,
+ * const testDicomService = new azure.healthcare.DicomService("test", {
+ *     name: "tfexDicom",
+ *     workspaceId: test.id,
  *     location: "east us",
  *     identity: {
  *         type: "SystemAssigned",

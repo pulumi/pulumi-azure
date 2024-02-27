@@ -22,34 +22,38 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
+    ///         Name = "example-namespace",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("example", new()
     ///     {
+    ///         Name = "example-queue",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue", new()
+    ///     var exampleOutputServiceBusQueue = new Azure.StreamAnalytics.OutputServiceBusQueue("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "blob-storage-output",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         QueueName = exampleQueue.Name,
     ///         ServicebusNamespace = exampleNamespace.Name,
     ///         SharedAccessPolicyKey = exampleNamespace.DefaultPrimaryKey,

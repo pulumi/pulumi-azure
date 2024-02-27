@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
@@ -27,31 +31,35 @@ import * as utilities from "../utilities";
  *         purpose: "example",
  *     },
  * });
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
  *     geoLocations: [{
- *         location: exampleResourceGroup.location,
+ *         location: example.location,
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition/id",
  * });
- * const exampleEndpointCosmosdbAccount = new azure.iot.EndpointCosmosdbAccount("exampleEndpointCosmosdbAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEndpointCosmosdbAccount = new azure.iot.EndpointCosmosdbAccount("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
  *     containerName: exampleSqlContainer.name,
  *     databaseName: exampleSqlDatabase.name,

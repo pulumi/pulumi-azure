@@ -26,15 +26,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleResourceGroup1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleAppServicePlan1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
@@ -42,31 +44,34 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleAppService1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleRN1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleRHC1",
+    ///         ResourceGroupName = example.Name,
     ///         RelayNamespaceName = exampleNamespace.Name,
     ///         UserMetadata = "examplemetadata",
     ///     });
     /// 
-    ///     var exampleAppservice_hybridConnectionHybridConnection = new Azure.AppService.HybridConnection("exampleAppservice/hybridConnectionHybridConnection", new()
+    ///     var exampleHybridConnection2 = new Azure.AppService.HybridConnection("example", new()
     ///     {
     ///         AppServiceName = exampleAppService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         RelayId = exampleHybridConnection.Id,
     ///         Hostname = "testhostname.example",
     ///         Port = 8080,

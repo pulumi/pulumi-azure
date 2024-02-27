@@ -391,30 +391,37 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="resourcegroup1",
+            location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet1",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            name="assignment1",
             resource_id=example_virtual_network.id,
             policy_definition_id=example_definition.id,
             parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
                     "value": [
-                        example_resource_group.location,
+                        example.location,
                         "East US",
                     ],
                 },
             }))
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("exampleResourcePolicyRemediation",
+        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("example",
+            name="remediation1",
             resource_id=example_virtual_network.id,
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```
@@ -458,30 +465,37 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="resourcegroup1",
+            location="West US")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="vnet1",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            name="assignment1",
             resource_id=example_virtual_network.id,
             policy_definition_id=example_definition.id,
             parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
                     "value": [
-                        example_resource_group.location,
+                        example.location,
                         "East US",
                     ],
                 },
             }))
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("exampleResourcePolicyRemediation",
+        example_resource_policy_remediation = azure.core.ResourcePolicyRemediation("example",
+            name="remediation1",
             resource_id=example_virtual_network.id,
             policy_assignment_id=example_resource_group_policy_assignment.id)
         ```

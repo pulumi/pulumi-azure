@@ -50,18 +50,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;YourDevTestLab&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSchedule = new Schedule(&#34;exampleSchedule&#34;, ScheduleArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;LabVmAutoStart&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .labName(exampleLab.name())
  *             .weeklyRecurrence(ScheduleWeeklyRecurrenceArgs.builder()
  *                 .time(&#34;1100&#34;)

@@ -204,8 +204,8 @@ public final class RedisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
      *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
@@ -245,8 +245,8 @@ public final class RedisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
      *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
@@ -286,8 +286,8 @@ public final class RedisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
      *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));
@@ -327,8 +327,8 @@ public final class RedisFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = RedisFunctions.getEnterpriseDatabase(GetEnterpriseDatabaseArgs.builder()
      *             .name(&#34;default&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .clusterId(azurerm_redis_enterprise_cluster.example().id())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .clusterId(exampleAzurermRedisEnterpriseCluster.id())
      *             .build());
      * 
      *         ctx.export(&#34;redisEnterpriseDatabasePrimaryKey&#34;, example.applyValue(getEnterpriseDatabaseResult -&gt; getEnterpriseDatabaseResult.primaryAccessKey()));

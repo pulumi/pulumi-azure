@@ -17,17 +17,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "example",
  *     resourceGroupName: exampleSpringCloudService.resourceGroupName,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleSpringCloudBuildDeployment = new azure.appplatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", {
+ * const exampleSpringCloudBuildDeployment = new azure.appplatform.SpringCloudBuildDeployment("example", {
+ *     name: "example",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     buildResultId: "<default>",
  *     instanceCount: 2,

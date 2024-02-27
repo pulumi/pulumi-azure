@@ -23,34 +23,36 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApplication = new AzureAD.Application("exampleApplication", new()
+    ///     var exampleApplication = new AzureAD.Application("example", new()
     ///     {
     ///         DisplayName = "acctestam-example",
     ///     });
     /// 
-    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("exampleApplicationPassword", new()
+    ///     var exampleApplicationPassword = new AzureAD.ApplicationPassword("example", new()
     ///     {
     ///         ApplicationObjectId = exampleApplication.ObjectId,
     ///         EndDateRelative = "36h",
     ///     });
     /// 
-    ///     var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", new()
+    ///     var exampleIdentityProviderAadb2c = new Azure.ApiManagement.IdentityProviderAadb2c("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
     ///         ClientId = exampleApplication.ApplicationId,
     ///         ClientSecret = "P@55w0rD!",
@@ -59,12 +61,6 @@ namespace Pulumi.Azure.ApiManagement
     ///         Authority = "myb2ctenant.b2clogin.com",
     ///         SigninPolicy = "B2C_1_Login",
     ///         SignupPolicy = "B2C_1_Signup",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleApplicationPassword,
-    ///         },
     ///     });
     /// 
     /// });

@@ -17,15 +17,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const current = azure.core.getClientConfig({});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const current = azure.core.getClientConfig({});
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "anf-user-assigned-identity",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: "netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     activeDirectory: {
  *         username: "aduser",
  *         password: "aduserpwd",

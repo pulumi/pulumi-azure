@@ -236,14 +236,19 @@ class EndpointEventGrid(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_instance = azure.digitaltwins.Instance("exampleInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid",
+        example = azure.core.ResourceGroup("example",
+            name="example_resources",
+            location="West Europe")
+        example_instance = azure.digitaltwins.Instance("example",
+            name="example-DT",
+            resource_group_name=example.name,
+            location=example.location)
+        example_topic = azure.eventgrid.Topic("example",
+            name="example-topic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("example",
+            name="example-EG",
             digital_twins_id=example_instance.id,
             eventgrid_topic_endpoint=example_topic.endpoint,
             eventgrid_topic_primary_access_key=example_topic.primary_access_key,
@@ -282,14 +287,19 @@ class EndpointEventGrid(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_instance = azure.digitaltwins.Instance("exampleInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid",
+        example = azure.core.ResourceGroup("example",
+            name="example_resources",
+            location="West Europe")
+        example_instance = azure.digitaltwins.Instance("example",
+            name="example-DT",
+            resource_group_name=example.name,
+            location=example.location)
+        example_topic = azure.eventgrid.Topic("example",
+            name="example-topic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_endpoint_event_grid = azure.digitaltwins.EndpointEventGrid("example",
+            name="example-EG",
             digital_twins_id=example_instance.id,
             eventgrid_topic_endpoint=example_topic.endpoint,
             eventgrid_topic_primary_access_key=example_topic.primary_access_key,

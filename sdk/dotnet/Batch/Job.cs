@@ -22,20 +22,23 @@ namespace Pulumi.Azure.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Batch.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Batch.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var examplePool = new Azure.Batch.Pool("examplePool", new()
+    ///     var examplePool = new Azure.Batch.Pool("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplepool",
+    ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
     ///         NodeAgentSkuId = "batch.node.ubuntu 16.04",
     ///         VmSize = "Standard_A1",
@@ -52,8 +55,9 @@ namespace Pulumi.Azure.Batch
     ///         },
     ///     });
     /// 
-    ///     var exampleJob = new Azure.Batch.Job("exampleJob", new()
+    ///     var exampleJob = new Azure.Batch.Job("example", new()
     ///     {
+    ///         Name = "examplejob",
     ///         BatchPoolId = examplePool.Id,
     ///     });
     /// 

@@ -15,11 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleVirtualNetwork = azure.network.getVirtualNetwork({
+ * const example = azure.network.getVirtualNetwork({
  *     name: "production",
  *     resourceGroupName: "networking",
  * });
- * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ * const exampleDefinition = new azure.policy.Definition("example", {
+ *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "my-policy-definition",
@@ -36,8 +37,9 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", {
- *     resourceId: exampleVirtualNetwork.then(exampleVirtualNetwork => exampleVirtualNetwork.id),
+ * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
+ *     name: "example-policy-assignment",
+ *     resourceId: example.then(example => example.id),
  *     policyDefinitionId: exampleDefinition.id,
  * });
  * ```

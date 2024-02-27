@@ -15,26 +15,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("exampleIotHubDeviceUpdateAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "East US",
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleIotHubDeviceUpdateAccount = new azure.iot.IotHubDeviceUpdateAccount("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleIotHubDeviceUpdateInstance = new azure.iot.IotHubDeviceUpdateInstance("exampleIotHubDeviceUpdateInstance", {
+ * const exampleIotHubDeviceUpdateInstance = new azure.iot.IotHubDeviceUpdateInstance("example", {
+ *     name: "example",
  *     deviceUpdateAccountId: exampleIotHubDeviceUpdateAccount.id,
  *     iothubId: exampleIoTHub.id,
  *     diagnosticEnabled: true,

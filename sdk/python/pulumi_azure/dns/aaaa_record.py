@@ -292,11 +292,16 @@ class AaaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_aaaa_record = azure.dns.AaaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=["2001:db8::1:0:0:1"])
         ```
@@ -306,16 +311,22 @@ class AaaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_public_ip = azure.network.PublicIp("example",
+            name="mypublicip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Dynamic",
             ip_version="IPv6")
-        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+        example_aaaa_record = azure.dns.AaaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             target_resource_id=example_public_ip.id)
         ```
@@ -353,11 +364,16 @@ class AaaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_aaaa_record = azure.dns.AaaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=["2001:db8::1:0:0:1"])
         ```
@@ -367,16 +383,22 @@ class AaaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_public_ip = azure.network.PublicIp("example",
+            name="mypublicip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Dynamic",
             ip_version="IPv6")
-        example_aaaa_record = azure.dns.AaaaRecord("exampleAaaaRecord",
+        example_aaaa_record = azure.dns.AaaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             target_resource_id=example_public_ip.id)
         ```

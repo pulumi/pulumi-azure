@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatelink.getServiceEndpointConnections({
- *     serviceId: azurerm_private_link_service.example.id,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     serviceId: exampleAzurermPrivateLinkService.id,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?.[0]?.status);
  * ```
@@ -72,8 +72,8 @@ export interface GetServiceEndpointConnectionsResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatelink.getServiceEndpointConnections({
- *     serviceId: azurerm_private_link_service.example.id,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     serviceId: exampleAzurermPrivateLinkService.id,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const privateEndpointStatus = example.then(example => example.privateEndpointConnections?.[0]?.status);
  * ```

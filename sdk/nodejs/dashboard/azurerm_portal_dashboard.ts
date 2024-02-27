@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
- * export const id = data.azurerm_dashboard.example.id;
+ * export const id = exampleAzurermDashboard.id;
  * ```
  */
 /** @deprecated azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */
@@ -92,7 +92,7 @@ export interface Azurerm_portal_dashboardResult {
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
- * export const id = data.azurerm_dashboard.example.id;
+ * export const id = exampleAzurermDashboard.id;
  * ```
  */
 /** @deprecated azure.dashboard.azurerm_portal_dashboard has been deprecated in favor of azure.portal.getDashboard */

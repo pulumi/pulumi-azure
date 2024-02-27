@@ -9,6 +9,75 @@ import * as utilities from "../utilities";
 /**
  * Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     applicationType: "web",
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example-mag",
+ *     resourceGroupName: example.name,
+ *     shortName: "test mag",
+ * });
+ * const exampleScheduledQueryRulesAlertV2 = new azure.monitoring.ScheduledQueryRulesAlertV2("example", {
+ *     name: "example-msqrv2",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     evaluationFrequency: "PT10M",
+ *     windowDuration: "PT10M",
+ *     scopes: exampleInsights.id,
+ *     severity: 4,
+ *     criterias: [{
+ *         query: `requests
+ *   | summarize CountByCountry=count() by client_CountryOrRegion
+ * `,
+ *         timeAggregationMethod: "Maximum",
+ *         threshold: 17.5,
+ *         operator: "LessThan",
+ *         resourceIdColumn: "client_CountryOrRegion",
+ *         metricMeasureColumn: "CountByCountry",
+ *         dimensions: [{
+ *             name: "client_CountryOrRegion",
+ *             operator: "Exclude",
+ *             values: ["123"],
+ *         }],
+ *         failingPeriods: {
+ *             minimumFailingPeriodsToTriggerAlert: 1,
+ *             numberOfEvaluationPeriods: 1,
+ *         },
+ *     }],
+ *     autoMitigationEnabled: true,
+ *     workspaceAlertsStorageEnabled: false,
+ *     description: "example sqr",
+ *     displayName: "example-sqr",
+ *     enabled: true,
+ *     queryTimeRangeOverride: "PT1H",
+ *     skipQueryValidation: true,
+ *     action: {
+ *         actionGroups: [exampleActionGroup.id],
+ *         customProperties: {
+ *             key: "value",
+ *             key2: "value2",
+ *         },
+ *     },
+ *     tags: {
+ *         key: "value",
+ *         key2: "value2",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.

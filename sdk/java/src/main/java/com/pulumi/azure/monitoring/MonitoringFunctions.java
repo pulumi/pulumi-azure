@@ -218,7 +218,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
      *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
@@ -257,7 +257,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
      *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
@@ -296,7 +296,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
      *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
@@ -335,7 +335,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionEndpoint(GetDataCollectionEndpointArgs.builder()
      *             .name(&#34;example-mdce&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;endpointId&#34;, example.applyValue(getDataCollectionEndpointResult -&gt; getDataCollectionEndpointResult.id()));
@@ -374,7 +374,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
      *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
@@ -413,7 +413,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
      *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
@@ -452,7 +452,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
      *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
@@ -491,7 +491,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getDataCollectionRule(GetDataCollectionRuleArgs.builder()
      *             .name(&#34;example-rule&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;ruleId&#34;, example.applyValue(getDataCollectionRuleResult -&gt; getDataCollectionRuleResult.id()));
@@ -530,13 +530,13 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(azurerm_key_vault.example().name())
-     *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name(exampleAzurermKeyVault.name())
+     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
      *             .build());
      * 
-     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
@@ -574,13 +574,13 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(azurerm_key_vault.example().name())
-     *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name(exampleAzurermKeyVault.name())
+     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
      *             .build());
      * 
-     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
@@ -618,13 +618,13 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(azurerm_key_vault.example().name())
-     *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name(exampleAzurermKeyVault.name())
+     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
      *             .build());
      * 
-     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
@@ -662,13 +662,13 @@ public final class MonitoringFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
-     *             .name(azurerm_key_vault.example().name())
-     *             .resourceGroupName(azurerm_key_vault.example().resource_group_name())
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *             .name(exampleAzurermKeyVault.name())
+     *             .resourceGroupName(exampleAzurermKeyVault.resourceGroupName())
      *             .build());
      * 
-     *         final var exampleDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
-     *             .resourceId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *         final var exampleGetDiagnosticCategories = MonitoringFunctions.getDiagnosticCategories(GetDiagnosticCategoriesArgs.builder()
+     *             .resourceId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
      *     }
@@ -1178,7 +1178,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
@@ -1217,7 +1217,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
@@ -1256,7 +1256,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));
@@ -1295,7 +1295,7 @@ public final class MonitoringFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MonitoringFunctions.getWorkspace(GetWorkspaceArgs.builder()
      *             .name(&#34;example-workspace&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;queryEndpoint&#34;, example.applyValue(getWorkspaceResult -&gt; getWorkspaceResult.queryEndpoint()));

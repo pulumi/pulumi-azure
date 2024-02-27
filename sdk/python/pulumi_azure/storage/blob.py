@@ -533,16 +533,21 @@ class Blob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="content",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="my-awesome-content.zip",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",
@@ -593,16 +598,21 @@ class Blob(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="content",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_blob = azure.storage.Blob("exampleBlob",
+        example_blob = azure.storage.Blob("example",
+            name="my-awesome-content.zip",
             storage_account_name=example_account.name,
             storage_container_name=example_container.name,
             type="Block",

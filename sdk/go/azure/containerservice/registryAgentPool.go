@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europ"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("Premium"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewRegistryAgentPool(ctx, "exampleRegistryAgentPool", &containerservice.RegistryAgentPoolArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
+//			_, err = containerservice.NewRegistryAgentPool(ctx, "example", &containerservice.RegistryAgentPoolArgs{
+//				Name:                  pulumi.String("example"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
 //				ContainerRegistryName: exampleRegistry.Name,
 //			})
 //			if err != nil {

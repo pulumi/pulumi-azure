@@ -411,15 +411,22 @@ class TriggerCustomEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("exampleTriggerCustomEvent",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_pipeline = azure.datafactory.Pipeline("example",
+            name="example",
+            data_factory_id=example_factory.id)
+        example_topic = azure.eventgrid.Topic("example",
+            name="example-topic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
+            name="example",
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
             events=[
@@ -485,15 +492,22 @@ class TriggerCustomEvent(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_pipeline = azure.datafactory.Pipeline("examplePipeline", data_factory_id=example_factory.id)
-        example_topic = azure.eventgrid.Topic("exampleTopic",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("exampleTriggerCustomEvent",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_pipeline = azure.datafactory.Pipeline("example",
+            name="example",
+            data_factory_id=example_factory.id)
+        example_topic = azure.eventgrid.Topic("example",
+            name="example-topic",
+            location=example.location,
+            resource_group_name=example.name)
+        example_trigger_custom_event = azure.datafactory.TriggerCustomEvent("example",
+            name="example",
             data_factory_id=example_factory.id,
             eventgrid_topic_id=example_topic.id,
             events=[

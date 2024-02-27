@@ -18,17 +18,21 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
+ *     name: "example-bcr",
  *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sku: "F0",
  *     microsoftAppId: current.then(current => current.clientId),
  * });
- * const exampleChannelFacebook = new azure.bot.ChannelFacebook("exampleChannelFacebook", {
+ * const exampleChannelFacebook = new azure.bot.ChannelFacebook("example", {
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     facebookApplicationId: "563490254873576",
  *     facebookApplicationSecret: "8976d2536445ad5b976dee8437b9beb0",
  *     pages: [{

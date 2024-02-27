@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleUser = azure.apimanagement.getUser({
+ * const example = azure.apimanagement.getUser({
  *     userId: "my-user",
  *     apiManagementName: "example-apim",
  *     resourceGroupName: "search-service",
  * });
- * const exampleGroupUser = new azure.apimanagement.GroupUser("exampleGroupUser", {
- *     userId: exampleUser.then(exampleUser => exampleUser.id),
+ * const exampleGroupUser = new azure.apimanagement.GroupUser("example", {
+ *     userId: example.then(example => example.id),
  *     groupName: "example-group",
- *     resourceGroupName: exampleUser.then(exampleUser => exampleUser.resourceGroupName),
- *     apiManagementName: exampleUser.then(exampleUser => exampleUser.apiManagementName),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     apiManagementName: example.then(example => example.apiManagementName),
  * });
  * ```
  *

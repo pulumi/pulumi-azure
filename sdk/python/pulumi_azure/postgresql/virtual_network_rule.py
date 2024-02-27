@@ -230,19 +230,24 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_server = azure.postgresql.Server("example",
+            name="postgresql-server-1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="GP_Gen5_2",
             storage_mb=5120,
             backup_retention_days=7,
@@ -250,8 +255,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("example",
+            name="postgresql-vnet-rule",
+            resource_group_name=example.name,
             server_name=example_server.name,
             subnet_id=internal.id,
             ignore_missing_vnet_service_endpoint=True)
@@ -296,19 +302,24 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_server = azure.postgresql.Server("example",
+            name="postgresql-server-1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="GP_Gen5_2",
             storage_mb=5120,
             backup_retention_days=7,
@@ -316,8 +327,9 @@ class VirtualNetworkRule(pulumi.CustomResource):
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
-        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_rule = azure.postgresql.VirtualNetworkRule("example",
+            name="postgresql-vnet-rule",
+            resource_group_name=example.name,
             server_name=example_server.name,
             subnet_id=internal.id,
             ignore_missing_vnet_service_endpoint=True)

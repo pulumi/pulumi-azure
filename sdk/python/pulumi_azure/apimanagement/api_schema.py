@@ -300,18 +300,19 @@ class ApiSchema(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_api = azure.apimanagement.get_api(name="search-api",
+        example = azure.apimanagement.get_api(name="search-api",
             api_management_name="search-api-management",
             resource_group_name="search-service",
             revision="2")
-        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+        example_api_schema = azure.apimanagement.ApiSchema("example",
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+            value=std.file(input="api_management_api_schema.xml").result)
         ```
 
         ## Import
@@ -347,18 +348,19 @@ class ApiSchema(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_api = azure.apimanagement.get_api(name="search-api",
+        example = azure.apimanagement.get_api(name="search-api",
             api_management_name="search-api-management",
             resource_group_name="search-service",
             revision="2")
-        example_api_schema = azure.apimanagement.ApiSchema("exampleApiSchema",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+        example_api_schema = azure.apimanagement.ApiSchema("example",
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             schema_id="example-schema",
             content_type="application/vnd.ms-azure-apim.xsd+xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+            value=std.file(input="api_management_api_schema.xml").result)
         ```
 
         ## Import

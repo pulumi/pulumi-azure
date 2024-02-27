@@ -699,12 +699,16 @@ class ServiceAzureBot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_api_key = azure.appinsights.ApiKey("exampleApiKey",
+        example_api_key = azure.appinsights.ApiKey("example",
+            name="example-appinsightsapikey",
             application_insights_id=example_insights.id,
             read_permissions=[
                 "aggregate",
@@ -714,8 +718,9 @@ class ServiceAzureBot(pulumi.CustomResource):
                 "search",
             ])
         current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
-            resource_group_name=example_resource_group.name,
+        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
+            name="exampleazurebot",
+            resource_group_name=example.name,
             location="global",
             microsoft_app_id=current.client_id,
             sku="F0",
@@ -773,12 +778,16 @@ class ServiceAzureBot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_api_key = azure.appinsights.ApiKey("exampleApiKey",
+        example_api_key = azure.appinsights.ApiKey("example",
+            name="example-appinsightsapikey",
             application_insights_id=example_insights.id,
             read_permissions=[
                 "aggregate",
@@ -788,8 +797,9 @@ class ServiceAzureBot(pulumi.CustomResource):
                 "search",
             ])
         current = azure.core.get_client_config()
-        example_service_azure_bot = azure.bot.ServiceAzureBot("exampleServiceAzureBot",
-            resource_group_name=example_resource_group.name,
+        example_service_azure_bot = azure.bot.ServiceAzureBot("example",
+            name="exampleazurebot",
+            resource_group_name=example.name,
             location="global",
             microsoft_app_id=current.client_id,
             sku="F0",

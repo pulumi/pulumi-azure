@@ -27,21 +27,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
+//			example, err := storage.LookupAccount(ctx, &storage.LookupAccountArgs{
 //				Name:              "storageaccountname",
 //				ResourceGroupName: pulumi.StringRef("resourcegroupname"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleEncryptionScope, err := storage.LookupEncryptionScope(ctx, &storage.LookupEncryptionScopeArgs{
+//			exampleGetEncryptionScope, err := storage.LookupEncryptionScope(ctx, &storage.LookupEncryptionScopeArgs{
 //				Name:             "existingStorageES",
-//				StorageAccountId: exampleAccount.Id,
+//				StorageAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleEncryptionScope.Id)
+//			ctx.Export("id", exampleGetEncryptionScope.Id)
 //			return nil
 //		})
 //	}

@@ -14,24 +14,30 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "KustoRG",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "KustoDatabase",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("example", {
+ *     name: "KustoPrincipalAssignment",
+ *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     tenantId: current.then(current => current.tenantId),

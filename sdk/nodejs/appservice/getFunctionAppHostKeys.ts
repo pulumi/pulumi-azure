@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.appservice.getFunctionAppHostKeys({
  *     name: "example-function",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -92,7 +92,7 @@ export interface GetFunctionAppHostKeysResult {
  *
  * const example = azure.appservice.getFunctionAppHostKeys({
  *     name: "example-function",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */

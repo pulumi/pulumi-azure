@@ -24,15 +24,15 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
     ///     {
     ///         Name = "example-vm",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleMssql_virtualMachineVirtualMachine = new Azure.MSSql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", new()
+    ///     var exampleVirtualMachine = new Azure.MSSql.VirtualMachine("example", new()
     ///     {
-    ///         VirtualMachineId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         VirtualMachineId = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
     ///         SqlLicenseType = "PAYG",
     ///         RServicesEnabled = true,
     ///         SqlConnectivityPort = 1433,

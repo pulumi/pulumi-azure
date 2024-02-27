@@ -30,21 +30,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "exampleFlexibleServerFirewallRule", &mysql.FlexibleServerFirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "example", &mysql.FlexibleServerFirewallRuleArgs{
+//				Name:              pulumi.String("office"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleFlexibleServer.Name,
 //				StartIpAddress:    pulumi.String("40.112.8.12"),
 //				EndIpAddress:      pulumi.String("40.112.8.12"),
@@ -72,21 +75,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "exampleFlexibleServerFirewallRule", &mysql.FlexibleServerFirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "example", &mysql.FlexibleServerFirewallRuleArgs{
+//				Name:              pulumi.String("office"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleFlexibleServer.Name,
 //				StartIpAddress:    pulumi.String("40.112.0.0"),
 //				EndIpAddress:      pulumi.String("40.112.255.255"),
@@ -114,21 +120,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "exampleFlexibleServerFirewallRule", &mysql.FlexibleServerFirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewFlexibleServerFirewallRule(ctx, "example", &mysql.FlexibleServerFirewallRuleArgs{
+//				Name:              pulumi.String("office"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleFlexibleServer.Name,
 //				StartIpAddress:    pulumi.String("0.0.0.0"),
 //				EndIpAddress:      pulumi.String("0.0.0.0"),

@@ -21,24 +21,27 @@ namespace Pulumi.Azure.DomainServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var deployResourceGroup = new Azure.Core.ResourceGroup("deployResourceGroup", new()
+    ///     var deploy = new Azure.Core.ResourceGroup("deploy", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var deployVirtualNetwork = new Azure.Network.VirtualNetwork("deployVirtualNetwork", new()
+    ///     var deployVirtualNetwork = new Azure.Network.VirtualNetwork("deploy", new()
     ///     {
-    ///         Location = deployResourceGroup.Location,
-    ///         ResourceGroupName = deployResourceGroup.Name,
+    ///         Name = "deploy-vnet",
+    ///         Location = deploy.Location,
+    ///         ResourceGroupName = deploy.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.1.0/16",
     ///         },
     ///     });
     /// 
-    ///     var deploySubnet = new Azure.Network.Subnet("deploySubnet", new()
+    ///     var deploySubnet = new Azure.Network.Subnet("deploy", new()
     ///     {
-    ///         ResourceGroupName = deployResourceGroup.Name,
+    ///         Name = "deploy-subnet",
+    ///         ResourceGroupName = deploy.Name,
     ///         VirtualNetworkName = deployVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -46,10 +49,11 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var deployNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("deployNetworkSecurityGroup", new()
+    ///     var deployNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("deploy", new()
     ///     {
-    ///         Location = deployResourceGroup.Location,
-    ///         ResourceGroupName = deployResourceGroup.Name,
+    ///         Name = "deploy-nsg",
+    ///         Location = deploy.Location,
+    ///         ResourceGroupName = deploy.Name,
     ///         SecurityRules = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkSecurityGroupSecurityRuleArgs
@@ -103,44 +107,45 @@ namespace Pulumi.Azure.DomainServices
     ///         },
     ///     });
     /// 
-    ///     var deploySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("deploySubnetNetworkSecurityGroupAssociation", new()
+    ///     var deploySubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("deploy", new()
     ///     {
     ///         SubnetId = deploySubnet.Id,
     ///         NetworkSecurityGroupId = deployNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var dcAdmins = new AzureAD.Group("dcAdmins", new()
+    ///     var dcAdmins = new AzureAD.Group("dc_admins", new()
     ///     {
     ///         DisplayName = "AAD DC Administrators",
     ///         SecurityEnabled = true,
     ///     });
     /// 
-    ///     var adminUser = new AzureAD.User("adminUser", new()
+    ///     var admin = new AzureAD.User("admin", new()
     ///     {
     ///         UserPrincipalName = "dc-admin@hashicorp-example.com",
     ///         DisplayName = "DC Administrator",
     ///         Password = "Pa55w0Rd!!1",
     ///     });
     /// 
-    ///     var adminGroupMember = new AzureAD.GroupMember("adminGroupMember", new()
+    ///     var adminGroupMember = new AzureAD.GroupMember("admin", new()
     ///     {
     ///         GroupObjectId = dcAdmins.ObjectId,
-    ///         MemberObjectId = adminUser.ObjectId,
+    ///         MemberObjectId = admin.ObjectId,
     ///     });
     /// 
-    ///     var exampleServicePrincipal = new AzureAD.ServicePrincipal("exampleServicePrincipal", new()
+    ///     var example = new AzureAD.ServicePrincipal("example", new()
     ///     {
     ///         ApplicationId = "2565bd9d-da50-47d4-8b85-4c97f669dc36",
     ///     });
     /// 
-    ///     // published app for domain services
     ///     var aadds = new Azure.Core.ResourceGroup("aadds", new()
     ///     {
+    ///         Name = "aadds-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleService = new Azure.DomainServices.Service("exampleService", new()
+    ///     var exampleService = new Azure.DomainServices.Service("example", new()
     ///     {
+    ///         Name = "example-aadds",
     ///         Location = aadds.Location,
     ///         ResourceGroupName = aadds.Name,
     ///         DomainName = "widgetslogin.net",
@@ -169,13 +174,6 @@ namespace Pulumi.Azure.DomainServices
     ///         Tags = 
     ///         {
     ///             { "Environment", "prod" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleServicePrincipal,
-    ///             deploySubnetNetworkSecurityGroupAssociation,
     ///         },
     ///     });
     /// 

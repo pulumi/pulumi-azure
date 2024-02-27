@@ -27,20 +27,22 @@ namespace Pulumi.Azure.Redis
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", 1 },
+    ///             { "azi_id", "1" },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "redis-resourcegroup",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Redis.Cache("exampleCache", new()
+    ///     var exampleCache = new Azure.Redis.Cache("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = server.Hex.Apply(hex =&gt; $"redis{hex}"),
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Capacity = 1,
     ///         Family = "P",
     ///         SkuName = "Premium",
@@ -53,10 +55,11 @@ namespace Pulumi.Azure.Redis
     ///         },
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.Redis.FirewallRule("example", new()
     ///     {
+    ///         Name = "someIPrange",
     ///         RedisCacheName = exampleCache.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         StartIp = "1.2.3.4",
     ///         EndIp = "2.3.4.5",
     ///     });

@@ -1177,19 +1177,24 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("exampleDatabase",
+        example_database = azure.mssql.Database("example",
+            name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",
@@ -1207,25 +1212,31 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-admin",
+            location=example.location,
+            resource_group_name=example.name)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="mssqltdeexample",
+            location=example.location,
+            resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=example_user_assigned_identity.tenant_id,
             soft_delete_retention_days=7,
@@ -1233,8 +1244,8 @@ class Database(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    tenant_id=current["tenantId"],
+                    object_id=current["objectId"],
                     key_permissions=[
                         "Get",
                         "List",
@@ -1256,16 +1267,17 @@ class Database(pulumi.CustomResource):
                     ],
                 ),
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
-        example_database = azure.mssql.Database("exampleDatabase",
+            ])
+        example_database = azure.mssql.Database("example",
+            name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",
@@ -1360,19 +1372,24 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_database = azure.mssql.Database("exampleDatabase",
+        example_database = azure.mssql.Database("example",
+            name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",
@@ -1390,25 +1407,31 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-admin",
+            location=example.location,
+            resource_group_name=example.name)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         # Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="mssqltdeexample",
+            location=example.location,
+            resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=example_user_assigned_identity.tenant_id,
             soft_delete_retention_days=7,
@@ -1416,8 +1439,8 @@ class Database(pulumi.CustomResource):
             sku_name="standard",
             access_policies=[
                 azure.keyvault.KeyVaultAccessPolicyArgs(
-                    tenant_id=data["azurerm_client_config"]["current"]["tenant_id"],
-                    object_id=data["azurerm_client_config"]["current"]["object_id"],
+                    tenant_id=current["tenantId"],
+                    object_id=current["objectId"],
                     key_permissions=[
                         "Get",
                         "List",
@@ -1439,16 +1462,17 @@ class Database(pulumi.CustomResource):
                     ],
                 ),
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[example_key_vault]))
-        example_database = azure.mssql.Database("exampleDatabase",
+            ])
+        example_database = azure.mssql.Database("example",
+            name="example-db",
             server_id=example_server.id,
             collation="SQL_Latin1_General_CP1_CI_AS",
             license_type="LicenseIncluded",

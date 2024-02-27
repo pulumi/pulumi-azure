@@ -29,17 +29,18 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costmanagement.NewScheduledAction(ctx, "example", &costmanagement.ScheduledActionArgs{
+//				Name:               pulumi.String("examplescheduledaction"),
 //				DisplayName:        pulumi.String("Report Last 6 Months"),
+//				ViewId:             pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService"),
 //				EmailAddressSender: pulumi.String("platformteam@test.com"),
+//				EmailSubject:       pulumi.String("Cost Management Report"),
 //				EmailAddresses: pulumi.StringArray{
 //					pulumi.String("example@example.com"),
 //				},
-//				EmailSubject: pulumi.String("Cost Management Report"),
-//				EndDate:      pulumi.String("2023-02-02T00:00:00Z"),
-//				Frequency:    pulumi.String("Daily"),
-//				Message:      pulumi.String("Hi all, take a look at last 6 months spending!"),
-//				StartDate:    pulumi.String("2023-01-02T00:00:00Z"),
-//				ViewId:       pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService"),
+//				Message:   pulumi.String("Hi all, take a look at last 6 months spending!"),
+//				Frequency: pulumi.String("Daily"),
+//				StartDate: pulumi.String("2023-01-02T00:00:00Z"),
+//				EndDate:   pulumi.String("2023-02-02T00:00:00Z"),
 //			})
 //			if err != nil {
 //				return err

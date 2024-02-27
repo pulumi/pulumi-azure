@@ -47,17 +47,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -93,17 +93,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -139,17 +139,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -185,17 +185,17 @@ public final class SentinelFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAnalyticsWorkspace = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
+     *         final var example = OperationalinsightsFunctions.getAnalyticsWorkspace(GetAnalyticsWorkspaceArgs.builder()
      *             .name(&#34;example&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
+     *         final var exampleGetAlertRule = SentinelFunctions.getAlertRule(GetAlertRuleArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
+     *             .logAnalyticsWorkspaceId(example.applyValue(getAnalyticsWorkspaceResult -&gt; getAnalyticsWorkspaceResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetAlertRule.applyValue(getAlertRuleResult -&gt; getAlertRuleResult.id()));
      *     }
      * }
      * ```
@@ -236,10 +236,12 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+     *             .name(&#34;example-law&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku(&#34;PerGB2018&#34;)
@@ -250,12 +252,12 @@ public final class SentinelFunctions {
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
-     *         final var exampleAlertRuleAnomaly = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
      *             .displayName(&#34;Potential data staging&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(exampleAlertRuleAnomaly -&gt; exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
      *     }
      * }
      * ```
@@ -296,10 +298,12 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+     *             .name(&#34;example-law&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku(&#34;PerGB2018&#34;)
@@ -310,12 +314,12 @@ public final class SentinelFunctions {
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
-     *         final var exampleAlertRuleAnomaly = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
      *             .displayName(&#34;Potential data staging&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(exampleAlertRuleAnomaly -&gt; exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
      *     }
      * }
      * ```
@@ -356,10 +360,12 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+     *             .name(&#34;example-law&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku(&#34;PerGB2018&#34;)
@@ -370,12 +376,12 @@ public final class SentinelFunctions {
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
-     *         final var exampleAlertRuleAnomaly = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
      *             .displayName(&#34;Potential data staging&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(exampleAlertRuleAnomaly -&gt; exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
      *     }
      * }
      * ```
@@ -416,10 +422,12 @@ public final class SentinelFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+     *             .name(&#34;example-law&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .sku(&#34;PerGB2018&#34;)
@@ -430,12 +438,12 @@ public final class SentinelFunctions {
      *             .customerManagedKeyEnabled(false)
      *             .build());
      * 
-     *         final var exampleAlertRuleAnomaly = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
+     *         final var example = SentinelFunctions.getAlertRuleAnomaly(GetAlertRuleAnomalyArgs.builder()
      *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
      *             .displayName(&#34;Potential data staging&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(exampleAlertRuleAnomaly -&gt; exampleAlertRuleAnomaly.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
+     *         ctx.export(&#34;id&#34;, example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult).applyValue(example -&gt; example.applyValue(getAlertRuleAnomalyResult -&gt; getAlertRuleAnomalyResult.id())));
      *     }
      * }
      * ```

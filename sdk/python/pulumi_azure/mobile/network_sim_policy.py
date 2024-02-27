@@ -337,18 +337,23 @@ class NetworkSimPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            location=example.location,
+            resource_group_name=example.name,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
+        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
+            name="example-mndn",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location)
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+            location=example.location)
+        example_network_service = azure.mobile.NetworkService("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             service_precedence=0,
             pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
                 name="default-rule",
@@ -362,15 +367,17 @@ class NetworkSimPolicy(pulumi.CustomResource):
                     remote_ip_lists=["10.3.4.0/24"],
                 )],
             )])
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
+        example_network_slice = azure.mobile.NetworkSlice("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
                 slice_service_type=1,
             ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
+        example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
+            name="example-mnsp",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
             slices=[azure.mobile.NetworkSimPolicySliceArgs(
@@ -434,18 +441,23 @@ class NetworkSimPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            location=example.location,
+            resource_group_name=example.name,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_data_network = azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork",
+        example_network_data_network = azure.mobile.NetworkDataNetwork("example",
+            name="example-mndn",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location)
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+            location=example.location)
+        example_network_service = azure.mobile.NetworkService("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             service_precedence=0,
             pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
                 name="default-rule",
@@ -459,15 +471,17 @@ class NetworkSimPolicy(pulumi.CustomResource):
                     remote_ip_lists=["10.3.4.0/24"],
                 )],
             )])
-        example_network_slice = azure.mobile.NetworkSlice("exampleNetworkSlice",
+        example_network_slice = azure.mobile.NetworkSlice("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             single_network_slice_selection_assistance_information=azure.mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs(
                 slice_service_type=1,
             ))
-        example_network_sim_policy = azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy",
+        example_network_sim_policy = azure.mobile.NetworkSimPolicy("example",
+            name="example-mnsp",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             registration_timer_in_seconds=3240,
             default_slice_id=example_network_slice.id,
             slices=[azure.mobile.NetworkSimPolicySliceArgs(

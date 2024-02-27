@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = communication.NewService(ctx, "exampleService", &communication.ServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = communication.NewService(ctx, "example", &communication.ServiceArgs{
+//				Name:              pulumi.String("example-communicationservice"),
+//				ResourceGroupName: example.Name,
 //				DataLocation:      pulumi.String("United States"),
 //			})
 //			if err != nil {

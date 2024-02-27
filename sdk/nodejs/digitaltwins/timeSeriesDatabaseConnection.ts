@@ -13,55 +13,65 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInstance = new azure.digitaltwins.Instance("example", {
+ *     name: "example-DT",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "exampleEventHubNamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "exampleEventHub",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 7,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "example-consumergroup",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "example-kusto-database",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  * });
- * const databaseContributor = new azure.authorization.Assignment("databaseContributor", {
+ * const databaseContributor = new azure.authorization.Assignment("database_contributor", {
  *     scope: exampleDatabase.id,
  *     principalId: exampleInstance.identity.apply(identity => identity?.principalId),
  *     roleDefinitionName: "Contributor",
  * });
- * const eventhubDataOwner = new azure.authorization.Assignment("eventhubDataOwner", {
+ * const eventhubDataOwner = new azure.authorization.Assignment("eventhub_data_owner", {
  *     scope: exampleEventHub.id,
  *     principalId: exampleInstance.identity.apply(identity => identity?.principalId),
  *     roleDefinitionName: "Azure Event Hubs Data Owner",
  * });
- * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("example", {
+ *     name: "dataadmin",
+ *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     tenantId: exampleInstance.identity.apply(identity => identity?.tenantId),
@@ -69,7 +79,8 @@ import * as utilities from "../utilities";
  *     principalType: "App",
  *     role: "Admin",
  * });
- * const exampleTimeSeriesDatabaseConnection = new azure.digitaltwins.TimeSeriesDatabaseConnection("exampleTimeSeriesDatabaseConnection", {
+ * const exampleTimeSeriesDatabaseConnection = new azure.digitaltwins.TimeSeriesDatabaseConnection("example", {
+ *     name: "example-connection",
  *     digitalTwinsId: exampleInstance.id,
  *     eventhubName: exampleEventHub.name,
  *     eventhubNamespaceId: exampleEventHubNamespace.id,
@@ -79,12 +90,6 @@ import * as utilities from "../utilities";
  *     kustoClusterUri: exampleCluster.uri,
  *     kustoDatabaseName: exampleDatabase.name,
  *     kustoTableName: "exampleTable",
- * }, {
- *     dependsOn: [
- *         databaseContributor,
- *         eventhubDataOwner,
- *         exampleDatabasePrincipalAssignment,
- *     ],
  * });
  * ```
  *

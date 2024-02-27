@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var srcResourceGroup = new Azure.Core.ResourceGroup("srcResourceGroup", new()
+    ///     var src = new Azure.Core.ResourceGroup("src", new()
     ///     {
+    ///         Name = "srcResourceGroupName",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var srcAccount = new Azure.Storage.Account("srcAccount", new()
+    ///     var srcAccount = new Azure.Storage.Account("src", new()
     ///     {
-    ///         ResourceGroupName = srcResourceGroup.Name,
-    ///         Location = srcResourceGroup.Location,
+    ///         Name = "srcstorageaccount",
+    ///         ResourceGroupName = src.Name,
+    ///         Location = src.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
@@ -40,21 +42,24 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var srcContainer = new Azure.Storage.Container("srcContainer", new()
+    ///     var srcContainer = new Azure.Storage.Container("src", new()
     ///     {
+    ///         Name = "srcstrcontainer",
     ///         StorageAccountName = srcAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var dstResourceGroup = new Azure.Core.ResourceGroup("dstResourceGroup", new()
+    ///     var dst = new Azure.Core.ResourceGroup("dst", new()
     ///     {
+    ///         Name = "dstResourceGroupName",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var dstAccount = new Azure.Storage.Account("dstAccount", new()
+    ///     var dstAccount = new Azure.Storage.Account("dst", new()
     ///     {
-    ///         ResourceGroupName = dstResourceGroup.Name,
-    ///         Location = dstResourceGroup.Location,
+    ///         Name = "dststorageaccount",
+    ///         ResourceGroupName = dst.Name,
+    ///         Location = dst.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         BlobProperties = new Azure.Storage.Inputs.AccountBlobPropertiesArgs
@@ -64,8 +69,9 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var dstContainer = new Azure.Storage.Container("dstContainer", new()
+    ///     var dstContainer = new Azure.Storage.Container("dst", new()
     ///     {
+    ///         Name = "dststrcontainer",
     ///         StorageAccountName = dstAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });

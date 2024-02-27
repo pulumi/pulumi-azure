@@ -207,16 +207,20 @@ class EncryptionScope(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_encryption_scope = azure.storage.EncryptionScope("exampleEncryptionScope",
+        example_encryption_scope = azure.storage.EncryptionScope("example",
+            name="microsoftmanaged",
             storage_account_id=example_account.id,
             source="Microsoft.Storage")
         ```
@@ -254,16 +258,20 @@ class EncryptionScope(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_encryption_scope = azure.storage.EncryptionScope("exampleEncryptionScope",
+        example_encryption_scope = azure.storage.EncryptionScope("example",
+            name="microsoftmanaged",
             storage_account_id=example_account.id,
             source="Microsoft.Storage")
         ```

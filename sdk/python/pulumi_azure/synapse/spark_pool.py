@@ -662,6 +662,64 @@ class SparkPool(pulumi.CustomResource):
         """
         Manages a Synapse Spark Pool.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            is_hns_enabled=True)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_spark_pool = azure.synapse.SparkPool("example",
+            name="example",
+            synapse_workspace_id=example_workspace.id,
+            node_size_family="MemoryOptimized",
+            node_size="Small",
+            cache_size=100,
+            auto_scale=azure.synapse.SparkPoolAutoScaleArgs(
+                max_node_count=50,
+                min_node_count=3,
+            ),
+            auto_pause=azure.synapse.SparkPoolAutoPauseArgs(
+                delay_in_minutes=15,
+            ),
+            library_requirement=azure.synapse.SparkPoolLibraryRequirementArgs(
+                content=\"\"\"appnope==0.1.0
+        beautifulsoup4==4.6.3
+        \"\"\",
+                filename="requirements.txt",
+            ),
+            spark_config=azure.synapse.SparkPoolSparkConfigArgs(
+                content="spark.shuffle.spill                true\\n",
+                filename="config.txt",
+            ),
+            tags={
+                "ENV": "Production",
+            })
+        ```
+
         ## Import
 
         Synapse Spark Pool can be imported using the `resource id`, e.g.
@@ -700,6 +758,64 @@ class SparkPool(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Synapse Spark Pool.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="LRS",
+            account_kind="StorageV2",
+            is_hns_enabled=True)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
+            storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
+            sql_administrator_login="sqladminuser",
+            sql_administrator_login_password="H@Sh1CoR3!",
+            identity=azure.synapse.WorkspaceIdentityArgs(
+                type="SystemAssigned",
+            ))
+        example_spark_pool = azure.synapse.SparkPool("example",
+            name="example",
+            synapse_workspace_id=example_workspace.id,
+            node_size_family="MemoryOptimized",
+            node_size="Small",
+            cache_size=100,
+            auto_scale=azure.synapse.SparkPoolAutoScaleArgs(
+                max_node_count=50,
+                min_node_count=3,
+            ),
+            auto_pause=azure.synapse.SparkPoolAutoPauseArgs(
+                delay_in_minutes=15,
+            ),
+            library_requirement=azure.synapse.SparkPoolLibraryRequirementArgs(
+                content=\"\"\"appnope==0.1.0
+        beautifulsoup4==4.6.3
+        \"\"\",
+                filename="requirements.txt",
+            ),
+            spark_config=azure.synapse.SparkPoolSparkConfigArgs(
+                content="spark.shuffle.spill                true\\n",
+                filename="config.txt",
+            ),
+            tags={
+                "ENV": "Production",
+            })
+        ```
 
         ## Import
 

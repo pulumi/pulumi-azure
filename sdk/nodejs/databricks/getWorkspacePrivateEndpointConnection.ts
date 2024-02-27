@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.databricks.getWorkspacePrivateEndpointConnection({
- *     workspaceId: azurerm_databricks_workspace.example.id,
- *     privateEndpointId: azurerm_private_endpoint.example.id,
+ *     workspaceId: exampleAzurermDatabricksWorkspace.id,
+ *     privateEndpointId: exampleAzurermPrivateEndpoint.id,
  * });
  * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?.[0]?.status);
  * ```
@@ -76,8 +76,8 @@ export interface GetWorkspacePrivateEndpointConnectionResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.databricks.getWorkspacePrivateEndpointConnection({
- *     workspaceId: azurerm_databricks_workspace.example.id,
- *     privateEndpointId: azurerm_private_endpoint.example.id,
+ *     workspaceId: exampleAzurermDatabricksWorkspace.id,
+ *     privateEndpointId: exampleAzurermPrivateEndpoint.id,
  * });
  * export const databricksWorkspacePrivateEndpointConnectionStatus = example.then(example => example.connections?.[0]?.status);
  * ```

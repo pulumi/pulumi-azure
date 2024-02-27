@@ -123,10 +123,10 @@ def get_network_slice(mobile_network_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
+    example = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
-    example_network_slice = azure.mobile.get_network_slice(name="example-mns",
-        mobile_network_id=data["azurerm_mobile_network"]["test"]["id"])
+    example_get_network_slice = azure.mobile.get_network_slice(name="example-mns",
+        mobile_network_id=test["id"])
     ```
 
 
@@ -162,10 +162,10 @@ def get_network_slice_output(mobile_network_id: Optional[pulumi.Input[str]] = No
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
+    example = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
-    example_network_slice = azure.mobile.get_network_slice(name="example-mns",
-        mobile_network_id=data["azurerm_mobile_network"]["test"]["id"])
+    example_get_network_slice = azure.mobile.get_network_slice(name="example-mns",
+        mobile_network_id=test["id"])
     ```
 
 

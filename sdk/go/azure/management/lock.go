@@ -35,6 +35,7 @@ import (
 //				return err
 //			}
 //			_, err = management.NewLock(ctx, "subscription-level", &management.LockArgs{
+//				Name:      pulumi.String("subscription-level"),
 //				Scope:     *pulumi.String(current.Id),
 //				LockLevel: pulumi.String("CanNotDelete"),
 //				Notes:     pulumi.String("Items can't be deleted in this subscription!"),
@@ -63,12 +64,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("locked-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = management.NewLock(ctx, "resource-group-level", &management.LockArgs{
+//				Name:      pulumi.String("resource-group-level"),
 //				Scope:     example.ID(),
 //				LockLevel: pulumi.String("ReadOnly"),
 //				Notes:     pulumi.String("This Resource Group is Read-Only"),
@@ -97,15 +100,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("locked-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:             exampleResourceGroup.Location,
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:                 pulumi.String("locked-publicip"),
+//				Location:             example.Location,
+//				ResourceGroupName:    example.Name,
 //				AllocationMethod:     pulumi.String("Static"),
 //				IdleTimeoutInMinutes: pulumi.Int(30),
 //			})
@@ -113,6 +118,7 @@ import (
 //				return err
 //			}
 //			_, err = management.NewLock(ctx, "public-ip", &management.LockArgs{
+//				Name:      pulumi.String("resource-ip"),
 //				Scope:     examplePublicIp.ID(),
 //				LockLevel: pulumi.String("CanNotDelete"),
 //				Notes:     pulumi.String("Locked because it's needed by a third-party"),

@@ -31,13 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDevCenter, err := devcenter.NewDevCenter(ctx, "exampleDevCenter", &devcenter.DevCenterArgs{
+//			example, err := devcenter.NewDevCenter(ctx, "example", &devcenter.DevCenterArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				Identity: &devcenter.DevCenterIdentityArgs{
@@ -47,9 +49,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devcenter.NewProject(ctx, "exampleProject", &devcenter.ProjectArgs{
-//				DevCenterId:       exampleDevCenter.ID(),
+//			_, err = devcenter.NewProject(ctx, "example", &devcenter.ProjectArgs{
+//				DevCenterId:       example.ID(),
 //				Location:          exampleResourceGroup.Location,
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {

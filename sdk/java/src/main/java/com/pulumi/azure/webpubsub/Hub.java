@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventHandlerAuthArgs;
  * import com.pulumi.azure.webpubsub.inputs.HubEventListenerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,23 +52,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;terraform-webpubsub&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;tfex-uai&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-webpubsub&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard_S1&#34;)
  *             .capacity(1)
  *             .build());
  * 
  *         var exampleHub = new Hub(&#34;exampleHub&#34;, HubArgs.builder()        
+ *             .name(&#34;tfex_wpsh&#34;)
  *             .webPubsubId(exampleService.id())
  *             .eventHandlers(            
  *                 HubEventHandlerArgs.builder()
@@ -93,25 +96,23 @@ import javax.annotation.Nullable;
  *                     .userEventNameFilters(                    
  *                         &#34;event1&#34;,
  *                         &#34;event2&#34;)
- *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
- *                     .eventhubName(azurerm_eventhub.test1().name())
+ *                     .eventhubNamespaceName(test.name())
+ *                     .eventhubName(test1.name())
  *                     .build(),
  *                 HubEventListenerArgs.builder()
  *                     .systemEventNameFilters(&#34;connected&#34;)
  *                     .userEventNameFilters(&#34;*&#34;)
- *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
- *                     .eventhubName(azurerm_eventhub.test1().name())
+ *                     .eventhubNamespaceName(test.name())
+ *                     .eventhubName(test1.name())
  *                     .build(),
  *                 HubEventListenerArgs.builder()
  *                     .systemEventNameFilters(&#34;connected&#34;)
  *                     .userEventNameFilters(&#34;event1&#34;)
- *                     .eventhubNamespaceName(azurerm_eventhub_namespace.test().name())
- *                     .eventhubName(azurerm_eventhub.test1().name())
+ *                     .eventhubNamespaceName(test.name())
+ *                     .eventhubName(test1.name())
  *                     .build())
  *             .anonymousConnectionsEnabled(true)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleService)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

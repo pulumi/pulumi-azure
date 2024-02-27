@@ -36,7 +36,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("servicebusAuthorizationRuleId", data.Azurem_servicebus_topic_authorization_rule.Example.Id)
+//			ctx.Export("servicebusAuthorizationRuleId", exampleAzuremServicebusTopicAuthorizationRule.Id)
 //			return nil
 //		})
 //	}

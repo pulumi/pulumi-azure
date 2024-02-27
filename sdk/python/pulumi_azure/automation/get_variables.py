@@ -146,10 +146,10 @@ def get_variables(automation_account_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_account = azure.automation.get_account(name="example-account",
+    example = azure.automation.get_account(name="example-account",
         resource_group_name="example-resources")
-    example_variables = azure.automation.get_variables(automation_account_id=example_account.id)
-    pulumi.export("stringVars", data["azurerm_automation_variable_string"]["example"]["string"])
+    example_get_variables = azure.automation.get_variables(automation_account_id=example.id)
+    pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
 
 
@@ -184,10 +184,10 @@ def get_variables_output(automation_account_id: Optional[pulumi.Input[str]] = No
     import pulumi
     import pulumi_azure as azure
 
-    example_account = azure.automation.get_account(name="example-account",
+    example = azure.automation.get_account(name="example-account",
         resource_group_name="example-resources")
-    example_variables = azure.automation.get_variables(automation_account_id=example_account.id)
-    pulumi.export("stringVars", data["azurerm_automation_variable_string"]["example"]["string"])
+    example_get_variables = azure.automation.get_variables(automation_account_id=example.id)
+    pulumi.export("stringVars", example_azurerm_automation_variable_string["string"])
     ```
 
 

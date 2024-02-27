@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg-compute"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
+//			_, err = compute.NewDedicatedHostGroup(ctx, "example", &compute.DedicatedHostGroupArgs{
+//				Name:                     pulumi.String("example-dedicated-host-group"),
+//				ResourceGroupName:        example.Name,
+//				Location:                 example.Location,
 //				PlatformFaultDomainCount: pulumi.Int(1),
 //			})
 //			if err != nil {

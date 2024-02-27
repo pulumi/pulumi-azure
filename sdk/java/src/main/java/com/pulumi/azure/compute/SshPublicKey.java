@@ -41,9 +41,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SshPublicKey(&#34;example&#34;, SshPublicKeyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *             .publicKey(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

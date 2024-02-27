@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleApplication = new azure.iotcentral.Application("exampleApplication", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource",
+ *     location: "West Europe",
+ * });
+ * const exampleApplication = new azure.iotcentral.Application("example", {
+ *     name: "example-iotcentral-app",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     subDomain: "example-iotcentral-app-subdomain",
  *     displayName: "example-iotcentral-app-display-name",
  *     sku: "ST1",
@@ -26,7 +30,7 @@ import * as utilities from "../utilities";
  *         Foo: "Bar",
  *     },
  * });
- * const exampleApplicationNetworkRuleSet = new azure.iotcentral.ApplicationNetworkRuleSet("exampleApplicationNetworkRuleSet", {
+ * const exampleApplicationNetworkRuleSet = new azure.iotcentral.ApplicationNetworkRuleSet("example", {
  *     iotcentralApplicationId: exampleApplication.id,
  *     ipRules: [
  *         {

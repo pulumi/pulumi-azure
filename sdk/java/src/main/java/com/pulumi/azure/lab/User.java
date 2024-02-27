@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLab = new Lab(&#34;exampleLab&#34;, LabArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-lab&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .title(&#34;Test Title&#34;)
  *             .security(LabSecurityArgs.builder()
  *                 .openAccessEnabled(false)
@@ -78,6 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUser = new User(&#34;exampleUser&#34;, UserArgs.builder()        
+ *             .name(&#34;example-labuser&#34;)
  *             .labId(exampleLab.id())
  *             .email(&#34;terraform-acctest@example.com&#34;)
  *             .build());

@@ -13,11 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleLicationLoadBalancer = new azure.appconfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", {
+ * const example = new azure.appconfiguration.LicationLoadBalancer("example", {
+ *     name: "example",
  *     resourceGroupName: "example",
  *     location: "West Europe",
  * });
- * const exampleLicationLoadBalancerFrontend = new azure.appconfiguration.LicationLoadBalancerFrontend("exampleLicationLoadBalancerFrontend", {applicationLoadBalancerId: exampleLicationLoadBalancer.id});
+ * const exampleLicationLoadBalancerFrontend = new azure.appconfiguration.LicationLoadBalancerFrontend("example", {
+ *     name: "example",
+ *     applicationLoadBalancerId: example.id,
+ * });
  * ```
  *
  * ## Import

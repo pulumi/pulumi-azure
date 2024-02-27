@@ -15,17 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
+ *     name: "example-psqlflexibleserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12",
  *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
  * });
- * const exampleFlexibleServerConfiguration = new azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", {
+ * const exampleFlexibleServerConfiguration = new azure.postgresql.FlexibleServerConfiguration("example", {
+ *     name: "backslash_quote",
  *     serverId: exampleFlexibleServer.id,
  *     value: "on",
  * });
@@ -36,17 +41,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
+ *     name: "example-psqlflexibleserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12",
  *     administratorLogin: "psqladmin",
  *     administratorPassword: "H@Sh1CoR3!",
  *     storageMb: 32768,
  *     skuName: "GP_Standard_D4s_v3",
  * });
- * const exampleFlexibleServerConfiguration = new azure.postgresql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", {
+ * const exampleFlexibleServerConfiguration = new azure.postgresql.FlexibleServerConfiguration("example", {
+ *     name: "azure.extensions",
  *     serverId: exampleFlexibleServer.id,
  *     value: "CUBE,CITEXT,BTREE_GIST",
  * });

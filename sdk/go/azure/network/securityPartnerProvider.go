@@ -29,47 +29,50 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
+//				Name:              pulumi.String("example-vwan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "exampleVirtualHub", &network.VirtualHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualHub, err := network.NewVirtualHub(ctx, "example", &network.VirtualHubArgs{
+//				Name:              pulumi.String("example-vhub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressPrefix:     pulumi.String("10.0.2.0/24"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVpnGateway, err := network.NewVpnGateway(ctx, "exampleVpnGateway", &network.VpnGatewayArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = network.NewVpnGateway(ctx, "example", &network.VpnGatewayArgs{
+//				Name:              pulumi.String("example-vpngw"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				VirtualHubId:      exampleVirtualHub.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewSecurityPartnerProvider(ctx, "exampleSecurityPartnerProvider", &network.SecurityPartnerProviderArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
-//				Location:             exampleResourceGroup.Location,
+//			_, err = network.NewSecurityPartnerProvider(ctx, "example", &network.SecurityPartnerProviderArgs{
+//				Name:                 pulumi.String("example-spp"),
+//				ResourceGroupName:    example.Name,
+//				Location:             example.Location,
 //				VirtualHubId:         exampleVirtualHub.ID(),
 //				SecurityProviderName: pulumi.String("IBoss"),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("Prod"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVpnGateway,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

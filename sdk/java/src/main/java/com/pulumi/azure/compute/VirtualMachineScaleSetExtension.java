@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .instances(1)
@@ -81,6 +83,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachineScaleSetExtension = new VirtualMachineScaleSetExtension(&#34;exampleVirtualMachineScaleSetExtension&#34;, VirtualMachineScaleSetExtensionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachineScaleSet.id())
  *             .publisher(&#34;Microsoft.Azure.Extensions&#34;)
  *             .type(&#34;CustomScript&#34;)
@@ -280,28 +283,6 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Export(name="typeHandlerVersion", refs={String.class}, tree="[0]")
@@ -311,28 +292,6 @@ public class VirtualMachineScaleSetExtension extends com.pulumi.resources.Custom
      * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Output<String> typeHandlerVersion() {

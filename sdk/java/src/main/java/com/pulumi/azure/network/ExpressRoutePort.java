@@ -46,13 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;port1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .peeringLocation(&#34;Airtel-Chennai-CLS&#34;)
  *             .bandwidthInGbps(10)
  *             .encapsulation(&#34;Dot1Q&#34;)

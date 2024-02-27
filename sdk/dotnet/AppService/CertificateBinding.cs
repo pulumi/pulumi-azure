@@ -12,6 +12,99 @@ namespace Pulumi.Azure.AppService
     /// <summary>
     /// Manages an App Service Certificate Binding.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "webapp",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
+    ///     {
+    ///         Name = "appserviceplan",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
+    ///         {
+    ///             Tier = "Premium",
+    ///             Size = "P1",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
+    ///     {
+    ///         Name = "mywebapp",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AppServicePlanId = examplePlan.Id,
+    ///     });
+    /// 
+    ///     var example = Azure.Dns.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "example.com",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
+    ///     {
+    ///         Name = "www",
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Ttl = 300,
+    ///         Record = exampleAppService.DefaultSiteHostname,
+    ///     });
+    /// 
+    ///     var exampleTxtRecord = new Azure.Dns.TxtRecord("example", new()
+    ///     {
+    ///         Name = exampleCNameRecord.Name.Apply(name =&gt; $"asuid.{name}"),
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Ttl = 300,
+    ///         Records = new[]
+    ///         {
+    ///             new Azure.Dns.Inputs.TxtRecordRecordArgs
+    ///             {
+    ///                 Value = exampleAppService.CustomDomainVerificationId,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCustomHostnameBinding = new Azure.AppService.CustomHostnameBinding("example", new()
+    ///     {
+    ///         Hostname = Std.Trim.Invoke(new()
+    ///         {
+    ///             Input = exampleCNameRecord.Fqdn,
+    ///             Cutset = ".",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         AppServiceName = exampleAppService.Name,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleManagedCertificate = new Azure.AppService.ManagedCertificate("example", new()
+    ///     {
+    ///         CustomHostnameBindingId = exampleCustomHostnameBinding.Id,
+    ///     });
+    /// 
+    ///     var exampleCertificateBinding = new Azure.AppService.CertificateBinding("example", new()
+    ///     {
+    ///         HostnameBindingId = exampleCustomHostnameBinding.Id,
+    ///         CertificateId = exampleManagedCertificate.Id,
+    ///         SslState = "SniEnabled",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// App Service Certificate Bindings can be imported using the `hostname_binding_id` and the `app_service_certificate_id` , e.g.

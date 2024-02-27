@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetwork = azure.mobile.getNetwork({
+ * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkSlice = azure.mobile.getNetworkSlice({
+ * const exampleGetNetworkSlice = azure.mobile.getNetworkSlice({
  *     name: "example-mns",
- *     mobileNetworkId: data.azurerm_mobile_network.test.id,
+ *     mobileNetworkId: test.id,
  * });
  * ```
  */
@@ -84,13 +84,13 @@ export interface GetNetworkSliceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetwork = azure.mobile.getNetwork({
+ * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkSlice = azure.mobile.getNetworkSlice({
+ * const exampleGetNetworkSlice = azure.mobile.getNetworkSlice({
  *     name: "example-mns",
- *     mobileNetworkId: data.azurerm_mobile_network.test.id,
+ *     mobileNetworkId: test.id,
  * });
  * ```
  */

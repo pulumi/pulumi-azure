@@ -51,17 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-network&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-subnet&#34;)
  *             .resourceGroupName(exampleVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
@@ -75,8 +78,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDiskPool = new DiskPool(&#34;exampleDiskPool&#34;, DiskPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-disk-pool&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;Basic_B1&#34;)
  *             .subnetId(exampleSubnet.id())
  *             .zones(&#34;1&#34;)

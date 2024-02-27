@@ -27,21 +27,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//			_, err = dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				Record:            pulumi.String("contoso.com"),
 //			})
@@ -68,30 +71,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			target, err := dns.NewCNameRecord(ctx, "target", &dns.CNameRecordArgs{
+//				Name:              pulumi.String("target"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				Record:            pulumi.String("contoso.com"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
+//			_, err = dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				TargetResourceId:  target.ID(),
 //			})

@@ -12,6 +12,91 @@ namespace Pulumi.Azure.Synapse
     /// <summary>
     /// Manages a Synapse Spark Pool.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
+    ///     {
+    ///         Name = "examplestorageacc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AccountTier = "Standard",
+    ///         AccountReplicationType = "LRS",
+    ///         AccountKind = "StorageV2",
+    ///         IsHnsEnabled = true,
+    ///     });
+    /// 
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         StorageAccountId = exampleAccount.Id,
+    ///     });
+    /// 
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
+    ///         SqlAdministratorLogin = "sqladminuser",
+    ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
+    ///         Identity = new Azure.Synapse.Inputs.WorkspaceIdentityArgs
+    ///         {
+    ///             Type = "SystemAssigned",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSparkPool = new Azure.Synapse.SparkPool("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         SynapseWorkspaceId = exampleWorkspace.Id,
+    ///         NodeSizeFamily = "MemoryOptimized",
+    ///         NodeSize = "Small",
+    ///         CacheSize = 100,
+    ///         AutoScale = new Azure.Synapse.Inputs.SparkPoolAutoScaleArgs
+    ///         {
+    ///             MaxNodeCount = 50,
+    ///             MinNodeCount = 3,
+    ///         },
+    ///         AutoPause = new Azure.Synapse.Inputs.SparkPoolAutoPauseArgs
+    ///         {
+    ///             DelayInMinutes = 15,
+    ///         },
+    ///         LibraryRequirement = new Azure.Synapse.Inputs.SparkPoolLibraryRequirementArgs
+    ///         {
+    ///             Content = @"appnope==0.1.0
+    /// beautifulsoup4==4.6.3
+    /// ",
+    ///             Filename = "requirements.txt",
+    ///         },
+    ///         SparkConfig = new Azure.Synapse.Inputs.SparkPoolSparkConfigArgs
+    ///         {
+    ///             Content = @"spark.shuffle.spill                true
+    /// ",
+    ///             Filename = "config.txt",
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "ENV", "Production" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Synapse Spark Pool can be imported using the `resource id`, e.g.

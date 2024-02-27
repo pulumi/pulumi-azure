@@ -22,16 +22,17 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
     ///     });
     /// 
-    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("exampleMongoDatabase", new()
+    ///     var exampleMongoDatabase = new Azure.CosmosDB.MongoDatabase("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "tfex-cosmos-mongo-db",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         Throughput = 400,
     ///     });
     /// 

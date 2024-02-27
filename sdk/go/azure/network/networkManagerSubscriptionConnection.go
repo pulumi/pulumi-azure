@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -39,9 +40,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
+//				Name:              pulumi.String("example-networkmanager"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						*pulumi.String(current.Id),
@@ -54,7 +56,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "exampleNetworkManagerSubscriptionConnection", &network.NetworkManagerSubscriptionConnectionArgs{
+//			_, err = network.NewNetworkManagerSubscriptionConnection(ctx, "example", &network.NetworkManagerSubscriptionConnectionArgs{
+//				Name:             pulumi.String("example-nsnmc"),
 //				SubscriptionId:   *pulumi.String(current.Id),
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //				Description:      pulumi.String("example"),

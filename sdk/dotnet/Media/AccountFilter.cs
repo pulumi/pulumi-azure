@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemediaacc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
     ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
@@ -49,10 +52,11 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("exampleAccountFilter", new()
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("example", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
-    ///         MediaServicesAccountName = azurerm_media_services_account.Test.Name,
+    ///         Name = "Filter1",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         MediaServicesAccountName = test.Name,
     ///         FirstQualityBitrate = 128000,
     ///         PresentationTimeRange = new Azure.Media.Inputs.AccountFilterPresentationTimeRangeArgs
     ///         {

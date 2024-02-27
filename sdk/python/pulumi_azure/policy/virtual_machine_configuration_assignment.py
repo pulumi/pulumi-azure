@@ -176,26 +176,32 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-gca",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            resource_group_name=example.name,
+            location=example.location,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
+            name="examplevm",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             admin_password="P@$$w0rd1234!",
@@ -213,13 +219,15 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                 sku="2019-Datacenter",
                 version="latest",
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
             publisher="Microsoft.GuestConfiguration",
             type="ConfigurationforWindows",
             type_handler_version="1.29",
             auto_upgrade_minor_version=True)
-        example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment",
+        example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("example",
+            name="AzureWindowsBaseline",
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(
@@ -282,26 +290,32 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-gca",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            resource_group_name=example.name,
+            location=example.location,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_windows_virtual_machine = azure.compute.WindowsVirtualMachine("example",
+            name="examplevm",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             admin_password="P@$$w0rd1234!",
@@ -319,13 +333,15 @@ class VirtualMachineConfigurationAssignment(pulumi.CustomResource):
                 sku="2019-Datacenter",
                 version="latest",
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="AzurePolicyforWindows",
             virtual_machine_id=example_windows_virtual_machine.id,
             publisher="Microsoft.GuestConfiguration",
             type="ConfigurationforWindows",
             type_handler_version="1.29",
             auto_upgrade_minor_version=True)
-        example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment",
+        example_virtual_machine_configuration_assignment = azure.policy.VirtualMachineConfigurationAssignment("example",
+            name="AzureWindowsBaseline",
             location=example_windows_virtual_machine.location,
             virtual_machine_id=example_windows_virtual_machine.id,
             configuration=azure.policy.VirtualMachineConfigurationAssignmentConfigurationArgs(

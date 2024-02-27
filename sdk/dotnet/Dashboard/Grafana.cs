@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Dashboard
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleGrafana = new Azure.Dashboard.Grafana("exampleGrafana", new()
+    ///     var exampleGrafana = new Azure.Dashboard.Grafana("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-dg",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         ApiKeyEnabled = true,
     ///         DeterministicOutboundIpEnabled = true,

@@ -24,22 +24,25 @@ namespace Pulumi.Azure.Lb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "LoadBalancerRG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "PublicIPForLB",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "TestLoadBalancer",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -50,13 +53,15 @@ namespace Pulumi.Azure.Lb
     ///         },
     ///     });
     /// 
-    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///     });
     /// 
-    ///     var exampleOutboundRule = new Azure.Lb.OutboundRule("exampleOutboundRule", new()
+    ///     var exampleOutboundRule = new Azure.Lb.OutboundRule("example", new()
     ///     {
+    ///         Name = "OutboundRule",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///         Protocol = "Tcp",
     ///         BackendAddressPoolId = exampleBackendAddressPool.Id,

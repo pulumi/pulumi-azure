@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = search.NewService(ctx, "exampleService", &search.ServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
+//				Name:              pulumi.String("example-resource"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("standard"),
 //			})
 //			if err != nil {
@@ -64,15 +66,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = search.NewService(ctx, "exampleService", &search.ServiceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
+//				Name:                       pulumi.String("example-resource"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Sku:                        pulumi.String("standard"),
 //				LocalAuthenticationEnabled: pulumi.Bool(true),
 //				AuthenticationFailureMode:  pulumi.String("http403"),
@@ -100,15 +104,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = search.NewService(ctx, "exampleService", &search.ServiceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			_, err = search.NewService(ctx, "example", &search.ServiceArgs{
+//				Name:                       pulumi.String("example-resource"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Sku:                        pulumi.String("standard"),
 //				LocalAuthenticationEnabled: pulumi.Bool(false),
 //			})

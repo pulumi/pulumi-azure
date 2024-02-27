@@ -49,7 +49,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.DiskPoolIscsiTargetLun;
  * import com.pulumi.azure.compute.DiskPoolIscsiTargetLunArgs;
  * import com.pulumi.codegen.internal.KeyedValue;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -64,16 +63,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-network&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-subnet&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
@@ -87,6 +89,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDiskPool = new DiskPool(&#34;exampleDiskPool&#34;, DiskPoolArgs.builder()        
+ *             .name(&#34;example-pool&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .subnetId(exampleSubnet.id())
@@ -95,6 +98,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
+ *             .name(&#34;example-disk&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .createOption(&#34;Empty&#34;)
@@ -104,7 +108,7 @@ import javax.annotation.Nullable;
  *             .zone(&#34;1&#34;)
  *             .build());
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;StoragePool Resource Provider&#34;)
  *             .build());
  * 
@@ -114,7 +118,7 @@ import javax.annotation.Nullable;
  * 
  *         for (var i = 0; i &lt; roles.length(); i++) {
  *             new Assignment(&#34;exampleAssignment-&#34; + i, AssignmentArgs.builder()            
- *                 .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *                 .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
  *                 .roleDefinitionName(roles[range.value()])
  *                 .scope(exampleManagedDisk.id())
  *                 .build());
@@ -124,21 +128,19 @@ import javax.annotation.Nullable;
  *         var exampleDiskPoolManagedDiskAttachment = new DiskPoolManagedDiskAttachment(&#34;exampleDiskPoolManagedDiskAttachment&#34;, DiskPoolManagedDiskAttachmentArgs.builder()        
  *             .diskPoolId(exampleDiskPool.id())
  *             .managedDiskId(exampleManagedDisk.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *         var exampleDiskPoolIscsiTarget = new DiskPoolIscsiTarget(&#34;exampleDiskPoolIscsiTarget&#34;, DiskPoolIscsiTargetArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .aclMode(&#34;Dynamic&#34;)
  *             .disksPoolId(exampleDiskPool.id())
  *             .targetIqn(&#34;iqn.2021-11.com.microsoft:test&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDiskPoolManagedDiskAttachment)
- *                 .build());
+ *             .build());
  * 
  *         var exampleDiskPoolIscsiTargetLun = new DiskPoolIscsiTargetLun(&#34;exampleDiskPoolIscsiTargetLun&#34;, DiskPoolIscsiTargetLunArgs.builder()        
  *             .iscsiTargetId(exampleDiskPoolIscsiTarget.id())
  *             .diskPoolManagedDiskAttachmentId(exampleDiskPoolManagedDiskAttachment.id())
+ *             .name(&#34;example-disk&#34;)
  *             .build());
  * 
  *     }

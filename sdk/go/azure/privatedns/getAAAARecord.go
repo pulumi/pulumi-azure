@@ -25,14 +25,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := privatedns.NewAAAARecord(ctx, "example", &privatedns.AAAARecordArgs{
+//			_, err := privatedns.NewAAAARecord(ctx, "example", &privatedns.AAAARecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          pulumi.String("test-zone"),
 //				ResourceGroupName: pulumi.String("test-rg"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("privateDnsAaaaRecordId", example.ID())
+//			ctx.Export("privateDnsAaaaRecordId", exampleAzurermPrivateDnsAaaaRecord.Id)
 //			return nil
 //		})
 //	}

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//			_, err = containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
+//				Name:              pulumi.String("example-aks"),
 //				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				DnsPrefix:         pulumi.String("example-aks"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
@@ -51,15 +53,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesClusterExtension, err := containerservice.NewKubernetesClusterExtension(ctx, "exampleKubernetesClusterExtension", &containerservice.KubernetesClusterExtensionArgs{
-//				ClusterId:     pulumi.Any(azurerm_kubernetes_cluster.Test.Id),
+//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
+//				Name:          pulumi.String("example-ext"),
+//				ClusterId:     pulumi.Any(test.Id),
 //				ExtensionType: pulumi.String("microsoft.flux"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewFluxConfiguration(ctx, "exampleFluxConfiguration", &containerservice.FluxConfigurationArgs{
-//				ClusterId: pulumi.Any(azurerm_kubernetes_cluster.Test.Id),
+//			_, err = containerservice.NewFluxConfiguration(ctx, "example", &containerservice.FluxConfigurationArgs{
+//				Name:      pulumi.String("example-fc"),
+//				ClusterId: pulumi.Any(test.Id),
 //				Namespace: pulumi.String("flux"),
 //				GitRepository: &containerservice.FluxConfigurationGitRepositoryArgs{
 //					Url:            pulumi.String("https://github.com/Azure/arc-k8s-demo"),
@@ -71,9 +75,7 @@ import (
 //						Name: pulumi.String("kustomization-1"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKubernetesClusterExtension,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

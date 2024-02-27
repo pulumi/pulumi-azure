@@ -22,25 +22,28 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
@@ -48,24 +51,27 @@ namespace Pulumi.Azure.DataFactory
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "my-kusto-database",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = exampleCluster.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceKusto = new Azure.DataFactory.LinkedServiceKusto("exampleLinkedServiceKusto", new()
+    ///     var exampleLinkedServiceKusto = new Azure.DataFactory.LinkedServiceKusto("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         KustoEndpoint = exampleCluster.Uri,
     ///         KustoDatabaseName = exampleDatabase.Name,
     ///         UseManagedIdentity = true,
     ///     });
     /// 
-    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new()
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "KustoPrincipalAssignment",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         DatabaseName = exampleDatabase.Name,
     ///         TenantId = exampleFactory.Identity.Apply(identity =&gt; identity?.TenantId),

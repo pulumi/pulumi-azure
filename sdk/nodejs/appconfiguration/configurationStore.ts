@@ -13,8 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
+ *     name: "appConf1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
@@ -25,15 +29,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-identity",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "exampleKVt123",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     softDeleteRetentionDays: 7,
@@ -72,7 +81,8 @@ import * as utilities from "../utilities";
  *     ],
  *     secretPermissions: ["Get"],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "exampleKVkey",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -84,15 +94,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         client,
- *         server,
- *     ],
  * });
- * const exampleConfigurationStore = new azure.appconfiguration.ConfigurationStore("exampleConfigurationStore", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleConfigurationStore = new azure.appconfiguration.ConfigurationStore("example", {
+ *     name: "appConf2",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  *     localAuthEnabled: true,
  *     publicNetworkAccess: "Enabled",
@@ -113,11 +119,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "development",
  *     },
- * }, {
- *     dependsOn: [
- *         client,
- *         server,
- *     ],
  * });
  * ```
  *

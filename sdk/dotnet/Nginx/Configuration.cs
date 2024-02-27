@@ -12,6 +12,145 @@ namespace Pulumi.Azure.Nginx
     /// <summary>
     /// Manages the configuration for a Nginx Deployment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "delegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "NGINX.NGINXPLUS/nginxDeployments",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
+    ///     {
+    ///         Name = "example-nginx",
+    ///         ResourceGroupName = example.Name,
+    ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
+    ///         Location = example.Location,
+    ///         ManagedResourceGroup = "example",
+    ///         DiagnoseSupportEnabled = true,
+    ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
+    ///         {
+    ///             IpAddresses = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
+    ///         },
+    ///         NetworkInterfaces = new[]
+    ///         {
+    ///             new Azure.Nginx.Inputs.DeploymentNetworkInterfaceArgs
+    ///             {
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleConfiguration = new Azure.Nginx.Configuration("example", new()
+    ///     {
+    ///         NginxDeploymentId = exampleDeployment.Id,
+    ///         RootFile = "/etc/nginx/nginx.conf",
+    ///         ConfigFiles = new[]
+    ///         {
+    ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
+    ///             {
+    ///                 Content = Std.Base64encode.Invoke(new()
+    ///                 {
+    ///                     Input = @"http {
+    ///     server {
+    ///         listen 80;
+    ///         location / {
+    ///             default_type text/html;
+    ///             return 200 '&lt;!doctype html&gt;&lt;html lang=""en""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+    ///                 &lt;div&gt;this one will be updated&lt;/div&gt;
+    ///                 &lt;div&gt;at 10:38 am&lt;/div&gt;
+    ///             &lt;/body&gt;&lt;/html&gt;';
+    ///         }
+    ///         include site/*.conf;
+    ///     }
+    /// }
+    /// ",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 VirtualPath = "/etc/nginx/nginx.conf",
+    ///             },
+    ///             new Azure.Nginx.Inputs.ConfigurationConfigFileArgs
+    ///             {
+    ///                 Content = Std.Base64encode.Invoke(new()
+    ///                 {
+    ///                     Input = @"location /bbb {
+    ///  default_type text/html;
+    ///  return 200 '&lt;!doctype html&gt;&lt;html lang=""en""&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+    ///   &lt;div&gt;this one will be updated&lt;/div&gt;
+    ///   &lt;div&gt;at 10:38 am&lt;/div&gt;
+    ///  &lt;/body&gt;&lt;/html&gt;';
+    /// }
+    /// ",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///                 VirtualPath = "/etc/nginx/site/b.conf",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An Nginx Configuration can be imported using the `resource id`, e.g.

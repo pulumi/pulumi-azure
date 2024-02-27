@@ -13,13 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAccount = new azure.batch.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "west europe",
  * });
- * const examplePool = new azure.batch.Pool("examplePool", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.batch.Account("example", {
+ *     name: "exampleaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const examplePool = new azure.batch.Pool("example", {
+ *     name: "examplepool",
+ *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
  *     nodeAgentSkuId: "batch.node.ubuntu 16.04",
  *     vmSize: "Standard_A1",
@@ -33,7 +38,10 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleJob = new azure.batch.Job("exampleJob", {batchPoolId: examplePool.id});
+ * const exampleJob = new azure.batch.Job("example", {
+ *     name: "examplejob",
+ *     batchPoolId: examplePool.id,
+ * });
  * ```
  *
  * ## Import

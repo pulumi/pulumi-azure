@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewPowershell72Module(ctx, "examplePowershell72Module", &automation.Powershell72ModuleArgs{
+//			_, err = automation.NewPowershell72Module(ctx, "example", &automation.Powershell72ModuleArgs{
+//				Name:                pulumi.String("xActiveDirectory"),
 //				AutomationAccountId: exampleAccount.ID(),
 //				ModuleLink: &automation.Powershell72ModuleModuleLinkArgs{
 //					Uri: pulumi.String("https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg"),

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			srcResourceGroup, err := core.NewResourceGroup(ctx, "srcResourceGroup", &core.ResourceGroupArgs{
+//			src, err := core.NewResourceGroup(ctx, "src", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("srcResourceGroupName"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			srcAccount, err := storage.NewAccount(ctx, "srcAccount", &storage.AccountArgs{
-//				ResourceGroupName:      srcResourceGroup.Name,
-//				Location:               srcResourceGroup.Location,
+//			srcAccount, err := storage.NewAccount(ctx, "src", &storage.AccountArgs{
+//				Name:                   pulumi.String("srcstorageaccount"),
+//				ResourceGroupName:      src.Name,
+//				Location:               src.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				BlobProperties: &storage.AccountBlobPropertiesArgs{
@@ -48,22 +50,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			srcContainer, err := storage.NewContainer(ctx, "srcContainer", &storage.ContainerArgs{
+//			srcContainer, err := storage.NewContainer(ctx, "src", &storage.ContainerArgs{
+//				Name:                pulumi.String("srcstrcontainer"),
 //				StorageAccountName:  srcAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			dstResourceGroup, err := core.NewResourceGroup(ctx, "dstResourceGroup", &core.ResourceGroupArgs{
+//			dst, err := core.NewResourceGroup(ctx, "dst", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("dstResourceGroupName"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			dstAccount, err := storage.NewAccount(ctx, "dstAccount", &storage.AccountArgs{
-//				ResourceGroupName:      dstResourceGroup.Name,
-//				Location:               dstResourceGroup.Location,
+//			dstAccount, err := storage.NewAccount(ctx, "dst", &storage.AccountArgs{
+//				Name:                   pulumi.String("dststorageaccount"),
+//				ResourceGroupName:      dst.Name,
+//				Location:               dst.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				BlobProperties: &storage.AccountBlobPropertiesArgs{
@@ -74,7 +79,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			dstContainer, err := storage.NewContainer(ctx, "dstContainer", &storage.ContainerArgs{
+//			dstContainer, err := storage.NewContainer(ctx, "dst", &storage.ContainerArgs{
+//				Name:                pulumi.String("dststrcontainer"),
 //				StorageAccountName:  dstAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})

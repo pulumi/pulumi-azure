@@ -354,10 +354,13 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-datadog",
+            location="West US 2")
+        example_monitor = azure.datadog.Monitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
                 api_key="XXXX",
                 application_key="XXXX",
@@ -386,7 +389,7 @@ class Monitor(pulumi.CustomResource):
         example = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=azurerm_datadog_monitor["example"]["identity"][0]["principal_id"])
+            principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
 
         ## Import
@@ -425,10 +428,13 @@ class Monitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-datadog",
+            location="West US 2")
+        example_monitor = azure.datadog.Monitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
                 api_key="XXXX",
                 application_key="XXXX",
@@ -457,7 +463,7 @@ class Monitor(pulumi.CustomResource):
         example = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_id=monitoring_reader.role_definition_id,
-            principal_id=azurerm_datadog_monitor["example"]["identity"][0]["principal_id"])
+            principal_id=example_azurerm_datadog_monitor["identity"][0]["principalId"])
         ```
 
         ## Import

@@ -21,36 +21,28 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/nginx"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AllocationMethod:  pulumi.String("Static"),
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
@@ -60,18 +52,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -91,10 +85,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDeployment, err := nginx.NewDeployment(ctx, "exampleDeployment", &nginx.DeploymentArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleDeployment, err := nginx.NewDeployment(ctx, "example", &nginx.DeploymentArgs{
+//				Name:                   pulumi.String("example-nginx"),
+//				ResourceGroupName:      example.Name,
 //				Sku:                    pulumi.String("publicpreview_Monthly_gmz7xq9ge3py"),
-//				Location:               exampleResourceGroup.Location,
+//				Location:               example.Location,
 //				ManagedResourceGroup:   pulumi.String("example"),
 //				DiagnoseSupportEnabled: pulumi.Bool(true),
 //				FrontendPublic: &nginx.DeploymentFrontendPublicArgs{
@@ -115,9 +110,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("examplekeyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -144,17 +140,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate-to-import.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("imported-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: filebase64OrPanic("certificate-to-import.pfx"),
+//					Contents: invokeFilebase64.Result,
 //					Password: pulumi.String(""),
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = nginx.NewCertificate(ctx, "exampleNginx/certificateCertificate", &nginx.CertificateArgs{
+//			_, err = nginx.NewCertificate(ctx, "example", &nginx.CertificateArgs{
+//				Name:                   pulumi.String("examplecert"),
 //				NginxDeploymentId:      exampleDeployment.ID(),
 //				KeyVirtualPath:         pulumi.String("/src/cert/soservermekey.key"),
 //				CertificateVirtualPath: pulumi.String("/src/cert/server.cert"),

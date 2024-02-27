@@ -24,15 +24,17 @@ namespace Pulumi.Azure.WebPubSub
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         SoftDeleteRetentionDays = 7,
@@ -58,16 +60,18 @@ namespace Pulumi.Azure.WebPubSub
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-webpubsub",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard_S1",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleSharedPrivateLinkResource = new Azure.WebPubSub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", new()
+    ///     var exampleSharedPrivateLinkResource = new Azure.WebPubSub.SharedPrivateLinkResource("example", new()
     ///     {
+    ///         Name = "tfex-webpubsub-splr",
     ///         WebPubsubId = exampleService.Id,
     ///         SubresourceName = "vault",
     ///         TargetResourceId = exampleKeyVault.Id,

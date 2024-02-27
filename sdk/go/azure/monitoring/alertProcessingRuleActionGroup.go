@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-action-group"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("action"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewAlertProcessingRuleActionGroup(ctx, "exampleAlertProcessingRuleActionGroup", &monitoring.AlertProcessingRuleActionGroupArgs{
+//			_, err = monitoring.NewAlertProcessingRuleActionGroup(ctx, "example", &monitoring.AlertProcessingRuleActionGroupArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Scopes: pulumi.StringArray{
-//					exampleResourceGroup.ID(),
+//					example.ID(),
 //				},
 //				AddActionGroupIds: pulumi.StringArray{
 //					exampleActionGroup.ID(),

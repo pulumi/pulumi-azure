@@ -31,20 +31,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "exampleLinkedServiceCosmosDbMongoApi", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
+//			_, err = datafactory.NewLinkedServiceCosmosDbMongoApi(ctx, "example", &datafactory.LinkedServiceCosmosDbMongoApiArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("mongodb://testinstance:testkey@testinstance.documents.azure.com:10255/?ssl=true"),
 //				Database:         pulumi.String("foo"),

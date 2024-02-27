@@ -20,6 +20,137 @@ import javax.annotation.Nullable;
 /**
  * Manages the configuration for a Nginx Deployment.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.PublicIp;
+ * import com.pulumi.azure.network.PublicIpArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.Subnet;
+ * import com.pulumi.azure.network.SubnetArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationArgs;
+ * import com.pulumi.azure.network.inputs.SubnetDelegationServiceDelegationArgs;
+ * import com.pulumi.azure.nginx.Deployment;
+ * import com.pulumi.azure.nginx.DeploymentArgs;
+ * import com.pulumi.azure.nginx.inputs.DeploymentFrontendPublicArgs;
+ * import com.pulumi.azure.nginx.inputs.DeploymentNetworkInterfaceArgs;
+ * import com.pulumi.azure.nginx.Configuration;
+ * import com.pulumi.azure.nginx.ConfigurationArgs;
+ * import com.pulumi.azure.nginx.inputs.ConfigurationConfigFileArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .allocationMethod(&#34;Static&#34;)
+ *             .sku(&#34;Standard&#34;)
+ *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
+ *             .build());
+ * 
+ *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
+ *             .addressSpaces(&#34;10.0.0.0/16&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(exampleVirtualNetwork.name())
+ *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
+ *             .delegations(SubnetDelegationArgs.builder()
+ *                 .name(&#34;delegation&#34;)
+ *                 .serviceDelegation(SubnetDelegationServiceDelegationArgs.builder()
+ *                     .name(&#34;NGINX.NGINXPLUS/nginxDeployments&#34;)
+ *                     .actions(&#34;Microsoft.Network/virtualNetworks/subnets/join/action&#34;)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .name(&#34;example-nginx&#34;)
+ *             .resourceGroupName(example.name())
+ *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
+ *             .location(example.location())
+ *             .managedResourceGroup(&#34;example&#34;)
+ *             .diagnoseSupportEnabled(true)
+ *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
+ *                 .ipAddresses(examplePublicIp.id())
+ *                 .build())
+ *             .networkInterfaces(DeploymentNetworkInterfaceArgs.builder()
+ *                 .subnetId(exampleSubnet.id())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
+ *             .nginxDeploymentId(exampleDeployment.id())
+ *             .rootFile(&#34;/etc/nginx/nginx.conf&#34;)
+ *             .configFiles(            
+ *                 ConfigurationConfigFileArgs.builder()
+ *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input(&#34;&#34;&#34;
+ * http {
+ *     server {
+ *         listen 80;
+ *         location / {
+ *             default_type text/html;
+ *             return 200 &#39;&lt;!doctype html&gt;&lt;html lang=&#34;en&#34;&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+ *                 &lt;div&gt;this one will be updated&lt;/div&gt;
+ *                 &lt;div&gt;at 10:38 am&lt;/div&gt;
+ *             &lt;/body&gt;&lt;/html&gt;&#39;;
+ *         }
+ *         include site/*.conf;
+ *     }
+ * }
+ *                         &#34;&#34;&#34;)
+ *                         .build()).result())
+ *                     .virtualPath(&#34;/etc/nginx/nginx.conf&#34;)
+ *                     .build(),
+ *                 ConfigurationConfigFileArgs.builder()
+ *                     .content(StdFunctions.base64encode(Base64encodeArgs.builder()
+ *                         .input(&#34;&#34;&#34;
+ * location /bbb {
+ *  default_type text/html;
+ *  return 200 &#39;&lt;!doctype html&gt;&lt;html lang=&#34;en&#34;&gt;&lt;head&gt;&lt;/head&gt;&lt;body&gt;
+ *   &lt;div&gt;this one will be updated&lt;/div&gt;
+ *   &lt;div&gt;at 10:38 am&lt;/div&gt;
+ *  &lt;/body&gt;&lt;/html&gt;&#39;;
+ * }
+ *                         &#34;&#34;&#34;)
+ *                         .build()).result())
+ *                     .virtualPath(&#34;/etc/nginx/site/b.conf&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * An Nginx Configuration can be imported using the `resource id`, e.g.

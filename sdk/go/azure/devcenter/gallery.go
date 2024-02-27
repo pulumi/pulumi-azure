@@ -31,22 +31,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "testUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//			testUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "test", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devcenter.NewDevCenter(ctx, "testDevCenter", &devcenter.DevCenterArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
+//			_, err = devcenter.NewDevCenter(ctx, "test", &devcenter.DevCenterArgs{
+//				Name:              pulumi.String("example-devcenter"),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
 //				Identity: &devcenter.DevCenterIdentityArgs{
 //					Type: pulumi.String("UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
@@ -57,16 +60,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
+//				Name:              pulumi.String("example-image-gallery"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devcenter.NewGallery(ctx, "exampleGallery", &devcenter.GalleryArgs{
-//				DevCenterId:     pulumi.Any(azurerm_dev_center.Example.Id),
+//			_, err = devcenter.NewGallery(ctx, "example", &devcenter.GalleryArgs{
+//				DevCenterId:     pulumi.Any(exampleAzurermDevCenter.Id),
 //				SharedGalleryId: exampleSharedImageGallery.ID(),
+//				Name:            pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

@@ -13,21 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "northeurope"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "northeurope",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-server",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.mssql.Database("example", {
+ *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     skuName: "S1",
  * });
- * const exampleJobAgent = new azure.mssql.JobAgent("exampleJobAgent", {
- *     location: exampleResourceGroup.location,
+ * const exampleJobAgent = new azure.mssql.JobAgent("example", {
+ *     name: "example-job-agent",
+ *     location: example.location,
  *     databaseId: exampleDatabase.id,
  * });
  * ```

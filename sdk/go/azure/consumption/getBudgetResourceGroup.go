@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := consumption.LookupBudgetResourceGroup(ctx, &consumption.LookupBudgetResourceGroupArgs{
 //				Name:            "existing",
-//				ResourceGroupId: azurerm_resource_group.Example.Id,
+//				ResourceGroupId: exampleAzurermResourceGroup.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -54,10 +54,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;my-kusto-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;kustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var database = new Database(&#34;database&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;my-kusto-database&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(cluster.name())
@@ -75,12 +78,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var eventhubNs = new EventHubNamespace(&#34;eventhubNs&#34;, EventHubNamespaceArgs.builder()        
+ *             .name(&#34;my-eventhub-ns&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var eventhub = new EventHub(&#34;eventhub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;my-eventhub&#34;)
  *             .namespaceName(eventhubNs.name())
  *             .resourceGroupName(example.name())
  *             .partitionCount(1)
@@ -88,12 +93,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var consumerGroup = new ConsumerGroup(&#34;consumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;my-eventhub-consumergroup&#34;)
  *             .namespaceName(eventhubNs.name())
  *             .eventhubName(eventhub.name())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var eventhubConnection = new EventhubDataConnection(&#34;eventhubConnection&#34;, EventhubDataConnectionArgs.builder()        
+ *             .name(&#34;my-kusto-eventhub-data-connection&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(cluster.name())

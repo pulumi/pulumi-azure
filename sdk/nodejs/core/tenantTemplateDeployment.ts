@@ -11,14 +11,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleTemplateSpecVersion = azure.core.getTemplateSpecVersion({
+ * const example = azure.core.getTemplateSpecVersion({
  *     name: "myTemplateForTenant",
  *     resourceGroupName: "myResourceGroup",
  *     version: "v0.1",
  * });
- * const exampleTenantTemplateDeployment = new azure.core.TenantTemplateDeployment("exampleTenantTemplateDeployment", {
+ * const exampleTenantTemplateDeployment = new azure.core.TenantTemplateDeployment("example", {
+ *     name: "example",
  *     location: "West Europe",
- *     templateSpecVersionId: exampleTemplateSpecVersion.then(exampleTemplateSpecVersion => exampleTemplateSpecVersion.id),
+ *     templateSpecVersionId: example.then(example => example.id),
  * });
  * ```
  *

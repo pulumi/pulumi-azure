@@ -52,18 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-virtualnetwork&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -78,21 +81,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-netappaccount&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
+ *             .name(&#34;example-netapppool&#34;)
  *             .accountName(exampleAccount.name())
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .serviceLevel(&#34;Premium&#34;)
  *             .sizeInTb(&#34;4&#34;)
  *             .build());
  * 
  *         var exampleVolume = new Volume(&#34;exampleVolume&#34;, VolumeArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-netappvolume&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())
  *             .volumePath(&#34;my-unique-file-path&#34;)
@@ -102,11 +108,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
+ *             .name(&#34;example-netappsnapshot&#34;)
  *             .accountName(exampleAccount.name())
  *             .poolName(examplePool.name())
  *             .volumeName(exampleVolume.name())
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

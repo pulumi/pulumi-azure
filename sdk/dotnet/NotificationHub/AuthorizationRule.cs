@@ -22,31 +22,35 @@ namespace Pulumi.Azure.NotificationHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "notificationhub-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.NotificationHub.Namespace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "myappnamespace",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         NamespaceType = "NotificationHub",
     ///         SkuName = "Free",
     ///     });
     /// 
-    ///     var exampleHub = new Azure.NotificationHub.Hub("exampleHub", new()
+    ///     var exampleHub = new Azure.NotificationHub.Hub("example", new()
     ///     {
+    ///         Name = "mynotificationhub",
     ///         NamespaceName = exampleNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.NotificationHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     var exampleAuthorizationRule = new Azure.NotificationHub.AuthorizationRule("example", new()
     ///     {
+    ///         Name = "management-auth-rule",
     ///         NotificationHubName = exampleHub.Name,
     ///         NamespaceName = exampleNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Manage = true,
     ///         Send = true,
     ///         Listen = true,

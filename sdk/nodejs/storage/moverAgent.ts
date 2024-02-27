@@ -13,11 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleMover = new azure.storage.Mover("exampleMover", {resourceGroupName: exampleResourceGroup.name});
- * const exampleMoverAgent = new azure.storage.MoverAgent("exampleMoverAgent", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "East US",
+ * });
+ * const exampleMover = new azure.storage.Mover("example", {
+ *     name: "example-ssm",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleMoverAgent = new azure.storage.MoverAgent("example", {
+ *     name: "example-sa",
  *     storageMoverId: exampleMover.id,
- *     arcVirtualMachineId: pulumi.interpolate`${exampleResourceGroup.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName`,
+ *     arcVirtualMachineId: pulumi.interpolate`${example.id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName`,
  *     arcVirtualMachineUuid: "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
  *     description: "Example Agent Description",
  * });

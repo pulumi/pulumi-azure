@@ -526,13 +526,17 @@ class EnvironmentV3(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG1",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -542,8 +546,9 @@ class EnvironmentV3(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
             )])
-        example_environment_v3 = azure.appservice.EnvironmentV3("exampleEnvironmentV3",
-            resource_group_name=example_resource_group.name,
+        example_environment_v3 = azure.appservice.EnvironmentV3("example",
+            name="example-asev3",
+            resource_group_name=example.name,
             subnet_id=example_subnet.id,
             internal_load_balancing_mode="Web, Publishing",
             cluster_settings=[
@@ -564,9 +569,10 @@ class EnvironmentV3(pulumi.CustomResource):
                 "env": "production",
                 "terraformed": "true",
             })
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             os_type="Linux",
             sku_name="I1v2",
             app_service_environment_id=example_environment_v3.id)
@@ -614,13 +620,17 @@ class EnvironmentV3(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG1",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -630,8 +640,9 @@ class EnvironmentV3(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 ),
             )])
-        example_environment_v3 = azure.appservice.EnvironmentV3("exampleEnvironmentV3",
-            resource_group_name=example_resource_group.name,
+        example_environment_v3 = azure.appservice.EnvironmentV3("example",
+            name="example-asev3",
+            resource_group_name=example.name,
             subnet_id=example_subnet.id,
             internal_load_balancing_mode="Web, Publishing",
             cluster_settings=[
@@ -652,9 +663,10 @@ class EnvironmentV3(pulumi.CustomResource):
                 "env": "production",
                 "terraformed": "true",
             })
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             os_type="Linux",
             sku_name="I1v2",
             app_service_environment_id=example_environment_v3.id)

@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OfferType:         pulumi.String("Standard"),
 //				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
@@ -49,7 +51,7 @@ import (
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         exampleResourceGroup.Location,
+//						Location:         example.Location,
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
@@ -57,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("cosmos-sql-db"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //				Throughput:        pulumi.Int(400),
@@ -65,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("example-container"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //				DatabaseName:      exampleSqlDatabase.Name,
@@ -74,18 +78,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			_, err = storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example-serviceplan"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("P1v2"),
 //				OsType:            pulumi.String("Linux"),
 //			})
@@ -93,18 +99,20 @@ import (
 //				return err
 //			}
 //			_, err = appservice.NewFunctionApp(ctx, "test", &appservice.FunctionAppArgs{
-//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
-//				AppServicePlanId:        pulumi.Any(azurerm_app_service_plan.Test.Id),
-//				StorageAccountName:      pulumi.Any(azurerm_storage_account.Test.Name),
-//				StorageAccountAccessKey: pulumi.Any(azurerm_storage_account.Test.Primary_access_key),
+//				Name:                    pulumi.String("example-function-app"),
+//				Location:                pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
+//				AppServicePlanId:        pulumi.Any(testAzurermAppServicePlan.Id),
+//				StorageAccountName:      pulumi.Any(testAzurermStorageAccount.Name),
+//				StorageAccountAccessKey: pulumi.Any(testAzurermStorageAccount.PrimaryAccessKey),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewAppConnection(ctx, "exampleAppConnection", &appservice.AppConnectionArgs{
-//				FunctionAppId:    pulumi.Any(azurerm_function_app.Example.Id),
-//				TargetResourceId: pulumi.Any(azurerm_cosmosdb_account.Test.Id),
+//			_, err = appservice.NewAppConnection(ctx, "example", &appservice.AppConnectionArgs{
+//				Name:             pulumi.String("example-serviceconnector"),
+//				FunctionAppId:    pulumi.Any(exampleAzurermFunctionApp.Id),
+//				TargetResourceId: pulumi.Any(testAzurermCosmosdbAccount.Id),
 //				Authentication: &appservice.AppConnectionAuthenticationArgs{
 //					Type: pulumi.String("systemAssignedIdentity"),
 //				},

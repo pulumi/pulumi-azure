@@ -15,13 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleResourceDeploymentScriptPowerShell = new azure.core.ResourceDeploymentScriptPowerShell("exampleResourceDeploymentScriptPowerShell", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleResourceDeploymentScriptPowerShell = new azure.core.ResourceDeploymentScriptPowerShell("example", {
+ *     name: "example-rdsaps",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     version: "8.3",
  *     retentionInterval: "P1D",

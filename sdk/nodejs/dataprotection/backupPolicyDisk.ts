@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     name: "example-backup-vault",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  * });
- * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("exampleBackupPolicyDisk", {
+ * const exampleBackupPolicyDisk = new azure.dataprotection.BackupPolicyDisk("example", {
+ *     name: "example-backup-policy",
  *     vaultId: exampleBackupVault.id,
  *     backupRepeatingTimeIntervals: ["R/2021-05-19T06:33:16+00:00/PT4H"],
  *     defaultRetentionDuration: "P7D",

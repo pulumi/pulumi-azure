@@ -48,11 +48,11 @@ namespace Pulumi.Azure.ContainerService.Inputs
         ///                 Name = "aciDelegation",
         ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
         ///                 {
+        ///                     Name = "Microsoft.ContainerInstance/containerGroups",
         ///                     Actions = new[]
         ///                     {
         ///                         "Microsoft.Network/virtualNetworks/subnets/action",
         ///                     },
-        ///                     Name = "Microsoft.ContainerInstance/containerGroups",
         ///                 },
         ///             },
         ///         },

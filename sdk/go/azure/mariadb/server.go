@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mariadb.NewServer(ctx, "exampleServer", &mariadb.ServerArgs{
-//				Location:                     exampleResourceGroup.Location,
-//				ResourceGroupName:            exampleResourceGroup.Name,
+//			_, err = mariadb.NewServer(ctx, "example", &mariadb.ServerArgs{
+//				Name:                         pulumi.String("example-mariadb-server"),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
 //				AdministratorLogin:           pulumi.String("mariadbadmin"),
 //				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                      pulumi.String("B_Gen5_2"),

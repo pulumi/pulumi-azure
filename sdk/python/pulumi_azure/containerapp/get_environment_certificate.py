@@ -146,10 +146,10 @@ def get_environment_certificate(container_app_environment_id: Optional[str] = No
     import pulumi
     import pulumi_azure as azure
 
-    example_environment = azure.containerapp.get_environment(name="example-environment",
+    example = azure.containerapp.get_environment(name="example-environment",
         resource_group_name="example-resources")
-    example_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
-        container_app_environment_id=example_environment.id)
+    example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
+        container_app_environment_id=example.id)
     ```
 
 
@@ -187,10 +187,10 @@ def get_environment_certificate_output(container_app_environment_id: Optional[pu
     import pulumi
     import pulumi_azure as azure
 
-    example_environment = azure.containerapp.get_environment(name="example-environment",
+    example = azure.containerapp.get_environment(name="example-environment",
         resource_group_name="example-resources")
-    example_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
-        container_app_environment_id=example_environment.id)
+    example_get_environment_certificate = azure.containerapp.get_environment_certificate(name="mycertificate",
+        container_app_environment_id=example.id)
     ```
 
 

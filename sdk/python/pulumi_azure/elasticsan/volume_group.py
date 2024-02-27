@@ -282,30 +282,37 @@ class VolumeGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_elastic_san = azure.elasticsan.ElasticSan("exampleElasticSan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_elastic_san = azure.elasticsan.ElasticSan("example",
+            name="examplees-es",
+            resource_group_name=example.name,
+            location=example.location,
             base_size_in_tib=1,
             sku=azure.elasticsan.ElasticSanSkuArgs(
                 name="Premium_LRS",
             ))
         current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
             service_endpoints=["Microsoft.Storage.Global"])
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -342,7 +349,8 @@ class VolumeGroup(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-kvk",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -353,12 +361,9 @@ class VolumeGroup(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    user_assigned_identity,
-                    client,
-                ]))
-        example_volume_group = azure.elasticsan.VolumeGroup("exampleVolumeGroup",
+            ])
+        example_volume_group = azure.elasticsan.VolumeGroup("example",
+            name="example-esvg",
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption=azure.elasticsan.VolumeGroupEncryptionArgs(
@@ -410,30 +415,37 @@ class VolumeGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_elastic_san = azure.elasticsan.ElasticSan("exampleElasticSan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_elastic_san = azure.elasticsan.ElasticSan("example",
+            name="examplees-es",
+            resource_group_name=example.name,
+            location=example.location,
             base_size_in_tib=1,
             sku=azure.elasticsan.ElasticSanSkuArgs(
                 name="Premium_LRS",
             ))
         current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
             service_endpoints=["Microsoft.Storage.Global"])
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             enabled_for_disk_encryption=True,
             tenant_id=current.tenant_id,
             soft_delete_retention_days=7,
@@ -470,7 +482,8 @@ class VolumeGroup(pulumi.CustomResource):
                 "GetRotationPolicy",
             ],
             secret_permissions=["Get"])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="example-kvk",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -481,12 +494,9 @@ class VolumeGroup(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    user_assigned_identity,
-                    client,
-                ]))
-        example_volume_group = azure.elasticsan.VolumeGroup("exampleVolumeGroup",
+            ])
+        example_volume_group = azure.elasticsan.VolumeGroup("example",
+            name="example-esvg",
             elastic_san_id=example_elastic_san.id,
             encryption_type="EncryptionAtRestWithCustomerManagedKey",
             encryption=azure.elasticsan.VolumeGroupEncryptionArgs(

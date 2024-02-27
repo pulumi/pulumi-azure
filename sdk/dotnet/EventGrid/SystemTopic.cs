@@ -22,15 +22,17 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracct",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         Tags = 
@@ -39,10 +41,11 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new()
+    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-topic",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SourceArmResourceId = exampleAccount.Id,
     ///         TopicType = "Microsoft.Storage.StorageAccounts",
     ///     });

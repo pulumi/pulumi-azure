@@ -14,6 +14,107 @@ import (
 
 // Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appinsights"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				ApplicationType:   pulumi.String("web"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-mag"),
+//				ResourceGroupName: example.Name,
+//				ShortName:         pulumi.String("test mag"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewScheduledQueryRulesAlertV2(ctx, "example", &monitoring.ScheduledQueryRulesAlertV2Args{
+//				Name:                pulumi.String("example-msqrv2"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
+//				EvaluationFrequency: pulumi.String("PT10M"),
+//				WindowDuration:      pulumi.String("PT10M"),
+//				Scopes:              exampleInsights.ID(),
+//				Severity:            pulumi.Int(4),
+//				Criterias: monitoring.ScheduledQueryRulesAlertV2CriteriaArray{
+//					&monitoring.ScheduledQueryRulesAlertV2CriteriaArgs{
+//						Query:                 pulumi.String("requests\n  | summarize CountByCountry=count() by client_CountryOrRegion\n"),
+//						TimeAggregationMethod: pulumi.String("Maximum"),
+//						Threshold:             pulumi.Float64(17.5),
+//						Operator:              pulumi.String("LessThan"),
+//						ResourceIdColumn:      pulumi.String("client_CountryOrRegion"),
+//						MetricMeasureColumn:   pulumi.String("CountByCountry"),
+//						Dimensions: monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArray{
+//							&monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs{
+//								Name:     pulumi.String("client_CountryOrRegion"),
+//								Operator: pulumi.String("Exclude"),
+//								Values: pulumi.StringArray{
+//									pulumi.String("123"),
+//								},
+//							},
+//						},
+//						FailingPeriods: &monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs{
+//							MinimumFailingPeriodsToTriggerAlert: pulumi.Int(1),
+//							NumberOfEvaluationPeriods:           pulumi.Int(1),
+//						},
+//					},
+//				},
+//				AutoMitigationEnabled:         pulumi.Bool(true),
+//				WorkspaceAlertsStorageEnabled: pulumi.Bool(false),
+//				Description:                   pulumi.String("example sqr"),
+//				DisplayName:                   pulumi.String("example-sqr"),
+//				Enabled:                       pulumi.Bool(true),
+//				QueryTimeRangeOverride:        pulumi.String("PT1H"),
+//				SkipQueryValidation:           pulumi.Bool(true),
+//				Action: &monitoring.ScheduledQueryRulesAlertV2ActionArgs{
+//					ActionGroups: pulumi.StringArray{
+//						exampleActionGroup.ID(),
+//					},
+//					CustomProperties: pulumi.StringMap{
+//						"key":  pulumi.String("value"),
+//						"key2": pulumi.String("value2"),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"key":  pulumi.String("value"),
+//					"key2": pulumi.String("value2"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.

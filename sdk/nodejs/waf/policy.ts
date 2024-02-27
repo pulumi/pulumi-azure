@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePolicy = new azure.waf.Policy("examplePolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const examplePolicy = new azure.waf.Policy("example", {
+ *     name: "example-wafpolicy",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     customRules: [
  *         {
  *             name: "Rule1",

@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         LogVerbose = true,
     ///         LogProgress = true,
@@ -52,8 +55,9 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", new()
+    ///     var exampleSoftwareUpdateConfiguration = new Azure.Automation.SoftwareUpdateConfiguration("example", new()
     ///     {
+    ///         Name = "example",
     ///         AutomationAccountId = exampleAccount.Id,
     ///         OperatingSystem = "Linux",
     ///         Linuxes = new[]

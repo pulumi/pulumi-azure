@@ -857,13 +857,17 @@ class FlexibleServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vn",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-sn",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=["Microsoft.Storage"],
@@ -874,21 +878,24 @@ class FlexibleServer(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+        example_zone = azure.privatedns.Zone("example",
+            name="example.mysql.database.azure.com",
+            resource_group_name=example.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="exampleVnetZone.com",
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name)
+        example_flexible_server = azure.mysql.FlexibleServer("example",
+            name="example-fs",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             backup_retention_days=7,
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
+            sku_name="GP_Standard_D2ds_v4")
         ```
 
         ## Import
@@ -950,13 +957,17 @@ class FlexibleServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vn",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-sn",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             service_endpoints=["Microsoft.Storage"],
@@ -967,21 +978,24 @@ class FlexibleServer(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
+        example_zone = azure.privatedns.Zone("example",
+            name="example.mysql.database.azure.com",
+            resource_group_name=example.name)
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="exampleVnetZone.com",
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id,
-            resource_group_name=example_resource_group.name)
-        example_flexible_server = azure.mysql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name)
+        example_flexible_server = azure.mysql.FlexibleServer("example",
+            name="example-fs",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             backup_retention_days=7,
             delegated_subnet_id=example_subnet.id,
             private_dns_zone_id=example_zone.id,
-            sku_name="GP_Standard_D2ds_v4",
-            opts=pulumi.ResourceOptions(depends_on=[example_zone_virtual_network_link]))
+            sku_name="GP_Standard_D2ds_v4")
         ```
 
         ## Import

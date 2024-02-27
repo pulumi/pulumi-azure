@@ -53,18 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;resource-group-01&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;netappaccount-01&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSnapshotPolicy = new SnapshotPolicy(&#34;exampleSnapshotPolicy&#34;, SnapshotPolicyArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;snapshotpolicy-01&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .enabled(true)
  *             .hourlySchedule(SnapshotPolicyHourlyScheduleArgs.builder()

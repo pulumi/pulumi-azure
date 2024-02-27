@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cosmosdb.LookupSqlDatabase(ctx, &cosmosdb.LookupSqlDatabaseArgs{
-//				AccountName:       "tfex-cosmosdb-sql-database-account-name",
 //				Name:              "tfex-cosmosdb-sql-database",
 //				ResourceGroupName: "tfex-cosmosdb-sql-database-rg",
+//				AccountName:       "tfex-cosmosdb-sql-database-account-name",
 //			}, nil)
 //			if err != nil {
 //				return err

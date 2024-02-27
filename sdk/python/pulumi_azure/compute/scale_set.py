@@ -978,48 +978,60 @@ class ScaleSet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
-            domain_name_label=example_resource_group.name,
+            domain_name_label=example.name,
             tags={
                 "environment": "staging",
             })
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        bpepool = azure.lb.BackendAddressPool("bpepool", loadbalancer_id=example_load_balancer.id)
+        bpepool = azure.lb.BackendAddressPool("bpepool",
+            loadbalancer_id=example_load_balancer.id,
+            name="BackEndAddressPool")
         lbnatpool = azure.lb.NatPool("lbnatpool",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
+            name="ssh",
             loadbalancer_id=example_load_balancer.id,
             protocol="Tcp",
             frontend_port_start=50000,
             frontend_port_end=50119,
             backend_port=22,
             frontend_ip_configuration_name="PublicIPAddress")
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,
+            name="http-probe",
             protocol="Http",
             request_path="/health",
             port=8080)
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
             rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
@@ -1060,7 +1072,7 @@ class ScaleSet(pulumi.CustomResource):
                 disable_password_authentication=True,
                 ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
                     path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                    key_data=std.file(input="~/.ssh/demo_key.pub").result,
                 )],
             ),
             network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
@@ -1083,30 +1095,38 @@ class ScaleSet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="accsa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="vhds",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_policy_mode="Manual",
             sku=azure.compute.ScaleSetSkuArgs(
                 name="Standard_F2",
@@ -1121,7 +1141,7 @@ class ScaleSet(pulumi.CustomResource):
                 disable_password_authentication=True,
                 ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
                     path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                    key_data=std.file(input="~/.ssh/demo_key.pub").result,
                 )],
             ),
             network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
@@ -1152,12 +1172,12 @@ class ScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_image = azure.compute.Image("exampleImage")
-        # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-            id=example_image.id,
-        ))
-        # ...
+        example = azure.compute.Image("example", name="test")
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="test",
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+                id=example.id,
+            ))
         ```
 
         ## Import
@@ -1218,48 +1238,60 @@ class ScaleSet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
-            domain_name_label=example_resource_group.name,
+            domain_name_label=example.name,
             tags={
                 "environment": "staging",
             })
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="test",
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        bpepool = azure.lb.BackendAddressPool("bpepool", loadbalancer_id=example_load_balancer.id)
+        bpepool = azure.lb.BackendAddressPool("bpepool",
+            loadbalancer_id=example_load_balancer.id,
+            name="BackEndAddressPool")
         lbnatpool = azure.lb.NatPool("lbnatpool",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
+            name="ssh",
             loadbalancer_id=example_load_balancer.id,
             protocol="Tcp",
             frontend_port_start=50000,
             frontend_port_end=50119,
             backend_port=22,
             frontend_ip_configuration_name="PublicIPAddress")
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,
+            name="http-probe",
             protocol="Http",
             request_path="/health",
             port=8080)
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
             automatic_os_upgrade=True,
             upgrade_policy_mode="Rolling",
             rolling_upgrade_policy=azure.compute.ScaleSetRollingUpgradePolicyArgs(
@@ -1300,7 +1332,7 @@ class ScaleSet(pulumi.CustomResource):
                 disable_password_authentication=True,
                 ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
                     path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                    key_data=std.file(input="~/.ssh/demo_key.pub").result,
                 )],
             ),
             network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
@@ -1323,30 +1355,38 @@ class ScaleSet(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="acctvn",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="acctsub",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="accsa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="vhds",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="mytestscaleset-1",
+            location=example.location,
+            resource_group_name=example.name,
             upgrade_policy_mode="Manual",
             sku=azure.compute.ScaleSetSkuArgs(
                 name="Standard_F2",
@@ -1361,7 +1401,7 @@ class ScaleSet(pulumi.CustomResource):
                 disable_password_authentication=True,
                 ssh_keys=[azure.compute.ScaleSetOsProfileLinuxConfigSshKeyArgs(
                     path="/home/myadmin/.ssh/authorized_keys",
-                    key_data=(lambda path: open(path).read())("~/.ssh/demo_key.pub"),
+                    key_data=std.file(input="~/.ssh/demo_key.pub").result,
                 )],
             ),
             network_profiles=[azure.compute.ScaleSetNetworkProfileArgs(
@@ -1392,12 +1432,12 @@ class ScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_image = azure.compute.Image("exampleImage")
-        # ...
-        example_scale_set = azure.compute.ScaleSet("exampleScaleSet", storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
-            id=example_image.id,
-        ))
-        # ...
+        example = azure.compute.Image("example", name="test")
+        example_scale_set = azure.compute.ScaleSet("example",
+            name="test",
+            storage_profile_image_reference=azure.compute.ScaleSetStorageProfileImageReferenceArgs(
+                id=example.id,
+            ))
         ```
 
         ## Import

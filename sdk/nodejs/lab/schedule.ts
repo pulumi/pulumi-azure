@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.lab.Lab("exampleLab", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleLab = new azure.lab.Lab("example", {
+ *     name: "example-lab",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     title: "Test Title",
  *     security: {
  *         openAccessEnabled: false,
@@ -40,7 +44,8 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleSchedule = new azure.lab.Schedule("exampleSchedule", {
+ * const exampleSchedule = new azure.lab.Schedule("example", {
+ *     name: "example-labschedule",
  *     labId: exampleLab.id,
  *     stopTime: "2022-11-28T00:00:00Z",
  *     timeZone: "America/Los_Angeles",

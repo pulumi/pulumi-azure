@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-servicebus-topic"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("example"),
@@ -48,7 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//			_, err = servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:               pulumi.String("tfex_servicebus_topic"),
 //				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: pulumi.Bool(true),
 //			})

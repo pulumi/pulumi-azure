@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("west europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -46,8 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("outbounddns"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.0.64/28"),
@@ -67,15 +70,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResolver, err := privatedns.NewResolver(ctx, "exampleResolver", &privatedns.ResolverArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleResolver, err := privatedns.NewResolver(ctx, "example", &privatedns.ResolverArgs{
+//				Name:              pulumi.String("example-resolver"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				VirtualNetworkId:  exampleVirtualNetwork.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "exampleResolverOutboundEndpoint", &privatedns.ResolverOutboundEndpointArgs{
+//			exampleResolverOutboundEndpoint, err := privatedns.NewResolverOutboundEndpoint(ctx, "example", &privatedns.ResolverOutboundEndpointArgs{
+//				Name:                 pulumi.String("example-endpoint"),
 //				PrivateDnsResolverId: exampleResolver.ID(),
 //				Location:             exampleResolver.Location,
 //				SubnetId:             exampleSubnet.ID(),
@@ -86,9 +91,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewResolverDnsForwardingRuleset(ctx, "exampleResolverDnsForwardingRuleset", &privatedns.ResolverDnsForwardingRulesetArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = privatedns.NewResolverDnsForwardingRuleset(ctx, "example", &privatedns.ResolverDnsForwardingRulesetArgs{
+//				Name:              pulumi.String("example-ruleset"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				PrivateDnsResolverOutboundEndpointIds: pulumi.StringArray{
 //					exampleResolverOutboundEndpoint.ID(),
 //				},

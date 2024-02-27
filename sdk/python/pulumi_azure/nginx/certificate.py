@@ -201,24 +201,29 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard",
             tags={
                 "environment": "Production",
             })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -228,10 +233,11 @@ class Certificate(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
+        example_deployment = azure.nginx.Deployment("example",
+            name="example-nginx",
+            resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
+            location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
@@ -241,9 +247,10 @@ class Certificate(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )])
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
@@ -264,13 +271,15 @@ class Certificate(pulumi.CustomResource):
                     "Update",
                 ],
             )])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="imported-cert",
             key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                contents=std.filebase64(input="certificate-to-import.pfx").result,
                 password="",
             ))
-        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
+        example_certificate2 = azure.nginx.Certificate("example",
+            name="examplecert",
             nginx_deployment_id=example_deployment.id,
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",
@@ -306,24 +315,29 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard",
             tags={
                 "environment": "Production",
             })
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -333,10 +347,11 @@ class Certificate(pulumi.CustomResource):
                     actions=["Microsoft.Network/virtualNetworks/subnets/join/action"],
                 ),
             )])
-        example_deployment = azure.nginx.Deployment("exampleDeployment",
-            resource_group_name=example_resource_group.name,
+        example_deployment = azure.nginx.Deployment("example",
+            name="example-nginx",
+            resource_group_name=example.name,
             sku="publicpreview_Monthly_gmz7xq9ge3py",
-            location=example_resource_group.location,
+            location=example.location,
             managed_resource_group="example",
             diagnose_support_enabled=True,
             frontend_public=azure.nginx.DeploymentFrontendPublicArgs(
@@ -346,9 +361,10 @@ class Certificate(pulumi.CustomResource):
                 subnet_id=example_subnet.id,
             )])
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             access_policies=[azure.keyvault.KeyVaultAccessPolicyArgs(
@@ -369,13 +385,15 @@ class Certificate(pulumi.CustomResource):
                     "Update",
                 ],
             )])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="imported-cert",
             key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate-to-import.pfx"),
+                contents=std.filebase64(input="certificate-to-import.pfx").result,
                 password="",
             ))
-        example_nginx_certificate_certificate = azure.nginx.Certificate("exampleNginx/certificateCertificate",
+        example_certificate2 = azure.nginx.Certificate("example",
+            name="examplecert",
             nginx_deployment_id=example_deployment.id,
             key_virtual_path="/src/cert/soservermekey.key",
             certificate_virtual_path="/src/cert/server.cert",

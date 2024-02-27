@@ -555,10 +555,13 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             tags={
                 "source": "example",
@@ -605,10 +608,13 @@ class Namespace(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             tags={
                 "source": "example",

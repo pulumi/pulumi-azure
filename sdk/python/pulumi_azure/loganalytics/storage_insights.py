@@ -269,19 +269,24 @@ class StorageInsights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="exampleworkspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_storage_insights = azure.loganalytics.StorageInsights("exampleStorageInsights",
-            resource_group_name=example_resource_group.name,
+        example_storage_insights = azure.loganalytics.StorageInsights("example",
+            name="example-storageinsightconfig",
+            resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
             storage_account_id=example_account.id,
             storage_account_key=example_account.primary_access_key)
@@ -320,19 +325,24 @@ class StorageInsights(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="exampleworkspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_storage_insights = azure.loganalytics.StorageInsights("exampleStorageInsights",
-            resource_group_name=example_resource_group.name,
+        example_storage_insights = azure.loganalytics.StorageInsights("example",
+            name="example-storageinsightconfig",
+            resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
             storage_account_id=example_account.id,
             storage_account_key=example_account.primary_access_key)

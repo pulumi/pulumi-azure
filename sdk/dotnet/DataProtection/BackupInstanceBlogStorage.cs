@@ -22,23 +22,26 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-backup-vault",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
     ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
@@ -47,31 +50,27 @@ namespace Pulumi.Azure.DataProtection
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Account Backup Contributor",
     ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("exampleBackupPolicyBlobStorage", new()
+    ///     var exampleBackupPolicyBlobStorage = new Azure.DataProtection.BackupPolicyBlobStorage("example", new()
     ///     {
+    ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
     ///         RetentionDuration = "P30D",
     ///     });
     /// 
-    ///     var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("exampleBackupInstanceBlogStorage", new()
+    ///     var exampleBackupInstanceBlogStorage = new Azure.DataProtection.BackupInstanceBlogStorage("example", new()
     ///     {
+    ///         Name = "example-backup-instance",
     ///         VaultId = exampleBackupVault.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         StorageAccountId = exampleAccount.Id,
     ///         BackupPolicyId = exampleBackupPolicyBlobStorage.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///         },
     ///     });
     /// 
     /// });

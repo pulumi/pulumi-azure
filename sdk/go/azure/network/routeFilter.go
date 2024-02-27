@@ -29,15 +29,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := network.NewRouteFilter(ctx, "example", &network.RouteFilterArgs{
-//				Location:          pulumi.String("East US"),
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
+//				Location:          pulumi.String("East US"),
 //				Rule: &network.RouteFilterRuleArgs{
-//					Access: pulumi.String("Allow"),
+//					Name:     pulumi.String("rule"),
+//					Access:   pulumi.String("Allow"),
+//					RuleType: pulumi.String("Community"),
 //					Communities: pulumi.StringArray{
 //						pulumi.String("12076:52004"),
 //					},
-//					Name:     pulumi.String("rule"),
-//					RuleType: pulumi.String("Community"),
 //				},
 //			})
 //			if err != nil {

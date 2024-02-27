@@ -24,47 +24,50 @@ namespace Pulumi.Azure.Lb
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVirtualNetwork = Azure.Network.GetVirtualNetwork.Invoke(new()
+    ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
     ///     {
     ///         Name = "example-network",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
+    ///     var exampleGetLB = Azure.Lb.GetLB.Invoke(new()
     ///     {
     ///         Name = "example-lb",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+    ///     var exampleGetBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
     ///     {
     ///         Name = "first",
-    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///         LoadbalancerId = exampleGetLB.Apply(getLBResult =&gt; getLBResult.Id),
     ///     });
     /// 
-    ///     var exampleBackendAddressPoolAddress = new Azure.Lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", new()
+    ///     var exampleBackendAddressPoolAddress = new Azure.Lb.BackendAddressPoolAddress("example", new()
     ///     {
-    ///         BackendAddressPoolId = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
-    ///         VirtualNetworkId = exampleVirtualNetwork.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+    ///         Name = "example",
+    ///         BackendAddressPoolId = exampleGetBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+    ///         VirtualNetworkId = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
     ///         IpAddress = "10.0.0.1",
     ///     });
     /// 
     ///     var backend_pool_cr = Azure.Lb.GetBackendAddressPool.Invoke(new()
     ///     {
     ///         Name = "globalLBBackendPool",
-    ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+    ///         LoadbalancerId = exampleGetLB.Apply(getLBResult =&gt; getLBResult.Id),
     ///     });
     /// 
     ///     var example_1 = new Azure.Lb.BackendAddressPoolAddress("example-1", new()
     ///     {
+    ///         Name = "address1",
     ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
-    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R1.Frontend_ip_configuration[0].Id,
+    ///         BackendAddressIpConfigurationId = backend_lb_R1.FrontendIpConfiguration[0].Id,
     ///     });
     /// 
     ///     var example_2 = new Azure.Lb.BackendAddressPoolAddress("example-2", new()
     ///     {
+    ///         Name = "address2",
     ///         BackendAddressPoolId = backend_pool_cr.Apply(backend_pool_cr =&gt; backend_pool_cr.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id)),
-    ///         BackendAddressIpConfigurationId = azurerm_lb.Backend_lb_R2.Frontend_ip_configuration[0].Id,
+    ///         BackendAddressIpConfigurationId = backend_lb_R2.FrontendIpConfiguration[0].Id,
     ///     });
     /// 
     /// });

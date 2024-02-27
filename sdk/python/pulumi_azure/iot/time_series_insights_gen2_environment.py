@@ -320,15 +320,19 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         storage = azure.storage.Account("storage",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],
@@ -372,15 +376,19 @@ class TimeSeriesInsightsGen2Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         storage = azure.storage.Account("storage",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_time_series_insights_gen2_environment = azure.iot.TimeSeriesInsightsGen2Environment("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="L1",
             warm_store_data_retention_time="P30D",
             id_properties=["id"],

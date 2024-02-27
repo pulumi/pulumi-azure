@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := compute.LookupSharedImageVersion(ctx, &compute.LookupSharedImageVersionArgs{
-//				GalleryName:       "my-image-gallery",
-//				ImageName:         "my-image",
 //				Name:              "1.0.0",
+//				ImageName:         "my-image",
+//				GalleryName:       "my-image-gallery",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {

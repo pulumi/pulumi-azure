@@ -188,30 +188,33 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup")
+        example = azure.management.Group("example")
         alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
+        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
+            management_group_id=example.id,
             subscription_id=alt.id)
-        current_subscription = azure.core.get_subscription()
-        current_client_config = azure.core.get_client_config()
-        network_contributor = azure.authorization.Assignment("networkContributor",
-            scope=example_group.id,
+        current = azure.core.get_subscription()
+        current_get_client_config = azure.core.get_client_config()
+        network_contributor = azure.authorization.Assignment("network_contributor",
+            scope=example.id,
             role_definition_name="Network Contributor",
-            principal_id=current_client_config.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            principal_id=current_get_client_config.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-networkmanager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
+                subscription_ids=[current.id],
             ),
             scope_accesses=["SecurityAdmin"])
-        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection",
-            management_group_id=example_group.id,
+        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("example",
+            name="example-nmmgc",
+            management_group_id=example.id,
             network_manager_id=example_network_manager.id,
-            description="example",
-            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
+            description="example")
         ```
 
         ## Import
@@ -244,30 +247,33 @@ class NetworkManagerManagementGroupConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup")
+        example = azure.management.Group("example")
         alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation",
-            management_group_id=example_group.id,
+        example_group_subscription_association = azure.management.GroupSubscriptionAssociation("example",
+            management_group_id=example.id,
             subscription_id=alt.id)
-        current_subscription = azure.core.get_subscription()
-        current_client_config = azure.core.get_client_config()
-        network_contributor = azure.authorization.Assignment("networkContributor",
-            scope=example_group.id,
+        current = azure.core.get_subscription()
+        current_get_client_config = azure.core.get_client_config()
+        network_contributor = azure.authorization.Assignment("network_contributor",
+            scope=example.id,
             role_definition_name="Network Contributor",
-            principal_id=current_client_config.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
+            principal_id=current_get_client_config.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-networkmanager",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
+                subscription_ids=[current.id],
             ),
             scope_accesses=["SecurityAdmin"])
-        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("exampleNetworkManagerManagementGroupConnection",
-            management_group_id=example_group.id,
+        example_network_manager_management_group_connection = azure.network.NetworkManagerManagementGroupConnection("example",
+            name="example-nmmgc",
+            management_group_id=example.id,
             network_manager_id=example_network_manager.id,
-            description="example",
-            opts=pulumi.ResourceOptions(depends_on=[network_contributor]))
+            description="example")
         ```
 
         ## Import

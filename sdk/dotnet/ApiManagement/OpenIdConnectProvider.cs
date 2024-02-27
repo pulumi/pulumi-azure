@@ -22,24 +22,27 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@exmaple.com",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleOpenIdConnectProvider = new Azure.ApiManagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", new()
+    ///     var exampleOpenIdConnectProvider = new Azure.ApiManagement.OpenIdConnectProvider("example", new()
     ///     {
+    ///         Name = "example-provider",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ClientId = "00001111-2222-3333-4444-555566667777",
     ///         ClientSecret = "00001111-423egvwdcsjx-00001111",
     ///         DisplayName = "Example Provider",

@@ -47,13 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCustomProvider = new CustomProvider(&#34;exampleCustomProvider&#34;, CustomProviderArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example_provider&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .resourceTypes(CustomProviderResourceTypeArgs.builder()
  *                 .name(&#34;dEf1&#34;)
  *                 .endpoint(&#34;https://testendpoint.com/&#34;)

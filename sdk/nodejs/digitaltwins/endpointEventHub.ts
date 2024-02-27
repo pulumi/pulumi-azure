@@ -13,31 +13,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example_resources",
+ *     location: "West Europe",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInstance = new azure.digitaltwins.Instance("example", {
+ *     name: "example-DT",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-eh-ns",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "example-eh",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ *     name: "example-ar",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     listen: false,
  *     send: true,
  *     manage: false,
  * });
- * const exampleEndpointEventHub = new azure.digitaltwins.EndpointEventHub("exampleEndpointEventHub", {
+ * const exampleEndpointEventHub = new azure.digitaltwins.EndpointEventHub("example", {
+ *     name: "example-EH",
  *     digitalTwinsId: exampleInstance.id,
  *     eventhubPrimaryConnectionString: exampleAuthorizationRule.primaryConnectionString,
  *     eventhubSecondaryConnectionString: exampleAuthorizationRule.secondaryConnectionString,

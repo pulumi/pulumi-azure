@@ -21,44 +21,43 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountAssembly(ctx, "exampleIntegrationAccountAssembly", &logicapps.IntegrationAccountAssemblyArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "testdata/log4net.dll",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountAssembly(ctx, "example", &logicapps.IntegrationAccountAssemblyArgs{
+//				Name:                   pulumi.String("example-assembly"),
+//				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				AssemblyName:           pulumi.String("TestAssembly"),
-//				Content:                filebase64OrPanic("testdata/log4net.dll"),
+//				Content:                invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

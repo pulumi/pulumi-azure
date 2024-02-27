@@ -14,23 +14,29 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleClusterManagedPrivateEndpoint = new azure.kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleClusterManagedPrivateEndpoint = new azure.kusto.ClusterManagedPrivateEndpoint("example", {
+ *     name: "examplempe",
+ *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     privateLinkResourceId: exampleAccount.id,
  *     privateLinkResourceRegion: exampleAccount.location,

@@ -22,15 +22,17 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualMachineGroup = new Azure.MSSql.VirtualMachineGroup("exampleVirtualMachineGroup", new()
+    ///     var exampleVirtualMachineGroup = new Azure.MSSql.VirtualMachineGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplegroup",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SqlImageOffer = "SQL2017-WS2016",
     ///         SqlImageSku = "Developer",
     ///         WsfcDomainProfile = new Azure.MSSql.Inputs.VirtualMachineGroupWsfcDomainProfileArgs

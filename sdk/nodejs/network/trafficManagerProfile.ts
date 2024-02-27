@@ -18,13 +18,17 @@ import * as utilities from "../utilities";
  *
  * const server = new random.RandomId("server", {
  *     keepers: {
- *         azi_id: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "trafficmanagerProfile",
+ *     location: "West Europe",
+ * });
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
+ *     name: server.hex,
+ *     resourceGroupName: example.name,
  *     trafficRoutingMethod: "Weighted",
  *     dnsConfig: {
  *         relativeName: server.hex,

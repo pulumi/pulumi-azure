@@ -300,16 +300,20 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="KustoRG",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=example_resource_group.name,
+        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
+            name="KustoPrincipalAssignment",
+            resource_group_name=example.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
             principal_id=current.client_id,
@@ -351,16 +355,20 @@ class ClusterPrincipalAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="KustoRG",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
             ))
-        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment",
-            resource_group_name=example_resource_group.name,
+        example_cluster_principal_assignment = azure.kusto.ClusterPrincipalAssignment("example",
+            name="KustoPrincipalAssignment",
+            resource_group_name=example.name,
             cluster_name=example_cluster.name,
             tenant_id=current.tenant_id,
             principal_id=current.client_id,

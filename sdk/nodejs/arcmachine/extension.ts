@@ -7,6 +7,29 @@ import * as utilities from "../utilities";
 /**
  * Manages a Hybrid Compute Machine Extension.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.arcmachine.getOutput({
+ *     name: "existing-hcmachine",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleExtension = new azure.arcmachine.Extension("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ *     arcMachineId: example.apply(example => example.id),
+ *     publisher: "Microsoft.Azure.Monitor",
+ *     type: "AzureMonitorLinuxAgent",
+ * });
+ * ```
+ *
  * ## Import
  *
  * Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.

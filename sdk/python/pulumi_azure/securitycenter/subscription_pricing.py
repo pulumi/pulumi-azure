@@ -179,8 +179,8 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.securitycenter.SubscriptionPricing("example",
-            resource_type="VirtualMachines",
-            tier="Standard")
+            tier="Standard",
+            resource_type="VirtualMachines")
         ```
         ### Using Extensions with Defender CSPM
 
@@ -189,15 +189,17 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example1 = azure.securitycenter.SubscriptionPricing("example1",
+            tier="Standard",
+            resource_type="CloudPosture",
             extensions=[
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="ContainerRegistriesVulnerabilityAssessments",
                 ),
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="AgentlessVmScanning",
                     additional_extension_properties={
                         "ExclusionTags": "[]",
                     },
-                    name="AgentlessVmScanning",
                 ),
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="AgentlessDiscoveryForKubernetes",
@@ -205,9 +207,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="SensitiveDataDiscovery",
                 ),
-            ],
-            resource_type="CloudPosture",
-            tier="Standard")
+            ])
         ```
 
         ## Import
@@ -244,8 +244,8 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.securitycenter.SubscriptionPricing("example",
-            resource_type="VirtualMachines",
-            tier="Standard")
+            tier="Standard",
+            resource_type="VirtualMachines")
         ```
         ### Using Extensions with Defender CSPM
 
@@ -254,15 +254,17 @@ class SubscriptionPricing(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example1 = azure.securitycenter.SubscriptionPricing("example1",
+            tier="Standard",
+            resource_type="CloudPosture",
             extensions=[
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="ContainerRegistriesVulnerabilityAssessments",
                 ),
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
+                    name="AgentlessVmScanning",
                     additional_extension_properties={
                         "ExclusionTags": "[]",
                     },
-                    name="AgentlessVmScanning",
                 ),
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="AgentlessDiscoveryForKubernetes",
@@ -270,9 +272,7 @@ class SubscriptionPricing(pulumi.CustomResource):
                 azure.securitycenter.SubscriptionPricingExtensionArgs(
                     name="SensitiveDataDiscovery",
                 ),
-            ],
-            resource_type="CloudPosture",
-            tier="Standard")
+            ])
         ```
 
         ## Import

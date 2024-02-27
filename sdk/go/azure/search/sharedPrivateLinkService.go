@@ -30,30 +30,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resourceGroup"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testService, err := search.NewService(ctx, "testService", &search.ServiceArgs{
-//				ResourceGroupName: testResourceGroup.Name,
-//				Location:          testResourceGroup.Location,
+//			testService, err := search.NewService(ctx, "test", &search.ServiceArgs{
+//				Name:              pulumi.String("example-search"),
+//				ResourceGroupName: test.Name,
+//				Location:          test.Location,
 //				Sku:               pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testAccount, err := storage.NewAccount(ctx, "testAccount", &storage.AccountArgs{
-//				ResourceGroupName:      testResourceGroup.Name,
-//				Location:               testResourceGroup.Location,
+//			testAccount, err := storage.NewAccount(ctx, "test", &storage.AccountArgs{
+//				Name:                   pulumi.String("xiaxintestsaforsearchspl"),
+//				ResourceGroupName:      test.Name,
+//				Location:               test.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = search.NewSharedPrivateLinkService(ctx, "testSharedPrivateLinkService", &search.SharedPrivateLinkServiceArgs{
+//			_, err = search.NewSharedPrivateLinkService(ctx, "test", &search.SharedPrivateLinkServiceArgs{
+//				Name:             pulumi.String("example-spl"),
 //				SearchServiceId:  testService.ID(),
 //				SubresourceName:  pulumi.String("blob"),
 //				TargetResourceId: testAccount.ID(),

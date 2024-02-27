@@ -24,8 +24,9 @@ namespace Pulumi.Azure.Synapse
     /// {
     ///     var example = new Azure.Synapse.PrivateLinkHub("example", new()
     ///     {
-    ///         Location = "West Europe",
+    ///         Name = "example",
     ///         ResourceGroupName = "example-rg",
+    ///         Location = "West Europe",
     ///     });
     /// 
     /// });

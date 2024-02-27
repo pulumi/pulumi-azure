@@ -29,12 +29,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mixedreality.LookupSpatialAnchorsAccount(ctx, &mixedreality.LookupSpatialAnchorsAccountArgs{
 //				Name:              "example",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("accountDomain", data.Azurerm_spatial_anchors_account.Account_domain)
+//			ctx.Export("accountDomain", accountDomainAzurermSpatialAnchorsAccount)
 //			return nil
 //		})
 //	}

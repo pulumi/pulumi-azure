@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const mainActionGroup = new azure.monitoring.ActionGroup("mainActionGroup", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const main = new azure.monitoring.ActionGroup("main", {
+ *     name: "example-actiongroup",
  *     resourceGroupName: example.name,
  *     shortName: "p0action",
  *     webhookReceivers: [{
@@ -24,13 +28,15 @@ import * as utilities from "../utilities";
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const toMonitor = new azure.storage.Account("toMonitor", {
+ * const toMonitor = new azure.storage.Account("to_monitor", {
+ *     name: "examplesa",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("mainActivityLogAlert", {
+ * const mainActivityLogAlert = new azure.monitoring.ActivityLogAlert("main", {
+ *     name: "example-activitylogalert",
  *     resourceGroupName: example.name,
  *     scopes: [example.id],
  *     description: "This alert will monitor a specific storage account updates.",
@@ -40,7 +46,7 @@ import * as utilities from "../utilities";
  *         category: "Recommendation",
  *     },
  *     actions: [{
- *         actionGroupId: mainActionGroup.id,
+ *         actionGroupId: main.id,
  *         webhookProperties: {
  *             from: "source",
  *         },

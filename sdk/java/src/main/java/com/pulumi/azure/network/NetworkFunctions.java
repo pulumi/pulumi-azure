@@ -445,8 +445,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .name(azurerm_express_route_circuit.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
      *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
@@ -485,8 +485,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .name(azurerm_express_route_circuit.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
      *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
@@ -525,8 +525,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .name(azurerm_express_route_circuit.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
      *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
@@ -565,8 +565,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getExpressRouteCircuit(GetExpressRouteCircuitArgs.builder()
-     *             .resourceGroupName(azurerm_resource_group.example().name())
-     *             .name(azurerm_express_route_circuit.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
+     *             .name(exampleAzurermExpressRouteCircuit.name())
      *             .build());
      * 
      *         ctx.export(&#34;expressRouteCircuitId&#34;, example.applyValue(getExpressRouteCircuitResult -&gt; getExpressRouteCircuitResult.id()));
@@ -1569,8 +1569,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(azurerm_network_ddos_protection_plan.example().name())
-     *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
@@ -1608,8 +1608,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(azurerm_network_ddos_protection_plan.example().name())
-     *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
@@ -1647,8 +1647,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(azurerm_network_ddos_protection_plan.example().name())
-     *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
@@ -1686,8 +1686,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkDdosProtectionPlan(GetNetworkDdosProtectionPlanArgs.builder()
-     *             .name(azurerm_network_ddos_protection_plan.example().name())
-     *             .resourceGroupName(azurerm_network_ddos_protection_plan.example().resource_group_name())
+     *             .name(exampleAzurermNetworkDdosProtectionPlan.name())
+     *             .resourceGroupName(exampleAzurermNetworkDdosProtectionPlan.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;ddosProtectionPlanId&#34;, example.applyValue(getNetworkDdosProtectionPlanResult -&gt; getNetworkDdosProtectionPlanResult.id()));
@@ -1858,12 +1858,128 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about a Network Manager.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
+     *             .name(exampleNetworkManager.name())
+     *             .resourceGroupName(exampleNetworkManager.resourceGroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args) {
         return getNetworkManager(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about a Network Manager.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
+     *             .name(exampleNetworkManager.name())
+     *             .resourceGroupName(exampleNetworkManager.resourceGroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args) {
@@ -1872,12 +1988,128 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about a Network Manager.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
+     *             .name(exampleNetworkManager.name())
+     *             .resourceGroupName(exampleNetworkManager.resourceGroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetNetworkManagerResult> getNetworkManager(GetNetworkManagerArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:network/getNetworkManager:getNetworkManager", TypeShape.of(GetNetworkManagerResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Network Manager.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManager(GetNetworkManagerArgs.builder()
+     *             .name(exampleNetworkManager.name())
+     *             .resourceGroupName(exampleNetworkManager.resourceGroupName())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetNetworkManagerResult> getNetworkManagerPlain(GetNetworkManagerPlainArgs args, InvokeOptions options) {
@@ -1886,12 +2118,142 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about a Network Manager Network Group.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs.builder()
+     *             .name(exampleNetworkManagerNetworkGroup.name())
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args) {
         return getNetworkManagerNetworkGroup(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about a Network Manager Network Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs.builder()
+     *             .name(exampleNetworkManagerNetworkGroup.name())
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args) {
@@ -1900,12 +2262,142 @@ public final class NetworkFunctions {
     /**
      * Use this data source to access information about a Network Manager Network Group.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs.builder()
+     *             .name(exampleNetworkManagerNetworkGroup.name())
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:network/getNetworkManagerNetworkGroup:getNetworkManagerNetworkGroup", TypeShape.of(GetNetworkManagerNetworkGroupResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about a Network Manager Network Group.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.ResourceGroup;
+     * import com.pulumi.azure.core.ResourceGroupArgs;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.network.NetworkManager;
+     * import com.pulumi.azure.network.NetworkManagerArgs;
+     * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroup;
+     * import com.pulumi.azure.network.NetworkManagerNetworkGroupArgs;
+     * import com.pulumi.azure.network.NetworkFunctions;
+     * import com.pulumi.azure.network.inputs.GetNetworkManagerNetworkGroupArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
+     *             .location(&#34;West Europe&#34;)
+     *             .build());
+     * 
+     *         final var current = CoreFunctions.getSubscription();
+     * 
+     *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+     *             .name(&#34;example-network-manager&#34;)
+     *             .location(exampleResourceGroup.location())
+     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .scope(NetworkManagerScopeArgs.builder()
+     *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *                 .build())
+     *             .scopeAccesses(            
+     *                 &#34;Connectivity&#34;,
+     *                 &#34;SecurityAdmin&#34;)
+     *             .description(&#34;example network manager&#34;)
+     *             .build());
+     * 
+     *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+     *             .name(&#34;example-group&#34;)
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *         final var example = NetworkFunctions.getNetworkManagerNetworkGroup(GetNetworkManagerNetworkGroupArgs.builder()
+     *             .name(exampleNetworkManagerNetworkGroup.name())
+     *             .networkManagerId(exampleNetworkManager.id())
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetNetworkManagerNetworkGroupResult> getNetworkManagerNetworkGroupPlain(GetNetworkManagerNetworkGroupPlainArgs args, InvokeOptions options) {
@@ -1938,7 +2430,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
@@ -1977,7 +2469,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
@@ -2016,7 +2508,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
@@ -2055,7 +2547,7 @@ public final class NetworkFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkSecurityGroup(GetNetworkSecurityGroupArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;location&#34;, example.applyValue(getNetworkSecurityGroupResult -&gt; getNetworkSecurityGroupResult.location()));
@@ -2093,8 +2585,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(azurerm_network_watcher.example().name())
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .name(exampleAzurermNetworkWatcher.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
@@ -2132,8 +2624,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(azurerm_network_watcher.example().name())
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .name(exampleAzurermNetworkWatcher.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
@@ -2171,8 +2663,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(azurerm_network_watcher.example().name())
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .name(exampleAzurermNetworkWatcher.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
@@ -2210,8 +2702,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getNetworkWatcher(GetNetworkWatcherArgs.builder()
-     *             .name(azurerm_network_watcher.example().name())
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .name(exampleAzurermNetworkWatcher.name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *         ctx.export(&#34;networkWatcherId&#34;, example.applyValue(getNetworkWatcherResult -&gt; getNetworkWatcherResult.id()));
@@ -2295,22 +2787,26 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;test-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+     *             .name(&#34;test-network&#34;)
      *             .addressSpaces(&#34;10.0.0.0/16&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .name(&#34;acctsub&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
      *             .build());
      * 
      *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+     *             .name(&#34;test-pip&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .allocationMethod(&#34;Dynamic&#34;)
@@ -2319,6 +2815,7 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+     *             .name(&#34;test-nic&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -2331,17 +2828,18 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+     *             .name(&#34;test-vm&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
      *             .build());
      * 
-     *         final var examplePublicIP = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(examplePublicIp.name())
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, examplePublicIp.ipAddress());
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
      *     }
      * }
      * ```
@@ -2422,22 +2920,26 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;test-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+     *             .name(&#34;test-network&#34;)
      *             .addressSpaces(&#34;10.0.0.0/16&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .name(&#34;acctsub&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
      *             .build());
      * 
      *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+     *             .name(&#34;test-pip&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .allocationMethod(&#34;Dynamic&#34;)
@@ -2446,6 +2948,7 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+     *             .name(&#34;test-nic&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -2458,17 +2961,18 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+     *             .name(&#34;test-vm&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
      *             .build());
      * 
-     *         final var examplePublicIP = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(examplePublicIp.name())
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, examplePublicIp.ipAddress());
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
      *     }
      * }
      * ```
@@ -2549,22 +3053,26 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;test-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+     *             .name(&#34;test-network&#34;)
      *             .addressSpaces(&#34;10.0.0.0/16&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .name(&#34;acctsub&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
      *             .build());
      * 
      *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+     *             .name(&#34;test-pip&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .allocationMethod(&#34;Dynamic&#34;)
@@ -2573,6 +3081,7 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+     *             .name(&#34;test-nic&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -2585,17 +3094,18 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+     *             .name(&#34;test-vm&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
      *             .build());
      * 
-     *         final var examplePublicIP = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(examplePublicIp.name())
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, examplePublicIp.ipAddress());
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
      *     }
      * }
      * ```
@@ -2676,22 +3186,26 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;test-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+     *             .name(&#34;test-network&#34;)
      *             .addressSpaces(&#34;10.0.0.0/16&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
      * 
      *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+     *             .name(&#34;acctsub&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .virtualNetworkName(exampleVirtualNetwork.name())
      *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
      *             .build());
      * 
      *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+     *             .name(&#34;test-pip&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .allocationMethod(&#34;Dynamic&#34;)
@@ -2700,6 +3214,7 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+     *             .name(&#34;test-nic&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -2712,17 +3227,18 @@ public final class NetworkFunctions {
      *             .build());
      * 
      *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
+     *             .name(&#34;test-vm&#34;)
      *             .location(exampleResourceGroup.location())
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .networkInterfaceIds(exampleNetworkInterface.id())
      *             .build());
      * 
-     *         final var examplePublicIP = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
+     *         final var example = NetworkFunctions.getPublicIP(GetPublicIPArgs.builder()
      *             .name(examplePublicIp.name())
      *             .resourceGroupName(exampleVirtualMachine.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;publicIpAddress&#34;, examplePublicIp.ipAddress());
+     *         ctx.export(&#34;publicIpAddress&#34;, example.applyValue(getPublicIPResult -&gt; getPublicIPResult).applyValue(example -&gt; example.applyValue(getPublicIPResult -&gt; getPublicIPResult.ipAddress())));
      *     }
      * }
      * ```
@@ -2757,8 +3273,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
+     *             .attachmentStatus(&#34;Attached&#34;)
      *             .build());
      * 
      *     }
@@ -2795,8 +3311,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
+     *             .attachmentStatus(&#34;Attached&#34;)
      *             .build());
      * 
      *     }
@@ -2833,8 +3349,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
+     *             .attachmentStatus(&#34;Attached&#34;)
      *             .build());
      * 
      *     }
@@ -2871,8 +3387,8 @@ public final class NetworkFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = NetworkFunctions.getPublicIPs(GetPublicIPsArgs.builder()
-     *             .attachmentStatus(&#34;Attached&#34;)
      *             .resourceGroupName(&#34;pip-test&#34;)
+     *             .attachmentStatus(&#34;Attached&#34;)
      *             .build());
      * 
      *     }

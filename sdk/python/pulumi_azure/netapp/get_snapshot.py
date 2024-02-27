@@ -121,7 +121,7 @@ def get_snapshot(account_name: Optional[str] = None,
         account_name="acctestnetappaccount",
         pool_name="acctestnetapppool",
         volume_name="acctestnetappvolume")
-    pulumi.export("netappSnapshotId", data["azurerm_netapp_snapshot"]["example"]["id"])
+    pulumi.export("netappSnapshotId", example["id"])
     ```
 
 
@@ -171,7 +171,7 @@ def get_snapshot_output(account_name: Optional[pulumi.Input[str]] = None,
         account_name="acctestnetappaccount",
         pool_name="acctestnetapppool",
         volume_name="acctestnetappvolume")
-    pulumi.export("netappSnapshotId", data["azurerm_netapp_snapshot"]["example"]["id"])
+    pulumi.export("netappSnapshotId", example["id"])
     ```
 
 

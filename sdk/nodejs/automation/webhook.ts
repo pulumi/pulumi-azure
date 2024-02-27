@@ -13,15 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleRunBook = new azure.automation.RunBook("example", {
+ *     name: "Get-AzureVMTutorial",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     logVerbose: true,
  *     logProgress: true,
@@ -31,8 +36,9 @@ import * as utilities from "../utilities";
  *         uri: "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1",
  *     },
  * });
- * const exampleWebhook = new azure.automation.Webhook("exampleWebhook", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWebhook = new azure.automation.Webhook("example", {
+ *     name: "TestRunbook_webhook",
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     expiryTime: "2021-12-31T00:00:00Z",
  *     enabled: true,

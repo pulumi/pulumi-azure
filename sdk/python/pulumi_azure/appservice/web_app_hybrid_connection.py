@@ -283,25 +283,31 @@ class WebAppHybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Windows",
             sku_name="S1")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_namespace = azure.relay.Namespace("example",
+            name="example-relay",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
+        example_hybrid_connection = azure.relay.HybridConnection("example",
+            name="examplerhc1",
+            resource_group_name=example.name,
             relay_namespace_name=example_namespace.name)
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            name="example-web-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
+        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
             hostname="myhostname.example",
@@ -339,25 +345,31 @@ class WebAppHybridConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example-plan",
+            location=example.location,
+            resource_group_name=example.name,
             os_type="Windows",
             sku_name="S1")
-        example_namespace = azure.relay.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_namespace = azure.relay.Namespace("example",
+            name="example-relay",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_hybrid_connection = azure.relay.HybridConnection("exampleHybridConnection",
-            resource_group_name=example_resource_group.name,
+        example_hybrid_connection = azure.relay.HybridConnection("example",
+            name="examplerhc1",
+            resource_group_name=example.name,
             relay_namespace_name=example_namespace.name)
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            name="example-web-app",
+            location=example.location,
+            resource_group_name=example.name,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
-        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection",
+        example_web_app_hybrid_connection = azure.appservice.WebAppHybridConnection("example",
             web_app_id=example_windows_web_app.id,
             relay_id=example_hybrid_connection.id,
             hostname="myhostname.example",

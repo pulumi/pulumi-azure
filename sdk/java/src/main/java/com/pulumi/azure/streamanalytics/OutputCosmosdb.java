@@ -53,15 +53,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;exampledb&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .offerType(&#34;Standard&#34;)
@@ -78,12 +80,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
+ *             .name(&#34;cosmos-sql-db&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
+ *             .name(&#34;examplecontainer&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
@@ -91,7 +95,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputCosmosdb = new OutputCosmosdb(&#34;exampleOutputCosmosdb&#34;, OutputCosmosdbArgs.builder()        
- *             .streamAnalyticsJobId(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.id())))
+ *             .name(&#34;output-to-cosmosdb&#34;)
+ *             .streamAnalyticsJobId(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.id())))
  *             .cosmosdbAccountKey(exampleAccount.primaryKey())
  *             .cosmosdbSqlDatabaseId(exampleSqlDatabase.id())
  *             .containerName(exampleSqlContainer.name())

@@ -11,6 +11,134 @@ import * as utilities from "../utilities";
  *
  * !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `azure.cdn.FrontdoorOrigin` and the `azure.cdn.FrontdoorOriginGroup`.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-cdn-frontdoor",
+ *     location: "West Europe",
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorEndpoint = new azure.cdn.FrontdoorEndpoint("example", {
+ *     name: "example-endpoint",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     tags: {
+ *         endpoint: "contoso.com",
+ *     },
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     name: "example-originGroup",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     sessionAffinityEnabled: true,
+ *     restoreTrafficTimeToHealedOrNewEndpointInMinutes: 10,
+ *     healthProbe: {
+ *         intervalInSeconds: 240,
+ *         path: "/healthProbe",
+ *         protocol: "Https",
+ *         requestType: "GET",
+ *     },
+ *     loadBalancing: {
+ *         additionalLatencyInMilliseconds: 0,
+ *         sampleSize: 16,
+ *         successfulSamplesRequired: 3,
+ *     },
+ * });
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     name: "example-origin",
+ *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
+ *     enabled: true,
+ *     certificateNameCheckEnabled: false,
+ *     hostName: exampleFrontdoorEndpoint.hostName,
+ *     httpPort: 80,
+ *     httpsPort: 443,
+ *     originHostHeader: "contoso.com",
+ *     priority: 1,
+ *     weight: 500,
+ * });
+ * const exampleFrontdoorRuleSet = new azure.cdn.FrontdoorRuleSet("example", {
+ *     name: "exampleruleset",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ * });
+ * const exampleFrontdoorRule = new azure.cdn.FrontdoorRule("example", {
+ *     name: "examplerule",
+ *     cdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.id,
+ *     order: 1,
+ *     behaviorOnMatch: "Continue",
+ *     actions: {
+ *         routeConfigurationOverrideAction: {
+ *             cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
+ *             forwardingProtocol: "HttpsOnly",
+ *             queryStringCachingBehavior: "IncludeSpecifiedQueryStrings",
+ *             queryStringParameters: [
+ *                 "foo",
+ *                 "clientIp={client_ip}",
+ *             ],
+ *             compressionEnabled: true,
+ *             cacheBehavior: "OverrideIfOriginMissing",
+ *             cacheDuration: "365.23:59:59",
+ *         },
+ *         urlRedirectAction: {
+ *             redirectType: "PermanentRedirect",
+ *             redirectProtocol: "MatchRequest",
+ *             queryString: "clientIp={client_ip}",
+ *             destinationPath: "/exampleredirection",
+ *             destinationHostname: "contoso.com",
+ *             destinationFragment: "UrlRedirect",
+ *         },
+ *     },
+ *     conditions: {
+ *         hostNameConditions: [{
+ *             operator: "Equal",
+ *             negateCondition: false,
+ *             matchValues: [
+ *                 "www.contoso.com",
+ *                 "images.contoso.com",
+ *                 "video.contoso.com",
+ *             ],
+ *             transforms: [
+ *                 "Lowercase",
+ *                 "Trim",
+ *             ],
+ *         }],
+ *         isDeviceConditions: [{
+ *             operator: "Equal",
+ *             negateCondition: false,
+ *             matchValues: "Mobile",
+ *         }],
+ *         postArgsConditions: [{
+ *             postArgsName: "customerName",
+ *             operator: "BeginsWith",
+ *             matchValues: [
+ *                 "J",
+ *                 "K",
+ *             ],
+ *             transforms: ["Uppercase"],
+ *         }],
+ *         requestMethodConditions: [{
+ *             operator: "Equal",
+ *             negateCondition: false,
+ *             matchValues: ["DELETE"],
+ *         }],
+ *         urlFilenameConditions: [{
+ *             operator: "Equal",
+ *             negateCondition: false,
+ *             matchValues: ["media.mp4"],
+ *             transforms: [
+ *                 "Lowercase",
+ *                 "RemoveNulls",
+ *                 "Trim",
+ *             ],
+ *         }],
+ *     },
+ * });
+ * ```
  * ## Specifying IP Address Ranges
  *
  * When specifying IP address ranges in the `socketAddressCondition` and the `remoteAddressCondition` `matchValues` use the following format:

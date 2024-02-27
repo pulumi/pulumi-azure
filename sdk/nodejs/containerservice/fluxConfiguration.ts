@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
  *     location: "West Europe",
- *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example-aks",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
  *     dnsPrefix: "example-aks",
  *     defaultNodePool: {
  *         name: "default",
@@ -29,12 +33,14 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("exampleKubernetesClusterExtension", {
- *     clusterId: azurerm_kubernetes_cluster.test.id,
+ * const exampleKubernetesClusterExtension = new azure.containerservice.KubernetesClusterExtension("example", {
+ *     name: "example-ext",
+ *     clusterId: test.id,
  *     extensionType: "microsoft.flux",
  * });
- * const exampleFluxConfiguration = new azure.containerservice.FluxConfiguration("exampleFluxConfiguration", {
- *     clusterId: azurerm_kubernetes_cluster.test.id,
+ * const exampleFluxConfiguration = new azure.containerservice.FluxConfiguration("example", {
+ *     name: "example-fc",
+ *     clusterId: test.id,
  *     namespace: "flux",
  *     gitRepository: {
  *         url: "https://github.com/Azure/arc-k8s-demo",
@@ -44,8 +50,6 @@ import * as utilities from "../utilities";
  *     kustomizations: [{
  *         name: "kustomization-1",
  *     }],
- * }, {
- *     dependsOn: [exampleKubernetesClusterExtension],
  * });
  * ```
  *

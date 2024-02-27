@@ -21,33 +21,26 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/devtest"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
+//				Name:              pulumi.String("example-devtestlab"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"Sydney": pulumi.String("Australia"),
 //				},
@@ -55,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
 //				LabName:           exampleLab.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Subnet: &devtest.VirtualNetworkSubnetArgs{
 //					UsePublicIpAddress:          pulumi.String("Allow"),
 //					UseInVirtualMachineCreation: pulumi.String("Allow"),
@@ -66,13 +60,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devtest.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &devtest.LinuxVirtualMachineArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = devtest.NewLinuxVirtualMachine(ctx, "example", &devtest.LinuxVirtualMachineArgs{
+//				Name:                pulumi.String("example-vm03"),
 //				LabName:             exampleLab.Name,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
-//				SshKey:              readFileOrPanic("~/.ssh/id_rsa.pub"),
+//				SshKey:              invokeFile.Result,
 //				LabVirtualNetworkId: exampleVirtualNetwork.ID(),
 //				LabSubnetName: exampleVirtualNetwork.Subnet.ApplyT(func(subnet devtest.VirtualNetworkSubnet) (*string, error) {
 //					return &subnet.Name, nil

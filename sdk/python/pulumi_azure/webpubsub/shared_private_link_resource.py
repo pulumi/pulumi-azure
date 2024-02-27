@@ -237,10 +237,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -251,12 +254,14 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 key_permissions=["create"],
                 secret_permissions=["set"],
             )])
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
+        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("example",
+            name="tfex-webpubsub-splr",
             web_pubsub_id=example_service.id,
             subresource_name="vault",
             target_resource_id=example_key_vault.id)
@@ -298,10 +303,13 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekeyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             soft_delete_retention_days=7,
@@ -312,12 +320,14 @@ class SharedPrivateLinkResource(pulumi.CustomResource):
                 key_permissions=["create"],
                 secret_permissions=["set"],
             )])
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1)
-        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource",
+        example_shared_private_link_resource = azure.webpubsub.SharedPrivateLinkResource("example",
+            name="tfex-webpubsub-splr",
             web_pubsub_id=example_service.id,
             subresource_name="vault",
             target_resource_id=example_key_vault.id)

@@ -297,28 +297,32 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="testbatch",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="teststorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.batch.Account("example",
+            name="testbatchaccount",
+            resource_group_name=example.name,
+            location=example.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
             storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+        example_certificate = azure.batch.Certificate("example",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            certificate=std.filebase64(input="certificate.pfx").result,
             format="Pfx",
             password="password",
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",
@@ -356,28 +360,32 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="testbatch",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="teststorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.batch.Account("example",
+            name="testbatchaccount",
+            resource_group_name=example.name,
+            location=example.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
             storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+        example_certificate = azure.batch.Certificate("example",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            certificate=std.filebase64(input="certificate.pfx").result,
             format="Pfx",
             password="password",
             thumbprint="42C107874FD0E4A9583292A2F1098E8FE4B2EDDA",

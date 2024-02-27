@@ -30,15 +30,17 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleRandomUuid = new Random.RandomUuid("exampleRandomUuid");
+    ///     var exampleRandomUuid = new Random.RandomUuid("example");
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("exampleRoleDefinition", new()
+    ///     var exampleRoleDefinition = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
+    ///         Name = "AVD-AutoScale",
     ///         Scope = exampleResourceGroup.Id,
     ///         Description = "AVD AutoScale Role",
     ///         Permissions = new[]
@@ -71,22 +73,23 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         },
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "Windows Virtual Desktop",
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Name = exampleRandomUuid.Result,
     ///         Scope = exampleResourceGroup.Id,
     ///         RoleDefinitionId = exampleRoleDefinition.RoleDefinitionResourceId,
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
     ///         SkipServicePrincipalAadCheck = true,
     ///     });
     /// 
-    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("exampleHostPool", new()
+    ///     var exampleHostPool = new Azure.DesktopVirtualization.HostPool("example", new()
     ///     {
+    ///         Name = "example-hostpool",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Type = "Pooled",
@@ -94,8 +97,9 @@ namespace Pulumi.Azure.DesktopVirtualization
     ///         LoadBalancerType = "BreadthFirst",
     ///     });
     /// 
-    ///     var exampleScalingPlan = new Azure.DesktopVirtualization.ScalingPlan("exampleScalingPlan", new()
+    ///     var exampleScalingPlan = new Azure.DesktopVirtualization.ScalingPlan("example", new()
     ///     {
+    ///         Name = "example-scaling-plan",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         FriendlyName = "Scaling Plan Example",

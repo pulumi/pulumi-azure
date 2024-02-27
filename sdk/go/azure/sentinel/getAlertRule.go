@@ -28,21 +28,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAnalyticsWorkspace, err := operationalinsights.LookupAnalyticsWorkspace(ctx, &operationalinsights.LookupAnalyticsWorkspaceArgs{
+//			example, err := operationalinsights.LookupAnalyticsWorkspace(ctx, &operationalinsights.LookupAnalyticsWorkspaceArgs{
 //				Name:              "example",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAlertRule, err := sentinel.GetAlertRule(ctx, &sentinel.GetAlertRuleArgs{
+//			exampleGetAlertRule, err := sentinel.GetAlertRule(ctx, &sentinel.GetAlertRuleArgs{
 //				Name:                    "existing",
-//				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.Id,
+//				LogAnalyticsWorkspaceId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleAlertRule.Id)
+//			ctx.Export("id", exampleGetAlertRule.Id)
 //			return nil
 //		})
 //	}

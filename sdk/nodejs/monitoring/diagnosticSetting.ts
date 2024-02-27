@@ -15,23 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,
  *     purgeProtectionEnabled: false,
  *     skuName: "standard",
  * });
- * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
+ * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("example", {
+ *     name: "example",
  *     targetResourceId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     enabledLogs: [{

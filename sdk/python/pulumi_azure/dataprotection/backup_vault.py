@@ -280,10 +280,13 @@ class BackupVault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("example",
+            name="example-backup-vault",
+            resource_group_name=example.name,
+            location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         ```
@@ -323,10 +326,13 @@ class BackupVault(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_backup_vault = azure.dataprotection.BackupVault("exampleBackupVault",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_backup_vault = azure.dataprotection.BackupVault("example",
+            name="example-backup-vault",
+            resource_group_name=example.name,
+            location=example.location,
             datastore_type="VaultStore",
             redundancy="LocallyRedundant")
         ```

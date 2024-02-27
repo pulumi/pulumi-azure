@@ -19,37 +19,46 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "acctni",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     adminSshKeys: [{
  *         username: "adminuser",
- *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).then(invoke => invoke.result),
  *     }],
  *     osDisk: {
  *         caching: "ReadWrite",
@@ -62,7 +71,8 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ * const exampleExtension = new azure.compute.Extension("example", {
+ *     name: "hostname",
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     publisher: "Microsoft.Azure.Extensions",
  *     type: "CustomScript",
@@ -165,10 +175,6 @@ export class Extension extends pulumi.CustomResource {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     public readonly type!: pulumi.Output<string>;
     /**
@@ -297,10 +303,6 @@ export interface ExtensionState {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     type?: pulumi.Input<string>;
     /**
@@ -369,10 +371,6 @@ export interface ExtensionArgs {
      * The type of extension, available types for a publisher can be found using the Azure CLI.
      *
      * > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-     *
-     * ```typescript
-     * import * as pulumi from "@pulumi/pulumi";
-     * ```
      */
     type: pulumi.Input<string>;
     /**

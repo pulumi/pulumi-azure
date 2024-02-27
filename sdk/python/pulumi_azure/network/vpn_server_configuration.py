@@ -405,8 +405,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         test = azure.network.VpnServerConfiguration("test",
+            name="example-config",
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],
@@ -473,8 +476,11 @@ class VpnServerConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         test = azure.network.VpnServerConfiguration("test",
+            name="example-config",
             resource_group_name=example.name,
             location=example.location,
             vpn_authentication_types=["Certificate"],

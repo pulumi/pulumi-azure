@@ -44,20 +44,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;mysqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;FirewallRule1&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleSqlServer.name())
  *             .startIpAddress(&#34;10.0.17.62&#34;)
  *             .endIpAddress(&#34;10.0.17.62&#34;)

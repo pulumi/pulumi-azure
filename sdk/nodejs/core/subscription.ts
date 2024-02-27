@@ -12,13 +12,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleEnrollmentAccountScope = azure.billing.getEnrollmentAccountScope({
+ * const example = azure.billing.getEnrollmentAccountScope({
  *     billingAccountName: "1234567890",
  *     enrollmentAccountName: "0123456",
  * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
+ * const exampleSubscription = new azure.core.Subscription("example", {
  *     subscriptionName: "My Example EA Subscription",
- *     billingScopeId: exampleEnrollmentAccountScope.then(exampleEnrollmentAccountScope => exampleEnrollmentAccountScope.id),
+ *     billingScopeId: example.then(example => example.id),
  * });
  * ```
  * ### Creating A New Alias And Subscription For A Microsoft Customer Account
@@ -27,14 +27,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleMcaAccountScope = azure.billing.getMcaAccountScope({
+ * const example = azure.billing.getMcaAccountScope({
  *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
  *     billingProfileName: "PE2Q-NOIT-BG7-TGB",
  *     invoiceSectionName: "MTT4-OBS7-PJA-TGB",
  * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
+ * const exampleSubscription = new azure.core.Subscription("example", {
  *     subscriptionName: "My Example MCA Subscription",
- *     billingScopeId: exampleMcaAccountScope.then(exampleMcaAccountScope => exampleMcaAccountScope.id),
+ *     billingScopeId: example.then(example => example.id),
  * });
  * ```
  * ### Creating A New Alias And Subscription For A Microsoft Partner Account
@@ -43,13 +43,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleMpaAccountScope = azure.billing.getMpaAccountScope({
+ * const example = azure.billing.getMpaAccountScope({
  *     billingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
  *     customerName: "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
  * });
- * const exampleSubscription = new azure.core.Subscription("exampleSubscription", {
+ * const exampleSubscription = new azure.core.Subscription("example", {
  *     subscriptionName: "My Example MPA Subscription",
- *     billingScopeId: exampleMpaAccountScope.then(exampleMpaAccountScope => exampleMpaAccountScope.id),
+ *     billingScopeId: example.then(example => example.id),
  * });
  * ```
  * ### Adding An Alias To An Existing Subscription
@@ -60,8 +60,8 @@ import * as utilities from "../utilities";
  *
  * const example = new azure.core.Subscription("example", {
  *     alias: "examplesub",
- *     subscriptionId: "12345678-12234-5678-9012-123456789012",
  *     subscriptionName: "My Example Subscription",
+ *     subscriptionId: "12345678-12234-5678-9012-123456789012",
  * });
  * ```
  *

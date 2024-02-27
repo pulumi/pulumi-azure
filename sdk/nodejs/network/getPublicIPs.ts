@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getPublicIPs({
- *     attachmentStatus: "Attached",
  *     resourceGroupName: "pip-test",
+ *     attachmentStatus: "Attached",
  * });
  * ```
  */
@@ -81,8 +81,8 @@ export interface GetPublicIPsResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getPublicIPs({
- *     attachmentStatus: "Attached",
  *     resourceGroupName: "pip-test",
+ *     attachmentStatus: "Attached",
  * });
  * ```
  */

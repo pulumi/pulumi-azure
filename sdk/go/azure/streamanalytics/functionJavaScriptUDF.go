@@ -29,22 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//			example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
 //				Name: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+//			exampleGetJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
 //				Name:              "example-job",
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "exampleFunctionJavaScriptUDF", &streamanalytics.FunctionJavaScriptUDFArgs{
-//				StreamAnalyticsJobName: *pulumi.String(exampleJob.Name),
-//				ResourceGroupName:      *pulumi.String(exampleJob.ResourceGroupName),
+//			_, err = streamanalytics.NewFunctionJavaScriptUDF(ctx, "example", &streamanalytics.FunctionJavaScriptUDFArgs{
+//				Name:                   pulumi.String("example-javascript-function"),
+//				StreamAnalyticsJobName: *pulumi.String(exampleGetJob.Name),
+//				ResourceGroupName:      *pulumi.String(exampleGetJob.ResourceGroupName),
 //				Script:                 pulumi.String("function getRandomNumber(in) {\n  return in;\n}\n"),
 //				Inputs: streamanalytics.FunctionJavaScriptUDFInputTypeArray{
 //					&streamanalytics.FunctionJavaScriptUDFInputTypeArgs{

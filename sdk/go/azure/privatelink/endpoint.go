@@ -34,24 +34,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-network"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			service, err := network.NewSubnet(ctx, "service", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("service"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -62,7 +65,8 @@ import (
 //				return err
 //			}
 //			endpoint, err := network.NewSubnet(ctx, "endpoint", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("endpoint"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -72,19 +76,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example-pip"),
 //				Sku:               pulumi.String("Standard"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("example-lb"),
 //				Sku:               pulumi.String("Standard"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
@@ -95,9 +101,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkService, err := privatedns.NewLinkService(ctx, "exampleLinkService", &privatedns.LinkServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLinkService, err := privatedns.NewLinkService(ctx, "example", &privatedns.LinkServiceArgs{
+//				Name:              pulumi.String("example-privatelink"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				NatIpConfigurations: privatedns.LinkServiceNatIpConfigurationArray{
 //					&privatedns.LinkServiceNatIpConfigurationArgs{
 //						Name:     examplePublicIp.Name,
@@ -114,9 +121,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.String("example-endpoint"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SubnetId:          endpoint.ID(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("example-privateserviceconnection"),
@@ -149,7 +157,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//			example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
 //				Name: "example-resources",
 //			}, nil)
 //			if err != nil {
@@ -157,7 +165,7 @@ import (
 //			}
 //			vnet, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
 //				Name:              "example-network",
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
@@ -165,14 +173,15 @@ import (
 //			subnet, err := network.LookupSubnet(ctx, &network.LookupSubnetArgs{
 //				Name:               "default",
 //				VirtualNetworkName: vnet.Name,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				ResourceGroupName:  example.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
-//				Location:          *pulumi.String(exampleResourceGroup.Location),
-//				ResourceGroupName: *pulumi.String(exampleResourceGroup.Name),
+//			_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.String("example-endpoint"),
+//				Location:          *pulumi.String(example.Location),
+//				ResourceGroupName: *pulumi.String(example.Name),
 //				SubnetId:          *pulumi.String(subnet.Id),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                           pulumi.String("example-privateserviceconnection"),
@@ -208,33 +217,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("exampleaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("virtnetname"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("subnetname"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -243,15 +256,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
+//				Name:              pulumi.String("privatelink.blob.core.windows.net"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatelink.NewEndpoint(ctx, "exampleEndpoint", &privatelink.EndpointArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = privatelink.NewEndpoint(ctx, "example", &privatelink.EndpointArgs{
+//				Name:              pulumi.String("example-endpoint"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SubnetId:          exampleSubnet.ID(),
 //				PrivateServiceConnection: &privatelink.EndpointPrivateServiceConnectionArgs{
 //					Name:                        pulumi.String("example-privateserviceconnection"),
@@ -271,8 +286,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				Name:               pulumi.String("example-link"),
+//				ResourceGroupName:  example.Name,
 //				PrivateDnsZoneName: exampleZone.Name,
 //				VirtualNetworkId:   exampleVirtualNetwork.ID(),
 //			})

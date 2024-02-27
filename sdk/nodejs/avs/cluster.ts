@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePrivateCloud = new azure.avs.PrivateCloud("examplePrivateCloud", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const examplePrivateCloud = new azure.avs.PrivateCloud("example", {
+ *     name: "example-vmware-private-cloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "av36",
  *     managementCluster: {
  *         size: 3,
@@ -26,7 +30,8 @@ import * as utilities from "../utilities";
  *     nsxtPassword: "QazWsx13$Edc",
  *     vcenterPassword: "WsxEdc23$Rfv",
  * });
- * const exampleCluster = new azure.avs.Cluster("exampleCluster", {
+ * const exampleCluster = new azure.avs.Cluster("example", {
+ *     name: "example-Cluster",
  *     vmwareCloudId: examplePrivateCloud.id,
  *     clusterNodeCount: 3,
  *     skuName: "av36",

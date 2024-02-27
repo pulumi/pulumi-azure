@@ -22,19 +22,21 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "examplestorageacc",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
@@ -43,13 +45,15 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         IsHnsEnabled = true,
     ///     });
     /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
     ///     {
+    ///         Name = "example",
     ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
@@ -61,10 +65,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleOutputSynapse = new Azure.StreamAnalytics.OutputSynapse("exampleOutputSynapse", new()
+    ///     var exampleOutputSynapse = new Azure.StreamAnalytics.OutputSynapse("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "example-output-synapse",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         Server = exampleWorkspace.ConnectivityEndpoints.Apply(connectivityEndpoints =&gt; connectivityEndpoints.SqlOnDemand),
     ///         User = exampleWorkspace.SqlAdministratorLogin,
     ///         Password = exampleWorkspace.SqlAdministratorLoginPassword,

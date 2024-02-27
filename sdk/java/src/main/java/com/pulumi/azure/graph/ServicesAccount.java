@@ -44,17 +44,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleApplication = new Application(&#34;exampleApplication&#34;, ApplicationArgs.builder()        
+ *         var example = new Application(&#34;example&#34;, ApplicationArgs.builder()        
  *             .displayName(&#34;example-app&#34;)
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServicesAccount = new ServicesAccount(&#34;exampleServicesAccount&#34;, ServicesAccountArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .applicationId(exampleApplication.applicationId())
+ *             .applicationId(example.applicationId())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());
  * 

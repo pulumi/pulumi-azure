@@ -22,17 +22,18 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
+    ///     var example = new Azure.Management.Group("example", new()
     ///     {
     ///         DisplayName = "Some Management Group",
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     var exampleDefinition = new Azure.Policy.Definition("example", new()
     ///     {
+    ///         Name = "only-deploy-in-westeurope",
     ///         PolicyType = "Custom",
     ///         Mode = "All",
     ///         DisplayName = "my-policy-definition",
-    ///         ManagementGroupId = exampleGroup.Id,
+    ///         ManagementGroupId = example.Id,
     ///         PolicyRule = @" {
     ///     ""if"": {
     ///       ""not"": {
@@ -47,10 +48,11 @@ namespace Pulumi.Azure.Management
     /// ",
     ///     });
     /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
+    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
     ///     {
+    ///         Name = "example-policy",
     ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///         ManagementGroupId = exampleGroup.Id,
+    ///         ManagementGroupId = example.Id,
     ///     });
     /// 
     /// });

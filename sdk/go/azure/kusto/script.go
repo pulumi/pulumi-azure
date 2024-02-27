@@ -30,13 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku: &kusto.ClusterSkuArgs{
@@ -47,7 +49,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				ClusterName:       exampleCluster.Name,
@@ -55,7 +58,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -64,14 +68,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("setup-files"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBlob, err := storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//			exampleBlob, err := storage.NewBlob(ctx, "example", &storage.BlobArgs{
+//				Name:                 pulumi.String("script.txt"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Block"),
@@ -80,7 +86,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccountBlobContainerSAS := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
+//			example := storage.GetAccountBlobContainerSASOutput(ctx, storage.GetAccountBlobContainerSASOutputArgs{
 //				ConnectionString: exampleAccount.PrimaryConnectionString,
 //				ContainerName:    exampleContainer.Name,
 //				HttpsOnly:        pulumi.Bool(true),
@@ -95,11 +101,12 @@ import (
 //					List:   pulumi.Bool(true),
 //				},
 //			}, nil)
-//			_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
+//			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
+//				Name:       pulumi.String("example"),
 //				DatabaseId: exampleDatabase.ID(),
 //				Url:        exampleBlob.ID(),
-//				SasToken: exampleAccountBlobContainerSAS.ApplyT(func(exampleAccountBlobContainerSAS storage.GetAccountBlobContainerSASResult) (*string, error) {
-//					return &exampleAccountBlobContainerSAS.Sas, nil
+//				SasToken: example.ApplyT(func(example storage.GetAccountBlobContainerSASResult) (*string, error) {
+//					return &example.Sas, nil
 //				}).(pulumi.StringPtrOutput),
 //				ContinueOnErrorsEnabled:       pulumi.Bool(true),
 //				ForceAnUpdateWhenValueChanged: pulumi.String("first"),

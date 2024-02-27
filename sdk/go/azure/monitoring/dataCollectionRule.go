@@ -35,30 +35,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
 //				SolutionName:        pulumi.String("WindowsEventForwarding"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
 //				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
@@ -69,43 +72,48 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("exeventns"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Capacity:          pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("exevent2"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				PartitionCount:    pulumi.Int(2),
 //				MessageRetention:  pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examstorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("examplecontainer"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "exampleDataCollectionEndpoint", &monitoring.DataCollectionEndpointArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "example", &monitoring.DataCollectionEndpointArgs{
+//				Name:              pulumi.String("example-dcre"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
@@ -118,9 +126,10 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = monitoring.NewDataCollectionRule(ctx, "exampleDataCollectionRule", &monitoring.DataCollectionRuleArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
+//			_, err = monitoring.NewDataCollectionRule(ctx, "example", &monitoring.DataCollectionRuleArgs{
+//				Name:                     pulumi.String("example-rule"),
+//				ResourceGroupName:        example.Name,
+//				Location:                 example.Location,
 //				DataCollectionEndpointId: exampleDataCollectionEndpoint.ID(),
 //				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
 //					LogAnalytics: monitoring.DataCollectionRuleDestinationsLogAnalyticArray{
@@ -284,9 +293,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAnalyticsSolution,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

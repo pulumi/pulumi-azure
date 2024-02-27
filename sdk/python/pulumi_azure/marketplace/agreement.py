@@ -163,9 +163,9 @@ class Agreement(pulumi.CustomResource):
         import pulumi_azure as azure
 
         barracuda = azure.marketplace.Agreement("barracuda",
+            publisher="barracudanetworks",
             offer="waf",
-            plan="hourly",
-            publisher="barracudanetworks")
+            plan="hourly")
         ```
 
         ## Import
@@ -198,9 +198,9 @@ class Agreement(pulumi.CustomResource):
         import pulumi_azure as azure
 
         barracuda = azure.marketplace.Agreement("barracuda",
+            publisher="barracudanetworks",
             offer="waf",
-            plan="hourly",
-            publisher="barracudanetworks")
+            plan="hourly")
         ```
 
         ## Import

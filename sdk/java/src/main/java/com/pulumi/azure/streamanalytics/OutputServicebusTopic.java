@@ -52,28 +52,32 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
+ *             .name(&#34;example-namespace&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;example-topic&#34;)
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
  *         var exampleOutputServicebusTopic = new OutputServicebusTopic(&#34;exampleOutputServicebusTopic&#34;, OutputServicebusTopicArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .name(&#34;service-bus-topic-output&#34;)
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
  *             .topicName(exampleTopic.name())
  *             .servicebusNamespace(exampleNamespace.name())
  *             .sharedAccessPolicyKey(exampleNamespace.defaultPrimaryKey())

@@ -174,8 +174,11 @@ class FleetMember(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.containerservice.KubernetesCluster("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
@@ -187,15 +190,17 @@ class FleetMember(pulumi.CustomResource):
             identity=azure.containerservice.KubernetesClusterIdentityArgs(
                 type="example-value",
             ))
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
                 dns_prefix="val-example",
             ))
-        example_fleet_member = azure.containerservice.FleetMember("exampleFleetMember",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            kubernetes_fleet_id=example_kubernetes_fleet_manager.id)
+        example_fleet_member = azure.containerservice.FleetMember("example",
+            kubernetes_cluster_id=example.id,
+            kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
+            name="example")
         ```
 
         ## Import
@@ -238,8 +243,11 @@ class FleetMember(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.containerservice.KubernetesCluster("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
@@ -251,15 +259,17 @@ class FleetMember(pulumi.CustomResource):
             identity=azure.containerservice.KubernetesClusterIdentityArgs(
                 type="example-value",
             ))
-        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager",
+        example_kubernetes_fleet_manager = azure.containerservice.KubernetesFleetManager("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             hub_profile=azure.containerservice.KubernetesFleetManagerHubProfileArgs(
                 dns_prefix="val-example",
             ))
-        example_fleet_member = azure.containerservice.FleetMember("exampleFleetMember",
-            kubernetes_cluster_id=example_kubernetes_cluster.id,
-            kubernetes_fleet_id=example_kubernetes_fleet_manager.id)
+        example_fleet_member = azure.containerservice.FleetMember("example",
+            kubernetes_cluster_id=example.id,
+            kubernetes_fleet_id=example_kubernetes_fleet_manager.id,
+            name="example")
         ```
 
         ## Import

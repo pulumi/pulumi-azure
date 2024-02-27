@@ -22,21 +22,24 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     var exampleLab = new Azure.DevTest.Lab("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "YourDevTestLab",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSchedule = new Azure.DevTest.Schedule("exampleSchedule", new()
+    ///     var exampleSchedule = new Azure.DevTest.Schedule("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "LabVmAutoStart",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LabName = exampleLab.Name,
     ///         WeeklyRecurrence = new Azure.DevTest.Inputs.ScheduleWeeklyRecurrenceArgs
     ///         {

@@ -28,35 +28,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "example-api",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//			exampleGetApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 //				Name:              "search-api",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
+//				ApiManagementName: example.Name,
+//				ResourceGroupName: example.ResourceGroupName,
 //				Revision:          "2",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//			exampleGetProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
 //				ProductId:         "my-product",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
+//				ApiManagementName: example.Name,
+//				ResourceGroupName: example.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewProductApi(ctx, "exampleProductApi", &apimanagement.ProductApiArgs{
-//				ApiName:           *pulumi.String(exampleApi.Name),
-//				ProductId:         *pulumi.String(exampleProduct.ProductId),
-//				ApiManagementName: *pulumi.String(exampleService.Name),
-//				ResourceGroupName: *pulumi.String(exampleService.ResourceGroupName),
+//			_, err = apimanagement.NewProductApi(ctx, "example", &apimanagement.ProductApiArgs{
+//				ApiName:           *pulumi.String(exampleGetApi.Name),
+//				ProductId:         *pulumi.String(exampleGetProduct.ProductId),
+//				ApiManagementName: *pulumi.String(example.Name),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //			})
 //			if err != nil {
 //				return err

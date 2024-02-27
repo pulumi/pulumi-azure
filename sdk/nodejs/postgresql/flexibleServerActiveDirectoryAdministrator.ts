@@ -15,11 +15,15 @@ import * as utilities from "../utilities";
  * import * as azuread from "@pulumi/azuread";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleServicePrincipal = current.then(current => azuread.getServicePrincipal({
+ * const example = current.then(current => azuread.getServicePrincipal({
  *     objectId: current.objectId,
  * }));
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("exampleFlexibleServer", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFlexibleServer = new azure.postgresql.FlexibleServer("example", {
+ *     name: "example-fs",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     administratorLogin: "adminTerraform",
@@ -33,12 +37,12 @@ import * as utilities from "../utilities";
  *         tenantId: current.then(current => current.tenantId),
  *     },
  * });
- * const exampleFlexibleServerActiveDirectoryAdministrator = new azure.postgresql.FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", {
+ * const exampleFlexibleServerActiveDirectoryAdministrator = new azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example", {
  *     serverName: exampleFlexibleServer.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
- *     objectId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
- *     principalName: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.displayName),
+ *     objectId: example.then(example => example.objectId),
+ *     principalName: example.then(example => example.displayName),
  *     principalType: "ServicePrincipal",
  * });
  * ```

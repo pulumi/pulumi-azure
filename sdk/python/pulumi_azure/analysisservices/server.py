@@ -388,8 +388,11 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="analysis-services-server-test",
+            location="West Europe")
         server = azure.analysisservices.Server("server",
+            name="analysisservicesserver",
             location=example.location,
             resource_group_name=example.name,
             sku="S0",
@@ -443,8 +446,11 @@ class Server(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="analysis-services-server-test",
+            location="West Europe")
         server = azure.analysisservices.Server("server",
+            name="analysisservicesserver",
             location=example.location,
             resource_group_name=example.name,
             sku="S0",

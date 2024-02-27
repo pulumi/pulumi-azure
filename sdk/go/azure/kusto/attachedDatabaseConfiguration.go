@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-kusto-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			followerCluster, err := kusto.NewCluster(ctx, "followerCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			followerCluster, err := kusto.NewCluster(ctx, "follower_cluster", &kusto.ClusterArgs{
+//				Name:              pulumi.String("cluster1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
@@ -46,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			followedCluster, err := kusto.NewCluster(ctx, "followedCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			followedCluster, err := kusto.NewCluster(ctx, "followed_cluster", &kusto.ClusterArgs{
+//				Name:              pulumi.String("cluster2"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
@@ -57,25 +60,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewDatabase(ctx, "followedDatabase", &kusto.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = kusto.NewDatabase(ctx, "followed_database", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("my-followed-database"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ClusterName:       followerCluster.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ClusterName:       followerCluster.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewAttachedDatabaseConfiguration(ctx, "exampleAttachedDatabaseConfiguration", &kusto.AttachedDatabaseConfigurationArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = kusto.NewAttachedDatabaseConfiguration(ctx, "example", &kusto.AttachedDatabaseConfigurationArgs{
+//				Name:              pulumi.String("configuration1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ClusterName:       followerCluster.Name,
 //				ClusterResourceId: followedCluster.ID(),
 //				DatabaseName:      exampleDatabase.Name,

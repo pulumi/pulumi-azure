@@ -15,19 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSync = new azure.storage.Sync("exampleSync", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSyncGroup = new azure.storage.SyncGroup("exampleSyncGroup", {storageSyncId: exampleSync.id});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleSync = new azure.storage.Sync("example", {
+ *     name: "example-ss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleSyncGroup = new azure.storage.SyncGroup("example", {
+ *     name: "example-ss-group",
+ *     storageSyncId: exampleSync.id,
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
+ * const exampleShare = new azure.storage.Share("example", {
+ *     name: "example-share",
  *     storageAccountName: exampleAccount.name,
  *     quota: 50,
  *     acls: [{
@@ -37,7 +46,8 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleSyncCloudEndpoint = new azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint", {
+ * const exampleSyncCloudEndpoint = new azure.storage.SyncCloudEndpoint("example", {
+ *     name: "example-ss-ce",
  *     storageSyncGroupId: exampleSyncGroup.id,
  *     fileShareName: exampleShare.name,
  *     storageAccountId: exampleAccount.id,

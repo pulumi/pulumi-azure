@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-recovery_vault",
+ *     location: "West Europe",
+ * });
+ * const exampleVault = new azure.recoveryservices.Vault("example", {
+ *     name: "tfex-recovery-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const examplePolicyVM = new azure.backup.PolicyVM("examplePolicyVM", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePolicyVM = new azure.backup.PolicyVM("example", {
+ *     name: "tfex-recovery-vault-policy",
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: exampleVault.name,
  *     timezone: "UTC",
  *     backup: {

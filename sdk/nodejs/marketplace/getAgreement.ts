@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  *     offer: "waf",
  *     plan: "hourly",
  * });
- * export const azurermMarketplaceAgreementId = data.azurerm_marketplace_agreement.id;
+ * export const azurermMarketplaceAgreementId = id;
  * ```
  */
 export function getAgreement(args: GetAgreementArgs, opts?: pulumi.InvokeOptions): Promise<GetAgreementResult> {
@@ -77,7 +77,7 @@ export interface GetAgreementResult {
  *     offer: "waf",
  *     plan: "hourly",
  * });
- * export const azurermMarketplaceAgreementId = data.azurerm_marketplace_agreement.id;
+ * export const azurermMarketplaceAgreementId = id;
  * ```
  */
 export function getAgreementOutput(args: GetAgreementOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAgreementResult> {

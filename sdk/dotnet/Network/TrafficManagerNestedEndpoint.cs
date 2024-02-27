@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-publicip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         DomainNameLabel = "example-pip",
     ///     });
     /// 
     ///     var parent = new Azure.Network.TrafficManagerProfile("parent", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "parent-profile",
+    ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
@@ -61,7 +64,8 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var nested = new Azure.Network.TrafficManagerProfile("nested", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "nested-profile",
+    ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Priority",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
@@ -76,8 +80,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("exampleTrafficManagerNestedEndpoint", new()
+    ///     var exampleTrafficManagerNestedEndpoint = new Azure.Network.TrafficManagerNestedEndpoint("example", new()
     ///     {
+    ///         Name = "example-endpoint",
     ///         TargetResourceId = nested.Id,
     ///         Priority = 1,
     ///         ProfileId = parent.Id,

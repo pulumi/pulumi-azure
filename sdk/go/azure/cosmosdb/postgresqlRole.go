@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "examplePostgresqlCluster", &cosmosdb.PostgresqlClusterArgs{
-//				ResourceGroupName:           exampleResourceGroup.Name,
-//				Location:                    exampleResourceGroup.Location,
+//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
+//				Name:                        pulumi.String("examplecluster"),
+//				ResourceGroupName:           example.Name,
+//				Location:                    example.Location,
 //				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
 //				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
 //				CoordinatorVcoreCount:       pulumi.Int(2),
@@ -46,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewPostgresqlRole(ctx, "examplePostgresqlRole", &cosmosdb.PostgresqlRoleArgs{
+//			_, err = cosmosdb.NewPostgresqlRole(ctx, "example", &cosmosdb.PostgresqlRoleArgs{
+//				Name:      pulumi.String("examplerole"),
 //				ClusterId: examplePostgresqlCluster.ID(),
 //				Password:  pulumi.String("H@Sh1CoR3!"),
 //			})

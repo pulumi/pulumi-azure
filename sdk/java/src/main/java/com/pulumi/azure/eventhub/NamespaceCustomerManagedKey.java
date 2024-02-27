@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKey;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,19 +58,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-cluster&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;Dedicated_1&#34;)
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-namespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .dedicatedClusterId(exampleCluster.id())
  *             .identity(EventHubNamespaceIdentityArgs.builder()
@@ -82,8 +84,9 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
@@ -114,6 +117,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;examplekvkey&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -124,11 +128,7 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAccessPolicy,
- *                     example2)
- *                 .build());
+ *             .build());
  * 
  *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
@@ -163,7 +163,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKey;
  * import com.pulumi.azure.eventhub.NamespaceCustomerManagedKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -177,24 +176,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-cluster&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;Dedicated_1&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-namespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .dedicatedClusterId(exampleCluster.id())
  *             .identity(EventHubNamespaceIdentityArgs.builder()
@@ -206,8 +209,9 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
@@ -215,8 +219,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(azurerm_user_assigned_identity.test().tenant_id())
- *             .objectId(azurerm_user_assigned_identity.test().principal_id())
+ *             .tenantId(test.tenantId())
+ *             .objectId(test.principalId())
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
  *                 &#34;UnwrapKey&#34;,
@@ -238,6 +242,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;examplekvkey&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -248,11 +253,7 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleAccessPolicy,
- *                     example2)
- *                 .build());
+ *             .build());
  * 
  *         var exampleNamespaceCustomerManagedKey = new NamespaceCustomerManagedKey(&#34;exampleNamespaceCustomerManagedKey&#34;, NamespaceCustomerManagedKeyArgs.builder()        
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())

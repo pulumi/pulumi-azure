@@ -337,11 +337,15 @@ class MedtechService(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="east us")
+        example_workspace = azure.healthcare.Workspace("example",
+            name="examplewkspace",
+            location=example.location,
+            resource_group_name=example.name)
+        example_medtech_service = azure.healthcare.MedtechService("example",
+            name="examplemed",
             workspace_id=example_workspace.id,
             location="east us",
             identity=azure.healthcare.MedtechServiceIdentityArgs(
@@ -405,11 +409,15 @@ class MedtechService(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_workspace = azure.healthcare.Workspace("exampleWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_medtech_service = azure.healthcare.MedtechService("exampleMedtechService",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="east us")
+        example_workspace = azure.healthcare.Workspace("example",
+            name="examplewkspace",
+            location=example.location,
+            resource_group_name=example.name)
+        example_medtech_service = azure.healthcare.MedtechService("example",
+            name="examplemed",
             workspace_id=example_workspace.id,
             location="east us",
             identity=azure.healthcare.MedtechServiceIdentityArgs(

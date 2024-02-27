@@ -23,17 +23,18 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var example = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var examplePolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
+    ///     var exampleGetPolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
     ///     {
     ///         DisplayName = "Allowed resource types",
     ///     });
     /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
+    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         PolicyDefinitionId = examplePolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+    ///         Name = "exampleAssignment",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         PolicyDefinitionId = exampleGetPolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
     ///         Parameters = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
@@ -47,9 +48,10 @@ namespace Pulumi.Azure.Core
     ///         }),
     ///     });
     /// 
-    ///     var exampleSubscriptionPolicyRemediation = new Azure.Core.SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", new()
+    ///     var exampleSubscriptionPolicyRemediation = new Azure.Core.SubscriptionPolicyRemediation("example", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Name = "example",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         PolicyAssignmentId = exampleSubscriptionPolicyAssignment.Id,
     ///     });
     /// 

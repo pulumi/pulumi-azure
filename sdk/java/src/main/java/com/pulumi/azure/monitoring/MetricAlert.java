@@ -56,19 +56,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var toMonitor = new Account(&#34;toMonitor&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestorageaccount&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var main = new ActionGroup(&#34;main&#34;, ActionGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-actiongroup&#34;)
+ *             .resourceGroupName(example.name())
  *             .shortName(&#34;exampleact&#34;)
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
  *                 .name(&#34;callmyapi&#34;)
@@ -77,7 +80,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-metricalert&#34;)
+ *             .resourceGroupName(example.name())
  *             .scopes(toMonitor.id())
  *             .description(&#34;Action will be triggered when Transactions count is greater than 50.&#34;)
  *             .criterias(MetricAlertCriteriaArgs.builder()

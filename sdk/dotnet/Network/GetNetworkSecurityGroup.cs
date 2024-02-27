@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Network
         ///     var example = Azure.Network.GetNetworkSecurityGroup.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Network
         ///     var example = Azure.Network.GetNetworkSecurityGroup.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

@@ -305,29 +305,36 @@ class PacketCapture(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="example-nw",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_machine = azure.compute.VirtualMachine("example",
+            name="example-vm",
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -350,24 +357,26 @@ class PacketCapture(pulumi.CustomResource):
             os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
                 disable_password_authentication=False,
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="network-watcher",
             virtual_machine_id=example_virtual_machine.id,
             publisher="Microsoft.Azure.NetworkWatcher",
             type="NetworkWatcherAgentLinux",
             type_handler_version="1.4",
             auto_upgrade_minor_version=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_packet_capture = azure.compute.PacketCapture("examplePacketCapture",
+        example_packet_capture = azure.compute.PacketCapture("example",
+            name="example-pc",
             network_watcher_id=example_network_watcher.id,
             virtual_machine_id=example_virtual_machine.id,
             storage_location=azure.compute.PacketCaptureStorageLocationArgs(
                 storage_account_id=example_account.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+            ))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.
@@ -406,29 +415,36 @@ class PacketCapture(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="example-nw",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_machine = azure.compute.VirtualMachine("example",
+            name="example-vm",
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_F2",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -451,24 +467,26 @@ class PacketCapture(pulumi.CustomResource):
             os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
                 disable_password_authentication=False,
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="network-watcher",
             virtual_machine_id=example_virtual_machine.id,
             publisher="Microsoft.Azure.NetworkWatcher",
             type="NetworkWatcherAgentLinux",
             type_handler_version="1.4",
             auto_upgrade_minor_version=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_packet_capture = azure.compute.PacketCapture("examplePacketCapture",
+        example_packet_capture = azure.compute.PacketCapture("example",
+            name="example-pc",
             network_watcher_id=example_network_watcher.id,
             virtual_machine_id=example_virtual_machine.id,
             storage_location=azure.compute.PacketCaptureStorageLocationArgs(
                 storage_account_id=example_account.id,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+            ))
         ```
 
         > **NOTE:** This Resource requires that [the Network Watcher Virtual Machine Extension](https://docs.microsoft.com/azure/network-watcher/network-watcher-packet-capture-manage-portal#before-you-begin) is installed on the Virtual Machine before capturing can be enabled which can be installed via the `compute.Extension` resource.

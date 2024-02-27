@@ -16,33 +16,38 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
  *     location: "west europe",
  *     tags: {
  *         stage: "example",
  *     },
  * });
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-kv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-mlw",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
@@ -50,10 +55,14 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleSynapse_workspaceWorkspace = new azure.synapse.Workspace("exampleSynapse/workspaceWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleWorkspace2 = new azure.synapse.Workspace("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
@@ -61,15 +70,17 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSparkPool = new azure.synapse.SparkPool("exampleSparkPool", {
- *     synapseWorkspaceId: exampleSynapse / workspaceWorkspace.id,
+ * const exampleSparkPool = new azure.synapse.SparkPool("example", {
+ *     name: "example",
+ *     synapseWorkspaceId: exampleWorkspace2.id,
  *     nodeSizeFamily: "MemoryOptimized",
  *     nodeSize: "Small",
  *     nodeCount: 3,
  * });
- * const exampleSynapseSpark = new azure.machinelearning.SynapseSpark("exampleSynapseSpark", {
+ * const exampleSynapseSpark = new azure.machinelearning.SynapseSpark("example", {
+ *     name: "example",
  *     machineLearningWorkspaceId: exampleWorkspace.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     synapseSparkPoolId: exampleSparkPool.id,
  *     identity: {
  *         type: "SystemAssigned",

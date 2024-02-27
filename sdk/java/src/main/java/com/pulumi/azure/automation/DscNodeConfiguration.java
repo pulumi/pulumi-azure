@@ -31,7 +31,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.automation.DscConfigurationArgs;
  * import com.pulumi.azure.automation.DscNodeConfiguration;
  * import com.pulumi.azure.automation.DscNodeConfigurationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -45,25 +44,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;account1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleDscConfiguration = new DscConfiguration(&#34;exampleDscConfiguration&#34;, DscConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .contentEmbedded(&#34;configuration test {}&#34;)
  *             .build());
  * 
  *         var exampleDscNodeConfiguration = new DscNodeConfiguration(&#34;exampleDscNodeConfiguration&#34;, DscNodeConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test.localhost&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .contentEmbedded(&#34;&#34;&#34;
  * instance of MSFT_FileDirectoryConfiguration as $MSFT_FileDirectoryConfiguration1ref
@@ -88,9 +91,7 @@ import javax.annotation.Nullable;
  *   Name=&#34;test&#34;;
  * };
  *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleDscConfiguration)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

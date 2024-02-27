@@ -235,20 +235,23 @@ class SqlStoredProcedure(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="tfex-cosmos-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_sql_database.name,
             partition_key_path="/id")
-        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("example",
+            name="test-stored-proc",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_sql_database.name,
             container_name=example_sql_container.name,
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")
@@ -286,20 +289,23 @@ class SqlStoredProcedure(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="tfex-cosmos-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_sql_database.name,
             partition_key_path="/id")
-        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("exampleSqlStoredProcedure",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_sql_stored_procedure = azure.cosmosdb.SqlStoredProcedure("example",
+            name="test-stored-proc",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_sql_database.name,
             container_name=example_sql_container.name,
             body="   function () { var context = getContext(); var response = context.getResponse(); response.setBody('Hello, World'); }\\n")

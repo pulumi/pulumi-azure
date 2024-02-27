@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := privatelink.GetServiceEndpointConnections(ctx, &privatelink.GetServiceEndpointConnectionsArgs{
-//				ServiceId:         azurerm_private_link_service.Example.Id,
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ServiceId:         exampleAzurermPrivateLinkService.Id,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

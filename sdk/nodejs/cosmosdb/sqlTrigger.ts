@@ -13,22 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.cosmosdb.getAccount({
+ * const example = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "tfex-cosmos-db",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/id",
  * });
- * const exampleSqlTrigger = new azure.cosmosdb.SqlTrigger("exampleSqlTrigger", {
+ * const exampleSqlTrigger = new azure.cosmosdb.SqlTrigger("example", {
+ *     name: "test-trigger",
  *     containerId: exampleSqlContainer.id,
  *     body: "function trigger(){}",
  *     operation: "Delete",

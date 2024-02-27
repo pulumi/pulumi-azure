@@ -24,30 +24,34 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.5.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("exampleNetworkSecurityGroup", new()
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-nsg",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplesubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -55,28 +59,31 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", new()
+    ///     var exampleSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("example", new()
     ///     {
     ///         SubnetId = exampleSubnet.Id,
     ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         AddressPrefix = "10.0.2.0/24",
     ///     });
     /// 
-    ///     var exampleVirtualHubRouteTable = new Azure.Network.VirtualHubRouteTable("exampleVirtualHubRouteTable", new()
+    ///     var exampleVirtualHubRouteTable = new Azure.Network.VirtualHubRouteTable("example", new()
     ///     {
+    ///         Name = "example-vhubroutetable",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         Labels = new[]
     ///         {
@@ -84,8 +91,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("exampleVirtualHubConnection", new()
+    ///     var exampleVirtualHubConnection = new Azure.Network.VirtualHubConnection("example", new()
     ///     {
+    ///         Name = "example-vhubconn",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         RemoteVirtualNetworkId = exampleVirtualNetwork.Id,
     ///         Routing = new Azure.Network.Inputs.VirtualHubConnectionRoutingArgs
@@ -94,9 +102,10 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualHubRouteTableRoute = new Azure.Network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute", new()
+    ///     var exampleVirtualHubRouteTableRoute = new Azure.Network.VirtualHubRouteTableRoute("example", new()
     ///     {
     ///         RouteTableId = exampleVirtualHubRouteTable.Id,
+    ///         Name = "example-route",
     ///         DestinationsType = "CIDR",
     ///         Destinations = new[]
     ///         {

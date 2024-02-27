@@ -21,34 +21,33 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/attestation"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = attestation.NewProvider(ctx, "exampleProvider", &attestation.ProviderArgs{
-//				ResourceGroupName:            exampleResourceGroup.Name,
-//				Location:                     exampleResourceGroup.Location,
-//				PolicySigningCertificateData: readFileOrPanic("./example/cert.pem"),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "./example/cert.pem",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = attestation.NewProvider(ctx, "example", &attestation.ProviderArgs{
+//				Name:                         pulumi.String("exampleprovider"),
+//				ResourceGroupName:            example.Name,
+//				Location:                     example.Location,
+//				PolicySigningCertificateData: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

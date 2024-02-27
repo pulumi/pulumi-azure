@@ -22,48 +22,51 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
     ///     {
+    ///         Name = "example-mn",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
+    ///     var example = Azure.Authorization.GetUserAssignedIdentity.Invoke(new()
     ///     {
     ///         Name = "name_of_user_assigned_identity",
     ///         ResourceGroupName = "name_of_resource_group",
     ///     });
     /// 
-    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     var exampleGetKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
     ///     {
     ///         Name = "example-kv",
     ///         ResourceGroupName = "some-resource-group",
     ///     });
     /// 
-    ///     var exampleKey = Azure.KeyVault.GetKey.Invoke(new()
+    ///     var exampleGetKey = Azure.KeyVault.GetKey.Invoke(new()
     ///     {
     ///         Name = "example-key",
-    ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+    ///         KeyVaultId = exampleGetKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///     });
     /// 
-    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("exampleNetworkSimGroup", new()
+    ///     var exampleNetworkSimGroup = new Azure.Mobile.NetworkSimGroup("example", new()
     ///     {
+    ///         Name = "example-mnsg",
     ///         Location = exampleResourceGroup.Location,
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         EncryptionKeyUrl = exampleKey.Apply(getKeyResult =&gt; getKeyResult.Id),
+    ///         EncryptionKeyUrl = exampleGetKey.Apply(getKeyResult =&gt; getKeyResult.Id),
     ///         Identity = new Azure.Mobile.Inputs.NetworkSimGroupIdentityArgs
     ///         {
     ///             Type = "SystemAssigned, UserAssigned",
     ///             IdentityIds = new[]
     ///             {
-    ///                 exampleUserAssignedIdentity.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.Id),
+    ///                 example.Apply(getUserAssignedIdentityResult =&gt; getUserAssignedIdentityResult.Id),
     ///             },
     ///         },
     ///         Tags = 

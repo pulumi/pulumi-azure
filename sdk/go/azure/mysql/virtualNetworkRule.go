@@ -32,24 +32,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
@@ -61,9 +64,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
+//				Name:                       pulumi.String("example-mysqlserver"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				AdministratorLogin:         pulumi.String("mysqladminun"),
 //				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                    pulumi.String("GP_Gen5_2"),
@@ -76,8 +80,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &mysql.VirtualNetworkRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewVirtualNetworkRule(ctx, "example", &mysql.VirtualNetworkRuleArgs{
+//				Name:              pulumi.String("mysql-vnet-rule"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				SubnetId:          internal.ID(),
 //			})

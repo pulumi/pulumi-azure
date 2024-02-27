@@ -22,22 +22,24 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "example-acsd",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "example-container",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         DatabaseName = exampleSqlDatabase.Name,
     ///         PartitionKeyPath = "/definition/id",
     ///         PartitionKeyVersion = 1,

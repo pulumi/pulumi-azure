@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "nat-gateway-example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
+    ///     var exampleNatGateway = new Azure.Network.NatGateway("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "nat-Gateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///         IdleTimeoutInMinutes = 10,
     ///         Zones = new[]

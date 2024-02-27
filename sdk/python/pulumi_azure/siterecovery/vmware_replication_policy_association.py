@@ -143,16 +143,21 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
+        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
+            name="example-policy",
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
-        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("exampleVmwareReplicationPolicyAssociation",
+        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("example",
+            name="example-association",
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
         ```
@@ -187,16 +192,21 @@ class VmwareReplicationPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy",
+        example_vm_ware_replication_policy = azure.siterecovery.VMWareReplicationPolicy("example",
+            name="example-policy",
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_minutes=1440,
             application_consistent_snapshot_frequency_in_minutes=240)
-        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("exampleVmwareReplicationPolicyAssociation",
+        example_vmware_replication_policy_association = azure.siterecovery.VmwareReplicationPolicyAssociation("example",
+            name="example-association",
             recovery_vault_id=example_vault.id,
             policy_id=example_vm_ware_replication_policy.id)
         ```

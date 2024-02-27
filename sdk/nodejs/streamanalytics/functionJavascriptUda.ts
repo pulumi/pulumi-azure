@@ -15,15 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
+ * const example = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const exampleJob = exampleResourceGroup.then(exampleResourceGroup => azure.streamanalytics.getJob({
+ * const exampleGetJob = example.then(example => azure.streamanalytics.getJob({
  *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * }));
- * const exampleFunctionJavascriptUda = new azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda", {
- *     streamAnalyticsJobId: exampleJob.then(exampleJob => exampleJob.id),
+ * const exampleFunctionJavascriptUda = new azure.streamanalytics.FunctionJavascriptUda("example", {
+ *     name: "example-javascript-function",
+ *     streamAnalyticsJobId: exampleGetJob.then(exampleGetJob => exampleGetJob.id),
  *     script: `function main() {
  *     this.init = function () {
  *         this.state = 0;

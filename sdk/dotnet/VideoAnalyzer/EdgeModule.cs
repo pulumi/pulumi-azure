@@ -24,23 +24,26 @@ namespace Pulumi.Azure.VideoAnalyzer
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "video-analyzer-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleidentity",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     var contributor = new Azure.Authorization.Assignment("contributor", new()
@@ -57,10 +60,11 @@ namespace Pulumi.Azure.VideoAnalyzer
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("exampleAnalyzer", new()
+    ///     var exampleAnalyzer = new Azure.VideoAnalyzer.Analyzer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleanalyzer",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccount = new Azure.VideoAnalyzer.Inputs.AnalyzerStorageAccountArgs
     ///         {
     ///             Id = exampleAccount.Id,
@@ -78,19 +82,12 @@ namespace Pulumi.Azure.VideoAnalyzer
     ///         {
     ///             { "environment", "staging" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleUserAssignedIdentity,
-    ///             contributor,
-    ///             reader,
-    ///         },
     ///     });
     /// 
-    ///     var exampleEdgeModule = new Azure.VideoAnalyzer.EdgeModule("exampleEdgeModule", new()
+    ///     var exampleEdgeModule = new Azure.VideoAnalyzer.EdgeModule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-edge-module",
+    ///         ResourceGroupName = example.Name,
     ///         VideoAnalyzerName = exampleAnalyzer.Name,
     ///     });
     /// 

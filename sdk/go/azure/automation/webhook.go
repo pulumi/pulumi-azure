@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRunBook, err := automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleRunBook, err := automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				Name:                  pulumi.String("Get-AzureVMTutorial"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				LogVerbose:            pulumi.Bool(true),
 //				LogProgress:           pulumi.Bool(true),
@@ -58,8 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewWebhook(ctx, "exampleWebhook", &automation.WebhookArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = automation.NewWebhook(ctx, "example", &automation.WebhookArgs{
+//				Name:                  pulumi.String("TestRunbook_webhook"),
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				ExpiryTime:            pulumi.String("2021-12-31T00:00:00Z"),
 //				Enabled:               pulumi.Bool(true),

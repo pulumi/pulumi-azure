@@ -19,7 +19,6 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * &gt; **NOTE :** For Azure VMware private cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
- * 
  * ```java
  * package generated_program;
  * 
@@ -57,7 +56,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkGatewayConnectionArgs;
  * import com.pulumi.azure.avs.NetappVolumeAttachment;
  * import com.pulumi.azure.avs.NetappVolumeAttachmentArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,24 +70,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var testPublicIp = new PublicIp(&#34;testPublicIp&#34;, PublicIpArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *         var test = new PublicIp(&#34;test&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;example-public-ip&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var testVirtualNetwork = new VirtualNetwork(&#34;testVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-VirtualNetwork&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .addressSpaces(&#34;10.6.0.0/16&#34;)
  *             .build());
  * 
  *         var netappSubnet = new Subnet(&#34;netappSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-Subnet&#34;)
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -104,39 +106,44 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var gatewaySubnet = new Subnet(&#34;gatewaySubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;GatewaySubnet&#34;)
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .virtualNetworkName(testVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.1.0/24&#34;)
  *             .build());
  * 
  *         var testVirtualNetworkGateway = new VirtualNetworkGateway(&#34;testVirtualNetworkGateway&#34;, VirtualNetworkGatewayArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-vnet-gateway&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .type(&#34;ExpressRoute&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .ipConfigurations(VirtualNetworkGatewayIpConfigurationArgs.builder()
  *                 .name(&#34;vnetGatewayConfig&#34;)
- *                 .publicIpAddressId(testPublicIp.id())
+ *                 .publicIpAddressId(test.id())
  *                 .subnetId(gatewaySubnet.id())
  *                 .build())
  *             .build());
  * 
  *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-NetAppAccount&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
  *         var testPool = new Pool(&#34;testPool&#34;, PoolArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-NetAppPool&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .accountName(testAccount.name())
  *             .serviceLevel(&#34;Standard&#34;)
  *             .sizeInTb(4)
  *             .build());
  * 
  *         var testVolume = new Volume(&#34;testVolume&#34;, VolumeArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-NetAppVolume&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .accountName(testAccount.name())
  *             .poolName(testPool.name())
  *             .volumePath(&#34;my-unique-file-path-%d&#34;)
@@ -156,8 +163,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testPrivateCloud = new PrivateCloud(&#34;testPrivateCloud&#34;, PrivateCloudArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .location(azurerm_resource_group.test().location())
+ *             .name(&#34;example-PC&#34;)
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.location())
  *             .skuName(&#34;av36&#34;)
  *             .managementCluster(PrivateCloudManagementClusterArgs.builder()
  *                 .size(3)
@@ -166,18 +174,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testCluster = new Cluster(&#34;testCluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;example-vm-cluster&#34;)
  *             .vmwareCloudId(testPrivateCloud.id())
  *             .clusterNodeCount(3)
  *             .skuName(&#34;av36&#34;)
  *             .build());
  * 
  *         var testExpressRouteAuthorization = new ExpressRouteAuthorization(&#34;testExpressRouteAuthorization&#34;, ExpressRouteAuthorizationArgs.builder()        
+ *             .name(&#34;example-VmwareAuthorization&#34;)
  *             .privateCloudId(testPrivateCloud.id())
  *             .build());
  * 
  *         var testVirtualNetworkGatewayConnection = new VirtualNetworkGatewayConnection(&#34;testVirtualNetworkGatewayConnection&#34;, VirtualNetworkGatewayConnectionArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-vnetgwconn&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .type(&#34;ExpressRoute&#34;)
  *             .virtualNetworkGatewayId(testVirtualNetworkGateway.id())
  *             .expressRouteCircuitId(testPrivateCloud.circuits().applyValue(circuits -&gt; circuits[0].expressRouteId()))
@@ -185,11 +196,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testNetappVolumeAttachment = new NetappVolumeAttachment(&#34;testNetappVolumeAttachment&#34;, NetappVolumeAttachmentArgs.builder()        
+ *             .name(&#34;example-vmwareattachment&#34;)
  *             .netappVolumeId(testVolume.id())
  *             .vmwareClusterId(testCluster.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(testVirtualNetworkGatewayConnection)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

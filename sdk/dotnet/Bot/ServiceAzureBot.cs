@@ -22,20 +22,23 @@ namespace Pulumi.Azure.Bot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleApiKey = new Azure.AppInsights.ApiKey("exampleApiKey", new()
+    ///     var exampleApiKey = new Azure.AppInsights.ApiKey("example", new()
     ///     {
+    ///         Name = "example-appinsightsapikey",
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         ReadPermissions = new[]
     ///         {
@@ -49,9 +52,10 @@ namespace Pulumi.Azure.Bot
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("exampleServiceAzureBot", new()
+    ///     var exampleServiceAzureBot = new Azure.Bot.ServiceAzureBot("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleazurebot",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "global",
     ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///         Sku = "F0",

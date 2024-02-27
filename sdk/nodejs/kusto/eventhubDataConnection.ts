@@ -13,8 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "my-kusto-rg",
+ *     location: "West Europe",
+ * });
  * const cluster = new azure.kusto.Cluster("cluster", {
+ *     name: "kustocluster",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: {
@@ -23,29 +27,34 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const database = new azure.kusto.Database("database", {
+ *     name: "my-kusto-database",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: cluster.name,
  *     hotCachePeriod: "P7D",
  *     softDeletePeriod: "P31D",
  * });
- * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhubNs", {
+ * const eventhubNs = new azure.eventhub.EventHubNamespace("eventhub_ns", {
+ *     name: "my-eventhub-ns",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
  * const eventhub = new azure.eventhub.EventHub("eventhub", {
+ *     name: "my-eventhub",
  *     namespaceName: eventhubNs.name,
  *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
- * const consumerGroup = new azure.eventhub.ConsumerGroup("consumerGroup", {
+ * const consumerGroup = new azure.eventhub.ConsumerGroup("consumer_group", {
+ *     name: "my-eventhub-consumergroup",
  *     namespaceName: eventhubNs.name,
  *     eventhubName: eventhub.name,
  *     resourceGroupName: example.name,
  * });
- * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhubConnection", {
+ * const eventhubConnection = new azure.kusto.EventhubDataConnection("eventhub_connection", {
+ *     name: "my-kusto-eventhub-data-connection",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     clusterName: cluster.name,
@@ -56,7 +65,6 @@ import * as utilities from "../utilities";
  *     mappingRuleName: "my-table-mapping",
  *     dataFormat: "JSON",
  * });
- * //(Optional)
  * ```
  *
  * ## Import

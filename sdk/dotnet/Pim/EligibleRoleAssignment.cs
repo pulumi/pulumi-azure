@@ -26,25 +26,25 @@ namespace Pulumi.Azure.Pim
     /// {
     ///     var primary = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     var exampleGetRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
     ///     {
     ///         Name = "Reader",
     ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("exampleStatic");
+    ///     var exampleStatic = new Time.Static("example");
     /// 
-    ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("exampleEligibleRoleAssignment", new()
+    ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("example", new()
     ///     {
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         RoleDefinitionId = Output.Tuple(primary, exampleRoleDefinition).Apply(values =&gt;
+    ///         RoleDefinitionId = Output.Tuple(primary, exampleGetRoleDefinition).Apply(values =&gt;
     ///         {
     ///             var primary = values.Item1;
-    ///             var exampleRoleDefinition = values.Item2;
-    ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
+    ///             var exampleGetRoleDefinition = values.Item2;
+    ///             return $"{primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id)}{exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id)}";
     ///         }),
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///         Schedule = new Azure.Pim.Inputs.EligibleRoleAssignmentScheduleArgs
     ///         {
     ///             StartDateTime = exampleStatic.Rfc3339,
@@ -74,22 +74,25 @@ namespace Pulumi.Azure.Pim
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
+    ///     var exampleGetRoleDefinition = Azure.Authorization.GetRoleDefinition.Invoke(new()
     ///     {
     ///         Name = "Reader",
     ///     });
     /// 
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup");
+    ///     var exampleGroup = new Azure.Management.Group("example", new()
+    ///     {
+    ///         Name = "Example-Management-Group",
+    ///     });
     /// 
-    ///     var exampleStatic = new Time.Static("exampleStatic");
+    ///     var exampleStatic = new Time.Static("example");
     /// 
-    ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("exampleEligibleRoleAssignment", new()
+    ///     var exampleEligibleRoleAssignment = new Azure.Pim.EligibleRoleAssignment("example", new()
     ///     {
     ///         Scope = exampleGroup.Id,
-    ///         RoleDefinitionId = exampleRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
-    ///         PrincipalId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///         RoleDefinitionId = exampleGetRoleDefinition.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///         PrincipalId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///         Schedule = new Azure.Pim.Inputs.EligibleRoleAssignmentScheduleArgs
     ///         {
     ///             StartDateTime = exampleStatic.Rfc3339,

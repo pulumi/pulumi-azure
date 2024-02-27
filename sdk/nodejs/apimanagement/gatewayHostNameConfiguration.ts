@@ -12,17 +12,22 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Consumption_0",
  * });
- * const exampleGateway = new azure.apimanagement.Gateway("exampleGateway", {
+ * const exampleGateway = new azure.apimanagement.Gateway("example", {
+ *     name: "example-gateway",
  *     apiManagementId: exampleService.id,
  *     description: "Example API Management gateway",
  *     locationData: {
@@ -32,12 +37,16 @@ import * as utilities from "../utilities";
  *         region: "example region",
  *     },
  * });
- * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.apimanagement.Certificate("example", {
+ *     name: "example-cert",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     data: fs.readFileSync("example.pfx", { encoding: "base64" }),
+ *     resourceGroupName: example.name,
+ *     data: std.filebase64({
+ *         input: "example.pfx",
+ *     }).then(invoke => invoke.result),
  * });
- * const exampleGatewayHostNameConfiguration = new azure.apimanagement.GatewayHostNameConfiguration("exampleGatewayHostNameConfiguration", {
+ * const exampleGatewayHostNameConfiguration = new azure.apimanagement.GatewayHostNameConfiguration("example", {
+ *     name: "example-host-name-configuration",
  *     apiManagementId: exampleService.id,
  *     gatewayName: exampleGateway.name,
  *     certificateId: exampleCertificate.id,

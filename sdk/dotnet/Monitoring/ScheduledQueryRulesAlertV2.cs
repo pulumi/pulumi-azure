@@ -12,6 +12,106 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     {
+    ///         Name = "example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
+    ///     {
+    ///         Name = "example-mag",
+    ///         ResourceGroupName = example.Name,
+    ///         ShortName = "test mag",
+    ///     });
+    /// 
+    ///     var exampleScheduledQueryRulesAlertV2 = new Azure.Monitoring.ScheduledQueryRulesAlertV2("example", new()
+    ///     {
+    ///         Name = "example-msqrv2",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         EvaluationFrequency = "PT10M",
+    ///         WindowDuration = "PT10M",
+    ///         Scopes = exampleInsights.Id,
+    ///         Severity = 4,
+    ///         Criterias = new[]
+    ///         {
+    ///             new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaArgs
+    ///             {
+    ///                 Query = @"requests
+    ///   | summarize CountByCountry=count() by client_CountryOrRegion
+    /// ",
+    ///                 TimeAggregationMethod = "Maximum",
+    ///                 Threshold = 17.5,
+    ///                 Operator = "LessThan",
+    ///                 ResourceIdColumn = "client_CountryOrRegion",
+    ///                 MetricMeasureColumn = "CountByCountry",
+    ///                 Dimensions = new[]
+    ///                 {
+    ///                     new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaDimensionArgs
+    ///                     {
+    ///                         Name = "client_CountryOrRegion",
+    ///                         Operator = "Exclude",
+    ///                         Values = new[]
+    ///                         {
+    ///                             "123",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 FailingPeriods = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs
+    ///                 {
+    ///                     MinimumFailingPeriodsToTriggerAlert = 1,
+    ///                     NumberOfEvaluationPeriods = 1,
+    ///                 },
+    ///             },
+    ///         },
+    ///         AutoMitigationEnabled = true,
+    ///         WorkspaceAlertsStorageEnabled = false,
+    ///         Description = "example sqr",
+    ///         DisplayName = "example-sqr",
+    ///         Enabled = true,
+    ///         QueryTimeRangeOverride = "PT1H",
+    ///         SkipQueryValidation = true,
+    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertV2ActionArgs
+    ///         {
+    ///             ActionGroups = new[]
+    ///             {
+    ///                 exampleActionGroup.Id,
+    ///             },
+    ///             CustomProperties = 
+    ///             {
+    ///                 { "key", "value" },
+    ///                 { "key2", "value2" },
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///             { "key2", "value2" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.

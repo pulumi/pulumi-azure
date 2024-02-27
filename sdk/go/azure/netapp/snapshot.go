@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-virtualnetwork"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -68,26 +71,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("example-netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+//			examplePool, err := netapp.NewPool(ctx, "example", &netapp.PoolArgs{
+//				Name:              pulumi.String("example-netapppool"),
 //				AccountName:       exampleAccount.Name,
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ServiceLevel:      pulumi.String("Premium"),
 //				SizeInTb:          pulumi.Int(4),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVolume, err := netapp.NewVolume(ctx, "exampleVolume", &netapp.VolumeArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVolume, err := netapp.NewVolume(ctx, "example", &netapp.VolumeArgs{
+//				Name:              pulumi.String("example-netappvolume"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path"),
@@ -98,12 +104,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = netapp.NewSnapshot(ctx, "exampleSnapshot", &netapp.SnapshotArgs{
+//			_, err = netapp.NewSnapshot(ctx, "example", &netapp.SnapshotArgs{
+//				Name:              pulumi.String("example-netappsnapshot"),
 //				AccountName:       exampleAccount.Name,
 //				PoolName:          examplePool.Name,
 //				VolumeName:        exampleVolume.Name,
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

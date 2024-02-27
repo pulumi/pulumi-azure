@@ -26,21 +26,21 @@ namespace Pulumi.Azure.Sentinel
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAnalyticsWorkspace = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
+        ///     var example = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
         ///         Name = "example",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
+        ///     var exampleGetAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
         ///     {
         ///         Name = "existing",
-        ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
+        ///         LogAnalyticsWorkspaceId = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
+        ///         ["id"] = exampleGetAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
         ///     };
         /// });
         /// ```
@@ -65,21 +65,21 @@ namespace Pulumi.Azure.Sentinel
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAnalyticsWorkspace = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
+        ///     var example = Azure.OperationalInsights.GetAnalyticsWorkspace.Invoke(new()
         ///     {
         ///         Name = "example",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
+        ///     var exampleGetAlertRule = Azure.Sentinel.GetAlertRule.Invoke(new()
         ///     {
         ///         Name = "existing",
-        ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
+        ///         LogAnalyticsWorkspaceId = example.Apply(getAnalyticsWorkspaceResult =&gt; getAnalyticsWorkspaceResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = exampleAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
+        ///         ["id"] = exampleGetAlertRule.Apply(getAlertRuleResult =&gt; getAlertRuleResult.Id),
         ///     };
         /// });
         /// ```

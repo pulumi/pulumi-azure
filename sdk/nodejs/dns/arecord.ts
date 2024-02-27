@@ -11,11 +11,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleARecord = new azure.dns.ARecord("exampleARecord", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleARecord = new azure.dns.ARecord("example", {
+ *     name: "test",
  *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     ttl: 300,
  *     records: ["10.0.180.17"],
  * });
@@ -26,17 +33,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleZone = new azure.dns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     name: "mydomain.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "mypublicip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Dynamic",
  *     ipVersion: "IPv4",
  * });
- * const exampleARecord = new azure.dns.ARecord("exampleARecord", {
+ * const exampleARecord = new azure.dns.ARecord("example", {
+ *     name: "test",
  *     zoneName: exampleZone.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     ttl: 300,
  *     targetResourceId: examplePublicIp.id,
  * });

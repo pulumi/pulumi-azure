@@ -139,41 +139,52 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name=example.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name=example.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="internal",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            name="example",
+            loadbalancer_id=example_load_balancer.id)
+        example_probe = azure.lb.Probe("example",
+            name="example",
             loadbalancer_id=example_load_balancer.id,
             port=22,
             protocol="Tcp")
-        example_rule = azure.lb.Rule("exampleRule",
+        example_rule = azure.lb.Rule("example",
+            name="example",
             loadbalancer_id=example_load_balancer.id,
             probe_id=example_probe.id,
             frontend_ip_configuration_name="internal",
             protocol="Tcp",
             frontend_port=22,
             backend_port=22)
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_configuration = azure.maintenance.Configuration("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             scope="OSImage",
             visibility="Custom",
             window=azure.maintenance.ConfigurationWindowArgs(
@@ -183,16 +194,18 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 time_zone="Pacific Standard Time",
                 recur_every="1Days",
             ))
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="sample-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 private_ip_address_allocation="Dynamic",
             )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
@@ -200,9 +213,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ))
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
@@ -239,10 +253,9 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 max_unhealthy_instance_percent=20,
                 max_unhealthy_upgraded_instance_percent=20,
                 pause_time_between_batches="PT0S",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=["azurerm_lb_rule.example"]))
-        example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet",
-            location=example_resource_group.location,
+            ))
+        example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
+            location=example.location,
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine.id)
         ```
@@ -276,41 +289,52 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name=example.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name=example.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="internal",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_backend_address_pool = azure.lb.BackendAddressPool("exampleBackendAddressPool", loadbalancer_id=example_load_balancer.id)
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_backend_address_pool = azure.lb.BackendAddressPool("example",
+            name="example",
+            loadbalancer_id=example_load_balancer.id)
+        example_probe = azure.lb.Probe("example",
+            name="example",
             loadbalancer_id=example_load_balancer.id,
             port=22,
             protocol="Tcp")
-        example_rule = azure.lb.Rule("exampleRule",
+        example_rule = azure.lb.Rule("example",
+            name="example",
             loadbalancer_id=example_load_balancer.id,
             probe_id=example_probe.id,
             frontend_ip_configuration_name="internal",
             protocol="Tcp",
             frontend_port=22,
             backend_port=22)
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_configuration = azure.maintenance.Configuration("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             scope="OSImage",
             visibility="Custom",
             window=azure.maintenance.ConfigurationWindowArgs(
@@ -320,16 +344,18 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 time_zone="Pacific Standard Time",
                 recur_every="1Days",
             ))
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="sample-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 private_ip_address_allocation="Dynamic",
             )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
@@ -337,9 +363,10 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 caching="ReadWrite",
                 storage_account_type="Standard_LRS",
             ))
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
@@ -376,10 +403,9 @@ class AssignmentVirtualMachineScaleSet(pulumi.CustomResource):
                 max_unhealthy_instance_percent=20,
                 max_unhealthy_upgraded_instance_percent=20,
                 pause_time_between_batches="PT0S",
-            ),
-            opts=pulumi.ResourceOptions(depends_on=["azurerm_lb_rule.example"]))
-        example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet",
-            location=example_resource_group.location,
+            ))
+        example_assignment_virtual_machine_scale_set = azure.maintenance.AssignmentVirtualMachineScaleSet("example",
+            location=example.location,
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_scale_set_id=example_linux_virtual_machine.id)
         ```

@@ -138,22 +138,25 @@ class NotificationRecipientUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
+        example_user = azure.apimanagement.User("example",
             user_id="123",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             first_name="Example",
             last_name="User",
             email="foo@bar.com",
             state="active")
-        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
+        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("example",
             api_management_id=example_service.id,
             notification_type="AccountClosedPublisher",
             user_id=example_user.user_id)
@@ -188,22 +191,25 @@ class NotificationRecipientUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_user = azure.apimanagement.User("exampleUser",
+        example_user = azure.apimanagement.User("example",
             user_id="123",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             first_name="Example",
             last_name="User",
             email="foo@bar.com",
             state="active")
-        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser",
+        example_notification_recipient_user = azure.apimanagement.NotificationRecipientUser("example",
             api_management_id=example_service.id,
             notification_type="AccountClosedPublisher",
             user_id=example_user.user_id)

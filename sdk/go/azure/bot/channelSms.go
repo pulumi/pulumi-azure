@@ -35,25 +35,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
+//				Name:              pulumi.String("example-bcr"),
 //				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
 //				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewChannelSms(ctx, "exampleChannelSms", &bot.ChannelSmsArgs{
+//			_, err = bot.NewChannelSms(ctx, "example", &bot.ChannelSmsArgs{
 //				BotName:                     exampleChannelsRegistration.Name,
 //				Location:                    exampleChannelsRegistration.Location,
-//				ResourceGroupName:           exampleResourceGroup.Name,
+//				ResourceGroupName:           example.Name,
 //				SmsChannelAccountSecurityId: pulumi.String("BG61f7cf5157f439b084e98256409c2815"),
 //				SmsChannelAuthToken:         pulumi.String("jh8980432610052ed4e29565c5e232f"),
 //				PhoneNumber:                 pulumi.String("+12313803556"),

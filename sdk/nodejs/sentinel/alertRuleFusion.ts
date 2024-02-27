@@ -15,16 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
  *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  *     plan: {
@@ -32,7 +36,8 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/SecurityInsights",
  *     },
  * });
- * const exampleAlertRuleFusion = new azure.sentinel.AlertRuleFusion("exampleAlertRuleFusion", {
+ * const exampleAlertRuleFusion = new azure.sentinel.AlertRuleFusion("example", {
+ *     name: "example-fusion-alert-rule",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     alertRuleTemplateGuid: "f71aba3d-28fb-450b-b192-4e76a83015c8",
  * });

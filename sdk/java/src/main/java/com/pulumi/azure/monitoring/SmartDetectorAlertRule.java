@@ -50,23 +50,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-action-group&#34;)
+ *             .resourceGroupName(example.name())
  *             .shortName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleSmartDetectorAlertRule = new SmartDetectorAlertRule(&#34;exampleSmartDetectorAlertRule&#34;, SmartDetectorAlertRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-smart-detector-alert-rule&#34;)
+ *             .resourceGroupName(example.name())
  *             .severity(&#34;Sev0&#34;)
  *             .scopeResourceIds(exampleInsights.id())
  *             .frequency(&#34;PT1M&#34;)

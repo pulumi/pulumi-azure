@@ -22,15 +22,17 @@ namespace Pulumi.Azure.ElasticCloud
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+    ///     var test = new Azure.Core.ResourceGroup("test", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("testElasticsearch", new()
+    ///     var testElasticsearch = new Azure.ElasticCloud.Elasticsearch("test", new()
     ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
+    ///         Name = "example-elasticsearch",
+    ///         ResourceGroupName = test.Name,
+    ///         Location = test.Location,
     ///         SkuName = "ess-consumption-2024_Monthly",
     ///         ElasticCloudEmailAddress = "user@example.com",
     ///     });

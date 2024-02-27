@@ -31,12 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-kusto-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			cluster, err := kusto.NewCluster(ctx, "cluster", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
@@ -48,6 +50,7 @@ import (
 //				return err
 //			}
 //			database, err := kusto.NewDatabase(ctx, "database", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("my-kusto-database"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				ClusterName:       cluster.Name,
@@ -57,7 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			eventhubNs, err := eventhub.NewEventHubNamespace(ctx, "eventhubNs", &eventhub.EventHubNamespaceArgs{
+//			eventhubNs, err := eventhub.NewEventHubNamespace(ctx, "eventhub_ns", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("my-eventhub-ns"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
@@ -66,6 +70,7 @@ import (
 //				return err
 //			}
 //			eventhub, err := eventhub.NewEventHub(ctx, "eventhub", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("my-eventhub"),
 //				NamespaceName:     eventhubNs.Name,
 //				ResourceGroupName: example.Name,
 //				PartitionCount:    pulumi.Int(1),
@@ -74,7 +79,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumerGroup", &eventhub.ConsumerGroupArgs{
+//			consumerGroup, err := eventhub.NewConsumerGroup(ctx, "consumer_group", &eventhub.ConsumerGroupArgs{
+//				Name:              pulumi.String("my-eventhub-consumergroup"),
 //				NamespaceName:     eventhubNs.Name,
 //				EventhubName:      eventhub.Name,
 //				ResourceGroupName: example.Name,
@@ -82,7 +88,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewEventhubDataConnection(ctx, "eventhubConnection", &kusto.EventhubDataConnectionArgs{
+//			_, err = kusto.NewEventhubDataConnection(ctx, "eventhub_connection", &kusto.EventhubDataConnectionArgs{
+//				Name:              pulumi.String("my-kusto-eventhub-data-connection"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				ClusterName:       cluster.Name,

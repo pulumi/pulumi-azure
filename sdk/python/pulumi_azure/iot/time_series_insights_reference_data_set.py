@@ -240,15 +240,19 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="S1_1",
             data_retention_time="P30D")
-        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
+        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("example",
+            name="example",
             time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
-            location=example_resource_group.location,
+            location=example.location,
             key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
                 name="keyProperty1",
                 type="String",
@@ -287,15 +291,19 @@ class TimeSeriesInsightsReferenceDataSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_time_series_insights_standard_environment = azure.iot.TimeSeriesInsightsStandardEnvironment("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="S1_1",
             data_retention_time="P30D")
-        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet",
+        example_time_series_insights_reference_data_set = azure.iot.TimeSeriesInsightsReferenceDataSet("example",
+            name="example",
             time_series_insights_environment_id=example_time_series_insights_standard_environment.id,
-            location=example_resource_group.location,
+            location=example.location,
             key_properties=[azure.iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs(
                 name="keyProperty1",
                 type="String",

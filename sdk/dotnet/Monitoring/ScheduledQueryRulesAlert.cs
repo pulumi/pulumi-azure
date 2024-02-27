@@ -12,6 +12,121 @@ namespace Pulumi.Azure.Monitoring
     /// <summary>
     /// Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// 	
+    /// object NotImplemented(string errorMessage) 
+    /// {
+    ///     throw new System.NotImplementedException(errorMessage);
+    /// }
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "monitoring-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
+    ///     {
+    ///         Name = "appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     var example2 = new Azure.AppInsights.Insights("example2", new()
+    ///     {
+    ///         Name = "appinsights2",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ApplicationType = "web",
+    ///     });
+    /// 
+    ///     // Example: Alerting Action with result count trigger
+    ///     var exampleScheduledQueryRulesAlert = new Azure.Monitoring.ScheduledQueryRulesAlert("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertActionArgs
+    ///         {
+    ///             ActionGroups = new() { },
+    ///             EmailSubject = "Email Header",
+    ///             CustomWebhookPayload = "{}",
+    ///         },
+    ///         DataSourceId = exampleInsights.Id,
+    ///         Description = "Alert when total results cross threshold",
+    ///         Enabled = true,
+    ///         Query = @"requests
+    ///   | where tolong(resultCode) &gt;= 500
+    ///   | summarize count() by bin(timestamp, 5m)
+    /// ",
+    ///         Severity = 1,
+    ///         Frequency = 5,
+    ///         TimeWindow = 30,
+    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
+    ///         {
+    ///             Operator = "GreaterThan",
+    ///             Threshold = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    ///     // Example: Alerting Action Cross-Resource
+    ///     var example2ScheduledQueryRulesAlert = new Azure.Monitoring.ScheduledQueryRulesAlert("example2", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AuthorizedResourceIds = new[]
+    ///         {
+    ///             example2.Id,
+    ///         },
+    ///         Action = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertActionArgs
+    ///         {
+    ///             ActionGroups = new() { },
+    ///             EmailSubject = "Email Header",
+    ///             CustomWebhookPayload = "{}",
+    ///         },
+    ///         DataSourceId = exampleInsights.Id,
+    ///         Description = "Query may access data within multiple resources",
+    ///         Enabled = true,
+    ///         Query = NotImplemented(@"format(&lt;&lt;-QUERY
+    ///   let a=requests
+    ///     | where toint(resultCode) &gt;= 500
+    ///     | extend fail=1; let b=app('%s').requests
+    ///     | where toint(resultCode) &gt;= 500 | extend fail=1; a
+    ///     | join b on fail
+    /// QUERY
+    /// ,azurerm_application_insights.example2.id)"),
+    ///         Severity = 1,
+    ///         Frequency = 5,
+    ///         TimeWindow = 30,
+    ///         Trigger = new Azure.Monitoring.Inputs.ScheduledQueryRulesAlertTriggerArgs
+    ///         {
+    ///             Operator = "GreaterThan",
+    ///             Threshold = 3,
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "foo", "bar" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.

@@ -47,7 +47,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName(&#34;dashboard-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_dashboard().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
      *     }
      * }
      * ```
@@ -90,7 +90,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName(&#34;dashboard-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_dashboard().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
      *     }
      * }
      * ```
@@ -133,7 +133,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName(&#34;dashboard-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_dashboard().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
      *     }
      * }
      * ```
@@ -176,7 +176,7 @@ public final class DashboardFunctions {
      *             .resourceGroupName(&#34;dashboard-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_dashboard().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermDashboard.id());
      *     }
      * }
      * ```

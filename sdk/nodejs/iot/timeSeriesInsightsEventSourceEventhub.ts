@@ -13,40 +13,49 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "example",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 7,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "example",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ *     name: "example",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     listen: true,
  *     send: false,
  *     manage: false,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "L1",
  *     idProperties: ["id"],
  *     storage: {
@@ -54,8 +63,9 @@ import * as utilities from "../utilities";
  *         key: exampleAccount.primaryAccessKey,
  *     },
  * });
- * const exampleTimeSeriesInsightsEventSourceEventhub = new azure.iot.TimeSeriesInsightsEventSourceEventhub("exampleTimeSeriesInsightsEventSourceEventhub", {
- *     location: exampleResourceGroup.location,
+ * const exampleTimeSeriesInsightsEventSourceEventhub = new azure.iot.TimeSeriesInsightsEventSourceEventhub("example", {
+ *     name: "example",
+ *     location: example.location,
  *     environmentId: exampleTimeSeriesInsightsGen2Environment.id,
  *     eventhubName: exampleEventHub.name,
  *     namespaceName: exampleEventHubNamespace.name,

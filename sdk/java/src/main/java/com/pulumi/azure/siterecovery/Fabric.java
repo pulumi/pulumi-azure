@@ -43,20 +43,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-primary&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var secondary = new ResourceGroup(&#34;secondary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-secondary&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
+ *             .name(&#34;example-recovery-vault&#34;)
  *             .location(secondary.location())
  *             .resourceGroupName(secondary.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var fabric = new Fabric(&#34;fabric&#34;, FabricArgs.builder()        
+ *             .name(&#34;primary-fabric&#34;)
  *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .location(primary.location())

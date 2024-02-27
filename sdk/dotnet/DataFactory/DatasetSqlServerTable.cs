@@ -22,25 +22,29 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new()
+    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
     ///     });
     /// 
-    ///     var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("exampleDatasetSqlServerTable", new()
+    ///     var exampleDatasetSqlServerTable = new Azure.DataFactory.DatasetSqlServerTable("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedServiceSqlServer.Name,
     ///     });

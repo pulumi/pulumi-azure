@@ -14,21 +14,27 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getClientConfig({});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleManagedInstance = new azure.mssql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     name: "managedsqlinstance",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     licenseType: "BasePrice",
  *     skuName: "GP_Gen5",
  *     storageSizeInGb: 32,
@@ -41,7 +47,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const reader = new azuread.DirectoryRole("reader", {displayName: "Directory Readers"});
- * const exampleDirectoryRoleMember = new azuread.DirectoryRoleMember("exampleDirectoryRoleMember", {
+ * const exampleDirectoryRoleMember = new azuread.DirectoryRoleMember("example", {
  *     roleObjectId: reader.objectId,
  *     memberObjectId: exampleManagedInstance.identity.apply(identity => identity?.principalId),
  * });
@@ -51,7 +57,7 @@ import * as utilities from "../utilities";
  *     mailNickname: "ms.admin",
  *     password: "SecretP@sswd99!",
  * });
- * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.mssql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", {
+ * const exampleManagedInstanceActiveDirectoryAdministrator = new azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example", {
  *     managedInstanceId: exampleManagedInstance.id,
  *     loginUsername: "msadmin",
  *     objectId: admin.objectId,

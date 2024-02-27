@@ -26,15 +26,17 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MySql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mysqlserver",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AdministratorLogin = "mysqladminun",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
     ///         SkuName = "B_Gen5_2",
@@ -49,10 +51,10 @@ namespace Pulumi.Azure.MySql
     ///         SslMinimalTlsVersionEnforced = "TLS1_2",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.MySql.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.MySql.Configuration("example", new()
     ///     {
     ///         Name = "interactive_timeout",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         Value = "600",
     ///     });

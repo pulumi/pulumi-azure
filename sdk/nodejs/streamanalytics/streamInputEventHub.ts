@@ -17,31 +17,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-namespace",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  *     capacity: 1,
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "example-eventhub",
  *     namespaceName: exampleEventHubNamespace.name,
  *     resourceGroupName: exampleResourceGroup.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "example-consumergroup",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("exampleStreamInputEventHub", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleStreamInputEventHub = new azure.streamanalytics.StreamInputEventHub("example", {
+ *     name: "eventhub-stream-input",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     eventhubConsumerGroupName: exampleConsumerGroup.name,
  *     eventhubName: exampleEventHub.name,
  *     servicebusNamespace: exampleEventHubNamespace.name,

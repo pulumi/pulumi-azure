@@ -21,19 +21,6 @@ type CertifiateCertificate struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// The PEM content should look something like:
 	Password *string `pulumi:"password"`
@@ -58,19 +45,6 @@ type CertifiateCertificateArgs struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// The PEM content should look something like:
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -163,22 +137,6 @@ func (o CertifiateCertificateOutput) Contents() pulumi.StringOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // The PEM content should look something like:
 func (o CertifiateCertificateOutput) Password() pulumi.StringPtrOutput {
@@ -224,22 +182,6 @@ func (o CertifiateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // The PEM content should look something like:
 func (o CertifiateCertificatePtrOutput) Password() pulumi.StringPtrOutput {
@@ -1728,19 +1670,6 @@ type CertificateCertificate struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// The PEM content should look something like:
 	Password *string `pulumi:"password"`
@@ -1765,19 +1694,6 @@ type CertificateCertificateArgs struct {
 	// > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 	//
 	// To convert a private key to pkcs8 format with openssl use:
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	//
 	// The PEM content should look something like:
 	Password pulumi.StringPtrInput `pulumi:"password"`
@@ -1870,22 +1786,6 @@ func (o CertificateCertificateOutput) Contents() pulumi.StringOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // The PEM content should look something like:
 func (o CertificateCertificateOutput) Password() pulumi.StringPtrOutput {
@@ -1931,22 +1831,6 @@ func (o CertificateCertificatePtrOutput) Contents() pulumi.StringPtrOutput {
 // > **NOTE:** A PEM certificate is already base64 encoded. To successfully import, the `contents` property should include a PEM encoded X509 certificate and a privateKey in pkcs8 format. There should only be linux style `\n` line endings and the whole block should have the PEM begin/end blocks around the certificate data and the private key data.
 //
 // To convert a private key to pkcs8 format with openssl use:
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // The PEM content should look something like:
 func (o CertificateCertificatePtrOutput) Password() pulumi.StringPtrOutput {

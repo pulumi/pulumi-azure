@@ -42,18 +42,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;eastus&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .softDeleteEnabled(false)
  *             .build());
  * 
  *         var exampleHyperVSite = new HyperVSite(&#34;exampleHyperVSite&#34;, HyperVSiteArgs.builder()        
+ *             .name(&#34;example-site&#34;)
  *             .recoveryVaultId(exampleVault.id())
  *             .build());
  * 

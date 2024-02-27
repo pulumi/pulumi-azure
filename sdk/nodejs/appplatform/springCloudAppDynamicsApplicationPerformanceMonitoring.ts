@@ -15,13 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring = new azure.appplatform.SpringCloudAppDynamicsApplicationPerformanceMonitoring("exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring", {
+ * const exampleSpringCloudAppDynamicsApplicationPerformanceMonitoring = new azure.appplatform.SpringCloudAppDynamicsApplicationPerformanceMonitoring("example", {
+ *     name: "example",
  *     springCloudServiceId: exampleSpringCloudService.id,
  *     agentAccountName: "example-agent-account-name",
  *     agentAccountAccessKey: "example-agent-account-access-key",

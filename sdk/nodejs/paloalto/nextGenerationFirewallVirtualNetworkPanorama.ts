@@ -15,27 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "westeurope",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-public-ip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     name: "example-nsg",
+ *     location: test.location,
+ *     resourceGroupName: test.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const trustSubnet = new azure.network.Subnet("trustSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const trust = new azure.network.Subnet("trust", {
+ *     name: "example-trust-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
@@ -46,12 +53,13 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trustSubnetNetworkSecurityGroupAssociation", {
- *     subnetId: trustSubnet.id,
+ * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trust", {
+ *     subnetId: trust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const untrustSubnet = new azure.network.Subnet("untrustSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const untrust = new azure.network.Subnet("untrust", {
+ *     name: "example-untrust-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
@@ -62,20 +70,21 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrustSubnetNetworkSecurityGroupAssociation", {
- *     subnetId: untrustSubnet.id,
+ * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrust", {
+ *     subnetId: untrust.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const exampleNextGenerationFirewallVirtualNetworkPanorama = new azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("exampleNextGenerationFirewallVirtualNetworkPanorama", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleNextGenerationFirewallVirtualNetworkPanorama = new azure.paloalto.NextGenerationFirewallVirtualNetworkPanorama("example", {
+ *     name: "example-ngfwvh",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     panoramaBase64Config: "e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==",
  *     networkProfile: {
  *         publicIpAddressIds: [examplePublicIp.id],
  *         vnetConfiguration: {
  *             virtualNetworkId: exampleVirtualNetwork.id,
- *             trustedSubnetId: trustSubnet.id,
- *             untrustedSubnetId: untrustSubnet.id,
+ *             trustedSubnetId: trust.id,
+ *             untrustedSubnetId: untrust.id,
  *         },
  *     },
  * });

@@ -53,13 +53,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;B1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -67,21 +69,24 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .iothubName(exampleIoTHub.name())
  *             .eventhubEndpointName(&#34;events&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment(&#34;exampleTimeSeriesInsightsGen2Environment&#34;, TimeSeriesInsightsGen2EnvironmentArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;L1&#34;)
  *             .idProperties(&#34;id&#34;)
  *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
@@ -91,7 +96,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsEventSourceIothub = new TimeSeriesInsightsEventSourceIothub(&#34;exampleTimeSeriesInsightsEventSourceIothub&#34;, TimeSeriesInsightsEventSourceIothubArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())
  *             .iothubName(exampleIoTHub.name())
  *             .sharedAccessKey(exampleIoTHub.sharedAccessPolicies().applyValue(sharedAccessPolicies -&gt; sharedAccessPolicies[0].primaryKey()))

@@ -22,19 +22,21 @@ namespace Pulumi.Azure.Consumption
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
+    ///     var example = new Azure.Management.Group("example", new()
     ///     {
     ///         DisplayName = "example",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "eastus",
     ///     });
     /// 
-    ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("exampleBudgetManagementGroup", new()
+    ///     var exampleBudgetManagementGroup = new Azure.Consumption.BudgetManagementGroup("example", new()
     ///     {
-    ///         ManagementGroupId = exampleGroup.Id,
+    ///         Name = "example",
+    ///         ManagementGroupId = example.Id,
     ///         Amount = 1000,
     ///         TimeGrain = "Monthly",
     ///         TimePeriod = new Azure.Consumption.Inputs.BudgetManagementGroupTimePeriodArgs

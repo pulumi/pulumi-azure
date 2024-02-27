@@ -17,29 +17,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-gca",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("exampleWindowsVirtualMachine", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWindowsVirtualMachine = new azure.compute.WindowsVirtualMachine("example", {
+ *     name: "examplevm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     adminPassword: "P@$$w0rd1234!",
@@ -58,14 +65,16 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ * const exampleExtension = new azure.compute.Extension("example", {
+ *     name: "AzurePolicyforWindows",
  *     virtualMachineId: exampleWindowsVirtualMachine.id,
  *     publisher: "Microsoft.GuestConfiguration",
  *     type: "ConfigurationforWindows",
  *     typeHandlerVersion: "1.29",
  *     autoUpgradeMinorVersion: true,
  * });
- * const exampleVirtualMachineConfigurationAssignment = new azure.policy.VirtualMachineConfigurationAssignment("exampleVirtualMachineConfigurationAssignment", {
+ * const exampleVirtualMachineConfigurationAssignment = new azure.policy.VirtualMachineConfigurationAssignment("example", {
+ *     name: "AzureWindowsBaseline",
  *     location: exampleWindowsVirtualMachine.location,
  *     virtualMachineId: exampleWindowsVirtualMachine.id,
  *     configuration: {

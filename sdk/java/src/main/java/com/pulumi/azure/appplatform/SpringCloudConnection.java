@@ -59,13 +59,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cosmosdb-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
@@ -74,18 +76,20 @@ import javax.annotation.Nullable;
  *                 .maxStalenessPrefix(200)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
+ *             .name(&#34;cosmos-sql-db&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
+ *             .name(&#34;example-container&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
@@ -93,12 +97,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplespringcloud&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplespringcloudapp&#34;)
+ *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .identity(SpringCloudAppIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
@@ -106,10 +112,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudJavaDeployment = new SpringCloudJavaDeployment(&#34;exampleSpringCloudJavaDeployment&#34;, SpringCloudJavaDeploymentArgs.builder()        
+ *             .name(&#34;exampledeployment&#34;)
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .build());
  * 
  *         var exampleSpringCloudConnection = new SpringCloudConnection(&#34;exampleSpringCloudConnection&#34;, SpringCloudConnectionArgs.builder()        
+ *             .name(&#34;example-serviceconnector&#34;)
  *             .springCloudId(exampleSpringCloudJavaDeployment.id())
  *             .targetResourceId(exampleSqlDatabase.id())
  *             .authentication(SpringCloudConnectionAuthenticationArgs.builder()

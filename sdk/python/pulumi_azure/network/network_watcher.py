@@ -173,10 +173,13 @@ class NetworkWatcher(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="production-nwwatcher",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="production-nwwatcher",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -209,10 +212,13 @@ class NetworkWatcher(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="production-nwwatcher",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="production-nwwatcher",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

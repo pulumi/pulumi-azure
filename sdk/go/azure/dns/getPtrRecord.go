@@ -25,14 +25,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := dns.NewPtrRecord(ctx, "example", &dns.PtrRecordArgs{
+//			_, err := dns.NewPtrRecord(ctx, "example", &dns.PtrRecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          pulumi.String("test-zone"),
 //				ResourceGroupName: pulumi.String("test-rg"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("dnsPtrRecordId", example.ID())
+//			ctx.Export("dnsPtrRecordId", exampleAzurermDnsPtrRecord.Id)
 //			return nil
 //		})
 //	}

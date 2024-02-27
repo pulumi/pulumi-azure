@@ -207,10 +207,13 @@ class LogzSubAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-logz",
+            location="West Europe")
+        example_logz_monitor = azure.monitoring.LogzMonitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             plan=azure.monitoring.LogzMonitorPlanArgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
@@ -222,7 +225,8 @@ class LogzSubAccount(pulumi.CustomResource):
                 last_name="User",
                 phone_number="+12313803556",
             ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
+        example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
+            name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
             user=azure.monitoring.LogzSubAccountUserArgs(
                 email=example_logz_monitor.user.email,
@@ -263,10 +267,13 @@ class LogzSubAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_logz_monitor = azure.monitoring.LogzMonitor("exampleLogzMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-logz",
+            location="West Europe")
+        example_logz_monitor = azure.monitoring.LogzMonitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             plan=azure.monitoring.LogzMonitorPlanArgs(
                 billing_cycle="MONTHLY",
                 effective_date="2022-06-06T00:00:00Z",
@@ -278,7 +285,8 @@ class LogzSubAccount(pulumi.CustomResource):
                 last_name="User",
                 phone_number="+12313803556",
             ))
-        example_logz_sub_account = azure.monitoring.LogzSubAccount("exampleLogzSubAccount",
+        example_logz_sub_account = azure.monitoring.LogzSubAccount("example",
+            name="example-subaccount",
             logz_monitor_id=example_logz_monitor.id,
             user=azure.monitoring.LogzSubAccountUserArgs(
                 email=example_logz_monitor.user.email,

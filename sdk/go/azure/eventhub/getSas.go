@@ -12,6 +12,77 @@ import (
 )
 
 // Use this data source to obtain a Shared Access Signature (SAS Token) for an existing Event Hub.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/eventhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("example-ehn"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Sku:               pulumi.String("Basic"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("example-eh"),
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				PartitionCount:    pulumi.Int(1),
+//				MessageRetention:  pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "example", &eventhub.AuthorizationRuleArgs{
+//				Name:              pulumi.String("example-ehar"),
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Listen:            pulumi.Bool(true),
+//				Send:              pulumi.Bool(true),
+//				Manage:            pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := eventhub.LookupAuthorizationRuleOutput(ctx, eventhub.GetAuthorizationRuleOutputArgs{
+//				Name:              exampleAuthorizationRule.Name,
+//				NamespaceName:     exampleEventHubNamespace.Name,
+//				EventhubName:      exampleEventHub.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			_ = example.ApplyT(func(example eventhub.GetAuthorizationRuleResult) (eventhub.GetSasResult, error) {
+//				return eventhub.GetSasOutput(ctx, eventhub.GetSasOutputArgs{
+//					ConnectionString: example.PrimaryConnectionString,
+//					Expiry:           "2023-06-23T00:00:00Z",
+//				}, nil), nil
+//			}).(eventhub.GetSasResultOutput)
+//			return nil
+//		})
+//	}
+//
+// ```
 func GetSas(ctx *pulumi.Context, args *GetSasArgs, opts ...pulumi.InvokeOption) (*GetSasResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSasResult

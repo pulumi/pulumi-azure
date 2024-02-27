@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				Name:                  pulumi.String("Get-AzureVMTutorial"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				LogVerbose:            pulumi.Bool(true),
 //				LogProgress:           pulumi.Bool(true),
@@ -79,15 +82,21 @@ import (
 //
 // )
 //
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account1"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
@@ -95,13 +104,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFile, err := local.LookupFile(ctx, &local.LookupFileArgs{
-//				Filename: fmt.Sprintf("%v/example.ps1", path.Module),
+//			example, err := local.LookupFile(ctx, &local.LookupFileArgs{
+//				Filename: fmt.Sprintf("%v/example.ps1", notImplemented("path.module")),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
+//			_, err = automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				Name:                  pulumi.String("Get-AzureVMTutorial"),
 //				Location:              exampleResourceGroup.Location,
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
@@ -109,7 +119,7 @@ import (
 //				LogProgress:           pulumi.Bool(true),
 //				Description:           pulumi.String("This is an example runbook"),
 //				RunbookType:           pulumi.String("PowerShell"),
-//				Content:               *pulumi.String(exampleFile.Content),
+//				Content:               *pulumi.String(example.Content),
 //			})
 //			if err != nil {
 //				return err

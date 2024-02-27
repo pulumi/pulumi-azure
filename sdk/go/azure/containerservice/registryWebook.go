@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			acr, err := containerservice.NewRegistry(ctx, "acr", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("containerRegistry1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				Sku:               pulumi.String("Standard"),
@@ -45,6 +47,7 @@ import (
 //				return err
 //			}
 //			_, err = containerservice.NewRegistryWebhook(ctx, "webhook", &containerservice.RegistryWebhookArgs{
+//				Name:              pulumi.String("mywebhook"),
 //				ResourceGroupName: example.Name,
 //				RegistryName:      acr.Name,
 //				Location:          example.Location,

@@ -41,6 +41,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriptionTemplateDeployment(&#34;example&#34;, SubscriptionTemplateDeploymentArgs.builder()        
+ *             .name(&#34;example-deployment&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .templateContent(&#34;&#34;&#34;
  *  {
@@ -58,7 +59,6 @@ import javax.annotation.Nullable;
  *      }
  *    ]
  *  }
- *  
  *             &#34;&#34;&#34;)
  *             .build());
  * 

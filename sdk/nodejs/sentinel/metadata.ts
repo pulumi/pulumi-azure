@@ -15,16 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "pergb2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
  *     solutionName: "SecurityInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  *     plan: {
@@ -32,7 +36,8 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/SecurityInsights",
  *     },
  * });
- * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt", {
+ * const exampleAlertRuleNrt = new azure.sentinel.AlertRuleNrt("example", {
+ *     name: "example",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     displayName: "example",
  *     severity: "High",
@@ -42,7 +47,8 @@ import * as utilities from "../utilities";
  *   make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
  * `,
  * });
- * const exampleMetadata = new azure.sentinel.Metadata("exampleMetadata", {
+ * const exampleMetadata = new azure.sentinel.Metadata("example", {
+ *     name: "exampl",
  *     workspaceId: exampleAnalyticsSolution.workspaceResourceId,
  *     contentId: exampleAlertRuleNrt.name,
  *     kind: "AnalyticsRule",

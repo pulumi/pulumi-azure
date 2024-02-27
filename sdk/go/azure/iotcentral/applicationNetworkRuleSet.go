@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resource"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleApplication, err := iotcentral.NewApplication(ctx, "exampleApplication", &iotcentral.ApplicationArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleApplication, err := iotcentral.NewApplication(ctx, "example", &iotcentral.ApplicationArgs{
+//				Name:              pulumi.String("example-iotcentral-app"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SubDomain:         pulumi.String("example-iotcentral-app-subdomain"),
 //				DisplayName:       pulumi.String("example-iotcentral-app-display-name"),
 //				Sku:               pulumi.String("ST1"),
@@ -48,7 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iotcentral.NewApplicationNetworkRuleSet(ctx, "exampleApplicationNetworkRuleSet", &iotcentral.ApplicationNetworkRuleSetArgs{
+//			_, err = iotcentral.NewApplicationNetworkRuleSet(ctx, "example", &iotcentral.ApplicationNetworkRuleSetArgs{
 //				IotcentralApplicationId: exampleApplication.ID(),
 //				IpRules: iotcentral.ApplicationNetworkRuleSetIpRuleArray{
 //					&iotcentral.ApplicationNetworkRuleSetIpRuleArgs{

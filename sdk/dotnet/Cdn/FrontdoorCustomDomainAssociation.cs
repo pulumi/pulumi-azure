@@ -12,6 +12,148 @@ namespace Pulumi.Azure.Cdn
     /// <summary>
     /// Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-cdn-frontdoor",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleZone = new Azure.Dns.Zone("example", new()
+    ///     {
+    ///         Name = "domain.com",
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
+    ///     {
+    ///         Name = "example-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         SkuName = "Standard_AzureFrontDoor",
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOriginGroup = new Azure.Cdn.FrontdoorOriginGroup("example", new()
+    ///     {
+    ///         Name = "example-origin-group",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         SessionAffinityEnabled = true,
+    ///         RestoreTrafficTimeToHealedOrNewEndpointInMinutes = 10,
+    ///         HealthProbe = new Azure.Cdn.Inputs.FrontdoorOriginGroupHealthProbeArgs
+    ///         {
+    ///             IntervalInSeconds = 240,
+    ///             Path = "/healthProbe",
+    ///             Protocol = "Https",
+    ///             RequestType = "HEAD",
+    ///         },
+    ///         LoadBalancing = new Azure.Cdn.Inputs.FrontdoorOriginGroupLoadBalancingArgs
+    ///         {
+    ///             AdditionalLatencyInMilliseconds = 0,
+    ///             SampleSize = 16,
+    ///             SuccessfulSamplesRequired = 3,
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorOrigin = new Azure.Cdn.FrontdoorOrigin("example", new()
+    ///     {
+    ///         Name = "example-origin",
+    ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
+    ///         Enabled = true,
+    ///         CertificateNameCheckEnabled = false,
+    ///         HostName = "contoso.com",
+    ///         HttpPort = 80,
+    ///         HttpsPort = 443,
+    ///         OriginHostHeader = "www.contoso.com",
+    ///         Priority = 1,
+    ///         Weight = 1,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorEndpoint = new Azure.Cdn.FrontdoorEndpoint("example", new()
+    ///     {
+    ///         Name = "example-endpoint",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("example", new()
+    ///     {
+    ///         Name = "ExampleRuleSet",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorCustomDomain = new Azure.Cdn.FrontdoorCustomDomain("example", new()
+    ///     {
+    ///         Name = "example-customDomain",
+    ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
+    ///         DnsZoneId = exampleZone.Id,
+    ///         HostName = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Input = new[]
+    ///             {
+    ///                 "contoso",
+    ///                 exampleZone.Name,
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         Tls = new Azure.Cdn.Inputs.FrontdoorCustomDomainTlsArgs
+    ///         {
+    ///             CertificateType = "ManagedCertificate",
+    ///             MinimumTlsVersion = "TLS12",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleFrontdoorRoute = new Azure.Cdn.FrontdoorRoute("example", new()
+    ///     {
+    ///         Name = "example-route",
+    ///         CdnFrontdoorEndpointId = exampleFrontdoorEndpoint.Id,
+    ///         CdnFrontdoorOriginGroupId = exampleFrontdoorOriginGroup.Id,
+    ///         CdnFrontdoorOriginIds = new[]
+    ///         {
+    ///             exampleFrontdoorOrigin.Id,
+    ///         },
+    ///         CdnFrontdoorRuleSetIds = new[]
+    ///         {
+    ///             exampleFrontdoorRuleSet.Id,
+    ///         },
+    ///         Enabled = true,
+    ///         ForwardingProtocol = "HttpsOnly",
+    ///         HttpsRedirectEnabled = true,
+    ///         PatternsToMatches = new[]
+    ///         {
+    ///             "/*",
+    ///         },
+    ///         SupportedProtocols = new[]
+    ///         {
+    ///             "Http",
+    ///             "Https",
+    ///         },
+    ///         CdnFrontdoorCustomDomainIds = new[]
+    ///         {
+    ///             exampleFrontdoorCustomDomain.Id,
+    ///         },
+    ///         LinkToDefaultDomain = false,
+    ///     });
+    /// 
+    ///     var exampleFrontdoorCustomDomainAssociation = new Azure.Cdn.FrontdoorCustomDomainAssociation("example", new()
+    ///     {
+    ///         CdnFrontdoorCustomDomainId = exampleFrontdoorCustomDomain.Id,
+    ///         CdnFrontdoorRouteIds = new[]
+    ///         {
+    ///             exampleFrontdoorRoute.Id,
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

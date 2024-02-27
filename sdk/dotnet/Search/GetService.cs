@@ -26,12 +26,13 @@ namespace Pulumi.Azure.Search
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "example-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleService = Azure.Search.GetService.Invoke(new()
+        ///     var example = Azure.Search.GetService.Invoke(new()
         ///     {
         ///         Name = "example-search-service",
         ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -60,12 +61,13 @@ namespace Pulumi.Azure.Search
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
         ///     {
+        ///         Name = "example-resources",
         ///         Location = "West Europe",
         ///     });
         /// 
-        ///     var exampleService = Azure.Search.GetService.Invoke(new()
+        ///     var example = Azure.Search.GetService.Invoke(new()
         ///     {
         ///         Name = "example-search-service",
         ///         ResourceGroupName = exampleResourceGroup.Name,

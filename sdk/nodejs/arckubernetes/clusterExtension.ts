@@ -14,13 +14,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.arckubernetes.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
  *     location: "West Europe",
- *     agentPublicKeyCertificate: fs.readFileSync("testdata/public.cer", { encoding: "base64" }),
+ * });
+ * const exampleCluster = new azure.arckubernetes.Cluster("example", {
+ *     name: "example-akcc",
+ *     resourceGroupName: example.name,
+ *     location: "West Europe",
+ *     agentPublicKeyCertificate: std.filebase64({
+ *         input: "testdata/public.cer",
+ *     }).then(invoke => invoke.result),
  *     identity: {
  *         type: "SystemAssigned",
  *     },
@@ -28,7 +34,8 @@ import * as utilities from "../utilities";
  *         ENV: "Test",
  *     },
  * });
- * const exampleClusterExtension = new azure.arckubernetes.ClusterExtension("exampleClusterExtension", {
+ * const exampleClusterExtension = new azure.arckubernetes.ClusterExtension("example", {
+ *     name: "example-ext",
  *     clusterId: exampleCluster.id,
  *     extensionType: "microsoft.flux",
  * });

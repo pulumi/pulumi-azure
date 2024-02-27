@@ -27,21 +27,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := datashare.LookupAccount(ctx, &datashare.LookupAccountArgs{
+//			example, err := datashare.LookupAccount(ctx, &datashare.LookupAccountArgs{
 //				Name:              "example-account",
 //				ResourceGroupName: "example-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleShare, err := datashare.LookupShare(ctx, &datashare.LookupShareArgs{
+//			exampleGetShare, err := datashare.LookupShare(ctx, &datashare.LookupShareArgs{
 //				Name:      "existing",
-//				AccountId: exampleAccount.Id,
+//				AccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", exampleShare.Id)
+//			ctx.Export("id", exampleGetShare.Id)
 //			return nil
 //		})
 //	}

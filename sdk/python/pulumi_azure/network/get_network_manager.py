@@ -141,6 +141,32 @@ def get_network_manager(name: Optional[str] = None,
     """
     Use this data source to access information about a Network Manager.
 
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="example-resources",
+        location="West Europe")
+    current = azure.core.get_subscription()
+    example_network_manager = azure.network.NetworkManager("example",
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name,
+        scope=azure.network.NetworkManagerScopeArgs(
+            subscription_ids=[current.id],
+        ),
+        scope_accesses=[
+            "Connectivity",
+            "SecurityAdmin",
+        ],
+        description="example network manager")
+    example = azure.network.get_network_manager_output(name=example_network_manager.name,
+        resource_group_name=example_network_manager.resource_group_name)
+    ```
+
 
     :param str name: The name of the Network Manager.
     :param str resource_group_name: The Name of the Resource Group where the Network Manager exists.
@@ -169,6 +195,32 @@ def get_network_manager_output(name: Optional[pulumi.Input[str]] = None,
                                opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetNetworkManagerResult]:
     """
     Use this data source to access information about a Network Manager.
+
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azure as azure
+
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="example-resources",
+        location="West Europe")
+    current = azure.core.get_subscription()
+    example_network_manager = azure.network.NetworkManager("example",
+        name="example-network-manager",
+        location=example_resource_group.location,
+        resource_group_name=example_resource_group.name,
+        scope=azure.network.NetworkManagerScopeArgs(
+            subscription_ids=[current.id],
+        ),
+        scope_accesses=[
+            "Connectivity",
+            "SecurityAdmin",
+        ],
+        description="example network manager")
+    example = azure.network.get_network_manager_output(name=example_network_manager.name,
+        resource_group_name=example_network_manager.resource_group_name)
+    ```
 
 
     :param str name: The name of the Network Manager.

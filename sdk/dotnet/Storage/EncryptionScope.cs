@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
@@ -41,8 +43,9 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("exampleEncryptionScope", new()
+    ///     var exampleEncryptionScope = new Azure.Storage.EncryptionScope("example", new()
     ///     {
+    ///         Name = "microsoftmanaged",
     ///         StorageAccountId = exampleAccount.Id,
     ///         Source = "Microsoft.Storage",
     ///     });

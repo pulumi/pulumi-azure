@@ -204,14 +204,14 @@ class ApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="my-api",
+        example = azure.apimanagement.get_api(name="my-api",
             api_management_name="example-apim",
             resource_group_name="search-service",
             revision="2")
-        example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+        example_api_policy = azure.apimanagement.ApiPolicy("example",
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             xml_content=\"\"\"<policies>
           <inbound>
             <find-and-replace from="xyz" to="abc" />
@@ -251,14 +251,14 @@ class ApiPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_api = azure.apimanagement.get_api(name="my-api",
+        example = azure.apimanagement.get_api(name="my-api",
             api_management_name="example-apim",
             resource_group_name="search-service",
             revision="2")
-        example_api_policy = azure.apimanagement.ApiPolicy("exampleApiPolicy",
-            api_name=example_api.name,
-            api_management_name=example_api.api_management_name,
-            resource_group_name=example_api.resource_group_name,
+        example_api_policy = azure.apimanagement.ApiPolicy("example",
+            api_name=example.name,
+            api_management_name=example.api_management_name,
+            resource_group_name=example.resource_group_name,
             xml_content=\"\"\"<policies>
           <inbound>
             <find-and-replace from="xyz" to="abc" />

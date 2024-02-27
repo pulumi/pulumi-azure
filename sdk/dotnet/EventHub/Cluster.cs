@@ -24,11 +24,13 @@ namespace Pulumi.Azure.EventHub
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var test = new Azure.EventHub.Cluster("test", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         SkuName = "Dedicated_1",

@@ -13,38 +13,47 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "example-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridRunbookWorkerGroup = new azure.automation.HybridRunbookWorkerGroup("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["192.168.1.0/24"],
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["192.168.1.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "vm-example",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example-vm",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     size: "Standard_B1s",
  *     adminUsername: "testadmin",
  *     adminPassword: "Password1234!",
@@ -61,14 +70,13 @@ import * as utilities from "../utilities";
  *     },
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  * });
- * const exampleHybridRunbookWorker = new azure.automation.HybridRunbookWorker("exampleHybridRunbookWorker", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridRunbookWorker = new azure.automation.HybridRunbookWorker("example", {
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     workerGroupName: exampleHybridRunbookWorkerGroup.name,
  *     vmResourceId: exampleLinuxVirtualMachine.id,
  *     workerId: "00000000-0000-0000-0000-000000000000",
  * });
- * //unique uuid
  * ```
  *
  * ## Import

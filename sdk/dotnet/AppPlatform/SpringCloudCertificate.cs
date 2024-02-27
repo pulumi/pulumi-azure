@@ -23,20 +23,22 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "Azure Spring Cloud Resource Provider",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
+    ///         Name = "keyvaultcertexample",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
@@ -62,7 +64,7 @@ namespace Pulumi.Azure.AppPlatform
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
     ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///                 ObjectId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///                 SecretPermissions = new[]
     ///                 {
     ///                     "Get",
@@ -77,8 +79,9 @@ namespace Pulumi.Azure.AppPlatform
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "cert-example",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {
@@ -128,14 +131,16 @@ namespace Pulumi.Azure.AppPlatform
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
+    ///         Name = "example-springcloud",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
-    ///     var exampleSpringCloudCertificate = new Azure.AppPlatform.SpringCloudCertificate("exampleSpringCloudCertificate", new()
+    ///     var exampleSpringCloudCertificate = new Azure.AppPlatform.SpringCloudCertificate("example", new()
     ///     {
+    ///         Name = "example-scc",
     ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///         KeyVaultCertificateId = exampleCertificate.Id,

@@ -61,9 +61,9 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
-     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
-     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
+     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
+     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
      *             .build());
      * 
      *     }
@@ -100,9 +100,9 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
-     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
-     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
+     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
+     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
      *             .build());
      * 
      *     }
@@ -139,9 +139,9 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
-     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
-     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
+     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
+     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
      *             .build());
      * 
      *     }
@@ -178,9 +178,9 @@ public final class CdnFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorCustomDomain(GetFrontdoorCustomDomainArgs.builder()
-     *             .name(azurerm_cdn_frontdoor_custom_domain.example().name())
-     *             .profileName(azurerm_cdn_frontdoor_profile.example().name())
-     *             .resourceGroupName(azurerm_cdn_frontdoor_profile.example().resource_group_name())
+     *             .name(exampleAzurermCdnFrontdoorCustomDomain.name())
+     *             .profileName(exampleAzurermCdnFrontdoorProfile.name())
+     *             .resourceGroupName(exampleAzurermCdnFrontdoorProfile.resourceGroupName())
      *             .build());
      * 
      *     }
@@ -374,7 +374,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -412,7 +412,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -450,7 +450,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -488,7 +488,7 @@ public final class CdnFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = CdnFunctions.getFrontdoorFirewallPolicy(GetFrontdoorFirewallPolicyArgs.builder()
      *             .name(&#34;examplecdnfdwafpolicy&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }

@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("exampleTimeSeriesInsightsStandardEnvironment", new()
+    ///     var exampleTimeSeriesInsightsStandardEnvironment = new Azure.Iot.TimeSeriesInsightsStandardEnvironment("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "S1_1",
     ///         DataRetentionTime = "P30D",
     ///     });
     /// 
-    ///     var exampleTimeSeriesInsightsReferenceDataSet = new Azure.Iot.TimeSeriesInsightsReferenceDataSet("exampleTimeSeriesInsightsReferenceDataSet", new()
+    ///     var exampleTimeSeriesInsightsReferenceDataSet = new Azure.Iot.TimeSeriesInsightsReferenceDataSet("example", new()
     ///     {
+    ///         Name = "example",
     ///         TimeSeriesInsightsEnvironmentId = exampleTimeSeriesInsightsStandardEnvironment.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         KeyProperties = new[]
     ///         {
     ///             new Azure.Iot.Inputs.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs

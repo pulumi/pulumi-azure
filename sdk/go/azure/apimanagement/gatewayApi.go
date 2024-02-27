@@ -28,32 +28,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "example-api",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//			exampleGetApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 //				Name:              "search-api",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
+//				ApiManagementName: example.Name,
+//				ResourceGroupName: example.ResourceGroupName,
 //				Revision:          "2",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
+//			exampleGetGateway, err := apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
 //				Name:            "example-gateway",
-//				ApiManagementId: exampleService.Id,
+//				ApiManagementId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewGatewayApi(ctx, "exampleGatewayApi", &apimanagement.GatewayApiArgs{
-//				GatewayId: *pulumi.String(exampleGateway.Id),
-//				ApiId:     *pulumi.String(exampleApi.Id),
+//			_, err = apimanagement.NewGatewayApi(ctx, "example", &apimanagement.GatewayApiArgs{
+//				GatewayId: *pulumi.String(exampleGetGateway.Id),
+//				ApiId:     *pulumi.String(exampleGetApi.Id),
 //			})
 //			if err != nil {
 //				return err

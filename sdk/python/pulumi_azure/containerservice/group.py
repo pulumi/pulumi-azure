@@ -880,10 +880,13 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_group = azure.containerservice.Group("exampleGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_group = azure.containerservice.Group("example",
+            name="example-continst",
+            location=example.location,
+            resource_group_name=example.name,
             ip_address_type="Public",
             dns_name_label="aci-label",
             os_type="Linux",
@@ -972,10 +975,13 @@ class Group(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_group = azure.containerservice.Group("exampleGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_group = azure.containerservice.Group("example",
+            name="example-continst",
+            location=example.location,
+            resource_group_name=example.name,
             ip_address_type="Public",
             dns_name_label="aci-label",
             os_type="Linux",

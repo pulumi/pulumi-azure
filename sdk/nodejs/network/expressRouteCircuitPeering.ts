@@ -16,10 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exprtTest",
+ *     location: "West Europe",
+ * });
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "expressRoute1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,
@@ -32,10 +36,10 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "MicrosoftPeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "123.0.0.0/30",
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",
@@ -60,10 +64,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exprtTest",
+ *     location: "West Europe",
+ * });
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "expressRoute1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,
@@ -76,10 +84,10 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "123.0.0.0/30",
  *     secondaryPeerAddressPrefix: "123.0.0.4/30",

@@ -33,29 +33,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("video-analyzer-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestoracc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("exampleidentity"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			contributor, err := authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "contributor", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -63,7 +66,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			reader, err := authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "reader", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Reader"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -71,9 +74,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = videoanalyzer.NewAnalyzer(ctx, "exampleAnalyzer", &videoanalyzer.AnalyzerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = videoanalyzer.NewAnalyzer(ctx, "example", &videoanalyzer.AnalyzerArgs{
+//				Name:              pulumi.String("exampleanalyzer"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				StorageAccount: &videoanalyzer.AnalyzerStorageAccountArgs{
 //					Id:                     exampleAccount.ID(),
 //					UserAssignedIdentityId: exampleUserAssignedIdentity.ID(),
@@ -87,10 +91,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				contributor,
-//				reader,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

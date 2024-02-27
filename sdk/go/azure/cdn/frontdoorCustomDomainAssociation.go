@@ -14,6 +14,158 @@ import (
 
 // Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-cdn-frontdoor"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("domain.com"),
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                   pulumi.String("example-origin-group"),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID(),
+//				SessionAffinityEnabled: pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
+//				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
+//					IntervalInSeconds: pulumi.Int(240),
+//					Path:              pulumi.String("/healthProbe"),
+//					Protocol:          pulumi.String("Https"),
+//					RequestType:       pulumi.String("HEAD"),
+//				},
+//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
+//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
+//					SampleSize:                      pulumi.Int(16),
+//					SuccessfulSamplesRequired:       pulumi.Int(3),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorOrigin, err := cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//				Name:                        pulumi.String("example-origin"),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				Enabled:                     pulumi.Bool(true),
+//				CertificateNameCheckEnabled: pulumi.Bool(false),
+//				HostName:                    pulumi.String("contoso.com"),
+//				HttpPort:                    pulumi.Int(80),
+//				HttpsPort:                   pulumi.Int(443),
+//				OriginHostHeader:            pulumi.String("www.contoso.com"),
+//				Priority:                    pulumi.Int(1),
+//				Weight:                      pulumi.Int(1),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorEndpoint, err := cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
+//				Name:                  pulumi.String("example-endpoint"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorRuleSet, err := cdn.NewFrontdoorRuleSet(ctx, "example", &cdn.FrontdoorRuleSetArgs{
+//				Name:                  pulumi.String("ExampleRuleSet"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorCustomDomain, err := cdn.NewFrontdoorCustomDomain(ctx, "example", &cdn.FrontdoorCustomDomainArgs{
+//				Name:                  pulumi.String("example-customDomain"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				DnsZoneId:             exampleZone.ID(),
+//				HostName: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						pulumi.String("contoso"),
+//						exampleZone.Name,
+//					},
+//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				Tls: &cdn.FrontdoorCustomDomainTlsArgs{
+//					CertificateType:   pulumi.String("ManagedCertificate"),
+//					MinimumTlsVersion: pulumi.String("TLS12"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorRoute, err := cdn.NewFrontdoorRoute(ctx, "example", &cdn.FrontdoorRouteArgs{
+//				Name:                      pulumi.String("example-route"),
+//				CdnFrontdoorEndpointId:    exampleFrontdoorEndpoint.ID(),
+//				CdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.ID(),
+//				CdnFrontdoorOriginIds: pulumi.StringArray{
+//					exampleFrontdoorOrigin.ID(),
+//				},
+//				CdnFrontdoorRuleSetIds: pulumi.StringArray{
+//					exampleFrontdoorRuleSet.ID(),
+//				},
+//				Enabled:              pulumi.Bool(true),
+//				ForwardingProtocol:   pulumi.String("HttpsOnly"),
+//				HttpsRedirectEnabled: pulumi.Bool(true),
+//				PatternsToMatches: pulumi.StringArray{
+//					pulumi.String("/*"),
+//				},
+//				SupportedProtocols: pulumi.StringArray{
+//					pulumi.String("Http"),
+//					pulumi.String("Https"),
+//				},
+//				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
+//					exampleFrontdoorCustomDomain.ID(),
+//				},
+//				LinkToDefaultDomain: pulumi.Bool(false),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorCustomDomainAssociation(ctx, "example", &cdn.FrontdoorCustomDomainAssociationArgs{
+//				CdnFrontdoorCustomDomainId: exampleFrontdoorCustomDomain.ID(),
+//				CdnFrontdoorRouteIds: pulumi.StringArray{
+//					exampleFrontdoorRoute.ID(),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

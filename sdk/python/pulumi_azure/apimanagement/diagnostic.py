@@ -502,26 +502,31 @@ class Diagnostic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@mycompany.io",
             sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
+        example_logger = azure.apimanagement.Logger("example",
+            name="example-apimlogger",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
-        example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
+        example_diagnostic = azure.apimanagement.Diagnostic("example",
             identifier="applicationinsights",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
             sampling_percentage=5,
@@ -603,26 +608,31 @@ class Diagnostic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="web")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@mycompany.io",
             sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
+        example_logger = azure.apimanagement.Logger("example",
+            name="example-apimlogger",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
                 instrumentation_key=example_insights.instrumentation_key,
             ))
-        example_diagnostic = azure.apimanagement.Diagnostic("exampleDiagnostic",
+        example_diagnostic = azure.apimanagement.Diagnostic("example",
             identifier="applicationinsights",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             api_management_logger_id=example_logger.id,
             sampling_percentage=5,

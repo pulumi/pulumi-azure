@@ -31,21 +31,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//			example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
 //				Name: pulumi.StringRef("exampleManagementGroup"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
+//			exampleGetSubscription, err := core.LookupSubscription(ctx, &core.LookupSubscriptionArgs{
 //				SubscriptionId: pulumi.StringRef("12345678-1234-1234-1234-123456789012"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupSubscriptionAssociation(ctx, "exampleGroupSubscriptionAssociation", &management.GroupSubscriptionAssociationArgs{
-//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
-//				SubscriptionId:    *pulumi.String(exampleSubscription.Id),
+//			_, err = management.NewGroupSubscriptionAssociation(ctx, "example", &management.GroupSubscriptionAssociationArgs{
+//				ManagementGroupId: *pulumi.String(example.Id),
+//				SubscriptionId:    *pulumi.String(exampleGetSubscription.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -55,10 +55,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -66,12 +68,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProfile = new Profile(&#34;exampleProfile&#34;, ProfileArgs.builder()        
+ *             .name(&#34;example-profile&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard_Verizon&#34;)
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
+ *             .name(&#34;example-endpoint&#34;)
  *             .profileName(exampleProfile.name())
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
@@ -81,21 +85,23 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var exampleZone = DnsFunctions.getZone(GetZoneArgs.builder()
+ *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
  *             .name(&#34;example-domain.com&#34;)
  *             .resourceGroupName(&#34;domain-rg&#34;)
  *             .build());
  * 
  *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
- *             .zoneName(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.name()))
- *             .resourceGroupName(exampleZone.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName()))
+ *             .name(&#34;example&#34;)
+ *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult.name()))
+ *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName()))
  *             .ttl(3600)
  *             .targetResourceId(exampleEndpoint.id())
  *             .build());
  * 
  *         var exampleEndpointCustomDomain = new EndpointCustomDomain(&#34;exampleEndpointCustomDomain&#34;, EndpointCustomDomainArgs.builder()        
+ *             .name(&#34;example-domain&#34;)
  *             .cdnEndpointId(exampleEndpoint.id())
- *             .hostName(exampleCNameRecord.name().applyValue(name -&gt; String.format(&#34;%s.%s&#34;, name,exampleZone.applyValue(getZoneResult -&gt; getZoneResult.name()))))
+ *             .hostName(exampleCNameRecord.name().applyValue(name -&gt; String.format(&#34;%s.%s&#34;, name,example.applyValue(getZoneResult -&gt; getZoneResult.name()))))
  *             .build());
  * 
  *     }

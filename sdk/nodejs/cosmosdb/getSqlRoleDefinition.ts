@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cosmosdb.getSqlRoleDefinition({
- *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
  *     resourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+ *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```
@@ -88,8 +88,8 @@ export interface GetSqlRoleDefinitionResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cosmosdb.getSqlRoleDefinition({
- *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
  *     resourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+ *     accountName: "tfex-cosmosdb-sql-role-definition-account-name",
  *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
  * });
  * ```

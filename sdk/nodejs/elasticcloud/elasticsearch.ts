@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "West Europe"});
- * const testElasticsearch = new azure.elasticcloud.Elasticsearch("testElasticsearch", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
+ * const test = new azure.core.ResourceGroup("test", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const testElasticsearch = new azure.elasticcloud.Elasticsearch("test", {
+ *     name: "example-elasticsearch",
+ *     resourceGroupName: test.name,
+ *     location: test.location,
  *     skuName: "ess-consumption-2024_Monthly",
  *     elasticCloudEmailAddress: "user@example.com",
  * });

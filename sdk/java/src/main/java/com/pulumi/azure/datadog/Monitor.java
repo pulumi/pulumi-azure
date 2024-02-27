@@ -50,13 +50,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-datadog&#34;)
  *             .location(&#34;West US 2&#34;)
  *             .build());
  * 
  *         var exampleMonitor = new Monitor(&#34;exampleMonitor&#34;, MonitorArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-monitor&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .datadogOrganization(MonitorDatadogOrganizationArgs.builder()
  *                 .apiKey(&#34;XXXX&#34;)
  *                 .applicationKey(&#34;XXXX&#34;)
@@ -113,7 +115,7 @@ import javax.annotation.Nullable;
  *         var example = new Assignment(&#34;example&#34;, AssignmentArgs.builder()        
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(monitoringReader.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.roleDefinitionId()))
- *             .principalId(azurerm_datadog_monitor.example().identity()[0].principal_id())
+ *             .principalId(exampleAzurermDatadogMonitor.identity()[0].principalId())
  *             .build());
  * 
  *     }

@@ -31,14 +31,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				BackendPools: frontdoor.FrontdoorBackendPoolArray{
 //					&frontdoor.FrontdoorBackendPoolArgs{
 //						Name:              pulumi.String("exampleBackendBing"),
@@ -89,7 +91,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = frontdoor.NewRulesEngine(ctx, "exampleRulesEngine", &frontdoor.RulesEngineArgs{
+//			_, err = frontdoor.NewRulesEngine(ctx, "example_rules_engine", &frontdoor.RulesEngineArgs{
+//				Name:              pulumi.String("exampleRulesEngineConfig1"),
 //				FrontdoorName:     exampleFrontdoor.Name,
 //				ResourceGroupName: exampleFrontdoor.ResourceGroupName,
 //				Rules: frontdoor.RulesEngineRuleArray{

@@ -192,9 +192,9 @@ def get_shared_image_version(gallery_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_shared_image_version(gallery_name="my-image-gallery",
+    example = azure.compute.get_shared_image_version(name="1.0.0",
         image_name="my-image",
-        name="1.0.0",
+        gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
 
@@ -250,9 +250,9 @@ def get_shared_image_version_output(gallery_name: Optional[pulumi.Input[str]] = 
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_shared_image_version(gallery_name="my-image-gallery",
+    example = azure.compute.get_shared_image_version(name="1.0.0",
         image_name="my-image",
-        name="1.0.0",
+        gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
 

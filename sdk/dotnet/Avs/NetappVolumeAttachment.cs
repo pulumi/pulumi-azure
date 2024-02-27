@@ -12,6 +12,198 @@ namespace Pulumi.Azure.Avs
     /// <summary>
     /// Manages a VMware Private Cloud Netapp File Attachment.
     /// 
+    /// ## Example Usage
+    /// 
+    /// &gt; **NOTE :** For Azure VMware private cloud, normal `pulumi up` could ignore this note. Please disable correlation request id for continuous operations in one build (like acctest). The continuous operations like `update` or `delete` could not be triggered when it shares the same `correlation-id` with its previous operation.
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var test = new Azure.Network.PublicIp("test", new()
+    ///     {
+    ///         Name = "example-public-ip",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var testVirtualNetwork = new Azure.Network.VirtualNetwork("test", new()
+    ///     {
+    ///         Name = "example-VirtualNetwork",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.6.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var netappSubnet = new Azure.Network.Subnet("netappSubnet", new()
+    ///     {
+    ///         Name = "example-Subnet",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         VirtualNetworkName = testVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.6.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "testdelegation",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "Microsoft.Netapp/volumes",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/networkinterfaces/*",
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var gatewaySubnet = new Azure.Network.Subnet("gatewaySubnet", new()
+    ///     {
+    ///         Name = "GatewaySubnet",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         VirtualNetworkName = testVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.6.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var testVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("test", new()
+    ///     {
+    ///         Name = "example-vnet-gateway",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         Type = "ExpressRoute",
+    ///         Sku = "Standard",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             {
+    ///                 Name = "vnetGatewayConfig",
+    ///                 PublicIpAddressId = test.Id,
+    ///                 SubnetId = gatewaySubnet.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testAccount = new Azure.NetApp.Account("test", new()
+    ///     {
+    ///         Name = "example-NetAppAccount",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var testPool = new Azure.NetApp.Pool("test", new()
+    ///     {
+    ///         Name = "example-NetAppPool",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AccountName = testAccount.Name,
+    ///         ServiceLevel = "Standard",
+    ///         SizeInTb = 4,
+    ///     });
+    /// 
+    ///     var testVolume = new Azure.NetApp.Volume("test", new()
+    ///     {
+    ///         Name = "example-NetAppVolume",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         AccountName = testAccount.Name,
+    ///         PoolName = testPool.Name,
+    ///         VolumePath = "my-unique-file-path-%d",
+    ///         ServiceLevel = "Standard",
+    ///         SubnetId = netappSubnet.Id,
+    ///         Protocols = new[]
+    ///         {
+    ///             "NFSv3",
+    ///         },
+    ///         StorageQuotaInGb = 100,
+    ///         AzureVmwareDataStoreEnabled = true,
+    ///         ExportPolicyRules = new[]
+    ///         {
+    ///             new Azure.NetApp.Inputs.VolumeExportPolicyRuleArgs
+    ///             {
+    ///                 RuleIndex = 1,
+    ///                 AllowedClients = new[]
+    ///                 {
+    ///                     "0.0.0.0/0",
+    ///                 },
+    ///                 ProtocolsEnabled = "NFSv3",
+    ///                 UnixReadOnly = false,
+    ///                 UnixReadWrite = true,
+    ///                 RootAccessEnabled = true,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var testPrivateCloud = new Azure.Avs.PrivateCloud("test", new()
+    ///     {
+    ///         Name = "example-PC",
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         SkuName = "av36",
+    ///         ManagementCluster = new Azure.Avs.Inputs.PrivateCloudManagementClusterArgs
+    ///         {
+    ///             Size = 3,
+    ///         },
+    ///         NetworkSubnetCidr = "192.168.48.0/22",
+    ///     });
+    /// 
+    ///     var testCluster = new Azure.Avs.Cluster("test", new()
+    ///     {
+    ///         Name = "example-vm-cluster",
+    ///         VmwareCloudId = testPrivateCloud.Id,
+    ///         ClusterNodeCount = 3,
+    ///         SkuName = "av36",
+    ///     });
+    /// 
+    ///     var testExpressRouteAuthorization = new Azure.Avs.ExpressRouteAuthorization("test", new()
+    ///     {
+    ///         Name = "example-VmwareAuthorization",
+    ///         PrivateCloudId = testPrivateCloud.Id,
+    ///     });
+    /// 
+    ///     var testVirtualNetworkGatewayConnection = new Azure.Network.VirtualNetworkGatewayConnection("test", new()
+    ///     {
+    ///         Name = "example-vnetgwconn",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
+    ///         Type = "ExpressRoute",
+    ///         VirtualNetworkGatewayId = testVirtualNetworkGateway.Id,
+    ///         ExpressRouteCircuitId = testPrivateCloud.Circuits.Apply(circuits =&gt; circuits[0].ExpressRouteId),
+    ///         AuthorizationKey = testExpressRouteAuthorization.ExpressRouteAuthorizationKey,
+    ///     });
+    /// 
+    ///     var testNetappVolumeAttachment = new Azure.Avs.NetappVolumeAttachment("test", new()
+    ///     {
+    ///         Name = "example-vmwareattachment",
+    ///         NetappVolumeId = testVolume.Id,
+    ///         VmwareClusterId = testCluster.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// VMware Private Clouds Netapp File Volume Attachment can be imported using the `resource id`, e.g.

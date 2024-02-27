@@ -32,31 +32,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			_, err = storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("acctestcont"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
@@ -65,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewEndpointStorageContainer(ctx, "exampleEndpointStorageContainer", &iot.EndpointStorageContainerArgs{
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			_, err = iot.NewEndpointStorageContainer(ctx, "example", &iot.EndpointStorageContainerArgs{
+//				ResourceGroupName:       example.Name,
 //				IothubId:                exampleIoTHub.ID(),
+//				Name:                    pulumi.String("acctest"),
 //				ContainerName:           pulumi.String("acctestcont"),
 //				ConnectionString:        exampleAccount.PrimaryBlobConnectionString,
 //				FileNameFormat:          pulumi.String("{iothub}/{partition}_{YYYY}_{MM}_{DD}_{HH}_{mm}"),

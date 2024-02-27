@@ -254,34 +254,41 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.datashare.Account("example",
+            name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             identity=azure.datashare.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_share = azure.datashare.Share("exampleShare",
+        example_share = azure.datashare.Share("example",
+            name="example_ds",
             account_id=example_account.id,
             kind="CopyBased")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
+        example_account2 = azure.storage.Account("example",
+            name="examplestr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_storage / account_account["id"],
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example-dlg2fs",
+            storage_account_id=example_account2.id)
+        example = azuread.get_service_principal_output(display_name=example_account.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_account2.id,
             role_definition_name="Storage Blob Data Reader",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2",
+            principal_id=example.object_id)
+        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("example",
+            name="accexample-dlg2ds",
             share_id=example_share.id,
-            storage_account_id=example_storage / account_account["id"],
+            storage_account_id=example_account2.id,
             file_system_name=example_data_lake_gen2_filesystem.name,
-            file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            file_path="myfile.txt")
         ```
 
         ## Import
@@ -317,34 +324,41 @@ class DatasetDataLakeGen2(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.datashare.Account("example",
+            name="example-dsa",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             identity=azure.datashare.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_share = azure.datashare.Share("exampleShare",
+        example_share = azure.datashare.Share("example",
+            name="example_ds",
             account_id=example_account.id,
             kind="CopyBased")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
+        example_account2 = azure.storage.Account("example",
+            name="examplestr",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_storage / account_account["id"])
-        example_service_principal = azuread.get_service_principal_output(display_name=example_account.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
-            scope=example_storage / account_account["id"],
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example-dlg2fs",
+            storage_account_id=example_account2.id)
+        example = azuread.get_service_principal_output(display_name=example_account.name)
+        example_assignment = azure.authorization.Assignment("example",
+            scope=example_account2.id,
             role_definition_name="Storage Blob Data Reader",
-            principal_id=example_service_principal.object_id)
-        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2",
+            principal_id=example.object_id)
+        example_dataset_data_lake_gen2 = azure.datashare.DatasetDataLakeGen2("example",
+            name="accexample-dlg2ds",
             share_id=example_share.id,
-            storage_account_id=example_storage / account_account["id"],
+            storage_account_id=example_account2.id,
             file_system_name=example_data_lake_gen2_filesystem.name,
-            file_path="myfile.txt",
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            file_path="myfile.txt")
         ```
 
         ## Import

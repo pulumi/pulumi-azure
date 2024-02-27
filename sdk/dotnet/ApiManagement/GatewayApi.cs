@@ -22,30 +22,30 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
     ///         Name = "example-api",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     var exampleGetApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
     ///         Name = "search-api",
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
     ///         Revision = "2",
     ///     });
     /// 
-    ///     var exampleGateway = Azure.ApiManagement.GetGateway.Invoke(new()
+    ///     var exampleGetGateway = Azure.ApiManagement.GetGateway.Invoke(new()
     ///     {
     ///         Name = "example-gateway",
-    ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
     ///     });
     /// 
-    ///     var exampleGatewayApi = new Azure.ApiManagement.GatewayApi("exampleGatewayApi", new()
+    ///     var exampleGatewayApi = new Azure.ApiManagement.GatewayApi("example", new()
     ///     {
-    ///         GatewayId = exampleGateway.Apply(getGatewayResult =&gt; getGatewayResult.Id),
-    ///         ApiId = exampleApi.Apply(getApiResult =&gt; getApiResult.Id),
+    ///         GatewayId = exampleGetGateway.Apply(getGatewayResult =&gt; getGatewayResult.Id),
+    ///         ApiId = exampleGetApi.Apply(getApiResult =&gt; getApiResult.Id),
     ///     });
     /// 
     /// });

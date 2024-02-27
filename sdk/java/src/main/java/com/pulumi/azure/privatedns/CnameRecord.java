@@ -45,17 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mydomain.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleCnameRecord = new CnameRecord(&#34;exampleCnameRecord&#34;, CnameRecordArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .zoneName(exampleZone.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .record(&#34;contoso.com&#34;)
  *             .build());

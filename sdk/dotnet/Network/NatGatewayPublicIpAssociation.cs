@@ -22,27 +22,30 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-PIP",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleNatGateway = new Azure.Network.NatGateway("exampleNatGateway", new()
+    ///     var exampleNatGateway = new Azure.Network.NatGateway("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-NatGateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleNatGatewayPublicIpAssociation = new Azure.Network.NatGatewayPublicIpAssociation("exampleNatGatewayPublicIpAssociation", new()
+    ///     var exampleNatGatewayPublicIpAssociation = new Azure.Network.NatGatewayPublicIpAssociation("example", new()
     ///     {
     ///         NatGatewayId = exampleNatGateway.Id,
     ///         PublicIpAddressId = examplePublicIp.Id,

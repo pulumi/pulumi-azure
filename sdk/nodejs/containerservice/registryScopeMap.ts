@@ -11,10 +11,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRegistry = new azure.containerservice.Registry("exampleRegistry", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "West Europe",
+ * });
+ * const exampleRegistry = new azure.containerservice.Registry("example", {
+ *     name: "exampleregistry",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Premium",
  *     adminEnabled: false,
  *     georeplications: [
@@ -26,9 +30,10 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap", {
+ * const exampleRegistryScopeMap = new azure.containerservice.RegistryScopeMap("example", {
+ *     name: "example-scope-map",
  *     containerRegistryName: exampleRegistry.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     actions: [
  *         "repositories/repo1/content/read",
  *         "repositories/repo1/content/write",

@@ -32,27 +32,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFunctionApp := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
+//			example := appservice.LookupFunctionAppOutput(ctx, appservice.GetFunctionAppOutputArgs{
 //				Name:              pulumi.String("test-azure-functions"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "exampleLinkedServiceAzureFunction", &datafactory.LinkedServiceAzureFunctionArgs{
+//			_, err = datafactory.NewLinkedServiceAzureFunction(ctx, "example", &datafactory.LinkedServiceAzureFunctionArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
-//				Url: exampleFunctionApp.ApplyT(func(exampleFunctionApp appservice.GetFunctionAppResult) (string, error) {
-//					return fmt.Sprintf("https://%v", exampleFunctionApp.DefaultHostname), nil
+//				Url: example.ApplyT(func(example appservice.GetFunctionAppResult) (string, error) {
+//					return fmt.Sprintf("https://%v", example.DefaultHostname), nil
 //				}).(pulumi.StringOutput),
 //				Key: pulumi.String("foo"),
 //			})

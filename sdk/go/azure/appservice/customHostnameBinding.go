@@ -30,24 +30,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.Map{
-//					"azi_id": pulumi.Any(1),
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
 //				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("some-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("some-app-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -56,18 +58,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
+//				Name:              server.Hex,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewCustomHostnameBinding(ctx, "exampleCustomHostnameBinding", &appservice.CustomHostnameBindingArgs{
+//			_, err = appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
 //				Hostname:          pulumi.String("www.mywebsite.com"),
 //				AppServiceName:    exampleAppService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

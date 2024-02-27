@@ -18,15 +18,15 @@ import * as utilities from "../utilities";
  * import * as time from "@pulumiverse/time";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleRoleDefinition = azure.authorization.getRoleDefinition({
+ * const example = azure.core.getClientConfig({});
+ * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
- * const exampleStatic = new time.Static("exampleStatic", {});
- * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment", {
+ * const exampleStatic = new time.Static("example", {});
+ * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
  *     scope: primary.then(primary => primary.id),
- *     roleDefinitionId: Promise.all([primary, exampleRoleDefinition]).then(([primary, exampleRoleDefinition]) => `${primary.id}${exampleRoleDefinition.id}`),
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     roleDefinitionId: Promise.all([primary, exampleGetRoleDefinition]).then(([primary, exampleGetRoleDefinition]) => `${primary.id}${exampleGetRoleDefinition.id}`),
+ *     principalId: example.then(example => example.objectId),
  *     schedule: {
  *         startDateTime: exampleStatic.rfc3339,
  *         expiration: {
@@ -47,16 +47,16 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as time from "@pulumiverse/time";
  *
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleRoleDefinition = azure.authorization.getRoleDefinition({
+ * const example = azure.core.getClientConfig({});
+ * const exampleGetRoleDefinition = azure.authorization.getRoleDefinition({
  *     name: "Reader",
  * });
- * const exampleGroup = new azure.management.Group("exampleGroup", {});
- * const exampleStatic = new time.Static("exampleStatic", {});
- * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment", {
+ * const exampleGroup = new azure.management.Group("example", {name: "Example-Management-Group"});
+ * const exampleStatic = new time.Static("example", {});
+ * const exampleActiveRoleAssignment = new azure.pim.ActiveRoleAssignment("example", {
  *     scope: exampleGroup.id,
- *     roleDefinitionId: exampleRoleDefinition.then(exampleRoleDefinition => exampleRoleDefinition.id),
- *     principalId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.objectId),
+ *     roleDefinitionId: exampleGetRoleDefinition.then(exampleGetRoleDefinition => exampleGetRoleDefinition.id),
+ *     principalId: example.then(example => example.objectId),
  *     schedule: {
  *         startDateTime: exampleStatic.rfc3339,
  *         expiration: {

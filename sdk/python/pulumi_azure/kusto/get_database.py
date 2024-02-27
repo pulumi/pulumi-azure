@@ -132,9 +132,9 @@ def get_database(cluster_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.kusto.get_database(cluster_name="test_cluster",
-        name="my-kusto-database",
-        resource_group_name="test_resource_group")
+    example = azure.kusto.get_database(name="my-kusto-database",
+        resource_group_name="test_resource_group",
+        cluster_name="test_cluster")
     ```
 
 
@@ -174,9 +174,9 @@ def get_database_output(cluster_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.kusto.get_database(cluster_name="test_cluster",
-        name="my-kusto-database",
-        resource_group_name="test_resource_group")
+    example = azure.kusto.get_database(name="my-kusto-database",
+        resource_group_name="test_resource_group",
+        cluster_name="test_cluster")
     ```
 
 

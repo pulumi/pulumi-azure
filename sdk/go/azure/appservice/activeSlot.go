@@ -38,24 +38,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", nil)
+//			example, err := core.NewResourceGroup(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPlan(ctx, "examplePlan", nil)
+//			_, err = appservice.NewPlan(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", nil)
+//			exampleAppService, err := appservice.NewAppService(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleSlot, err := appservice.NewSlot(ctx, "exampleSlot", nil)
+//			exampleSlot, err := appservice.NewSlot(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewActiveSlot(ctx, "exampleActiveSlot", &appservice.ActiveSlotArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			_, err = appservice.NewActiveSlot(ctx, "example", &appservice.ActiveSlotArgs{
+//				ResourceGroupName:  example.Name,
 //				AppServiceName:     exampleAppService.Name,
 //				AppServiceSlotName: exampleSlot.Name,
 //			})

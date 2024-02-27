@@ -13,18 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "azuretest",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "azureteststorage",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
+ * const exampleShare = new azure.storage.Share("example", {
+ *     name: "sharename",
  *     storageAccountName: exampleAccount.name,
  *     quota: 50,
  * });
- * const exampleShareDirectory = new azure.storage.ShareDirectory("exampleShareDirectory", {
+ * const exampleShareDirectory = new azure.storage.ShareDirectory("example", {
+ *     name: "example",
  *     shareName: exampleShare.name,
  *     storageAccountName: exampleAccount.name,
  * });

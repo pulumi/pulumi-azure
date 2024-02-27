@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("examplePublicIpPrefix", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIpPrefix = new azure.network.PublicIpPrefix("example", {
+ *     name: "acceptanceTestPublicIpPrefix1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     prefixLength: 31,
  *     tags: {
  *         environment: "Production",

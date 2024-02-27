@@ -15,20 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-plan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     osType: "Linux",
  *     skuName: "P1v2",
  * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("exampleLinuxWebApp", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     name: "example-linux-web-app",
+ *     resourceGroupName: example.name,
  *     location: exampleServicePlan.location,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("exampleLinuxWebAppSlot", {
+ * const exampleLinuxWebAppSlot = new azure.appservice.LinuxWebAppSlot("example", {
+ *     name: "example-slot",
  *     appServiceId: exampleLinuxWebApp.id,
  *     siteConfig: {},
  * });

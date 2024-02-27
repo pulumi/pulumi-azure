@@ -46,30 +46,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var currentClientConfig = CoreFunctions.getClientConfig();
+ *         final var current = CoreFunctions.getClientConfig();
  * 
- *         final var currentSubscription = CoreFunctions.getSubscription();
+ *         final var currentGetSubscription = CoreFunctions.getSubscription();
  * 
  *         final var alt = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-networkmanager&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(currentSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(currentGetSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
  *             .scopeAccesses(&#34;SecurityAdmin&#34;)
  *             .build());
  * 
  *         var exampleNetworkManagerScopeConnection = new NetworkManagerScopeConnection(&#34;exampleNetworkManagerScopeConnection&#34;, NetworkManagerScopeConnectionArgs.builder()        
+ *             .name(&#34;example-nsc&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
- *             .tenantId(currentClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .targetScopeId(alt.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .description(&#34;example&#34;)
  *             .build());

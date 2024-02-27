@@ -24,24 +24,27 @@ namespace Pulumi.Azure.MySql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MySql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mysql-server",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "GP_Gen5_2",
     ///         AdministratorLogin = "acctestun",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
@@ -100,8 +103,9 @@ namespace Pulumi.Azure.MySql
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "tfex-key",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -114,16 +118,9 @@ namespace Pulumi.Azure.MySql
     ///             "verify",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             client,
-    ///             server,
-    ///         },
     ///     });
     /// 
-    ///     var exampleServerKey = new Azure.MySql.ServerKey("exampleServerKey", new()
+    ///     var exampleServerKey = new Azure.MySql.ServerKey("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

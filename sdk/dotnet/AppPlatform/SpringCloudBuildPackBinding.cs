@@ -24,20 +24,23 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("exampleSpringCloudBuilder", new()
+    ///     var exampleSpringCloudBuilder = new Azure.AppPlatform.SpringCloudBuilder("example", new()
     ///     {
+    ///         Name = "example",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///         BuildPackGroups = new[]
     ///         {
@@ -57,8 +60,9 @@ namespace Pulumi.Azure.AppPlatform
     ///         },
     ///     });
     /// 
-    ///     var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding", new()
+    ///     var exampleSpringCloudBuildPackBinding = new Azure.AppPlatform.SpringCloudBuildPackBinding("example", new()
     ///     {
+    ///         Name = "example",
     ///         SpringCloudBuilderId = exampleSpringCloudBuilder.Id,
     ///         BindingType = "ApplicationInsights",
     ///         Launch = new Azure.AppPlatform.Inputs.SpringCloudBuildPackBindingLaunchArgs

@@ -680,10 +680,13 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_job = azure.streamanalytics.Job("example",
+            name="example-job",
+            resource_group_name=example.name,
+            location=example.location,
             compatibility_level="1.2",
             data_locale="en-GB",
             events_late_arrival_max_delay_in_seconds=60,
@@ -751,10 +754,13 @@ class Job(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.Job("exampleJob",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_job = azure.streamanalytics.Job("example",
+            name="example-job",
+            resource_group_name=example.name,
+            location=example.location,
             compatibility_level="1.2",
             data_locale="en-GB",
             events_late_arrival_max_delay_in_seconds=60,

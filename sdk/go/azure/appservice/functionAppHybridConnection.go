@@ -31,57 +31,64 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OsType:            pulumi.String("Windows"),
 //				SkuName:           pulumi.String("S1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := relay.NewNamespace(ctx, "example", &relay.NamespaceArgs{
+//				Name:              pulumi.String("example-relay"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "example", &relay.HybridConnectionArgs{
+//				Name:               pulumi.String("examplerhc1"),
+//				ResourceGroupName:  example.Name,
 //				RelayNamespaceName: exampleNamespace.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        nil,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			_, err = appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				Name:                    pulumi.String("example-function-app"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
@@ -90,7 +97,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewFunctionAppHybridConnection(ctx, "exampleFunctionAppHybridConnection", &appservice.FunctionAppHybridConnectionArgs{
+//			_, err = appservice.NewFunctionAppHybridConnection(ctx, "example", &appservice.FunctionAppHybridConnectionArgs{
 //				FunctionAppId: exampleWindowsWebApp.ID(),
 //				RelayId:       exampleHybridConnection.ID(),
 //				Hostname:      pulumi.String("myhostname.example"),

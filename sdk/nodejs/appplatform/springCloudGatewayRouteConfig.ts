@@ -17,18 +17,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("exampleSpringCloudGatewayRouteConfig", {
+ * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("example", {
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ * });
+ * const exampleSpringCloudGatewayRouteConfig = new azure.appplatform.SpringCloudGatewayRouteConfig("example", {
+ *     name: "example",
  *     springCloudGatewayId: exampleSpringCloudGateway.id,
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     protocol: "HTTPS",

@@ -28,7 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := nginx.LookupConfiguration(ctx, &nginx.LookupConfigurationArgs{
-//				NginxDeploymentId: azurerm_nginx_deployment.Example.Id,
+//				NginxDeploymentId: exampleAzurermNginxDeployment.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

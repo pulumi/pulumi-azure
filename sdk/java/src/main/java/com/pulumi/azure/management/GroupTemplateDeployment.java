@@ -46,13 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
  *             .templateContent(&#34;&#34;&#34;
  * {
  *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#&#34;,
@@ -124,15 +125,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .templateContent(Files.readString(Paths.get(&#34;templates/example-deploy-template.json&#34;)))
- *             .parametersContent(Files.readString(Paths.get(&#34;templates/example-deploy-params.json&#34;)))
+ *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .templateContent(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;templates/example-deploy-template.json&#34;)
+ *                 .build()).result())
+ *             .parametersContent(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;templates/example-deploy-params.json&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }
@@ -163,20 +169,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var example = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
- *         final var exampleTemplateSpecVersion = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+ *         final var exampleGetTemplateSpecVersion = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
  *             .name(&#34;exampleTemplateForManagementGroup&#34;)
  *             .resourceGroupName(&#34;exampleResourceGroup&#34;)
  *             .version(&#34;v1.0.9&#34;)
  *             .build());
  * 
  *         var exampleGroupTemplateDeployment = new GroupTemplateDeployment(&#34;exampleGroupTemplateDeployment&#34;, GroupTemplateDeploymentArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .managementGroupId(exampleGroup.applyValue(getGroupResult -&gt; getGroupResult.id()))
- *             .templateSpecVersionId(exampleTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *             .managementGroupId(example.applyValue(getGroupResult -&gt; getGroupResult.id()))
+ *             .templateSpecVersionId(exampleGetTemplateSpecVersion.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
  *             .build());
  * 
  *     }

@@ -22,19 +22,22 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "workflow-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workflow1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleActionCustom = new Azure.LogicApps.ActionCustom("exampleActionCustom", new()
+    ///     var exampleActionCustom = new Azure.LogicApps.ActionCustom("example", new()
     ///     {
+    ///         Name = "example-action",
     ///         LogicAppId = exampleWorkflow.Id,
     ///         Body = @"{
     ///     ""description"": ""A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old)."",

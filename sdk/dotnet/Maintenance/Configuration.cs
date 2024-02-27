@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Maintenance
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-mc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Scope = "SQLDB",
     ///         Tags = 
     ///         {

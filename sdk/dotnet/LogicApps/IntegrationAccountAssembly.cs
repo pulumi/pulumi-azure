@@ -15,39 +15,38 @@ namespace Pulumi.Azure.LogicApps
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ia",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountAssembly = new Azure.LogicApps.IntegrationAccountAssembly("exampleIntegrationAccountAssembly", new()
+    ///     var exampleIntegrationAccountAssembly = new Azure.LogicApps.IntegrationAccountAssembly("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-assembly",
+    ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         AssemblyName = "TestAssembly",
-    ///         Content = ReadFileBase64("testdata/log4net.dll"),
+    ///         Content = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "testdata/log4net.dll",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

@@ -31,15 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVirtualMachine, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
+//			example, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
 //				Name:              "example-vm",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewVirtualMachine(ctx, "exampleMssql/virtualMachineVirtualMachine", &mssql.VirtualMachineArgs{
-//				VirtualMachineId:              *pulumi.String(exampleVirtualMachine.Id),
+//			_, err = mssql.NewVirtualMachine(ctx, "example", &mssql.VirtualMachineArgs{
+//				VirtualMachineId:              *pulumi.String(example.Id),
 //				SqlLicenseType:                pulumi.String("PAYG"),
 //				RServicesEnabled:              pulumi.Bool(true),
 //				SqlConnectivityPort:           pulumi.Int(1433),

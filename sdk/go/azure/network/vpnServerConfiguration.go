@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewVpnServerConfiguration(ctx, "test", &network.VpnServerConfigurationArgs{
+//				Name:              pulumi.String("example-config"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				VpnAuthenticationTypes: pulumi.StringArray{

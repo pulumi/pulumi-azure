@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var example_primaryResourceGroup = new ResourceGroup(&#34;example-primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example_primary = new ResourceGroup(&#34;example-primary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources-primary&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var example_primaryCache = new Cache(&#34;example-primaryCache&#34;, CacheArgs.builder()        
- *             .location(example_primaryResourceGroup.location())
- *             .resourceGroupName(example_primaryResourceGroup.name())
+ *             .name(&#34;example-cache1&#34;)
+ *             .location(example_primary.location())
+ *             .resourceGroupName(example_primary.name())
  *             .capacity(1)
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)
@@ -61,13 +63,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         var example_secondaryResourceGroup = new ResourceGroup(&#34;example-secondaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example_secondary = new ResourceGroup(&#34;example-secondary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources-secondary&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var example_secondaryCache = new Cache(&#34;example-secondaryCache&#34;, CacheArgs.builder()        
- *             .location(example_secondaryResourceGroup.location())
- *             .resourceGroupName(example_secondaryResourceGroup.name())
+ *             .name(&#34;example-cache2&#34;)
+ *             .location(example_secondary.location())
+ *             .resourceGroupName(example_secondary.name())
  *             .capacity(1)
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)

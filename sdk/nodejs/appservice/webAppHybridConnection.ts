@@ -13,29 +13,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     osType: "Windows",
  *     skuName: "S1",
  * });
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNamespace = new azure.relay.Namespace("example", {
+ *     name: "example-relay",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ *     name: "examplerhc1",
+ *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,
  * });
- * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     name: "example-web-app",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleWebAppHybridConnection = new azure.appservice.WebAppHybridConnection("exampleWebAppHybridConnection", {
+ * const exampleWebAppHybridConnection = new azure.appservice.WebAppHybridConnection("example", {
  *     webAppId: exampleWindowsWebApp.id,
  *     relayId: exampleHybridConnection.id,
  *     hostname: "myhostname.example",

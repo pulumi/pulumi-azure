@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
+//				Name:              pulumi.String("example-devtestlab"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"Sydney": pulumi.String("Australia"),
 //				},
@@ -45,9 +47,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &devtest.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := devtest.NewVirtualNetwork(ctx, "example", &devtest.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
 //				LabName:           exampleLab.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Subnet: &devtest.VirtualNetworkSubnetArgs{
 //					UsePublicIpAddress:          pulumi.String("Allow"),
 //					UseInVirtualMachineCreation: pulumi.String("Allow"),
@@ -56,10 +59,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devtest.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &devtest.WindowsVirtualMachineArgs{
+//			_, err = devtest.NewWindowsVirtualMachine(ctx, "example", &devtest.WindowsVirtualMachineArgs{
+//				Name:                pulumi.String("example-vm03"),
 //				LabName:             exampleLab.Name,
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				Size:                pulumi.String("Standard_DS2"),
 //				Username:            pulumi.String("exampleuser99"),
 //				Password:            pulumi.String("Pa$w0rd1234!"),

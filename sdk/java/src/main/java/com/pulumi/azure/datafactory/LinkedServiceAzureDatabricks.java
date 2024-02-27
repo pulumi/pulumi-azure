@@ -53,25 +53,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;TestDtaFactory92783401247&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .identity(FactoryIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;databricks-test&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;standard&#34;)
  *             .build());
  * 
  *         var msiLinked = new LinkedServiceAzureDatabricks(&#34;msiLinked&#34;, LinkedServiceAzureDatabricksArgs.builder()        
+ *             .name(&#34;ADBLinkedServiceViaMSI&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .description(&#34;ADB Linked Service via MSI&#34;)
  *             .adbDomain(exampleWorkspace.workspaceUrl().applyValue(workspaceUrl -&gt; String.format(&#34;https://%s&#34;, workspaceUrl)))
@@ -132,22 +136,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;TestDtaFactory92783401247&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;databricks-test&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;standard&#34;)
  *             .build());
  * 
  *         var atLinked = new LinkedServiceAzureDatabricks(&#34;atLinked&#34;, LinkedServiceAzureDatabricksArgs.builder()        
+ *             .name(&#34;ADBLinkedServiceViaAccessToken&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .description(&#34;ADB Linked Service via Access Token&#34;)
  *             .existingClusterId(&#34;0308-201146-sly615&#34;)

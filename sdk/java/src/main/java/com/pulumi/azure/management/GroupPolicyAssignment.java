@@ -49,15 +49,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *         var example = new Group(&#34;example&#34;, GroupArgs.builder()        
  *             .displayName(&#34;Some Management Group&#34;)
  *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
+ *             .name(&#34;only-deploy-in-westeurope&#34;)
  *             .policyType(&#34;Custom&#34;)
  *             .mode(&#34;All&#34;)
  *             .displayName(&#34;my-policy-definition&#34;)
- *             .managementGroupId(exampleGroup.id())
+ *             .managementGroupId(example.id())
  *             .policyRule(&#34;&#34;&#34;
  *  {
  *     &#34;if&#34;: {
@@ -74,8 +75,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
+ *             .name(&#34;example-policy&#34;)
  *             .policyDefinitionId(exampleDefinition.id())
- *             .managementGroupId(exampleGroup.id())
+ *             .managementGroupId(example.id())
  *             .build());
  * 
  *     }

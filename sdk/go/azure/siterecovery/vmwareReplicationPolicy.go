@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("eastus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-//				Location:                        exampleResourceGroup.Location,
-//				ResourceGroupName:               exampleResourceGroup.Name,
+//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
+//				Name:                            pulumi.String("example-vault"),
+//				Location:                        example.Location,
+//				ResourceGroupName:               example.Name,
 //				Sku:                             pulumi.String("Standard"),
 //				ClassicVmwareReplicationEnabled: pulumi.Bool(true),
 //				SoftDeleteEnabled:               pulumi.Bool(false),
@@ -46,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewVMWareReplicationPolicy(ctx, "exampleVMWareReplicationPolicy", &siterecovery.VMWareReplicationPolicyArgs{
-//				RecoveryVaultId:                                 exampleVault.ID(),
-//				RecoveryPointRetentionInMinutes:                 pulumi.Int(1440),
+//			_, err = siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
+//				Name:                            pulumi.String("example-policy"),
+//				RecoveryVaultId:                 exampleVault.ID(),
+//				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
 //				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
 //			})
 //			if err != nil {

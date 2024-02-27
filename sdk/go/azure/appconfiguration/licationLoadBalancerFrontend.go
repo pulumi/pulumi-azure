@@ -28,15 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLicationLoadBalancer, err := appconfiguration.NewLicationLoadBalancer(ctx, "exampleLicationLoadBalancer", &appconfiguration.LicationLoadBalancerArgs{
+//			example, err := appconfiguration.NewLicationLoadBalancer(ctx, "example", &appconfiguration.LicationLoadBalancerArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appconfiguration.NewLicationLoadBalancerFrontend(ctx, "exampleLicationLoadBalancerFrontend", &appconfiguration.LicationLoadBalancerFrontendArgs{
-//				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID(),
+//			_, err = appconfiguration.NewLicationLoadBalancerFrontend(ctx, "example", &appconfiguration.LicationLoadBalancerFrontendArgs{
+//				Name:                      pulumi.String("example"),
+//				ApplicationLoadBalancerId: example.ID(),
 //			})
 //			if err != nil {
 //				return err

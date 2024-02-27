@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;my-api&#34;)
  *             .apiManagementName(&#34;example-apim&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
@@ -49,9 +49,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApiPolicy = new ApiPolicy(&#34;exampleApiPolicy&#34;, ApiPolicyArgs.builder()        
- *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(exampleApi.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(exampleApi.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
+ *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
  *             .xmlContent(&#34;&#34;&#34;
  * &lt;policies&gt;
  *   &lt;inbound&gt;

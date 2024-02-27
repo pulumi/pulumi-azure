@@ -27,18 +27,20 @@ namespace Pulumi.Azure.AppConfiguration
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
     ///     {
+    ///         Name = "appConf1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconf_dataowner", new()
     ///     {
     ///         Scope = appconf.Id,
     ///         RoleDefinitionName = "App Configuration Data Owner",
@@ -51,12 +53,6 @@ namespace Pulumi.Azure.AppConfiguration
     ///         Key = "appConfKey1",
     ///         Label = "somelabel",
     ///         Value = "a test",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             appconfDataowner,
-    ///         },
     ///     });
     /// 
     /// });
@@ -73,11 +69,13 @@ namespace Pulumi.Azure.AppConfiguration
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var appconf = new Azure.AppConfiguration.ConfigurationStore("appconf", new()
     ///     {
+    ///         Name = "appConf1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///     });
@@ -86,8 +84,9 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var kv = new Azure.KeyVault.KeyVault("kv", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Name = "kv",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         SoftDeleteRetentionDays = 7,
@@ -116,11 +115,12 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var kvs = new Azure.KeyVault.Secret("kvs", new()
     ///     {
+    ///         Name = "kvs",
     ///         Value = "szechuan",
     ///         KeyVaultId = kv.Id,
     ///     });
     /// 
-    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconfDataowner", new()
+    ///     var appconfDataowner = new Azure.Authorization.Assignment("appconf_dataowner", new()
     ///     {
     ///         Scope = appconf.Id,
     ///         RoleDefinitionName = "App Configuration Data Owner",
@@ -129,17 +129,11 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     ///     var test = new Azure.AppConfiguration.ConfigurationKey("test", new()
     ///     {
-    ///         ConfigurationStoreId = azurerm_app_configuration.Test.Id,
+    ///         ConfigurationStoreId = testAzurermAppConfiguration.Id,
     ///         Key = "key1",
     ///         Type = "vault",
     ///         Label = "label1",
     ///         VaultKeyReference = kvs.VersionlessId,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             appconfDataowner,
-    ///         },
     ///     });
     /// 
     /// });

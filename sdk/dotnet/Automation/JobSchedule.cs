@@ -26,15 +26,15 @@ namespace Pulumi.Azure.Automation
     /// {
     ///     var example = new Azure.Automation.JobSchedule("example", new()
     ///     {
+    ///         ResourceGroupName = "tf-rgr-automation",
     ///         AutomationAccountName = "tf-automation-account",
+    ///         ScheduleName = "hour",
+    ///         RunbookName = "Get-VirtualMachine",
     ///         Parameters = 
     ///         {
     ///             { "resourcegroup", "tf-rgr-vm" },
     ///             { "vmname", "TF-VM-01" },
     ///         },
-    ///         ResourceGroupName = "tf-rgr-automation",
-    ///         RunbookName = "Get-VirtualMachine",
-    ///         ScheduleName = "hour",
     ///     });
     /// 
     /// });

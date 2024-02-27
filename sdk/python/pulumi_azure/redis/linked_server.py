@@ -234,10 +234,13 @@ class LinkedServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_primary_resource_group = azure.core.ResourceGroup("example-primaryResourceGroup", location="East US")
-        example_primary_cache = azure.redis.Cache("example-primaryCache",
-            location=example_primary_resource_group.location,
-            resource_group_name=example_primary_resource_group.name,
+        example_primary = azure.core.ResourceGroup("example-primary",
+            name="example-resources-primary",
+            location="East US")
+        example_primary_cache = azure.redis.Cache("example-primary",
+            name="example-cache1",
+            location=example_primary.location,
+            resource_group_name=example_primary.name,
             capacity=1,
             family="P",
             sku_name="Premium",
@@ -247,10 +250,13 @@ class LinkedServer(pulumi.CustomResource):
                 maxmemory_delta=2,
                 maxmemory_policy="allkeys-lru",
             ))
-        example_secondary_resource_group = azure.core.ResourceGroup("example-secondaryResourceGroup", location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondaryCache",
-            location=example_secondary_resource_group.location,
-            resource_group_name=example_secondary_resource_group.name,
+        example_secondary = azure.core.ResourceGroup("example-secondary",
+            name="example-resources-secondary",
+            location="West US")
+        example_secondary_cache = azure.redis.Cache("example-secondary",
+            name="example-cache2",
+            location=example_secondary.location,
+            resource_group_name=example_secondary.name,
             capacity=1,
             family="P",
             sku_name="Premium",
@@ -299,10 +305,13 @@ class LinkedServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_primary_resource_group = azure.core.ResourceGroup("example-primaryResourceGroup", location="East US")
-        example_primary_cache = azure.redis.Cache("example-primaryCache",
-            location=example_primary_resource_group.location,
-            resource_group_name=example_primary_resource_group.name,
+        example_primary = azure.core.ResourceGroup("example-primary",
+            name="example-resources-primary",
+            location="East US")
+        example_primary_cache = azure.redis.Cache("example-primary",
+            name="example-cache1",
+            location=example_primary.location,
+            resource_group_name=example_primary.name,
             capacity=1,
             family="P",
             sku_name="Premium",
@@ -312,10 +321,13 @@ class LinkedServer(pulumi.CustomResource):
                 maxmemory_delta=2,
                 maxmemory_policy="allkeys-lru",
             ))
-        example_secondary_resource_group = azure.core.ResourceGroup("example-secondaryResourceGroup", location="West US")
-        example_secondary_cache = azure.redis.Cache("example-secondaryCache",
-            location=example_secondary_resource_group.location,
-            resource_group_name=example_secondary_resource_group.name,
+        example_secondary = azure.core.ResourceGroup("example-secondary",
+            name="example-resources-secondary",
+            location="West US")
+        example_secondary_cache = azure.redis.Cache("example-secondary",
+            name="example-cache2",
+            location=example_secondary.location,
+            resource_group_name=example_secondary.name,
             capacity=1,
             family="P",
             sku_name="Premium",

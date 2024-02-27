@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const example = azure.redis.getEnterpriseDatabase({
  *     name: "default",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     clusterId: azurerm_redis_enterprise_cluster.example.id,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
  * });
  * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
  * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);
@@ -100,8 +100,8 @@ export interface GetEnterpriseDatabaseResult {
  *
  * const example = azure.redis.getEnterpriseDatabase({
  *     name: "default",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     clusterId: azurerm_redis_enterprise_cluster.example.id,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     clusterId: exampleAzurermRedisEnterpriseCluster.id,
  * });
  * export const redisEnterpriseDatabasePrimaryKey = example.then(example => example.primaryAccessKey);
  * export const redisEnterpriseDatabaseSecondaryKey = example.then(example => example.secondaryAccessKey);

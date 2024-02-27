@@ -132,9 +132,10 @@ def get_caa_record(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.dns.CaaRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsCaaRecordId", example.id)
+    pulumi.export("dnsCaaRecordId", example_azurerm_dns_caa_record["id"])
     ```
 
 
@@ -173,9 +174,10 @@ def get_caa_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.dns.CaaRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsCaaRecordId", example.id)
+    pulumi.export("dnsCaaRecordId", example_azurerm_dns_caa_record["id"])
     ```
 
 

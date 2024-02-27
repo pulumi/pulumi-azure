@@ -15,32 +15,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleUserAssignedIdentity = azure.authorization.getUserAssignedIdentity({
+ * const example = azure.authorization.getUserAssignedIdentity({
  *     name: "name_of_user_assigned_identity",
  *     resourceGroupName: "name_of_resource_group",
  * });
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const exampleGetKeyVault = azure.keyvault.getKeyVault({
  *     name: "example-kv",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleKey = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getKey({
+ * const exampleGetKey = exampleGetKeyVault.then(exampleGetKeyVault => azure.keyvault.getKey({
  *     name: "example-key",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: exampleGetKeyVault.id,
  * }));
- * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("exampleNetworkSimGroup", {
+ * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("example", {
+ *     name: "example-mnsg",
  *     location: exampleResourceGroup.location,
  *     mobileNetworkId: exampleNetwork.id,
- *     encryptionKeyUrl: exampleKey.then(exampleKey => exampleKey.id),
+ *     encryptionKeyUrl: exampleGetKey.then(exampleGetKey => exampleGetKey.id),
  *     identity: {
  *         type: "SystemAssigned, UserAssigned",
- *         identityIds: [exampleUserAssignedIdentity.then(exampleUserAssignedIdentity => exampleUserAssignedIdentity.id)],
+ *         identityIds: [example.then(example => example.id)],
  *     },
  *     tags: {
  *         key: "value",

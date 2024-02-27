@@ -24,18 +24,19 @@ namespace Pulumi.Azure.CostManagement
     /// {
     ///     var example = new Azure.CostManagement.ScheduledAction("example", new()
     ///     {
+    ///         Name = "examplescheduledaction",
     ///         DisplayName = "Report Last 6 Months",
+    ///         ViewId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",
     ///         EmailAddressSender = "platformteam@test.com",
+    ///         EmailSubject = "Cost Management Report",
     ///         EmailAddresses = new[]
     ///         {
     ///             "example@example.com",
     ///         },
-    ///         EmailSubject = "Cost Management Report",
-    ///         EndDate = "2023-02-02T00:00:00Z",
-    ///         Frequency = "Daily",
     ///         Message = "Hi all, take a look at last 6 months spending!",
+    ///         Frequency = "Daily",
     ///         StartDate = "2023-01-02T00:00:00Z",
-    ///         ViewId = "/subscriptions/00000000-0000-0000-0000-000000000000/providers/Microsoft.CostManagement/views/ms:CostByService",
+    ///         EndDate = "2023-02-02T00:00:00Z",
     ///     });
     /// 
     /// });

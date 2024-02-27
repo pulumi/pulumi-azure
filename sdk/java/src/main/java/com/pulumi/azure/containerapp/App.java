@@ -54,26 +54,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctest-01&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .retentionInDays(30)
  *             .build());
  * 
  *         var exampleEnvironment = new Environment(&#34;exampleEnvironment&#34;, EnvironmentArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Example-Environment&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .logAnalyticsWorkspaceId(exampleAnalyticsWorkspace.id())
  *             .build());
  * 
  *         var exampleApp = new App(&#34;exampleApp&#34;, AppArgs.builder()        
+ *             .name(&#34;example-app&#34;)
  *             .containerAppEnvironmentId(exampleEnvironment.id())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .revisionMode(&#34;Single&#34;)
  *             .template(AppTemplateArgs.builder()
  *                 .containers(AppTemplateContainerArgs.builder()

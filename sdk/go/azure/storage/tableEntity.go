@@ -29,28 +29,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("azureexample"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("azureexamplestorage1"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTable, err := storage.NewTable(ctx, "exampleTable", &storage.TableArgs{
+//			exampleTable, err := storage.NewTable(ctx, "example", &storage.TableArgs{
+//				Name:               pulumi.String("myexampletable"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewTableEntity(ctx, "exampleTableEntity", &storage.TableEntityArgs{
+//			_, err = storage.NewTableEntity(ctx, "example", &storage.TableEntityArgs{
 //				StorageAccountName: exampleAccount.Name,
 //				TableName:          exampleTable.Name,
 //				PartitionKey:       pulumi.String("examplepartition"),

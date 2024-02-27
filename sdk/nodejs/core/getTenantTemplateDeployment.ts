@@ -6,6 +6,23 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Tenant Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = azure.core.getTenantTemplateDeployment({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = notImplemented("jsondecode(data.azurerm_tenant_template_deployment.example.output_content)").exampleOutput.value;
+ * ```
  */
 export function getTenantTemplateDeployment(args: GetTenantTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetTenantTemplateDeploymentResult> {
 
@@ -41,6 +58,23 @@ export interface GetTenantTemplateDeploymentResult {
 }
 /**
  * Use this data source to access information about an existing Tenant Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = azure.core.getTenantTemplateDeployment({
+ *     name: "existing",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = notImplemented("jsondecode(data.azurerm_tenant_template_deployment.example.output_content)").exampleOutput.value;
+ * ```
  */
 export function getTenantTemplateDeploymentOutput(args: GetTenantTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTenantTemplateDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getTenantTemplateDeployment(a, opts))

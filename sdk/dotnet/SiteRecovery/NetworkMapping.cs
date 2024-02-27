@@ -22,67 +22,68 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-primary",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
-    ///         Location = secondaryResourceGroup.Location,
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "example-recovery-vault",
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "primary-fabric",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
-    ///         Location = primaryResourceGroup.Location,
+    ///         Location = primary.Location,
     ///     });
     /// 
-    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "secondary-fabric",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
-    ///         Location = secondaryResourceGroup.Location,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             primaryFabric,
-    ///         },
+    ///         Location = secondary.Location,
     ///     });
     /// 
-    ///     // Avoids issues with creating fabrics simultaneously
-    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primaryVirtualNetwork", new()
+    ///     var primaryVirtualNetwork = new Azure.Network.VirtualNetwork("primary", new()
     ///     {
-    ///         ResourceGroupName = primaryResourceGroup.Name,
+    ///         Name = "network1",
+    ///         ResourceGroupName = primary.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.1.0/24",
     ///         },
-    ///         Location = primaryResourceGroup.Location,
+    ///         Location = primary.Location,
     ///     });
     /// 
-    ///     var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondaryVirtualNetwork", new()
+    ///     var secondaryVirtualNetwork = new Azure.Network.VirtualNetwork("secondary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "network2",
+    ///         ResourceGroupName = secondary.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.2.0/24",
     ///         },
-    ///         Location = secondaryResourceGroup.Location,
+    ///         Location = secondary.Location,
     ///     });
     /// 
     ///     var recovery_mapping = new Azure.SiteRecovery.NetworkMapping("recovery-mapping", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "recovery-network-mapping-1",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         SourceRecoveryFabricName = "primary-fabric",
     ///         TargetRecoveryFabricName = "secondary-fabric",

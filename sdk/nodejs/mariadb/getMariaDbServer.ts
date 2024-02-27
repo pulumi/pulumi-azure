@@ -17,9 +17,9 @@ import * as utilities from "../utilities";
  *
  * const dbServer = azure.mariadb.getMariaDbServer({
  *     name: "mariadb-server",
- *     resourceGroupName: azurerm_mariadb_server.example.resource_group_name,
+ *     resourceGroupName: example.resourceGroupName,
  * });
- * export const mariadbServerId = data.azurerm_mariadb_server.example.id;
+ * export const mariadbServerId = exampleAzurermMariadbServer.id;
  * ```
  */
 export function getMariaDbServer(args: GetMariaDbServerArgs, opts?: pulumi.InvokeOptions): Promise<GetMariaDbServerResult> {
@@ -99,9 +99,9 @@ export interface GetMariaDbServerResult {
  *
  * const dbServer = azure.mariadb.getMariaDbServer({
  *     name: "mariadb-server",
- *     resourceGroupName: azurerm_mariadb_server.example.resource_group_name,
+ *     resourceGroupName: example.resourceGroupName,
  * });
- * export const mariadbServerId = data.azurerm_mariadb_server.example.id;
+ * export const mariadbServerId = exampleAzurermMariadbServer.id;
  * ```
  */
 export function getMariaDbServerOutput(args: GetMariaDbServerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMariaDbServerResult> {

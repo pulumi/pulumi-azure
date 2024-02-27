@@ -42,19 +42,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDomain = new Domain(&#34;exampleDomain&#34;, DomainArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;my-eventgrid-domain&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());
  * 
  *         var exampleDomainTopic = new DomainTopic(&#34;exampleDomainTopic&#34;, DomainTopicArgs.builder()        
+ *             .name(&#34;my-eventgrid-domain-topic&#34;)
  *             .domainName(exampleDomain.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *     }

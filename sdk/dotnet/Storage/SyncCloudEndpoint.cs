@@ -24,32 +24,37 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSync = new Azure.Storage.Sync("exampleSync", new()
+    ///     var exampleSync = new Azure.Storage.Sync("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-ss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("exampleSyncGroup", new()
+    ///     var exampleSyncGroup = new Azure.Storage.SyncGroup("example", new()
     ///     {
+    ///         Name = "example-ss-group",
     ///         StorageSyncId = exampleSync.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
+    ///         Name = "example-share",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 50,
     ///         Acls = new[]
@@ -68,8 +73,9 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("exampleSyncCloudEndpoint", new()
+    ///     var exampleSyncCloudEndpoint = new Azure.Storage.SyncCloudEndpoint("example", new()
     ///     {
+    ///         Name = "example-ss-ce",
     ///         StorageSyncGroupId = exampleSyncGroup.Id,
     ///         FileShareName = exampleShare.Name,
     ///         StorageAccountId = exampleAccount.Id,

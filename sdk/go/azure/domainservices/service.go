@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			deployResourceGroup, err := core.NewResourceGroup(ctx, "deployResourceGroup", &core.ResourceGroupArgs{
+//			deploy, err := core.NewResourceGroup(ctx, "deploy", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			deployVirtualNetwork, err := network.NewVirtualNetwork(ctx, "deployVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          deployResourceGroup.Location,
-//				ResourceGroupName: deployResourceGroup.Name,
+//			deployVirtualNetwork, err := network.NewVirtualNetwork(ctx, "deploy", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("deploy-vnet"),
+//				Location:          deploy.Location,
+//				ResourceGroupName: deploy.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/16"),
 //				},
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			deploySubnet, err := network.NewSubnet(ctx, "deploySubnet", &network.SubnetArgs{
-//				ResourceGroupName:  deployResourceGroup.Name,
+//			deploySubnet, err := network.NewSubnet(ctx, "deploy", &network.SubnetArgs{
+//				Name:               pulumi.String("deploy-subnet"),
+//				ResourceGroupName:  deploy.Name,
 //				VirtualNetworkName: deployVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -55,9 +58,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			deployNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "deployNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-//				Location:          deployResourceGroup.Location,
-//				ResourceGroupName: deployResourceGroup.Name,
+//			deployNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "deploy", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("deploy-nsg"),
+//				Location:          deploy.Location,
+//				ResourceGroupName: deploy.Name,
 //				SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 //					&network.NetworkSecurityGroupSecurityRuleArgs{
 //						Name:                     pulumi.String("AllowSyncWithAzureAD"),
@@ -108,21 +112,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			deploySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploySubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+//			_, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "deploy", &network.SubnetNetworkSecurityGroupAssociationArgs{
 //				SubnetId:               deploySubnet.ID(),
 //				NetworkSecurityGroupId: deployNetworkSecurityGroup.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			dcAdmins, err := azuread.NewGroup(ctx, "dcAdmins", &azuread.GroupArgs{
+//			dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
 //				DisplayName:     pulumi.String("AAD DC Administrators"),
 //				SecurityEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			adminUser, err := azuread.NewUser(ctx, "adminUser", &azuread.UserArgs{
+//			admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
 //				UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.com"),
 //				DisplayName:       pulumi.String("DC Administrator"),
 //				Password:          pulumi.String("Pa55w0Rd!!1"),
@@ -130,26 +134,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuread.NewGroupMember(ctx, "adminGroupMember", &azuread.GroupMemberArgs{
+//			_, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
 //				GroupObjectId:  dcAdmins.ObjectId,
-//				MemberObjectId: adminUser.ObjectId,
+//				MemberObjectId: admin.ObjectId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.NewServicePrincipal(ctx, "exampleServicePrincipal", &azuread.ServicePrincipalArgs{
+//			_, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
 //				ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			aadds, err := core.NewResourceGroup(ctx, "aadds", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("aadds-rg"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = domainservices.NewService(ctx, "exampleService", &domainservices.ServiceArgs{
+//			_, err = domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
+//				Name:                pulumi.String("example-aadds"),
 //				Location:            aadds.Location,
 //				ResourceGroupName:   aadds.Name,
 //				DomainName:          pulumi.String("widgetslogin.net"),
@@ -174,10 +180,7 @@ import (
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("prod"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleServicePrincipal,
-//				deploySubnetNetworkSecurityGroupAssociation,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

@@ -30,33 +30,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleTopic, err := eventgrid.NewTopic(ctx, "example", &eventgrid.TopicArgs{
+//				Name:              pulumi.String("example-topic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewTriggerCustomEvent(ctx, "exampleTriggerCustomEvent", &datafactory.TriggerCustomEventArgs{
+//			_, err = datafactory.NewTriggerCustomEvent(ctx, "example", &datafactory.TriggerCustomEventArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				EventgridTopicId: exampleTopic.ID(),
 //				Events: pulumi.StringArray{

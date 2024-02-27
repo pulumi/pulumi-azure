@@ -31,12 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			rg, err := core.NewResourceGroup(ctx, "rg", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroupName"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
 //				ResourceGroupName:      rg.Name,
 //				Location:               rg.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -46,6 +48,7 @@ import (
 //				return err
 //			}
 //			container, err := storage.NewContainer(ctx, "container", &storage.ContainerArgs{
+//				Name:                pulumi.String("mycontainer"),
 //				StorageAccountName:  storage.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})

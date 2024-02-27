@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := network.GetPublicIPs(ctx, &network.GetPublicIPsArgs{
-//				AttachmentStatus:  pulumi.StringRef("Attached"),
 //				ResourceGroupName: "pip-test",
+//				AttachmentStatus:  pulumi.StringRef("Attached"),
 //			}, nil)
 //			if err != nil {
 //				return err

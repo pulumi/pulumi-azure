@@ -27,19 +27,21 @@ namespace Pulumi.Azure.Network
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "azi_id", 1 },
+    ///             { "azi_id", "1" },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "trafficmanagerProfile",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = server.Hex,
+    ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {

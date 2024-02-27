@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -41,9 +42,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -51,8 +53,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -61,9 +64,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "exampleManagedInstance", &mssql.ManagedInstanceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleManagedInstance, err := mssql.NewManagedInstance(ctx, "example", &mssql.ManagedInstanceArgs{
+//				Name:                       pulumi.String("managedsqlinstance"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				LicenseType:                pulumi.String("BasePrice"),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				StorageSizeInGb:            pulumi.Int(32),
@@ -84,7 +88,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = azuread.NewDirectoryRoleMember(ctx, "exampleDirectoryRoleMember", &azuread.DirectoryRoleMemberArgs{
+//			_, err = azuread.NewDirectoryRoleMember(ctx, "example", &azuread.DirectoryRoleMemberArgs{
 //				RoleObjectId: reader.ObjectId,
 //				MemberObjectId: exampleManagedInstance.Identity.ApplyT(func(identity mssql.ManagedInstanceIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
@@ -102,7 +106,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &mssql.ManagedInstanceActiveDirectoryAdministratorArgs{
+//			_, err = mssql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "example", &mssql.ManagedInstanceActiveDirectoryAdministratorArgs{
 //				ManagedInstanceId: exampleManagedInstance.ID(),
 //				LoginUsername:     pulumi.String("msadmin"),
 //				ObjectId:          admin.ObjectId,

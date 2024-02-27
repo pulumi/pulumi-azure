@@ -195,9 +195,9 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .clusterName(&#34;test_cluster&#34;)
      *             .build());
      * 
      *     }
@@ -234,9 +234,9 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .clusterName(&#34;test_cluster&#34;)
      *             .build());
      * 
      *     }
@@ -273,9 +273,9 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .clusterName(&#34;test_cluster&#34;)
      *             .build());
      * 
      *     }
@@ -312,9 +312,9 @@ public final class KustoFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KustoFunctions.getDatabase(GetDatabaseArgs.builder()
-     *             .clusterName(&#34;test_cluster&#34;)
      *             .name(&#34;my-kusto-database&#34;)
      *             .resourceGroupName(&#34;test_resource_group&#34;)
+     *             .clusterName(&#34;test_cluster&#34;)
      *             .build());
      * 
      *     }

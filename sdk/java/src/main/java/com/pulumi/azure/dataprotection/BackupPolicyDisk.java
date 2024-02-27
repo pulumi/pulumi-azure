@@ -47,18 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-backup-vault&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .datastoreType(&#34;VaultStore&#34;)
  *             .redundancy(&#34;LocallyRedundant&#34;)
  *             .build());
  * 
  *         var exampleBackupPolicyDisk = new BackupPolicyDisk(&#34;exampleBackupPolicyDisk&#34;, BackupPolicyDiskArgs.builder()        
+ *             .name(&#34;example-backup-policy&#34;)
  *             .vaultId(exampleBackupVault.id())
  *             .backupRepeatingTimeIntervals(&#34;R/2021-05-19T06:33:16+00:00/PT4H&#34;)
  *             .defaultRetentionDuration(&#34;P7D&#34;)

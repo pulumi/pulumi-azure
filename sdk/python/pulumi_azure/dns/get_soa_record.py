@@ -199,7 +199,18 @@ def get_soa_record(name: Optional[str] = None,
                    zone_name: Optional[str] = None,
                    opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetSoaRecordResult:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azurerm as azurerm
+
+    example = azurerm.index.DnsSoaRecord("example",
+        zone_name=test-zone,
+        resource_group_name=test-rg)
+    pulumi.export("dnsSoaRecordId", example_azurerm_dns_soa_record["id"])
+    ```
+
 
     :param str name: The name of the DNS SOA Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.
@@ -235,7 +246,18 @@ def get_soa_record_output(name: Optional[pulumi.Input[Optional[str]]] = None,
                           zone_name: Optional[pulumi.Input[str]] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetSoaRecordResult]:
     """
-    Use this data source to access information about an existing resource.
+    ## Example Usage
+
+    ```python
+    import pulumi
+    import pulumi_azurerm as azurerm
+
+    example = azurerm.index.DnsSoaRecord("example",
+        zone_name=test-zone,
+        resource_group_name=test-rg)
+    pulumi.export("dnsSoaRecordId", example_azurerm_dns_soa_record["id"])
+    ```
+
 
     :param str name: The name of the DNS SOA Record.
     :param str resource_group_name: Specifies the resource group where the DNS Zone (parent resource) exists.

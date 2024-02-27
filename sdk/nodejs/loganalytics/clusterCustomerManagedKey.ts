@@ -13,18 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getClientConfig({});
- * const exampleCluster = new azure.loganalytics.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleCluster = new azure.loganalytics.Cluster("example", {
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "keyvaultkeyexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [
@@ -52,7 +57,8 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "generated-certificate",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -65,7 +71,7 @@ import * as utilities from "../utilities";
  *         "wrapKey",
  *     ],
  * });
- * const exampleClusterCustomerManagedKey = new azure.loganalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", {
+ * const exampleClusterCustomerManagedKey = new azure.loganalytics.ClusterCustomerManagedKey("example", {
  *     logAnalyticsClusterId: exampleCluster.id,
  *     keyVaultKeyId: exampleKey.id,
  * });

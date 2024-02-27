@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
  * import com.pulumi.azure.webpubsub.CustomDomain;
  * import com.pulumi.azure.webpubsub.CustomDomainArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,13 +55,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-webpubsub&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(Map.ofEntries(
  *                 Map.entry(&#34;name&#34;, &#34;Premium_P1&#34;),
  *                 Map.entry(&#34;capacity&#34;, 1)
@@ -73,8 +74,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekeyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .accessPolicies(            
@@ -91,7 +93,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(azurerm_web_pubsub.test().identity()[0].principal_id())
+ *                     .objectId(testAzurermWebPubsub.identity()[0].principalId())
  *                     .certificatePermissions(                    
  *                         &#34;Create&#34;,
  *                         &#34;Get&#34;,
@@ -103,24 +105,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;imported-cert&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate-to-import.pfx&#34;))))
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .build()).result())
  *                 .password(&#34;&#34;)
  *                 .build())
  *             .build());
  * 
- *         var testCustomCertificate = new CustomCertificate(&#34;testCustomCertificate&#34;, CustomCertificateArgs.builder()        
+ *         var test = new CustomCertificate(&#34;test&#34;, CustomCertificateArgs.builder()        
+ *             .name(&#34;example-cert&#34;)
  *             .webPubsubId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(azurerm_key_vault_access_policy.example())
- *                 .build());
+ *             .build());
  * 
  *         var testCustomDomain = new CustomDomain(&#34;testCustomDomain&#34;, CustomDomainArgs.builder()        
+ *             .name(&#34;example-domain&#34;)
  *             .domainName(&#34;tftest.com&#34;)
- *             .webPubsubId(azurerm_web_pubsub.test().id())
- *             .webPubsubCustomCertificateId(testCustomCertificate.id())
+ *             .webPubsubId(testAzurermWebPubsub.id())
+ *             .webPubsubCustomCertificateId(test.id())
  *             .build());
  * 
  *     }

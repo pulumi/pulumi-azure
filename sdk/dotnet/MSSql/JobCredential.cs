@@ -22,35 +22,40 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "northeurope",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-server",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
     ///     {
+    ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleJobAgent = new Azure.MSSql.JobAgent("exampleJobAgent", new()
+    ///     var exampleJobAgent = new Azure.MSSql.JobAgent("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-job-agent",
+    ///         Location = example.Location,
     ///         DatabaseId = exampleDatabase.Id,
     ///     });
     /// 
-    ///     var exampleJobCredential = new Azure.MSSql.JobCredential("exampleJobCredential", new()
+    ///     var exampleJobCredential = new Azure.MSSql.JobCredential("example", new()
     ///     {
+    ///         Name = "example-credential",
     ///         JobAgentId = exampleJobAgent.Id,
     ///         Username = "my-username",
     ///         Password = "MyP4ssw0rd!!!",

@@ -202,10 +202,13 @@ class RegistryScopeMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="exampleregistry",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             admin_enabled=False,
             georeplications=[
@@ -216,9 +219,10 @@ class RegistryScopeMap(pulumi.CustomResource):
                     location="West Europe",
                 ),
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
+            name="example-scope-map",
             container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",
@@ -254,10 +258,13 @@ class RegistryScopeMap(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_registry = azure.containerservice.Registry("exampleRegistry",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resource-group",
+            location="West Europe")
+        example_registry = azure.containerservice.Registry("example",
+            name="exampleregistry",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Premium",
             admin_enabled=False,
             georeplications=[
@@ -268,9 +275,10 @@ class RegistryScopeMap(pulumi.CustomResource):
                     location="West Europe",
                 ),
             ])
-        example_registry_scope_map = azure.containerservice.RegistryScopeMap("exampleRegistryScopeMap",
+        example_registry_scope_map = azure.containerservice.RegistryScopeMap("example",
+            name="example-scope-map",
             container_registry_name=example_registry.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             actions=[
                 "repositories/repo1/content/read",
                 "repositories/repo1/content/write",

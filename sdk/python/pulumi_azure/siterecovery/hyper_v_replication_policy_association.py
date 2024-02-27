@@ -139,18 +139,25 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy",
+        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
+            recovery_vault_id=example_vault.id,
+            name="example-site")
+        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("example",
+            name="policy",
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,
             replication_interval_in_seconds=300)
-        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation",
+        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("example",
+            name="example-association",
             hyperv_site_id=example_hyper_v_site.id,
             policy_id=example_hyper_v_replication_policy.id)
         ```
@@ -184,18 +191,25 @@ class HyperVReplicationPolicyAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
-        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy",
+        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
+            recovery_vault_id=example_vault.id,
+            name="example-site")
+        example_hyper_v_replication_policy = azure.siterecovery.HyperVReplicationPolicy("example",
+            name="policy",
             recovery_vault_id=example_vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,
             replication_interval_in_seconds=300)
-        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation",
+        example_hyper_v_replication_policy_association = azure.siterecovery.HyperVReplicationPolicyAssociation("example",
+            name="example-association",
             hyperv_site_id=example_hyper_v_site.id,
             policy_id=example_hyper_v_replication_policy.id)
         ```

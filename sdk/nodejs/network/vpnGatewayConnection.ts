@@ -15,25 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-hub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.0.0/24",
  * });
- * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVpnGateway = new azure.network.VpnGateway("example", {
+ *     name: "example-vpng",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  * });
- * const exampleVpnSite = new azure.network.VpnSite("exampleVpnSite", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVpnSite = new azure.network.VpnSite("example", {
+ *     name: "example-vpn-site",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     virtualWanId: exampleVirtualWan.id,
  *     links: [
  *         {
@@ -46,7 +53,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleVpnGatewayConnection = new azure.network.VpnGatewayConnection("exampleVpnGatewayConnection", {
+ * const exampleVpnGatewayConnection = new azure.network.VpnGatewayConnection("example", {
+ *     name: "example",
  *     vpnGatewayId: exampleVpnGateway.id,
  *     remoteVpnSiteId: exampleVpnSite.id,
  *     vpnLinks: [

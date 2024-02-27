@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Relay
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-relay",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///         Tags = 
     ///         {
@@ -38,17 +40,19 @@ namespace Pulumi.Azure.Relay
     ///         },
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctestrnhc-%d",
+    ///         ResourceGroupName = example.Name,
     ///         RelayNamespaceName = exampleNamespace.Name,
     ///         RequiresClientAuthorization = false,
     ///         UserMetadata = "testmetadata",
     ///     });
     /// 
-    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", new()
+    ///     var exampleHybridConnectionAuthorizationRule = new Azure.Relay.HybridConnectionAuthorizationRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         HybridConnectionName = exampleHybridConnection.Name,
     ///         NamespaceName = exampleNamespace.Name,
     ///         Listen = true,

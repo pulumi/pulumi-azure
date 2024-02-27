@@ -7,6 +7,83 @@ import * as utilities from "../utilities";
 /**
  * Manages an Azure Web PubSub Custom Certificate.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as azurerm from "@pulumi/azurerm";
+ * import * as std from "@pulumi/std";
+ *
+ * const current = azure.core.getClientConfig({});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleWebPubsubService = new azurerm.index.WebPubsubService("example", {
+ *     name: "example-webpubsub",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
+ *     sku: [{
+ *         name: "Premium_P1",
+ *         capacity: 1,
+ *     }],
+ *     identity: [{
+ *         type: "SystemAssigned",
+ *     }],
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tenantId: current.then(current => current.tenantId),
+ *     skuName: "premium",
+ *     accessPolicies: [
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: current.then(current => current.objectId),
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *         {
+ *             tenantId: current.then(current => current.tenantId),
+ *             objectId: testAzurermWebPubsubService.identity[0].principalId,
+ *             certificatePermissions: [
+ *                 "Create",
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *             secretPermissions: [
+ *                 "Get",
+ *                 "List",
+ *             ],
+ *         },
+ *     ],
+ * });
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "imported-cert",
+ *     keyVaultId: exampleKeyVault.id,
+ *     certificate: {
+ *         contents: std.filebase64({
+ *             input: "certificate-to-import.pfx",
+ *         }).then(invoke => invoke.result),
+ *         password: "",
+ *     },
+ * });
+ * const test = new azure.webpubsub.CustomCertificate("test", {
+ *     name: "example-cert",
+ *     webPubsubId: exampleWebPubsubService.id,
+ *     customCertificateId: exampleCertificate.id,
+ * });
+ * ```
+ *
  * ## Import
  *
  * Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.

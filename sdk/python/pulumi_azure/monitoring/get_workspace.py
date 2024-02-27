@@ -147,7 +147,7 @@ def get_workspace(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.monitoring.get_workspace(name="example-workspace",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("queryEndpoint", example.query_endpoint)
     ```
 
@@ -187,7 +187,7 @@ def get_workspace_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.monitoring.get_workspace(name="example-workspace",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("queryEndpoint", example.query_endpoint)
     ```
 

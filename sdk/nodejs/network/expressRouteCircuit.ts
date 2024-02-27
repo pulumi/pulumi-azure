@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exprtTest",
+ *     location: "West Europe",
+ * });
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "expressRoute1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     serviceProviderName: "Equinix",
  *     peeringLocation: "Silicon Valley",
  *     bandwidthInMbps: 50,

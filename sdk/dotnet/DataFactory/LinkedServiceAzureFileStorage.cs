@@ -22,27 +22,30 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+    ///     var example = Azure.Storage.GetAccount.Invoke(new()
     ///     {
     ///         Name = "storageaccountname",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceAzureFileStorage = new Azure.DataFactory.LinkedServiceAzureFileStorage("exampleLinkedServiceAzureFileStorage", new()
+    ///     var exampleLinkedServiceAzureFileStorage = new Azure.DataFactory.LinkedServiceAzureFileStorage("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         ConnectionString = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
+    ///         ConnectionString = example.Apply(getAccountResult =&gt; getAccountResult.PrimaryConnectionString),
     ///     });
     /// 
     /// });

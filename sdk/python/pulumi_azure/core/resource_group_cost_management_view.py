@@ -367,12 +367,15 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("example",
+            name="example",
             display_name="Cost View per Month",
             chart_type="StackedColumn",
             accumulated=False,
-            resource_group_id=example_resource_group.id,
+            resource_group_id=example.id,
             report_type="Usage",
             timeframe="MonthToDate",
             dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(
@@ -420,12 +423,15 @@ class ResourceGroupCostManagementView(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_resource_group_cost_management_view = azure.core.ResourceGroupCostManagementView("example",
+            name="example",
             display_name="Cost View per Month",
             chart_type="StackedColumn",
             accumulated=False,
-            resource_group_id=example_resource_group.id,
+            resource_group_id=example.id,
             report_type="Usage",
             timeframe="MonthToDate",
             dataset=azure.core.ResourceGroupCostManagementViewDatasetArgs(

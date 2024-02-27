@@ -15,10 +15,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.mariadb.FirewallRule("example", {
- *     endIpAddress: "40.112.8.12",
+ *     name: "test-rule",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",
  *     startIpAddress: "40.112.8.12",
+ *     endIpAddress: "40.112.8.12",
  * });
  * ```
  * ### IP Range)
@@ -28,10 +29,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.mariadb.FirewallRule("example", {
- *     endIpAddress: "40.112.255.255",
+ *     name: "test-rule",
  *     resourceGroupName: "test-rg",
  *     serverName: "test-server",
  *     startIpAddress: "40.112.0.0",
+ *     endIpAddress: "40.112.255.255",
  * });
  * ```
  *

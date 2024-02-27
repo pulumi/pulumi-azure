@@ -209,12 +209,16 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
@@ -225,13 +229,15 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
                     name="Microsoft.StoragePool/diskPools",
                 ),
             )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
+        example_disk_pool = azure.compute.DiskPool("example",
+            name="example-pool",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=example_subnet.id,
             zones=["1"],
             sku_name="Basic_B1")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+        example_managed_disk = azure.compute.ManagedDisk("example",
+            name="example-disk",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             create_option="Empty",
@@ -239,26 +245,25 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             disk_size_gb=4,
             max_shares=2,
             zone="1")
-        example_service_principal = azuread.get_service_principal(display_name="StoragePool Resource Provider")
+        example = azuread.get_service_principal(display_name="StoragePool Resource Provider")
         roles = [
             "Disk Pool Operator",
             "Virtual Machine Contributor",
         ]
         example_assignment = []
         for range in [{"value": i} for i in range(0, len(roles))]:
-            example_assignment.append(azure.authorization.Assignment(f"exampleAssignment-{range['value']}",
-                principal_id=example_service_principal.id,
+            example_assignment.append(azure.authorization.Assignment(f"example-{range['value']}",
+                principal_id=example.id,
                 role_definition_name=roles[range["value"]],
                 scope=example_managed_disk.id))
-        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment",
+        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget",
+            managed_disk_id=example_managed_disk.id)
+        example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("example",
+            name="example",
             acl_mode="Dynamic",
             disks_pool_id=example_disk_pool.id,
-            target_iqn="iqn.2021-11.com.microsoft:test",
-            opts=pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
+            target_iqn="iqn.2021-11.com.microsoft:test")
         ```
 
         ## Import
@@ -296,12 +301,16 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
@@ -312,13 +321,15 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
                     name="Microsoft.StoragePool/diskPools",
                 ),
             )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
+        example_disk_pool = azure.compute.DiskPool("example",
+            name="example-pool",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             subnet_id=example_subnet.id,
             zones=["1"],
             sku_name="Basic_B1")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
+        example_managed_disk = azure.compute.ManagedDisk("example",
+            name="example-disk",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             create_option="Empty",
@@ -326,26 +337,25 @@ class DiskPoolIscsiTarget(pulumi.CustomResource):
             disk_size_gb=4,
             max_shares=2,
             zone="1")
-        example_service_principal = azuread.get_service_principal(display_name="StoragePool Resource Provider")
+        example = azuread.get_service_principal(display_name="StoragePool Resource Provider")
         roles = [
             "Disk Pool Operator",
             "Virtual Machine Contributor",
         ]
         example_assignment = []
         for range in [{"value": i} for i in range(0, len(roles))]:
-            example_assignment.append(azure.authorization.Assignment(f"exampleAssignment-{range['value']}",
-                principal_id=example_service_principal.id,
+            example_assignment.append(azure.authorization.Assignment(f"example-{range['value']}",
+                principal_id=example.id,
                 role_definition_name=roles[range["value"]],
                 scope=example_managed_disk.id))
-        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment",
+        example_disk_pool_managed_disk_attachment = azure.compute.DiskPoolManagedDiskAttachment("example",
             disk_pool_id=example_disk_pool.id,
-            managed_disk_id=example_managed_disk.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
-        example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget",
+            managed_disk_id=example_managed_disk.id)
+        example_disk_pool_iscsi_target = azure.compute.DiskPoolIscsiTarget("example",
+            name="example",
             acl_mode="Dynamic",
             disks_pool_id=example_disk_pool.id,
-            target_iqn="iqn.2021-11.com.microsoft:test",
-            opts=pulumi.ResourceOptions(depends_on=[example_disk_pool_managed_disk_attachment]))
+            target_iqn="iqn.2021-11.com.microsoft:test")
         ```
 
         ## Import

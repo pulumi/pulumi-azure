@@ -22,33 +22,38 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-recovery-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("exampleHyperVSite", new()
+    ///     var exampleHyperVSite = new Azure.SiteRecovery.HyperVSite("example", new()
     ///     {
     ///         RecoveryVaultId = exampleVault.Id,
+    ///         Name = "example-site",
     ///     });
     /// 
-    ///     var exampleHyperVReplicationPolicy = new Azure.SiteRecovery.HyperVReplicationPolicy("exampleHyperVReplicationPolicy", new()
+    ///     var exampleHyperVReplicationPolicy = new Azure.SiteRecovery.HyperVReplicationPolicy("example", new()
     ///     {
+    ///         Name = "policy",
     ///         RecoveryVaultId = exampleVault.Id,
     ///         RecoveryPointRetentionInHours = 2,
     ///         ApplicationConsistentSnapshotFrequencyInHours = 1,
     ///         ReplicationIntervalInSeconds = 300,
     ///     });
     /// 
-    ///     var exampleHyperVReplicationPolicyAssociation = new Azure.SiteRecovery.HyperVReplicationPolicyAssociation("exampleHyperVReplicationPolicyAssociation", new()
+    ///     var exampleHyperVReplicationPolicyAssociation = new Azure.SiteRecovery.HyperVReplicationPolicyAssociation("example", new()
     ///     {
+    ///         Name = "example-association",
     ///         HypervSiteId = exampleHyperVSite.Id,
     ///         PolicyId = exampleHyperVReplicationPolicy.Id,
     ///     });

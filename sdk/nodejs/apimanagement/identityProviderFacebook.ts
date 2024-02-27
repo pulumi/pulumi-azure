@@ -13,16 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@mycompany.io",
  *     skuName: "Developer_1",
  * });
- * const exampleIdentityProviderFacebook = new azure.apimanagement.IdentityProviderFacebook("exampleIdentityProviderFacebook", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIdentityProviderFacebook = new azure.apimanagement.IdentityProviderFacebook("example", {
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     appId: "00000000000000000000000000000000",
  *     appSecret: "00000000000000000000000000000000",

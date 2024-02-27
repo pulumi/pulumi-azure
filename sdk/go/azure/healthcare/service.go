@@ -34,6 +34,7 @@ import (
 //				return err
 //			}
 //			_, err = healthcare.NewService(ctx, "example", &healthcare.ServiceArgs{
+//				Name:                  pulumi.String("uniquefhirname"),
 //				ResourceGroupName:     pulumi.String("sample-resource-group"),
 //				Location:              pulumi.String("westus2"),
 //				Kind:                  pulumi.String("fhir-R4"),

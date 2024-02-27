@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleSubscription = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -66,11 +68,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;examplecontainer&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleSubscriptionCostManagementExport = new SubscriptionCostManagementExport(&#34;exampleSubscriptionCostManagementExport&#34;, SubscriptionCostManagementExportArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .name(&#34;example&#34;)
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .recurrenceType(&#34;Monthly&#34;)
  *             .recurrencePeriodStartDate(&#34;2020-08-18T00:00:00Z&#34;)
  *             .recurrencePeriodEndDate(&#34;2020-09-18T00:00:00Z&#34;)

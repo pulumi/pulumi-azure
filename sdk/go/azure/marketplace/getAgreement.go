@@ -35,7 +35,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("azurermMarketplaceAgreementId", data.Azurerm_marketplace_agreement.Id)
+//			ctx.Export("azurermMarketplaceAgreementId", id)
 //			return nil
 //		})
 //	}

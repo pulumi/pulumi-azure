@@ -32,28 +32,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("exampleNamespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
+//			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
+//				Name:               pulumi.String("exampleQueue"),
 //				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueueAuthorizationRule, err := servicebus.NewQueueAuthorizationRule(ctx, "exampleQueueAuthorizationRule", &servicebus.QueueAuthorizationRuleArgs{
+//			exampleQueueAuthorizationRule, err := servicebus.NewQueueAuthorizationRule(ctx, "example", &servicebus.QueueAuthorizationRuleArgs{
+//				Name:    pulumi.String("exampleRule"),
 //				QueueId: exampleQueue.ID(),
 //				Listen:  pulumi.Bool(false),
 //				Send:    pulumi.Bool(true),
@@ -62,9 +66,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("exampleIothub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
@@ -76,9 +81,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewEndpointServicebusQueue(ctx, "exampleEndpointServicebusQueue", &iot.EndpointServicebusQueueArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = iot.NewEndpointServicebusQueue(ctx, "example", &iot.EndpointServicebusQueueArgs{
+//				ResourceGroupName: example.Name,
 //				IothubId:          exampleIoTHub.ID(),
+//				Name:              pulumi.String("example"),
 //				ConnectionString:  exampleQueueAuthorizationRule.PrimaryConnectionString,
 //			})
 //			if err != nil {

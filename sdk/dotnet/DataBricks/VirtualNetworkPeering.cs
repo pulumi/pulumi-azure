@@ -22,41 +22,46 @@ namespace Pulumi.Azure.DataBricks
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var remoteVirtualNetwork = new Azure.Network.VirtualNetwork("remoteVirtualNetwork", new()
+    ///     var remote = new Azure.Network.VirtualNetwork("remote", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "remote-vnet",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.1.0/24",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-workspace",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "standard",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkPeering = new Azure.DataBricks.VirtualNetworkPeering("exampleVirtualNetworkPeering", new()
+    ///     var exampleVirtualNetworkPeering = new Azure.DataBricks.VirtualNetworkPeering("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "databricks-vnet-peer",
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceId = exampleWorkspace.Id,
-    ///         RemoteAddressSpacePrefixes = remoteVirtualNetwork.AddressSpaces,
-    ///         RemoteVirtualNetworkId = remoteVirtualNetwork.Id,
+    ///         RemoteAddressSpacePrefixes = remote.AddressSpaces,
+    ///         RemoteVirtualNetworkId = remote.Id,
     ///         AllowVirtualNetworkAccess = true,
     ///     });
     /// 
-    ///     var remoteVirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("remoteVirtualNetworkPeering", new()
+    ///     var remoteVirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("remote", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         VirtualNetworkName = remoteVirtualNetwork.Name,
+    ///         Name = "peer-to-databricks",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = remote.Name,
     ///         RemoteVirtualNetworkId = exampleVirtualNetworkPeering.VirtualNetworkId,
     ///         AllowVirtualNetworkAccess = true,
     ///     });

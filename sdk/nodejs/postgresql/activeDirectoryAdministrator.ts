@@ -14,19 +14,23 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.postgresql.Server("example", {
+ *     name: "example-psqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "9.6",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     skuName: "GP_Gen5_2",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleActiveDirectoryAdministrator = new azure.postgresql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", {
+ * const exampleActiveDirectoryAdministrator = new azure.postgresql.ActiveDirectoryAdministrator("example", {
  *     serverName: exampleServer.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     login: "sqladmin",
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),

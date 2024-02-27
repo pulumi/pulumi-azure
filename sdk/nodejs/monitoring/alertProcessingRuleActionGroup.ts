@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example-action-group",
+ *     resourceGroupName: example.name,
  *     shortName: "action",
  * });
- * const exampleAlertProcessingRuleActionGroup = new azure.monitoring.AlertProcessingRuleActionGroup("exampleAlertProcessingRuleActionGroup", {
+ * const exampleAlertProcessingRuleActionGroup = new azure.monitoring.AlertProcessingRuleActionGroup("example", {
+ *     name: "example",
  *     resourceGroupName: "example",
- *     scopes: [exampleResourceGroup.id],
+ *     scopes: [example.id],
  *     addActionGroupIds: [exampleActionGroup.id],
  *     condition: {
  *         targetResourceType: {

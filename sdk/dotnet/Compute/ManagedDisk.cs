@@ -23,15 +23,17 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctestmd",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
     ///         CreateOption = "Empty",
     ///         DiskSizeGb = 1,
@@ -55,11 +57,13 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var source = new Azure.Compute.ManagedDisk("source", new()
     ///     {
+    ///         Name = "acctestmd1",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",
@@ -73,6 +77,7 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var copy = new Azure.Compute.ManagedDisk("copy", new()
     ///     {
+    ///         Name = "acctestmd2",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         StorageAccountType = "Standard_LRS",

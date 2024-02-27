@@ -55,16 +55,19 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;eastus&#34;)
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .shortName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleBudgetSubscription = new BudgetSubscription(&#34;exampleBudgetSubscription&#34;, BudgetSubscriptionArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .subscriptionId(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .amount(1000)
  *             .timeGrain(&#34;Monthly&#34;)
@@ -75,7 +78,7 @@ import javax.annotation.Nullable;
  *             .filter(BudgetSubscriptionFilterArgs.builder()
  *                 .dimensions(BudgetSubscriptionFilterDimensionArgs.builder()
  *                     .name(&#34;ResourceGroupName&#34;)
- *                     .values(exampleResourceGroup.name())
+ *                     .values(example.name())
  *                     .build())
  *                 .tags(BudgetSubscriptionFilterTagArgs.builder()
  *                     .name(&#34;foo&#34;)

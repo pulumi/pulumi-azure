@@ -47,31 +47,100 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;peeredvnets-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var example_1VirtualNetwork = new VirtualNetwork(&#34;example-1VirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *         var example_1 = new VirtualNetwork(&#34;example-1&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;peternetwork1&#34;)
  *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.1.0/24&#34;)
  *             .location(example.location())
  *             .build());
  * 
- *         var example_2VirtualNetwork = new VirtualNetwork(&#34;example-2VirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *         var example_2 = new VirtualNetwork(&#34;example-2&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;peternetwork2&#34;)
  *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.2.0/24&#34;)
  *             .location(example.location())
  *             .build());
  * 
  *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-1VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;peer1to2&#34;)
  *             .resourceGroupName(example.name())
- *             .virtualNetworkName(example_1VirtualNetwork.name())
- *             .remoteVirtualNetworkId(example_2VirtualNetwork.id())
+ *             .virtualNetworkName(example_1.name())
+ *             .remoteVirtualNetworkId(example_2.id())
  *             .build());
  * 
  *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-2VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;peer2to1&#34;)
  *             .resourceGroupName(example.name())
- *             .virtualNetworkName(example_2VirtualNetwork.name())
- *             .remoteVirtualNetworkId(example_1VirtualNetwork.id())
+ *             .virtualNetworkName(example_2.name())
+ *             .remoteVirtualNetworkId(example_1.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ### Triggers)
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.network.VirtualNetwork;
+ * import com.pulumi.azure.network.VirtualNetworkArgs;
+ * import com.pulumi.azure.network.VirtualNetworkPeering;
+ * import com.pulumi.azure.network.VirtualNetworkPeeringArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;peeredvnets-rg&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var example_1 = new VirtualNetwork(&#34;example-1&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;peternetwork1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces(&#34;10.0.1.0/24&#34;)
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var example_2 = new VirtualNetwork(&#34;example-2&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;peternetwork2&#34;)
+ *             .resourceGroupName(example.name())
+ *             .addressSpaces(&#34;10.0.2.0/24&#34;)
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var example_1VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-1VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;peer1to2&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(example_1.name())
+ *             .remoteVirtualNetworkId(example_2.id())
+ *             .triggers(Map.of(&#34;remote_address_space&#34;, StdFunctions.join().applyValue(invoke -&gt; invoke.result())))
+ *             .build());
+ * 
+ *         var example_2VirtualNetworkPeering = new VirtualNetworkPeering(&#34;example-2VirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;peer2to1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(example_2.name())
+ *             .remoteVirtualNetworkId(example_1.id())
+ *             .triggers(Map.of(&#34;remote_address_space&#34;, StdFunctions.join().applyValue(invoke -&gt; invoke.result())))
  *             .build());
  * 
  *     }

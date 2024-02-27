@@ -13,11 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
@@ -27,9 +31,16 @@ import * as utilities from "../utilities";
  *     ],
  *     description: "example network manager",
  * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {networkManagerId: exampleNetworkManager.id});
- * const exampleNetworkManagerSecurityAdminConfiguration = new azure.network.NetworkManagerSecurityAdminConfiguration("exampleNetworkManagerSecurityAdminConfiguration", {networkManagerId: exampleNetworkManager.id});
- * const exampleNetworkManagerAdminRuleCollection = new azure.network.NetworkManagerAdminRuleCollection("exampleNetworkManagerAdminRuleCollection", {
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
+ *     name: "example-network-group",
+ *     networkManagerId: exampleNetworkManager.id,
+ * });
+ * const exampleNetworkManagerSecurityAdminConfiguration = new azure.network.NetworkManagerSecurityAdminConfiguration("example", {
+ *     name: "example-admin-conf",
+ *     networkManagerId: exampleNetworkManager.id,
+ * });
+ * const exampleNetworkManagerAdminRuleCollection = new azure.network.NetworkManagerAdminRuleCollection("example", {
+ *     name: "example-admin-rule-collection",
  *     securityAdminConfigurationId: exampleNetworkManagerSecurityAdminConfiguration.id,
  *     networkGroupIds: [exampleNetworkManagerNetworkGroup.id],
  * });

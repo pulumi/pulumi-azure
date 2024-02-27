@@ -22,27 +22,30 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourceGroup-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
+    ///         Name = "account-example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleConnectionClassicCertificate = new Azure.Automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate", new()
+    ///     var exampleConnectionClassicCertificate = new Azure.Automation.ConnectionClassicCertificate("example", new()
     ///     {
+    ///         Name = "connection-example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         CertificateAssetName = "cert1",
     ///         SubscriptionName = "subs1",
-    ///         SubscriptionId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
+    ///         SubscriptionId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId),
     ///     });
     /// 
     /// });

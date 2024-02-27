@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-signalr"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signalr.NewService(ctx, "exampleService", &signalr.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = signalr.NewService(ctx, "example", &signalr.ServiceArgs{
+//				Name:              pulumi.String("tfex-signalr"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &signalr.ServiceSkuArgs{
 //					Name:     pulumi.String("Free_F1"),
 //					Capacity: pulumi.Int(1),

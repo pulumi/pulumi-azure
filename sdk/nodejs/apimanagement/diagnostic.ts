@@ -15,29 +15,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@mycompany.io",
  *     skuName: "Developer_1",
  * });
- * const exampleLogger = new azure.apimanagement.Logger("exampleLogger", {
+ * const exampleLogger = new azure.apimanagement.Logger("example", {
+ *     name: "example-apimlogger",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     applicationInsights: {
  *         instrumentationKey: exampleInsights.instrumentationKey,
  *     },
  * });
- * const exampleDiagnostic = new azure.apimanagement.Diagnostic("exampleDiagnostic", {
+ * const exampleDiagnostic = new azure.apimanagement.Diagnostic("example", {
  *     identifier: "applicationinsights",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     apiManagementLoggerId: exampleLogger.id,
  *     samplingPercentage: 5,

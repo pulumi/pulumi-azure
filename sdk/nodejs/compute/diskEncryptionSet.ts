@@ -18,14 +18,57 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "des-example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     enabledForDiskEncryption: true,
  *     purgeProtectionEnabled: true,
+ * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "des-example-key",
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
+ *     name: "des",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     keyVaultKeyId: exampleKey.id,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
+ *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *     ],
  * });
  * const example_user = new azure.keyvault.AccessPolicy("example-user", {
  *     keyVaultId: exampleKeyVault.id,
@@ -44,46 +87,7 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [example_user],
- * });
- * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     keyVaultKeyId: exampleKey.id,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const example_diskAccessPolicy = new azure.keyvault.AccessPolicy("example-diskAccessPolicy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
- *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
- *     keyPermissions: [
- *         "Create",
- *         "Delete",
- *         "Get",
- *         "Purge",
- *         "Recover",
- *         "Update",
- *         "List",
- *         "Decrypt",
- *         "Sign",
- *     ],
- * });
- * const example_diskAssignment = new azure.authorization.Assignment("example-diskAssignment", {
+ * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {
  *     scope: exampleKeyVault.id,
  *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
  *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
@@ -96,14 +100,58 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "des-example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     enabledForDiskEncryption: true,
  *     purgeProtectionEnabled: true,
+ * });
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "des-example-key",
+ *     keyVaultId: exampleKeyVault.id,
+ *     keyType: "RSA",
+ *     keySize: 2048,
+ *     keyOpts: [
+ *         "decrypt",
+ *         "encrypt",
+ *         "sign",
+ *         "unwrapKey",
+ *         "verify",
+ *         "wrapKey",
+ *     ],
+ * });
+ * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("example", {
+ *     name: "des",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     keyVaultKeyId: exampleKey.versionlessId,
+ *     autoKeyRotationEnabled: true,
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const example_disk = new azure.keyvault.AccessPolicy("example-disk", {
+ *     keyVaultId: exampleKeyVault.id,
+ *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
+ *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
+ *     keyPermissions: [
+ *         "Create",
+ *         "Delete",
+ *         "Get",
+ *         "Purge",
+ *         "Recover",
+ *         "Update",
+ *         "List",
+ *         "Decrypt",
+ *         "Sign",
+ *     ],
  * });
  * const example_user = new azure.keyvault.AccessPolicy("example-user", {
  *     keyVaultId: exampleKeyVault.id,
@@ -122,47 +170,7 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
- *     keyVaultId: exampleKeyVault.id,
- *     keyType: "RSA",
- *     keySize: 2048,
- *     keyOpts: [
- *         "decrypt",
- *         "encrypt",
- *         "sign",
- *         "unwrapKey",
- *         "verify",
- *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [example_user],
- * });
- * const exampleDiskEncryptionSet = new azure.compute.DiskEncryptionSet("exampleDiskEncryptionSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     keyVaultKeyId: exampleKey.versionlessId,
- *     autoKeyRotationEnabled: true,
- *     identity: {
- *         type: "SystemAssigned",
- *     },
- * });
- * const example_diskAccessPolicy = new azure.keyvault.AccessPolicy("example-diskAccessPolicy", {
- *     keyVaultId: exampleKeyVault.id,
- *     tenantId: exampleDiskEncryptionSet.identity.apply(identity => identity.tenantId),
- *     objectId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),
- *     keyPermissions: [
- *         "Create",
- *         "Delete",
- *         "Get",
- *         "Purge",
- *         "Recover",
- *         "Update",
- *         "List",
- *         "Decrypt",
- *         "Sign",
- *     ],
- * });
- * const example_diskAssignment = new azure.authorization.Assignment("example-diskAssignment", {
+ * const example_diskAssignment = new azure.authorization.Assignment("example-disk", {
  *     scope: exampleKeyVault.id,
  *     roleDefinitionName: "Key Vault Crypto Service Encryption User",
  *     principalId: exampleDiskEncryptionSet.identity.apply(identity => identity.principalId),

@@ -49,17 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;E0&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudNewRelicApplicationPerformanceMonitoring = new SpringCloudNewRelicApplicationPerformanceMonitoring(&#34;exampleSpringCloudNewRelicApplicationPerformanceMonitoring&#34;, SpringCloudNewRelicApplicationPerformanceMonitoringArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .appName(&#34;example-app-name&#34;)
  *             .licenseKey(&#34;example-license-key&#34;)

@@ -24,8 +24,9 @@ namespace Pulumi.Azure.MachineLearning
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "west europe",
     ///         Tags = 
     ///         {
@@ -33,34 +34,38 @@ namespace Pulumi.Azure.MachineLearning
     ///         },
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-kv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplesa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mlw",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -70,15 +75,17 @@ namespace Pulumi.Azure.MachineLearning
     ///         },
     ///     });
     /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
     ///     {
+    ///         Name = "example",
     ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
-    ///     var exampleSynapse_workspaceWorkspace = new Azure.Synapse.Workspace("exampleSynapse/workspaceWorkspace", new()
+    ///     var exampleWorkspace2 = new Azure.Synapse.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
@@ -88,18 +95,20 @@ namespace Pulumi.Azure.MachineLearning
     ///         },
     ///     });
     /// 
-    ///     var exampleSparkPool = new Azure.Synapse.SparkPool("exampleSparkPool", new()
+    ///     var exampleSparkPool = new Azure.Synapse.SparkPool("example", new()
     ///     {
-    ///         SynapseWorkspaceId = exampleSynapse / workspaceWorkspace.Id,
+    ///         Name = "example",
+    ///         SynapseWorkspaceId = exampleWorkspace2.Id,
     ///         NodeSizeFamily = "MemoryOptimized",
     ///         NodeSize = "Small",
     ///         NodeCount = 3,
     ///     });
     /// 
-    ///     var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("exampleSynapseSpark", new()
+    ///     var exampleSynapseSpark = new Azure.MachineLearning.SynapseSpark("example", new()
     ///     {
+    ///         Name = "example",
     ///         MachineLearningWorkspaceId = exampleWorkspace.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         SynapseSparkPoolId = exampleSparkPool.Id,
     ///         Identity = new Azure.MachineLearning.Inputs.SynapseSparkIdentityArgs
     ///         {

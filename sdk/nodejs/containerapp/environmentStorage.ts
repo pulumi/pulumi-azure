@@ -13,29 +13,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "acctest-01",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleEnvironment = new azure.containerapp.Environment("exampleEnvironment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEnvironment = new azure.containerapp.Environment("example", {
+ *     name: "myEnvironment",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "azureteststorage",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
+ * const exampleShare = new azure.storage.Share("example", {
+ *     name: "sharename",
  *     storageAccountName: exampleAccount.name,
  *     quota: 5,
  * });
- * const exampleEnvironmentStorage = new azure.containerapp.EnvironmentStorage("exampleEnvironmentStorage", {
+ * const exampleEnvironmentStorage = new azure.containerapp.EnvironmentStorage("example", {
+ *     name: "mycontainerappstorage",
  *     containerAppEnvironmentId: exampleEnvironment.id,
  *     accountName: exampleAccount.name,
  *     shareName: exampleShare.name,

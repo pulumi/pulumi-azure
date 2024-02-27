@@ -29,24 +29,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewDscConfiguration(ctx, "exampleDscConfiguration", &automation.DscConfigurationArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = automation.NewDscConfiguration(ctx, "example", &automation.DscConfigurationArgs{
+//				Name:                  pulumi.String("test"),
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Location:              exampleResourceGroup.Location,
+//				Location:              example.Location,
 //				ContentEmbedded:       pulumi.String("configuration test {}"),
 //			})
 //			if err != nil {

@@ -49,19 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;pub1&#34;)
  *             .publisherEmail(&#34;pub1@email.com&#34;)
  *             .skuName(&#34;Consumption_0&#34;)
  *             .build());
  * 
  *         var exampleGateway = new Gateway(&#34;exampleGateway&#34;, GatewayArgs.builder()        
+ *             .name(&#34;example-gateway&#34;)
  *             .apiManagementId(exampleService.id())
  *             .description(&#34;Example API Management gateway&#34;)
  *             .locationData(GatewayLocationDataArgs.builder()
@@ -73,12 +76,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;example-cert&#34;)
  *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .data(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;example.pfx&#34;))))
+ *             .resourceGroupName(example.name())
+ *             .data(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;example.pfx&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *         var exampleGatewayHostNameConfiguration = new GatewayHostNameConfiguration(&#34;exampleGatewayHostNameConfiguration&#34;, GatewayHostNameConfigurationArgs.builder()        
+ *             .name(&#34;example-host-name-configuration&#34;)
  *             .apiManagementId(exampleService.id())
  *             .gatewayName(exampleGateway.name())
  *             .certificateId(exampleCertificate.id())

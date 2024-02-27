@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "existing-backup-vault",
  *     resourceGroupName: "existing-resource-group",
  * });
- * export const azurermDataProtectionBackupVaultId = data.azurerm_vpn_gateway.example.id;
+ * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
  */
@@ -90,7 +90,7 @@ export interface GetBackupVaultResult {
  *     name: "existing-backup-vault",
  *     resourceGroupName: "existing-resource-group",
  * });
- * export const azurermDataProtectionBackupVaultId = data.azurerm_vpn_gateway.example.id;
+ * export const azurermDataProtectionBackupVaultId = exampleAzurermVpnGateway.id;
  * export const azurermDataProtectionBackupVaultPrincipalId = example.then(example => example.identities?.[0]?.principalId);
  * ```
  */

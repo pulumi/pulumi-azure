@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.signalr.ServiceCustomCertificateArgs;
  * import com.pulumi.azure.signalr.ServiceCustomDomain;
  * import com.pulumi.azure.signalr.ServiceCustomDomainArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,13 +55,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-signalr&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name(&#34;Premium_P1&#34;)
  *                 .capacity(1)
@@ -73,8 +74,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-keyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .accessPolicies(            
@@ -91,7 +93,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(azurerm_signalr_service.test().identity()[0].principal_id())
+ *                     .objectId(testAzurermSignalrService.identity()[0].principalId())
  *                     .certificatePermissions(                    
  *                         &#34;Create&#34;,
  *                         &#34;Get&#34;,
@@ -103,24 +105,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;imported-cert&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate-to-import.pfx&#34;))))
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .build()).result())
  *                 .password(&#34;&#34;)
  *                 .build())
  *             .build());
  * 
- *         var testServiceCustomCertificate = new ServiceCustomCertificate(&#34;testServiceCustomCertificate&#34;, ServiceCustomCertificateArgs.builder()        
+ *         var test = new ServiceCustomCertificate(&#34;test&#34;, ServiceCustomCertificateArgs.builder()        
+ *             .name(&#34;example-cert&#34;)
  *             .signalrServiceId(exampleService.id())
  *             .customCertificateId(exampleCertificate.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(azurerm_key_vault_access_policy.example())
- *                 .build());
+ *             .build());
  * 
  *         var testServiceCustomDomain = new ServiceCustomDomain(&#34;testServiceCustomDomain&#34;, ServiceCustomDomainArgs.builder()        
- *             .signalrServiceId(azurerm_signalr_service.test().id())
+ *             .name(&#34;example-domain&#34;)
+ *             .signalrServiceId(testAzurermSignalrService.id())
  *             .domainName(&#34;tftest.com&#34;)
- *             .signalrCustomCertificateId(testServiceCustomCertificate.id())
+ *             .signalrCustomCertificateId(test.id())
  *             .build());
  * 
  *     }

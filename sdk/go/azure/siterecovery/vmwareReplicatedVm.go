@@ -32,38 +32,43 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "exampleVMWareReplicationPolicy", &siterecovery.VMWareReplicationPolicyArgs{
-//				RecoveryVaultId:                                 exampleVault.ID(),
-//				RecoveryPointRetentionInMinutes:                 pulumi.Int(1440),
+//			exampleVMWareReplicationPolicy, err := siterecovery.NewVMWareReplicationPolicy(ctx, "example", &siterecovery.VMWareReplicationPolicyArgs{
+//				RecoveryVaultId:                 exampleVault.ID(),
+//				Name:                            pulumi.String("example-policy"),
+//				RecoveryPointRetentionInMinutes: pulumi.Int(1440),
 //				ApplicationConsistentSnapshotFrequencyInMinutes: pulumi.Int(240),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewVmwareReplicationPolicyAssociation(ctx, "test", &siterecovery.VmwareReplicationPolicyAssociationArgs{
+//				Name:            pulumi.String("example-association"),
 //				RecoveryVaultId: exampleVault.ID(),
 //				PolicyId:        exampleVMWareReplicationPolicy.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageacc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountKind:            pulumi.String("StorageV2"),
 //				AccountReplicationType: pulumi.String("LRS"),
@@ -71,18 +76,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-net"),
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
 //				},
-//				Location: exampleResourceGroup.Location,
+//				Location: example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
@@ -91,16 +98,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewVmwareReplicatedVm(ctx, "exampleVmwareReplicatedVm", &siterecovery.VmwareReplicatedVmArgs{
+//			_, err = siterecovery.NewVmwareReplicatedVm(ctx, "example", &siterecovery.VmwareReplicatedVmArgs{
+//				Name:                                  pulumi.String("example-vmware-vm"),
 //				RecoveryVaultId:                       exampleVault.ID(),
 //				SourceVmName:                          pulumi.String("example-vm"),
 //				ApplianceName:                         pulumi.String("example-appliance"),
-//				RecoveryReplicationPolicyId:           pulumi.Any(azurerm_site_recovery_vmware_replication_policy_association.Example.Policy_id),
+//				RecoveryReplicationPolicyId:           pulumi.Any(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.PolicyId),
 //				PhysicalServerCredentialName:          pulumi.String("example-creds"),
 //				LicenseType:                           pulumi.String("NotSpecified"),
 //				TargetBootDiagnosticsStorageAccountId: exampleAccount.ID(),
 //				TargetVmName:                          pulumi.String("example_replicated_vm"),
-//				TargetResourceGroupId:                 exampleResourceGroup.ID(),
+//				TargetResourceGroupId:                 example.ID(),
 //				DefaultLogStorageAccountId:            exampleAccount.ID(),
 //				DefaultRecoveryDiskType:               pulumi.String("Standard_LRS"),
 //				TargetNetworkId:                       exampleVirtualNetwork.ID(),

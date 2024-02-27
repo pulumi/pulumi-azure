@@ -123,10 +123,10 @@ def get_network_sim_group(mobile_network_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    example_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
-        mobile_network_id=example_network.id)
+    example = azure.mobile.get_network(name="example-mn",
+        resource_group_name=example_azurerm_resource_group["name"])
+    example_get_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
+        mobile_network_id=example.id)
     ```
 
 
@@ -162,10 +162,10 @@ def get_network_sim_group_output(mobile_network_id: Optional[pulumi.Input[str]] 
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
-        resource_group_name=azurerm_resource_group["example"]["name"])
-    example_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
-        mobile_network_id=example_network.id)
+    example = azure.mobile.get_network(name="example-mn",
+        resource_group_name=example_azurerm_resource_group["name"])
+    example_get_network_sim_group = azure.mobile.get_network_sim_group(name="example-mnsg",
+        mobile_network_id=example.id)
     ```
 
 

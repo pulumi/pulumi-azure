@@ -409,9 +409,12 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_firewall_policy = azure.frontdoor.FirewallPolicy("example",
+            name="examplefdwafpolicy",
+            resource_group_name=example.name,
             enabled=True,
             mode="Prevention",
             redirect_url="https://www.contoso.com",
@@ -549,9 +552,12 @@ class FirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_firewall_policy = azure.frontdoor.FirewallPolicy("exampleFirewallPolicy",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_firewall_policy = azure.frontdoor.FirewallPolicy("example",
+            name="examplefdwafpolicy",
+            resource_group_name=example.name,
             enabled=True,
             mode="Prevention",
             redirect_url="https://www.contoso.com",

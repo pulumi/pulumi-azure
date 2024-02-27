@@ -34,15 +34,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("terraform-signalr"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("examplekeyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -66,8 +68,9 @@ import (
 //				return err
 //			}
 //			_, err = signalr.NewService(ctx, "test", &signalr.ServiceArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//				Name:              pulumi.String("tfex-signalr"),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
 //				Sku: &signalr.ServiceSkuArgs{
 //					Name:     pulumi.String("Standard_S1"),
 //					Capacity: pulumi.Int(1),
@@ -76,8 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = signalr.NewSharedPrivateLinkResource(ctx, "exampleSharedPrivateLinkResource", &signalr.SharedPrivateLinkResourceArgs{
-//				SignalrServiceId: pulumi.Any(azurerm_signalr_service.Example.Id),
+//			_, err = signalr.NewSharedPrivateLinkResource(ctx, "example", &signalr.SharedPrivateLinkResourceArgs{
+//				Name:             pulumi.String("tfex-signalr-splr"),
+//				SignalrServiceId: pulumi.Any(exampleAzurermSignalrService.Id),
 //				SubResourceName:  pulumi.String("vault"),
 //				TargetResourceId: exampleKeyVault.ID(),
 //			})

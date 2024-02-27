@@ -55,19 +55,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;monitoring-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;loganalytics&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .retentionInDays(30)
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-actiongroup&#34;)
+ *             .resourceGroupName(example.name())
  *             .shortName(&#34;exampleact&#34;)
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
  *                 .name(&#34;callmyapi&#34;)
@@ -76,7 +79,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMetricAlert = new MetricAlert(&#34;exampleMetricAlert&#34;, MetricAlertArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-metricalert&#34;)
+ *             .resourceGroupName(example.name())
  *             .scopes(exampleAnalyticsWorkspace.id())
  *             .description(&#34;Action will be triggered when Average_% Idle Time metric is less than 10.&#34;)
  *             .frequency(&#34;PT1M&#34;)
@@ -94,8 +98,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScheduledQueryRulesLog = new ScheduledQueryRulesLog(&#34;exampleScheduledQueryRulesLog&#34;, ScheduledQueryRulesLogArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .criteria(ScheduledQueryRulesLogCriteriaArgs.builder()
  *                 .metricName(&#34;Average_% Idle Time&#34;)
  *                 .dimensions(ScheduledQueryRulesLogCriteriaDimensionArgs.builder()

@@ -20,12 +20,120 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing Role Definition.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition() {
         return getRoleDefinition(GetRoleDefinitionArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain() {
@@ -34,12 +142,120 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing Role Definition.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args) {
         return getRoleDefinition(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args) {
@@ -48,12 +264,120 @@ public final class AuthorizationFunctions {
     /**
      * Use this data source to access information about an existing Role Definition.
      * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
+     * 
      */
     public static Output<GetRoleDefinitionResult> getRoleDefinition(GetRoleDefinitionArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:authorization/getRoleDefinition:getRoleDefinition", TypeShape.of(GetRoleDefinitionResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Role Definition.
+     * 
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azure.core.CoreFunctions;
+     * import com.pulumi.azure.core.inputs.GetSubscriptionArgs;
+     * import com.pulumi.azure.authorization.RoleDefinition;
+     * import com.pulumi.azure.authorization.RoleDefinitionArgs;
+     * import com.pulumi.azure.authorization.AuthorizationFunctions;
+     * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var primary = CoreFunctions.getSubscription();
+     * 
+     *         var customRoleDefinition = new RoleDefinition(&#34;customRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+     *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+     *             .name(&#34;CustomRoleDef&#34;)
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .roleDefinitionId(customRoleDefinition.roleDefinitionId())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var custom-byname = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(customRoleDefinition.name())
+     *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+     *             .build());
+     * 
+     *         final var builtin = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+     *             .name(&#34;Contributor&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;customRoleDefinitionId&#34;, custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult).applyValue(custom -&gt; custom.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())));
+     *         ctx.export(&#34;contributorRoleDefinitionId&#34;, builtin.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()));
+     *     }
+     * }
+     * ```
      * 
      */
     public static CompletableFuture<GetRoleDefinitionResult> getRoleDefinitionPlain(GetRoleDefinitionPlainArgs args, InvokeOptions options) {

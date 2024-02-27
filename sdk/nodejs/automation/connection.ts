@@ -13,21 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroup-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.core.getClientConfig({});
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account-example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  * });
- * const exampleConnection = new azure.automation.Connection("exampleConnection", {
+ * const exampleConnection = new azure.automation.Connection("example", {
+ *     name: "connection-example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
  *     type: "AzureServicePrincipal",
  *     values: {
  *         ApplicationId: "00000000-0000-0000-0000-000000000000",
- *         TenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
- *         SubscriptionId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.subscriptionId),
+ *         TenantId: example.then(example => example.tenantId),
+ *         SubscriptionId: example.then(example => example.subscriptionId),
  *         CertificateThumbprint: "sample-certificate-thumbprint",
  *     },
  * });

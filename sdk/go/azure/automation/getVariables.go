@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := automation.LookupAccount(ctx, &automation.LookupAccountArgs{
+//			example, err := automation.LookupAccount(ctx, &automation.LookupAccountArgs{
 //				Name:              "example-account",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
@@ -35,12 +35,12 @@ import (
 //				return err
 //			}
 //			_, err = automation.GetVariables(ctx, &automation.GetVariablesArgs{
-//				AutomationAccountId: exampleAccount.Id,
+//				AutomationAccountId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("stringVars", data.Azurerm_automation_variable_string.Example.String)
+//			ctx.Export("stringVars", exampleAzurermAutomationVariableString.String)
 //			return nil
 //		})
 //	}

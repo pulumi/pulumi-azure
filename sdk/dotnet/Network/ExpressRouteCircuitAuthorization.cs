@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exprtTest",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("exampleExpressRouteCircuit", new()
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "expressRoute1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ServiceProviderName = "Equinix",
     ///         PeeringLocation = "Silicon Valley",
     ///         BandwidthInMbps = 50,
@@ -46,10 +48,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleExpressRouteCircuitAuthorization = new Azure.Network.ExpressRouteCircuitAuthorization("exampleExpressRouteCircuitAuthorization", new()
+    ///     var exampleExpressRouteCircuitAuthorization = new Azure.Network.ExpressRouteCircuitAuthorization("example", new()
     ///     {
+    ///         Name = "exampleERCAuth",
     ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

@@ -27,8 +27,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example = new Azure.SecurityCenter.SubscriptionPricing("example", new()
     ///     {
-    ///         ResourceType = "VirtualMachines",
     ///         Tier = "Standard",
+    ///         ResourceType = "VirtualMachines",
     ///     });
     /// 
     /// });
@@ -45,6 +45,8 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example1 = new Azure.SecurityCenter.SubscriptionPricing("example1", new()
     ///     {
+    ///         Tier = "Standard",
+    ///         ResourceType = "CloudPosture",
     ///         Extensions = new[]
     ///         {
     ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
@@ -53,11 +55,11 @@ namespace Pulumi.Azure.SecurityCenter
     ///             },
     ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
     ///             {
+    ///                 Name = "AgentlessVmScanning",
     ///                 AdditionalExtensionProperties = 
     ///                 {
     ///                     { "ExclusionTags", "[]" },
     ///                 },
-    ///                 Name = "AgentlessVmScanning",
     ///             },
     ///             new Azure.SecurityCenter.Inputs.SubscriptionPricingExtensionArgs
     ///             {
@@ -68,8 +70,6 @@ namespace Pulumi.Azure.SecurityCenter
     ///                 Name = "SensitiveDataDiscovery",
     ///             },
     ///         },
-    ///         ResourceType = "CloudPosture",
-    ///         Tier = "Standard",
     ///     });
     /// 
     /// });

@@ -751,15 +751,20 @@ class DatasetDelimitedText(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
+            name="example",
             data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
-        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText",
+        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(
@@ -827,15 +832,20 @@ class DatasetDelimitedText(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_web = azure.datafactory.LinkedServiceWeb("exampleLinkedServiceWeb",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_web = azure.datafactory.LinkedServiceWeb("example",
+            name="example",
             data_factory_id=example_factory.id,
             authentication_type="Anonymous",
             url="https://www.bing.com")
-        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("exampleDatasetDelimitedText",
+        example_dataset_delimited_text = azure.datafactory.DatasetDelimitedText("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_web.name,
             http_server_location=azure.datafactory.DatasetDelimitedTextHttpServerLocationArgs(

@@ -462,47 +462,57 @@ class DataCollectionRule(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            resource_group_name=example.name,
+            location=example.location)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="WindowsEventForwarding",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="exeventns",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+        example_event_hub = azure.eventhub.EventHub("example",
+            name="exevent2",
             namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examstorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
+            name="example-dcre",
+            resource_group_name=example.name,
+            location=example.location)
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
+            name="example-rule",
+            resource_group_name=example.name,
+            location=example.location,
             data_collection_endpoint_id=example_data_collection_endpoint.id,
             destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
                 log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
@@ -614,8 +624,7 @@ class DataCollectionRule(pulumi.CustomResource):
             description="data collection rule example",
             tags={
                 "foo": "bar",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
+            })
         ```
 
         ## Import
@@ -659,47 +668,57 @@ class DataCollectionRule(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            resource_group_name=example.name,
+            location=example.location)
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location)
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="WindowsEventForwarding",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
                 publisher="Microsoft",
                 product="OMSGallery/WindowsEventForwarding",
             ))
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="exeventns",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             capacity=1)
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
+        example_event_hub = azure.eventhub.EventHub("example",
+            name="exevent2",
             namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             partition_count=2,
             message_retention=1)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examstorage",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_container = azure.storage.Container("exampleContainer",
+        example_container = azure.storage.Container("example",
+            name="examplecontainer",
             storage_account_name=example_account.name,
             container_access_type="private")
-        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_data_collection_rule = azure.monitoring.DataCollectionRule("exampleDataCollectionRule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_collection_endpoint = azure.monitoring.DataCollectionEndpoint("example",
+            name="example-dcre",
+            resource_group_name=example.name,
+            location=example.location)
+        example_data_collection_rule = azure.monitoring.DataCollectionRule("example",
+            name="example-rule",
+            resource_group_name=example.name,
+            location=example.location,
             data_collection_endpoint_id=example_data_collection_endpoint.id,
             destinations=azure.monitoring.DataCollectionRuleDestinationsArgs(
                 log_analytics=[azure.monitoring.DataCollectionRuleDestinationsLogAnalyticArgs(
@@ -811,8 +830,7 @@ class DataCollectionRule(pulumi.CustomResource):
             description="data collection rule example",
             tags={
                 "foo": "bar",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_analytics_solution]))
+            })
         ```
 
         ## Import

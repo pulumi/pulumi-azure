@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountSession(ctx, "exampleIntegrationAccountSession", &logicapps.IntegrationAccountSessionArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			_, err = logicapps.NewIntegrationAccountSession(ctx, "example", &logicapps.IntegrationAccountSessionArgs{
+//				Name:                   pulumi.String("example-ias"),
+//				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				Content:                pulumi.String(" {\n       \"controlNumber\": \"1234\"\n    }\n"),
 //			})

@@ -15,18 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example-action-group",
+ *     resourceGroupName: example.name,
  *     shortName: "example",
  * });
- * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("exampleSmartDetectorAlertRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSmartDetectorAlertRule = new azure.monitoring.SmartDetectorAlertRule("example", {
+ *     name: "example-smart-detector-alert-rule",
+ *     resourceGroupName: example.name,
  *     severity: "Sev0",
  *     scopeResourceIds: [exampleInsights.id],
  *     frequency: "PT1M",

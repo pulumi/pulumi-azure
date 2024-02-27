@@ -15,16 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "video-analyzer-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestoracc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "exampleidentity",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const contributor = new azure.authorization.Assignment("contributor", {
  *     scope: exampleAccount.id,
@@ -36,9 +41,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionName: "Reader",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const exampleAnalyzer = new azure.videoanalyzer.Analyzer("exampleAnalyzer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAnalyzer = new azure.videoanalyzer.Analyzer("example", {
+ *     name: "exampleanalyzer",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccount: {
  *         id: exampleAccount.id,
  *         userAssignedIdentityId: exampleUserAssignedIdentity.id,
@@ -50,15 +56,10 @@ import * as utilities from "../utilities";
  *     tags: {
  *         environment: "staging",
  *     },
- * }, {
- *     dependsOn: [
- *         exampleUserAssignedIdentity,
- *         contributor,
- *         reader,
- *     ],
  * });
- * const exampleEdgeModule = new azure.videoanalyzer.EdgeModule("exampleEdgeModule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEdgeModule = new azure.videoanalyzer.EdgeModule("example", {
+ *     name: "example-edge-module",
+ *     resourceGroupName: example.name,
  *     videoAnalyzerName: exampleAnalyzer.name,
  * });
  * ```

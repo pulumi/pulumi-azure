@@ -47,10 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example-virtualdesktop&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var pooledbreadthfirst = new HostPool(&#34;pooledbreadthfirst&#34;, HostPoolArgs.builder()        
+ *             .name(&#34;pooledbreadthfirst&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type(&#34;Pooled&#34;)
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var remoteapp = new ApplicationGroup(&#34;remoteapp&#34;, ApplicationGroupArgs.builder()        
+ *             .name(&#34;remoteapp&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type(&#34;RemoteApp&#34;)
@@ -65,6 +68,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var workspace = new Workspace(&#34;workspace&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;workspace&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());

@@ -26,18 +26,24 @@ import * as utilities from "../utilities";
  *
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "tfvmex";
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: `${prefix}-resources`,
+ *     location: "West Europe",
+ * });
+ * const main = new azure.network.VirtualNetwork("main", {
+ *     name: `${prefix}-network`,
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: example.location,
  *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
+ *     name: "internal",
  *     resourceGroupName: example.name,
- *     virtualNetworkName: mainVirtualNetwork.name,
+ *     virtualNetworkName: main.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
+ * const mainNetworkInterface = new azure.network.NetworkInterface("main", {
+ *     name: `${prefix}-nic`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     ipConfigurations: [{
@@ -46,7 +52,8 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const mainVirtualMachine = new azure.compute.VirtualMachine("mainVirtualMachine", {
+ * const mainVirtualMachine = new azure.compute.VirtualMachine("main", {
+ *     name: `${prefix}-vm`,
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],

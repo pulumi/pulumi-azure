@@ -47,30 +47,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;northeurope&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-server&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;example-db&#34;)
  *             .serverId(exampleServer.id())
  *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
  *             .skuName(&#34;S1&#34;)
  *             .build());
  * 
  *         var exampleJobAgent = new JobAgent(&#34;exampleJobAgent&#34;, JobAgentArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-job-agent&#34;)
+ *             .location(example.location())
  *             .databaseId(exampleDatabase.id())
  *             .build());
  * 
  *         var exampleJobCredential = new JobCredential(&#34;exampleJobCredential&#34;, JobCredentialArgs.builder()        
+ *             .name(&#34;example-credential&#34;)
  *             .jobAgentId(exampleJobAgent.id())
  *             .username(&#34;my-username&#34;)
  *             .password(&#34;MyP4ssw0rd!!!&#34;)

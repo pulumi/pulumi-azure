@@ -14,6 +14,115 @@ import (
 
 // Manages a custom IPv4 prefix or custom IPv6 prefix.
 //
+// ## Example Usage
+//
+// *IPv4 custom prefix*
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/customip"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = customip.NewPrefix(ctx, "example", &customip.PrefixArgs{
+//				Name:              pulumi.String("example-CustomIPPrefix"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				Cidr:              pulumi.String("1.2.3.4/22"),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//					pulumi.String("2"),
+//					pulumi.String("3"),
+//				},
+//				CommissioningEnabled:       pulumi.Bool(true),
+//				RoaValidityEndDate:         pulumi.String("2099-12-12"),
+//				WanValidationSignedMessage: pulumi.String("signed message for WAN validation"),
+//				Tags: pulumi.StringMap{
+//					"env": pulumi.String("test"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// *IPv6 custom prefix*
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/customip"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			global, err := customip.NewPrefix(ctx, "global", &customip.PrefixArgs{
+//				Name:                       pulumi.String("example-Global-CustomIPPrefix"),
+//				Location:                   pulumi.Any(test.Location),
+//				ResourceGroupName:          pulumi.Any(test.Name),
+//				Cidr:                       pulumi.String("2001:db8:1::/48"),
+//				RoaValidityEndDate:         pulumi.String("2199-12-12"),
+//				WanValidationSignedMessage: pulumi.String("signed message for WAN validation"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = customip.NewPrefix(ctx, "regional", &customip.PrefixArgs{
+//				Name:                   pulumi.String("example-Regional-CustomIPPrefix"),
+//				Location:               pulumi.Any(test.Location),
+//				ResourceGroupName:      pulumi.Any(test.Name),
+//				ParentCustomIpPrefixId: global.ID(),
+//				Cidr: global.Cidr.ApplyT(func(cidr string) (std.CidrsubnetResult, error) {
+//					return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
+//						Input:   cidr,
+//						Newbits: 16,
+//						Netnum:  1,
+//					}, nil), nil
+//				}).(std.CidrsubnetResultOutput).ApplyT(func(invoke std.CidrsubnetResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				Zones: pulumi.StringArray{
+//					pulumi.String("1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // A Custom IP Prefix can be imported using the `resource id`, e.g.

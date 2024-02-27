@@ -305,16 +305,21 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("example",
+            name="example",
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         ```
@@ -354,16 +359,21 @@ class LinkedServiceKeyVault(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_service_key_vault = azure.datafactory.LinkedServiceKeyVault("example",
+            name="example",
             data_factory_id=example_factory.id,
             key_vault_id=example_key_vault.id)
         ```

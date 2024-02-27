@@ -20,6 +20,47 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** This resource will automatically attempt to delete resources deployed by the ARM Template when it is deleted. This behavior can be disabled in the provider `features` block by setting the `delete_nested_items_during_deletion` field to `false` within the `template_deployment` block.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.inputs.GetTemplateSpecVersionArgs;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeployment;
+ * import com.pulumi.azure.core.ResourceGroupTemplateDeploymentArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var example = CoreFunctions.getTemplateSpecVersion(GetTemplateSpecVersionArgs.builder()
+ *             .name(&#34;myTemplateForResourceGroup&#34;)
+ *             .resourceGroupName(&#34;myResourceGroup&#34;)
+ *             .version(&#34;v3.4.0&#34;)
+ *             .build());
+ * 
+ *         var exampleResourceGroupTemplateDeployment = new ResourceGroupTemplateDeployment(&#34;exampleResourceGroupTemplateDeployment&#34;, ResourceGroupTemplateDeploymentArgs.builder()        
+ *             .name(&#34;example-deploy&#34;)
+ *             .resourceGroupName(&#34;example-group&#34;)
+ *             .deploymentMode(&#34;Incremental&#34;)
+ *             .templateSpecVersionId(example.applyValue(getTemplateSpecVersionResult -&gt; getTemplateSpecVersionResult.id()))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Resource Group Template Deployments can be imported using the `resource id`, e.g.

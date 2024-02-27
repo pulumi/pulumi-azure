@@ -397,12 +397,15 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
@@ -410,8 +413,7 @@ class ConfigurationKey(pulumi.CustomResource):
             configuration_store_id=appconf.id,
             key="appConfKey1",
             label="somelabel",
-            value="a test",
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            value="a test")
         ```
         ### `Vault` Type
 
@@ -419,14 +421,18 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            name="kv",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -446,19 +452,19 @@ class ConfigurationKey(pulumi.CustomResource):
                 ],
             )])
         kvs = azure.keyvault.Secret("kvs",
+            name="kvs",
             value="szechuan",
             key_vault_id=kv.id)
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
-            configuration_store_id=azurerm_app_configuration["test"]["id"],
+            configuration_store_id=test_azurerm_app_configuration["id"],
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.versionless_id,
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            vault_key_reference=kvs.versionless_id)
         ```
 
         ## Import
@@ -512,12 +518,15 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
@@ -525,8 +534,7 @@ class ConfigurationKey(pulumi.CustomResource):
             configuration_store_id=appconf.id,
             key="appConfKey1",
             label="somelabel",
-            value="a test",
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            value="a test")
         ```
         ### `Vault` Type
 
@@ -534,14 +542,18 @@ class ConfigurationKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
         kv = azure.keyvault.KeyVault("kv",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+            name="kv",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -561,19 +573,19 @@ class ConfigurationKey(pulumi.CustomResource):
                 ],
             )])
         kvs = azure.keyvault.Secret("kvs",
+            name="kvs",
             value="szechuan",
             key_vault_id=kv.id)
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationKey("test",
-            configuration_store_id=azurerm_app_configuration["test"]["id"],
+            configuration_store_id=test_azurerm_app_configuration["id"],
             key="key1",
             type="vault",
             label="label1",
-            vault_key_reference=kvs.versionless_id,
-            opts=pulumi.ResourceOptions(depends_on=[appconf_dataowner]))
+            vault_key_reference=kvs.versionless_id)
         ```
 
         ## Import

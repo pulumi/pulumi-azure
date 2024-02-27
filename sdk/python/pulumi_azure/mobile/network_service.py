@@ -272,15 +272,19 @@ class NetworkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="east us")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            location=example.location,
+            resource_group_name=example.name,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+        example_network_service = azure.mobile.NetworkService("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             service_precedence=0,
             pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
                 name="default-rule",
@@ -356,15 +360,19 @@ class NetworkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_network = azure.mobile.Network("exampleNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="east us")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            location=example.location,
+            resource_group_name=example.name,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_service = azure.mobile.NetworkService("exampleNetworkService",
+        example_network_service = azure.mobile.NetworkService("example",
+            name="example-mns",
             mobile_network_id=example_network.id,
-            location=example_resource_group.location,
+            location=example.location,
             service_precedence=0,
             pcc_rules=[azure.mobile.NetworkServicePccRuleArgs(
                 name="default-rule",

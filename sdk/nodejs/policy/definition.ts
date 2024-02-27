@@ -16,24 +16,13 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const policy = new azure.policy.Definition("policy", {
+ *     name: "accTestPolicy",
+ *     policyType: "Custom",
+ *     mode: "Indexed",
  *     displayName: "acceptance test policy definition",
  *     metadata: `    {
  *     "category": "General"
  *     }
- *
- *
- * `,
- *     mode: "Indexed",
- *     parameters: ` {
- *     "allowedLocations": {
- *       "type": "Array",
- *       "metadata": {
- *         "description": "The list of allowed locations for resources.",
- *         "displayName": "Allowed locations",
- *         "strongType": "location"
- *       }
- *     }
- *   }
  *
  * `,
  *     policyRule: ` {
@@ -47,9 +36,18 @@ import * as utilities from "../utilities";
  *       "effect": "audit"
  *     }
  *   }
- *
  * `,
- *     policyType: "Custom",
+ *     parameters: ` {
+ *     "allowedLocations": {
+ *       "type": "Array",
+ *       "metadata": {
+ *         "description": "The list of allowed locations for resources.",
+ *         "displayName": "Allowed locations",
+ *         "strongType": "location"
+ *       }
+ *     }
+ *   }
+ * `,
  * });
  * ```
  *

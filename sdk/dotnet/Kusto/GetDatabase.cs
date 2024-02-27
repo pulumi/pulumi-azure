@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Kusto
         /// {
         ///     var example = Azure.Kusto.GetDatabase.Invoke(new()
         ///     {
-        ///         ClusterName = "test_cluster",
         ///         Name = "my-kusto-database",
         ///         ResourceGroupName = "test_resource_group",
+        ///         ClusterName = "test_cluster",
         ///     });
         /// 
         /// });
@@ -58,9 +58,9 @@ namespace Pulumi.Azure.Kusto
         /// {
         ///     var example = Azure.Kusto.GetDatabase.Invoke(new()
         ///     {
-        ///         ClusterName = "test_cluster",
         ///         Name = "my-kusto-database",
         ///         ResourceGroupName = "test_resource_group",
+        ///         ClusterName = "test_cluster",
         ///     });
         /// 
         /// });

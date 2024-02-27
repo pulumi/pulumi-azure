@@ -56,13 +56,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exampleResourceGroup1&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleAppServicePlan1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -70,26 +72,29 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleAppService1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleRN1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleHybridConnection = new HybridConnection(&#34;exampleHybridConnection&#34;, HybridConnectionArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleRHC1&#34;)
+ *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .userMetadata(&#34;examplemetadata&#34;)
  *             .build());
  * 
- *         var exampleAppservice_hybridConnectionHybridConnection = new HybridConnection(&#34;exampleAppservice/hybridConnectionHybridConnection&#34;, HybridConnectionArgs.builder()        
+ *         var exampleHybridConnection2 = new HybridConnection(&#34;exampleHybridConnection2&#34;, HybridConnectionArgs.builder()        
  *             .appServiceName(exampleAppService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .relayId(exampleHybridConnection.id())
  *             .hostname(&#34;testhostname.example&#34;)
  *             .port(8080)

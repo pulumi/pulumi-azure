@@ -22,15 +22,17 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", new()
+    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     /// });

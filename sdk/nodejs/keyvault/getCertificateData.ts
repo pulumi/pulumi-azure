@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "examplekv",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificateData = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateData({
+ * const exampleGetCertificateData = example.then(example => azure.keyvault.getCertificateData({
  *     name: "secret-sauce",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const examplePem = exampleCertificateData.then(exampleCertificateData => exampleCertificateData.pem);
+ * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
  * ```
  */
 export function getCertificateData(args: GetCertificateDataArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateDataResult> {
@@ -107,15 +107,15 @@ export interface GetCertificateDataResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "examplekv",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificateData = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateData({
+ * const exampleGetCertificateData = example.then(example => azure.keyvault.getCertificateData({
  *     name: "secret-sauce",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const examplePem = exampleCertificateData.then(exampleCertificateData => exampleCertificateData.pem);
+ * export const examplePem = exampleGetCertificateData.then(exampleGetCertificateData => exampleGetCertificateData.pem);
  * ```
  */
 export function getCertificateDataOutput(args: GetCertificateDataOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateDataResult> {

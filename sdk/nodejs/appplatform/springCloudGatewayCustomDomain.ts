@@ -15,14 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudGatewayCustomDomain = new azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", {springCloudGatewayId: exampleSpringCloudGateway.id});
+ * const exampleSpringCloudGateway = new azure.appplatform.SpringCloudGateway("example", {
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ * });
+ * const exampleSpringCloudGatewayCustomDomain = new azure.appplatform.SpringCloudGatewayCustomDomain("example", {
+ *     name: "example.com",
+ *     springCloudGatewayId: exampleSpringCloudGateway.id,
+ * });
  * ```
  *
  * ## Import

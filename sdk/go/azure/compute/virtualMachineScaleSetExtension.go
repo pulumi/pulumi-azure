@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				Instances:         pulumi.Int(1),
@@ -76,7 +78,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "exampleVirtualMachineScaleSetExtension", &compute.VirtualMachineScaleSetExtensionArgs{
+//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
+//				Name:                     pulumi.String("example"),
 //				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
 //				Publisher:                pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:                     pulumi.String("CustomScript"),
@@ -135,20 +138,6 @@ type VirtualMachineScaleSetExtension struct {
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
@@ -238,20 +227,6 @@ type virtualMachineScaleSetExtensionState struct {
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
@@ -293,20 +268,6 @@ type VirtualMachineScaleSetExtensionState struct {
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	TypeHandlerVersion pulumi.StringPtrInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
@@ -352,20 +313,6 @@ type virtualMachineScaleSetExtensionArgs struct {
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
@@ -408,20 +355,6 @@ type VirtualMachineScaleSetExtensionArgs struct {
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	TypeHandlerVersion pulumi.StringInput
 	// The ID of the Virtual Machine Scale Set. Changing this forces a new resource to be created.
 	//
@@ -584,23 +517,6 @@ func (o VirtualMachineScaleSetExtensionOutput) Type() pulumi.StringOutput {
 // Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 //
 // > **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o VirtualMachineScaleSetExtensionOutput) TypeHandlerVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *VirtualMachineScaleSetExtension) pulumi.StringOutput { return v.TypeHandlerVersion }).(pulumi.StringOutput)
 }

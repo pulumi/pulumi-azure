@@ -48,15 +48,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleVirtualMachine = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
+ *         final var example = ComputeFunctions.getVirtualMachine(GetVirtualMachineArgs.builder()
  *             .name(&#34;examplevm&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
  *             .build());
  * 
  *         var exampleImage = new Image(&#34;exampleImage&#34;, ImageArgs.builder()        
- *             .location(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.location()))
- *             .resourceGroupName(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.name()))
- *             .sourceVirtualMachineId(exampleVirtualMachine.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
+ *             .name(&#34;exampleimage&#34;)
+ *             .location(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.location()))
+ *             .resourceGroupName(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.name()))
+ *             .sourceVirtualMachineId(example.applyValue(getVirtualMachineResult -&gt; getVirtualMachineResult.id()))
  *             .build());
  * 
  *     }

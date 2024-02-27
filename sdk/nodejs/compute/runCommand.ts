@@ -15,18 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     ipConfigurations: [{
@@ -35,11 +41,13 @@ import * as utilities from "../utilities";
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example-VM",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     size: "Standard_B2s",
@@ -62,38 +70,43 @@ import * as utilities from "../utilities";
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "exampleaccount",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Blob Data Contributor",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "example-sc",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "blob",
  * });
  * const example1 = new azure.storage.Blob("example1", {
+ *     name: "script1",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Block",
  *     sourceContent: "echo 'hello world'",
  * });
- * const example2Blob = new azure.storage.Blob("example2Blob", {
+ * const example2 = new azure.storage.Blob("example2", {
+ *     name: "output",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Append",
  * });
- * const example3Blob = new azure.storage.Blob("example3Blob", {
+ * const example3 = new azure.storage.Blob("example3", {
+ *     name: "error",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Append",
  * });
- * const exampleAccountSAS = azure.storage.getAccountSASOutput({
+ * const example = azure.storage.getAccountSASOutput({
  *     connectionString: exampleAccount.primaryConnectionString,
  *     httpsOnly: true,
  *     signedVersion: "2019-10-10",
@@ -124,7 +137,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // basic example
- * const exampleRunCommand = new azure.compute.RunCommand("exampleRunCommand", {
+ * const exampleRunCommand = new azure.compute.RunCommand("example", {
+ *     name: "example-vmrc",
  *     location: exampleResourceGroup.location,
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     source: {
@@ -132,11 +146,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // authorize to storage blob using user assigned identity
- * const example2RunCommand = new azure.compute.RunCommand("example2RunCommand", {
+ * const example2RunCommand = new azure.compute.RunCommand("example2", {
  *     location: exampleResourceGroup.location,
+ *     name: "example2-vmrc",
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
- *     outputBlobUri: example2Blob.id,
- *     errorBlobUri: example3Blob.id,
+ *     outputBlobUri: example2.id,
+ *     errorBlobUri: example3.id,
  *     runAsPassword: "P@$$w0rd1234!",
  *     runAsUser: "adminuser",
  *     source: {
@@ -163,19 +178,18 @@ import * as utilities from "../utilities";
  *         environment: "terraform-examples",
  *         some_key: "some-value",
  *     },
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * // authorize to storage blob using SAS token
- * const example3RunCommand = new azure.compute.RunCommand("example3RunCommand", {
+ * const example3RunCommand = new azure.compute.RunCommand("example3", {
  *     location: exampleResourceGroup.location,
+ *     name: "example3-vmrc",
  *     virtualMachineId: exampleLinuxVirtualMachine.id,
  *     runAsPassword: "P@$$w0rd1234!",
  *     runAsUser: "adminuser",
- *     errorBlobUri: pulumi.all([example3Blob.id, exampleAccountSAS]).apply(([id, exampleAccountSAS]) => `${id}${exampleAccountSAS.sas}`),
- *     outputBlobUri: pulumi.all([example2Blob.id, exampleAccountSAS]).apply(([id, exampleAccountSAS]) => `${id}${exampleAccountSAS.sas}`),
+ *     errorBlobUri: pulumi.all([example3.id, example]).apply(([id, example]) => `${id}${example.sas}`),
+ *     outputBlobUri: pulumi.all([example2.id, example]).apply(([id, example]) => `${id}${example.sas}`),
  *     source: {
- *         scriptUri: pulumi.all([example1.id, exampleAccountSAS]).apply(([id, exampleAccountSAS]) => `${id}${exampleAccountSAS.sas}`),
+ *         scriptUri: pulumi.all([example1.id, example]).apply(([id, example]) => `${id}${example.sas}`),
  *     },
  *     parameters: [{
  *         name: "example-vm1",

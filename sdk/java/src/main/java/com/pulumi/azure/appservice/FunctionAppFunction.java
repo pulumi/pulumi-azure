@@ -54,27 +54,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .osType(&#34;Linux&#34;)
  *             .skuName(&#34;S1&#34;)
  *             .build());
  * 
  *         var exampleLinuxFunctionApp = new LinuxFunctionApp(&#34;exampleLinuxFunctionApp&#34;, LinuxFunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-function-app&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -86,6 +90,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
+ *             .name(&#34;example-function-app-function&#34;)
  *             .functionAppId(exampleLinuxFunctionApp.id())
  *             .language(&#34;Python&#34;)
  *             .testData(serializeJson(
@@ -151,27 +156,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .osType(&#34;Windows&#34;)
  *             .skuName(&#34;S1&#34;)
  *             .build());
  * 
  *         var exampleWindowsFunctionApp = new WindowsFunctionApp(&#34;exampleWindowsFunctionApp&#34;, WindowsFunctionAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-function-app&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .storageAccountName(exampleAccount.name())
  *             .storageAccountAccessKey(exampleAccount.primaryAccessKey())
@@ -183,11 +192,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFunctionAppFunction = new FunctionAppFunction(&#34;exampleFunctionAppFunction&#34;, FunctionAppFunctionArgs.builder()        
+ *             .name(&#34;example-function-app-function&#34;)
  *             .functionAppId(exampleWindowsFunctionApp.id())
  *             .language(&#34;CSharp&#34;)
  *             .files(FunctionAppFunctionFileArgs.builder()
  *                 .name(&#34;run.csx&#34;)
- *                 .content(Files.readString(Paths.get(&#34;exampledata/run.csx&#34;)))
+ *                 .content(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;exampledata/run.csx&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .testData(serializeJson(
  *                 jsonObject(

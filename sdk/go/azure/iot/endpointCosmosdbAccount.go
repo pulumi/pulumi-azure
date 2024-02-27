@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("exampleIothub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
@@ -52,9 +54,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("cosmosdb-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OfferType:         pulumi.String("Standard"),
 //				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
@@ -62,7 +65,7 @@ import (
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         exampleResourceGroup.Location,
+//						Location:         example.Location,
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
@@ -70,14 +73,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("cosmos-sql-db"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("example-container"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //				DatabaseName:      exampleSqlDatabase.Name,
@@ -86,8 +91,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewEndpointCosmosdbAccount(ctx, "exampleEndpointCosmosdbAccount", &iot.EndpointCosmosdbAccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = iot.NewEndpointCosmosdbAccount(ctx, "example", &iot.EndpointCosmosdbAccountArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				IothubId:          exampleIoTHub.ID(),
 //				ContainerName:     exampleSqlContainer.Name,
 //				DatabaseName:      exampleSqlDatabase.Name,

@@ -46,6 +46,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PolicySetDefinition(&#34;example&#34;, PolicySetDefinitionArgs.builder()        
+ *             .name(&#34;testPolicySet&#34;)
+ *             .policyType(&#34;Custom&#34;)
  *             .displayName(&#34;Test Policy Set&#34;)
  *             .parameters(&#34;&#34;&#34;
  *     {
@@ -58,18 +60,15 @@ import javax.annotation.Nullable;
  *             }
  *         }
  *     }
- * 
  *             &#34;&#34;&#34;)
  *             .policyDefinitionReferences(PolicySetDefinitionPolicyDefinitionReferenceArgs.builder()
+ *                 .policyDefinitionId(&#34;/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988&#34;)
  *                 .parameterValues(&#34;&#34;&#34;
  *     {
  *       &#34;listOfAllowedLocations&#34;: {&#34;value&#34;: &#34;[parameters(&#39;allowedLocations&#39;)]&#34;}
  *     }
- *     
  *                 &#34;&#34;&#34;)
- *                 .policyDefinitionId(&#34;/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988&#34;)
  *                 .build())
- *             .policyType(&#34;Custom&#34;)
  *             .build());
  * 
  *     }

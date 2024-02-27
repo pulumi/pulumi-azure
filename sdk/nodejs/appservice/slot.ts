@@ -23,22 +23,27 @@ import * as utilities from "../utilities";
  *
  * const server = new random.RandomId("server", {
  *     keepers: {
- *         azi_id: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "some-resource-group",
+ *     location: "West Europe",
+ * });
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "some-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     name: server.hex,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
@@ -52,10 +57,11 @@ import * as utilities from "../utilities";
  *         value: "Server=some-server.mydomain.com;Integrated Security=SSPI",
  *     }],
  * });
- * const exampleSlot = new azure.appservice.Slot("exampleSlot", {
+ * const exampleSlot = new azure.appservice.Slot("example", {
+ *     name: server.hex,
  *     appServiceName: exampleAppService.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     siteConfig: {
  *         dotnetFrameworkVersion: "v4.0",
@@ -79,22 +85,27 @@ import * as utilities from "../utilities";
  *
  * const server = new random.RandomId("server", {
  *     keepers: {
- *         azi_id: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "some-resource-group",
+ *     location: "West Europe",
+ * });
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "some-app-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     name: server.hex,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     siteConfig: {
  *         javaVersion: "1.8",
@@ -102,10 +113,11 @@ import * as utilities from "../utilities";
  *         javaContainerVersion: "9.3",
  *     },
  * });
- * const exampleSlot = new azure.appservice.Slot("exampleSlot", {
+ * const exampleSlot = new azure.appservice.Slot("example", {
+ *     name: server.hex,
  *     appServiceName: exampleAppService.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     siteConfig: {
  *         javaVersion: "1.8",

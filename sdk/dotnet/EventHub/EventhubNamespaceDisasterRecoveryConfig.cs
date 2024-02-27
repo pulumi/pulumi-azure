@@ -22,28 +22,32 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "eventhub-replication",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var primary = new Azure.EventHub.EventHubNamespace("primary", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "eventhub-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
     ///     var secondary = new Azure.EventHub.EventHubNamespace("secondary", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "eventhub-secondary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventhubNamespaceDisasterRecoveryConfig = new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig", new()
+    ///     var exampleEventhubNamespaceDisasterRecoveryConfig = new Azure.EventHub.EventhubNamespaceDisasterRecoveryConfig("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "replicate-eventhub",
+    ///         ResourceGroupName = example.Name,
     ///         NamespaceName = primary.Name,
     ///         PartnerNamespaceId = secondary.Id,
     ///     });

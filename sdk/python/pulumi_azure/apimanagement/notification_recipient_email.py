@@ -138,14 +138,17 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
+        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("example",
             api_management_id=example_service.id,
             notification_type="AccountClosedPublisher",
             email="foo@bar.com")
@@ -180,14 +183,17 @@ class NotificationRecipientEmail(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("exampleNotificationRecipientEmail",
+        example_notification_recipient_email = azure.apimanagement.NotificationRecipientEmail("example",
             api_management_id=example_service.id,
             notification_type="AccountClosedPublisher",
             email="foo@bar.com")

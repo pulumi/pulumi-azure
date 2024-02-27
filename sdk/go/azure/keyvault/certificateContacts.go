@@ -37,22 +37,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("examplekeyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -69,7 +71,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewCertificateContacts(ctx, "exampleCertificateContacts", &keyvault.CertificateContactsArgs{
+//			_, err = keyvault.NewCertificateContacts(ctx, "example", &keyvault.CertificateContactsArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Contacts: keyvault.CertificateContactsContactArray{
 //					&keyvault.CertificateContactsContactArgs{
@@ -81,9 +83,7 @@ import (
 //						Email: pulumi.String("example2@example.com"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAccessPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

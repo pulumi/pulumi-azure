@@ -24,15 +24,17 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleRG1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/22",
@@ -41,7 +43,8 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var isesubnet1 = new Azure.Network.Subnet("isesubnet1", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "isesubnet1",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -62,7 +65,8 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var isesubnet2 = new Azure.Network.Subnet("isesubnet2", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "isesubnet2",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -72,7 +76,8 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var isesubnet3 = new Azure.Network.Subnet("isesubnet3", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "isesubnet3",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -82,7 +87,8 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var isesubnet4 = new Azure.Network.Subnet("isesubnet4", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "isesubnet4",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -90,10 +96,11 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var exampleInterationServiceEnvironment = new Azure.LogicApps.InterationServiceEnvironment("exampleInterationServiceEnvironment", new()
+    ///     var exampleInterationServiceEnvironment = new Azure.LogicApps.InterationServiceEnvironment("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ise",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Developer_0",
     ///         AccessEndpointType = "Internal",
     ///         VirtualNetworkSubnetIds = new[]

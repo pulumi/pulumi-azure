@@ -14,37 +14,46 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
- * const testIntegrationAccount = new azure.logicapps.IntegrationAccount("testIntegrationAccount", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const test = new azure.logicapps.IntegrationAccount("test", {
+ *     name: "example-ia",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
  * const host = new azure.logicapps.IntegrationAccountPartner("host", {
+ *     name: "example-hostpartner",
  *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
+ *     integrationAccountName: test.name,
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",
  *     }],
  * });
  * const guest = new azure.logicapps.IntegrationAccountPartner("guest", {
+ *     name: "example-guestpartner",
  *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
+ *     integrationAccountName: test.name,
  *     businessIdentities: [{
  *         qualifier: "AS2Identity",
  *         value: "FabrikamDC",
  *     }],
  * });
- * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("testIntegrationAccountAgreement", {
+ * const testIntegrationAccountAgreement = new azure.logicapps.IntegrationAccountAgreement("test", {
+ *     name: "example-agreement",
  *     resourceGroupName: example.name,
- *     integrationAccountName: testIntegrationAccount.name,
+ *     integrationAccountName: test.name,
  *     agreementType: "AS2",
  *     hostPartnerName: host.name,
  *     guestPartnerName: guest.name,
- *     content: fs.readFileSync("testdata/integration_account_agreement_content_as2.json", "utf8"),
+ *     content: std.file({
+ *         input: "testdata/integration_account_agreement_content_as2.json",
+ *     }).then(invoke => invoke.result),
  *     hostIdentity: {
  *         qualifier: "AS2Identity",
  *         value: "FabrikamNY",

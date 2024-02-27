@@ -21,24 +21,15 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//			example, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 //				Name:              "search-api",
 //				ApiManagementName: "search-api-management",
 //				ResourceGroupName: "search-service",
@@ -47,13 +38,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiSchema(ctx, "exampleApiSchema", &apimanagement.ApiSchemaArgs{
-//				ApiName:           *pulumi.String(exampleApi.Name),
-//				ApiManagementName: *pulumi.String(exampleApi.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(exampleApi.ResourceGroupName),
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "api_management_api_schema.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewApiSchema(ctx, "example", &apimanagement.ApiSchemaArgs{
+//				ApiName:           *pulumi.String(example.Name),
+//				ApiManagementName: *pulumi.String(example.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //				SchemaId:          pulumi.String("example-schema"),
 //				ContentType:       pulumi.String("application/vnd.ms-azure-apim.xsd+xml"),
-//				Value:             readFileOrPanic("api_management_api_schema.xml"),
+//				Value:             invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

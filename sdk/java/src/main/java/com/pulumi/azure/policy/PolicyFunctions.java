@@ -53,7 +53,7 @@ public final class PolicyFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .scopeId(data.azurerm_resource_group().example().id())
+     *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
@@ -92,7 +92,7 @@ public final class PolicyFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .scopeId(data.azurerm_resource_group().example().id())
+     *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
@@ -131,7 +131,7 @@ public final class PolicyFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .scopeId(data.azurerm_resource_group().example().id())
+     *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));
@@ -170,7 +170,7 @@ public final class PolicyFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = PolicyFunctions.getPolicyAssignment(GetPolicyAssignmentArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .scopeId(data.azurerm_resource_group().example().id())
+     *             .scopeId(exampleAzurermResourceGroup.id())
      *             .build());
      * 
      *         ctx.export(&#34;id&#34;, example.applyValue(getPolicyAssignmentResult -&gt; getPolicyAssignmentResult.id()));

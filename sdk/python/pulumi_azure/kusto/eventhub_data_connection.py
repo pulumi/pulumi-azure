@@ -499,8 +499,11 @@ class EventhubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-rg",
+            location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
+            name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
@@ -508,25 +511,30 @@ class EventhubDataConnection(pulumi.CustomResource):
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
+            name="my-kusto-database",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
-        eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
+        eventhub_ns = azure.eventhub.EventHubNamespace("eventhub_ns",
+            name="my-eventhub-ns",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
+            name="my-eventhub",
             namespace_name=eventhub_ns.name,
             resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
-        consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
+        consumer_group = azure.eventhub.ConsumerGroup("consumer_group",
+            name="my-eventhub-consumergroup",
             namespace_name=eventhub_ns.name,
             eventhub_name=eventhub.name,
             resource_group_name=example.name)
-        eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
+        eventhub_connection = azure.kusto.EventhubDataConnection("eventhub_connection",
+            name="my-kusto-eventhub-data-connection",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
@@ -536,7 +544,6 @@ class EventhubDataConnection(pulumi.CustomResource):
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
-        #(Optional)
         ```
 
         ## Import
@@ -579,8 +586,11 @@ class EventhubDataConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-rg",
+            location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
+            name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
@@ -588,25 +598,30 @@ class EventhubDataConnection(pulumi.CustomResource):
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
+            name="my-kusto-database",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
             hot_cache_period="P7D",
             soft_delete_period="P31D")
-        eventhub_ns = azure.eventhub.EventHubNamespace("eventhubNs",
+        eventhub_ns = azure.eventhub.EventHubNamespace("eventhub_ns",
+            name="my-eventhub-ns",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         eventhub = azure.eventhub.EventHub("eventhub",
+            name="my-eventhub",
             namespace_name=eventhub_ns.name,
             resource_group_name=example.name,
             partition_count=1,
             message_retention=1)
-        consumer_group = azure.eventhub.ConsumerGroup("consumerGroup",
+        consumer_group = azure.eventhub.ConsumerGroup("consumer_group",
+            name="my-eventhub-consumergroup",
             namespace_name=eventhub_ns.name,
             eventhub_name=eventhub.name,
             resource_group_name=example.name)
-        eventhub_connection = azure.kusto.EventhubDataConnection("eventhubConnection",
+        eventhub_connection = azure.kusto.EventhubDataConnection("eventhub_connection",
+            name="my-kusto-eventhub-data-connection",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
@@ -616,7 +631,6 @@ class EventhubDataConnection(pulumi.CustomResource):
             table_name="my-table",
             mapping_rule_name="my-table-mapping",
             data_format="JSON")
-        #(Optional)
         ```
 
         ## Import

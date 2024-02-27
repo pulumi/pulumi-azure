@@ -21,36 +21,28 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroup-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account-example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
@@ -58,19 +50,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := automation.NewCertificate(ctx, "exampleCertificate", &automation.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := automation.NewCertificate(ctx, "example", &automation.CertificateArgs{
+//				Name:                  pulumi.String("certificate-example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
-//				Base64:                filebase64OrPanic("certificate.pfx"),
+//				Base64:                invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewConnectionCertificate(ctx, "exampleConnectionCertificate", &automation.ConnectionCertificateArgs{
+//			_, err = automation.NewConnectionCertificate(ctx, "example", &automation.ConnectionCertificateArgs{
+//				Name:                      pulumi.String("connection-example"),
 //				ResourceGroupName:         exampleResourceGroup.Name,
 //				AutomationAccountName:     exampleAccount.Name,
 //				AutomationCertificateName: exampleCertificate.Name,
-//				SubscriptionId:            *pulumi.String(exampleClientConfig.SubscriptionId),
+//				SubscriptionId:            *pulumi.String(example.SubscriptionId),
 //			})
 //			if err != nil {
 //				return err

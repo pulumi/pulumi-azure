@@ -26,23 +26,26 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-fs",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AdministratorLogin = "adminTerraform",
     ///         AdministratorPassword = "H@Sh1CoR3!",
     ///         SkuName = "GP_Standard_D2ds_v4",
     ///     });
     /// 
-    ///     var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("exampleFlexibleServerConfiguration", new()
+    ///     var exampleFlexibleServerConfiguration = new Azure.MySql.FlexibleServerConfiguration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "interactive_timeout",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleFlexibleServer.Name,
     ///         Value = "600",
     ///     });

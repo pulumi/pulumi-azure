@@ -13,11 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
@@ -27,16 +31,19 @@ import * as utilities from "../utilities";
  *     ],
  *     description: "example network manager",
  * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
+ *     name: "example-group",
  *     networkManagerId: exampleNetworkManager.id,
  *     description: "example network group",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["192.168.1.0/24"],
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  * });
- * const exampleNetworkManagerStaticMember = new azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", {
+ * const exampleNetworkManagerStaticMember = new azure.network.NetworkManagerStaticMember("example", {
+ *     name: "example-nmsm",
  *     networkGroupId: exampleNetworkManagerNetworkGroup.id,
  *     targetVirtualNetworkId: exampleVirtualNetwork.id,
  * });

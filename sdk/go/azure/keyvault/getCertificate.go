@@ -27,21 +27,21 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//			example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
 //				Name:              "examplekv",
 //				ResourceGroupName: "some-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.LookupCertificate(ctx, &keyvault.LookupCertificateArgs{
+//			exampleGetCertificate, err := keyvault.LookupCertificate(ctx, &keyvault.LookupCertificateArgs{
 //				Name:       "secret-sauce",
-//				KeyVaultId: exampleKeyVault.Id,
+//				KeyVaultId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("certificateThumbprint", exampleCertificate.Thumbprint)
+//			ctx.Export("certificateThumbprint", exampleGetCertificate.Thumbprint)
 //			return nil
 //		})
 //	}

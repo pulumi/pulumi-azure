@@ -1092,14 +1092,18 @@ class WindowsWebApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="P1v2",
             os_type="Windows")
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            resource_group_name=example_resource_group.name,
+        example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            name="example",
+            resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())
@@ -1163,14 +1167,18 @@ class WindowsWebApp(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service_plan = azure.appservice.ServicePlan("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="P1v2",
             os_type="Windows")
-        example_windows_web_app = azure.appservice.WindowsWebApp("exampleWindowsWebApp",
-            resource_group_name=example_resource_group.name,
+        example_windows_web_app = azure.appservice.WindowsWebApp("example",
+            name="example",
+            resource_group_name=example.name,
             location=example_service_plan.location,
             service_plan_id=example_service_plan.id,
             site_config=azure.appservice.WindowsWebAppSiteConfigArgs())

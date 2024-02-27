@@ -31,33 +31,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("windowsfunctionappsa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-app-service-plan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OsType:            pulumi.String("Windows"),
 //				SkuName:           pulumi.String("Y1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				Location:           exampleResourceGroup.Location,
+//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				Name:               pulumi.String("example-windows-function-app"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
 //				StorageAccountName: exampleAccount.Name,
 //				ServicePlanId:      exampleServicePlan.ID(),
 //				SiteConfig:         nil,
@@ -65,7 +69,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsFunctionAppSlot, err := appservice.NewWindowsFunctionAppSlot(ctx, "exampleWindowsFunctionAppSlot", &appservice.WindowsFunctionAppSlotArgs{
+//			exampleWindowsFunctionAppSlot, err := appservice.NewWindowsFunctionAppSlot(ctx, "example", &appservice.WindowsFunctionAppSlotArgs{
+//				Name:               pulumi.String("example-windows-function-app-slot"),
 //				FunctionAppId:      exampleWindowsFunctionApp.ID(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         nil,
@@ -73,7 +78,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewFunctionAppActiveSlot(ctx, "exampleFunctionAppActiveSlot", &appservice.FunctionAppActiveSlotArgs{
+//			_, err = appservice.NewFunctionAppActiveSlot(ctx, "example", &appservice.FunctionAppActiveSlotArgs{
 //				SlotId: exampleWindowsFunctionAppSlot.ID(),
 //			})
 //			if err != nil {
@@ -100,33 +105,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("linuxfunctionappsa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-app-service-plan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OsType:            pulumi.String("Linux"),
 //				SkuName:           pulumi.String("Y1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				Location:           exampleResourceGroup.Location,
+//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				Name:               pulumi.String("example-linux-function-app"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
 //				ServicePlanId:      exampleServicePlan.ID(),
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         nil,
@@ -134,7 +143,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxFunctionAppSlot, err := appservice.NewLinuxFunctionAppSlot(ctx, "exampleLinuxFunctionAppSlot", &appservice.LinuxFunctionAppSlotArgs{
+//			exampleLinuxFunctionAppSlot, err := appservice.NewLinuxFunctionAppSlot(ctx, "example", &appservice.LinuxFunctionAppSlotArgs{
+//				Name:               pulumi.String("example-linux-function-app-slot"),
 //				FunctionAppId:      exampleLinuxFunctionApp.Name,
 //				StorageAccountName: exampleAccount.Name,
 //				SiteConfig:         nil,
@@ -142,7 +152,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewFunctionAppActiveSlot(ctx, "exampleFunctionAppActiveSlot", &appservice.FunctionAppActiveSlotArgs{
+//			_, err = appservice.NewFunctionAppActiveSlot(ctx, "example", &appservice.FunctionAppActiveSlotArgs{
 //				SlotId: exampleLinuxFunctionAppSlot.ID(),
 //			})
 //			if err != nil {

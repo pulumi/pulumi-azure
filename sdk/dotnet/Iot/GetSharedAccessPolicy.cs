@@ -29,8 +29,8 @@ namespace Pulumi.Azure.Iot
         ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         IothubName = azurerm_iothub.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         IothubName = exampleAzurermIothub.Name,
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Azure.Iot
         ///     var example = Azure.Iot.GetSharedAccessPolicy.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         IothubName = azurerm_iothub.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         IothubName = exampleAzurermIothub.Name,
         ///     });
         /// 
         /// });

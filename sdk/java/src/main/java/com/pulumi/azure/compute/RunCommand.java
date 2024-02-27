@@ -69,7 +69,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.RunCommandOutputBlobManagedIdentityArgs;
  * import com.pulumi.azure.compute.inputs.RunCommandParameterArgs;
  * import com.pulumi.azure.compute.inputs.RunCommandProtectedParameterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -84,22 +83,26 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;internal&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .name(&#34;example-nic&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -110,11 +113,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
+ *             .name(&#34;example-uai&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
+ *             .name(&#34;example-VM&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .size(&#34;Standard_B2s&#34;)
@@ -139,6 +144,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;exampleaccount&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -152,30 +158,34 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;example-sc&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;blob&#34;)
  *             .build());
  * 
  *         var example1 = new Blob(&#34;example1&#34;, BlobArgs.builder()        
+ *             .name(&#34;script1&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type(&#34;Block&#34;)
  *             .sourceContent(&#34;echo &#39;hello world&#39;&#34;)
  *             .build());
  * 
- *         var example2Blob = new Blob(&#34;example2Blob&#34;, BlobArgs.builder()        
+ *         var example2 = new Blob(&#34;example2&#34;, BlobArgs.builder()        
+ *             .name(&#34;output&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type(&#34;Append&#34;)
  *             .build());
  * 
- *         var example3Blob = new Blob(&#34;example3Blob&#34;, BlobArgs.builder()        
+ *         var example3 = new Blob(&#34;example3&#34;, BlobArgs.builder()        
+ *             .name(&#34;error&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type(&#34;Append&#34;)
  *             .build());
  * 
- *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+ *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
  *             .connectionString(exampleAccount.primaryConnectionString())
  *             .httpsOnly(true)
  *             .signedVersion(&#34;2019-10-10&#34;)
@@ -207,6 +217,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRunCommand = new RunCommand(&#34;exampleRunCommand&#34;, RunCommandArgs.builder()        
+ *             .name(&#34;example-vmrc&#34;)
  *             .location(exampleResourceGroup.location())
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .source(RunCommandSourceArgs.builder()
@@ -216,9 +227,10 @@ import javax.annotation.Nullable;
  * 
  *         var example2RunCommand = new RunCommand(&#34;example2RunCommand&#34;, RunCommandArgs.builder()        
  *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example2-vmrc&#34;)
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
- *             .outputBlobUri(example2Blob.id())
- *             .errorBlobUri(example3Blob.id())
+ *             .outputBlobUri(example2.id())
+ *             .errorBlobUri(example3.id())
  *             .runAsPassword(&#34;P@$$w0rd1234!&#34;)
  *             .runAsUser(&#34;adminuser&#34;)
  *             .source(RunCommandSourceArgs.builder()
@@ -245,30 +257,29 @@ import javax.annotation.Nullable;
  *                 Map.entry(&#34;environment&#34;, &#34;terraform-examples&#34;),
  *                 Map.entry(&#34;some_key&#34;, &#34;some-value&#34;)
  *             ))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *         var example3RunCommand = new RunCommand(&#34;example3RunCommand&#34;, RunCommandArgs.builder()        
  *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example3-vmrc&#34;)
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .runAsPassword(&#34;P@$$w0rd1234!&#34;)
  *             .runAsUser(&#34;adminuser&#34;)
- *             .errorBlobUri(Output.tuple(example3Blob.id(), exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
+ *             .errorBlobUri(Output.tuple(example3.id(), example.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
  *                 var id = values.t1;
- *                 var exampleAccountSAS = values.t2;
- *                 return String.format(&#34;%s%s&#34;, id,exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
+ *                 var example = values.t2;
+ *                 return String.format(&#34;%s%s&#34;, id,example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
  *             }))
- *             .outputBlobUri(Output.tuple(example2Blob.id(), exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
+ *             .outputBlobUri(Output.tuple(example2.id(), example.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
  *                 var id = values.t1;
- *                 var exampleAccountSAS = values.t2;
- *                 return String.format(&#34;%s%s&#34;, id,exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
+ *                 var example = values.t2;
+ *                 return String.format(&#34;%s%s&#34;, id,example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
  *             }))
  *             .source(RunCommandSourceArgs.builder()
- *                 .scriptUri(Output.tuple(example1.id(), exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
+ *                 .scriptUri(Output.tuple(example1.id(), example.applyValue(getAccountSASResult -&gt; getAccountSASResult)).applyValue(values -&gt; {
  *                     var id = values.t1;
- *                     var exampleAccountSAS = values.t2;
- *                     return String.format(&#34;%s%s&#34;, id,exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
+ *                     var example = values.t2;
+ *                     return String.format(&#34;%s%s&#34;, id,example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas()));
  *                 }))
  *                 .build())
  *             .parameters(RunCommandParameterArgs.builder()

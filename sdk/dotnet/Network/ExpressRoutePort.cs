@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("exampleExpressRoutePort", new()
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "port1",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         PeeringLocation = "Airtel-Chennai-CLS",
     ///         BandwidthInGbps = 10,
     ///         Encapsulation = "Dot1Q",

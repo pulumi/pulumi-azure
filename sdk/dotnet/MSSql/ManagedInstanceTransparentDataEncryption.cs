@@ -27,24 +27,27 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "EastUs",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctest-vnet1-mssql",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = azurerm_resource_group.Test.Location,
+    ///         Location = test.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "subnet1-mssql",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -69,10 +72,11 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mssqlinstance",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         LicenseType = "BasePrice",
     ///         SkuName = "GP_Gen5",
     ///         StorageSizeInGb = 32,
@@ -86,7 +90,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", new()
+    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("example", new()
     ///     {
     ///         ManagedInstanceId = exampleManagedInstance.Id,
     ///     });
@@ -105,24 +109,27 @@ namespace Pulumi.Azure.MSSql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "EastUs",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctest-vnet1-mssql",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = azurerm_resource_group.Test.Location,
+    ///         Location = test.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "subnet1-mssql",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -147,10 +154,11 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mssqlinstance",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         LicenseType = "BasePrice",
     ///         SkuName = "GP_Gen5",
     ///         StorageSizeInGb = 32,
@@ -165,10 +173,11 @@ namespace Pulumi.Azure.MSSql
     ///     });
     /// 
     ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Managed Instance to wrap/unwrap/get key
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,
@@ -206,8 +215,9 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "byok",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -216,15 +226,9 @@ namespace Pulumi.Azure.MSSql
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleKeyVault,
-    ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("exampleManagedInstanceTransparentDataEncryption", new()
+    ///     var exampleManagedInstanceTransparentDataEncryption = new Azure.MSSql.ManagedInstanceTransparentDataEncryption("example", new()
     ///     {
     ///         ManagedInstanceId = exampleManagedInstance.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

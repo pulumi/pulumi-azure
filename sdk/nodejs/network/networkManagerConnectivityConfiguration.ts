@@ -17,11 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-network-manager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
@@ -31,15 +35,23 @@ import * as utilities from "../utilities";
  *     ],
  *     description: "example network manager",
  * });
- * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", {networkManagerId: exampleNetworkManager.id});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManagerNetworkGroup = new azure.network.NetworkManagerNetworkGroup("example", {
+ *     name: "example-group",
+ *     networkManagerId: exampleNetworkManager.id,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-net",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  *     flowTimeoutInMinutes: 10,
  * });
- * const example2 = new azure.network.NetworkManagerNetworkGroup("example2", {networkManagerId: exampleNetworkManager.id});
- * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("exampleNetworkManagerConnectivityConfiguration", {
+ * const example2 = new azure.network.NetworkManagerNetworkGroup("example2", {
+ *     name: "example-group2",
+ *     networkManagerId: exampleNetworkManager.id,
+ * });
+ * const exampleNetworkManagerConnectivityConfiguration = new azure.network.NetworkManagerConnectivityConfiguration("example", {
+ *     name: "example-connectivity-conf",
  *     networkManagerId: exampleNetworkManager.id,
  *     connectivityTopology: "HubAndSpoke",
  *     appliesToGroups: [

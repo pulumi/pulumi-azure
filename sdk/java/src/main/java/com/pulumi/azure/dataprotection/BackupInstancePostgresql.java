@@ -64,13 +64,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;B_Gen5_2&#34;)
  *             .storageMb(5120)
  *             .backupRetentionDays(7)
@@ -83,22 +85,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;AllowAllWindowsAzureIps&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
  *             .endIpAddress(&#34;0.0.0.0&#34;)
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .charset(&#34;UTF8&#34;)
  *             .collation(&#34;English_United States.1252&#34;)
  *             .build());
  * 
  *         var exampleBackupVault = new BackupVault(&#34;exampleBackupVault&#34;, BackupVaultArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .datastoreType(&#34;VaultStore&#34;)
  *             .redundancy(&#34;LocallyRedundant&#34;)
  *             .identity(BackupVaultIdentityArgs.builder()
@@ -107,8 +112,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .softDeleteRetentionDays(7)
@@ -142,6 +148,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSecret = new Secret(&#34;exampleSecret&#34;, SecretArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .value(Output.tuple(exampleServer.name(), exampleDatabase.name(), exampleServer.name()).applyValue(values -&gt; {
  *                 var exampleServerName = values.t1;
  *                 var exampleDatabaseName = values.t2;
@@ -152,7 +159,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupPolicyPostgresql = new BackupPolicyPostgresql(&#34;exampleBackupPolicyPostgresql&#34;, BackupPolicyPostgresqlArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .vaultName(exampleBackupVault.name())
  *             .backupRepeatingTimeIntervals(&#34;R/2021-05-23T02:30:00+00:00/P1W&#34;)
  *             .defaultRetentionDuration(&#34;P4M&#34;)
@@ -165,7 +173,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackupInstancePostgresql = new BackupInstancePostgresql(&#34;exampleBackupInstancePostgresql&#34;, BackupInstancePostgresqlArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
  *             .vaultId(exampleBackupVault.id())
  *             .databaseId(exampleDatabase.id())
  *             .backupPolicyId(exampleBackupPolicyPostgresql.id())

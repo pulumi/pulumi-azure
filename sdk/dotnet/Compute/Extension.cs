@@ -21,31 +21,34 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "acctvn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctsub",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -53,10 +56,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctni",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -68,10 +72,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Size = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
@@ -83,7 +88,10 @@ namespace Pulumi.Azure.Compute
     ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
     ///             {
     ///                 Username = "adminuser",
-    ///                 PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "~/.ssh/id_rsa.pub",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
@@ -100,8 +108,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     var exampleExtension = new Azure.Compute.Extension("example", new()
     ///     {
+    ///         Name = "hostname",
     ///         VirtualMachineId = exampleLinuxVirtualMachine.Id,
     ///         Publisher = "Microsoft.Azure.Extensions",
     ///         Type = "CustomScript",
@@ -202,16 +211,6 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
@@ -372,16 +371,6 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
@@ -500,16 +489,6 @@ namespace Pulumi.Azure.Compute
         /// The type of extension, available types for a publisher can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }

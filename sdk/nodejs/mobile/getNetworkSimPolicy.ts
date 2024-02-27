@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetwork = azure.mobile.getNetwork({
+ * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkSimPolicy = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkSimPolicy({
+ * const exampleGetNetworkSimPolicy = example.then(example => azure.mobile.getNetworkSimPolicy({
  *     name: "example-mnsp",
- *     mobileNetworkId: exampleNetwork.id,
+ *     mobileNetworkId: example.id,
  * }));
  * ```
  */
@@ -96,13 +96,13 @@ export interface GetNetworkSimPolicyResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetwork = azure.mobile.getNetwork({
+ * const example = azure.mobile.getNetwork({
  *     name: "example-mn",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkSimPolicy = exampleNetwork.then(exampleNetwork => azure.mobile.getNetworkSimPolicy({
+ * const exampleGetNetworkSimPolicy = example.then(example => azure.mobile.getNetworkSimPolicy({
  *     name: "example-mnsp",
- *     mobileNetworkId: exampleNetwork.id,
+ *     mobileNetworkId: example.id,
  * }));
  * ```
  */

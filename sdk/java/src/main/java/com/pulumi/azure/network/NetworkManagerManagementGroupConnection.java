@@ -38,7 +38,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkManagerScopeArgs;
  * import com.pulumi.azure.network.NetworkManagerManagementGroupConnection;
  * import com.pulumi.azure.network.NetworkManagerManagementGroupConnectionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,47 +51,48 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+ *         var example = new Group(&#34;example&#34;);
  * 
  *         final var alt = CoreFunctions.getSubscription(GetSubscriptionArgs.builder()
  *             .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *         var exampleGroupSubscriptionAssociation = new GroupSubscriptionAssociation(&#34;exampleGroupSubscriptionAssociation&#34;, GroupSubscriptionAssociationArgs.builder()        
- *             .managementGroupId(exampleGroup.id())
+ *             .managementGroupId(example.id())
  *             .subscriptionId(alt.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
- *         final var currentSubscription = CoreFunctions.getSubscription();
+ *         final var current = CoreFunctions.getSubscription();
  * 
- *         final var currentClientConfig = CoreFunctions.getClientConfig();
+ *         final var currentGetClientConfig = CoreFunctions.getClientConfig();
  * 
  *         var networkContributor = new Assignment(&#34;networkContributor&#34;, AssignmentArgs.builder()        
- *             .scope(exampleGroup.id())
+ *             .scope(example.id())
  *             .roleDefinitionName(&#34;Network Contributor&#34;)
- *             .principalId(currentClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(currentGetClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
+ *             .name(&#34;example-networkmanager&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .scope(NetworkManagerScopeArgs.builder()
- *                 .subscriptionIds(currentSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
  *             .scopeAccesses(&#34;SecurityAdmin&#34;)
  *             .build());
  * 
  *         var exampleNetworkManagerManagementGroupConnection = new NetworkManagerManagementGroupConnection(&#34;exampleNetworkManagerManagementGroupConnection&#34;, NetworkManagerManagementGroupConnectionArgs.builder()        
- *             .managementGroupId(exampleGroup.id())
+ *             .name(&#34;example-nmmgc&#34;)
+ *             .managementGroupId(example.id())
  *             .networkManagerId(exampleNetworkManager.id())
  *             .description(&#34;example&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(networkContributor)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

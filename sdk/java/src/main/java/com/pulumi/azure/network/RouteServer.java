@@ -51,33 +51,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vn&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;RouteServerSubnet&#34;)
  *             .virtualNetworkName(exampleVirtualNetwork.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-pip&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .allocationMethod(&#34;Static&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleRouteServer = new RouteServer(&#34;exampleRouteServer&#34;, RouteServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-routerserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Standard&#34;)
  *             .publicIpAddressId(examplePublicIp.id())
  *             .subnetId(exampleSubnet.id())

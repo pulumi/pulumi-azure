@@ -885,16 +885,21 @@ class VirtualMachine(pulumi.CustomResource):
         prefix = config.get("prefix")
         if prefix is None:
             prefix = "tfvmex"
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name=f"{prefix}-resources",
+            location="West Europe")
+        main = azure.network.VirtualNetwork("main",
+            name=f"{prefix}-network",
             address_spaces=["10.0.0.0/16"],
             location=example.location,
             resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
+            name="internal",
             resource_group_name=example.name,
-            virtual_network_name=main_virtual_network.name,
+            virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+        main_network_interface = azure.network.NetworkInterface("main",
+            name=f"{prefix}-nic",
             location=example.location,
             resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
@@ -902,7 +907,8 @@ class VirtualMachine(pulumi.CustomResource):
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
+        main_virtual_machine = azure.compute.VirtualMachine("main",
+            name=f"{prefix}-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],
@@ -1005,16 +1011,21 @@ class VirtualMachine(pulumi.CustomResource):
         prefix = config.get("prefix")
         if prefix is None:
             prefix = "tfvmex"
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_virtual_network = azure.network.VirtualNetwork("mainVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name=f"{prefix}-resources",
+            location="West Europe")
+        main = azure.network.VirtualNetwork("main",
+            name=f"{prefix}-network",
             address_spaces=["10.0.0.0/16"],
             location=example.location,
             resource_group_name=example.name)
         internal = azure.network.Subnet("internal",
+            name="internal",
             resource_group_name=example.name,
-            virtual_network_name=main_virtual_network.name,
+            virtual_network_name=main.name,
             address_prefixes=["10.0.2.0/24"])
-        main_network_interface = azure.network.NetworkInterface("mainNetworkInterface",
+        main_network_interface = azure.network.NetworkInterface("main",
+            name=f"{prefix}-nic",
             location=example.location,
             resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
@@ -1022,7 +1033,8 @@ class VirtualMachine(pulumi.CustomResource):
                 subnet_id=internal.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        main_virtual_machine = azure.compute.VirtualMachine("mainVirtualMachine",
+        main_virtual_machine = azure.compute.VirtualMachine("main",
+            name=f"{prefix}-vm",
             location=example.location,
             resource_group_name=example.name,
             network_interface_ids=[main_network_interface.id],

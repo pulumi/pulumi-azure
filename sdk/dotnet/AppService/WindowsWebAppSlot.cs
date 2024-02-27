@@ -22,29 +22,33 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-plan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         OsType = "Windows",
     ///         SkuName = "P1v2",
     ///     });
     /// 
-    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-windows-web-app",
+    ///         ResourceGroupName = example.Name,
     ///         Location = exampleServicePlan.Location,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("exampleWindowsWebAppSlot", new()
+    ///     var exampleWindowsWebAppSlot = new Azure.AppService.WindowsWebAppSlot("example", new()
     ///     {
+    ///         Name = "example-slot",
     ///         AppServiceId = exampleWindowsWebApp.Id,
     ///         SiteConfig = null,
     ///     });

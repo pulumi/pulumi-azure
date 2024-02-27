@@ -24,8 +24,9 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleRG",
     ///         Location = "West Europe",
     ///     });
     /// 
@@ -34,8 +35,9 @@ namespace Pulumi.Azure.Kusto
     ///         RoleDefinitionId = "fbdf93bf-df7d-467e-a4d2-9458aa1360c8",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
+    ///         Name = "examplekc",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
@@ -49,15 +51,16 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Scope = exampleResourceGroup.Id,
     ///         RoleDefinitionName = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Name),
     ///         PrincipalId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
+    ///         Name = "example-ca",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         OfferType = "Standard",
@@ -78,14 +81,16 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
     ///     {
+    ///         Name = "examplecosmosdbsqldb",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
+    ///         Name = "examplecosmosdbsqlcon",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         DatabaseName = exampleSqlDatabase.Name,
@@ -93,31 +98,33 @@ namespace Pulumi.Azure.Kusto
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlRoleDefinition = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
     ///     {
     ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000001",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleSqlRoleAssignment = new Azure.CosmosDB.SqlRoleAssignment("exampleSqlRoleAssignment", new()
+    ///     var exampleSqlRoleAssignment = new Azure.CosmosDB.SqlRoleAssignment("example", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AccountName = exampleAccount.Name,
-    ///         RoleDefinitionId = exampleSqlRoleDefinition.Apply(getSqlRoleDefinitionResult =&gt; getSqlRoleDefinitionResult.Id),
+    ///         RoleDefinitionId = example.Apply(getSqlRoleDefinitionResult =&gt; getSqlRoleDefinitionResult.Id),
     ///         PrincipalId = exampleCluster.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         Scope = exampleAccount.Id,
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
     ///     {
+    ///         Name = "examplekd",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         ClusterName = exampleCluster.Name,
     ///     });
     /// 
-    ///     var exampleScript = new Azure.Kusto.Script("exampleScript", new()
+    ///     var exampleScript = new Azure.Kusto.Script("example", new()
     ///     {
+    ///         Name = "create-table-script",
     ///         DatabaseId = exampleDatabase.Id,
     ///         ScriptContent = @".create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
     /// .create table TestTable ingestion json mapping ""TestMapping""
@@ -131,8 +138,9 @@ namespace Pulumi.Azure.Kusto
     /// ",
     ///     });
     /// 
-    ///     var exampleCosmosdbDataConnection = new Azure.Kusto.CosmosdbDataConnection("exampleCosmosdbDataConnection", new()
+    ///     var exampleCosmosdbDataConnection = new Azure.Kusto.CosmosdbDataConnection("example", new()
     ///     {
+    ///         Name = "examplekcdcd",
     ///         Location = exampleResourceGroup.Location,
     ///         CosmosdbContainerId = exampleSqlContainer.Id,
     ///         KustoDatabaseId = exampleDatabase.Id,

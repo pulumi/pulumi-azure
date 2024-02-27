@@ -27,6 +27,7 @@ namespace Pulumi.Azure.ManagementResource
     /// 
     ///     var subscription_level = new Azure.Management.Lock("subscription-level", new()
     ///     {
+    ///         Name = "subscription-level",
     ///         Scope = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         LockLevel = "CanNotDelete",
     ///         Notes = "Items can't be deleted in this subscription!",
@@ -46,11 +47,13 @@ namespace Pulumi.Azure.ManagementResource
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "locked-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var resource_group_level = new Azure.Management.Lock("resource-group-level", new()
     ///     {
+    ///         Name = "resource-group-level",
     ///         Scope = example.Id,
     ///         LockLevel = "ReadOnly",
     ///         Notes = "This Resource Group is Read-Only",
@@ -68,21 +71,24 @@ namespace Pulumi.Azure.ManagementResource
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "locked-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "locked-publicip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         IdleTimeoutInMinutes = 30,
     ///     });
     /// 
     ///     var public_ip = new Azure.Management.Lock("public-ip", new()
     ///     {
+    ///         Name = "resource-ip",
     ///         Scope = examplePublicIp.Id,
     ///         LockLevel = "CanNotDelete",
     ///         Notes = "Locked because it's needed by a third-party",

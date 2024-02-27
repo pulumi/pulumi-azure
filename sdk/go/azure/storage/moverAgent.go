@@ -31,21 +31,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMover, err := storage.NewMover(ctx, "exampleMover", &storage.MoverArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleMover, err := storage.NewMover(ctx, "example", &storage.MoverArgs{
+//				Name:              pulumi.String("example-ssm"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewMoverAgent(ctx, "exampleMoverAgent", &storage.MoverAgentArgs{
+//			_, err = storage.NewMoverAgent(ctx, "example", &storage.MoverAgentArgs{
+//				Name:           pulumi.String("example-sa"),
 //				StorageMoverId: exampleMover.ID(),
-//				ArcVirtualMachineId: exampleResourceGroup.ID().ApplyT(func(id string) (string, error) {
+//				ArcVirtualMachineId: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("%v/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName", id), nil
 //				}).(pulumi.StringOutput),
 //				ArcVirtualMachineUuid: pulumi.String("3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9"),

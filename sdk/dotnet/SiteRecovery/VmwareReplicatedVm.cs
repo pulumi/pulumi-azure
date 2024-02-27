@@ -22,53 +22,60 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-recovery-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleVMWareReplicationPolicy = new Azure.SiteRecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy", new()
+    ///     var exampleVMWareReplicationPolicy = new Azure.SiteRecovery.VMWareReplicationPolicy("example", new()
     ///     {
     ///         RecoveryVaultId = exampleVault.Id,
+    ///         Name = "example-policy",
     ///         RecoveryPointRetentionInMinutes = 1440,
     ///         ApplicationConsistentSnapshotFrequencyInMinutes = 240,
     ///     });
     /// 
     ///     var test = new Azure.SiteRecovery.VmwareReplicationPolicyAssociation("test", new()
     ///     {
+    ///         Name = "example-association",
     ///         RecoveryVaultId = exampleVault.Id,
     ///         PolicyId = exampleVMWareReplicationPolicy.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageacc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountKind = "StorageV2",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-net",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.2.0/24",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -76,17 +83,18 @@ namespace Pulumi.Azure.SiteRecovery
     ///         },
     ///     });
     /// 
-    ///     var exampleVmwareReplicatedVm = new Azure.SiteRecovery.VmwareReplicatedVm("exampleVmwareReplicatedVm", new()
+    ///     var exampleVmwareReplicatedVm = new Azure.SiteRecovery.VmwareReplicatedVm("example", new()
     ///     {
+    ///         Name = "example-vmware-vm",
     ///         RecoveryVaultId = exampleVault.Id,
     ///         SourceVmName = "example-vm",
     ///         ApplianceName = "example-appliance",
-    ///         RecoveryReplicationPolicyId = azurerm_site_recovery_vmware_replication_policy_association.Example.Policy_id,
+    ///         RecoveryReplicationPolicyId = exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.PolicyId,
     ///         PhysicalServerCredentialName = "example-creds",
     ///         LicenseType = "NotSpecified",
     ///         TargetBootDiagnosticsStorageAccountId = exampleAccount.Id,
     ///         TargetVmName = "example_replicated_vm",
-    ///         TargetResourceGroupId = exampleResourceGroup.Id,
+    ///         TargetResourceGroupId = example.Id,
     ///         DefaultLogStorageAccountId = exampleAccount.Id,
     ///         DefaultRecoveryDiskType = "Standard_LRS",
     ///         TargetNetworkId = exampleVirtualNetwork.Id,

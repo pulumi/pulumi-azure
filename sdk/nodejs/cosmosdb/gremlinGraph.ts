@@ -15,17 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.cosmosdb.getAccount({
+ * const example = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
- * const exampleGremlinDatabase = new azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleGremlinDatabase = new azure.cosmosdb.GremlinDatabase("example", {
+ *     name: "tfex-cosmos-gremlin-db",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  * });
- * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("exampleGremlinGraph", {
- *     resourceGroupName: exampleAccount.then(exampleAccount => exampleAccount.resourceGroupName),
- *     accountName: exampleAccount.then(exampleAccount => exampleAccount.name),
+ * const exampleGremlinGraph = new azure.cosmosdb.GremlinGraph("example", {
+ *     name: "tfex-cosmos-gremlin-graph",
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
+ *     accountName: example.then(example => example.name),
  *     databaseName: exampleGremlinDatabase.name,
  *     partitionKeyPath: "/Example",
  *     throughput: 400,

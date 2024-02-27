@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleProfile, err := cdn.NewProfile(ctx, "example", &cdn.ProfileArgs{
+//				Name:              pulumi.String("example-cdn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard_Verizon"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
+//			_, err = cdn.NewEndpoint(ctx, "example", &cdn.EndpointArgs{
+//				Name:              pulumi.String("example"),
 //				ProfileName:       exampleProfile.Name,
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Origins: cdn.EndpointOriginArray{
 //					&cdn.EndpointOriginArgs{
 //						Name:     pulumi.String("example"),

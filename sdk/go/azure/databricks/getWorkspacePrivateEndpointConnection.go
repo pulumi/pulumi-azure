@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := databricks.GetWorkspacePrivateEndpointConnection(ctx, &databricks.GetWorkspacePrivateEndpointConnectionArgs{
-//				WorkspaceId:       azurerm_databricks_workspace.Example.Id,
-//				PrivateEndpointId: azurerm_private_endpoint.Example.Id,
+//				WorkspaceId:       exampleAzurermDatabricksWorkspace.Id,
+//				PrivateEndpointId: exampleAzurermPrivateEndpoint.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

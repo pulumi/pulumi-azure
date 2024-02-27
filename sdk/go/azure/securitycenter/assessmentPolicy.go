@@ -29,9 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewAssessmentPolicy(ctx, "example", &securitycenter.AssessmentPolicyArgs{
-//				Description: pulumi.String("Test Description"),
 //				DisplayName: pulumi.String("Test Display Name"),
 //				Severity:    pulumi.String("Medium"),
+//				Description: pulumi.String("Test Description"),
 //			})
 //			if err != nil {
 //				return err

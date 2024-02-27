@@ -43,13 +43,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new RouteFilter(&#34;example&#34;, RouteFilterArgs.builder()        
- *             .location(&#34;East US&#34;)
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example&#34;)
+ *             .location(&#34;East US&#34;)
  *             .rule(RouteFilterRuleArgs.builder()
- *                 .access(&#34;Allow&#34;)
- *                 .communities(&#34;12076:52004&#34;)
  *                 .name(&#34;rule&#34;)
+ *                 .access(&#34;Allow&#34;)
  *                 .ruleType(&#34;Community&#34;)
+ *                 .communities(&#34;12076:52004&#34;)
  *                 .build())
  *             .build());
  * 

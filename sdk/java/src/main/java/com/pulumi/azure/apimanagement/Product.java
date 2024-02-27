@@ -45,13 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;My Company&#34;)
  *             .publisherEmail(&#34;company@exmaple.com&#34;)
  *             .skuName(&#34;Developer_1&#34;)
@@ -60,7 +62,7 @@ import javax.annotation.Nullable;
  *         var exampleProduct = new Product(&#34;exampleProduct&#34;, ProductArgs.builder()        
  *             .productId(&#34;test-product&#34;)
  *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .displayName(&#34;Test Product&#34;)
  *             .subscriptionRequired(true)
  *             .approvalRequired(true)

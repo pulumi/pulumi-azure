@@ -43,19 +43,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-hostpool&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var exampleHostPool = new HostPool(&#34;exampleHostPool&#34;, HostPoolArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-HP&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .type(&#34;Pooled&#34;)
  *             .validateEnvironment(true)
  *             .loadBalancerType(&#34;BreadthFirst&#34;)
  *             .build());
  * 
- *         var examplegetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo(&#34;examplegetHostPoolRegistrationInfo&#34;, GetHostPoolRegistrationInfoArgs.builder()        
+ *         var exampleGetHostPoolRegistrationInfo = new GetHostPoolRegistrationInfo(&#34;exampleGetHostPoolRegistrationInfo&#34;, GetHostPoolRegistrationInfoArgs.builder()        
  *             .hostpoolId(exampleHostPool.id())
  *             .expirationDate(&#34;2022-01-01T23:40:52Z&#34;)
  *             .build());

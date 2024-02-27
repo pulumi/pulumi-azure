@@ -22,54 +22,62 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var primaryResourceGroup = new Azure.Core.ResourceGroup("primaryResourceGroup", new()
+    ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-primary",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var secondaryResourceGroup = new Azure.Core.ResourceGroup("secondaryResourceGroup", new()
+    ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
-    ///         Location = secondaryResourceGroup.Location,
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "example-recovery-vault",
+    ///         Location = secondary.Location,
+    ///         ResourceGroupName = secondary.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primaryFabric", new()
+    ///     var primaryFabric = new Azure.SiteRecovery.Fabric("primary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "primary-fabric",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
-    ///         Location = primaryResourceGroup.Location,
+    ///         Location = primary.Location,
     ///     });
     /// 
-    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondaryFabric", new()
+    ///     var secondaryFabric = new Azure.SiteRecovery.Fabric("secondary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "secondary-fabric",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
-    ///         Location = secondaryResourceGroup.Location,
+    ///         Location = secondary.Location,
     ///     });
     /// 
-    ///     var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primaryProtectionContainer", new()
+    ///     var primaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("primary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "primary-protection-container",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryFabricName = primaryFabric.Name,
     ///     });
     /// 
-    ///     var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondaryProtectionContainer", new()
+    ///     var secondaryProtectionContainer = new Azure.SiteRecovery.ProtectionContainer("secondary", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "secondary-protection-container",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryFabricName = secondaryFabric.Name,
     ///     });
     /// 
     ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "policy",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryPointRetentionInMinutes = 24 * 60,
     ///         ApplicationConsistentSnapshotFrequencyInMinutes = 4 * 60,
@@ -77,7 +85,8 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var container_mapping = new Azure.SiteRecovery.ProtectionContainerMapping("container-mapping", new()
     ///     {
-    ///         ResourceGroupName = secondaryResourceGroup.Name,
+    ///         Name = "container-mapping",
+    ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryFabricName = primaryFabric.Name,
     ///         RecoverySourceProtectionContainerName = primaryProtectionContainer.Name,

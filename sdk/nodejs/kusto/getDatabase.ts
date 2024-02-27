@@ -14,9 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.kusto.getDatabase({
- *     clusterName: "test_cluster",
  *     name: "my-kusto-database",
  *     resourceGroupName: "test_resource_group",
+ *     clusterName: "test_cluster",
  * });
  * ```
  */
@@ -86,9 +86,9 @@ export interface GetDatabaseResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.kusto.getDatabase({
- *     clusterName: "test_cluster",
  *     name: "my-kusto-database",
  *     resourceGroupName: "test_resource_group",
+ *     clusterName: "test_cluster",
  * });
  * ```
  */

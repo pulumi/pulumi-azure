@@ -21,35 +21,28 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroup-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account-example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
@@ -57,13 +50,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewConnectionServicePrincipal(ctx, "exampleConnectionServicePrincipal", &automation.ConnectionServicePrincipalArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "automation_certificate_test.thumb",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = automation.NewConnectionServicePrincipal(ctx, "example", &automation.ConnectionServicePrincipalArgs{
+//				Name:                  pulumi.String("connection-example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				ApplicationId:         pulumi.String("00000000-0000-0000-0000-000000000000"),
-//				TenantId:              *pulumi.String(exampleClientConfig.TenantId),
-//				SubscriptionId:        *pulumi.String(exampleClientConfig.SubscriptionId),
-//				CertificateThumbprint: readFileOrPanic("automation_certificate_test.thumb"),
+//				TenantId:              *pulumi.String(example.TenantId),
+//				SubscriptionId:        *pulumi.String(example.SubscriptionId),
+//				CertificateThumbprint: invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

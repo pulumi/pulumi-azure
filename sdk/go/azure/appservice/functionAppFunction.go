@@ -33,33 +33,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OsType:            pulumi.String("Linux"),
 //				SkuName:           pulumi.String("S1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "exampleLinuxFunctionApp", &appservice.LinuxFunctionAppArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleLinuxFunctionApp, err := appservice.NewLinuxFunctionApp(ctx, "example", &appservice.LinuxFunctionAppArgs{
+//				Name:                    pulumi.String("example-function-app"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
@@ -102,7 +106,8 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
+//			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
+//				Name:          pulumi.String("example-function-app-function"),
 //				FunctionAppId: exampleLinuxFunctionApp.ID(),
 //				Language:      pulumi.String("Python"),
 //				TestData:      pulumi.String(json0),
@@ -124,52 +129,48 @@ import (
 // import (
 //
 //	"encoding/json"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OsType:            pulumi.String("Windows"),
 //				SkuName:           pulumi.String("S1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "exampleWindowsFunctionApp", &appservice.WindowsFunctionAppArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleWindowsFunctionApp, err := appservice.NewWindowsFunctionApp(ctx, "example", &appservice.WindowsFunctionAppArgs{
+//				Name:                    pulumi.String("example-function-app"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				ServicePlanId:           exampleServicePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
@@ -179,6 +180,12 @@ import (
 //					},
 //				},
 //			})
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "exampledata/run.csx",
+//			}, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -212,13 +219,14 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = appservice.NewFunctionAppFunction(ctx, "exampleFunctionAppFunction", &appservice.FunctionAppFunctionArgs{
+//			_, err = appservice.NewFunctionAppFunction(ctx, "example", &appservice.FunctionAppFunctionArgs{
+//				Name:          pulumi.String("example-function-app-function"),
 //				FunctionAppId: exampleWindowsFunctionApp.ID(),
 //				Language:      pulumi.String("CSharp"),
 //				Files: appservice.FunctionAppFunctionFileArray{
 //					&appservice.FunctionAppFunctionFileArgs{
 //						Name:    pulumi.String("run.csx"),
-//						Content: readFileOrPanic("exampledata/run.csx"),
+//						Content: invokeFile.Result,
 //					},
 //				},
 //				TestData:   pulumi.String(json0),

@@ -13,24 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westus"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "group1",
+ *     location: "westus",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "network1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const examplePolicySetDefinition = azure.policy.getPolicySetDefinition({
+ * const example = azure.policy.getPolicySetDefinition({
  *     displayName: "Audit machines with insecure password security settings",
  * });
- * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", {
+ * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("example", {
+ *     name: "assignment1",
  *     resourceId: exampleVirtualNetwork.id,
- *     policyDefinitionId: examplePolicySetDefinition.then(examplePolicySetDefinition => examplePolicySetDefinition.id),
+ *     policyDefinitionId: example.then(example => example.id),
  *     location: exampleResourceGroup.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleResourcePolicyExemption = new azure.core.ResourcePolicyExemption("exampleResourcePolicyExemption", {
+ * const exampleResourcePolicyExemption = new azure.core.ResourcePolicyExemption("example", {
+ *     name: "exemption1",
  *     resourceId: exampleResourcePolicyAssignment.resourceId,
  *     policyAssignmentId: exampleResourcePolicyAssignment.id,
  *     exemptionCategory: "Mitigated",

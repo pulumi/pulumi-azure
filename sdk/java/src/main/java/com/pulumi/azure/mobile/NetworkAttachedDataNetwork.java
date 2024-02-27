@@ -58,25 +58,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-device&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;EdgeP_Base-Standard&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mn&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkPacketCoreControlPlane = new NetworkPacketCoreControlPlane(&#34;exampleNetworkPacketCoreControlPlane&#34;, NetworkPacketCoreControlPlaneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mnpccp&#34;)
+ *             .resourceGroupName(example.name())
  *             .location(&#34;West Europe&#34;)
  *             .sku(&#34;G0&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
@@ -91,8 +95,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkPacketCoreDataPlane = new NetworkPacketCoreDataPlane(&#34;exampleNetworkPacketCoreDataPlane&#34;, NetworkPacketCoreDataPlaneArgs.builder()        
+ *             .name(&#34;example-mnpcdp&#34;)
  *             .mobileNetworkPacketCoreControlPlaneId(exampleNetworkPacketCoreControlPlane.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .userPlaneAccessName(&#34;default-interface&#34;)
  *             .userPlaneAccessIpv4Address(&#34;192.168.1.199&#34;)
  *             .userPlaneAccessIpv4Gateway(&#34;192.168.1.1&#34;)
@@ -100,14 +105,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkDataNetwork = new NetworkDataNetwork(&#34;exampleNetworkDataNetwork&#34;, NetworkDataNetworkArgs.builder()        
+ *             .name(&#34;example-data-network&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleNetworkAttachedDataNetwork = new NetworkAttachedDataNetwork(&#34;exampleNetworkAttachedDataNetwork&#34;, NetworkAttachedDataNetworkArgs.builder()        
  *             .mobileNetworkDataNetworkName(exampleNetworkDataNetwork.name())
  *             .mobileNetworkPacketCoreDataPlaneId(exampleNetworkPacketCoreDataPlane.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .dnsAddresses(&#34;1.1.1.1&#34;)
  *             .userEquipmentAddressPoolPrefixes(&#34;2.4.1.0/24&#34;)
  *             .userEquipmentStaticAddressPoolPrefixes(&#34;2.4.2.0/24&#34;)

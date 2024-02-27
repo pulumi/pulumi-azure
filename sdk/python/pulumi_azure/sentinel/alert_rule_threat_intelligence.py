@@ -172,12 +172,15 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="SecurityInsights",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -187,11 +190,12 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
+        example = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
-        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
+        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("example",
+            name="example-rule",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid=example_alert_rule_template.name)
+            alert_rule_template_guid=example.name)
         ```
 
         ## Import
@@ -224,12 +228,15 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="SecurityInsights",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
@@ -239,11 +246,12 @@ class AlertRuleThreatIntelligence(pulumi.CustomResource):
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_template = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
+        example = azure.sentinel.get_alert_rule_template_output(display_name="(Preview) Microsoft Defender Threat Intelligence Analytics",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id)
-        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence",
+        example_alert_rule_threat_intelligence = azure.sentinel.AlertRuleThreatIntelligence("example",
+            name="example-rule",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
-            alert_rule_template_guid=example_alert_rule_template.name)
+            alert_rule_template_guid=example.name)
         ```
 
         ## Import

@@ -13,19 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "example-springcloudapp",
+ *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment", {
+ * const exampleSpringCloudJavaDeployment = new azure.appplatform.SpringCloudJavaDeployment("example", {
+ *     name: "deploy1",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     instanceCount: 2,
  *     jvmOptions: "-XX:+PrintGC",
@@ -38,7 +44,7 @@ import * as utilities from "../utilities";
  *         Env: "Staging",
  *     },
  * });
- * const exampleSpringCloudActiveDeployment = new azure.appplatform.SpringCloudActiveDeployment("exampleSpringCloudActiveDeployment", {
+ * const exampleSpringCloudActiveDeployment = new azure.appplatform.SpringCloudActiveDeployment("example", {
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     deploymentName: exampleSpringCloudJavaDeployment.name,
  * });

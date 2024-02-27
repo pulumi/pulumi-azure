@@ -26,22 +26,22 @@ namespace Pulumi.Azure.Lb
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
         ///     {
         ///         Name = "example-lb",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+        ///     var exampleGetBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
         ///     {
         ///         Name = "first",
-        ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["backendAddressPoolId"] = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
-        ///         ["backendIpConfigurationIds"] = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList(),
+        ///         ["backendAddressPoolId"] = exampleGetBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+        ///         ["backendIpConfigurationIds"] = beap.BackendIpConfigurations.Select(__item =&gt; __item.Id).ToList(),
         ///     };
         /// });
         /// ```
@@ -66,22 +66,22 @@ namespace Pulumi.Azure.Lb
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleLB = Azure.Lb.GetLB.Invoke(new()
+        ///     var example = Azure.Lb.GetLB.Invoke(new()
         ///     {
         ///         Name = "example-lb",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
+        ///     var exampleGetBackendAddressPool = Azure.Lb.GetBackendAddressPool.Invoke(new()
         ///     {
         ///         Name = "first",
-        ///         LoadbalancerId = exampleLB.Apply(getLBResult =&gt; getLBResult.Id),
+        ///         LoadbalancerId = example.Apply(getLBResult =&gt; getLBResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["backendAddressPoolId"] = exampleBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
-        ///         ["backendIpConfigurationIds"] = data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations.Select(__item =&gt; __item.Id).ToList(),
+        ///         ["backendAddressPoolId"] = exampleGetBackendAddressPool.Apply(getBackendAddressPoolResult =&gt; getBackendAddressPoolResult.Id),
+        ///         ["backendIpConfigurationIds"] = beap.BackendIpConfigurations.Select(__item =&gt; __item.Id).ToList(),
         ///     };
         /// });
         /// ```

@@ -240,22 +240,27 @@ class AccountFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            media_services_account_name=azurerm_media_services_account["test"]["name"],
+        example_account_filter = azure.media.AccountFilter("example",
+            name="Filter1",
+            resource_group_name=test_azurerm_resource_group["name"],
+            media_services_account_name=test["name"],
             first_quality_bitrate=128000,
             presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
                 start_in_units=0,
@@ -334,22 +339,27 @@ class AccountFilter(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            media_services_account_name=azurerm_media_services_account["test"]["name"],
+        example_account_filter = azure.media.AccountFilter("example",
+            name="Filter1",
+            resource_group_name=test_azurerm_resource_group["name"],
+            media_services_account_name=test["name"],
             first_quality_bitrate=128000,
             presentation_time_range=azure.media.AccountFilterPresentationTimeRangeArgs(
                 start_in_units=0,

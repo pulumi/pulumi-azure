@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", data.Azurerm_consumption_budget.Example.Id)
+//			ctx.Export("id", exampleAzurermConsumptionBudget.Id)
 //			return nil
 //		})
 //	}

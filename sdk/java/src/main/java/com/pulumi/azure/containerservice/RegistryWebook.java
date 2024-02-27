@@ -46,10 +46,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var acr = new Registry(&#34;acr&#34;, RegistryArgs.builder()        
+ *             .name(&#34;containerRegistry1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .sku(&#34;Standard&#34;)
@@ -57,6 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var webhook = new RegistryWebhook(&#34;webhook&#34;, RegistryWebhookArgs.builder()        
+ *             .name(&#34;mywebhook&#34;)
  *             .resourceGroupName(example.name())
  *             .registryName(acr.name())
  *             .location(example.location())

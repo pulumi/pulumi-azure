@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSync, err := storage.NewSync(ctx, "example", &storage.SyncArgs{
+//				Name:              pulumi.String("example-ss"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
+//			_, err = storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
+//				Name:          pulumi.String("example-ss-group"),
 //				StorageSyncId: exampleSync.ID(),
 //			})
 //			if err != nil {

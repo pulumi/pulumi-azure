@@ -14,8 +14,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkWatcher({
- *     name: azurerm_network_watcher.example.name,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     name: exampleAzurermNetworkWatcher.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const networkWatcherId = example.then(example => example.id);
  * ```
@@ -72,8 +72,8 @@ export interface GetNetworkWatcherResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getNetworkWatcher({
- *     name: azurerm_network_watcher.example.name,
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     name: exampleAzurermNetworkWatcher.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const networkWatcherId = example.then(example => example.id);
  * ```

@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
@@ -50,9 +52,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("examplekeyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
 //				PurgeProtectionEnabled:  pulumi.Bool(false),
@@ -61,7 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewDiagnosticSetting(ctx, "exampleDiagnosticSetting", &monitoring.DiagnosticSettingArgs{
+//			_, err = monitoring.NewDiagnosticSetting(ctx, "example", &monitoring.DiagnosticSettingArgs{
+//				Name:             pulumi.String("example"),
 //				TargetResourceId: exampleKeyVault.ID(),
 //				StorageAccountId: exampleAccount.ID(),
 //				EnabledLogs: monitoring.DiagnosticSettingEnabledLogArray{

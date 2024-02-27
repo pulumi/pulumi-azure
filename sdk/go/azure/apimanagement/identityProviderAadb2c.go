@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -46,21 +48,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
+//			exampleApplication, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
 //				DisplayName: pulumi.String("acctestam-example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleApplicationPassword, err := azuread.NewApplicationPassword(ctx, "exampleApplicationPassword", &azuread.ApplicationPasswordArgs{
+//			_, err = azuread.NewApplicationPassword(ctx, "example", &azuread.ApplicationPasswordArgs{
 //				ApplicationObjectId: exampleApplication.ObjectId,
 //				EndDateRelative:     pulumi.String("36h"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "exampleIdentityProviderAadb2c", &apimanagement.IdentityProviderAadb2cArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = apimanagement.NewIdentityProviderAadb2c(ctx, "example", &apimanagement.IdentityProviderAadb2cArgs{
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				ClientId:          exampleApplication.ApplicationId,
 //				ClientSecret:      pulumi.String("P@55w0rD!"),
@@ -69,9 +71,7 @@ import (
 //				Authority:         pulumi.String("myb2ctenant.b2clogin.com"),
 //				SigninPolicy:      pulumi.String("B2C_1_Login"),
 //				SignupPolicy:      pulumi.String("B2C_1_Signup"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleApplicationPassword,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

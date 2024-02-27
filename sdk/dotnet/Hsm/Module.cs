@@ -26,24 +26,27 @@ namespace Pulumi.Azure.Hsm
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.2.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-compute",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -53,7 +56,8 @@ namespace Pulumi.Azure.Hsm
     /// 
     ///     var example2 = new Azure.Network.Subnet("example2", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-hsmsubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -79,7 +83,8 @@ namespace Pulumi.Azure.Hsm
     /// 
     ///     var example3 = new Azure.Network.Subnet("example3", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "gatewaysubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -87,17 +92,19 @@ namespace Pulumi.Azure.Hsm
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-pip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("exampleVirtualNetworkGateway", new()
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnetgateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Type = "ExpressRoute",
     ///         VpnType = "PolicyBased",
     ///         Sku = "Standard",
@@ -112,10 +119,11 @@ namespace Pulumi.Azure.Hsm
     ///         },
     ///     });
     /// 
-    ///     var exampleModule = new Azure.Hsm.Module("exampleModule", new()
+    ///     var exampleModule = new Azure.Hsm.Module("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-hsm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "payShield10K_LMK1_CPS60",
     ///         ManagementNetworkProfile = new Azure.Hsm.Inputs.ModuleManagementNetworkProfileArgs
     ///         {
@@ -137,12 +145,6 @@ namespace Pulumi.Azure.Hsm
     ///         Tags = 
     ///         {
     ///             { "env", "Test" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVirtualNetworkGateway,
     ///         },
     ///     });
     /// 

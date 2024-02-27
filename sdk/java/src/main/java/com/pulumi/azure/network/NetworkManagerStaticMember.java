@@ -49,15 +49,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-network-manager&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
@@ -68,17 +70,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+ *             .name(&#34;example-group&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .description(&#34;example network group&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;192.168.1.0/24&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleNetworkManagerStaticMember = new NetworkManagerStaticMember(&#34;exampleNetworkManagerStaticMember&#34;, NetworkManagerStaticMemberArgs.builder()        
+ *             .name(&#34;example-nmsm&#34;)
  *             .networkGroupId(exampleNetworkManagerNetworkGroup.id())
  *             .targetVirtualNetworkId(exampleVirtualNetwork.id())
  *             .build());

@@ -26,14 +26,16 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFirewallPolicy = new Azure.FrontDoor.FirewallPolicy("exampleFirewallPolicy", new()
+    ///     var exampleFirewallPolicy = new Azure.FrontDoor.FirewallPolicy("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplefdwafpolicy",
+    ///         ResourceGroupName = example.Name,
     ///         Enabled = true,
     ///         Mode = "Prevention",
     ///         RedirectUrl = "https://www.contoso.com",

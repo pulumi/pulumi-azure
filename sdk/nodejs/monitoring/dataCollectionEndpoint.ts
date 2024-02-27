@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
+ *     name: "example-mdce",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     kind: "Windows",
  *     publicNetworkAccessEnabled: true,
  *     description: "monitor_data_collection_endpoint example",

@@ -28,15 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testWorkspace, err := healthcare.NewWorkspace(ctx, "testWorkspace", &healthcare.WorkspaceArgs{
+//			test, err := healthcare.NewWorkspace(ctx, "test", &healthcare.WorkspaceArgs{
+//				Name:              pulumi.String("tfexworkspace"),
 //				ResourceGroupName: pulumi.String("tfex-resource_group"),
 //				Location:          pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = healthcare.NewDicomService(ctx, "testDicomService", &healthcare.DicomServiceArgs{
-//				WorkspaceId: testWorkspace.ID(),
+//			_, err = healthcare.NewDicomService(ctx, "test", &healthcare.DicomServiceArgs{
+//				Name:        pulumi.String("tfexDicom"),
+//				WorkspaceId: test.ID(),
 //				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.DicomServiceIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

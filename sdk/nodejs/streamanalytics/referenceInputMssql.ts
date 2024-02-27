@@ -13,22 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-sqlserver",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "admin",
  *     administratorLoginPassword: "password",
  * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {serverId: exampleServer.id});
- * const exampleReferenceInputMssql = new azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql", {
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
+ * const exampleDatabase = new azure.mssql.Database("example", {
+ *     name: "example-db",
+ *     serverId: exampleServer.id,
+ * });
+ * const exampleReferenceInputMssql = new azure.streamanalytics.ReferenceInputMssql("example", {
+ *     name: "example-reference-input",
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     streamAnalyticsJobName: example.apply(example => example.name),
  *     server: exampleServer.fullyQualifiedDomainName,
  *     database: exampleDatabase.name,
  *     username: "exampleuser",

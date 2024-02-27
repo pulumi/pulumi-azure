@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := iot.LookupDpsSharedAccessPolicy(ctx, &iot.LookupDpsSharedAccessPolicyArgs{
 //				Name:              "example",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
-//				IothubDpsName:     azurerm_iothub_dps.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
+//				IothubDpsName:     exampleAzurermIothubDps.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

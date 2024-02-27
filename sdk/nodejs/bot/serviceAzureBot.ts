@@ -13,13 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleApiKey = new azure.appinsights.ApiKey("exampleApiKey", {
+ * const exampleApiKey = new azure.appinsights.ApiKey("example", {
+ *     name: "example-appinsightsapikey",
  *     applicationInsightsId: exampleInsights.id,
  *     readPermissions: [
  *         "aggregate",
@@ -30,8 +35,9 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleServiceAzureBot = new azure.bot.ServiceAzureBot("exampleServiceAzureBot", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServiceAzureBot = new azure.bot.ServiceAzureBot("example", {
+ *     name: "exampleazurebot",
+ *     resourceGroupName: example.name,
  *     location: "global",
  *     microsoftAppId: current.then(current => current.clientId),
  *     sku: "F0",

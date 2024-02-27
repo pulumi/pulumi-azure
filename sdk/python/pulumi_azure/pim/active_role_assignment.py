@@ -258,13 +258,13 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         import pulumiverse_time as time
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_static = time.Static("example")
+        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
             scope=primary.id,
-            role_definition_id=f"{primary.id}{example_role_definition.id}",
-            principal_id=example_client_config.object_id,
+            role_definition_id=f"{primary.id}{example_get_role_definition.id}",
+            principal_id=example.object_id,
             schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
                 start_date_time=example_static.rfc3339,
                 expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
@@ -284,14 +284,14 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumiverse_time as time
 
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("exampleGroup")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_group = azure.management.Group("example", name="Example-Management-Group")
+        example_static = time.Static("example")
+        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
             scope=example_group.id,
-            role_definition_id=example_role_definition.id,
-            principal_id=example_client_config.object_id,
+            role_definition_id=example_get_role_definition.id,
+            principal_id=example.object_id,
             schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
                 start_date_time=example_static.rfc3339,
                 expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
@@ -340,13 +340,13 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         import pulumiverse_time as time
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_static = time.Static("example")
+        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
             scope=primary.id,
-            role_definition_id=f"{primary.id}{example_role_definition.id}",
-            principal_id=example_client_config.object_id,
+            role_definition_id=f"{primary.id}{example_get_role_definition.id}",
+            principal_id=example.object_id,
             schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
                 start_date_time=example_static.rfc3339,
                 expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(
@@ -366,14 +366,14 @@ class ActiveRoleAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumiverse_time as time
 
-        example_client_config = azure.core.get_client_config()
-        example_role_definition = azure.authorization.get_role_definition(name="Reader")
-        example_group = azure.management.Group("exampleGroup")
-        example_static = time.Static("exampleStatic")
-        example_active_role_assignment = azure.pim.ActiveRoleAssignment("exampleActiveRoleAssignment",
+        example = azure.core.get_client_config()
+        example_get_role_definition = azure.authorization.get_role_definition(name="Reader")
+        example_group = azure.management.Group("example", name="Example-Management-Group")
+        example_static = time.Static("example")
+        example_active_role_assignment = azure.pim.ActiveRoleAssignment("example",
             scope=example_group.id,
-            role_definition_id=example_role_definition.id,
-            principal_id=example_client_config.object_id,
+            role_definition_id=example_get_role_definition.id,
+            principal_id=example.object_id,
             schedule=azure.pim.ActiveRoleAssignmentScheduleArgs(
                 start_date_time=example_static.rfc3339,
                 expiration=azure.pim.ActiveRoleAssignmentScheduleExpirationArgs(

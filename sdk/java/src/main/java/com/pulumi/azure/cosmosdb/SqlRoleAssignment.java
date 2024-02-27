@@ -50,26 +50,29 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cosmosdb&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel(&#34;Strong&#34;)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleSqlRoleDefinition = new SqlRoleDefinition(&#34;exampleSqlRoleDefinition&#34;, SqlRoleDefinitionArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplesqlroledef&#34;)
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .type(&#34;CustomRole&#34;)
  *             .assignableScopes(exampleAccount.id())
@@ -79,7 +82,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSqlRoleAssignment = new SqlRoleAssignment(&#34;exampleSqlRoleAssignment&#34;, SqlRoleAssignmentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;736180af-7fbc-4c7f-9004-22735173c1c3&#34;)
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .roleDefinitionId(exampleSqlRoleDefinition.id())
  *             .principalId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))

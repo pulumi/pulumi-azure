@@ -29,21 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//			example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
 //				Name: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+//			exampleGetJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
 //				Name:              "example-job",
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewOutputPowerbi(ctx, "exampleOutputPowerbi", &streamanalytics.OutputPowerbiArgs{
-//				StreamAnalyticsJobId: *pulumi.String(exampleJob.Id),
+//			_, err = streamanalytics.NewOutputPowerbi(ctx, "example", &streamanalytics.OutputPowerbiArgs{
+//				Name:                 pulumi.String("output-to-powerbi"),
+//				StreamAnalyticsJobId: *pulumi.String(exampleGetJob.Id),
 //				Dataset:              pulumi.String("example-dataset"),
 //				Table:                pulumi.String("example-table"),
 //				GroupId:              pulumi.String("00000000-0000-0000-0000-000000000000"),

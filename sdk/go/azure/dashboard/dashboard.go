@@ -35,10 +35,12 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			cfg := config.New(ctx, "")
+//			// Content for the MD tile
 //			mdContent := "# Hello all :)"
 //			if param := cfg.Get("mdContent"); param != "" {
 //				mdContent = param
 //			}
+//			// Link to a video
 //			videoLink := "https://www.youtube.com/watch?v=......"
 //			if param := cfg.Get("videoLink"); param != "" {
 //				videoLink = param
@@ -48,12 +50,14 @@ import (
 //				return err
 //			}
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("mygroup"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = portal.NewDashboard(ctx, "my-board", &portal.DashboardArgs{
+//				Name:              pulumi.String("my-cool-dashboard"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				Tags: pulumi.StringMap{

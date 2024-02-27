@@ -9,6 +9,69 @@ import * as utilities from "../utilities";
 /**
  * Manages a Virtual Network Gateway Nat Rule.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.0.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "GatewaySubnet",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     allocationMethod: "Dynamic",
+ * });
+ * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ *     name: "example-vnetgw",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     type: "Vpn",
+ *     vpnType: "RouteBased",
+ *     sku: "Basic",
+ *     ipConfigurations: [{
+ *         publicIpAddressId: examplePublicIp.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *         subnetId: exampleSubnet.id,
+ *     }],
+ * });
+ * const example = azure.network.getVirtualNetworkGatewayOutput({
+ *     name: exampleVirtualNetworkGateway.name,
+ *     resourceGroupName: exampleVirtualNetworkGateway.resourceGroupName,
+ * });
+ * const exampleVirtualNetworkGatewayNatRule = new azure.network.VirtualNetworkGatewayNatRule("example", {
+ *     name: "example-vnetgwnatrule",
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkGatewayId: example.apply(example => example.id),
+ *     mode: "EgressSnat",
+ *     type: "Dynamic",
+ *     ipConfigurationId: example.apply(example => example.ipConfigurations?.[0]?.id),
+ *     externalMappings: [{
+ *         addressSpace: "10.2.0.0/26",
+ *         portRange: "200",
+ *     }],
+ *     internalMappings: [{
+ *         addressSpace: "10.4.0.0/26",
+ *         portRange: "400",
+ *     }],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Virtual Network Gateway Nat Rules can be imported using the `resource id`, e.g.

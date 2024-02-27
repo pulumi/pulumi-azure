@@ -48,25 +48,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;k8s-log-analytics-test&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var workspace = new RandomId(&#34;workspace&#34;, RandomIdArgs.builder()        
- *             .keepers(Map.of(&#34;group_name&#34;, exampleResourceGroup.name()))
+ *             .keepers(Map.of(&#34;group_name&#34;, example.name()))
  *             .byteLength(8)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(workspace.hex().applyValue(hex -&gt; String.format(&#34;k8s-workspace-%s&#34;, hex)))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsSolution = new AnalyticsSolution(&#34;exampleAnalyticsSolution&#34;, AnalyticsSolutionArgs.builder()        
  *             .solutionName(&#34;ContainerInsights&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .workspaceResourceId(exampleAnalyticsWorkspace.id())
  *             .workspaceName(exampleAnalyticsWorkspace.name())
  *             .plan(AnalyticsSolutionPlanArgs.builder()

@@ -740,6 +740,71 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
         """
         Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-ai",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example-mag",
+            resource_group_name=example.name,
+            short_name="test mag")
+        example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
+            name="example-msqrv2",
+            resource_group_name=example.name,
+            location=example.location,
+            evaluation_frequency="PT10M",
+            window_duration="PT10M",
+            scopes=example_insights.id,
+            severity=4,
+            criterias=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaArgs(
+                query=\"\"\"requests
+          | summarize CountByCountry=count() by client_CountryOrRegion
+        \"\"\",
+                time_aggregation_method="Maximum",
+                threshold=17.5,
+                operator="LessThan",
+                resource_id_column="client_CountryOrRegion",
+                metric_measure_column="CountByCountry",
+                dimensions=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs(
+                    name="client_CountryOrRegion",
+                    operator="Exclude",
+                    values=["123"],
+                )],
+                failing_periods=azure.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs(
+                    minimum_failing_periods_to_trigger_alert=1,
+                    number_of_evaluation_periods=1,
+                ),
+            )],
+            auto_mitigation_enabled=True,
+            workspace_alerts_storage_enabled=False,
+            description="example sqr",
+            display_name="example-sqr",
+            enabled=True,
+            query_time_range_override="PT1H",
+            skip_query_validation=True,
+            action=azure.monitoring.ScheduledQueryRulesAlertV2ActionArgs(
+                action_groups=[example_action_group.id],
+                custom_properties={
+                    "key": "value",
+                    "key2": "value2",
+                },
+            ),
+            tags={
+                "key": "value",
+                "key2": "value2",
+            })
+        ```
+
         ## Import
 
         Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.
@@ -786,6 +851,71 @@ class ScheduledQueryRulesAlertV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-ai",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example-mag",
+            resource_group_name=example.name,
+            short_name="test mag")
+        example_scheduled_query_rules_alert_v2 = azure.monitoring.ScheduledQueryRulesAlertV2("example",
+            name="example-msqrv2",
+            resource_group_name=example.name,
+            location=example.location,
+            evaluation_frequency="PT10M",
+            window_duration="PT10M",
+            scopes=example_insights.id,
+            severity=4,
+            criterias=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaArgs(
+                query=\"\"\"requests
+          | summarize CountByCountry=count() by client_CountryOrRegion
+        \"\"\",
+                time_aggregation_method="Maximum",
+                threshold=17.5,
+                operator="LessThan",
+                resource_id_column="client_CountryOrRegion",
+                metric_measure_column="CountByCountry",
+                dimensions=[azure.monitoring.ScheduledQueryRulesAlertV2CriteriaDimensionArgs(
+                    name="client_CountryOrRegion",
+                    operator="Exclude",
+                    values=["123"],
+                )],
+                failing_periods=azure.monitoring.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs(
+                    minimum_failing_periods_to_trigger_alert=1,
+                    number_of_evaluation_periods=1,
+                ),
+            )],
+            auto_mitigation_enabled=True,
+            workspace_alerts_storage_enabled=False,
+            description="example sqr",
+            display_name="example-sqr",
+            enabled=True,
+            query_time_range_override="PT1H",
+            skip_query_validation=True,
+            action=azure.monitoring.ScheduledQueryRulesAlertV2ActionArgs(
+                action_groups=[example_action_group.id],
+                custom_properties={
+                    "key": "value",
+                    "key2": "value2",
+                },
+            ),
+            tags={
+                "key": "value",
+                "key2": "value2",
+            })
+        ```
 
         ## Import
 

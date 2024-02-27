@@ -22,22 +22,25 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-netappaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePool = new Azure.NetApp.Pool("examplePool", new()
+    ///     var examplePool = new Azure.NetApp.Pool("example", new()
     ///     {
+    ///         Name = "example-netapppool",
     ///         AccountName = exampleAccount.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServiceLevel = "Premium",
     ///         SizeInTb = 4,
     ///     });

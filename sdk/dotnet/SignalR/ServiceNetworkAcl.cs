@@ -22,15 +22,17 @@ namespace Pulumi.Azure.SignalR
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
+    ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-signalr",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Standard_S1",
@@ -38,19 +40,21 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.5.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -59,10 +63,11 @@ namespace Pulumi.Azure.SignalR
     ///         EnforcePrivateLinkEndpointNetworkPolicies = true,
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("exampleEndpoint", new()
+    ///     var exampleEndpoint = new Azure.PrivateLink.Endpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-privateendpoint",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SubnetId = exampleSubnet.Id,
     ///         PrivateServiceConnection = new Azure.PrivateLink.Inputs.EndpointPrivateServiceConnectionArgs
     ///         {
@@ -76,7 +81,7 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("exampleServiceNetworkAcl", new()
+    ///     var exampleServiceNetworkAcl = new Azure.SignalR.ServiceNetworkAcl("example", new()
     ///     {
     ///         SignalrServiceId = exampleService.Id,
     ///         DefaultAction = "Deny",

@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("autoscalingTest"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -57,9 +60,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:              pulumi.String("exampleset"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				UpgradeMode:       pulumi.String("Manual"),
 //				Sku:               pulumi.String("Standard_F2"),
 //				Instances:         pulumi.Int(2),
@@ -97,9 +101,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = monitoring.NewAutoscaleSetting(ctx, "example", &monitoring.AutoscaleSettingArgs{
+//				Name:              pulumi.String("myAutoscaleSetting"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{
@@ -181,7 +186,7 @@ import (
 //	}
 //
 // ```
-// ### For Fixed Dates)
+// ### Repeating On Weekends)
 //
 // ```go
 // package main
@@ -198,24 +203,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("autoscalingTest"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -224,9 +232,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:              pulumi.String("exampleset"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				UpgradeMode:       pulumi.String("Manual"),
 //				Sku:               pulumi.String("Standard_F2"),
 //				Instances:         pulumi.Int(2),
@@ -264,10 +273,178 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewAutoscaleSetting(ctx, "exampleAutoscaleSetting", &monitoring.AutoscaleSettingArgs{
+//			_, err = monitoring.NewAutoscaleSetting(ctx, "example", &monitoring.AutoscaleSettingArgs{
+//				Name:              pulumi.String("myAutoscaleSetting"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
+//				Profiles: monitoring.AutoscaleSettingProfileArray{
+//					&monitoring.AutoscaleSettingProfileArgs{
+//						Name: pulumi.String("Weekends"),
+//						Capacity: &monitoring.AutoscaleSettingProfileCapacityArgs{
+//							Default: pulumi.Int(1),
+//							Minimum: pulumi.Int(1),
+//							Maximum: pulumi.Int(10),
+//						},
+//						Rules: monitoring.AutoscaleSettingProfileRuleArray{
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("GreaterThan"),
+//									Threshold:        pulumi.Float64(90),
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Increase"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(2),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//							&monitoring.AutoscaleSettingProfileRuleArgs{
+//								MetricTrigger: &monitoring.AutoscaleSettingProfileRuleMetricTriggerArgs{
+//									MetricName:       pulumi.String("Percentage CPU"),
+//									MetricResourceId: exampleLinuxVirtualMachineScaleSet.ID(),
+//									TimeGrain:        pulumi.String("PT1M"),
+//									Statistic:        pulumi.String("Average"),
+//									TimeWindow:       pulumi.String("PT5M"),
+//									TimeAggregation:  pulumi.String("Average"),
+//									Operator:         pulumi.String("LessThan"),
+//									Threshold:        pulumi.Float64(10),
+//								},
+//								ScaleAction: &monitoring.AutoscaleSettingProfileRuleScaleActionArgs{
+//									Direction: pulumi.String("Decrease"),
+//									Type:      pulumi.String("ChangeCount"),
+//									Value:     pulumi.Int(2),
+//									Cooldown:  pulumi.String("PT1M"),
+//								},
+//							},
+//						},
+//						Recurrence: &monitoring.AutoscaleSettingProfileRecurrenceArgs{
+//							Timezone: pulumi.String("Pacific Standard Time"),
+//							Days: pulumi.StringArray{
+//								pulumi.String("Saturday"),
+//								pulumi.String("Sunday"),
+//							},
+//							Hours:   pulumi.Int(12),
+//							Minutes: pulumi.Int(0),
+//						},
+//					},
+//				},
+//				Notification: &monitoring.AutoscaleSettingNotificationArgs{
+//					Email: &monitoring.AutoscaleSettingNotificationEmailArgs{
+//						SendToSubscriptionAdministrator:   pulumi.Bool(true),
+//						SendToSubscriptionCoAdministrator: pulumi.Bool(true),
+//						CustomEmails: pulumi.StringArray{
+//							pulumi.String("admin@contoso.com"),
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// ### For Fixed Dates)
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/monitoring"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("autoscalingTest"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
+//				AddressSpaces: pulumi.StringArray{
+//					pulumi.String("10.0.0.0/16"),
+//				},
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
+//				VirtualNetworkName: exampleVirtualNetwork.Name,
+//				AddressPrefixes: pulumi.StringArray{
+//					pulumi.String("10.0.2.0/24"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:              pulumi.String("exampleset"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//				UpgradeMode:       pulumi.String("Manual"),
+//				Sku:               pulumi.String("Standard_F2"),
+//				Instances:         pulumi.Int(2),
+//				AdminUsername:     pulumi.String("myadmin"),
+//				AdminSshKeys: compute.LinuxVirtualMachineScaleSetAdminSshKeyArray{
+//					&compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs{
+//						Username:  pulumi.String("myadmin"),
+//						PublicKey: pulumi.String("ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com"),
+//					},
+//				},
+//				NetworkInterfaces: compute.LinuxVirtualMachineScaleSetNetworkInterfaceArray{
+//					&compute.LinuxVirtualMachineScaleSetNetworkInterfaceArgs{
+//						Name:    pulumi.String("TestNetworkProfile"),
+//						Primary: pulumi.Bool(true),
+//						IpConfigurations: compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArray{
+//							&compute.LinuxVirtualMachineScaleSetNetworkInterfaceIpConfigurationArgs{
+//								Name:     pulumi.String("TestIPConfiguration"),
+//								Primary:  pulumi.Bool(true),
+//								SubnetId: exampleSubnet.ID(),
+//							},
+//						},
+//					},
+//				},
+//				OsDisk: &compute.LinuxVirtualMachineScaleSetOsDiskArgs{
+//					Caching:            pulumi.String("ReadWrite"),
+//					StorageAccountType: pulumi.String("StandardSSD_LRS"),
+//				},
+//				SourceImageReference: &compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs{
+//					Publisher: pulumi.String("Canonical"),
+//					Offer:     pulumi.String("0001-com-ubuntu-server-jammy"),
+//					Sku:       pulumi.String("22_04-lts"),
+//					Version:   pulumi.String("latest"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = monitoring.NewAutoscaleSetting(ctx, "example", &monitoring.AutoscaleSettingArgs{
+//				Name:              pulumi.String("myAutoscaleSetting"),
 //				Enabled:           pulumi.Bool(true),
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				TargetResourceId:  exampleLinuxVirtualMachineScaleSet.ID(),
 //				Profiles: monitoring.AutoscaleSettingProfileArray{
 //					&monitoring.AutoscaleSettingProfileArgs{

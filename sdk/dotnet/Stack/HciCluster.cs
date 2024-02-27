@@ -23,23 +23,25 @@ namespace Pulumi.Azure.Stack
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = AzureAD.GetApplication.Invoke(new()
+    ///     var example = AzureAD.GetApplication.Invoke(new()
     ///     {
     ///         DisplayName = "Allowed resource types",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleHciCluster = new Azure.Stack.HciCluster("exampleHciCluster", new()
+    ///     var exampleHciCluster = new Azure.Stack.HciCluster("example", new()
     ///     {
+    ///         Name = "example-cluster",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
-    ///         ClientId = exampleApplication.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
+    ///         ClientId = example.Apply(getApplicationResult =&gt; getApplicationResult.ApplicationId),
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///     });
     /// 

@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := nginx.LookupCertificate(ctx, &nginx.LookupCertificateArgs{
 //				Name:              "existing",
-//				NginxDeploymentId: azurerm_nginx_deployment.Example.Id,
+//				NginxDeploymentId: exampleAzurermNginxDeployment.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

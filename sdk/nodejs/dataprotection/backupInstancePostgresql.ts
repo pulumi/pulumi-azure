@@ -16,10 +16,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.postgresql.Server("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "B_Gen5_2",
  *     storageMb: 5120,
  *     backupRetentionDays: 7,
@@ -30,30 +34,34 @@ import * as utilities from "../utilities";
  *     version: "9.5",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
+ *     name: "AllowAllWindowsAzureIps",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "0.0.0.0",
  * });
- * const exampleDatabase = new azure.postgresql.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabase = new azure.postgresql.Database("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     charset: "UTF8",
  *     collation: "English_United States.1252",
  * });
- * const exampleBackupVault = new azure.dataprotection.BackupVault("exampleBackupVault", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleBackupVault = new azure.dataprotection.BackupVault("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     datastoreType: "VaultStore",
  *     redundancy: "LocallyRedundant",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,
@@ -90,23 +98,26 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleSecret = new azure.keyvault.Secret("exampleSecret", {
+ * const exampleSecret = new azure.keyvault.Secret("example", {
+ *     name: "example",
  *     value: pulumi.interpolate`Server=${exampleServer.name}.postgres.database.azure.com;Database=${exampleDatabase.name};Port=5432;User Id=psqladmin@${exampleServer.name};Password=H@Sh1CoR3!;Ssl Mode=Require;`,
  *     keyVaultId: exampleKeyVault.id,
  * });
- * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleBackupPolicyPostgresql = new azure.dataprotection.BackupPolicyPostgresql("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     vaultName: exampleBackupVault.name,
  *     backupRepeatingTimeIntervals: ["R/2021-05-23T02:30:00+00:00/P1W"],
  *     defaultRetentionDuration: "P4M",
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleServer.id,
  *     roleDefinitionName: "Reader",
  *     principalId: exampleBackupVault.identity.apply(identity => identity?.principalId),
  * });
- * const exampleBackupInstancePostgresql = new azure.dataprotection.BackupInstancePostgresql("exampleBackupInstancePostgresql", {
- *     location: exampleResourceGroup.location,
+ * const exampleBackupInstancePostgresql = new azure.dataprotection.BackupInstancePostgresql("example", {
+ *     name: "example",
+ *     location: example.location,
  *     vaultId: exampleBackupVault.id,
  *     databaseId: exampleDatabase.id,
  *     backupPolicyId: exampleBackupPolicyPostgresql.id,

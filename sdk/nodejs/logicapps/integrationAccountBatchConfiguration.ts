@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
+ *     name: "example-ia",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleIntegrationAccountBatchConfiguration = new azure.logicapps.IntegrationAccountBatchConfiguration("exampleIntegrationAccountBatchConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIntegrationAccountBatchConfiguration = new azure.logicapps.IntegrationAccountBatchConfiguration("example", {
+ *     name: "exampleiabc",
+ *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     batchGroupName: "TestBatchGroup",
  *     releaseCriteria: {

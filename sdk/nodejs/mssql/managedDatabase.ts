@@ -13,20 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleManagedInstance = new azure.mssql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleManagedInstance = new azure.mssql.ManagedInstance("example", {
+ *     name: "managedsqlinstance",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     licenseType: "BasePrice",
  *     skuName: "GP_Gen5",
  *     storageSizeInGb: 32,
@@ -35,7 +41,10 @@ import * as utilities from "../utilities";
  *     administratorLogin: "msadministrator",
  *     administratorLoginPassword: "thisIsDog11",
  * });
- * const exampleManagedDatabase = new azure.mssql.ManagedDatabase("exampleManagedDatabase", {managedInstanceId: exampleManagedInstance.id});
+ * const exampleManagedDatabase = new azure.mssql.ManagedDatabase("example", {
+ *     name: "example",
+ *     managedInstanceId: exampleManagedInstance.id,
+ * });
  * ```
  *
  * ## Import

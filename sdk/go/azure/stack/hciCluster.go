@@ -30,7 +30,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
+//			example, err := azuread.LookupApplication(ctx, &azuread.LookupApplicationArgs{
 //				DisplayName: pulumi.StringRef("Allowed resource types"),
 //			}, nil)
 //			if err != nil {
@@ -40,16 +40,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = stack.NewHciCluster(ctx, "exampleHciCluster", &stack.HciClusterArgs{
+//			_, err = stack.NewHciCluster(ctx, "example", &stack.HciClusterArgs{
+//				Name:              pulumi.String("example-cluster"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
-//				ClientId:          *pulumi.String(exampleApplication.ApplicationId),
+//				ClientId:          *pulumi.String(example.ApplicationId),
 //				TenantId:          *pulumi.String(current.TenantId),
 //			})
 //			if err != nil {

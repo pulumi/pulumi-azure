@@ -240,10 +240,11 @@ class AnomalyAlert(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.costmanagement.AnomalyAlert("example",
+            name="alertname",
             display_name="Alert DisplayName",
-            email_addresses=["example@test.net"],
+            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000",
             email_subject="My Test Anomaly Alert",
-            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000")
+            email_addresses=["example@test.net"])
         ```
 
         ## Import
@@ -281,10 +282,11 @@ class AnomalyAlert(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.costmanagement.AnomalyAlert("example",
+            name="alertname",
             display_name="Alert DisplayName",
-            email_addresses=["example@test.net"],
+            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000",
             email_subject="My Test Anomaly Alert",
-            subscription_id="/subscriptions/00000000-0000-0000-0000-000000000000")
+            email_addresses=["example@test.net"])
         ```
 
         ## Import

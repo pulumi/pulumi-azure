@@ -109,9 +109,9 @@ def get_sql_database(account_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cosmosdb.get_sql_database(account_name="tfex-cosmosdb-sql-database-account-name",
-        name="tfex-cosmosdb-sql-database",
-        resource_group_name="tfex-cosmosdb-sql-database-rg")
+    example = azure.cosmosdb.get_sql_database(name="tfex-cosmosdb-sql-database",
+        resource_group_name="tfex-cosmosdb-sql-database-rg",
+        account_name="tfex-cosmosdb-sql-database-account-name")
     ```
 
 
@@ -149,9 +149,9 @@ def get_sql_database_output(account_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cosmosdb.get_sql_database(account_name="tfex-cosmosdb-sql-database-account-name",
-        name="tfex-cosmosdb-sql-database",
-        resource_group_name="tfex-cosmosdb-sql-database-rg")
+    example = azure.cosmosdb.get_sql_database(name="tfex-cosmosdb-sql-database",
+        resource_group_name="tfex-cosmosdb-sql-database-rg",
+        account_name="tfex-cosmosdb-sql-database-account-name")
     ```
 
 

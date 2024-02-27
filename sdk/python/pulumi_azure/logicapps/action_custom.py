@@ -147,11 +147,15 @@ class ActionCustom(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_custom = azure.logicapps.ActionCustom("exampleActionCustom",
+        example = azure.core.ResourceGroup("example",
+            name="workflow-resources",
+            location="West Europe")
+        example_workflow = azure.logicapps.Workflow("example",
+            name="workflow1",
+            location=example.location,
+            resource_group_name=example.name)
+        example_action_custom = azure.logicapps.ActionCustom("example",
+            name="example-action",
             logic_app_id=example_workflow.id,
             body=\"\"\"{
             "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",
@@ -201,11 +205,15 @@ class ActionCustom(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_action_custom = azure.logicapps.ActionCustom("exampleActionCustom",
+        example = azure.core.ResourceGroup("example",
+            name="workflow-resources",
+            location="West Europe")
+        example_workflow = azure.logicapps.Workflow("example",
+            name="workflow1",
+            location=example.location,
+            resource_group_name=example.name)
+        example_action_custom = azure.logicapps.ActionCustom("example",
+            name="example-action",
             logic_app_id=example_workflow.id,
             body=\"\"\"{
             "description": "A variable to configure the auto expiration age in days. Configured in negative number. Default is -30 (30 days old).",

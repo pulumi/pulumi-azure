@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example_image_gallery",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Description = "Shared images and things.",
     ///         Tags = 
     ///         {
@@ -39,11 +41,12 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedImage = new Azure.Compute.SharedImage("exampleSharedImage", new()
+    ///     var exampleSharedImage = new Azure.Compute.SharedImage("example", new()
     ///     {
+    ///         Name = "my-image",
     ///         GalleryName = exampleSharedImageGallery.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         OsType = "Linux",
     ///         Identifier = new Azure.Compute.Inputs.SharedImageIdentifierArgs
     ///         {

@@ -205,9 +205,12 @@ class AzureTrafficCollector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("exampleAzureTrafficCollector",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West US")
+        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
+            name="example-nfatc",
+            resource_group_name=example.name,
             location="West US",
             tags={
                 "key": "value",
@@ -244,9 +247,12 @@ class AzureTrafficCollector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("exampleAzureTrafficCollector",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West US")
+        example_azure_traffic_collector = azure.networkfunction.AzureTrafficCollector("example",
+            name="example-nfatc",
+            resource_group_name=example.name,
             location="West US",
             tags={
                 "key": "value",

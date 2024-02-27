@@ -15,17 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "WestEurope"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "WestEurope",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example-account",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountKind: "StorageV2",
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     isHnsEnabled: true,
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
- * const exampleLocalUser = new azure.storage.LocalUser("exampleLocalUser", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "example-container",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleLocalUser = new azure.storage.LocalUser("example", {
+ *     name: "user1",
  *     storageAccountId: exampleAccount.id,
  *     sshKeyEnabled: true,
  *     sshPasswordEnabled: true,
@@ -33,11 +41,11 @@ import * as utilities from "../utilities";
  *     sshAuthorizedKeys: [
  *         {
  *             description: "key1",
- *             key: local.first_public_key,
+ *             key: firstPublicKey,
  *         },
  *         {
  *             description: "key2",
- *             key: local.second_public_key,
+ *             key: secondPublicKey,
  *         },
  *     ],
  *     permissionScopes: [{

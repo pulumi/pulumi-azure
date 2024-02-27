@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Maps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Maps.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-maps-account",
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "G2",
     ///         Tags = 
     ///         {
@@ -37,10 +39,11 @@ namespace Pulumi.Azure.Maps
     ///         },
     ///     });
     /// 
-    ///     var exampleCreator = new Azure.Maps.Creator("exampleCreator", new()
+    ///     var exampleCreator = new Azure.Maps.Creator("example", new()
     ///     {
+    ///         Name = "example-maps-creator",
     ///         MapsAccountId = exampleAccount.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         StorageUnits = 1,
     ///         Tags = 
     ///         {

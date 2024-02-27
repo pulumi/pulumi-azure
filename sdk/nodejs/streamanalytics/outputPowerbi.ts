@@ -13,15 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
+ * const example = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const exampleJob = exampleResourceGroup.then(exampleResourceGroup => azure.streamanalytics.getJob({
+ * const exampleGetJob = example.then(example => azure.streamanalytics.getJob({
  *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * }));
- * const exampleOutputPowerbi = new azure.streamanalytics.OutputPowerbi("exampleOutputPowerbi", {
- *     streamAnalyticsJobId: exampleJob.then(exampleJob => exampleJob.id),
+ * const exampleOutputPowerbi = new azure.streamanalytics.OutputPowerbi("example", {
+ *     name: "output-to-powerbi",
+ *     streamAnalyticsJobId: exampleGetJob.then(exampleGetJob => exampleGetJob.id),
  *     dataset: "example-dataset",
  *     table: "example-table",
  *     groupId: "00000000-0000-0000-0000-000000000000",

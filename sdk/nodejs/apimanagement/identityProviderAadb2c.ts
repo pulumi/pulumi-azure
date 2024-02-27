@@ -14,21 +14,25 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApplication = new azuread.Application("exampleApplication", {displayName: "acctestam-example"});
- * const exampleApplicationPassword = new azuread.ApplicationPassword("exampleApplicationPassword", {
+ * const exampleApplication = new azuread.Application("example", {displayName: "acctestam-example"});
+ * const exampleApplicationPassword = new azuread.ApplicationPassword("example", {
  *     applicationObjectId: exampleApplication.objectId,
  *     endDateRelative: "36h",
  * });
- * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIdentityProviderAadb2c = new azure.apimanagement.IdentityProviderAadb2c("example", {
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     clientId: exampleApplication.applicationId,
  *     clientSecret: "P@55w0rD!",
@@ -37,8 +41,6 @@ import * as utilities from "../utilities";
  *     authority: "myb2ctenant.b2clogin.com",
  *     signinPolicy: "B2C_1_Login",
  *     signupPolicy: "B2C_1_Signup",
- * }, {
- *     dependsOn: [exampleApplicationPassword],
  * });
  * ```
  *

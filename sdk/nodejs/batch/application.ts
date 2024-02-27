@@ -13,23 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount2 = new azure.batch.Account("example", {
+ *     name: "exampleba",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     poolAllocationMode: "BatchService",
  *     storageAccountId: exampleAccount.id,
  *     storageAccountAuthenticationMode: "StorageKeys",
  * });
- * const exampleApplication = new azure.batch.Application("exampleApplication", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleBatch / accountAccount.name,
+ * const exampleApplication = new azure.batch.Application("example", {
+ *     name: "example-batch-application",
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount2.name,
  * });
  * ```
  *

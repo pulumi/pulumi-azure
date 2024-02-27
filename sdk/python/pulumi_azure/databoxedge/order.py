@@ -270,13 +270,16 @@ class Order(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-databoxedge",
+            location="West Europe")
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("exampleOrder",
-            resource_group_name=example_resource_group.name,
+        example_order = azure.databoxedge.Order("example",
+            resource_group_name=example.name,
             device_name=example_device.name,
             contact=azure.databoxedge.OrderContactArgs(
                 name="TerraForm Test",
@@ -325,13 +328,16 @@ class Order(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-databoxedge",
+            location="West Europe")
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="EdgeP_Base-Standard")
-        example_order = azure.databoxedge.Order("exampleOrder",
-            resource_group_name=example_resource_group.name,
+        example_order = azure.databoxedge.Order("example",
+            resource_group_name=example.name,
             device_name=example_device.name,
             contact=azure.databoxedge.OrderContactArgs(
                 name="TerraForm Test",

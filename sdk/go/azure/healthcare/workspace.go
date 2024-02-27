@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := healthcare.NewWorkspace(ctx, "test", &healthcare.WorkspaceArgs{
-//				Location:          pulumi.String("east us"),
+//				Name:              pulumi.String("tfexworkspace"),
 //				ResourceGroupName: pulumi.String("tfex-resource_group"),
+//				Location:          pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err

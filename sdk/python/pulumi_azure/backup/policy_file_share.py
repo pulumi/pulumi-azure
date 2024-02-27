@@ -345,13 +345,17 @@ class PolicyFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-recovery_vault",
+            location="West Europe")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="tfex-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=example_resource_group.name,
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(
@@ -426,13 +430,17 @@ class PolicyFileShare(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-recovery_vault",
+            location="West Europe")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="tfex-recovery-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         policy = azure.backup.PolicyFileShare("policy",
-            resource_group_name=example_resource_group.name,
+            name="tfex-recovery-vault-policy",
+            resource_group_name=example.name,
             recovery_vault_name=example_vault.name,
             timezone="UTC",
             backup=azure.backup.PolicyFileShareBackupArgs(

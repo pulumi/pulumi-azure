@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tf-test"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("tf-test-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			readTelemetry, err := appinsights.NewApiKey(ctx, "readTelemetry", &appinsights.ApiKeyArgs{
+//			readTelemetry, err := appinsights.NewApiKey(ctx, "read_telemetry", &appinsights.ApiKeyArgs{
+//				Name:                  pulumi.String("tf-test-appinsights-read-telemetry-api-key"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("aggregate"),
@@ -56,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			writeAnnotations, err := appinsights.NewApiKey(ctx, "writeAnnotations", &appinsights.ApiKeyArgs{
+//			writeAnnotations, err := appinsights.NewApiKey(ctx, "write_annotations", &appinsights.ApiKeyArgs{
+//				Name:                  pulumi.String("tf-test-appinsights-write-annotations-api-key"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				WritePermissions: pulumi.StringArray{
 //					pulumi.String("annotations"),
@@ -65,7 +69,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			authenticateSdkControlChannelApiKey, err := appinsights.NewApiKey(ctx, "authenticateSdkControlChannelApiKey", &appinsights.ApiKeyArgs{
+//			authenticateSdkControlChannel, err := appinsights.NewApiKey(ctx, "authenticate_sdk_control_channel", &appinsights.ApiKeyArgs{
+//				Name:                  pulumi.String("tf-test-appinsights-authenticate-sdk-control-channel-api-key"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("agentconfig"),
@@ -74,7 +79,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			fullPermissions, err := appinsights.NewApiKey(ctx, "fullPermissions", &appinsights.ApiKeyArgs{
+//			fullPermissions, err := appinsights.NewApiKey(ctx, "full_permissions", &appinsights.ApiKeyArgs{
+//				Name:                  pulumi.String("tf-test-appinsights-full-permissions-api-key"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				ReadPermissions: pulumi.StringArray{
 //					pulumi.String("agentconfig"),
@@ -93,7 +99,7 @@ import (
 //			}
 //			ctx.Export("readTelemetryApiKey", readTelemetry.ApiKey)
 //			ctx.Export("writeAnnotationsApiKey", writeAnnotations.ApiKey)
-//			ctx.Export("authenticateSdkControlChannel", authenticateSdkControlChannelApiKey.ApiKey)
+//			ctx.Export("authenticateSdkControlChannel", authenticateSdkControlChannel.ApiKey)
 //			ctx.Export("fullPermissionsApiKey", fullPermissions.ApiKey)
 //			return nil
 //		})

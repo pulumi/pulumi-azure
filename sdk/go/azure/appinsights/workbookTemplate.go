@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -88,8 +89,9 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = appinsights.NewWorkbookTemplate(ctx, "exampleWorkbookTemplate", &appinsights.WorkbookTemplateArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appinsights.NewWorkbookTemplate(ctx, "example", &appinsights.WorkbookTemplateArgs{
+//				Name:              pulumi.String("example-aiwt"),
+//				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				Author:            pulumi.String("test author"),
 //				Priority:          pulumi.Int(1),

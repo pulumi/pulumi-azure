@@ -24,30 +24,34 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "packet-capture-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("exampleNetworkWatcher", new()
+    ///     var exampleNetworkWatcher = new Azure.Network.NetworkWatcher("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "network-watcher",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "production-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -55,10 +59,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "pctest-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -70,10 +75,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("exampleVirtualMachine", new()
+    ///     var exampleVirtualMachine = new Azure.Compute.VirtualMachine("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "pctest-vm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         NetworkInterfaceIds = new[]
     ///         {
     ///             exampleNetworkInterface.Id,
@@ -105,8 +111,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleExtension = new Azure.Compute.Extension("exampleExtension", new()
+    ///     var exampleExtension = new Azure.Compute.Extension("example", new()
     ///     {
+    ///         Name = "network-watcher",
     ///         VirtualMachineId = exampleVirtualMachine.Id,
     ///         Publisher = "Microsoft.Azure.NetworkWatcher",
     ///         Type = "NetworkWatcherAgentLinux",
@@ -114,28 +121,24 @@ namespace Pulumi.Azure.Network
     ///         AutoUpgradeMinorVersion = true,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "pctestsa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleNetworkPacketCapture = new Azure.Network.NetworkPacketCapture("exampleNetworkPacketCapture", new()
+    ///     var exampleNetworkPacketCapture = new Azure.Network.NetworkPacketCapture("example", new()
     ///     {
+    ///         Name = "pctestcapture",
     ///         NetworkWatcherName = exampleNetworkWatcher.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         TargetResourceId = exampleVirtualMachine.Id,
     ///         StorageLocation = new Azure.Network.Inputs.NetworkPacketCaptureStorageLocationArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleExtension,
     ///         },
     ///     });
     /// 

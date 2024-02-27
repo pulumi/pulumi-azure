@@ -15,23 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
@@ -42,10 +48,11 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleDeployment = new azure.nginx.Deployment("exampleDeployment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDeployment = new azure.nginx.Deployment("example", {
+ *     name: "example-nginx",
+ *     resourceGroupName: example.name,
  *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
  *     frontendPublic: {

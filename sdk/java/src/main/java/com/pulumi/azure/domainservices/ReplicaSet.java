@@ -54,7 +54,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.VirtualNetworkDnsServersArgs;
  * import com.pulumi.azure.domainservices.ReplicaSet;
  * import com.pulumi.azure.domainservices.ReplicaSetArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -68,25 +67,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryResourceGroup = new ResourceGroup(&#34;primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;aadds-primary-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var primaryVirtualNetwork = new VirtualNetwork(&#34;primaryVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(primaryResourceGroup.location())
- *             .resourceGroupName(primaryResourceGroup.name())
+ *             .name(&#34;aadds-primary-vnet&#34;)
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
  *             .addressSpaces(&#34;10.0.1.0/16&#34;)
  *             .build());
  * 
  *         var primarySubnet = new Subnet(&#34;primarySubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(primaryResourceGroup.name())
+ *             .name(&#34;aadds-primary-subnet&#34;)
+ *             .resourceGroupName(primary.name())
  *             .virtualNetworkName(primaryVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var primaryNetworkSecurityGroup = new NetworkSecurityGroup(&#34;primaryNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(primaryResourceGroup.location())
- *             .resourceGroupName(primaryResourceGroup.name())
+ *             .name(&#34;aadds-primary-nsg&#34;)
+ *             .location(primary.location())
+ *             .resourceGroupName(primary.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name(&#34;AllowSyncWithAzureAD&#34;)
@@ -144,7 +147,7 @@ import javax.annotation.Nullable;
  *             .securityEnabled(true)
  *             .build());
  * 
- *         var adminUser = new User(&#34;adminUser&#34;, UserArgs.builder()        
+ *         var admin = new User(&#34;admin&#34;, UserArgs.builder()        
  *             .userPrincipalName(&#34;dc-admin@hashicorp-example.net&#34;)
  *             .displayName(&#34;DC Administrator&#34;)
  *             .password(&#34;Pa55w0Rd!!1&#34;)
@@ -152,18 +155,20 @@ import javax.annotation.Nullable;
  * 
  *         var adminGroupMember = new GroupMember(&#34;adminGroupMember&#34;, GroupMemberArgs.builder()        
  *             .groupObjectId(dcAdmins.objectId())
- *             .memberObjectId(adminUser.objectId())
+ *             .memberObjectId(admin.objectId())
  *             .build());
  * 
- *         var exampleServicePrincipal = new ServicePrincipal(&#34;exampleServicePrincipal&#34;, ServicePrincipalArgs.builder()        
+ *         var example = new ServicePrincipal(&#34;example&#34;, ServicePrincipalArgs.builder()        
  *             .applicationId(&#34;2565bd9d-da50-47d4-8b85-4c97f669dc36&#34;)
  *             .build());
  * 
  *         var aadds = new ResourceGroup(&#34;aadds&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;aadds-rg&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-aadds&#34;)
  *             .location(aadds.location())
  *             .resourceGroupName(aadds.name())
  *             .domainName(&#34;widgetslogin.net&#34;)
@@ -186,31 +191,31 @@ import javax.annotation.Nullable;
  *                 .syncOnPremPasswords(true)
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleServicePrincipal,
- *                     primarySubnetNetworkSecurityGroupAssociation)
- *                 .build());
+ *             .build());
  * 
- *         var replicaResourceGroup = new ResourceGroup(&#34;replicaResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var replica = new ResourceGroup(&#34;replica&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;aadds-replica-rg&#34;)
  *             .location(&#34;North Europe&#34;)
  *             .build());
  * 
  *         var replicaVirtualNetwork = new VirtualNetwork(&#34;replicaVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(replicaResourceGroup.location())
- *             .resourceGroupName(replicaResourceGroup.name())
+ *             .name(&#34;aadds-replica-vnet&#34;)
+ *             .location(replica.location())
+ *             .resourceGroupName(replica.name())
  *             .addressSpaces(&#34;10.20.0.0/16&#34;)
  *             .build());
  * 
- *         var aaddsReplicaSubnet = new Subnet(&#34;aaddsReplicaSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(replicaResourceGroup.name())
+ *         var aaddsReplica = new Subnet(&#34;aaddsReplica&#34;, SubnetArgs.builder()        
+ *             .name(&#34;aadds-replica-subnet&#34;)
+ *             .resourceGroupName(replica.name())
  *             .virtualNetworkName(replicaVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.20.0.0/24&#34;)
  *             .build());
  * 
  *         var aaddsReplicaNetworkSecurityGroup = new NetworkSecurityGroup(&#34;aaddsReplicaNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(replicaResourceGroup.location())
- *             .resourceGroupName(replicaResourceGroup.name())
+ *             .name(&#34;aadds-replica-nsg&#34;)
+ *             .location(replica.location())
+ *             .resourceGroupName(replica.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name(&#34;AllowSyncWithAzureAD&#34;)
@@ -259,11 +264,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var replicaSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;replicaSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
- *             .subnetId(aaddsReplicaSubnet.id())
+ *             .subnetId(aaddsReplica.id())
  *             .networkSecurityGroupId(aaddsReplicaNetworkSecurityGroup.id())
  *             .build());
  * 
  *         var primaryReplica = new VirtualNetworkPeering(&#34;primaryReplica&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;aadds-primary-replica&#34;)
  *             .resourceGroupName(primaryVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(primaryVirtualNetwork.name())
  *             .remoteVirtualNetworkId(replicaVirtualNetwork.id())
@@ -274,6 +280,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var replicaPrimary = new VirtualNetworkPeering(&#34;replicaPrimary&#34;, VirtualNetworkPeeringArgs.builder()        
+ *             .name(&#34;aadds-replica-primary&#34;)
  *             .resourceGroupName(replicaVirtualNetwork.resourceGroupName())
  *             .virtualNetworkName(replicaVirtualNetwork.name())
  *             .remoteVirtualNetworkId(primaryVirtualNetwork.id())
@@ -290,14 +297,9 @@ import javax.annotation.Nullable;
  * 
  *         var replicaReplicaSet = new ReplicaSet(&#34;replicaReplicaSet&#34;, ReplicaSetArgs.builder()        
  *             .domainServiceId(exampleService.id())
- *             .location(replicaResourceGroup.location())
- *             .subnetId(aaddsReplicaSubnet.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     replicaSubnetNetworkSecurityGroupAssociation,
- *                     primaryReplica,
- *                     replicaPrimary)
- *                 .build());
+ *             .location(replica.location())
+ *             .subnetId(aaddsReplica.id())
+ *             .build());
  * 
  *     }
  * }

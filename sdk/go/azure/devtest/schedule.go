@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
+//				Name:              pulumi.String("YourDevTestLab"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devtest.NewSchedule(ctx, "exampleSchedule", &devtest.ScheduleArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = devtest.NewSchedule(ctx, "example", &devtest.ScheduleArgs{
+//				Name:              pulumi.String("LabVmAutoStart"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				LabName:           exampleLab.Name,
 //				WeeklyRecurrence: &devtest.ScheduleWeeklyRecurrenceArgs{
 //					Time: pulumi.String("1100"),

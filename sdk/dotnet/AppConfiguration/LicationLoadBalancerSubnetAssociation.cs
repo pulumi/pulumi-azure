@@ -22,30 +22,34 @@ namespace Pulumi.Azure.AppConfiguration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "westeurope",
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("exampleLicationLoadBalancer", new()
+    ///     var exampleLicationLoadBalancer = new Azure.AppConfiguration.LicationLoadBalancer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-alb",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -68,8 +72,9 @@ namespace Pulumi.Azure.AppConfiguration
     ///         },
     ///     });
     /// 
-    ///     var exampleLicationLoadBalancerSubnetAssociation = new Azure.AppConfiguration.LicationLoadBalancerSubnetAssociation("exampleLicationLoadBalancerSubnetAssociation", new()
+    ///     var exampleLicationLoadBalancerSubnetAssociation = new Azure.AppConfiguration.LicationLoadBalancerSubnetAssociation("example", new()
     ///     {
+    ///         Name = "example",
     ///         ApplicationLoadBalancerId = exampleLicationLoadBalancer.Id,
     ///         SubnetId = exampleSubnet.Id,
     ///     });

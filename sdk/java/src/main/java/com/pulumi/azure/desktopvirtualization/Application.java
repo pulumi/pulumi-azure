@@ -48,10 +48,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example-virtualdesktop&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var pooledbreadthfirst = new HostPool(&#34;pooledbreadthfirst&#34;, HostPoolArgs.builder()        
+ *             .name(&#34;pooledbreadthfirst&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type(&#34;Pooled&#34;)
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var personalautomatic = new HostPool(&#34;personalautomatic&#34;, HostPoolArgs.builder()        
+ *             .name(&#34;personalautomatic&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type(&#34;Personal&#34;)
@@ -67,6 +70,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var remoteapp = new ApplicationGroup(&#34;remoteapp&#34;, ApplicationGroupArgs.builder()        
+ *             .name(&#34;acctag&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .type(&#34;RemoteApp&#34;)
@@ -76,6 +80,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var chrome = new Application(&#34;chrome&#34;, ApplicationArgs.builder()        
+ *             .name(&#34;googlechrome&#34;)
  *             .applicationGroupId(remoteapp.id())
  *             .friendlyName(&#34;Google Chrome&#34;)
  *             .description(&#34;Chromium based web browser&#34;)

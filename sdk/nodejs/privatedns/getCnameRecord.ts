@@ -12,10 +12,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.privatedns.CnameRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const privateDnsCnameRecordId = example.id;
+ * export const privateDnsCnameRecordId = exampleAzurermPrivateDnsCnameRecord.id;
  * ```
  */
 export function getCnameRecord(args: GetCnameRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetCnameRecordResult> {
@@ -83,10 +84,11 @@ export interface GetCnameRecordResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.privatedns.CnameRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const privateDnsCnameRecordId = example.id;
+ * export const privateDnsCnameRecordId = exampleAzurermPrivateDnsCnameRecord.id;
  * ```
  */
 export function getCnameRecordOutput(args: GetCnameRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCnameRecordResult> {

@@ -52,38 +52,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
+ *             .name(&#34;example-mn&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
- *         final var exampleUserAssignedIdentity = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
+ *         final var example = AuthorizationFunctions.getUserAssignedIdentity(GetUserAssignedIdentityArgs.builder()
  *             .name(&#34;name_of_user_assigned_identity&#34;)
  *             .resourceGroupName(&#34;name_of_resource_group&#34;)
  *             .build());
  * 
- *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+ *         final var exampleGetKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
  *             .name(&#34;example-kv&#34;)
  *             .resourceGroupName(&#34;some-resource-group&#34;)
  *             .build());
  * 
- *         final var exampleKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
+ *         final var exampleGetKey = KeyvaultFunctions.getKey(GetKeyArgs.builder()
  *             .name(&#34;example-key&#34;)
- *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+ *             .keyVaultId(exampleGetKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
  *             .build());
  * 
  *         var exampleNetworkSimGroup = new NetworkSimGroup(&#34;exampleNetworkSimGroup&#34;, NetworkSimGroupArgs.builder()        
+ *             .name(&#34;example-mnsg&#34;)
  *             .location(exampleResourceGroup.location())
  *             .mobileNetworkId(exampleNetwork.id())
- *             .encryptionKeyUrl(exampleKey.applyValue(getKeyResult -&gt; getKeyResult.id()))
+ *             .encryptionKeyUrl(exampleGetKey.applyValue(getKeyResult -&gt; getKeyResult.id()))
  *             .identity(NetworkSimGroupIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned, UserAssigned&#34;)
- *                 .identityIds(exampleUserAssignedIdentity.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.id()))
+ *                 .identityIds(example.applyValue(getUserAssignedIdentityResult -&gt; getUserAssignedIdentityResult.id()))
  *                 .build())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
  *             .build());

@@ -22,28 +22,31 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", new()
+    ///     var exampleLinkedServiceCosmosDb = new Azure.DataFactory.LinkedServiceCosmosDb("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
-    ///         AccountEndpoint = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
-    ///         AccountKey = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.PrimaryKey),
+    ///         AccountEndpoint = example.Apply(getAccountResult =&gt; getAccountResult.Endpoint),
+    ///         AccountKey = example.Apply(getAccountResult =&gt; getAccountResult.PrimaryKey),
     ///         Database = "foo",
     ///     });
     /// 

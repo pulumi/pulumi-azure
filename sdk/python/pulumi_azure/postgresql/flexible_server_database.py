@@ -171,16 +171,20 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-psqlflexibleserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12",
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_database = azure.postgresql.FlexibleServerDatabase("exampleFlexibleServerDatabase",
+        example_flexible_server_database = azure.postgresql.FlexibleServerDatabase("example",
+            name="example-db",
             server_id=example_flexible_server.id,
             collation="en_US.utf8",
             charset="utf8")
@@ -214,16 +218,20 @@ class FlexibleServerDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-psqlflexibleserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12",
             administrator_login="psqladmin",
             administrator_password="H@Sh1CoR3!",
             storage_mb=32768,
             sku_name="GP_Standard_D4s_v3")
-        example_flexible_server_database = azure.postgresql.FlexibleServerDatabase("exampleFlexibleServerDatabase",
+        example_flexible_server_database = azure.postgresql.FlexibleServerDatabase("example",
+            name="example-db",
             server_id=example_flexible_server.id,
             collation="en_US.utf8",
             charset="utf8")

@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleChannelsRegistration = new ChannelsRegistration(&#34;exampleChannelsRegistration&#34;, ChannelsRegistrationArgs.builder()        
+ *             .name(&#34;example-bcr&#34;)
  *             .location(&#34;global&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;F0&#34;)
  *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
  *             .build());
@@ -62,7 +64,7 @@ import javax.annotation.Nullable;
  *         var exampleChannelSms = new ChannelSms(&#34;exampleChannelSms&#34;, ChannelSmsArgs.builder()        
  *             .botName(exampleChannelsRegistration.name())
  *             .location(exampleChannelsRegistration.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .smsChannelAccountSecurityId(&#34;BG61f7cf5157f439b084e98256409c2815&#34;)
  *             .smsChannelAuthToken(&#34;jh8980432610052ed4e29565c5e232f&#34;)
  *             .phoneNumber(&#34;+12313803556&#34;)

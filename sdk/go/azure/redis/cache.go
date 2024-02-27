@@ -33,16 +33,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// NOTE: the Name used for Redis needs to be globally unique
-//			_, err = redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			_, err = redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name:               pulumi.String("example-cache"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				Capacity:           pulumi.Int(2),
 //				Family:             pulumi.String("C"),
 //				SkuName:            pulumi.String("Standard"),

@@ -11,31 +11,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const current = azure.core.getClientConfig({});
- * const exampleWorkspace = new azure.healthcare.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const current = azure.core.getClientConfig({});
+ * const exampleWorkspace = new azure.healthcare.Workspace("example", {
+ *     name: "exampleworkspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-ehn",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "example-eh",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 1,
  *     messageRetention: 1,
  * });
- * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.eventhub.ConsumerGroup("example", {
+ *     name: "$default",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
- * const exampleFhirService = new azure.healthcare.FhirService("exampleFhirService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFhirService = new azure.healthcare.FhirService("example", {
+ *     name: "examplefhir",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     workspaceId: exampleWorkspace.id,
  *     kind: "fhir-R4",
  *     authentication: {
@@ -43,9 +51,10 @@ import * as utilities from "../utilities";
  *         audience: "https://examplefhir.fhir.azurehealthcareapis.com",
  *     },
  * });
- * const exampleMedtechService = new azure.healthcare.MedtechService("exampleMedtechService", {
+ * const exampleMedtechService = new azure.healthcare.MedtechService("example", {
+ *     name: "examplemt",
  *     workspaceId: exampleWorkspace.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     eventhubNamespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
  *     eventhubConsumerGroupName: exampleConsumerGroup.name,
@@ -54,7 +63,8 @@ import * as utilities from "../utilities";
  *         template: [],
  *     }),
  * });
- * const exampleMedtechServiceFhirDestination = new azure.healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", {
+ * const exampleMedtechServiceFhirDestination = new azure.healthcare.MedtechServiceFhirDestination("example", {
+ *     name: "examplemtdes",
  *     location: "east us",
  *     medtechServiceId: exampleMedtechService.id,
  *     destinationFhirServiceId: exampleFhirService.id,

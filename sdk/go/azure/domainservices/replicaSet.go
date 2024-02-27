@@ -30,15 +30,17 @@ import (
 // )
 // func main() {
 // pulumi.Run(func(ctx *pulumi.Context) error {
-// primaryResourceGroup, err := core.NewResourceGroup(ctx, "primaryResourceGroup", &core.ResourceGroupArgs{
+// primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+// Name: pulumi.String("aadds-primary-rg"),
 // Location: pulumi.String("West Europe"),
 // })
 // if err != nil {
 // return err
 // }
-// primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primaryVirtualNetwork", &network.VirtualNetworkArgs{
-// Location: primaryResourceGroup.Location,
-// ResourceGroupName: primaryResourceGroup.Name,
+// primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
+// Name: pulumi.String("aadds-primary-vnet"),
+// Location: primary.Location,
+// ResourceGroupName: primary.Name,
 // AddressSpaces: pulumi.StringArray{
 // pulumi.String("10.0.1.0/16"),
 // },
@@ -46,8 +48,9 @@ import (
 // if err != nil {
 // return err
 // }
-// primarySubnet, err := network.NewSubnet(ctx, "primarySubnet", &network.SubnetArgs{
-// ResourceGroupName: primaryResourceGroup.Name,
+// primarySubnet, err := network.NewSubnet(ctx, "primary", &network.SubnetArgs{
+// Name: pulumi.String("aadds-primary-subnet"),
+// ResourceGroupName: primary.Name,
 // VirtualNetworkName: primaryVirtualNetwork.Name,
 // AddressPrefixes: pulumi.StringArray{
 // pulumi.String("10.0.1.0/24"),
@@ -56,9 +59,10 @@ import (
 // if err != nil {
 // return err
 // }
-// primaryNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "primaryNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// Location: primaryResourceGroup.Location,
-// ResourceGroupName: primaryResourceGroup.Name,
+// primaryNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "primary", &network.NetworkSecurityGroupArgs{
+// Name: pulumi.String("aadds-primary-nsg"),
+// Location: primary.Location,
+// ResourceGroupName: primary.Name,
 // SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 // &network.NetworkSecurityGroupSecurityRuleArgs{
 // Name: pulumi.String("AllowSyncWithAzureAD"),
@@ -109,21 +113,21 @@ import (
 // if err != nil {
 // return err
 // }
-// primarySubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primarySubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
+// _, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "primary", &network.SubnetNetworkSecurityGroupAssociationArgs{
 // SubnetId: primarySubnet.ID(),
 // NetworkSecurityGroupId: primaryNetworkSecurityGroup.ID(),
 // })
 // if err != nil {
 // return err
 // }
-// dcAdmins, err := azuread.NewGroup(ctx, "dcAdmins", &azuread.GroupArgs{
+// dcAdmins, err := azuread.NewGroup(ctx, "dc_admins", &azuread.GroupArgs{
 // DisplayName: pulumi.String("aad-dc-administrators"),
 // SecurityEnabled: pulumi.Bool(true),
 // })
 // if err != nil {
 // return err
 // }
-// adminUser, err := azuread.NewUser(ctx, "adminUser", &azuread.UserArgs{
+// admin, err := azuread.NewUser(ctx, "admin", &azuread.UserArgs{
 // UserPrincipalName: pulumi.String("dc-admin@hashicorp-example.net"),
 // DisplayName: pulumi.String("DC Administrator"),
 // Password: pulumi.String("Pa55w0Rd!!1"),
@@ -131,26 +135,28 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = azuread.NewGroupMember(ctx, "adminGroupMember", &azuread.GroupMemberArgs{
+// _, err = azuread.NewGroupMember(ctx, "admin", &azuread.GroupMemberArgs{
 // GroupObjectId: dcAdmins.ObjectId,
-// MemberObjectId: adminUser.ObjectId,
+// MemberObjectId: admin.ObjectId,
 // })
 // if err != nil {
 // return err
 // }
-// exampleServicePrincipal, err := azuread.NewServicePrincipal(ctx, "exampleServicePrincipal", &azuread.ServicePrincipalArgs{
+// _, err = azuread.NewServicePrincipal(ctx, "example", &azuread.ServicePrincipalArgs{
 // ApplicationId: pulumi.String("2565bd9d-da50-47d4-8b85-4c97f669dc36"),
 // })
 // if err != nil {
 // return err
 // }
 // aadds, err := core.NewResourceGroup(ctx, "aadds", &core.ResourceGroupArgs{
+// Name: pulumi.String("aadds-rg"),
 // Location: pulumi.String("westeurope"),
 // })
 // if err != nil {
 // return err
 // }
-// exampleService, err := domainservices.NewService(ctx, "exampleService", &domainservices.ServiceArgs{
+// exampleService, err := domainservices.NewService(ctx, "example", &domainservices.ServiceArgs{
+// Name: pulumi.String("example-aadds"),
 // Location: aadds.Location,
 // ResourceGroupName: aadds.Name,
 // DomainName: pulumi.String("widgetslogin.net"),
@@ -176,22 +182,21 @@ import (
 // Tags: pulumi.StringMap{
 // "Environment": pulumi.String("prod"),
 // },
-// }, pulumi.DependsOn([]pulumi.Resource{
-// exampleServicePrincipal,
-// primarySubnetNetworkSecurityGroupAssociation,
-// }))
+// })
 // if err != nil {
 // return err
 // }
-// replicaResourceGroup, err := core.NewResourceGroup(ctx, "replicaResourceGroup", &core.ResourceGroupArgs{
+// replica, err := core.NewResourceGroup(ctx, "replica", &core.ResourceGroupArgs{
+// Name: pulumi.String("aadds-replica-rg"),
 // Location: pulumi.String("North Europe"),
 // })
 // if err != nil {
 // return err
 // }
-// replicaVirtualNetwork, err := network.NewVirtualNetwork(ctx, "replicaVirtualNetwork", &network.VirtualNetworkArgs{
-// Location: replicaResourceGroup.Location,
-// ResourceGroupName: replicaResourceGroup.Name,
+// replicaVirtualNetwork, err := network.NewVirtualNetwork(ctx, "replica", &network.VirtualNetworkArgs{
+// Name: pulumi.String("aadds-replica-vnet"),
+// Location: replica.Location,
+// ResourceGroupName: replica.Name,
 // AddressSpaces: pulumi.StringArray{
 // pulumi.String("10.20.0.0/16"),
 // },
@@ -199,8 +204,9 @@ import (
 // if err != nil {
 // return err
 // }
-// aaddsReplicaSubnet, err := network.NewSubnet(ctx, "aaddsReplicaSubnet", &network.SubnetArgs{
-// ResourceGroupName: replicaResourceGroup.Name,
+// aaddsReplica, err := network.NewSubnet(ctx, "aadds_replica", &network.SubnetArgs{
+// Name: pulumi.String("aadds-replica-subnet"),
+// ResourceGroupName: replica.Name,
 // VirtualNetworkName: replicaVirtualNetwork.Name,
 // AddressPrefixes: pulumi.StringArray{
 // pulumi.String("10.20.0.0/24"),
@@ -209,9 +215,10 @@ import (
 // if err != nil {
 // return err
 // }
-// aaddsReplicaNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "aaddsReplicaNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-// Location: replicaResourceGroup.Location,
-// ResourceGroupName: replicaResourceGroup.Name,
+// aaddsReplicaNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "aadds_replica", &network.NetworkSecurityGroupArgs{
+// Name: pulumi.String("aadds-replica-nsg"),
+// Location: replica.Location,
+// ResourceGroupName: replica.Name,
 // SecurityRules: network.NetworkSecurityGroupSecurityRuleArray{
 // &network.NetworkSecurityGroupSecurityRuleArgs{
 // Name: pulumi.String("AllowSyncWithAzureAD"),
@@ -262,14 +269,15 @@ import (
 // if err != nil {
 // return err
 // }
-// replicaSubnetNetworkSecurityGroupAssociation, err := network.NewSubnetNetworkSecurityGroupAssociation(ctx, "replicaSubnetNetworkSecurityGroupAssociation", &network.SubnetNetworkSecurityGroupAssociationArgs{
-// SubnetId: aaddsReplicaSubnet.ID(),
+// _, err = network.NewSubnetNetworkSecurityGroupAssociation(ctx, "replica", &network.SubnetNetworkSecurityGroupAssociationArgs{
+// SubnetId: aaddsReplica.ID(),
 // NetworkSecurityGroupId: aaddsReplicaNetworkSecurityGroup.ID(),
 // })
 // if err != nil {
 // return err
 // }
-// primaryReplica, err := network.NewVirtualNetworkPeering(ctx, "primaryReplica", &network.VirtualNetworkPeeringArgs{
+// _, err = network.NewVirtualNetworkPeering(ctx, "primary_replica", &network.VirtualNetworkPeeringArgs{
+// Name: pulumi.String("aadds-primary-replica"),
 // ResourceGroupName: primaryVirtualNetwork.ResourceGroupName,
 // VirtualNetworkName: primaryVirtualNetwork.Name,
 // RemoteVirtualNetworkId: replicaVirtualNetwork.ID(),
@@ -281,7 +289,8 @@ import (
 // if err != nil {
 // return err
 // }
-// replicaPrimary, err := network.NewVirtualNetworkPeering(ctx, "replicaPrimary", &network.VirtualNetworkPeeringArgs{
+// _, err = network.NewVirtualNetworkPeering(ctx, "replica_primary", &network.VirtualNetworkPeeringArgs{
+// Name: pulumi.String("aadds-replica-primary"),
 // ResourceGroupName: replicaVirtualNetwork.ResourceGroupName,
 // VirtualNetworkName: replicaVirtualNetwork.Name,
 // RemoteVirtualNetworkId: primaryVirtualNetwork.ID(),
@@ -293,7 +302,7 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = network.NewVirtualNetworkDnsServers(ctx, "replicaVirtualNetworkDnsServers", &network.VirtualNetworkDnsServersArgs{
+// _, err = network.NewVirtualNetworkDnsServers(ctx, "replica", &network.VirtualNetworkDnsServersArgs{
 // VirtualNetworkId: replicaVirtualNetwork.ID(),
 // DnsServers: exampleService.InitialReplicaSet.ApplyT(func(initialReplicaSet domainservices.ServiceInitialReplicaSet) (interface{}, error) {
 // return initialReplicaSet.DomainControllerIpAddresses, nil
@@ -302,15 +311,11 @@ import (
 // if err != nil {
 // return err
 // }
-// _, err = domainservices.NewReplicaSet(ctx, "replicaReplicaSet", &domainservices.ReplicaSetArgs{
+// _, err = domainservices.NewReplicaSet(ctx, "replica", &domainservices.ReplicaSetArgs{
 // DomainServiceId: exampleService.ID(),
-// Location: replicaResourceGroup.Location,
-// SubnetId: aaddsReplicaSubnet.ID(),
-// }, pulumi.DependsOn([]pulumi.Resource{
-// replicaSubnetNetworkSecurityGroupAssociation,
-// primaryReplica,
-// replicaPrimary,
-// }))
+// Location: replica.Location,
+// SubnetId: aaddsReplica.ID(),
+// })
 // if err != nil {
 // return err
 // }

@@ -536,7 +536,7 @@ public final class NetappFunctions {
      *             .volumeName(&#34;acctestnetappvolume&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
+     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
      *     }
      * }
      * ```
@@ -578,7 +578,7 @@ public final class NetappFunctions {
      *             .volumeName(&#34;acctestnetappvolume&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
+     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
      *     }
      * }
      * ```
@@ -620,7 +620,7 @@ public final class NetappFunctions {
      *             .volumeName(&#34;acctestnetappvolume&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
+     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
      *     }
      * }
      * ```
@@ -662,7 +662,7 @@ public final class NetappFunctions {
      *             .volumeName(&#34;acctestnetappvolume&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;netappSnapshotId&#34;, data.azurerm_netapp_snapshot().example().id());
+     *         ctx.export(&#34;netappSnapshotId&#34;, example.id());
      *     }
      * }
      * ```

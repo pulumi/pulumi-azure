@@ -31,66 +31,72 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryResourceGroup, err := core.NewResourceGroup(ctx, "primaryResourceGroup", &core.ResourceGroupArgs{
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-primary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryResourceGroup, err := core.NewResourceGroup(ctx, "secondaryResourceGroup", &core.ResourceGroupArgs{
+//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-secondary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Location:          secondaryResourceGroup.Location,
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryFabric, err := siterecovery.NewFabric(ctx, "primaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			_, err = siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("primary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          primaryResourceGroup.Location,
+//				Location:          primary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewFabric(ctx, "secondaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			_, err = siterecovery.NewFabric(ctx, "secondary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("secondary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          secondaryResourceGroup.Location,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				primaryFabric,
-//			}))
+//				Location:          secondary.Location,
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primaryVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: primaryResourceGroup.Name,
+//			primaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "primary", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network1"),
+//				ResourceGroupName: primary.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.1.0/24"),
 //				},
-//				Location: primaryResourceGroup.Location,
+//				Location: primary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondaryVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			secondaryVirtualNetwork, err := network.NewVirtualNetwork(ctx, "secondary", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network2"),
+//				ResourceGroupName: secondary.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
 //				},
-//				Location: secondaryResourceGroup.Location,
+//				Location: secondary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewNetworkMapping(ctx, "recovery-mapping", &siterecovery.NetworkMappingArgs{
-//				ResourceGroupName:        secondaryResourceGroup.Name,
+//				Name:                     pulumi.String("recovery-network-mapping-1"),
+//				ResourceGroupName:        secondary.Name,
 //				RecoveryVaultName:        vault.Name,
 //				SourceRecoveryFabricName: pulumi.String("primary-fabric"),
 //				TargetRecoveryFabricName: pulumi.String("secondary-fabric"),

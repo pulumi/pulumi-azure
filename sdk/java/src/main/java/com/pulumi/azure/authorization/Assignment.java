@@ -47,12 +47,12 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Reader&#34;)
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
@@ -87,10 +87,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name(&#34;my-custom-role-definition&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
@@ -103,7 +104,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
@@ -138,10 +139,11 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name(&#34;my-custom-role-definition&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
@@ -154,7 +156,7 @@ import javax.annotation.Nullable;
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }
@@ -191,14 +193,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
+ *             .name(&#34;my-custom-role-definition&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .permissions(RoleDefinitionPermissionArgs.builder()
  *                 .actions(&#34;Microsoft.Resources/subscriptions/resourceGroups/read&#34;)
@@ -209,9 +212,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .name(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .scope(data.azurerm_management_group().primary().id())
+ *             .scope(primaryAzurermManagementGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *     }

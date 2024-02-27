@@ -131,9 +131,10 @@ def get_ptr_record(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.dns.PtrRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsPtrRecordId", example.id)
+    pulumi.export("dnsPtrRecordId", example_azurerm_dns_ptr_record["id"])
     ```
 
 
@@ -172,9 +173,10 @@ def get_ptr_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.dns.PtrRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsPtrRecordId", example.id)
+    pulumi.export("dnsPtrRecordId", example_azurerm_dns_ptr_record["id"])
     ```
 
 

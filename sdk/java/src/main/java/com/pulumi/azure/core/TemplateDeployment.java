@@ -48,12 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleTemplateDeployment = new TemplateDeployment(&#34;exampleTemplateDeployment&#34;, TemplateDeploymentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctesttemplate-01&#34;)
+ *             .resourceGroupName(example.name())
  *             .templateBody(&#34;&#34;&#34;
  * {
  *   &#34;$schema&#34;: &#34;https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#&#34;,

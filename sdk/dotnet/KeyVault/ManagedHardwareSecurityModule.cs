@@ -26,15 +26,17 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedHardwareSecurityModule = new Azure.KeyVault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule", new()
+    ///     var exampleManagedHardwareSecurityModule = new Azure.KeyVault.ManagedHardwareSecurityModule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleKVHsm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SkuName = "Standard_B1",
     ///         PurgeProtectionEnabled = false,
     ///         SoftDeleteRetentionDays = 90,

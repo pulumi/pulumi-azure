@@ -49,13 +49,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;terraform-webpubsub&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekeyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .softDeleteRetentionDays(7)
@@ -69,13 +71,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-webpubsub&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard_S1&#34;)
  *             .capacity(1)
  *             .build());
  * 
  *         var exampleSharedPrivateLinkResource = new SharedPrivateLinkResource(&#34;exampleSharedPrivateLinkResource&#34;, SharedPrivateLinkResourceArgs.builder()        
+ *             .name(&#34;tfex-webpubsub-splr&#34;)
  *             .webPubsubId(exampleService.id())
  *             .subresourceName(&#34;vault&#34;)
  *             .targetResourceId(exampleKeyVault.id())

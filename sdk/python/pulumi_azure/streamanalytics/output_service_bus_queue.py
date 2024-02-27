@@ -410,19 +410,24 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+        example_namespace = azure.servicebus.Namespace("example",
+            name="example-namespace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
-        example_queue = azure.servicebus.Queue("exampleQueue",
+        example_queue = azure.servicebus.Queue("example",
+            name="example-queue",
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
+        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            name="blob-storage-output",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
             queue_name=example_queue.name,
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,
@@ -472,19 +477,24 @@ class OutputServiceBusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
+        example_namespace = azure.servicebus.Namespace("example",
+            name="example-namespace",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku="Standard")
-        example_queue = azure.servicebus.Queue("exampleQueue",
+        example_queue = azure.servicebus.Queue("example",
+            name="example-queue",
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("exampleOutputServiceBusQueue",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
+        example_output_service_bus_queue = azure.streamanalytics.OutputServiceBusQueue("example",
+            name="blob-storage-output",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
             queue_name=example_queue.name,
             servicebus_namespace=example_namespace.name,
             shared_access_policy_key=example_namespace.default_primary_key,

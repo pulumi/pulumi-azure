@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = azure.management.getGroup({
+ * const example = azure.management.getGroup({
  *     name: "exampleManagementGroup",
  * });
- * const exampleSubscription = azure.core.getSubscription({
+ * const exampleGetSubscription = azure.core.getSubscription({
  *     subscriptionId: "12345678-1234-1234-1234-123456789012",
  * });
- * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("exampleGroupSubscriptionAssociation", {
- *     managementGroupId: exampleGroup.then(exampleGroup => exampleGroup.id),
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ * const exampleGroupSubscriptionAssociation = new azure.management.GroupSubscriptionAssociation("example", {
+ *     managementGroupId: example.then(example => example.id),
+ *     subscriptionId: exampleGetSubscription.then(exampleGetSubscription => exampleGetSubscription.id),
  * });
  * ```
  *

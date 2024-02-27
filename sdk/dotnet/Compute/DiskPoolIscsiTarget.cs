@@ -27,13 +27,15 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-network",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AddressSpaces = new[]
@@ -42,8 +44,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
+    ///         Name = "example-subnet",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
@@ -67,8 +70,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleDiskPool = new Azure.Compute.DiskPool("exampleDiskPool", new()
+    ///     var exampleDiskPool = new Azure.Compute.DiskPool("example", new()
     ///     {
+    ///         Name = "example-pool",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         SubnetId = exampleSubnet.Id,
@@ -79,8 +83,9 @@ namespace Pulumi.Azure.Compute
     ///         SkuName = "Basic_B1",
     ///     });
     /// 
-    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("exampleManagedDisk", new()
+    ///     var exampleManagedDisk = new Azure.Compute.ManagedDisk("example", new()
     ///     {
+    ///         Name = "example-disk",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         CreateOption = "Empty",
@@ -90,7 +95,7 @@ namespace Pulumi.Azure.Compute
     ///         Zone = "1",
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "StoragePool Resource Provider",
     ///     });
@@ -105,36 +110,25 @@ namespace Pulumi.Azure.Compute
     ///     for (var rangeIndex = 0; rangeIndex &lt; roles.Length; rangeIndex++)
     ///     {
     ///         var range = new { Value = rangeIndex };
-    ///         exampleAssignment.Add(new Azure.Authorization.Assignment($"exampleAssignment-{range.Value}", new()
+    ///         exampleAssignment.Add(new Azure.Authorization.Assignment($"example-{range.Value}", new()
     ///         {
-    ///             PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
+    ///             PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.Id),
     ///             RoleDefinitionName = roles[range.Value],
     ///             Scope = exampleManagedDisk.Id,
     ///         }));
     ///     }
-    ///     var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", new()
+    ///     var exampleDiskPoolManagedDiskAttachment = new Azure.Compute.DiskPoolManagedDiskAttachment("example", new()
     ///     {
     ///         DiskPoolId = exampleDiskPool.Id,
     ///         ManagedDiskId = exampleManagedDisk.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///         },
     ///     });
     /// 
-    ///     var exampleDiskPoolIscsiTarget = new Azure.Compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", new()
+    ///     var exampleDiskPoolIscsiTarget = new Azure.Compute.DiskPoolIscsiTarget("example", new()
     ///     {
+    ///         Name = "example",
     ///         AclMode = "Dynamic",
     ///         DisksPoolId = exampleDiskPool.Id,
     ///         TargetIqn = "iqn.2021-11.com.microsoft:test",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleDiskPoolManagedDiskAttachment,
-    ///         },
     ///     });
     /// 
     /// });

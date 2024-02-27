@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.datashare.DatasetKustoDatabase;
  * import com.pulumi.azure.datashare.DatasetKustoDatabaseArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,26 +52,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-dsa&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
+ *             .name(&#34;example_ds&#34;)
  *             .accountId(exampleAccount.id())
  *             .kind(&#34;InPlace&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
  *                 .capacity(1)
@@ -80,8 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplekd&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
@@ -92,11 +96,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatasetKustoDatabase = new DatasetKustoDatabase(&#34;exampleDatasetKustoDatabase&#34;, DatasetKustoDatabaseArgs.builder()        
+ *             .name(&#34;example-dskd&#34;)
  *             .shareId(exampleShare.id())
  *             .kustoDatabaseId(exampleDatabase.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

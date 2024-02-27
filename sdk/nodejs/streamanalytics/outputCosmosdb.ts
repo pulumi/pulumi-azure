@@ -13,12 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "exampledb",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     offerType: "Standard",
@@ -33,19 +37,22 @@ import * as utilities from "../utilities";
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "examplecontainer",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "foo",
  * });
- * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb", {
- *     streamAnalyticsJobId: exampleJob.apply(exampleJob => exampleJob.id),
+ * const exampleOutputCosmosdb = new azure.streamanalytics.OutputCosmosdb("example", {
+ *     name: "output-to-cosmosdb",
+ *     streamAnalyticsJobId: example.apply(example => example.id),
  *     cosmosdbAccountKey: exampleAccount.primaryKey,
  *     cosmosdbSqlDatabaseId: exampleSqlDatabase.id,
  *     containerName: exampleSqlContainer.name,

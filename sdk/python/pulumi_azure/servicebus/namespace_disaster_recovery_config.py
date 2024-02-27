@@ -238,23 +238,29 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="servicebus-replication",
+            location="West Europe")
         primary = azure.servicebus.Namespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="servicebus-primary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Premium",
             capacity=1)
         secondary = azure.servicebus.Namespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="servicebus-secondary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Premium",
             capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
+            name="examplerule",
+            namespace_id=example_azurerm_servicebus_namespace["id"],
             listen=True,
             send=True,
             manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
+        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("example",
+            name="servicebus-alias-name",
             primary_namespace_id=primary.id,
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)
@@ -292,23 +298,29 @@ class NamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="servicebus-replication",
+            location="West Europe")
         primary = azure.servicebus.Namespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="servicebus-primary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Premium",
             capacity=1)
         secondary = azure.servicebus.Namespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="servicebus-secondary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Premium",
             capacity=1)
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
-            namespace_id=azurerm_servicebus_namespace["example"]["id"],
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
+            name="examplerule",
+            namespace_id=example_azurerm_servicebus_namespace["id"],
             listen=True,
             send=True,
             manage=False)
-        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig",
+        example_namespace_disaster_recovery_config = azure.servicebus.NamespaceDisasterRecoveryConfig("example",
+            name="servicebus-alias-name",
             primary_namespace_id=primary.id,
             partner_namespace_id=secondary.id,
             alias_authorization_rule_id=example_namespace_authorization_rule.id)

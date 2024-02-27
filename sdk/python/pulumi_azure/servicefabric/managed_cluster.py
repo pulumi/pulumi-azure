@@ -602,7 +602,9 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.servicefabric.ManagedCluster("example",
-            client_connection_port=12345,
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
             http_gateway_port=4567,
             lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
                 backend_port=38080,
@@ -611,21 +613,20 @@ class ManagedCluster(pulumi.CustomResource):
                 probe_request_path="/test",
                 protocol="tcp",
             )],
-            location="West Europe",
+            client_connection_port=12345,
             node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                application_port_range="30000-49000",
                 data_disk_size_gb=130,
-                ephemeral_port_range="10000-20000",
                 name="test1",
                 primary=True,
-                vm_image_offer="WindowsServer",
+                application_port_range="30000-49000",
+                ephemeral_port_range="10000-20000",
+                vm_size="Standard_DS1_v2",
                 vm_image_publisher="MicrosoftWindowsServer",
                 vm_image_sku="2019-Datacenter-with-Containers",
+                vm_image_offer="WindowsServer",
                 vm_image_version="latest",
                 vm_instance_count=5,
-                vm_size="Standard_DS1_v2",
-            )],
-            resource_group_name="example")
+            )])
         ```
 
         ## Import
@@ -672,7 +673,9 @@ class ManagedCluster(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.servicefabric.ManagedCluster("example",
-            client_connection_port=12345,
+            name="example",
+            resource_group_name="example",
+            location="West Europe",
             http_gateway_port=4567,
             lb_rules=[azure.servicefabric.ManagedClusterLbRuleArgs(
                 backend_port=38080,
@@ -681,21 +684,20 @@ class ManagedCluster(pulumi.CustomResource):
                 probe_request_path="/test",
                 protocol="tcp",
             )],
-            location="West Europe",
+            client_connection_port=12345,
             node_types=[azure.servicefabric.ManagedClusterNodeTypeArgs(
-                application_port_range="30000-49000",
                 data_disk_size_gb=130,
-                ephemeral_port_range="10000-20000",
                 name="test1",
                 primary=True,
-                vm_image_offer="WindowsServer",
+                application_port_range="30000-49000",
+                ephemeral_port_range="10000-20000",
+                vm_size="Standard_DS1_v2",
                 vm_image_publisher="MicrosoftWindowsServer",
                 vm_image_sku="2019-Datacenter-with-Containers",
+                vm_image_offer="WindowsServer",
                 vm_image_version="latest",
                 vm_instance_count=5,
-                vm_size="Standard_DS1_v2",
-            )],
-            resource_group_name="example")
+            )])
         ```
 
         ## Import

@@ -31,22 +31,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-databoxedge"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDevice, err := databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDevice, err := databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
+//				Name:              pulumi.String("example-device"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("EdgeP_Base-Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = databoxedge.NewOrder(ctx, "exampleOrder", &databoxedge.OrderArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = databoxedge.NewOrder(ctx, "example", &databoxedge.OrderArgs{
+//				ResourceGroupName: example.Name,
 //				DeviceName:        exampleDevice.Name,
 //				Contact: &databoxedge.OrderContactArgs{
 //					Name: pulumi.String("TerraForm Test"),

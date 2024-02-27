@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "examplekv",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificate = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificate({
+ * const exampleGetCertificate = example.then(example => azure.keyvault.getCertificate({
  *     name: "secret-sauce",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const certificateThumbprint = exampleCertificate.then(exampleCertificate => exampleCertificate.thumbprint);
+ * export const certificateThumbprint = exampleGetCertificate.then(exampleGetCertificate => exampleGetCertificate.thumbprint);
  * ```
  */
 export function getCertificate(args: GetCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateResult> {
@@ -131,15 +131,15 @@ export interface GetCertificateResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "examplekv",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificate = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificate({
+ * const exampleGetCertificate = example.then(example => azure.keyvault.getCertificate({
  *     name: "secret-sauce",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const certificateThumbprint = exampleCertificate.then(exampleCertificate => exampleCertificate.thumbprint);
+ * export const certificateThumbprint = exampleGetCertificate.then(exampleGetCertificate => exampleGetCertificate.thumbprint);
  * ```
  */
 export function getCertificateOutput(args: GetCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateResult> {

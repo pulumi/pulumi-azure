@@ -22,22 +22,24 @@ namespace Pulumi.Azure.KeyVault
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "storageaccountname",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
+    ///     var exampleGetAccountSAS = Azure.Storage.GetAccountSAS.Invoke(new()
     ///     {
     ///         ConnectionString = exampleAccount.PrimaryConnectionString,
     ///         HttpsOnly = true,
@@ -71,18 +73,19 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
+    ///         Name = "example-keyvault",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         AccessPolicies = new[]
     ///         {
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
-    ///                 TenantId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
+    ///                 TenantId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///                 ObjectId = example.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///                 SecretPermissions = new[]
     ///                 {
     ///                     "Get",
@@ -103,8 +106,9 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedStorageAccount = new Azure.KeyVault.ManagedStorageAccount("exampleManagedStorageAccount", new()
+    ///     var exampleManagedStorageAccount = new Azure.KeyVault.ManagedStorageAccount("example", new()
     ///     {
+    ///         Name = "examplemanagedstorage",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
     ///         StorageAccountKey = "key1",
@@ -112,11 +116,12 @@ namespace Pulumi.Azure.KeyVault
     ///         RegenerationPeriod = "P1D",
     ///     });
     /// 
-    ///     var exampleManagedStorageAccountSasTokenDefinition = new Azure.KeyVault.ManagedStorageAccountSasTokenDefinition("exampleManagedStorageAccountSasTokenDefinition", new()
+    ///     var exampleManagedStorageAccountSasTokenDefinition = new Azure.KeyVault.ManagedStorageAccountSasTokenDefinition("example", new()
     ///     {
+    ///         Name = "examplesasdefinition",
     ///         ValidityPeriod = "P1D",
     ///         ManagedStorageAccountId = exampleManagedStorageAccount.Id,
-    ///         SasTemplateUri = exampleAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
+    ///         SasTemplateUri = exampleGetAccountSAS.Apply(getAccountSASResult =&gt; getAccountSASResult.Sas),
     ///         SasType = "account",
     ///     });
     /// 

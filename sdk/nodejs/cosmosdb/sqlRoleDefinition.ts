@@ -16,24 +16,29 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-cosmosdb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "Strong",
  *     },
  *     geoLocations: [{
- *         location: exampleResourceGroup.location,
+ *         location: example.location,
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition", {
+ * const exampleSqlRoleDefinition = new azure.cosmosdb.SqlRoleDefinition("example", {
  *     roleDefinitionId: "84cf3a8b-4122-4448-bce2-fa423cfe0a15",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
+ *     name: "acctestsqlrole",
  *     assignableScopes: [pulumi.interpolate`${exampleAccount.id}/dbs/sales`],
  *     permissions: [{
  *         dataActions: ["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],

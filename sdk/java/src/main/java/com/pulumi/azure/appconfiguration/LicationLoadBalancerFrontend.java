@@ -42,13 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleLicationLoadBalancer = new LicationLoadBalancer(&#34;exampleLicationLoadBalancer&#34;, LicationLoadBalancerArgs.builder()        
+ *         var example = new LicationLoadBalancer(&#34;example&#34;, LicationLoadBalancerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLicationLoadBalancerFrontend = new LicationLoadBalancerFrontend(&#34;exampleLicationLoadBalancerFrontend&#34;, LicationLoadBalancerFrontendArgs.builder()        
- *             .applicationLoadBalancerId(exampleLicationLoadBalancer.id())
+ *             .name(&#34;example&#34;)
+ *             .applicationLoadBalancerId(example.id())
  *             .build());
  * 
  *     }

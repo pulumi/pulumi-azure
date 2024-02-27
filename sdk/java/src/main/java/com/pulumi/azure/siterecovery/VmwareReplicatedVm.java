@@ -57,57 +57,65 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleVMWareReplicationPolicy = new VMWareReplicationPolicy(&#34;exampleVMWareReplicationPolicy&#34;, VMWareReplicationPolicyArgs.builder()        
  *             .recoveryVaultId(exampleVault.id())
+ *             .name(&#34;example-policy&#34;)
  *             .recoveryPointRetentionInMinutes(1440)
  *             .applicationConsistentSnapshotFrequencyInMinutes(240)
  *             .build());
  * 
  *         var test = new VmwareReplicationPolicyAssociation(&#34;test&#34;, VmwareReplicationPolicyAssociationArgs.builder()        
+ *             .name(&#34;example-association&#34;)
  *             .recoveryVaultId(exampleVault.id())
  *             .policyId(exampleVMWareReplicationPolicy.id())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestorageacc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountKind(&#34;StorageV2&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-net&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;192.168.2.0/24&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;192.168.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleVmwareReplicatedVm = new VmwareReplicatedVm(&#34;exampleVmwareReplicatedVm&#34;, VmwareReplicatedVmArgs.builder()        
+ *             .name(&#34;example-vmware-vm&#34;)
  *             .recoveryVaultId(exampleVault.id())
  *             .sourceVmName(&#34;example-vm&#34;)
  *             .applianceName(&#34;example-appliance&#34;)
- *             .recoveryReplicationPolicyId(azurerm_site_recovery_vmware_replication_policy_association.example().policy_id())
+ *             .recoveryReplicationPolicyId(exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.policyId())
  *             .physicalServerCredentialName(&#34;example-creds&#34;)
  *             .licenseType(&#34;NotSpecified&#34;)
  *             .targetBootDiagnosticsStorageAccountId(exampleAccount.id())
  *             .targetVmName(&#34;example_replicated_vm&#34;)
- *             .targetResourceGroupId(exampleResourceGroup.id())
+ *             .targetResourceGroupId(example.id())
  *             .defaultLogStorageAccountId(exampleAccount.id())
  *             .defaultRecoveryDiskType(&#34;Standard_LRS&#34;)
  *             .targetNetworkId(exampleVirtualNetwork.id())

@@ -22,28 +22,32 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new()
+    ///     var exampleProfile = new Azure.Cdn.Profile("example", new()
     ///     {
+    ///         Name = "example-profile",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard_Verizon",
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new()
+    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
     ///     {
+    ///         Name = "example-endpoint",
     ///         ProfileName = exampleProfile.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -57,28 +61,30 @@ namespace Pulumi.Azure.Cdn
     ///         },
     ///     });
     /// 
-    ///     var exampleZone = Azure.Dns.GetZone.Invoke(new()
+    ///     var example = Azure.Dns.GetZone.Invoke(new()
     ///     {
     ///         Name = "example-domain.com",
     ///         ResourceGroupName = "domain-rg",
     ///     });
     /// 
-    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("exampleCNameRecord", new()
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
     ///     {
-    ///         ZoneName = exampleZone.Apply(getZoneResult =&gt; getZoneResult.Name),
-    ///         ResourceGroupName = exampleZone.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Name = "example",
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
     ///         Ttl = 3600,
     ///         TargetResourceId = exampleEndpoint.Id,
     ///     });
     /// 
-    ///     var exampleEndpointCustomDomain = new Azure.Cdn.EndpointCustomDomain("exampleEndpointCustomDomain", new()
+    ///     var exampleEndpointCustomDomain = new Azure.Cdn.EndpointCustomDomain("example", new()
     ///     {
+    ///         Name = "example-domain",
     ///         CdnEndpointId = exampleEndpoint.Id,
-    ///         HostName = Output.Tuple(exampleCNameRecord.Name, exampleZone).Apply(values =&gt;
+    ///         HostName = Output.Tuple(exampleCNameRecord.Name, example).Apply(values =&gt;
     ///         {
     ///             var name = values.Item1;
-    ///             var exampleZone = values.Item2;
-    ///             return $"{name}.{exampleZone.Apply(getZoneResult =&gt; getZoneResult.Name)}";
+    ///             var example = values.Item2;
+    ///             return $"{name}.{example.Apply(getZoneResult =&gt; getZoneResult.Name)}";
     ///         }),
     ///     });
     /// 

@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const test = azure.appconfiguration.getConfigurationKey({
- *     configurationStoreId: azurerm_app_configuration.appconf.id,
+ *     configurationStoreId: appconf.id,
  *     key: "appConfKey1",
  *     label: "somelabel",
  * });
@@ -103,7 +103,7 @@ export interface GetConfigurationKeyResult {
  * import * as azure from "@pulumi/azure";
  *
  * const test = azure.appconfiguration.getConfigurationKey({
- *     configurationStoreId: azurerm_app_configuration.appconf.id,
+ *     configurationStoreId: appconf.id,
  *     key: "appConfKey1",
  *     label: "somelabel",
  * });

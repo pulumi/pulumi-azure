@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEnvironment, err := containerapp.LookupEnvironment(ctx, &containerapp.LookupEnvironmentArgs{
+//			example, err := containerapp.LookupEnvironment(ctx, &containerapp.LookupEnvironmentArgs{
 //				Name:              "example-environment",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = containerapp.LookupEnvironmentCertificate(ctx, &containerapp.LookupEnvironmentCertificateArgs{
 //				Name:                      "mycertificate",
-//				ContainerAppEnvironmentId: exampleEnvironment.Id,
+//				ContainerAppEnvironmentId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

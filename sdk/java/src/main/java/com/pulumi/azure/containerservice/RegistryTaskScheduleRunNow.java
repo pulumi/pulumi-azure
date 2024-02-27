@@ -46,17 +46,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-acr&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleRegistryTask = new RegistryTask(&#34;exampleRegistryTask&#34;, RegistryTaskArgs.builder()        
+ *             .name(&#34;example-task&#34;)
  *             .containerRegistryId(exampleRegistry.id())
  *             .platform(RegistryTaskPlatformArgs.builder()
  *                 .os(&#34;Linux&#34;)

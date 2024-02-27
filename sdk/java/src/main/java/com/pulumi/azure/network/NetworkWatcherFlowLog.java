@@ -59,20 +59,24 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var testNetworkSecurityGroup = new NetworkSecurityGroup(&#34;testNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
+ *         var test = new NetworkSecurityGroup(&#34;test&#34;, NetworkSecurityGroupArgs.builder()        
+ *             .name(&#34;acctestnsg&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var testNetworkWatcher = new NetworkWatcher(&#34;testNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
+ *             .name(&#34;acctestnw&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var testAccount = new Account(&#34;testAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;acctestsa&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -82,6 +86,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testAnalyticsWorkspace = new AnalyticsWorkspace(&#34;testAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+ *             .name(&#34;acctestlaw&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
@@ -90,7 +95,8 @@ import javax.annotation.Nullable;
  *         var testNetworkWatcherFlowLog = new NetworkWatcherFlowLog(&#34;testNetworkWatcherFlowLog&#34;, NetworkWatcherFlowLogArgs.builder()        
  *             .networkWatcherName(testNetworkWatcher.name())
  *             .resourceGroupName(example.name())
- *             .networkSecurityGroupId(testNetworkSecurityGroup.id())
+ *             .name(&#34;example-log&#34;)
+ *             .networkSecurityGroupId(test.id())
  *             .storageAccountId(testAccount.id())
  *             .enabled(true)
  *             .retentionPolicy(NetworkWatcherFlowLogRetentionPolicyArgs.builder()

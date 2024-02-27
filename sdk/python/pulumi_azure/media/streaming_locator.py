@@ -436,28 +436,35 @@ class StreamingLocator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=example_resource_group.name,
+        example_account_filter = azure.media.AccountFilter("example",
+            name="Filter1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name)
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
+        example_asset = azure.media.Asset("example",
+            name="Asset1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="Asset description")
-        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
-            resource_group_name=example_resource_group.name,
+        example_streaming_locator = azure.media.StreamingLocator("example",
+            name="example",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             asset_name=example_asset.name,
             streaming_policy_name="Predefined_ClearStreamingOnly",
@@ -502,28 +509,35 @@ class StreamingLocator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_account_filter = azure.media.AccountFilter("exampleAccountFilter",
-            resource_group_name=example_resource_group.name,
+        example_account_filter = azure.media.AccountFilter("example",
+            name="Filter1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name)
-        example_asset = azure.media.Asset("exampleAsset",
-            resource_group_name=example_resource_group.name,
+        example_asset = azure.media.Asset("example",
+            name="Asset1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="Asset description")
-        example_streaming_locator = azure.media.StreamingLocator("exampleStreamingLocator",
-            resource_group_name=example_resource_group.name,
+        example_streaming_locator = azure.media.StreamingLocator("example",
+            name="example",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             asset_name=example_asset.name,
             streaming_policy_name="Predefined_ClearStreamingOnly",

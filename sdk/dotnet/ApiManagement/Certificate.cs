@@ -16,40 +16,39 @@ namespace Pulumi.Azure.ApiManagement
     /// ### With Base64 Certificate)
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@exmaple.com",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("example", new()
     ///     {
+    ///         Name = "example-cert",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Data = ReadFileBase64("example.pfx"),
+    ///         ResourceGroupName = example.Name,
+    ///         Data = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "example.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -57,32 +56,27 @@ namespace Pulumi.Azure.ApiManagement
     /// ### With Key Vault Certificate)
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
@@ -92,15 +86,16 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///     });
     /// 
-    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = exampleService.Identity.Apply(identity =&gt; identity?.TenantId),
@@ -115,12 +110,16 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "example-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = ReadFileBase64("example_cert.pfx"),
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "example_cert.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "terraform",
     ///         },
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
@@ -143,10 +142,11 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleApimanagement_certificateCertificate = new Azure.ApiManagement.Certificate("exampleApimanagement/certificateCertificate", new()
+    ///     var exampleCertificate2 = new Azure.ApiManagement.Certificate("example", new()
     ///     {
+    ///         Name = "example-cert",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         KeyVaultSecretId = exampleCertificate.SecretId,
     ///     });
     /// 

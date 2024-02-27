@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("media-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestoracc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
+//				Name:              pulumi.String("examplemediaacc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				StorageAccounts: media.ServiceAccountStorageAccountArray{
 //					&media.ServiceAccountStorageAccountArgs{
 //						Id:        exampleAccount.ID(),
@@ -58,16 +61,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAsset, err := media.NewAsset(ctx, "exampleAsset", &media.AssetArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			exampleAsset, err := media.NewAsset(ctx, "example", &media.AssetArgs{
+//				Name:                     pulumi.String("inputAsset"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLiveEvent, err := media.NewLiveEvent(ctx, "exampleLiveEvent", &media.LiveEventArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
+//			exampleLiveEvent, err := media.NewLiveEvent(ctx, "example", &media.LiveEventArgs{
+//				Name:                     pulumi.String("exampleevent"),
+//				ResourceGroupName:        example.Name,
+//				Location:                 example.Location,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				Description:              pulumi.String("My Event Description"),
 //				Input: &media.LiveEventInputTypeArgs{
@@ -85,7 +90,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = media.NewLiveEventOutput(ctx, "exampleLiveEventOutput", &media.LiveEventOutputArgs{
+//			_, err = media.NewLiveEventOutput(ctx, "example", &media.LiveEventOutputArgs{
+//				Name:                     pulumi.String("exampleoutput"),
 //				LiveEventId:              exampleLiveEvent.ID(),
 //				ArchiveWindowDuration:    pulumi.String("PT5M"),
 //				AssetName:                exampleAsset.Name,

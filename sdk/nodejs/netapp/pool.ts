@@ -13,15 +13,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const examplePool = new azure.netapp.Pool("examplePool", {
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: "example-netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const examplePool = new azure.netapp.Pool("example", {
+ *     name: "example-netapppool",
  *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     serviceLevel: "Premium",
  *     sizeInTb: 4,
  * });

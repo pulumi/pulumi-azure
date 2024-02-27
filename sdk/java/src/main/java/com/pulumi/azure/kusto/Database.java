@@ -44,10 +44,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;my-kusto-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var cluster = new Cluster(&#34;cluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;kustocluster&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
@@ -57,6 +59,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var database = new Database(&#34;database&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;my-kusto-database&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .clusterName(cluster.name())

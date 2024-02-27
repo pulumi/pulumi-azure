@@ -39,14 +39,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("FrontDoorExampleResourceGroup"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
+//				Name:              pulumi.String("example-FrontDoor"),
+//				ResourceGroupName: example.Name,
 //				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
 //					&frontdoor.FrontdoorRoutingRuleArgs{
 //						Name: pulumi.String("exampleRoutingRule1"),

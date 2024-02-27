@@ -107,13 +107,18 @@ class HyperVSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="eastus")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
+        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
+            name="example-site",
+            recovery_vault_id=example_vault.id)
         ```
 
         ## Import
@@ -144,13 +149,18 @@ class HyperVSite(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_vault = azure.recoveryservices.Vault("exampleVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="eastus")
+        example_vault = azure.recoveryservices.Vault("example",
+            name="example-vault",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             soft_delete_enabled=False)
-        example_hyper_v_site = azure.siterecovery.HyperVSite("exampleHyperVSite", recovery_vault_id=example_vault.id)
+        example_hyper_v_site = azure.siterecovery.HyperVSite("example",
+            name="example-site",
+            recovery_vault_id=example_vault.id)
         ```
 
         ## Import

@@ -449,14 +449,17 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate = azure.appservice.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pfx_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_certificate = azure.appservice.Certificate("example",
+            name="example-cert",
+            resource_group_name=example.name,
+            location=example.location,
+            pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
 
@@ -498,14 +501,17 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_certificate = azure.appservice.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            pfx_blob=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"),
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_certificate = azure.appservice.Certificate("example",
+            name="example-cert",
+            resource_group_name=example.name,
+            location=example.location,
+            pfx_blob=std.filebase64(input="certificate.pfx").result,
             password="password123!")
         ```
 

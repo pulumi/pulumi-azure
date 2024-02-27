@@ -208,7 +208,7 @@ def get_data_collection_rule(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.monitoring.get_data_collection_rule(name="example-rule",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("ruleId", example.id)
     ```
 
@@ -253,7 +253,7 @@ def get_data_collection_rule_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.monitoring.get_data_collection_rule(name="example-rule",
-        resource_group_name=azurerm_resource_group["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"])
     pulumi.export("ruleId", example.id)
     ```
 

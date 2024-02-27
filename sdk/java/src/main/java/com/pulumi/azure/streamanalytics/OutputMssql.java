@@ -50,15 +50,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
+ *             .name(&#34;example-server&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .version(&#34;12.0&#34;)
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;exampledb&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .serverName(exampleSqlServer.name())
@@ -77,8 +80,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputMssql = new OutputMssql(&#34;exampleOutputMssql&#34;, OutputMssqlArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .name(&#34;example-output-sql&#34;)
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
  *             .server(exampleSqlServer.fullyQualifiedDomainName())
  *             .user(exampleSqlServer.administratorLogin())
  *             .password(exampleSqlServer.administratorLoginPassword())

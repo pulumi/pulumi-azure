@@ -31,21 +31,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example-springcloud"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("E0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "exampleSpringCloudBuilder", &appplatform.SpringCloudBuilderArgs{
+//			exampleSpringCloudBuilder, err := appplatform.NewSpringCloudBuilder(ctx, "example", &appplatform.SpringCloudBuilderArgs{
+//				Name:                 pulumi.String("example"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //				BuildPackGroups: appplatform.SpringCloudBuilderBuildPackGroupArray{
 //					&appplatform.SpringCloudBuilderBuildPackGroupArgs{
@@ -63,7 +66,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "exampleSpringCloudBuildPackBinding", &appplatform.SpringCloudBuildPackBindingArgs{
+//			_, err = appplatform.NewSpringCloudBuildPackBinding(ctx, "example", &appplatform.SpringCloudBuildPackBindingArgs{
+//				Name:                 pulumi.String("example"),
 //				SpringCloudBuilderId: exampleSpringCloudBuilder.ID(),
 //				BindingType:          pulumi.String("ApplicationInsights"),
 //				Launch: &appplatform.SpringCloudBuildPackBindingLaunchArgs{

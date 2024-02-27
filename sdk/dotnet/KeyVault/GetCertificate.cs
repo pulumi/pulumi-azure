@@ -26,21 +26,21 @@ namespace Pulumi.Azure.KeyVault
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
         ///         Name = "examplekv",
         ///         ResourceGroupName = "some-resource-group",
         ///     });
         /// 
-        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     var exampleGetCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
         ///     {
         ///         Name = "secret-sauce",
-        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///         ["certificateThumbprint"] = exampleGetCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
         ///     };
         /// });
         /// ```
@@ -65,21 +65,21 @@ namespace Pulumi.Azure.KeyVault
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+        ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
         ///     {
         ///         Name = "examplekv",
         ///         ResourceGroupName = "some-resource-group",
         ///     });
         /// 
-        ///     var exampleCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
+        ///     var exampleGetCertificate = Azure.KeyVault.GetCertificate.Invoke(new()
         ///     {
         ///         Name = "secret-sauce",
-        ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+        ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["certificateThumbprint"] = exampleCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
+        ///         ["certificateThumbprint"] = exampleGetCertificate.Apply(getCertificateResult =&gt; getCertificateResult.Thumbprint),
         ///     };
         /// });
         /// ```

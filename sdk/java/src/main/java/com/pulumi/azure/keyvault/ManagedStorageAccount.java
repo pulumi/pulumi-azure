@@ -51,20 +51,23 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;storageaccountname&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;keyvaultname&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
@@ -86,6 +89,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
+ *             .name(&#34;examplemanagedstorage&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountKey(&#34;key1&#34;)
@@ -117,7 +121,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.keyvault.ManagedStorageAccount;
  * import com.pulumi.azure.keyvault.ManagedStorageAccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -137,20 +140,23 @@ import javax.annotation.Nullable;
  *             .applicationId(&#34;cfa8b339-82a2-471a-a3c9-0fc0be7a4093&#34;)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;storageaccountname&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;keyvaultname&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
@@ -178,14 +184,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedStorageAccount = new ManagedStorageAccount(&#34;exampleManagedStorageAccount&#34;, ManagedStorageAccountArgs.builder()        
+ *             .name(&#34;examplemanagedstorage&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountKey(&#34;key1&#34;)
  *             .regenerateKeyAutomatically(true)
  *             .regenerationPeriod(&#34;P1D&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

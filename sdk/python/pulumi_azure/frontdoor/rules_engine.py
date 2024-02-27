@@ -221,9 +221,12 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example",
+            resource_group_name=example.name,
             backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
                 name="exampleBackendBing",
                 load_balancing_name="exampleLoadBalancingSettings1",
@@ -254,7 +257,8 @@ class RulesEngine(pulumi.CustomResource):
                 patterns_to_matches=["/*"],
                 frontend_endpoints=["exampleFrontendEndpoint1"],
             )])
-        example_rules_engine = azure.frontdoor.RulesEngine("exampleRulesEngine",
+        example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
+            name="exampleRulesEngineConfig1",
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[
@@ -331,9 +335,12 @@ class RulesEngine(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor = azure.frontdoor.Frontdoor("exampleFrontdoor",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_frontdoor = azure.frontdoor.Frontdoor("example",
+            name="example",
+            resource_group_name=example.name,
             backend_pools=[azure.frontdoor.FrontdoorBackendPoolArgs(
                 name="exampleBackendBing",
                 load_balancing_name="exampleLoadBalancingSettings1",
@@ -364,7 +371,8 @@ class RulesEngine(pulumi.CustomResource):
                 patterns_to_matches=["/*"],
                 frontend_endpoints=["exampleFrontendEndpoint1"],
             )])
-        example_rules_engine = azure.frontdoor.RulesEngine("exampleRulesEngine",
+        example_rules_engine = azure.frontdoor.RulesEngine("example_rules_engine",
+            name="exampleRulesEngineConfig1",
             frontdoor_name=example_frontdoor.name,
             resource_group_name=example_frontdoor.resource_group_name,
             rules=[

@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewGroup(ctx, "exampleGroup", &containerservice.GroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = containerservice.NewGroup(ctx, "example", &containerservice.GroupArgs{
+//				Name:              pulumi.String("example-continst"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpAddressType:     pulumi.String("Public"),
 //				DnsNameLabel:      pulumi.String("aci-label"),
 //				OsType:            pulumi.String("Linux"),

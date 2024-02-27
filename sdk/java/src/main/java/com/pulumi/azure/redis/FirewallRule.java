@@ -50,13 +50,15 @@ import javax.annotation.Nullable;
  *             .byteLength(8)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;redis-resourcegroup&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(server.hex().applyValue(hex -&gt; String.format(&#34;redis%s&#34;, hex)))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .capacity(1)
  *             .family(&#34;P&#34;)
  *             .skuName(&#34;Premium&#34;)
@@ -69,8 +71,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
+ *             .name(&#34;someIPrange&#34;)
  *             .redisCacheName(exampleCache.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .startIp(&#34;1.2.3.4&#34;)
  *             .endIp(&#34;2.3.4.5&#34;)
  *             .build());

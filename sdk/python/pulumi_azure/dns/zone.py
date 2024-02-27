@@ -223,8 +223,12 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public = azure.dns.Zone("example-public",
+            name="mydomain.com",
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -257,8 +261,12 @@ class Zone(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        example_public = azure.dns.Zone("example-public", resource_group_name=example.name)
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public = azure.dns.Zone("example-public",
+            name="mydomain.com",
+            resource_group_name=example.name)
         ```
 
         ## Import

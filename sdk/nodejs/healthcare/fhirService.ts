@@ -15,13 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const current = azure.core.getClientConfig({});
- * const exampleWorkspace = new azure.healthcare.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
  * });
- * const exampleFhirService = new azure.healthcare.FhirService("exampleFhirService", {
+ * const current = azure.core.getClientConfig({});
+ * const exampleWorkspace = new azure.healthcare.Workspace("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleFhirService = new azure.healthcare.FhirService("example", {
+ *     name: "tfexfhir",
  *     location: "east us",
  *     resourceGroupName: "tfex-resource_group",
  *     workspaceId: exampleWorkspace.id,

@@ -23,15 +23,17 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-servicebus-subscription-rule-sql",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {
@@ -39,20 +41,23 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_topic",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new()
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_subscription",
     ///         TopicId = exampleTopic.Id,
     ///         MaxDeliveryCount = 1,
     ///     });
     /// 
-    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new()
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_rule",
     ///         SubscriptionId = exampleSubscription.Id,
     ///         FilterType = "SqlFilter",
     ///         SqlFilter = "colour = 'red'",
@@ -70,15 +75,17 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-servicebus-subscription-rule-cor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {
@@ -86,20 +93,23 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.ServiceBus.Topic("exampleTopic", new()
+    ///     var exampleTopic = new Azure.ServiceBus.Topic("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_topic",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("exampleSubscription", new()
+    ///     var exampleSubscription = new Azure.ServiceBus.Subscription("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_subscription",
     ///         TopicId = exampleTopic.Id,
     ///         MaxDeliveryCount = 1,
     ///     });
     /// 
-    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("exampleSubscriptionRule", new()
+    ///     var exampleSubscriptionRule = new Azure.ServiceBus.SubscriptionRule("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_rule",
     ///         SubscriptionId = exampleSubscription.Id,
     ///         FilterType = "CorrelationFilter",
     ///         CorrelationFilter = new Azure.ServiceBus.Inputs.SubscriptionRuleCorrelationFilterArgs

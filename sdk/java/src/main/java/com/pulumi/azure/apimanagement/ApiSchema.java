@@ -41,7 +41,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
  *             .apiManagementName(&#34;search-api-management&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
@@ -49,12 +49,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApiSchema = new ApiSchema(&#34;exampleApiSchema&#34;, ApiSchemaArgs.builder()        
- *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(exampleApi.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(exampleApi.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
+ *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
  *             .schemaId(&#34;example-schema&#34;)
  *             .contentType(&#34;application/vnd.ms-azure-apim.xsd+xml&#34;)
- *             .value(Files.readString(Paths.get(&#34;api_management_api_schema.xml&#34;)))
+ *             .value(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;api_management_api_schema.xml&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

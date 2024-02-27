@@ -504,10 +504,13 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="exampleKVHsm",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Standard_B1",
             purge_protection_enabled=False,
             soft_delete_retention_days=90,
@@ -560,10 +563,13 @@ class ManagedHardwareSecurityModule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("exampleManagedHardwareSecurityModule",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_managed_hardware_security_module = azure.keyvault.ManagedHardwareSecurityModule("example",
+            name="exampleKVHsm",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Standard_B1",
             purge_protection_enabled=False,
             soft_delete_retention_days=90,

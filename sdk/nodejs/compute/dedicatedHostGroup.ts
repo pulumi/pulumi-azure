@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDedicatedHostGroup = new azure.compute.DedicatedHostGroup("exampleDedicatedHostGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg-compute",
+ *     location: "West Europe",
+ * });
+ * const exampleDedicatedHostGroup = new azure.compute.DedicatedHostGroup("example", {
+ *     name: "example-dedicated-host-group",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     platformFaultDomainCount: 1,
  * });
  * ```

@@ -34,15 +34,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("examplekv"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -50,9 +52,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Name:                       pulumi.String("example-postgre-server"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				AdministratorLogin:         pulumi.String("psqladmin"),
 //				AdministratorLoginPassword: pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                    pulumi.String("GP_Gen5_2"),
@@ -66,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			server, err := keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "server", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId: exampleServer.Identity.ApplyT(func(identity postgresql.ServerIdentity) (*string, error) {
@@ -84,7 +87,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -111,7 +114,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("tfex-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -123,14 +127,11 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				client,
-//				server,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewServerKey(ctx, "exampleServerKey", &postgresql.ServerKeyArgs{
+//			_, err = postgresql.NewServerKey(ctx, "example", &postgresql.ServerKeyArgs{
 //				ServerId:      exampleServer.ID(),
 //				KeyVaultKeyId: exampleKey.ID(),
 //			})

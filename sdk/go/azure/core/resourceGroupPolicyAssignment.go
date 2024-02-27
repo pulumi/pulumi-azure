@@ -29,13 +29,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
+//				Name:        pulumi.String("only-deploy-in-westeurope"),
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("my-policy-definition"),
@@ -57,8 +59,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
-//				ResourceGroupId:    exampleResourceGroup.ID(),
+//			_, err = core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
+//				Name:               pulumi.String("example"),
+//				ResourceGroupId:    example.ID(),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //				Parameters: pulumi.String(`    {
 //	      "tagName": {

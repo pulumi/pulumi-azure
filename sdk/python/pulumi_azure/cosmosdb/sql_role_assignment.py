@@ -236,29 +236,34 @@ class SqlRoleAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
-            resource_group_name=example_resource_group.name,
+        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
+            name="examplesqlroledef",
+            resource_group_name=example.name,
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
-        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
-            resource_group_name=example_resource_group.name,
+        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("example",
+            name="736180af-7fbc-4c7f-9004-22735173c1c3",
+            resource_group_name=example.name,
             account_name=example_account.name,
             role_definition_id=example_sql_role_definition.id,
             principal_id=current.object_id,
@@ -298,29 +303,34 @@ class SqlRoleAssignment(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("exampleSqlRoleDefinition",
-            resource_group_name=example_resource_group.name,
+        example_sql_role_definition = azure.cosmosdb.SqlRoleDefinition("example",
+            name="examplesqlroledef",
+            resource_group_name=example.name,
             account_name=example_account.name,
             type="CustomRole",
             assignable_scopes=[example_account.id],
             permissions=[azure.cosmosdb.SqlRoleDefinitionPermissionArgs(
                 data_actions=["Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read"],
             )])
-        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("exampleSqlRoleAssignment",
-            resource_group_name=example_resource_group.name,
+        example_sql_role_assignment = azure.cosmosdb.SqlRoleAssignment("example",
+            name="736180af-7fbc-4c7f-9004-22735173c1c3",
+            resource_group_name=example.name,
             account_name=example_account.name,
             role_definition_id=example_sql_role_definition.id,
             principal_id=current.object_id,

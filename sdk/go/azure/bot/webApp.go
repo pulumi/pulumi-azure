@@ -33,15 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewWebApp(ctx, "exampleWebApp", &bot.WebAppArgs{
+//			_, err = bot.NewWebApp(ctx, "example", &bot.WebAppArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
 //				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})

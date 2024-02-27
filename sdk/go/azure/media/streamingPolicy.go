@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("media-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestoracc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
+//				Name:              pulumi.String("examplemediaacc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				StorageAccounts: media.ServiceAccountStorageAccountArray{
 //					&media.ServiceAccountStorageAccountArgs{
 //						Id:        exampleAccount.ID(),
@@ -58,8 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContentKeyPolicy, err := media.NewContentKeyPolicy(ctx, "exampleContentKeyPolicy", &media.ContentKeyPolicyArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			exampleContentKeyPolicy, err := media.NewContentKeyPolicy(ctx, "example", &media.ContentKeyPolicyArgs{
+//				Name:                     pulumi.String("example"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				PolicyOptions: media.ContentKeyPolicyPolicyOptionArray{
 //					&media.ContentKeyPolicyPolicyOptionArgs{
@@ -78,8 +82,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = media.NewStreamingPolicy(ctx, "exampleStreamingPolicy", &media.StreamingPolicyArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			_, err = media.NewStreamingPolicy(ctx, "example", &media.StreamingPolicyArgs{
+//				Name:                     pulumi.String("Policy-1"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				CommonEncryptionCenc: &media.StreamingPolicyCommonEncryptionCencArgs{
 //					ClearTracks: media.StreamingPolicyCommonEncryptionCencClearTrackArray{

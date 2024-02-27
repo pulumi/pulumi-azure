@@ -12,25 +12,31 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
@@ -41,10 +47,11 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleDeployment = new azure.nginx.Deployment("exampleDeployment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDeployment = new azure.nginx.Deployment("example", {
+ *     name: "example-nginx",
+ *     resourceGroupName: example.name,
  *     sku: "publicpreview_Monthly_gmz7xq9ge3py",
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     managedResourceGroup: "example",
  *     diagnoseSupportEnabled: true,
  *     frontendPublic: {
@@ -55,9 +62,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     accessPolicies: [{
@@ -79,14 +87,18 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "imported-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("certificate-to-import.pfx", { encoding: "base64" }),
+ *         contents: std.filebase64({
+ *             input: "certificate-to-import.pfx",
+ *         }).then(invoke => invoke.result),
  *         password: "",
  *     },
  * });
- * const exampleNginx_certificateCertificate = new azure.nginx.Certificate("exampleNginx/certificateCertificate", {
+ * const exampleCertificate2 = new azure.nginx.Certificate("example", {
+ *     name: "examplecert",
  *     nginxDeploymentId: exampleDeployment.id,
  *     keyVirtualPath: "/src/cert/soservermekey.key",
  *     certificateVirtualPath: "/src/cert/server.cert",

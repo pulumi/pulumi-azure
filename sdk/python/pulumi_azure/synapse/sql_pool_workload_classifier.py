@@ -304,28 +304,36 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
+        example_sql_pool = azure.synapse.SqlPool("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
             sku_name="DW100c",
             create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
+        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("example",
+            name="example",
             sql_pool_id=example_sql_pool.id,
             importance="normal",
             max_resource_percent=100,
@@ -333,7 +341,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             max_resource_percent_per_request=3,
             min_resource_percent_per_request=3,
             query_execution_timeout_in_seconds=0)
-        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier",
+        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
+            name="example",
             workload_group_id=example_sql_pool_workload_group.id,
             context="example_context",
             end_time="14:00",
@@ -377,28 +386,36 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_sql_pool = azure.synapse.SqlPool("exampleSqlPool",
+        example_sql_pool = azure.synapse.SqlPool("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
             sku_name="DW100c",
             create_mode="Default")
-        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("exampleSqlPoolWorkloadGroup",
+        example_sql_pool_workload_group = azure.synapse.SqlPoolWorkloadGroup("example",
+            name="example",
             sql_pool_id=example_sql_pool.id,
             importance="normal",
             max_resource_percent=100,
@@ -406,7 +423,8 @@ class SqlPoolWorkloadClassifier(pulumi.CustomResource):
             max_resource_percent_per_request=3,
             min_resource_percent_per_request=3,
             query_execution_timeout_in_seconds=0)
-        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("exampleSqlPoolWorkloadClassifier",
+        example_sql_pool_workload_classifier = azure.synapse.SqlPoolWorkloadClassifier("example",
+            name="example",
             workload_group_id=example_sql_pool_workload_group.id,
             context="example_context",
             end_time="14:00",

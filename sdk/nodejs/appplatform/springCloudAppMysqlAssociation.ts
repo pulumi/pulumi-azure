@@ -13,18 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("exampleSpringCloudApp", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleSpringCloudApp = new azure.appplatform.SpringCloudApp("example", {
+ *     name: "example-springcloudapp",
+ *     resourceGroupName: example.name,
  *     serviceName: exampleSpringCloudService.name,
  * });
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServer = new azure.mysql.Server("example", {
+ *     name: "example-mysqlserver",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     skuName: "B_Gen5_2",
@@ -33,13 +39,15 @@ import * as utilities from "../utilities";
  *     sslEnforcementEnabled: true,
  *     sslMinimalTlsVersionEnforced: "TLS1_2",
  * });
- * const exampleDatabase = new azure.mysql.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabase = new azure.mysql.Database("example", {
+ *     name: "exampledb",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     charset: "utf8",
  *     collation: "utf8_unicode_ci",
  * });
- * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("exampleSpringCloudAppMysqlAssociation", {
+ * const exampleSpringCloudAppMysqlAssociation = new azure.appplatform.SpringCloudAppMysqlAssociation("example", {
+ *     name: "example-bind",
  *     springCloudAppId: exampleSpringCloudApp.id,
  *     mysqlServerId: exampleServer.id,
  *     databaseName: exampleDatabase.name,

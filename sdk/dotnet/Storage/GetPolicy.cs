@@ -26,15 +26,15 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
         ///         Name = "storageaccountname",
         ///         ResourceGroupName = "resourcegroupname",
         ///     });
         /// 
-        ///     var examplePolicy = Azure.Storage.GetPolicy.Invoke(new()
+        ///     var exampleGetPolicy = Azure.Storage.GetPolicy.Invoke(new()
         ///     {
-        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         /// });
@@ -60,15 +60,15 @@ namespace Pulumi.Azure.Storage
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Storage.GetAccount.Invoke(new()
+        ///     var example = Azure.Storage.GetAccount.Invoke(new()
         ///     {
         ///         Name = "storageaccountname",
         ///         ResourceGroupName = "resourcegroupname",
         ///     });
         /// 
-        ///     var examplePolicy = Azure.Storage.GetPolicy.Invoke(new()
+        ///     var exampleGetPolicy = Azure.Storage.GetPolicy.Invoke(new()
         ///     {
-        ///         StorageAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         StorageAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         /// });

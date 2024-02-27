@@ -26,6 +26,7 @@ namespace Pulumi.Azure.Healthcare
     /// 
     ///     var example = new Azure.Healthcare.Service("example", new()
     ///     {
+    ///         Name = "uniquefhirname",
     ///         ResourceGroupName = "sample-resource-group",
     ///         Location = "westus2",
     ///         Kind = "fhir-R4",

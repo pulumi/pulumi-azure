@@ -30,7 +30,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -40,41 +41,46 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "example", &healthcare.WorkspaceArgs{
+//				Name:              pulumi.String("exampleworkspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("example-ehn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("example-eh"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				PartitionCount:    pulumi.Int(1),
 //				MessageRetention:  pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "exampleConsumerGroup", &eventhub.ConsumerGroupArgs{
+//			exampleConsumerGroup, err := eventhub.NewConsumerGroup(ctx, "example", &eventhub.ConsumerGroupArgs{
+//				Name:              pulumi.String("$default"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:      exampleEventHub.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFhirService, err := healthcare.NewFhirService(ctx, "exampleFhirService", &healthcare.FhirServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFhirService, err := healthcare.NewFhirService(ctx, "example", &healthcare.FhirServiceArgs{
+//				Name:              pulumi.String("examplefhir"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				WorkspaceId:       exampleWorkspace.ID(),
 //				Kind:              pulumi.String("fhir-R4"),
 //				Authentication: &healthcare.FhirServiceAuthenticationArgs{
@@ -93,9 +99,10 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleMedtechService, err := healthcare.NewMedtechService(ctx, "exampleMedtechService", &healthcare.MedtechServiceArgs{
+//			exampleMedtechService, err := healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
+//				Name:                      pulumi.String("examplemt"),
 //				WorkspaceId:               exampleWorkspace.ID(),
-//				Location:                  exampleResourceGroup.Location,
+//				Location:                  example.Location,
 //				EventhubNamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:              exampleEventHub.Name,
 //				EventhubConsumerGroupName: exampleConsumerGroup.Name,
@@ -133,7 +140,8 @@ import (
 //				return err
 //			}
 //			json1 := string(tmpJSON1)
-//			_, err = healthcare.NewMedtechServiceFhirDestination(ctx, "exampleMedtechServiceFhirDestination", &healthcare.MedtechServiceFhirDestinationArgs{
+//			_, err = healthcare.NewMedtechServiceFhirDestination(ctx, "example", &healthcare.MedtechServiceFhirDestinationArgs{
+//				Name:                              pulumi.String("examplemtdes"),
 //				Location:                          pulumi.String("east us"),
 //				MedtechServiceId:                  exampleMedtechService.ID(),
 //				DestinationFhirServiceId:          exampleFhirService.ID(),

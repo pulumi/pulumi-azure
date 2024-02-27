@@ -206,13 +206,17 @@ class ConnectionType(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="resourceGroup-example",
+            location="West Europe")
+        example = azure.core.get_client_config()
+        example_account = azure.automation.Account("example",
+            name="account-example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_connection_type = azure.automation.ConnectionType("exampleConnectionType",
+        example_connection_type = azure.automation.ConnectionType("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
             fields=[azure.automation.ConnectionTypeFieldArgs(
@@ -252,13 +256,17 @@ class ConnectionType(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="resourceGroup-example",
+            location="West Europe")
+        example = azure.core.get_client_config()
+        example_account = azure.automation.Account("example",
+            name="account-example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_connection_type = azure.automation.ConnectionType("exampleConnectionType",
+        example_connection_type = azure.automation.ConnectionType("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
             fields=[azure.automation.ConnectionTypeFieldArgs(

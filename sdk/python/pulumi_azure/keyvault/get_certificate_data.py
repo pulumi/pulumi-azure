@@ -170,11 +170,11 @@ def get_certificate_data(key_vault_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
+    example = azure.keyvault.get_key_vault(name="examplekv",
         resource_group_name="some-resource-group")
-    example_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("examplePem", example_certificate_data.pem)
+    example_get_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
+        key_vault_id=example.id)
+    pulumi.export("examplePem", example_get_certificate_data.pem)
     ```
 
 
@@ -221,11 +221,11 @@ def get_certificate_data_output(key_vault_id: Optional[pulumi.Input[str]] = None
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
+    example = azure.keyvault.get_key_vault(name="examplekv",
         resource_group_name="some-resource-group")
-    example_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("examplePem", example_certificate_data.pem)
+    example_get_certificate_data = azure.keyvault.get_certificate_data(name="secret-sauce",
+        key_vault_id=example.id)
+    pulumi.export("examplePem", example_get_certificate_data.pem)
     ```
 
 

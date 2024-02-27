@@ -34,28 +34,6 @@ public final class CacheRedisConfiguration {
      * @return Second Storage Account connection string for AOF persistence.
      * 
      * Example usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable String aofStorageConnectionString1;
@@ -93,28 +71,6 @@ public final class CacheRedisConfiguration {
     private @Nullable Integer maxmemoryReserved;
     /**
      * @return Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     private @Nullable String notifyKeyspaceEvents;
@@ -167,7 +123,7 @@ public final class CacheRedisConfiguration {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }
@@ -205,28 +161,6 @@ public final class CacheRedisConfiguration {
      * @return Second Storage Account connection string for AOF persistence.
      * 
      * Example usage:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Optional<String> aofStorageConnectionString1() {
@@ -278,28 +212,6 @@ public final class CacheRedisConfiguration {
     }
     /**
      * @return Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Optional<String> notifyKeyspaceEvents() {
@@ -362,7 +274,7 @@ public final class CacheRedisConfiguration {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new Cache(&#34;example&#34;, CacheArgs.builder()        
-     *             .ignoreChanges(redis_configuration[0].rdb_storage_connection_string())
+     *             .ignoreChanges(redisConfiguration[0].rdbStorageConnectionString())
      *             .build());
      * 
      *     }

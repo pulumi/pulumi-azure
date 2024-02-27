@@ -7,6 +7,31 @@ import * as utilities from "../utilities";
 /**
  * Manages a Federated Identity Credential.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleFederatedIdentityCredential = new azure.armmsi.FederatedIdentityCredential("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     audience: "foo",
+ *     issuer: "https://foo",
+ *     parentId: exampleUserAssignedIdentity.id,
+ *     subject: "foo",
+ * });
+ * ```
+ *
  * ## Import
  *
  * An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.

@@ -41,10 +41,10 @@ public final class MixedrealityFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;accountDomain&#34;, data.azurerm_spatial_anchors_account().account_domain());
+     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
      *     }
      * }
      * ```
@@ -80,10 +80,10 @@ public final class MixedrealityFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;accountDomain&#34;, data.azurerm_spatial_anchors_account().account_domain());
+     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
      *     }
      * }
      * ```
@@ -119,10 +119,10 @@ public final class MixedrealityFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;accountDomain&#34;, data.azurerm_spatial_anchors_account().account_domain());
+     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
      *     }
      * }
      * ```
@@ -158,10 +158,10 @@ public final class MixedrealityFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MixedrealityFunctions.getSpatialAnchorsAccount(GetSpatialAnchorsAccountArgs.builder()
      *             .name(&#34;example&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
-     *         ctx.export(&#34;accountDomain&#34;, data.azurerm_spatial_anchors_account().account_domain());
+     *         ctx.export(&#34;accountDomain&#34;, accountDomainAzurermSpatialAnchorsAccount);
      *     }
      * }
      * ```

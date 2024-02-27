@@ -47,18 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
+ *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .build());
  * 
  *         var exampleFunctionJavaScriptUDF = new FunctionJavaScriptUDF(&#34;exampleFunctionJavaScriptUDF&#34;, FunctionJavaScriptUDFArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult.name()))
- *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName()))
+ *             .name(&#34;example-javascript-function&#34;)
+ *             .streamAnalyticsJobName(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.name()))
+ *             .resourceGroupName(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName()))
  *             .script(&#34;&#34;&#34;
  * function getRandomNumber(in) {
  *   return in;

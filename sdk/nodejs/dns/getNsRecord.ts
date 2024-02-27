@@ -12,10 +12,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.NsRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsNsRecordId = example.id;
+ * export const dnsNsRecordId = exampleAzurermDnsNsRecord.id;
  * ```
  */
 export function getNsRecord(args: GetNsRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetNsRecordResult> {
@@ -82,10 +83,11 @@ export interface GetNsRecordResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.NsRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsNsRecordId = example.id;
+ * export const dnsNsRecordId = exampleAzurermDnsNsRecord.id;
  * ```
  */
 export function getNsRecordOutput(args: GetNsRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNsRecordResult> {

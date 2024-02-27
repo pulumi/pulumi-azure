@@ -33,24 +33,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("azure-functions-test-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("functionsapptestsa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("azure-functions-test-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -59,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "example", &appservice.FunctionAppArgs{
+//				Name:                    pulumi.String("test-azure-functions"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
@@ -69,9 +73,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewFunctionAppSlot(ctx, "exampleFunctionAppSlot", &appservice.FunctionAppSlotArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			_, err = appservice.NewFunctionAppSlot(ctx, "example", &appservice.FunctionAppSlotArgs{
+//				Name:                    pulumi.String("test-azure-functions_slot"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				AppServicePlanId:        examplePlan.ID(),
 //				FunctionAppName:         exampleFunctionApp.Name,
 //				StorageAccountName:      exampleAccount.Name,

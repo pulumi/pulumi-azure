@@ -11,10 +11,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mariadb.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-mariadb-database-RG",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mariadb.Server("example", {
+ *     name: "mariadb-svr",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "B_Gen5_2",
  *     storageMb: 51200,
  *     backupRetentionDays: 7,
@@ -24,8 +28,9 @@ import * as utilities from "../utilities";
  *     version: "10.2",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleDatabase = new azure.mariadb.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabase = new azure.mariadb.Database("example", {
+ *     name: "mariadb_database",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     charset: "utf8mb4",
  *     collation: "utf8mb4_unicode_520_ci",

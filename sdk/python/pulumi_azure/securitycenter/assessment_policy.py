@@ -321,9 +321,9 @@ class AssessmentPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.securitycenter.AssessmentPolicy("example",
-            description="Test Description",
             display_name="Test Display Name",
-            severity="Medium")
+            severity="Medium",
+            description="Test Description")
         ```
 
         ## Import
@@ -361,9 +361,9 @@ class AssessmentPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.securitycenter.AssessmentPolicy("example",
-            description="Test Description",
             display_name="Test Display Name",
-            severity="Medium")
+            severity="Medium",
+            description="Test Description")
         ```
 
         ## Import
