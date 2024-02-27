@@ -403,14 +403,14 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
             resource_id=example_virtual_network.id,
             policy_definition_id=example_definition.id,
-            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+            parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
                     "value": [
-                        location,
+                        example_resource_group.location,
                         "East US",
                     ],
                 },
-            })))
+            }))
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
             policy_definition_id=example_definition.id)
@@ -470,14 +470,14 @@ class ResourcePolicyRemediation(pulumi.CustomResource):
         example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
             resource_id=example_virtual_network.id,
             policy_definition_id=example_definition.id,
-            parameters=example_resource_group.location.apply(lambda location: json.dumps({
+            parameters=pulumi.Output.json_dumps({
                 "listOfAllowedLocations": {
                     "value": [
-                        location,
+                        example_resource_group.location,
                         "East US",
                     ],
                 },
-            })))
+            }))
         example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
             resource_group_id=example_resource_group.id,
             policy_definition_id=example_definition.id)
