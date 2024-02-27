@@ -49,13 +49,13 @@ namespace Pulumi.Azure.Core
     ///     {
     ///         ResourceId = exampleVirtualNetwork.Id,
     ///         PolicyDefinitionId = exampleDefinition.Id,
-    ///         Parameters = exampleResourceGroup.Location.Apply(location =&gt; JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         Parameters = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["value"] = new[]
+    ///                 ["value"] = new object?[]
     ///                 {
-    ///                     location,
+    ///                     exampleResourceGroup.Location,
     ///                     "East US",
     ///                 },
     ///             },

@@ -27,14 +27,14 @@ import * as utilities from "../utilities";
  * const exampleResourcePolicyAssignment = new azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", {
  *     resourceId: exampleVirtualNetwork.id,
  *     policyDefinitionId: exampleDefinition.id,
- *     parameters: exampleResourceGroup.location.apply(location => JSON.stringify({
+ *     parameters: pulumi.jsonStringify({
  *         listOfAllowedLocations: {
  *             value: [
- *                 location,
+ *                 exampleResourceGroup.location,
  *                 "East US",
  *             ],
  *         },
- *     })),
+ *     }),
  * });
  * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
  *     resourceGroupId: exampleResourceGroup.id,

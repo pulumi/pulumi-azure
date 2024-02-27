@@ -92,6 +92,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
 //			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
 //				Location:                 exampleResourceGroup.Location,
 //				ResourceGroupName:        exampleResourceGroup.Name,
