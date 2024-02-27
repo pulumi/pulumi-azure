@@ -15,48 +15,59 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.5.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     name: "example-nsg",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "examplesubnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.1.0/24"],
  * });
- * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation", {
+ * const exampleSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("example", {
  *     subnetId: exampleSubnet.id,
  *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-vhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.2.0/24",
  * });
- * const exampleVirtualHubRouteTable = new azure.network.VirtualHubRouteTable("exampleVirtualHubRouteTable", {
+ * const exampleVirtualHubRouteTable = new azure.network.VirtualHubRouteTable("example", {
+ *     name: "example-vhubroutetable",
  *     virtualHubId: exampleVirtualHub.id,
  *     labels: ["label1"],
  * });
- * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("exampleVirtualHubConnection", {
+ * const exampleVirtualHubConnection = new azure.network.VirtualHubConnection("example", {
+ *     name: "example-vhubconn",
  *     virtualHubId: exampleVirtualHub.id,
  *     remoteVirtualNetworkId: exampleVirtualNetwork.id,
  *     routing: {
  *         associatedRouteTableId: exampleVirtualHubRouteTable.id,
  *     },
  * });
- * const exampleVirtualHubRouteTableRoute = new azure.network.VirtualHubRouteTableRoute("exampleVirtualHubRouteTableRoute", {
+ * const exampleVirtualHubRouteTableRoute = new azure.network.VirtualHubRouteTableRoute("example", {
  *     routeTableId: exampleVirtualHubRouteTable.id,
+ *     name: "example-route",
  *     destinationsType: "CIDR",
  *     destinations: ["10.0.0.0/16"],
  *     nextHopType: "ResourceId",

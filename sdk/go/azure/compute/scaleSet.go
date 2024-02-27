@@ -22,44 +22,38 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/lb"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -68,11 +62,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
-//				DomainNameLabel:   exampleResourceGroup.Name,
+//				DomainNameLabel:   example.Name,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("staging"),
 //				},
@@ -80,9 +75,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
@@ -95,12 +91,14 @@ import (
 //			}
 //			bpepool, err := lb.NewBackendAddressPool(ctx, "bpepool", &lb.BackendAddressPoolArgs{
 //				LoadbalancerId: exampleLoadBalancer.ID(),
+//				Name:           pulumi.String("BackEndAddressPool"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			lbnatpool, err := lb.NewNatPool(ctx, "lbnatpool", &lb.NatPoolArgs{
-//				ResourceGroupName:           exampleResourceGroup.Name,
+//				ResourceGroupName:           example.Name,
+//				Name:                        pulumi.String("ssh"),
 //				LoadbalancerId:              exampleLoadBalancer.ID(),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPortStart:           pulumi.Int(50000),
@@ -111,8 +109,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleProbe, err := lb.NewProbe(ctx, "exampleProbe", &lb.ProbeArgs{
+//			exampleProbe, err := lb.NewProbe(ctx, "example", &lb.ProbeArgs{
 //				LoadbalancerId: exampleLoadBalancer.ID(),
+//				Name:           pulumi.String("http-probe"),
 //				Protocol:       pulumi.String("Http"),
 //				RequestPath:    pulumi.String("/health"),
 //				Port:           pulumi.Int(8080),
@@ -120,9 +119,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/demo_key.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
+//				Name:               pulumi.String("mytestscaleset-1"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				AutomaticOsUpgrade: pulumi.Bool(true),
 //				UpgradePolicyMode:  pulumi.String("Rolling"),
 //				RollingUpgradePolicy: &compute.ScaleSetRollingUpgradePolicyArgs{
@@ -166,7 +172,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: readFileOrPanic("~/.ssh/demo_key.pub"),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
 //				},
@@ -209,44 +215,39 @@ import (
 // import (
 //
 //	"fmt"
-//	"os"
 //
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -255,9 +256,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("accsa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				Tags: pulumi.StringMap{
@@ -267,16 +269,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("vhds"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/demo_key.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
+//				Name:              pulumi.String("mytestscaleset-1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				UpgradePolicyMode: pulumi.String("Manual"),
 //				Sku: &compute.ScaleSetSkuArgs{
 //					Name:     pulumi.String("Standard_F2"),
@@ -292,7 +302,7 @@ import (
 //					SshKeys: compute.ScaleSetOsProfileLinuxConfigSshKeyArray{
 //						&compute.ScaleSetOsProfileLinuxConfigSshKeyArgs{
 //							Path:    pulumi.String("/home/myadmin/.ssh/authorized_keys"),
-//							KeyData: readFileOrPanic("~/.ssh/demo_key.pub"),
+//							KeyData: invokeFile.Result,
 //						},
 //					},
 //				},
@@ -350,13 +360,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleImage, err := compute.NewImage(ctx, "exampleImage", nil)
+//			example, err := compute.NewImage(ctx, "example", &compute.ImageArgs{
+//				Name: pulumi.String("test"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewScaleSet(ctx, "exampleScaleSet", &compute.ScaleSetArgs{
+//			_, err = compute.NewScaleSet(ctx, "example", &compute.ScaleSetArgs{
+//				Name: pulumi.String("test"),
 //				StorageProfileImageReference: &compute.ScaleSetStorageProfileImageReferenceArgs{
-//					Id: exampleImage.ID(),
+//					Id: example.ID(),
 //				},
 //			})
 //			if err != nil {

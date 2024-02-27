@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			toMonitor, err := storage.NewAccount(ctx, "to_monitor", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
@@ -46,7 +48,8 @@ import (
 //				return err
 //			}
 //			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Name:              pulumi.String("example-actiongroup"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("exampleact"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
 //					&monitoring.ActionGroupWebhookReceiverArgs{
@@ -58,8 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewMetricAlert(ctx, "exampleMetricAlert", &monitoring.MetricAlertArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewMetricAlert(ctx, "example", &monitoring.MetricAlertArgs{
+//				Name:              pulumi.String("example-metricalert"),
+//				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
 //					toMonitor.ID(),
 //				},

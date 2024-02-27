@@ -44,7 +44,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.blueprint.Assignment;
  * import com.pulumi.azure.blueprint.AssignmentArgs;
  * import com.pulumi.azure.blueprint.inputs.AssignmentIdentityArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,20 +59,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         final var exampleSubscription = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription();
  * 
- *         final var exampleDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
+ *         final var exampleGetDefinition = BlueprintFunctions.getDefinition(GetDefinitionArgs.builder()
  *             .name(&#34;exampleBlueprint&#34;)
- *             .scopeId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .scopeId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .build());
  * 
- *         final var examplePublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
- *             .scopeId(exampleDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.scopeId()))
- *             .blueprintName(exampleDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.name()))
+ *         final var exampleGetPublishedVersion = BlueprintFunctions.getPublishedVersion(GetPublishedVersionArgs.builder()
+ *             .scopeId(exampleGetDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.scopeId()))
+ *             .blueprintName(exampleGetDefinition.applyValue(getDefinitionResult -&gt; getDefinitionResult.name()))
  *             .version(&#34;v1.0.0&#34;)
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exampleRG-bp&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;example&#34;))
  *             .build());
@@ -81,23 +81,25 @@ import javax.annotation.Nullable;
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
+ *             .name(&#34;bp-user-example&#34;)
  *             .build());
  * 
  *         var operator = new Assignment(&#34;operator&#34;, AssignmentArgs.builder()        
- *             .scope(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .scope(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Blueprint Operator&#34;)
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
  *         var owner = new Assignment(&#34;owner&#34;, AssignmentArgs.builder()        
- *             .scope(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .scope(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .roleDefinitionName(&#34;Owner&#34;)
  *             .principalId(exampleUserAssignedIdentity.principalId())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .targetSubscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .versionId(examplePublishedVersion.applyValue(getPublishedVersionResult -&gt; getPublishedVersionResult.id()))
+ *             .name(&#34;testAccBPAssignment&#34;)
+ *             .targetSubscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .versionId(exampleGetPublishedVersion.applyValue(getPublishedVersionResult -&gt; getPublishedVersionResult.id()))
  *             .location(exampleResourceGroup.location())
  *             .lockMode(&#34;AllResourcesDoNotDelete&#34;)
  *             .lockExcludePrincipals(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
@@ -119,11 +121,7 @@ import javax.annotation.Nullable;
  *       }
  *     }
  *             &#34;&#34;&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     operator,
- *                     owner)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

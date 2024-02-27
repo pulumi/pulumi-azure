@@ -43,17 +43,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
  *             .startIpAddress(&#34;40.112.8.12&#34;)
  *             .endIpAddress(&#34;40.112.8.12&#34;)
@@ -88,17 +91,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
  *             .startIpAddress(&#34;40.112.0.0&#34;)
  *             .endIpAddress(&#34;40.112.255.255&#34;)
@@ -133,17 +139,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleFlexibleServerFirewallRule = new FlexibleServerFirewallRule(&#34;exampleFlexibleServerFirewallRule&#34;, FlexibleServerFirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
  *             .endIpAddress(&#34;0.0.0.0&#34;)

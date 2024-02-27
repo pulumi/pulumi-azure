@@ -23,26 +23,29 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -50,10 +53,11 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("exampleManagedInstance", new()
+    ///     var exampleManagedInstance = new Azure.MSSql.ManagedInstance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "managedsqlinstance",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         LicenseType = "BasePrice",
     ///         SkuName = "GP_Gen5",
     ///         StorageSizeInGb = 32,
@@ -72,7 +76,7 @@ namespace Pulumi.Azure.MSSql
     ///         DisplayName = "Directory Readers",
     ///     });
     /// 
-    ///     var exampleDirectoryRoleMember = new AzureAD.DirectoryRoleMember("exampleDirectoryRoleMember", new()
+    ///     var exampleDirectoryRoleMember = new AzureAD.DirectoryRoleMember("example", new()
     ///     {
     ///         RoleObjectId = reader.ObjectId,
     ///         MemberObjectId = exampleManagedInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
@@ -86,7 +90,7 @@ namespace Pulumi.Azure.MSSql
     ///         Password = "SecretP@sswd99!",
     ///     });
     /// 
-    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.MSSql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", new()
+    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.MSSql.ManagedInstanceActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ManagedInstanceId = exampleManagedInstance.Id,
     ///         LoginUsername = "msadmin",

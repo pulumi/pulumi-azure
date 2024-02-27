@@ -52,18 +52,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;testvnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;testsubnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -80,8 +83,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContactProfile = new ContactProfile(&#34;exampleContactProfile&#34;, ContactProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-contact-profile&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .minimumVariableContactDuration(&#34;PT1M&#34;)
  *             .autoTracking(&#34;disabled&#34;)
  *             .links(ContactProfileLinkArgs.builder()

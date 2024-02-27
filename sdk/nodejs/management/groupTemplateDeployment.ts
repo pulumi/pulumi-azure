@@ -17,12 +17,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = azure.management.getGroup({
+ * const example = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment", {
+ * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("example", {
+ *     name: "example",
  *     location: "West Europe",
- *     managementGroupId: exampleGroup.then(exampleGroup => exampleGroup.id),
+ *     managementGroupId: example.then(example => example.id),
  *     templateContent: `{
  *   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",
@@ -70,16 +71,21 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleGroup = azure.management.getGroup({
+ * const example = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment", {
+ * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("example", {
+ *     name: "example",
  *     location: "West Europe",
- *     managementGroupId: exampleGroup.then(exampleGroup => exampleGroup.id),
- *     templateContent: fs.readFileSync("templates/example-deploy-template.json", "utf8"),
- *     parametersContent: fs.readFileSync("templates/example-deploy-params.json", "utf8"),
+ *     managementGroupId: example.then(example => example.id),
+ *     templateContent: std.file({
+ *         input: "templates/example-deploy-template.json",
+ *     }).then(invoke => invoke.result),
+ *     parametersContent: std.file({
+ *         input: "templates/example-deploy-params.json",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *
@@ -87,18 +93,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = azure.management.getGroup({
+ * const example = azure.management.getGroup({
  *     name: "00000000-0000-0000-0000-000000000000",
  * });
- * const exampleTemplateSpecVersion = azure.core.getTemplateSpecVersion({
+ * const exampleGetTemplateSpecVersion = azure.core.getTemplateSpecVersion({
  *     name: "exampleTemplateForManagementGroup",
  *     resourceGroupName: "exampleResourceGroup",
  *     version: "v1.0.9",
  * });
- * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("exampleGroupTemplateDeployment", {
+ * const exampleGroupTemplateDeployment = new azure.management.GroupTemplateDeployment("example", {
+ *     name: "example",
  *     location: "West Europe",
- *     managementGroupId: exampleGroup.then(exampleGroup => exampleGroup.id),
- *     templateSpecVersionId: exampleTemplateSpecVersion.then(exampleTemplateSpecVersion => exampleTemplateSpecVersion.id),
+ *     managementGroupId: example.then(example => example.id),
+ *     templateSpecVersionId: exampleGetTemplateSpecVersion.then(exampleGetTemplateSpecVersion => exampleGetTemplateSpecVersion.id),
  * });
  * ```
  *

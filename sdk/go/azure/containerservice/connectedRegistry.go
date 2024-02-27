@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//				Name:                pulumi.String("exampleacr"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				Sku:                 pulumi.String("Premium"),
 //				DataEndpointEnabled: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//			exampleRegistryScopeMap, err := containerservice.NewRegistryScopeMap(ctx, "example", &containerservice.RegistryScopeMapArgs{
+//				Name:                  pulumi.String("examplescopemap"),
 //				ContainerRegistryName: exampleRegistry.Name,
 //				ResourceGroupName:     exampleRegistry.ResourceGroupName,
 //				Actions: pulumi.StringArray{
@@ -62,7 +65,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "exampleRegistryToken", &containerservice.RegistryTokenArgs{
+//			exampleRegistryToken, err := containerservice.NewRegistryToken(ctx, "example", &containerservice.RegistryTokenArgs{
+//				Name:                  pulumi.String("exampletoken"),
 //				ContainerRegistryName: exampleRegistry.Name,
 //				ResourceGroupName:     exampleRegistry.ResourceGroupName,
 //				ScopeMapId:            exampleRegistryScopeMap.ID(),
@@ -70,7 +74,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewConnectedRegistry(ctx, "exampleConnectedRegistry", &containerservice.ConnectedRegistryArgs{
+//			_, err = containerservice.NewConnectedRegistry(ctx, "example", &containerservice.ConnectedRegistryArgs{
+//				Name:                pulumi.String("examplecr"),
 //				ContainerRegistryId: exampleRegistry.ID(),
 //				SyncTokenId:         exampleRegistryToken.ID(),
 //			})

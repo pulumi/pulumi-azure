@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "testvnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "AzureFirewallSubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -47,18 +50,20 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "testpip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new()
+    ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "testfirewall",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "AZFW_VNet",
     ///         SkuTier = "Standard",
     ///         IpConfigurations = new[]

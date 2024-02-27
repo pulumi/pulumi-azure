@@ -28,24 +28,27 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -57,10 +60,11 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///         Tags = 
@@ -69,7 +73,7 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("exampleAccountNetworkRules", new()
+    ///     var exampleAccountNetworkRules = new Azure.Storage.AccountNetworkRules("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         DefaultAction = "Allow",

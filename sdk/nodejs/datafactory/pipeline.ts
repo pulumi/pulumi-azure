@@ -13,12 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const examplePipeline = new azure.datafactory.Pipeline("examplePipeline", {dataFactoryId: exampleFactory.id});
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const examplePipeline = new azure.datafactory.Pipeline("example", {
+ *     name: "example",
+ *     dataFactoryId: exampleFactory.id,
+ * });
  * ```
  * ### With Activities
  *
@@ -27,7 +34,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const test = new azure.datafactory.Pipeline("test", {
- *     dataFactoryId: azurerm_data_factory.test.id,
+ *     name: "example",
+ *     dataFactoryId: testAzurermDataFactory.id,
  *     variables: {
  *         bob: "item1",
  *     },

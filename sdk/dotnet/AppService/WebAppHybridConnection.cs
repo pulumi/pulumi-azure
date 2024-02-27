@@ -22,41 +22,46 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OsType = "Windows",
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-relay",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplerhc1",
+    ///         ResourceGroupName = example.Name,
     ///         RelayNamespaceName = exampleNamespace.Name,
     ///     });
     /// 
-    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-web-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("exampleWebAppHybridConnection", new()
+    ///     var exampleWebAppHybridConnection = new Azure.AppService.WebAppHybridConnection("example", new()
     ///     {
     ///         WebAppId = exampleWindowsWebApp.Id,
     ///         RelayId = exampleHybridConnection.Id,

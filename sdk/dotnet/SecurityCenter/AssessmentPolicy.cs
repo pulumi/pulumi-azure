@@ -24,9 +24,9 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var example = new Azure.SecurityCenter.AssessmentPolicy("example", new()
     ///     {
-    ///         Description = "Test Description",
     ///         DisplayName = "Test Display Name",
     ///         Severity = "Medium",
+    ///         Description = "Test Description",
     ///     });
     /// 
     /// });

@@ -46,13 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;B1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -60,10 +62,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .isVerified(true)
- *             .certificateContent(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;example.cer&#34;))))
+ *             .certificateContent(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;example.cer&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

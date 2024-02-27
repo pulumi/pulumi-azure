@@ -24,8 +24,9 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     var example = new Azure.Compute.DiskAccess("example", new()
     ///     {
-    ///         Location = "West Europe",
+    ///         Name = "example",
     ///         ResourceGroupName = "example",
+    ///         Location = "West Europe",
     ///     });
     /// 
     /// });

@@ -50,10 +50,12 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var ledger = new Ledger(&#34;ledger&#34;, LedgerArgs.builder()        
+ *             .name(&#34;example-ledger&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .ledgerType(&#34;Private&#34;)

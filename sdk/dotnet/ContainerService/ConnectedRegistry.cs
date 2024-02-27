@@ -22,21 +22,24 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleacr",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Premium",
     ///         DataEndpointEnabled = true,
     ///     });
     /// 
-    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("example", new()
     ///     {
+    ///         Name = "examplescopemap",
     ///         ContainerRegistryName = exampleRegistry.Name,
     ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
     ///         Actions = new[]
@@ -53,15 +56,17 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("exampleRegistryToken", new()
+    ///     var exampleRegistryToken = new Azure.ContainerService.RegistryToken("example", new()
     ///     {
+    ///         Name = "exampletoken",
     ///         ContainerRegistryName = exampleRegistry.Name,
     ///         ResourceGroupName = exampleRegistry.ResourceGroupName,
     ///         ScopeMapId = exampleRegistryScopeMap.Id,
     ///     });
     /// 
-    ///     var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("exampleConnectedRegistry", new()
+    ///     var exampleConnectedRegistry = new Azure.ContainerService.ConnectedRegistry("example", new()
     ///     {
+    ///         Name = "examplecr",
     ///         ContainerRegistryId = exampleRegistry.Id,
     ///         SyncTokenId = exampleRegistryToken.Id,
     ///     });

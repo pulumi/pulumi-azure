@@ -25,15 +25,17 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         Instances = 1,
@@ -65,8 +67,9 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("exampleVirtualMachineScaleSetExtension", new()
+    ///     var exampleVirtualMachineScaleSetExtension = new Azure.Compute.VirtualMachineScaleSetExtension("example", new()
     ///     {
+    ///         Name = "example",
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachineScaleSet.Id,
     ///         Publisher = "Microsoft.Azure.Extensions",
     ///         Type = "CustomScript",
@@ -169,16 +172,6 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Output("typeHandlerVersion")]
         public Output<string> TypeHandlerVersion { get; private set; } = null!;
@@ -335,16 +328,6 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("typeHandlerVersion", required: true)]
         public Input<string> TypeHandlerVersion { get; set; } = null!;
@@ -459,16 +442,6 @@ namespace Pulumi.Azure.Compute
         /// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
         /// 
         /// &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("typeHandlerVersion")]
         public Input<string>? TypeHandlerVersion { get; set; }

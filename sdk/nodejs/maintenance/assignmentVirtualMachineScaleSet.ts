@@ -13,37 +13,49 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: example.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: example.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "internal",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("exampleBackendAddressPool", {loadbalancerId: exampleLoadBalancer.id});
- * const exampleProbe = new azure.lb.Probe("exampleProbe", {
+ * const exampleBackendAddressPool = new azure.lb.BackendAddressPool("example", {
+ *     name: "example",
+ *     loadbalancerId: exampleLoadBalancer.id,
+ * });
+ * const exampleProbe = new azure.lb.Probe("example", {
+ *     name: "example",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     port: 22,
  *     protocol: "Tcp",
  * });
- * const exampleRule = new azure.lb.Rule("exampleRule", {
+ * const exampleRule = new azure.lb.Rule("example", {
+ *     name: "example",
  *     loadbalancerId: exampleLoadBalancer.id,
  *     probeId: exampleProbe.id,
  *     frontendIpConfigurationName: "internal",
@@ -51,9 +63,10 @@ import * as utilities from "../utilities";
  *     frontendPort: 22,
  *     backendPort: 22,
  * });
- * const exampleConfiguration = new azure.maintenance.Configuration("exampleConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleConfiguration = new azure.maintenance.Configuration("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     scope: "OSImage",
  *     visibility: "Custom",
  *     window: {
@@ -64,17 +77,19 @@ import * as utilities from "../utilities";
  *         recurEvery: "1Days",
  *     },
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "sample-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: "example-machine",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_F2",
  *     adminUsername: "adminuser",
  *     networkInterfaceIds: [exampleNetworkInterface.id],
@@ -83,9 +98,10 @@ import * as utilities from "../utilities";
  *         storageAccountType: "Standard_LRS",
  *     },
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Standard_F2",
  *     instances: 1,
  *     adminUsername: "adminuser",
@@ -123,11 +139,9 @@ import * as utilities from "../utilities";
  *         maxUnhealthyUpgradedInstancePercent: 20,
  *         pauseTimeBetweenBatches: "PT0S",
  *     },
- * }, {
- *     dependsOn: ["azurerm_lb_rule.example"],
  * });
- * const exampleAssignmentVirtualMachineScaleSet = new azure.maintenance.AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", {
- *     location: exampleResourceGroup.location,
+ * const exampleAssignmentVirtualMachineScaleSet = new azure.maintenance.AssignmentVirtualMachineScaleSet("example", {
+ *     location: example.location,
  *     maintenanceConfigurationId: exampleConfiguration.id,
  *     virtualMachineScaleSetId: exampleLinuxVirtualMachine.id,
  * });

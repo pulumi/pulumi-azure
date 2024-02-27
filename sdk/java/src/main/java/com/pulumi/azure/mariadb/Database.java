@@ -40,13 +40,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-mariadb-database-RG&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mariadb-svr&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;B_Gen5_2&#34;)
  *             .storageMb(51200)
  *             .backupRetentionDays(7)
@@ -58,7 +60,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mariadb_database&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .charset(&#34;utf8mb4&#34;)
  *             .collation(&#34;utf8mb4_unicode_520_ci&#34;)

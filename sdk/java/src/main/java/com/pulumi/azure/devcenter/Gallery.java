@@ -47,18 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var testUserAssignedIdentity = new UserAssignedIdentity(&#34;testUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-uai&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .build());
  * 
- *         var testDevCenter = new DevCenter(&#34;testDevCenter&#34;, DevCenterArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .location(azurerm_resource_group.test().location())
+ *         var test = new DevCenter(&#34;test&#34;, DevCenterArgs.builder()        
+ *             .name(&#34;example-devcenter&#34;)
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .location(testAzurermResourceGroup.location())
  *             .identity(DevCenterIdentityArgs.builder()
  *                 .type(&#34;UserAssigned&#34;)
  *                 .identityIds(testUserAssignedIdentity.id())
@@ -66,13 +69,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSharedImageGallery = new SharedImageGallery(&#34;exampleSharedImageGallery&#34;, SharedImageGalleryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-image-gallery&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleGallery = new Gallery(&#34;exampleGallery&#34;, GalleryArgs.builder()        
- *             .devCenterId(azurerm_dev_center.example().id())
+ *             .devCenterId(exampleAzurermDevCenter.id())
  *             .sharedGalleryId(exampleSharedImageGallery.id())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *     }

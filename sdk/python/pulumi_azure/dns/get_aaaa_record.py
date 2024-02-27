@@ -143,9 +143,10 @@ def get_aaaa_record(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.dns.AaaaRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsAaaaRecordId", example.id)
+    pulumi.export("dnsAaaaRecordId", example_azurerm_dns_aaaa_record["id"])
     ```
 
 
@@ -185,9 +186,10 @@ def get_aaaa_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.dns.AaaaRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("dnsAaaaRecordId", example.id)
+    pulumi.export("dnsAaaaRecordId", example_azurerm_dns_aaaa_record["id"])
     ```
 
 

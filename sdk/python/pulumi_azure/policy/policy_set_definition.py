@@ -341,6 +341,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.policy.PolicySetDefinition("example",
+            name="testPolicySet",
+            policy_type="Custom",
             display_name="Test Policy Set",
             parameters=\"\"\"    {
                 "allowedLocations": {
@@ -352,17 +354,14 @@ class PolicySetDefinition(pulumi.CustomResource):
                     }
                 }
             }
-
         \"\"\",
             policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
+                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
                 parameter_values=\"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
-            
         \"\"\",
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-            )],
-            policy_type="Custom")
+            )])
         ```
 
         ## Import
@@ -409,6 +408,8 @@ class PolicySetDefinition(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.policy.PolicySetDefinition("example",
+            name="testPolicySet",
+            policy_type="Custom",
             display_name="Test Policy Set",
             parameters=\"\"\"    {
                 "allowedLocations": {
@@ -420,17 +421,14 @@ class PolicySetDefinition(pulumi.CustomResource):
                     }
                 }
             }
-
         \"\"\",
             policy_definition_references=[azure.policy.PolicySetDefinitionPolicyDefinitionReferenceArgs(
+                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
                 parameter_values=\"\"\"    {
               "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
             }
-            
         \"\"\",
-                policy_definition_id="/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
-            )],
-            policy_type="Custom")
+            )])
         ```
 
         ## Import

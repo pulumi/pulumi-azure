@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("workflow-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewWorkflow(ctx, "exampleWorkflow", &logicapps.WorkflowArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = logicapps.NewWorkflow(ctx, "example", &logicapps.WorkflowArgs{
+//				Name:              pulumi.String("workflow1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err

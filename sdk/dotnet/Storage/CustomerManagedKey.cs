@@ -26,24 +26,27 @@ namespace Pulumi.Azure.Storage
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///         Identity = new Azure.Storage.Inputs.AccountIdentityArgs
@@ -98,8 +101,9 @@ namespace Pulumi.Azure.Storage
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "tfex-key",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -112,16 +116,9 @@ namespace Pulumi.Azure.Storage
     ///             "verify",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             client,
-    ///             storage,
-    ///         },
     ///     });
     /// 
-    ///     var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("exampleCustomerManagedKey", new()
+    ///     var exampleCustomerManagedKey = new Azure.Storage.CustomerManagedKey("example", new()
     ///     {
     ///         StorageAccountId = exampleAccount.Id,
     ///         KeyVaultId = exampleKeyVault.Id,

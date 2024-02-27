@@ -377,10 +377,13 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.purview.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.purview.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.purview.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
@@ -421,10 +424,13 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.purview.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.purview.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.purview.AccountIdentityArgs(
                 type="SystemAssigned",
             ))

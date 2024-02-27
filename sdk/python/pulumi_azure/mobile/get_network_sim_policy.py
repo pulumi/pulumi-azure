@@ -159,10 +159,10 @@ def get_network_sim_policy(mobile_network_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
+    example = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
-    example_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
-        mobile_network_id=example_network.id)
+    example_get_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
+        mobile_network_id=example.id)
     ```
 
 
@@ -201,10 +201,10 @@ def get_network_sim_policy_output(mobile_network_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_azure as azure
 
-    example_network = azure.mobile.get_network(name="example-mn",
+    example = azure.mobile.get_network(name="example-mn",
         resource_group_name="example-rg")
-    example_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
-        mobile_network_id=example_network.id)
+    example_get_network_sim_policy = azure.mobile.get_network_sim_policy(name="example-mnsp",
+        mobile_network_id=example.id)
     ```
 
 

@@ -23,28 +23,31 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-uai",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-workspace",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "WindowsEventForwarding",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
@@ -54,46 +57,52 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exeventns",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "exevent2",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examstorage",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-dcre",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("exampleDataCollectionRule", new()
+    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-rule",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DataCollectionEndpointId = exampleDataCollectionEndpoint.Id,
     ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
     ///         {
@@ -314,12 +323,6 @@ namespace Pulumi.Azure.Monitoring
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAnalyticsSolution,
     ///         },
     ///     });
     /// 

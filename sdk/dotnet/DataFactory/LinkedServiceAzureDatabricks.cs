@@ -23,16 +23,18 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "East US",
     ///     });
     /// 
     ///     //Create a Linked Service using managed identity and new cluster config
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "TestDtaFactory92783401247",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataFactory.Inputs.FactoryIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -40,15 +42,17 @@ namespace Pulumi.Azure.DataFactory
     ///     });
     /// 
     ///     //Create a databricks instance
-    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "databricks-test",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "standard",
     ///     });
     /// 
-    ///     var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msiLinked", new()
+    ///     var msiLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("msi_linked", new()
     ///     {
+    ///         Name = "ADBLinkedServiceViaMSI",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Description = "ADB Linked Service via MSI",
     ///         AdbDomain = exampleWorkspace.WorkspaceUrl.Apply(workspaceUrl =&gt; $"https://{workspaceUrl}"),
@@ -96,28 +100,32 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "East US",
     ///     });
     /// 
     ///     //Link to an existing cluster via access token
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "TestDtaFactory92783401247",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     //Create a databricks instance
-    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.DataBricks.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "databricks-test",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "standard",
     ///     });
     /// 
-    ///     var atLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("atLinked", new()
+    ///     var atLinked = new Azure.DataFactory.LinkedServiceAzureDatabricks("at_linked", new()
     ///     {
+    ///         Name = "ADBLinkedServiceViaAccessToken",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Description = "ADB Linked Service via Access Token",
     ///         ExistingClusterId = "0308-201146-sly615",

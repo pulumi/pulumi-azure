@@ -31,26 +31,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "example", &sql.ManagedInstanceArgs{
+//				Name:                       pulumi.String("managedsqlinstance"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
-//				SubnetId:                   pulumi.Any(azurerm_subnet.Example.Id),
+//				SubnetId:                   pulumi.Any(exampleAzurermSubnet.Id),
 //				SkuName:                    pulumi.String("GP_Gen5"),
 //				Vcores:                     pulumi.Int(4),
 //				StorageSizeInGb:            pulumi.Int(32),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_subnet_network_security_group_association.Example,
-//				azurerm_subnet_route_table_association.Example,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -58,9 +57,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "exampleManagedInstanceActiveDirectoryAdministrator", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
+//			_, err = sql.NewManagedInstanceActiveDirectoryAdministrator(ctx, "example", &sql.ManagedInstanceActiveDirectoryAdministratorArgs{
 //				ManagedInstanceName: exampleManagedInstance.Name,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//				ResourceGroupName:   example.Name,
 //				Login:               pulumi.String("sqladmin"),
 //				TenantId:            *pulumi.String(current.TenantId),
 //				ObjectId:            *pulumi.String(current.ObjectId),

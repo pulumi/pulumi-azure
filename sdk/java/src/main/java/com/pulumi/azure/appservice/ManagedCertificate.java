@@ -21,6 +21,113 @@ import javax.annotation.Nullable;
  * 
  * &gt; NOTE: A certificate is valid for six months, and about a month before the certificate’s expiration date, App Services renews/rotates the certificate. This is managed by Azure and doesn&#39;t require this resource to be changed or reprovisioned. It will change the `thumbprint` computed attribute the next time the resource is refreshed after rotation occurs, so keep that in mind if you have any dependencies on this attribute directly.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dns.DnsFunctions;
+ * import com.pulumi.azure.dns.inputs.GetZoneArgs;
+ * import com.pulumi.azure.appservice.Plan;
+ * import com.pulumi.azure.appservice.PlanArgs;
+ * import com.pulumi.azure.appservice.inputs.PlanSkuArgs;
+ * import com.pulumi.azure.appservice.AppService;
+ * import com.pulumi.azure.appservice.AppServiceArgs;
+ * import com.pulumi.azure.dns.TxtRecord;
+ * import com.pulumi.azure.dns.TxtRecordArgs;
+ * import com.pulumi.azure.dns.inputs.TxtRecordRecordArgs;
+ * import com.pulumi.azure.dns.CNameRecord;
+ * import com.pulumi.azure.dns.CNameRecordArgs;
+ * import com.pulumi.azure.appservice.CustomHostnameBinding;
+ * import com.pulumi.azure.appservice.CustomHostnameBindingArgs;
+ * import com.pulumi.azure.appservice.ManagedCertificate;
+ * import com.pulumi.azure.appservice.ManagedCertificateArgs;
+ * import com.pulumi.azure.appservice.CertificateBinding;
+ * import com.pulumi.azure.appservice.CertificateBindingArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         final var example = DnsFunctions.getZone(GetZoneArgs.builder()
+ *             .name(&#34;mydomain.com&#34;)
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
+ *             .name(&#34;example-plan&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .kind(&#34;Linux&#34;)
+ *             .reserved(true)
+ *             .sku(PlanSkuArgs.builder()
+ *                 .tier(&#34;Basic&#34;)
+ *                 .size(&#34;B1&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
+ *             .name(&#34;example-app&#34;)
+ *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .appServicePlanId(examplePlan.id())
+ *             .build());
+ * 
+ *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
+ *             .name(&#34;asuid.mycustomhost.contoso.com&#34;)
+ *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.name())))
+ *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName())))
+ *             .ttl(300)
+ *             .records(TxtRecordRecordArgs.builder()
+ *                 .value(exampleAppService.customDomainVerificationId())
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
+ *             .name(&#34;example-adcr&#34;)
+ *             .zoneName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.name())))
+ *             .resourceGroupName(example.applyValue(getZoneResult -&gt; getZoneResult).applyValue(example -&gt; example.applyValue(getZoneResult -&gt; getZoneResult.resourceGroupName())))
+ *             .ttl(300)
+ *             .record(exampleAppService.defaultSiteHostname())
+ *             .build());
+ * 
+ *         var exampleCustomHostnameBinding = new CustomHostnameBinding(&#34;exampleCustomHostnameBinding&#34;, CustomHostnameBindingArgs.builder()        
+ *             .hostname(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
+ *             .appServiceName(exampleAppService.name())
+ *             .resourceGroupName(exampleResourceGroup.name())
+ *             .build());
+ * 
+ *         var exampleManagedCertificate = new ManagedCertificate(&#34;exampleManagedCertificate&#34;, ManagedCertificateArgs.builder()        
+ *             .customHostnameBindingId(exampleCustomHostnameBinding.id())
+ *             .build());
+ * 
+ *         var exampleCertificateBinding = new CertificateBinding(&#34;exampleCertificateBinding&#34;, CertificateBindingArgs.builder()        
+ *             .hostnameBindingId(exampleCustomHostnameBinding.id())
+ *             .certificateId(exampleManagedCertificate.id())
+ *             .sslState(&#34;SniEnabled&#34;)
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * App Service Managed Certificates can be imported using the `resource id`, e.g.

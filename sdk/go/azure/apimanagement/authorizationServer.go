@@ -28,16 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "search-api",
 //				ResourceGroupName: "search-service",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewAuthorizationServer(ctx, "exampleAuthorizationServer", &apimanagement.AuthorizationServerArgs{
-//				ApiManagementName:          *pulumi.String(exampleService.Name),
-//				ResourceGroupName:          *pulumi.String(exampleService.ResourceGroupName),
+//			_, err = apimanagement.NewAuthorizationServer(ctx, "example", &apimanagement.AuthorizationServerArgs{
+//				Name:                       pulumi.String("test-server"),
+//				ApiManagementName:          *pulumi.String(example.Name),
+//				ResourceGroupName:          *pulumi.String(example.ResourceGroupName),
 //				DisplayName:                pulumi.String("Test Server"),
 //				AuthorizationEndpoint:      pulumi.String("https://example.mydomain.com/client/authorize"),
 //				ClientId:                   pulumi.String("42424242-4242-4242-4242-424242424242"),

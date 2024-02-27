@@ -31,13 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
+//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
+//				Name:              pulumi.String("example-mn"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				MobileCountryCode: pulumi.String("001"),
@@ -46,35 +48,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.LookupUserAssignedIdentity(ctx, &authorization.LookupUserAssignedIdentityArgs{
+//			example, err := authorization.LookupUserAssignedIdentity(ctx, &authorization.LookupUserAssignedIdentityArgs{
 //				Name:              "name_of_user_assigned_identity",
 //				ResourceGroupName: "name_of_resource_group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//			exampleGetKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
 //				Name:              "example-kv",
 //				ResourceGroupName: "some-resource-group",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
+//			exampleGetKey, err := keyvault.LookupKey(ctx, &keyvault.LookupKeyArgs{
 //				Name:       "example-key",
-//				KeyVaultId: exampleKeyVault.Id,
+//				KeyVaultId: exampleGetKeyVault.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetworkSimGroup(ctx, "exampleNetworkSimGroup", &mobile.NetworkSimGroupArgs{
+//			_, err = mobile.NewNetworkSimGroup(ctx, "example", &mobile.NetworkSimGroupArgs{
+//				Name:             pulumi.String("example-mnsg"),
 //				Location:         exampleResourceGroup.Location,
 //				MobileNetworkId:  exampleNetwork.ID(),
-//				EncryptionKeyUrl: *pulumi.String(exampleKey.Id),
+//				EncryptionKeyUrl: *pulumi.String(exampleGetKey.Id),
 //				Identity: &mobile.NetworkSimGroupIdentityArgs{
 //					Type: pulumi.String("SystemAssigned, UserAssigned"),
 //					IdentityIds: pulumi.StringArray{
-//						*pulumi.String(exampleUserAssignedIdentity.Id),
+//						*pulumi.String(example.Id),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

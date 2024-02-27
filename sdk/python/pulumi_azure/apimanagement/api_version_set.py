@@ -318,15 +318,19 @@ class ApiVersionSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
-        example_api_version_set = azure.apimanagement.ApiVersionSet("exampleApiVersionSet",
-            resource_group_name=example_resource_group.name,
+        example_api_version_set = azure.apimanagement.ApiVersionSet("example",
+            name="example-apimapi-1_0_0",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             display_name="ExampleAPIVersionSet",
             versioning_scheme="Segment")
@@ -370,15 +374,19 @@ class ApiVersionSet(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Developer_1")
-        example_api_version_set = azure.apimanagement.ApiVersionSet("exampleApiVersionSet",
-            resource_group_name=example_resource_group.name,
+        example_api_version_set = azure.apimanagement.ApiVersionSet("example",
+            name="example-apimapi-1_0_0",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             display_name="ExampleAPIVersionSet",
             versioning_scheme="Segment")

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceGroup(ctx, "example-primaryResourceGroup", &core.ResourceGroupArgs{
+//			_, err := core.NewResourceGroup(ctx, "example-primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources-primary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redis.NewCache(ctx, "example-primaryCache", &redis.CacheArgs{
-//				Location:          example_primaryResourceGroup.Location,
-//				ResourceGroupName: example_primaryResourceGroup.Name,
+//			_, err = redis.NewCache(ctx, "example-primary", &redis.CacheArgs{
+//				Name:              pulumi.String("example-cache1"),
+//				Location:          example_primary.Location,
+//				ResourceGroupName: example_primary.Name,
 //				Capacity:          pulumi.Int(1),
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),
@@ -51,15 +53,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceGroup(ctx, "example-secondaryResourceGroup", &core.ResourceGroupArgs{
+//			_, err = core.NewResourceGroup(ctx, "example-secondary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources-secondary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redis.NewCache(ctx, "example-secondaryCache", &redis.CacheArgs{
-//				Location:          example_secondaryResourceGroup.Location,
-//				ResourceGroupName: example_secondaryResourceGroup.Name,
+//			_, err = redis.NewCache(ctx, "example-secondary", &redis.CacheArgs{
+//				Name:              pulumi.String("example-cache2"),
+//				Location:          example_secondary.Location,
+//				ResourceGroupName: example_secondary.Name,
 //				Capacity:          pulumi.Int(1),
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),

@@ -22,25 +22,29 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudAccelerator = new Azure.AppPlatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", new()
+    ///     var exampleSpringCloudAccelerator = new Azure.AppPlatform.SpringCloudAccelerator("example", new()
     ///     {
+    ///         Name = "default",
     ///         SpringCloudServiceId = exampleSpringCloudService.Id,
     ///     });
     /// 
-    ///     var exampleSpringCloudCustomizedAccelerator = new Azure.AppPlatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", new()
+    ///     var exampleSpringCloudCustomizedAccelerator = new Azure.AppPlatform.SpringCloudCustomizedAccelerator("example", new()
     ///     {
+    ///         Name = "example",
     ///         SpringCloudAcceleratorId = exampleSpringCloudAccelerator.Id,
     ///         GitRepository = new Azure.AppPlatform.Inputs.SpringCloudCustomizedAcceleratorGitRepositoryArgs
     ///         {

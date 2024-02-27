@@ -22,21 +22,24 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleFhirService = new Azure.Healthcare.FhirService("exampleFhirService", new()
+    ///     var exampleFhirService = new Azure.Healthcare.FhirService("example", new()
     ///     {
+    ///         Name = "tfexfhir",
     ///         Location = "east us",
     ///         ResourceGroupName = "tfex-resource_group",
     ///         WorkspaceId = exampleWorkspace.Id,

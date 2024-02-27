@@ -52,9 +52,9 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var primary = CoreFunctions.getSubscription();
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
- *         final var exampleRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name(&#34;Reader&#34;)
  *             .build());
  * 
@@ -62,8 +62,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment(&#34;exampleActiveRoleAssignment&#34;, ActiveRoleAssignmentArgs.builder()        
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .roleDefinitionId(String.format(&#34;%s%s&#34;, primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()),exampleRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())))
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionId(String.format(&#34;%s%s&#34;, primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()),exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id())))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()
@@ -91,6 +91,7 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AuthorizationFunctions;
  * import com.pulumi.azure.authorization.inputs.GetRoleDefinitionArgs;
  * import com.pulumi.azure.management.Group;
+ * import com.pulumi.azure.management.GroupArgs;
  * import com.pulumi.time.Static;
  * import com.pulumi.azure.pim.ActiveRoleAssignment;
  * import com.pulumi.azure.pim.ActiveRoleAssignmentArgs;
@@ -110,20 +111,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
- *         final var exampleRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
+ *         final var exampleGetRoleDefinition = AuthorizationFunctions.getRoleDefinition(GetRoleDefinitionArgs.builder()
  *             .name(&#34;Reader&#34;)
  *             .build());
  * 
- *         var exampleGroup = new Group(&#34;exampleGroup&#34;);
+ *         var exampleGroup = new Group(&#34;exampleGroup&#34;, GroupArgs.builder()        
+ *             .name(&#34;Example-Management-Group&#34;)
+ *             .build());
  * 
  *         var exampleStatic = new Static(&#34;exampleStatic&#34;);
  * 
  *         var exampleActiveRoleAssignment = new ActiveRoleAssignment(&#34;exampleActiveRoleAssignment&#34;, ActiveRoleAssignmentArgs.builder()        
  *             .scope(exampleGroup.id())
- *             .roleDefinitionId(exampleRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
- *             .principalId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *             .roleDefinitionId(exampleGetRoleDefinition.applyValue(getRoleDefinitionResult -&gt; getRoleDefinitionResult.id()))
+ *             .principalId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .schedule(ActiveRoleAssignmentScheduleArgs.builder()
  *                 .startDateTime(exampleStatic.rfc3339())
  *                 .expiration(ActiveRoleAssignmentScheduleExpirationArgs.builder()

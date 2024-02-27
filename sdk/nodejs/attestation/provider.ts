@@ -14,13 +14,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleProvider = new azure.attestation.Provider("exampleProvider", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     policySigningCertificateData: fs.readFileSync("./example/cert.pem", "utf8"),
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleProvider = new azure.attestation.Provider("example", {
+ *     name: "exampleprovider",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     policySigningCertificateData: std.file({
+ *         input: "./example/cert.pem",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

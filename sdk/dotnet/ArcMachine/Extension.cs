@@ -12,6 +12,40 @@ namespace Pulumi.Azure.ArcMachine
     /// <summary>
     /// Manages a Hybrid Compute Machine Extension.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.ArcMachine.Get.Invoke(new()
+    ///     {
+    ///         Name = "existing-hcmachine",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleExtension = new Azure.ArcMachine.Extension("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = "West Europe",
+    ///         ArcMachineId = example.Apply(getResult =&gt; getResult.Id),
+    ///         Publisher = "Microsoft.Azure.Monitor",
+    ///         Type = "AzureMonitorLinuxAgent",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.

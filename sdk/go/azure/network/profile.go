@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("examplegroup"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("examplevnet"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.1.0.0/16"),
 //				},
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("examplesubnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.1.0.0/24"),
@@ -66,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewProfile(ctx, "exampleProfile", &network.ProfileArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = network.NewProfile(ctx, "example", &network.ProfileArgs{
+//				Name:              pulumi.String("examplenetprofile"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ContainerNetworkInterface: &network.ProfileContainerNetworkInterfaceArgs{
 //					Name: pulumi.String("examplecnic"),
 //					IpConfigurations: network.ProfileContainerNetworkInterfaceIpConfigurationArray{

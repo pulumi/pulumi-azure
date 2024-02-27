@@ -13,15 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "azureexample",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "azureexamplestorage1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
- * const exampleTableEntity = new azure.storage.TableEntity("exampleTableEntity", {
+ * const exampleTable = new azure.storage.Table("example", {
+ *     name: "myexampletable",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleTableEntity = new azure.storage.TableEntity("example", {
  *     storageAccountName: exampleAccount.name,
  *     tableName: exampleTable.name,
  *     partitionKey: "examplepartition",

@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *
  * const primary = azure.core.getSubscription({});
  * const example = new azure.authorization.RoleDefinition("example", {
+ *     name: "my-custom-role",
  *     scope: primary.then(primary => primary.id),
  *     description: "This is a custom role created",
  *     permissions: [{

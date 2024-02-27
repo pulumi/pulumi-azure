@@ -29,17 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroup-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account-example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
@@ -47,12 +49,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewConnectionClassicCertificate(ctx, "exampleConnectionClassicCertificate", &automation.ConnectionClassicCertificateArgs{
+//			_, err = automation.NewConnectionClassicCertificate(ctx, "example", &automation.ConnectionClassicCertificateArgs{
+//				Name:                  pulumi.String("connection-example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				CertificateAssetName:  pulumi.String("cert1"),
 //				SubscriptionName:      pulumi.String("subs1"),
-//				SubscriptionId:        *pulumi.String(exampleClientConfig.SubscriptionId),
+//				SubscriptionId:        *pulumi.String(example.SubscriptionId),
 //			})
 //			if err != nil {
 //				return err

@@ -53,39 +53,45 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleworkspace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ehn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;example-eh&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;$default&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFhirService = new FhirService(&#34;exampleFhirService&#34;, FhirServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplefhir&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
  *             .kind(&#34;fhir-R4&#34;)
  *             .authentication(FhirServiceAuthenticationArgs.builder()
@@ -95,8 +101,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMedtechService = new MedtechService(&#34;exampleMedtechService&#34;, MedtechServiceArgs.builder()        
+ *             .name(&#34;examplemt&#34;)
  *             .workspaceId(exampleWorkspace.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .eventhubNamespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
@@ -109,6 +116,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleMedtechServiceFhirDestination = new MedtechServiceFhirDestination(&#34;exampleMedtechServiceFhirDestination&#34;, MedtechServiceFhirDestinationArgs.builder()        
+ *             .name(&#34;examplemtdes&#34;)
  *             .location(&#34;east us&#34;)
  *             .medtechServiceId(exampleMedtechService.id())
  *             .destinationFhirServiceId(exampleFhirService.id())

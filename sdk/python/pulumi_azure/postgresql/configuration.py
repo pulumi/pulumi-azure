@@ -174,10 +174,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="api-rg-pro",
+            location="West Europe")
+        example_server = azure.postgresql.Server("example",
+            name="postgresql-server-1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="B_Gen5_2",
             storage_mb=5120,
             backup_retention_days=7,
@@ -187,9 +190,9 @@ class Configuration(pulumi.CustomResource):
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
-        example_configuration = azure.postgresql.Configuration("exampleConfiguration",
+        example_configuration = azure.postgresql.Configuration("example",
             name="backslash_quote",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             server_name=example_server.name,
             value="on")
         ```
@@ -228,10 +231,13 @@ class Configuration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.postgresql.Server("exampleServer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="api-rg-pro",
+            location="West Europe")
+        example_server = azure.postgresql.Server("example",
+            name="postgresql-server-1",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="B_Gen5_2",
             storage_mb=5120,
             backup_retention_days=7,
@@ -241,9 +247,9 @@ class Configuration(pulumi.CustomResource):
             administrator_login_password="H@Sh1CoR3!",
             version="9.5",
             ssl_enforcement_enabled=True)
-        example_configuration = azure.postgresql.Configuration("exampleConfiguration",
+        example_configuration = azure.postgresql.Configuration("example",
             name="backslash_quote",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             server_name=example_server.name,
             value="on")
         ```

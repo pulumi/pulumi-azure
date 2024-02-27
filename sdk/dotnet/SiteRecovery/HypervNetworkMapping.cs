@@ -22,30 +22,34 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var targetResourceGroup = new Azure.Core.ResourceGroup("targetResourceGroup", new()
+    ///     var target = new Azure.Core.ResourceGroup("target", new()
     ///     {
+    ///         Name = "tfex-network-mapping",
     ///         Location = "East US",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
-    ///         Location = targetResourceGroup.Location,
-    ///         ResourceGroupName = targetResourceGroup.Name,
+    ///         Name = "example-recovery-vault",
+    ///         Location = target.Location,
+    ///         ResourceGroupName = target.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var targetVirtualNetwork = new Azure.Network.VirtualNetwork("targetVirtualNetwork", new()
+    ///     var targetVirtualNetwork = new Azure.Network.VirtualNetwork("target", new()
     ///     {
-    ///         ResourceGroupName = targetResourceGroup.Name,
+    ///         Name = "network",
+    ///         ResourceGroupName = target.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.2.0/24",
     ///         },
-    ///         Location = targetResourceGroup.Location,
+    ///         Location = target.Location,
     ///     });
     /// 
     ///     var recovery_mapping = new Azure.SiteRecovery.HypervNetworkMapping("recovery-mapping", new()
     ///     {
+    ///         Name = "recovery-network-mapping",
     ///         RecoveryVaultId = vault.Id,
     ///         SourceSystemCenterVirtualMachineManagerName = "my-vmm-server",
     ///         SourceNetworkName = "my-vmm-network",

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = purview.NewAccount(ctx, "exampleAccount", &purview.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = purview.NewAccount(ctx, "example", &purview.AccountArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Identity: &purview.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

@@ -24,11 +24,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example-virtualdesktop",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
     ///     {
+    ///         Name = "pooledbreadthfirst",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Type = "Pooled",
@@ -37,6 +39,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var personalautomatic = new Azure.DesktopVirtualization.HostPool("personalautomatic", new()
     ///     {
+    ///         Name = "personalautomatic",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Type = "Personal",
@@ -46,6 +49,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
     ///     {
+    ///         Name = "acctag",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Type = "RemoteApp",
@@ -56,6 +60,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var chrome = new Azure.DesktopVirtualization.Application("chrome", new()
     ///     {
+    ///         Name = "googlechrome",
     ///         ApplicationGroupId = remoteapp.Id,
     ///         FriendlyName = "Google Chrome",
     ///         Description = "Chromium based web browser",

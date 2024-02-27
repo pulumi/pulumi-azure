@@ -49,13 +49,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVpnServerConfiguration = new VpnServerConfiguration(&#34;exampleVpnServerConfiguration&#34;, VpnServerConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-VPNSC&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .vpnAuthenticationTypes(&#34;Radius&#34;)
  *             .radius(VpnServerConfigurationRadiusArgs.builder()
  *                 .servers(VpnServerConfigurationRadiusServerArgs.builder()
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVpnServerConfigurationPolicyGroup = new VpnServerConfigurationPolicyGroup(&#34;exampleVpnServerConfigurationPolicyGroup&#34;, VpnServerConfigurationPolicyGroupArgs.builder()        
+ *             .name(&#34;example-VPNSCPG&#34;)
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .policies(VpnServerConfigurationPolicyGroupPolicyArgs.builder()
  *                 .name(&#34;policy1&#34;)

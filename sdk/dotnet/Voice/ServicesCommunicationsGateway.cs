@@ -27,15 +27,17 @@ namespace Pulumi.Azure.Voice
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicesCommunicationsGateway = new Azure.Voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", new()
+    ///     var exampleServicesCommunicationsGateway = new Azure.Voice.ServicesCommunicationsGateway("example", new()
     ///     {
+    ///         Name = "example-vcg",
     ///         Location = "West Europe",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Connectivity = "PublicAddress",
     ///         Codecs = "PCMA",
     ///         E911Type = "DirectToEsrp",

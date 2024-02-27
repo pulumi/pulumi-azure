@@ -33,7 +33,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//			example, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
+//				Name:        pulumi.String("only-deploy-in-westeurope"),
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("Allowed resource types"),
@@ -55,8 +56,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
-//				PolicyDefinitionId: exampleDefinition.ID(),
+//			_, err = core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
+//				Name:               pulumi.String("example"),
+//				PolicyDefinitionId: example.ID(),
 //				SubscriptionId:     *pulumi.String(current.Id),
 //			})
 //			if err != nil {

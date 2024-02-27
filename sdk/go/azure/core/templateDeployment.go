@@ -34,14 +34,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "exampleTemplateDeployment", &core.TemplateDeploymentArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleTemplateDeployment, err := core.NewTemplateDeployment(ctx, "example", &core.TemplateDeploymentArgs{
+//				Name:              pulumi.String("acctesttemplate-01"),
+//				ResourceGroupName: example.Name,
 //				TemplateBody: pulumi.String(`{
 //	  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
 //	  "contentVersion": "1.0.0.0",

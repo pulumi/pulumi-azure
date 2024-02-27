@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appplatform.LookupSpringCloudApp(ctx, &appplatform.LookupSpringCloudAppArgs{
-//				Name:              azurerm_spring_cloud_app.Example.Name,
-//				ResourceGroupName: azurerm_spring_cloud_app.Example.Resource_group_name,
-//				ServiceName:       azurerm_spring_cloud_app.Example.Service_name,
+//				Name:              exampleAzurermSpringCloudApp.Name,
+//				ResourceGroupName: exampleAzurermSpringCloudApp.ResourceGroupName,
+//				ServiceName:       exampleAzurermSpringCloudApp.ServiceName,
 //			}, nil)
 //			if err != nil {
 //				return err

@@ -16,14 +16,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West US",
  * });
- * const exampleAccount = new azure.cognitive.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     name: "example-identity",
+ * });
+ * const exampleAccount = new azure.cognitive.Account("example", {
+ *     name: "example-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     kind: "Face",
  *     skuName: "E0",
  *     customSubdomainName: "example-account",
@@ -32,9 +37,10 @@ import * as utilities from "../utilities";
  *         identityIds: [exampleUserAssignedIdentity.id],
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
@@ -101,7 +107,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -114,7 +121,7 @@ import * as utilities from "../utilities";
  *         "wrapKey",
  *     ],
  * });
- * const exampleAccountCustomerManagedKey = new azure.cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey", {
+ * const exampleAccountCustomerManagedKey = new azure.cognitive.AccountCustomerManagedKey("example", {
  *     cognitiveAccountId: exampleAccount.id,
  *     keyVaultKeyId: exampleKey.id,
  *     identityClientId: exampleUserAssignedIdentity.clientId,

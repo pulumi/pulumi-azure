@@ -30,15 +30,17 @@ namespace Pulumi.Azure.Compute
     /// {
     ///     var firstPublicKey = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC+wWK73dCr+jgQOAxNsHAnNNNMEMWOHYEccp6wJm2gotpr9katuF/ZAdou5AaW1C61slRkHRkpRRX9FA9CYBiitZgvCCz+3nWNN7l/Up54Zps/pHWGZLHNJZRYyAB6j5yVLMVHIHriY49d/GZTZVNB8GoJv9Gakwc/fuEZYYl4YDFiGMBP///TzlI4jhiJzjKnEvqPFki5p2ZRJqcbCiF4pJrxUQR/RXqVFQdbRLZgYfJ8xGB878RENq3yQ39d8dVOkq4edbkzwcUmwwwkYVPIoDGsYLaRHnG+To7FvMeyO7xDVQkMKzopTQV8AuKpyvpqu0a9pWOMaiCyDytO7GGN you@me.com";
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-network",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -47,7 +49,8 @@ namespace Pulumi.Azure.Compute
     /// 
     ///     var @internal = new Azure.Network.Subnet("internal", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -55,10 +58,11 @@ namespace Pulumi.Azure.Compute
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vmss",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard_F2",
     ///         Instances = 1,
     ///         AdminUsername = "adminuser",

@@ -7,6 +7,195 @@ import * as outputs from "../types/output";
 import * as utilities from "../utilities";
 
 /**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as random from "@pulumi/random";
+ *
+ * const example = new random.RandomString("example", {
+ *     length: 12,
+ *     special: true,
+ * });
+ * const adminUsername = "exampleadmin";
+ * const adminPassword = example.result;
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: `${prefix}-resources`,
+ *     location: location,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: `${prefix}-vnet`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     addressSpaces: ["10.6.0.0/16"],
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: `${prefix}-delegated-subnet`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.6.2.0/24"],
+ *     delegations: [{
+ *         name: "testdelegation",
+ *         serviceDelegation: {
+ *             name: "Microsoft.Netapp/volumes",
+ *             actions: [
+ *                 "Microsoft.Network/networkinterfaces/*",
+ *                 "Microsoft.Network/virtualNetworks/subnets/join/action",
+ *             ],
+ *         },
+ *     }],
+ * });
+ * const example1 = new azure.network.Subnet("example1", {
+ *     name: `${prefix}-hosts-subnet`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.6.1.0/24"],
+ * });
+ * const examplePlacementGroup = new azure.proximity.PlacementGroup("example", {
+ *     name: `${prefix}-ppg`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleAvailabilitySet = new azure.compute.AvailabilitySet("example", {
+ *     name: `${prefix}-avset`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     proximityPlacementGroupId: examplePlacementGroup.id,
+ * });
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: `${prefix}-nic`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     ipConfigurations: [{
+ *         name: "internal",
+ *         subnetId: example1.id,
+ *         privateIpAddressAllocation: "Dynamic",
+ *     }],
+ * });
+ * const exampleLinuxVirtualMachine = new azure.compute.LinuxVirtualMachine("example", {
+ *     name: `${prefix}-vm`,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     location: exampleResourceGroup.location,
+ *     size: "Standard_M8ms",
+ *     adminUsername: adminUsername,
+ *     adminPassword: adminPassword,
+ *     disablePasswordAuthentication: false,
+ *     proximityPlacementGroupId: examplePlacementGroup.id,
+ *     availabilitySetId: exampleAvailabilitySet.id,
+ *     networkInterfaceIds: [exampleNetworkInterface.id],
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
+ *         version: "latest",
+ *     },
+ *     osDisk: {
+ *         storageAccountType: "Standard_LRS",
+ *         caching: "ReadWrite",
+ *     },
+ * });
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: `${prefix}-netapp-account`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePool = new azure.netapp.Pool("example", {
+ *     name: `${prefix}-netapp-pool`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     serviceLevel: "Standard",
+ *     sizeInTb: 8,
+ *     qosType: "Manual",
+ * });
+ * const exampleVolumeGroupSapHana = new azure.netapp.VolumeGroupSapHana("example", {
+ *     name: `${prefix}-netapp-volumegroup`,
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     accountName: exampleAccount.name,
+ *     groupDescription: "Test volume group",
+ *     applicationIdentifier: "TST",
+ *     volumes: [
+ *         {
+ *             name: `${prefix}-netapp-volume-1`,
+ *             volumePath: "my-unique-file-path-1",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleSubnet.id,
+ *             proximityPlacementGroupId: examplePlacementGroup.id,
+ *             volumeSpecName: "data",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *             tags: {
+ *                 foo: "bar",
+ *             },
+ *         },
+ *         {
+ *             name: `${prefix}-netapp-volume-2`,
+ *             volumePath: "my-unique-file-path-2",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleSubnet.id,
+ *             proximityPlacementGroupId: examplePlacementGroup.id,
+ *             volumeSpecName: "log",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *             tags: {
+ *                 foo: "bar",
+ *             },
+ *         },
+ *         {
+ *             name: `${prefix}-netapp-volume-3`,
+ *             volumePath: "my-unique-file-path-3",
+ *             serviceLevel: "Standard",
+ *             capacityPoolId: examplePool.id,
+ *             subnetId: exampleSubnet.id,
+ *             proximityPlacementGroupId: examplePlacementGroup.id,
+ *             volumeSpecName: "shared",
+ *             storageQuotaInGb: 1024,
+ *             throughputInMibps: 24,
+ *             protocols: "NFSv4.1",
+ *             securityStyle: "unix",
+ *             snapshotDirectoryVisible: false,
+ *             exportPolicyRules: [{
+ *                 ruleIndex: 1,
+ *                 allowedClients: "0.0.0.0/0",
+ *                 nfsv3Enabled: false,
+ *                 nfsv41Enabled: true,
+ *                 unixReadOnly: false,
+ *                 unixReadWrite: true,
+ *                 rootAccessEnabled: false,
+ *             }],
+ *         },
+ *     ],
+ * });
+ * ```
+ *
  * ## Import
  *
  * Application Volume Groups can be imported using the `resource id`, e.g.

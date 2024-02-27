@@ -29,27 +29,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkedServiceSnowflake, err := datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
+//			exampleLinkedServiceSnowflake, err := datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewDatasetSnowflake(ctx, "exampleDatasetSnowflake", &datafactory.DatasetSnowflakeArgs{
+//			_, err = datafactory.NewDatasetSnowflake(ctx, "example", &datafactory.DatasetSnowflakeArgs{
+//				Name:              pulumi.String("example"),
 //				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedServiceSnowflake.Name,
 //				SchemaName:        pulumi.String("foo_schema"),

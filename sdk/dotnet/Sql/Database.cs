@@ -20,15 +20,17 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "myexamplesqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
@@ -38,18 +40,20 @@ namespace Pulumi.Azure.Sql
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Sql.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "myexamplesqldatabase",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ServerName = exampleSqlServer.Name,
     ///         Tags = 
     ///         {

@@ -15,18 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "terraform-webpubsub",
+ *     location: "east us",
  * });
- * const exampleService = new azure.webpubsub.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "tfex-uai",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleService = new azure.webpubsub.Service("example", {
+ *     name: "tfex-webpubsub",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const exampleHub = new azure.webpubsub.Hub("exampleHub", {
+ * const exampleHub = new azure.webpubsub.Hub("example", {
+ *     name: "tfex_wpsh",
  *     webPubsubId: exampleService.id,
  *     eventHandlers: [
  *         {
@@ -53,25 +59,23 @@ import * as utilities from "../utilities";
  *                 "event1",
  *                 "event2",
  *             ],
- *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
- *             eventhubName: azurerm_eventhub.test1.name,
+ *             eventhubNamespaceName: test.name,
+ *             eventhubName: test1.name,
  *         },
  *         {
  *             systemEventNameFilters: ["connected"],
  *             userEventNameFilters: ["*"],
- *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
- *             eventhubName: azurerm_eventhub.test1.name,
+ *             eventhubNamespaceName: test.name,
+ *             eventhubName: test1.name,
  *         },
  *         {
  *             systemEventNameFilters: ["connected"],
  *             userEventNameFilters: ["event1"],
- *             eventhubNamespaceName: azurerm_eventhub_namespace.test.name,
- *             eventhubName: azurerm_eventhub.test1.name,
+ *             eventhubNamespaceName: test.name,
+ *             eventhubName: test1.name,
  *         },
  *     ],
  *     anonymousConnectionsEnabled: true,
- * }, {
- *     dependsOn: [exampleService],
  * });
  * ```
  *

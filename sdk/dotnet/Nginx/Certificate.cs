@@ -15,30 +15,25 @@ namespace Pulumi.Azure.Nginx
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AllocationMethod = "Static",
     ///         Sku = "Standard",
     ///         Tags = 
@@ -47,19 +42,21 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -82,11 +79,12 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///     });
     /// 
-    ///     var exampleDeployment = new Azure.Nginx.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Azure.Nginx.Deployment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-nginx",
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "publicpreview_Monthly_gmz7xq9ge3py",
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         ManagedResourceGroup = "example",
     ///         DiagnoseSupportEnabled = true,
     ///         FrontendPublic = new Azure.Nginx.Inputs.DeploymentFrontendPublicArgs
@@ -107,10 +105,11 @@ namespace Pulumi.Azure.Nginx
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         AccessPolicies = new[]
@@ -138,18 +137,23 @@ namespace Pulumi.Azure.Nginx
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "imported-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "certificate-to-import.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "",
     ///         },
     ///     });
     /// 
-    ///     var exampleNginx_certificateCertificate = new Azure.Nginx.Certificate("exampleNginx/certificateCertificate", new()
+    ///     var exampleCertificate2 = new Azure.Nginx.Certificate("example", new()
     ///     {
+    ///         Name = "examplecert",
     ///         NginxDeploymentId = exampleDeployment.Id,
     ///         KeyVirtualPath = "/src/cert/soservermekey.key",
     ///         CertificateVirtualPath = "/src/cert/server.cert",

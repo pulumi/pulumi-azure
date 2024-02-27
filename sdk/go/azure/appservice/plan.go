@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -69,15 +71,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("FunctionApp"),
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Dynamic"),
@@ -107,15 +111,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("Linux"),
 //				Reserved:          pulumi.Bool(true),
 //				Sku: &appservice.PlanSkuArgs{
@@ -146,15 +152,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("api-appserviceplan-pro"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("xenon"),
 //				IsXenon:           pulumi.Bool(true),
 //				Sku: &appservice.PlanSkuArgs{

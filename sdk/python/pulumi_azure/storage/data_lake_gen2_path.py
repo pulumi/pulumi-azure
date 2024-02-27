@@ -273,16 +273,21 @@ class DataLakeGen2Path(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path",
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("example",
             path="example",
             filesystem_name=example_data_lake_gen2_filesystem.name,
             storage_account_id=example_account.id,
@@ -324,16 +329,21 @@ class DataLakeGen2Path(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("exampleDataLakeGen2Path",
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_data_lake_gen2_path = azure.storage.DataLakeGen2Path("example",
             path="example",
             filesystem_name=example_data_lake_gen2_filesystem.name,
             storage_account_id=example_account.id,

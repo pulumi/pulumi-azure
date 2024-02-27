@@ -292,20 +292,26 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.mssql.Database("example",
+            name="example-db",
+            server_id=example_server.id)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy",
+        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("example",
             database_id=example_database.id,
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
@@ -351,20 +357,26 @@ class DatabaseExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.mssql.Database("example",
+            name="example-db",
+            server_id=example_server.id)
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy",
+        example_database_extended_auditing_policy = azure.mssql.DatabaseExtendedAuditingPolicy("example",
             database_id=example_database.id,
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,

@@ -31,22 +31,11 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewDefinition(ctx, "policy", &policy.DefinitionArgs{
-//				DisplayName: pulumi.String("acceptance test policy definition"),
-//				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n\n"),
+//				Name:        pulumi.String("accTestPolicy"),
+//				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("Indexed"),
-//				Parameters: pulumi.String(` {
-//	    "allowedLocations": {
-//	      "type": "Array",
-//	      "metadata": {
-//	        "description": "The list of allowed locations for resources.",
-//	        "displayName": "Allowed locations",
-//	        "strongType": "location"
-//	      }
-//	    }
-//	  }
-//
-// `),
-//
+//				DisplayName: pulumi.String("acceptance test policy definition"),
+//				Metadata:    pulumi.String("    {\n    \"category\": \"General\"\n    }\n\n"),
 //				PolicyRule: pulumi.String(` {
 //	    "if": {
 //	      "not": {
@@ -61,7 +50,19 @@ import (
 //
 // `),
 //
-//				PolicyType: pulumi.String("Custom"),
+//				Parameters: pulumi.String(` {
+//	    "allowedLocations": {
+//	      "type": "Array",
+//	      "metadata": {
+//	        "description": "The list of allowed locations for resources.",
+//	        "displayName": "Allowed locations",
+//	        "strongType": "location"
+//	      }
+//	    }
+//	  }
+//
+// `),
+//
 //			})
 //			if err != nil {
 //				return err

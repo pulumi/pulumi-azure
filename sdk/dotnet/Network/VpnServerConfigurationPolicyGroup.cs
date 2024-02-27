@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("exampleVpnServerConfiguration", new()
+    ///     var exampleVpnServerConfiguration = new Azure.Network.VpnServerConfiguration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-VPNSC",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VpnAuthenticationTypes = new[]
     ///         {
     ///             "Radius",
@@ -49,8 +51,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("exampleVpnServerConfigurationPolicyGroup", new()
+    ///     var exampleVpnServerConfigurationPolicyGroup = new Azure.Network.VpnServerConfigurationPolicyGroup("example", new()
     ///     {
+    ///         Name = "example-VPNSCPG",
     ///         VpnServerConfigurationId = exampleVpnServerConfiguration.Id,
     ///         Policies = new[]
     ///         {

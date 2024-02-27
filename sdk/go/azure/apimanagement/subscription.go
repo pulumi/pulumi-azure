@@ -28,34 +28,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "example-apim",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
+//			exampleGetProduct, err := apimanagement.LookupProduct(ctx, &apimanagement.LookupProductArgs{
 //				ProductId:         "00000000-0000-0000-0000-000000000000",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
+//				ApiManagementName: example.Name,
+//				ResourceGroupName: example.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
+//			exampleGetUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
 //				UserId:            "11111111-1111-1111-1111-111111111111",
-//				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleService.ResourceGroupName,
+//				ApiManagementName: example.Name,
+//				ResourceGroupName: example.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewSubscription(ctx, "exampleSubscription", &apimanagement.SubscriptionArgs{
-//				ApiManagementName: *pulumi.String(exampleService.Name),
-//				ResourceGroupName: *pulumi.String(exampleService.ResourceGroupName),
-//				UserId:            *pulumi.String(exampleUser.Id),
-//				ProductId:         *pulumi.String(exampleProduct.Id),
+//			_, err = apimanagement.NewSubscription(ctx, "example", &apimanagement.SubscriptionArgs{
+//				ApiManagementName: *pulumi.String(example.Name),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				UserId:            *pulumi.String(exampleGetUser.Id),
+//				ProductId:         *pulumi.String(exampleGetProduct.Id),
 //				DisplayName:       pulumi.String("Parser API"),
 //			})
 //			if err != nil {

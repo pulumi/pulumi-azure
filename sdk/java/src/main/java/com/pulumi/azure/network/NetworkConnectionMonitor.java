@@ -59,7 +59,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestConfigurationTcpConfigurationArgs;
  * import com.pulumi.azure.network.inputs.NetworkConnectionMonitorTestGroupArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -73,30 +72,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-Watcher-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetworkWatcher = new NetworkWatcher(&#34;exampleNetworkWatcher&#34;, NetworkWatcherArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-Watcher&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-Vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-Subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-Nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;testconfiguration1&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -105,8 +109,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualMachine = new VirtualMachine(&#34;exampleVirtualMachine&#34;, VirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-VM&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .vmSize(&#34;Standard_D2s_v3&#34;)
  *             .storageImageReference(VirtualMachineStorageImageReferenceArgs.builder()
@@ -132,6 +137,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExtension = new Extension(&#34;exampleExtension&#34;, ExtensionArgs.builder()        
+ *             .name(&#34;example-VMExtension&#34;)
  *             .virtualMachineId(exampleVirtualMachine.id())
  *             .publisher(&#34;Microsoft.Azure.NetworkWatcher&#34;)
  *             .type(&#34;NetworkWatcherAgentLinux&#34;)
@@ -140,12 +146,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-Workspace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
  *         var exampleNetworkConnectionMonitor = new NetworkConnectionMonitor(&#34;exampleNetworkConnectionMonitor&#34;, NetworkConnectionMonitorArgs.builder()        
+ *             .name(&#34;example-Monitor&#34;)
  *             .networkWatcherId(exampleNetworkWatcher.id())
  *             .location(exampleNetworkWatcher.location())
  *             .endpoints(            
@@ -180,9 +188,7 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .notes(&#34;examplenote&#34;)
  *             .outputWorkspaceResourceIds(exampleAnalyticsWorkspace.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleExtension)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

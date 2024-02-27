@@ -15,24 +15,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-law",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {
  *     workspaceId: exampleAnalyticsWorkspace.id,
  *     customerManagedKeyEnabled: false,
  * });
- * const exampleAlertRuleAnomaly = azure.sentinel.getAlertRuleAnomalyOutput({
+ * const example = azure.sentinel.getAlertRuleAnomalyOutput({
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     displayName: "UEBA Anomalous Sign In",
  * });
- * const exampleAlertRuleAnomalyDuplicate = new azure.sentinel.AlertRuleAnomalyDuplicate("exampleAlertRuleAnomalyDuplicate", {
+ * const exampleAlertRuleAnomalyDuplicate = new azure.sentinel.AlertRuleAnomalyDuplicate("example", {
  *     displayName: "example duplicated UEBA Anomalous Sign In",
  *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     builtInRuleId: exampleAlertRuleAnomaly.apply(exampleAlertRuleAnomaly => exampleAlertRuleAnomaly.id),
+ *     builtInRuleId: example.apply(example => example.id),
  *     enabled: true,
  *     mode: "Flighting",
  *     thresholdObservations: [{

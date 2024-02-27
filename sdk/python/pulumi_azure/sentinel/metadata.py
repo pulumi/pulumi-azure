@@ -733,22 +733,26 @@ class Metadata(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
+        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
+            name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             display_name="example",
             severity="High",
@@ -757,7 +761,8 @@ class Metadata(pulumi.CustomResource):
           where ActivityStatus == "Succeeded" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
-        example_metadata = azure.sentinel.Metadata("exampleMetadata",
+        example_metadata = azure.sentinel.Metadata("example",
+            name="exampl",
             workspace_id=example_analytics_solution.workspace_resource_id,
             content_id=example_alert_rule_nrt.name,
             kind="AnalyticsRule",
@@ -811,22 +816,26 @@ class Metadata(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="pergb2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="SecurityInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
                 publisher="Microsoft",
                 product="OMSGallery/SecurityInsights",
             ))
-        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("exampleAlertRuleNrt",
+        example_alert_rule_nrt = azure.sentinel.AlertRuleNrt("example",
+            name="example",
             log_analytics_workspace_id=example_analytics_solution.workspace_resource_id,
             display_name="example",
             severity="High",
@@ -835,7 +844,8 @@ class Metadata(pulumi.CustomResource):
           where ActivityStatus == "Succeeded" |
           make-series dcount(ResourceId) default=0 on EventSubmissionTimestamp in range(ago(7d), now(), 1d) by Caller
         \"\"\")
-        example_metadata = azure.sentinel.Metadata("exampleMetadata",
+        example_metadata = azure.sentinel.Metadata("example",
+            name="exampl",
             workspace_id=example_analytics_solution.workspace_resource_id,
             content_id=example_alert_rule_nrt.name,
             kind="AnalyticsRule",

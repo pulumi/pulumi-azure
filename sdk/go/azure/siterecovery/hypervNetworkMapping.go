@@ -31,31 +31,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			targetResourceGroup, err := core.NewResourceGroup(ctx, "targetResourceGroup", &core.ResourceGroupArgs{
+//			target, err := core.NewResourceGroup(ctx, "target", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Location:          targetResourceGroup.Location,
-//				ResourceGroupName: targetResourceGroup.Name,
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          target.Location,
+//				ResourceGroupName: target.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			targetVirtualNetwork, err := network.NewVirtualNetwork(ctx, "targetVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: targetResourceGroup.Name,
+//			targetVirtualNetwork, err := network.NewVirtualNetwork(ctx, "target", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network"),
+//				ResourceGroupName: target.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("192.168.2.0/24"),
 //				},
-//				Location: targetResourceGroup.Location,
+//				Location: target.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewHypervNetworkMapping(ctx, "recovery-mapping", &siterecovery.HypervNetworkMappingArgs{
+//				Name:            pulumi.String("recovery-network-mapping"),
 //				RecoveryVaultId: vault.ID(),
 //				SourceSystemCenterVirtualMachineManagerName: pulumi.String("my-vmm-server"),
 //				SourceNetworkName: pulumi.String("my-vmm-network"),

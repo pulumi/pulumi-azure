@@ -27,21 +27,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.NewZone(ctx, "exampleZone", &dns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := dns.NewZone(ctx, "example", &dns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dns.NewTxtRecord(ctx, "exampleTxtRecord", &dns.TxtRecordArgs{
+//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//				Name:              pulumi.String("test"),
 //				ZoneName:          exampleZone.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				Records: dns.TxtRecordRecordArray{
 //					&dns.TxtRecordRecordArgs{

@@ -38,26 +38,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			example, err := core.LookupSubscription(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
+//			exampleGetDefinition, err := blueprint.GetDefinition(ctx, &blueprint.GetDefinitionArgs{
 //				Name:    "exampleBlueprint",
-//				ScopeId: exampleSubscription.Id,
+//				ScopeId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			examplePublishedVersion, err := blueprint.GetPublishedVersion(ctx, &blueprint.GetPublishedVersionArgs{
-//				ScopeId:       exampleDefinition.ScopeId,
-//				BlueprintName: exampleDefinition.Name,
+//			exampleGetPublishedVersion, err := blueprint.GetPublishedVersion(ctx, &blueprint.GetPublishedVersionArgs{
+//				ScopeId:       exampleGetDefinition.ScopeId,
+//				BlueprintName: exampleGetDefinition.Name,
 //				Version:       "v1.0.0",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG-bp"),
 //				Location: pulumi.String("West Europe"),
 //				Tags: pulumi.StringMap{
 //					"Environment": pulumi.String("example"),
@@ -66,32 +67,34 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
+//				Name:              pulumi.String("bp-user-example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			operator, err := authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
-//				Scope:              *pulumi.String(exampleSubscription.Id),
+//			_, err = authorization.NewAssignment(ctx, "operator", &authorization.AssignmentArgs{
+//				Scope:              *pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Blueprint Operator"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			owner, err := authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
-//				Scope:              *pulumi.String(exampleSubscription.Id),
+//			_, err = authorization.NewAssignment(ctx, "owner", &authorization.AssignmentArgs{
+//				Scope:              *pulumi.String(example.Id),
 //				RoleDefinitionName: pulumi.String("Owner"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = blueprint.NewAssignment(ctx, "exampleAssignment", &blueprint.AssignmentArgs{
-//				TargetSubscriptionId: *pulumi.String(exampleSubscription.Id),
-//				VersionId:            *pulumi.String(examplePublishedVersion.Id),
+//			_, err = blueprint.NewAssignment(ctx, "example", &blueprint.AssignmentArgs{
+//				Name:                 pulumi.String("testAccBPAssignment"),
+//				TargetSubscriptionId: *pulumi.String(example.Id),
+//				VersionId:            *pulumi.String(exampleGetPublishedVersion.Id),
 //				Location:             exampleResourceGroup.Location,
 //				LockMode:             pulumi.String("AllResourcesDoNotDelete"),
 //				LockExcludePrincipals: pulumi.StringArray{
@@ -119,10 +122,7 @@ import (
 //
 // `),
 //
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				operator,
-//				owner,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

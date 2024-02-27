@@ -33,21 +33,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRouteTable, err := network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleRouteTable, err := network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
+//				Name:              pulumi.String("acceptanceTestRouteTable1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewRoute(ctx, "exampleRoute", &network.RouteArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = network.NewRoute(ctx, "example", &network.RouteArgs{
+//				Name:              pulumi.String("acceptanceTestRoute1"),
+//				ResourceGroupName: example.Name,
 //				RouteTableName:    exampleRouteTable.Name,
 //				AddressPrefix:     pulumi.String("10.1.0.0/16"),
 //				NextHopType:       pulumi.String("VnetLocal"),

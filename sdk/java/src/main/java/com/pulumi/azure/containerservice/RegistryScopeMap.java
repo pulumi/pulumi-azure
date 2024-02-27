@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRegistry = new Registry(&#34;exampleRegistry&#34;, RegistryArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleregistry&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Premium&#34;)
  *             .adminEnabled(false)
  *             .georeplications(            
@@ -62,8 +64,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRegistryScopeMap = new RegistryScopeMap(&#34;exampleRegistryScopeMap&#34;, RegistryScopeMapArgs.builder()        
+ *             .name(&#34;example-scope-map&#34;)
  *             .containerRegistryName(exampleRegistry.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .actions(            
  *                 &#34;repositories/repo1/content/read&#34;,
  *                 &#34;repositories/repo1/content/write&#34;)

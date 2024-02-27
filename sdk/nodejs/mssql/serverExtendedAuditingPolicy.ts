@@ -13,21 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-sqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "AdminPassword123!",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", {
+ * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
  *     serverId: exampleServer.id,
  *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
@@ -42,14 +47,19 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const primary = azure.core.getSubscription({});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = azure.core.getClientConfig({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "virtnetname-1",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "subnetname-1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
@@ -59,7 +69,8 @@ import * as utilities from "../utilities";
  *     ],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-sqlserver",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
@@ -70,23 +81,26 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: primary.then(primary => primary.id),
  *     roleDefinitionName: "Storage Blob Data Contributor",
  *     principalId: exampleServer.identity.apply(identity => identity?.principalId),
  * });
  * const sqlvnetrule = new azure.sql.VirtualNetworkRule("sqlvnetrule", {
+ *     name: "sql-vnet-rule",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     subnetId: exampleSubnet.id,
  * });
- * const exampleFirewallRule = new azure.sql.FirewallRule("exampleFirewallRule", {
+ * const exampleFirewallRule = new azure.sql.FirewallRule("example", {
+ *     name: "FirewallRule1",
  *     resourceGroupName: exampleResourceGroup.name,
  *     serverName: exampleServer.name,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "0.0.0.0",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
@@ -103,86 +117,12 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", {
+ * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("example", {
  *     storageEndpoint: exampleAccount.primaryBlobEndpoint,
  *     serverId: exampleServer.id,
  *     retentionInDays: 6,
  *     logMonitoringEnabled: false,
- *     storageAccountSubscriptionId: azurerm_subscription.primary.subscription_id,
- * }, {
- *     dependsOn: [
- *         exampleAssignment,
- *         exampleAccount,
- *     ],
- * });
- * ```
- * ### With Log Analytics Workspace And EventHub
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as azure from "@pulumi/azure";
- *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     version: "12.0",
- *     administratorLogin: "missadministrator",
- *     administratorLoginPassword: "AdminPassword123!",
- * });
- * const exampleServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy", {
- *     serverId: exampleServer.id,
- *     storageEndpoint: azurerm_storage_account.example.primary_blob_endpoint,
- *     storageAccountAccessKey: azurerm_storage_account.example.primary_access_key,
- *     storageAccountAccessKeyIsSecondary: false,
- *     retentionInDays: 6,
- * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "PerGB2018",
- *     retentionInDays: 30,
- * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     sku: "Standard",
- * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     partitionCount: 2,
- *     messageRetention: 1,
- * });
- * const exampleEventHubNamespaceAuthorizationRule = new azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule", {
- *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     listen: true,
- *     send: true,
- *     manage: true,
- * });
- * const exampleMssql_serverExtendedAuditingPolicyServerExtendedAuditingPolicy = new azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy", {
- *     serverId: exampleServer.id,
- *     logMonitoringEnabled: true,
- * });
- * const exampleDiagnosticSetting = new azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting", {
- *     targetResourceId: pulumi.interpolate`${exampleServer.id}/databases/master`,
- *     eventhubAuthorizationRuleId: exampleEventHubNamespaceAuthorizationRule.id,
- *     eventhubName: exampleEventHub.name,
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
- *     logs: [{
- *         category: "SQLSecurityAuditEvents",
- *         enabled: true,
- *         retentionPolicy: {
- *             enabled: false,
- *         },
- *     }],
- *     metrics: [{
- *         category: "AllMetrics",
- *         retentionPolicy: {
- *             enabled: false,
- *         },
- *     }],
+ *     storageAccountSubscriptionId: primaryAzurermSubscription.subscriptionId,
  * });
  * ```
  *

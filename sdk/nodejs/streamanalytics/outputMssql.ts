@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ *     name: "example-server",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "dbadmin",
  *     administratorLoginPassword: "example-password",
  * });
- * const exampleDatabase = new azure.sql.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.sql.Database("example", {
+ *     name: "exampledb",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     serverName: exampleSqlServer.name,
@@ -34,9 +39,10 @@ import * as utilities from "../utilities";
  *     maxSizeBytes: "268435456000",
  *     createMode: "Default",
  * });
- * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("exampleOutputMssql", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleOutputMssql = new azure.streamanalytics.OutputMssql("example", {
+ *     name: "example-output-sql",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     server: exampleSqlServer.fullyQualifiedDomainName,
  *     user: exampleSqlServer.administratorLogin,
  *     password: exampleSqlServer.administratorLoginPassword,

@@ -30,29 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudStorage(ctx, "exampleSpringCloudStorage", &appplatform.SpringCloudStorageArgs{
+//			_, err = appplatform.NewSpringCloudStorage(ctx, "example", &appplatform.SpringCloudStorageArgs{
+//				Name:                 pulumi.String("example"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageAccountKey:    exampleAccount.PrimaryAccessKey,

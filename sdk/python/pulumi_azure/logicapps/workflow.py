@@ -560,10 +560,13 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="workflow-resources",
+            location="West Europe")
+        example_workflow = azure.logicapps.Workflow("example",
+            name="workflow1",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -607,10 +610,13 @@ class Workflow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workflow = azure.logicapps.Workflow("exampleWorkflow",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example = azure.core.ResourceGroup("example",
+            name="workflow-resources",
+            location="West Europe")
+        example_workflow = azure.logicapps.Workflow("example",
+            name="workflow1",
+            location=example.location,
+            resource_group_name=example.name)
         ```
 
         ## Import

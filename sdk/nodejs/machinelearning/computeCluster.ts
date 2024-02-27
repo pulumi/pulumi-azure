@@ -17,33 +17,38 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
  *     location: "west europe",
  *     tags: {
  *         stage: "example",
  *     },
  * });
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-kv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-mlw",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
@@ -51,18 +56,21 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.1.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.1.0.0/24"],
  * });
  * const test = new azure.machinelearning.ComputeCluster("test", {
- *     location: exampleResourceGroup.location,
+ *     name: "example",
+ *     location: example.location,
  *     vmPriority: "LowPriority",
  *     vmSize: "Standard_DS2_v2",
  *     machineLearningWorkspaceId: exampleWorkspace.id,

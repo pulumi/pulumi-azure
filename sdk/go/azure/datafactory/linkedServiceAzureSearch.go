@@ -14,6 +14,71 @@ import (
 
 // Manages a Linked Service (connection) between Azure Search Service and Azure Data Factory.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/datafactory"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/search"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleService, err := search.NewService(ctx, "example", &search.ServiceArgs{
+//				Name:              pulumi.String("example-search-service"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				Sku:               pulumi.String("standard"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = datafactory.NewLinkedServiceAzureSearch(ctx, "test", &datafactory.LinkedServiceAzureSearchArgs{
+//				Name:          pulumi.String("example"),
+//				DataFactoryId: exampleFactory.ID(),
+//				Url: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String(""),
+//					Input: pulumi.StringArray{
+//						pulumi.String("https://"),
+//						exampleService.Name,
+//						pulumi.String(".search.windows.net"),
+//					},
+//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				SearchServiceKey: exampleService.PrimaryKey,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Data Factory Linked Service's can be imported using the `resource id`, e.g.

@@ -29,30 +29,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("example-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHybridRunbookWorkerGroup, err := automation.NewHybridRunbookWorkerGroup(ctx, "exampleHybridRunbookWorkerGroup", &automation.HybridRunbookWorkerGroupArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleHybridRunbookWorkerGroup, err := automation.NewHybridRunbookWorkerGroup(ctx, "example", &automation.HybridRunbookWorkerGroupArgs{
+//				Name:                  pulumi.String("example"),
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRunBook, err := automation.NewRunBook(ctx, "exampleRunBook", &automation.RunBookArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleRunBook, err := automation.NewRunBook(ctx, "example", &automation.RunBookArgs{
+//				Name:                  pulumi.String("Get-AzureVMTutorial"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				LogVerbose:            pulumi.Bool(true),
 //				LogProgress:           pulumi.Bool(true),
@@ -65,7 +69,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewWatcher(ctx, "exampleWatcher", &automation.WatcherArgs{
+//			_, err = automation.NewWatcher(ctx, "example", &automation.WatcherArgs{
+//				Name:                        pulumi.String("example"),
 //				AutomationAccountId:         exampleAccount.ID(),
 //				Location:                    pulumi.String("West Europe"),
 //				ScriptName:                  exampleRunBook.Name,

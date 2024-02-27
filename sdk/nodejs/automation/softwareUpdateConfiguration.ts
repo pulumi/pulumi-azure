@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "East US",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleRunBook = new azure.automation.RunBook("example", {
+ *     name: "Get-AzureVMTutorial",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     logVerbose: true,
  *     logProgress: true,
@@ -36,7 +41,8 @@ import * as utilities from "../utilities";
  *         ENV: "runbook_test",
  *     },
  * });
- * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration", {
+ * const exampleSoftwareUpdateConfiguration = new azure.automation.SoftwareUpdateConfiguration("example", {
+ *     name: "example",
  *     automationAccountId: exampleAccount.id,
  *     operatingSystem: "Linux",
  *     linuxes: [{

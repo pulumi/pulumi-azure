@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("virtualnetwork"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -57,9 +60,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -71,9 +75,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:              pulumi.String("machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Size:              pulumi.String("Standard_B1ls"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -95,9 +100,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataCollectionRule, err := monitoring.NewDataCollectionRule(ctx, "exampleDataCollectionRule", &monitoring.DataCollectionRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDataCollectionRule, err := monitoring.NewDataCollectionRule(ctx, "example", &monitoring.DataCollectionRuleArgs{
+//				Name:              pulumi.String("example-dcr"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Destinations: &monitoring.DataCollectionRuleDestinationsArgs{
 //					AzureMonitorMetrics: &monitoring.DataCollectionRuleDestinationsAzureMonitorMetricsArgs{
 //						Name: pulumi.String("example-destination-metrics"),
@@ -117,15 +123,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "exampleDataCollectionEndpoint", &monitoring.DataCollectionEndpointArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDataCollectionEndpoint, err := monitoring.NewDataCollectionEndpoint(ctx, "example", &monitoring.DataCollectionEndpointArgs{
+//				Name:              pulumi.String("example-dce"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			// associate to a Data Collection Rule
 //			_, err = monitoring.NewDataCollectionRuleAssociation(ctx, "example1", &monitoring.DataCollectionRuleAssociationArgs{
+//				Name:                 pulumi.String("example1-dcra"),
 //				TargetResourceId:     exampleLinuxVirtualMachine.ID(),
 //				DataCollectionRuleId: exampleDataCollectionRule.ID(),
 //				Description:          pulumi.String("example"),

@@ -26,11 +26,13 @@ namespace Pulumi.Azure.ConfidentialLedger
     /// 
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var ledger = new Azure.ConfidentialLedger.Ledger("ledger", new()
     ///     {
+    ///         Name = "example-ledger",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         LedgerType = "Private",

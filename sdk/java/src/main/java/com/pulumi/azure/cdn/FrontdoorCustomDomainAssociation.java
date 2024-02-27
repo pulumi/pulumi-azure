@@ -17,6 +17,143 @@ import javax.annotation.Nullable;
 /**
  * Manages the association between a Front Door (standard/premium) Custom Domain and one or more Front Door (standard/premium) Routes.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.dns.Zone;
+ * import com.pulumi.azure.dns.ZoneArgs;
+ * import com.pulumi.azure.cdn.FrontdoorProfile;
+ * import com.pulumi.azure.cdn.FrontdoorProfileArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroup;
+ * import com.pulumi.azure.cdn.FrontdoorOriginGroupArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupHealthProbeArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorOriginGroupLoadBalancingArgs;
+ * import com.pulumi.azure.cdn.FrontdoorOrigin;
+ * import com.pulumi.azure.cdn.FrontdoorOriginArgs;
+ * import com.pulumi.azure.cdn.FrontdoorEndpoint;
+ * import com.pulumi.azure.cdn.FrontdoorEndpointArgs;
+ * import com.pulumi.azure.cdn.FrontdoorRuleSet;
+ * import com.pulumi.azure.cdn.FrontdoorRuleSetArgs;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomain;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomainArgs;
+ * import com.pulumi.azure.cdn.inputs.FrontdoorCustomDomainTlsArgs;
+ * import com.pulumi.azure.cdn.FrontdoorRoute;
+ * import com.pulumi.azure.cdn.FrontdoorRouteArgs;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomainAssociation;
+ * import com.pulumi.azure.cdn.FrontdoorCustomDomainAssociationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-cdn-frontdoor&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
+ *             .name(&#34;domain.com&#34;)
+ *             .resourceGroupName(example.name())
+ *             .build());
+ * 
+ *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
+ *             .name(&#34;example-profile&#34;)
+ *             .resourceGroupName(example.name())
+ *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
+ *             .build());
+ * 
+ *         var exampleFrontdoorOriginGroup = new FrontdoorOriginGroup(&#34;exampleFrontdoorOriginGroup&#34;, FrontdoorOriginGroupArgs.builder()        
+ *             .name(&#34;example-origin-group&#34;)
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .sessionAffinityEnabled(true)
+ *             .restoreTrafficTimeToHealedOrNewEndpointInMinutes(10)
+ *             .healthProbe(FrontdoorOriginGroupHealthProbeArgs.builder()
+ *                 .intervalInSeconds(240)
+ *                 .path(&#34;/healthProbe&#34;)
+ *                 .protocol(&#34;Https&#34;)
+ *                 .requestType(&#34;HEAD&#34;)
+ *                 .build())
+ *             .loadBalancing(FrontdoorOriginGroupLoadBalancingArgs.builder()
+ *                 .additionalLatencyInMilliseconds(0)
+ *                 .sampleSize(16)
+ *                 .successfulSamplesRequired(3)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorOrigin = new FrontdoorOrigin(&#34;exampleFrontdoorOrigin&#34;, FrontdoorOriginArgs.builder()        
+ *             .name(&#34;example-origin&#34;)
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .enabled(true)
+ *             .certificateNameCheckEnabled(false)
+ *             .hostName(&#34;contoso.com&#34;)
+ *             .httpPort(80)
+ *             .httpsPort(443)
+ *             .originHostHeader(&#34;www.contoso.com&#34;)
+ *             .priority(1)
+ *             .weight(1)
+ *             .build());
+ * 
+ *         var exampleFrontdoorEndpoint = new FrontdoorEndpoint(&#34;exampleFrontdoorEndpoint&#34;, FrontdoorEndpointArgs.builder()        
+ *             .name(&#34;example-endpoint&#34;)
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .build());
+ * 
+ *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet(&#34;exampleFrontdoorRuleSet&#34;, FrontdoorRuleSetArgs.builder()        
+ *             .name(&#34;ExampleRuleSet&#34;)
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .build());
+ * 
+ *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
+ *             .name(&#34;example-customDomain&#34;)
+ *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
+ *             .dnsZoneId(exampleZone.id())
+ *             .hostName(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
+ *             .tls(FrontdoorCustomDomainTlsArgs.builder()
+ *                 .certificateType(&#34;ManagedCertificate&#34;)
+ *                 .minimumTlsVersion(&#34;TLS12&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleFrontdoorRoute = new FrontdoorRoute(&#34;exampleFrontdoorRoute&#34;, FrontdoorRouteArgs.builder()        
+ *             .name(&#34;example-route&#34;)
+ *             .cdnFrontdoorEndpointId(exampleFrontdoorEndpoint.id())
+ *             .cdnFrontdoorOriginGroupId(exampleFrontdoorOriginGroup.id())
+ *             .cdnFrontdoorOriginIds(exampleFrontdoorOrigin.id())
+ *             .cdnFrontdoorRuleSetIds(exampleFrontdoorRuleSet.id())
+ *             .enabled(true)
+ *             .forwardingProtocol(&#34;HttpsOnly&#34;)
+ *             .httpsRedirectEnabled(true)
+ *             .patternsToMatches(&#34;/*&#34;)
+ *             .supportedProtocols(            
+ *                 &#34;Http&#34;,
+ *                 &#34;Https&#34;)
+ *             .cdnFrontdoorCustomDomainIds(exampleFrontdoorCustomDomain.id())
+ *             .linkToDefaultDomain(false)
+ *             .build());
+ * 
+ *         var exampleFrontdoorCustomDomainAssociation = new FrontdoorCustomDomainAssociation(&#34;exampleFrontdoorCustomDomainAssociation&#34;, FrontdoorCustomDomainAssociationArgs.builder()        
+ *             .cdnFrontdoorCustomDomainId(exampleFrontdoorCustomDomain.id())
+ *             .cdnFrontdoorRouteIds(exampleFrontdoorRoute.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Front Door Custom Domain Associations can be imported using the `resource id`, e.g.

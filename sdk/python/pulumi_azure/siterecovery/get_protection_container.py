@@ -95,9 +95,9 @@ def get_protection_container(name: Optional[str] = None,
     import pulumi_azure as azure
 
     container = azure.siterecovery.get_protection_container(name="primary-container",
-        recovery_fabric_name="primary-fabric",
         recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
+        resource_group_name="tfex-resource_group",
+        recovery_fabric_name="primary-fabric")
     ```
 
 
@@ -138,9 +138,9 @@ def get_protection_container_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     container = azure.siterecovery.get_protection_container(name="primary-container",
-        recovery_fabric_name="primary-fabric",
         recovery_vault_name="tfex-recovery_vault",
-        resource_group_name="tfex-resource_group")
+        resource_group_name="tfex-resource_group",
+        recovery_fabric_name="primary-fabric")
     ```
 
 

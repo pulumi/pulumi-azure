@@ -208,10 +208,13 @@ class AccessConnector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_access_connector = azure.databricks.AccessConnector("example",
+            name="example-resource",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.databricks.AccessConnectorIdentityArgs(
                 type="SystemAssigned",
             ),
@@ -251,10 +254,13 @@ class AccessConnector(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_access_connector = azure.databricks.AccessConnector("exampleAccessConnector",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_access_connector = azure.databricks.AccessConnector("example",
+            name="example-resource",
+            resource_group_name=example.name,
+            location=example.location,
             identity=azure.databricks.AccessConnectorIdentityArgs(
                 type="SystemAssigned",
             ),

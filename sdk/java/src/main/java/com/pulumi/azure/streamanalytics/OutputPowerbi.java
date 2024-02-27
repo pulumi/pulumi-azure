@@ -43,17 +43,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleResourceGroup = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
+ *         final var example = CoreFunctions.getResourceGroup(GetResourceGroupArgs.builder()
  *             .name(&#34;example-resources&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var exampleGetJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
- *             .resourceGroupName(exampleResourceGroup.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
+ *             .resourceGroupName(example.applyValue(getResourceGroupResult -&gt; getResourceGroupResult.name()))
  *             .build());
  * 
  *         var exampleOutputPowerbi = new OutputPowerbi(&#34;exampleOutputPowerbi&#34;, OutputPowerbiArgs.builder()        
- *             .streamAnalyticsJobId(exampleJob.applyValue(getJobResult -&gt; getJobResult.id()))
+ *             .name(&#34;output-to-powerbi&#34;)
+ *             .streamAnalyticsJobId(exampleGetJob.applyValue(getJobResult -&gt; getJobResult.id()))
  *             .dataset(&#34;example-dataset&#34;)
  *             .table(&#34;example-table&#34;)
  *             .groupId(&#34;00000000-0000-0000-0000-000000000000&#34;)

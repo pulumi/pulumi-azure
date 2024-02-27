@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -41,13 +42,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Azure Spring Cloud Resource Provider"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("keyvaultcertexample"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
@@ -68,7 +70,7 @@ import (
 //					},
 //					&keyvault.KeyVaultAccessPolicyArgs{
 //						TenantId: *pulumi.String(current.TenantId),
-//						ObjectId: *pulumi.String(exampleServicePrincipal.ObjectId),
+//						ObjectId: *pulumi.String(example.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("List"),
@@ -83,7 +85,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("cert-example"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				CertificatePolicy: &keyvault.CertificateCertificatePolicyArgs{
 //					IssuerParameters: &keyvault.CertificateCertificatePolicyIssuerParametersArgs{
@@ -125,14 +128,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example-springcloud"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudCertificate(ctx, "exampleSpringCloudCertificate", &appplatform.SpringCloudCertificateArgs{
+//			_, err = appplatform.NewSpringCloudCertificate(ctx, "example", &appplatform.SpringCloudCertificateArgs{
+//				Name:                  pulumi.String("example-scc"),
 //				ResourceGroupName:     exampleSpringCloudService.ResourceGroupName,
 //				ServiceName:           exampleSpringCloudService.Name,
 //				KeyVaultCertificateId: exampleCertificate.ID(),

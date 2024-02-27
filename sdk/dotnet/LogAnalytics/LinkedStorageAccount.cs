@@ -22,30 +22,33 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleworkspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLinkedStorageAccount = new Azure.LogAnalytics.LinkedStorageAccount("exampleLinkedStorageAccount", new()
+    ///     var exampleLinkedStorageAccount = new Azure.LogAnalytics.LinkedStorageAccount("example", new()
     ///     {
     ///         DataSourceType = "CustomLogs",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         StorageAccountIds = new[]
     ///         {

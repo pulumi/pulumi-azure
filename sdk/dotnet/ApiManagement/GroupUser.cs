@@ -22,19 +22,19 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleUser = Azure.ApiManagement.GetUser.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetUser.Invoke(new()
     ///     {
     ///         UserId = "my-user",
     ///         ApiManagementName = "example-apim",
     ///         ResourceGroupName = "search-service",
     ///     });
     /// 
-    ///     var exampleGroupUser = new Azure.ApiManagement.GroupUser("exampleGroupUser", new()
+    ///     var exampleGroupUser = new Azure.ApiManagement.GroupUser("example", new()
     ///     {
-    ///         UserId = exampleUser.Apply(getUserResult =&gt; getUserResult.Id),
+    ///         UserId = example.Apply(getUserResult =&gt; getUserResult.Id),
     ///         GroupName = "example-group",
-    ///         ResourceGroupName = exampleUser.Apply(getUserResult =&gt; getUserResult.ResourceGroupName),
-    ///         ApiManagementName = exampleUser.Apply(getUserResult =&gt; getUserResult.ApiManagementName),
+    ///         ResourceGroupName = example.Apply(getUserResult =&gt; getUserResult.ResourceGroupName),
+    ///         ApiManagementName = example.Apply(getUserResult =&gt; getUserResult.ApiManagementName),
     ///     });
     /// 
     /// });

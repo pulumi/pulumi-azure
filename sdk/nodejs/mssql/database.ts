@@ -13,21 +13,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-sqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.mssql.Database("example", {
+ *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     licenseType: "LicenseIncluded",
@@ -46,28 +52,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-admin",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-sqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
  * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "mssqltdeexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     enabledForDiskEncryption: true,
  *     tenantId: exampleUserAssignedIdentity.tenantId,
  *     softDeleteRetentionDays: 7,
@@ -75,8 +88,8 @@ import * as utilities from "../utilities";
  *     skuName: "standard",
  *     accessPolicies: [
  *         {
- *             tenantId: data.azurerm_client_config.current.tenant_id,
- *             objectId: data.azurerm_client_config.current.object_id,
+ *             tenantId: current.tenantId,
+ *             objectId: current.objectId,
  *             keyPermissions: [
  *                 "Get",
  *                 "List",
@@ -99,7 +112,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -107,10 +121,9 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [exampleKeyVault],
  * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.mssql.Database("example", {
+ *     name: "example-db",
  *     serverId: exampleServer.id,
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     licenseType: "LicenseIncluded",

@@ -41,10 +41,10 @@ public final class MariadbFunctions {
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
      *             .name(&#34;mariadb-server&#34;)
-     *             .resourceGroupName(azurerm_mariadb_server.example().resource_group_name())
+     *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, data.azurerm_mariadb_server().example().id());
+     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
      *     }
      * }
      * ```
@@ -80,10 +80,10 @@ public final class MariadbFunctions {
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
      *             .name(&#34;mariadb-server&#34;)
-     *             .resourceGroupName(azurerm_mariadb_server.example().resource_group_name())
+     *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, data.azurerm_mariadb_server().example().id());
+     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
      *     }
      * }
      * ```
@@ -119,10 +119,10 @@ public final class MariadbFunctions {
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
      *             .name(&#34;mariadb-server&#34;)
-     *             .resourceGroupName(azurerm_mariadb_server.example().resource_group_name())
+     *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, data.azurerm_mariadb_server().example().id());
+     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
      *     }
      * }
      * ```
@@ -158,10 +158,10 @@ public final class MariadbFunctions {
      *     public static void stack(Context ctx) {
      *         final var dbServer = MariadbFunctions.getMariaDbServer(GetMariaDbServerArgs.builder()
      *             .name(&#34;mariadb-server&#34;)
-     *             .resourceGroupName(azurerm_mariadb_server.example().resource_group_name())
+     *             .resourceGroupName(example.resourceGroupName())
      *             .build());
      * 
-     *         ctx.export(&#34;mariadbServerId&#34;, data.azurerm_mariadb_server().example().id());
+     *         ctx.export(&#34;mariadbServerId&#34;, exampleAzurermMariadbServer.id());
      *     }
      * }
      * ```

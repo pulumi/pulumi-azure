@@ -12,6 +12,173 @@ namespace Pulumi.Azure.PaloAlto
     /// <summary>
     /// Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resource-group",
+    ///         Location = "westeurope",
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     {
+    ///         Name = "example-public-ip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         AllocationMethod = "Static",
+    ///         Sku = "Standard",
+    ///     });
+    /// 
+    ///     var exampleNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("example", new()
+    ///     {
+    ///         Name = "example-nsg",
+    ///         Location = test.Location,
+    ///         ResourceGroupName = test.Name,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Tags = 
+    ///         {
+    ///             { "environment", "Production" },
+    ///         },
+    ///     });
+    /// 
+    ///     var trust = new Azure.Network.Subnet("trust", new()
+    ///     {
+    ///         Name = "example-trust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "trusted",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var trustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("trust", new()
+    ///     {
+    ///         SubnetId = trust.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var untrust = new Azure.Network.Subnet("untrust", new()
+    ///     {
+    ///         Name = "example-untrust-subnet",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Delegations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.SubnetDelegationArgs
+    ///             {
+    ///                 Name = "untrusted",
+    ///                 ServiceDelegation = new Azure.Network.Inputs.SubnetDelegationServiceDelegationArgs
+    ///                 {
+    ///                     Name = "PaloAltoNetworks.Cloudngfw/firewalls",
+    ///                     Actions = new[]
+    ///                     {
+    ///                         "Microsoft.Network/virtualNetworks/subnets/join/action",
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var untrustSubnetNetworkSecurityGroupAssociation = new Azure.Network.SubnetNetworkSecurityGroupAssociation("untrust", new()
+    ///     {
+    ///         SubnetId = untrust.Id,
+    ///         NetworkSecurityGroupId = exampleNetworkSecurityGroup.Id,
+    ///     });
+    /// 
+    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
+    ///     {
+    ///         Name = "example-rulestack",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Locatio,
+    ///     });
+    /// 
+    ///     var exampleLocalRulestackRule = new Azure.PaloAlto.LocalRulestackRule("example", new()
+    ///     {
+    ///         Name = "example-rulestack-rule",
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         Priority = 1001,
+    ///         Action = "Allow",
+    ///         Applications = new[]
+    ///         {
+    ///             "any",
+    ///         },
+    ///         Destination = new Azure.PaloAlto.Inputs.LocalRulestackRuleDestinationArgs
+    ///         {
+    ///             Cidrs = new[]
+    ///             {
+    ///                 "any",
+    ///             },
+    ///         },
+    ///         Source = new Azure.PaloAlto.Inputs.LocalRulestackRuleSourceArgs
+    ///         {
+    ///             Cidrs = new[]
+    ///             {
+    ///                 "any",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new Azure.PaloAlto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", new()
+    ///     {
+    ///         Name = "example-ngfwvn",
+    ///         ResourceGroupName = example.Name,
+    ///         RulestackId = exampleLocalRulestack.Id,
+    ///         NetworkProfile = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileArgs
+    ///         {
+    ///             PublicIpAddressIds = new[]
+    ///             {
+    ///                 examplePublicIp.Id,
+    ///             },
+    ///             VnetConfiguration = new Azure.PaloAlto.Inputs.NextGenerationFirewallVirtualNetworkLocalRulestackNetworkProfileVnetConfigurationArgs
+    ///             {
+    ///                 VirtualNetworkId = exampleVirtualNetwork.Id,
+    ///                 TrustedSubnetId = trust.Id,
+    ///                 UntrustedSubnetId = untrust.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Palo Alto Next Generation Firewall Virtual Network Local Rulestacks can be imported using the `resource id`, e.g.

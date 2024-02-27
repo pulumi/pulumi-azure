@@ -51,10 +51,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var appconf = new ConfigurationStore(&#34;appconf&#34;, ConfigurationStoreArgs.builder()        
+ *             .name(&#34;appConf1&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .build());
@@ -85,7 +87,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreIdentityArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreEncryptionArgs;
  * import com.pulumi.azure.appconfiguration.inputs.ConfigurationStoreReplicaArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -99,20 +100,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-identity&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleKVt123&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .softDeleteRetentionDays(7)
@@ -153,6 +157,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;exampleKVkey&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -163,15 +168,12 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     client,
- *                     server)
- *                 .build());
+ *             .build());
  * 
  *         var exampleConfigurationStore = new ConfigurationStore(&#34;exampleConfigurationStore&#34;, ConfigurationStoreArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;appConf2&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;standard&#34;)
  *             .localAuthEnabled(true)
  *             .publicNetworkAccess(&#34;Enabled&#34;)
@@ -190,11 +192,7 @@ import javax.annotation.Nullable;
  *                 .location(&#34;West US&#34;)
  *                 .build())
  *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     client,
- *                     server)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

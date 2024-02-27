@@ -29,16 +29,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewAlertProcessingRuleSuppression(ctx, "exampleAlertProcessingRuleSuppression", &monitoring.AlertProcessingRuleSuppressionArgs{
+//			_, err = monitoring.NewAlertProcessingRuleSuppression(ctx, "example", &monitoring.AlertProcessingRuleSuppressionArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
 //				Scopes: pulumi.StringArray{
-//					exampleResourceGroup.ID(),
+//					example.ID(),
 //				},
 //				Condition: &monitoring.AlertProcessingRuleSuppressionConditionArgs{
 //					TargetResourceType: &monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs{

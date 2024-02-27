@@ -30,17 +30,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVirtualMachine, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
+//			example, err := compute.LookupVirtualMachine(ctx, &compute.LookupVirtualMachineArgs{
 //				Name:              "examplevm",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewImage(ctx, "exampleImage", &compute.ImageArgs{
-//				Location:               *pulumi.String(exampleVirtualMachine.Location),
-//				ResourceGroupName:      *pulumi.String(exampleVirtualMachine.Name),
-//				SourceVirtualMachineId: *pulumi.String(exampleVirtualMachine.Id),
+//			_, err = compute.NewImage(ctx, "example", &compute.ImageArgs{
+//				Name:                   pulumi.String("exampleimage"),
+//				Location:               *pulumi.String(example.Location),
+//				ResourceGroupName:      *pulumi.String(example.Name),
+//				SourceVirtualMachineId: *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

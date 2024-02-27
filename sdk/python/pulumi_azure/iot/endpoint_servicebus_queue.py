@@ -314,22 +314,28 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="exampleNamespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_queue = azure.servicebus.Queue("exampleQueue",
+        example_queue = azure.servicebus.Queue("example",
+            name="exampleQueue",
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
+        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("example",
+            name="exampleRule",
             queue_id=example_queue.id,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
@@ -337,9 +343,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             tags={
                 "purpose": "example",
             })
-        example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("exampleEndpointServicebusQueue",
-            resource_group_name=example_resource_group.name,
+        example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("example",
+            resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
+            name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
 
@@ -383,22 +390,28 @@ class EndpointServicebusQueue(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="exampleNamespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_queue = azure.servicebus.Queue("exampleQueue",
+        example_queue = azure.servicebus.Queue("example",
+            name="exampleQueue",
             namespace_id=example_namespace.id,
             enable_partitioning=True)
-        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("exampleQueueAuthorizationRule",
+        example_queue_authorization_rule = azure.servicebus.QueueAuthorizationRule("example",
+            name="exampleRule",
             queue_id=example_queue.id,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
@@ -406,9 +419,10 @@ class EndpointServicebusQueue(pulumi.CustomResource):
             tags={
                 "purpose": "example",
             })
-        example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("exampleEndpointServicebusQueue",
-            resource_group_name=example_resource_group.name,
+        example_endpoint_servicebus_queue = azure.iot.EndpointServicebusQueue("example",
+            resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
+            name="example",
             connection_string=example_queue_authorization_rule.primary_connection_string)
         ```
 

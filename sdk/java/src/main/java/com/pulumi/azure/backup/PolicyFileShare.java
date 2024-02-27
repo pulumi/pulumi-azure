@@ -53,18 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-recovery_vault&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVault = new Vault(&#34;exampleVault&#34;, VaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-recovery-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var policy = new PolicyFileShare(&#34;policy&#34;, PolicyFileShareArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-recovery-vault-policy&#34;)
+ *             .resourceGroupName(example.name())
  *             .recoveryVaultName(exampleVault.name())
  *             .timezone(&#34;UTC&#34;)
  *             .backup(PolicyFileShareBackupArgs.builder()

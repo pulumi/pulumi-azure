@@ -26,11 +26,11 @@ namespace Pulumi.Azure.Cdn
     /// {
     ///     var example = new Azure.Cdn.FrontdoorRouteDisableLinkToDefaultDomain("example", new()
     ///     {
-    ///         CdnFrontdoorRouteId = azurerm_cdn_frontdoor_route.Example.Id,
+    ///         CdnFrontdoorRouteId = exampleAzurermCdnFrontdoorRoute.Id,
     ///         CdnFrontdoorCustomDomainIds = new[]
     ///         {
-    ///             azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
-    ///             azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id,
+    ///             contoso.Id,
+    ///             fabrikam.Id,
     ///         },
     ///     });
     /// 

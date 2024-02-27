@@ -234,20 +234,24 @@ class GlobalSchema(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
+        example_global_schema = azure.apimanagement.GlobalSchema("example",
             schema_id="example-schema1",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             type="xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+            value=std.file(input="api_management_api_schema.xml").result)
         ```
 
         ## Import
@@ -281,20 +285,24 @@ class GlobalSchema(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
-        example_global_schema = azure.apimanagement.GlobalSchema("exampleGlobalSchema",
+        example_global_schema = azure.apimanagement.GlobalSchema("example",
             schema_id="example-schema1",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             type="xml",
-            value=(lambda path: open(path).read())("api_management_api_schema.xml"))
+            value=std.file(input="api_management_api_schema.xml").result)
         ```
 
         ## Import

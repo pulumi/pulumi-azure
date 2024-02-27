@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemediaacc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
     ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
@@ -49,22 +52,25 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("exampleAccountFilter", new()
+    ///     var exampleAccountFilter = new Azure.Media.AccountFilter("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Filter1",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///     });
     /// 
-    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     var exampleAsset = new Azure.Media.Asset("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Asset1",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "Asset description",
     ///     });
     /// 
-    ///     var exampleStreamingLocator = new Azure.Media.StreamingLocator("exampleStreamingLocator", new()
+    ///     var exampleStreamingLocator = new Azure.Media.StreamingLocator("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         AssetName = exampleAsset.Name,
     ///         StreamingPolicyName = "Predefined_ClearStreamingOnly",

@@ -35,15 +35,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-cosmosdb"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OfferType:         pulumi.String("Standard"),
 //				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
@@ -51,7 +53,7 @@ import (
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         exampleResourceGroup.Location,
+//						Location:         example.Location,
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
@@ -59,10 +61,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewSqlRoleDefinition(ctx, "exampleSqlRoleDefinition", &cosmosdb.SqlRoleDefinitionArgs{
+//			_, err = cosmosdb.NewSqlRoleDefinition(ctx, "example", &cosmosdb.SqlRoleDefinitionArgs{
 //				RoleDefinitionId:  pulumi.String("84cf3a8b-4122-4448-bce2-fa423cfe0a15"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
+//				Name:              pulumi.String("acctestsqlrole"),
 //				AssignableScopes: pulumi.StringArray{
 //					exampleAccount.ID().ApplyT(func(id string) (string, error) {
 //						return fmt.Sprintf("%v/dbs/sales", id), nil

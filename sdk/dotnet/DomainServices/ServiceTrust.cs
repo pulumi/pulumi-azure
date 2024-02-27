@@ -22,15 +22,16 @@ namespace Pulumi.Azure.DomainServices
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = Azure.DomainServices.GetService.Invoke(new()
+    ///     var example = Azure.DomainServices.GetService.Invoke(new()
     ///     {
     ///         Name = "example-ds",
     ///         ResourceGroupName = "example-rg",
     ///     });
     /// 
-    ///     var exampleServiceTrust = new Azure.DomainServices.ServiceTrust("exampleServiceTrust", new()
+    ///     var exampleServiceTrust = new Azure.DomainServices.ServiceTrust("example", new()
     ///     {
-    ///         DomainServiceId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///         Name = "example-trust",
+    ///         DomainServiceId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
     ///         TrustedDomainFqdn = "example.com",
     ///         TrustedDomainDnsIps = new[]
     ///         {

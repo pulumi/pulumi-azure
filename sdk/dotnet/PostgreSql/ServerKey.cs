@@ -24,24 +24,27 @@ namespace Pulumi.Azure.PostgreSql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-postgre-server",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AdministratorLogin = "psqladmin",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
     ///         SkuName = "GP_Gen5_2",
@@ -99,8 +102,9 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "tfex-key",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -113,16 +117,9 @@ namespace Pulumi.Azure.PostgreSql
     ///             "verify",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             client,
-    ///             server,
-    ///         },
     ///     });
     /// 
-    ///     var exampleServerKey = new Azure.PostgreSql.ServerKey("exampleServerKey", new()
+    ///     var exampleServerKey = new Azure.PostgreSql.ServerKey("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

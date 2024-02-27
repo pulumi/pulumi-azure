@@ -29,7 +29,7 @@ namespace Pulumi.Azure.MSSql
         ///     var example = Azure.MSSql.GetManagedInstance.Invoke(new()
         ///     {
         ///         Name = "managedsqlinstance",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.MSSql
         ///     var example = Azure.MSSql.GetManagedInstance.Invoke(new()
         ///     {
         ///         Name = "managedsqlinstance",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

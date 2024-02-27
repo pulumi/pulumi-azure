@@ -21,7 +21,6 @@ import javax.annotation.Nullable;
  * Manages a Network Function Collector Policy.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -44,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.networkfunction.CollectorPolicyArgs;
  * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxEmissionArgs;
  * import com.pulumi.azure.networkfunction.inputs.CollectorPolicyIpfxIngestionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,21 +56,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West US 2&#34;)
  *             .build());
  * 
  *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-erp&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .peeringLocation(&#34;Equinix-Seattle-SE2&#34;)
  *             .bandwidthInGbps(10)
  *             .encapsulation(&#34;Dot1Q&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-erc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(1)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
@@ -84,7 +85,7 @@ import javax.annotation.Nullable;
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;MicrosoftPeering&#34;)
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;192.168.199.0/30&#34;)
  *             .secondaryPeerAddressPrefix(&#34;192.168.200.0/30&#34;)
@@ -95,15 +96,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAzureTrafficCollector = new AzureTrafficCollector(&#34;exampleAzureTrafficCollector&#34;, AzureTrafficCollectorArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleExpressRouteCircuitPeering)
- *                 .build());
+ *             .name(&#34;example-nfatc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .build());
  * 
  *         var exampleCollectorPolicy = new CollectorPolicy(&#34;exampleCollectorPolicy&#34;, CollectorPolicyArgs.builder()        
+ *             .name(&#34;example-nfcp&#34;)
  *             .trafficCollectorId(exampleAzureTrafficCollector.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .ipfxEmission(CollectorPolicyIpfxEmissionArgs.builder()
  *                 .destinationTypes(&#34;AzureMonitor&#34;)
  *                 .build())

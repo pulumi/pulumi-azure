@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "testvnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "testsubnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
@@ -38,9 +43,10 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleContactProfile = new azure.orbital.ContactProfile("exampleContactProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleContactProfile = new azure.orbital.ContactProfile("example", {
+ *     name: "example-contact-profile",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     minimumVariableContactDuration: "PT1M",
  *     autoTracking: "disabled",
  *     links: [{

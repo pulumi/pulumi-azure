@@ -22,33 +22,33 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
     ///         Name = "example-api",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     var exampleGetApi = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
     ///         Name = "search-api",
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
     ///         Revision = "2",
     ///     });
     /// 
-    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     var exampleGetProduct = Azure.ApiManagement.GetProduct.Invoke(new()
     ///     {
     ///         ProductId = "my-product",
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
     ///     });
     /// 
-    ///     var exampleProductApi = new Azure.ApiManagement.ProductApi("exampleProductApi", new()
+    ///     var exampleProductApi = new Azure.ApiManagement.ProductApi("example", new()
     ///     {
-    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         ApiName = exampleGetApi.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ProductId = exampleGetProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
     ///     });
     /// 
     /// });

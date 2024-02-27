@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedApi = azure.connections.getManagedApiOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.connections.getManagedApiOutput({
  *     name: "servicebus",
  *     location: exampleResourceGroup.location,
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "acctestsbn-conn-example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Basic",
  * });
- * const exampleApiConnection = new azure.connections.ApiConnection("exampleApiConnection", {
+ * const exampleApiConnection = new azure.connections.ApiConnection("example", {
+ *     name: "example-connection",
  *     resourceGroupName: exampleResourceGroup.name,
- *     managedApiId: exampleManagedApi.apply(exampleManagedApi => exampleManagedApi.id),
+ *     managedApiId: example.apply(example => example.id),
  *     displayName: "Example 1",
  *     parameterValues: {
  *         connectionString: exampleNamespace.defaultPrimaryConnectionString,

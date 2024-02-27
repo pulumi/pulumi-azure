@@ -45,8 +45,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriptionPricing(&#34;example&#34;, SubscriptionPricingArgs.builder()        
- *             .resourceType(&#34;VirtualMachines&#34;)
  *             .tier(&#34;Standard&#34;)
+ *             .resourceType(&#34;VirtualMachines&#34;)
  *             .build());
  * 
  *     }
@@ -76,13 +76,15 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example1 = new SubscriptionPricing(&#34;example1&#34;, SubscriptionPricingArgs.builder()        
+ *             .tier(&#34;Standard&#34;)
+ *             .resourceType(&#34;CloudPosture&#34;)
  *             .extensions(            
  *                 SubscriptionPricingExtensionArgs.builder()
  *                     .name(&#34;ContainerRegistriesVulnerabilityAssessments&#34;)
  *                     .build(),
  *                 SubscriptionPricingExtensionArgs.builder()
- *                     .additionalExtensionProperties(Map.of(&#34;ExclusionTags&#34;, &#34;[]&#34;))
  *                     .name(&#34;AgentlessVmScanning&#34;)
+ *                     .additionalExtensionProperties(Map.of(&#34;ExclusionTags&#34;, &#34;[]&#34;))
  *                     .build(),
  *                 SubscriptionPricingExtensionArgs.builder()
  *                     .name(&#34;AgentlessDiscoveryForKubernetes&#34;)
@@ -90,8 +92,6 @@ import javax.annotation.Nullable;
  *                 SubscriptionPricingExtensionArgs.builder()
  *                     .name(&#34;SensitiveDataDiscovery&#34;)
  *                     .build())
- *             .resourceType(&#34;CloudPosture&#34;)
- *             .tier(&#34;Standard&#34;)
  *             .build());
  * 
  *     }

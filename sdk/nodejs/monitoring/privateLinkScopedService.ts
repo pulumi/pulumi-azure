@@ -13,15 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const examplePrivateLinkScope = new azure.monitoring.PrivateLinkScope("examplePrivateLinkScope", {resourceGroupName: exampleResourceGroup.name});
- * const examplePrivateLinkScopedService = new azure.monitoring.PrivateLinkScopedService("examplePrivateLinkScopedService", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePrivateLinkScope = new azure.monitoring.PrivateLinkScope("example", {
+ *     name: "example-ampls",
+ *     resourceGroupName: example.name,
+ * });
+ * const examplePrivateLinkScopedService = new azure.monitoring.PrivateLinkScopedService("example", {
+ *     name: "example-amplsservice",
+ *     resourceGroupName: example.name,
  *     scopeName: examplePrivateLinkScope.name,
  *     linkedResourceId: exampleInsights.id,
  * });

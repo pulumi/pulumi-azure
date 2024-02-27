@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cosmosdb.LookupSqlRoleDefinition(ctx, &cosmosdb.LookupSqlRoleDefinitionArgs{
-//				AccountName:       "tfex-cosmosdb-sql-role-definition-account-name",
 //				ResourceGroupName: "tfex-cosmosdb-sql-role-definition-rg",
+//				AccountName:       "tfex-cosmosdb-sql-role-definition-account-name",
 //				RoleDefinitionId:  "00000000-0000-0000-0000-000000000000",
 //			}, nil)
 //			if err != nil {

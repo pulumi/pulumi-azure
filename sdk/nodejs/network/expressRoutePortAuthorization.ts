@@ -13,17 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("exampleExpressRoutePort", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exprtTest",
+ *     location: "West Europe",
+ * });
+ * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ *     name: "port1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     peeringLocation: "Airtel-Chennai-CLS",
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const exampleExpressRoutePortAuthorization = new azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization", {
+ * const exampleExpressRoutePortAuthorization = new azure.network.ExpressRoutePortAuthorization("example", {
+ *     name: "exampleERCAuth",
  *     expressRoutePortName: exampleExpressRoutePort.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

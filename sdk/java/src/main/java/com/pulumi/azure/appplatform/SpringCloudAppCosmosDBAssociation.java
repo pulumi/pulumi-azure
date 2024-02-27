@@ -49,35 +49,40 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-springcloud&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSpringCloudApp = new SpringCloudApp(&#34;exampleSpringCloudApp&#34;, SpringCloudAppArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-springcloudapp&#34;)
+ *             .resourceGroupName(example.name())
  *             .serviceName(exampleSpringCloudService.name())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cosmosdb-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel(&#34;Strong&#34;)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleSpringCloudAppCosmosDBAssociation = new SpringCloudAppCosmosDBAssociation(&#34;exampleSpringCloudAppCosmosDBAssociation&#34;, SpringCloudAppCosmosDBAssociationArgs.builder()        
+ *             .name(&#34;example-bind&#34;)
  *             .springCloudAppId(exampleSpringCloudApp.id())
  *             .cosmosdbAccountId(exampleAccount.id())
  *             .apiType(&#34;table&#34;)

@@ -202,22 +202,26 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
             ))
-        example_certificate = azure.iot.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
+        example_certificate = azure.iot.Certificate("example",
+            name="example",
+            resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             is_verified=True,
-            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+            certificate_content=std.filebase64(input="example.cer").result)
         ```
 
         ## Import
@@ -249,22 +253,26 @@ class Certificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
             ))
-        example_certificate = azure.iot.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
+        example_certificate = azure.iot.Certificate("example",
+            name="example",
+            resource_group_name=example.name,
             iothub_name=example_io_t_hub.name,
             is_verified=True,
-            certificate_content=(lambda path: base64.b64encode(open(path).read().encode()).decode())("example.cer"))
+            certificate_content=std.filebase64(input="example.cer").result)
         ```
 
         ## Import

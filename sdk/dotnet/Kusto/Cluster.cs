@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Kusto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-kusto-cluster-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",

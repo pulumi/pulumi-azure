@@ -238,10 +238,13 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("example",
+            name="example-ia",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Standard",
             tags={
                 "foo": "bar",
@@ -280,10 +283,13 @@ class IntegrationAccount(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_integration_account = azure.logicapps.IntegrationAccount("exampleIntegrationAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_integration_account = azure.logicapps.IntegrationAccount("example",
+            name="example-ia",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Standard",
             tags={
                 "foo": "bar",

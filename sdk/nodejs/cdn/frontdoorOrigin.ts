@@ -17,16 +17,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
  *     skuName: "Premium_AzureFrontDoor",
  * });
- * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     name: "example-origingroup",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     loadBalancing: {},
  * });
- * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     name: "example-origin",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
  *     certificateNameCheckEnabled: false,
@@ -44,10 +50,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestoracc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Premium",
  *     accountReplicationType: "LRS",
  *     allowNestedItemsToBePublic: false,
@@ -58,15 +68,18 @@ import * as utilities from "../utilities";
  *         environment: "Example",
  *     },
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
  *     skuName: "Premium_AzureFrontDoor",
  * });
- * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     name: "example-origin-group",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     loadBalancing: {},
  * });
- * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     name: "example-origin",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
  *     certificateNameCheckEnabled: true,
@@ -89,36 +102,58 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "profile-example",
+ *     resourceGroupName: example.name,
+ *     skuName: "Premium_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("example", {
+ *     name: "group-example",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     loadBalancing: {
+ *         additionalLatencyInMilliseconds: 0,
+ *         sampleSize: 16,
+ *         successfulSamplesRequired: 3,
+ *     },
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "vn-example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.5.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "sn-example",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.1.0/24"],
  *     privateLinkServiceNetworkPoliciesEnabled: false,
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "ip-example",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "lb-example",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ *     name: "pls-example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  *     natIpConfigurations: [{
@@ -129,21 +164,8 @@ import * as utilities from "../utilities";
  *         primary: true,
  *     }],
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     skuName: "Premium_AzureFrontDoor",
- * }, {
- *     dependsOn: [exampleLinkService],
- * });
- * const exampleFrontdoorOriginGroup = new azure.cdn.FrontdoorOriginGroup("exampleFrontdoorOriginGroup", {
- *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
- *     loadBalancing: {
- *         additionalLatencyInMilliseconds: 0,
- *         sampleSize: 16,
- *         successfulSamplesRequired: 3,
- *     },
- * });
- * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("exampleFrontdoorOrigin", {
+ * const exampleFrontdoorOrigin = new azure.cdn.FrontdoorOrigin("example", {
+ *     name: "origin-example",
  *     cdnFrontdoorOriginGroupId: exampleFrontdoorOriginGroup.id,
  *     enabled: true,
  *     hostName: "example.com",
@@ -153,7 +175,7 @@ import * as utilities from "../utilities";
  *     certificateNameCheckEnabled: false,
  *     privateLink: {
  *         requestMessage: "Request access for Private Link Origin CDN Frontdoor",
- *         location: exampleResourceGroup.location,
+ *         location: example.location,
  *         privateLinkTargetId: exampleLinkService.id,
  *     },
  * });

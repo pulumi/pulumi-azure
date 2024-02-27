@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "analysis-services-server-test",
+ *     location: "West Europe",
+ * });
  * const server = new azure.analysisservices.Server("server", {
+ *     name: "analysisservicesserver",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     sku: "S0",

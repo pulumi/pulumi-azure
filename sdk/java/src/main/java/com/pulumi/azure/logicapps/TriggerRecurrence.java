@@ -45,16 +45,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;workflow-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleWorkflow = new Workflow(&#34;exampleWorkflow&#34;, WorkflowArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;workflow1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleTriggerRecurrence = new TriggerRecurrence(&#34;exampleTriggerRecurrence&#34;, TriggerRecurrenceArgs.builder()        
+ *             .name(&#34;run-every-day&#34;)
  *             .logicAppId(exampleWorkflow.id())
  *             .frequency(&#34;Day&#34;)
  *             .interval(1)

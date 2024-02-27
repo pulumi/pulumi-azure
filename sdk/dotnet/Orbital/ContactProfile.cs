@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Orbital
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "testvnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "testsubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -65,10 +68,11 @@ namespace Pulumi.Azure.Orbital
     ///         },
     ///     });
     /// 
-    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("exampleContactProfile", new()
+    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-contact-profile",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         MinimumVariableContactDuration = "PT1M",
     ///         AutoTracking = "disabled",
     ///         Links = new[]

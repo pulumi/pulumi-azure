@@ -172,25 +172,31 @@ class Assessment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
             admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
                 username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
             )],
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
@@ -211,11 +217,11 @@ class Assessment(pulumi.CustomResource):
                     subnet_id=internal.id,
                 )],
             )])
-        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
+        example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
             description="Test Description")
-        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
+        example_assessment = azure.securitycenter.Assessment("example",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             status=azure.securitycenter.AssessmentStatusArgs(
@@ -252,25 +258,31 @@ class Assessment(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
         internal = azure.network.Subnet("internal",
-            resource_group_name=example_resource_group.name,
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine_scale_set = azure.compute.LinuxVirtualMachineScaleSet("example",
+            name="example-vmss",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard_F2",
             instances=1,
             admin_username="adminuser",
             admin_ssh_keys=[azure.compute.LinuxVirtualMachineScaleSetAdminSshKeyArgs(
                 username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
             )],
             source_image_reference=azure.compute.LinuxVirtualMachineScaleSetSourceImageReferenceArgs(
                 publisher="Canonical",
@@ -291,11 +303,11 @@ class Assessment(pulumi.CustomResource):
                     subnet_id=internal.id,
                 )],
             )])
-        example_assessment_policy = azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy",
+        example_assessment_policy = azure.securitycenter.AssessmentPolicy("example",
             display_name="Test Display Name",
             severity="Medium",
             description="Test Description")
-        example_assessment = azure.securitycenter.Assessment("exampleAssessment",
+        example_assessment = azure.securitycenter.Assessment("example",
             assessment_policy_id=example_assessment_policy.id,
             target_resource_id=example_linux_virtual_machine_scale_set.id,
             status=azure.securitycenter.AssessmentStatusArgs(

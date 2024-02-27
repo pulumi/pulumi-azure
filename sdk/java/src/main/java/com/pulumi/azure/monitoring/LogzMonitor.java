@@ -47,13 +47,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-logz&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleLogzMonitor = new LogzMonitor(&#34;exampleLogzMonitor&#34;, LogzMonitorArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-monitor&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .plan(LogzMonitorPlanArgs.builder()
  *                 .billingCycle(&#34;MONTHLY&#34;)
  *                 .effectiveDate(&#34;2022-06-06T00:00:00Z&#34;)

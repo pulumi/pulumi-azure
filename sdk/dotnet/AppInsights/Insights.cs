@@ -22,15 +22,17 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tf-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tf-test-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
@@ -51,23 +53,26 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tf-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspace-test",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tf-test-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         ApplicationType = "web",
     ///     });

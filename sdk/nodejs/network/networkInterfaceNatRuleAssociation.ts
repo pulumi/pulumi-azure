@@ -13,48 +13,57 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "example-lb",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: "primary",
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleNatRule = new azure.lb.NatRule("exampleNatRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNatRule = new azure.lb.NatRule("example", {
+ *     resourceGroupName: example.name,
  *     loadbalancerId: exampleLoadBalancer.id,
+ *     name: "RDPAccess",
  *     protocol: "Tcp",
  *     frontendPort: 3389,
  *     backendPort: 3389,
  *     frontendIpConfigurationName: "primary",
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleNetworkInterfaceNatRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation", {
+ * const exampleNetworkInterfaceNatRuleAssociation = new azure.network.NetworkInterfaceNatRuleAssociation("example", {
  *     networkInterfaceId: exampleNetworkInterface.id,
  *     ipConfigurationName: "testconfiguration1",
  *     natRuleId: exampleNatRule.id,

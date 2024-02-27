@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("my-sql-server"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -47,9 +49,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sql.NewElasticPool(ctx, "exampleElasticPool", &sql.ElasticPoolArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = sql.NewElasticPool(ctx, "example", &sql.ElasticPoolArgs{
+//				Name:              pulumi.String("test"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ServerName:        exampleSqlServer.Name,
 //				Edition:           pulumi.String("Basic"),
 //				Dtu:               pulumi.Int(50),

@@ -13,6 +13,61 @@ import (
 
 // Use this data source to access information about an existing Role Definition.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			primary, err := core.LookupSubscription(ctx, nil, nil)
+//			if err != nil {
+//				return err
+//			}
+//			customRoleDefinition, err := authorization.NewRoleDefinition(ctx, "custom", &authorization.RoleDefinitionArgs{
+//				RoleDefinitionId: pulumi.String("00000000-0000-0000-0000-000000000000"),
+//				Name:             pulumi.String("CustomRoleDef"),
+//				Scope:            *pulumi.String(primary.Id),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			custom := customRoleDefinition.RoleDefinitionId.ApplyT(func(roleDefinitionId string) (authorization.GetRoleDefinitionResult, error) {
+//				return authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
+//					RoleDefinitionId: roleDefinitionId,
+//					Scope:            primary.Id,
+//				}, nil), nil
+//			}).(authorization.GetRoleDefinitionResultOutput)
+//			_ = customRoleDefinition.Name.ApplyT(func(name string) (authorization.GetRoleDefinitionResult, error) {
+//				return authorization.LookupRoleDefinitionOutput(ctx, authorization.GetRoleDefinitionOutputArgs{
+//					Name:  name,
+//					Scope: primary.Id,
+//				}, nil), nil
+//			}).(authorization.GetRoleDefinitionResultOutput)
+//			builtin, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//				Name: pulumi.StringRef("Contributor"),
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("customRoleDefinitionId", custom.ApplyT(func(custom authorization.GetRoleDefinitionResult) (*string, error) {
+//				return &custom.Id, nil
+//			}).(pulumi.StringPtrOutput))
+//			ctx.Export("contributorRoleDefinitionId", builtin.Id)
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // Deprecated: azure.role.getRoleDefinition has been deprecated in favor of azure.authorization.getRoleDefinition
 func GetRoleDefinition(ctx *pulumi.Context, args *GetRoleDefinitionArgs, opts ...pulumi.InvokeOption) (*GetRoleDefinitionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)

@@ -144,17 +144,12 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_random as random
 
         server = random.RandomId("server")
-        # ...
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
-        # ...
-        example_plan = azure.appservice.Plan("examplePlan")
-        # ...
-        example_app_service = azure.appservice.AppService("exampleAppService")
-        # ...
-        example_slot = azure.appservice.Slot("exampleSlot")
-        # ...
-        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example")
+        example_plan = azure.appservice.Plan("example")
+        example_app_service = azure.appservice.AppService("example")
+        example_slot = azure.appservice.Slot("example")
+        example_active_slot = azure.appservice.ActiveSlot("example",
+            resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
         ```
@@ -186,17 +181,12 @@ class ActiveSlot(pulumi.CustomResource):
         import pulumi_random as random
 
         server = random.RandomId("server")
-        # ...
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup")
-        # ...
-        example_plan = azure.appservice.Plan("examplePlan")
-        # ...
-        example_app_service = azure.appservice.AppService("exampleAppService")
-        # ...
-        example_slot = azure.appservice.Slot("exampleSlot")
-        # ...
-        example_active_slot = azure.appservice.ActiveSlot("exampleActiveSlot",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example")
+        example_plan = azure.appservice.Plan("example")
+        example_app_service = azure.appservice.AppService("example")
+        example_slot = azure.appservice.Slot("example")
+        example_active_slot = azure.appservice.ActiveSlot("example",
+            resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_slot_name=example_slot.name)
         ```

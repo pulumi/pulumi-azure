@@ -207,21 +207,26 @@ class Transform(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
+        example_transform = azure.media.Transform("example",
+            name="transform1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[azure.media.TransformOutputArgs(
@@ -238,21 +243,26 @@ class Transform(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
+        example_transform = azure.media.Transform("example",
+            name="transform1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[
@@ -555,21 +565,26 @@ class Transform(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
+        example_transform = azure.media.Transform("example",
+            name="transform1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[azure.media.TransformOutputArgs(
@@ -586,21 +601,26 @@ class Transform(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="media-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_service_account = azure.media.ServiceAccount("exampleServiceAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_account = azure.media.ServiceAccount("example",
+            name="examplemediaacc",
+            location=example.location,
+            resource_group_name=example.name,
             storage_accounts=[azure.media.ServiceAccountStorageAccountArgs(
                 id=example_account.id,
                 is_primary=True,
             )])
-        example_transform = azure.media.Transform("exampleTransform",
-            resource_group_name=example_resource_group.name,
+        example_transform = azure.media.Transform("example",
+            name="transform1",
+            resource_group_name=example.name,
             media_services_account_name=example_service_account.name,
             description="My transform description",
             outputs=[

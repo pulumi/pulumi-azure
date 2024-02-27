@@ -32,31 +32,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
+//				Name:              pulumi.String("example-mn"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				MobileCountryCode: pulumi.String("001"),
 //				MobileNetworkCode: pulumi.String("01"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkSite, err := mobile.NewNetworkSite(ctx, "exampleNetworkSite", &mobile.NetworkSiteArgs{
-//				MobileNetworkId: pulumi.Any(azurerm_mobile_network.Test.Id),
-//				Location:        exampleResourceGroup.Location,
+//			exampleNetworkSite, err := mobile.NewNetworkSite(ctx, "example", &mobile.NetworkSiteArgs{
+//				Name:            pulumi.String("example-mns"),
+//				MobileNetworkId: pulumi.Any(test.Id),
+//				Location:        example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDevice, err := databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDevice, err := databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
+//				Name:              pulumi.String("example-device"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("EdgeP_Base-Standard"),
 //			})
 //			if err != nil {
@@ -69,9 +73,10 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = mobile.NewNetworkPacketCoreControlPlane(ctx, "exampleNetworkPacketCoreControlPlane", &mobile.NetworkPacketCoreControlPlaneArgs{
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
+//			_, err = mobile.NewNetworkPacketCoreControlPlane(ctx, "example", &mobile.NetworkPacketCoreControlPlaneArgs{
+//				Name:                          pulumi.String("example-mnpccp"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
 //				Sku:                           pulumi.String("G0"),
 //				ControlPlaneAccessName:        pulumi.String("default-interface"),
 //				ControlPlaneAccessIpv4Address: pulumi.String("192.168.1.199"),

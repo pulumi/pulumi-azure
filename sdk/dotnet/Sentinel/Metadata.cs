@@ -22,23 +22,25 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "pergb2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "SecurityInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
@@ -48,8 +50,9 @@ namespace Pulumi.Azure.Sentinel
     ///         },
     ///     });
     /// 
-    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("exampleAlertRuleNrt", new()
+    ///     var exampleAlertRuleNrt = new Azure.Sentinel.AlertRuleNrt("example", new()
     ///     {
+    ///         Name = "example",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///         DisplayName = "example",
     ///         Severity = "High",
@@ -60,8 +63,9 @@ namespace Pulumi.Azure.Sentinel
     /// ",
     ///     });
     /// 
-    ///     var exampleMetadata = new Azure.Sentinel.Metadata("exampleMetadata", new()
+    ///     var exampleMetadata = new Azure.Sentinel.Metadata("example", new()
     ///     {
+    ///         Name = "exampl",
     ///         WorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///         ContentId = exampleAlertRuleNrt.Name,
     ///         Kind = "AnalyticsRule",

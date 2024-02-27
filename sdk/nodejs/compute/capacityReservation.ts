@@ -15,12 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCapacityReservationGroup = new azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
  * });
- * const exampleCapacityReservation = new azure.compute.CapacityReservation("exampleCapacityReservation", {
+ * const exampleCapacityReservationGroup = new azure.compute.CapacityReservationGroup("example", {
+ *     name: "example-capacity-reservation-group",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleCapacityReservation = new azure.compute.CapacityReservation("example", {
+ *     name: "example-capacity-reservation",
  *     capacityReservationGroupId: exampleCapacityReservationGroup.id,
  *     sku: {
  *         name: "Standard_D2s_v3",

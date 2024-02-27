@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.videoanalyzer.AnalyzerArgs;
  * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerStorageAccountArgs;
  * import com.pulumi.azure.videoanalyzer.inputs.AnalyzerIdentityArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,20 +54,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;video-analyzer-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleidentity&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var contributor = new Assignment(&#34;contributor&#34;, AssignmentArgs.builder()        
@@ -84,8 +86,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAnalyzer = new Analyzer(&#34;exampleAnalyzer&#34;, AnalyzerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleanalyzer&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccount(AnalyzerStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .userAssignedIdentityId(exampleUserAssignedIdentity.id())
@@ -95,11 +98,7 @@ import javax.annotation.Nullable;
  *                 .identityIds(exampleUserAssignedIdentity.id())
  *                 .build())
  *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     contributor,
- *                     reader)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

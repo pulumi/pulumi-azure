@@ -41,8 +41,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new PrivateLinkHub(&#34;example&#34;, PrivateLinkHubArgs.builder()        
- *             .location(&#34;West Europe&#34;)
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(&#34;example-rg&#34;)
+ *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *     }

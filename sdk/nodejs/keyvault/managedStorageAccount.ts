@@ -14,16 +14,21 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "keyvaultname",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
@@ -45,7 +50,8 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount", {
+ * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("example", {
+ *     name: "examplemanagedstorage",
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     storageAccountKey: "key1",
@@ -64,16 +70,21 @@ import * as utilities from "../utilities";
  * const test = azuread.getServicePrincipal({
  *     applicationId: "cfa8b339-82a2-471a-a3c9-0fc0be7a4093",
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "keyvaultname",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     accessPolicies: [{
@@ -95,19 +106,18 @@ import * as utilities from "../utilities";
  *         ],
  *     }],
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Key Operator Service Role",
  *     principalId: test.then(test => test.id),
  * });
- * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("exampleManagedStorageAccount", {
+ * const exampleManagedStorageAccount = new azure.keyvault.ManagedStorageAccount("example", {
+ *     name: "examplemanagedstorage",
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
  *     storageAccountKey: "key1",
  *     regenerateKeyAutomatically: true,
  *     regenerationPeriod: "P1D",
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

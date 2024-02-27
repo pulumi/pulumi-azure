@@ -24,6 +24,7 @@ namespace Pulumi.Azure.Core
     /// {
     ///     var example = new Azure.Core.SubscriptionTemplateDeployment("example", new()
     ///     {
+    ///         Name = "example-deployment",
     ///         Location = "West Europe",
     ///         TemplateContent = @" {
     ///    ""$schema"": ""https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#"",
@@ -40,7 +41,6 @@ namespace Pulumi.Azure.Core
     ///      }
     ///    ]
     ///  }
-    ///  
     /// ",
     ///     });
     /// 

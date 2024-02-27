@@ -15,16 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("exampleLinkedServiceMysql", {
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleLinkedServiceMysql = new azure.datafactory.LinkedServiceMysql("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "Server=test;Port=3306;Database=test;User=test;SSLMode=1;UseSystemTrustStore=0;Password=test",
  * });
- * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("exampleDatasetMysql", {
+ * const exampleDatasetMysql = new azure.datafactory.DatasetMysql("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceMysql.name,
  * });

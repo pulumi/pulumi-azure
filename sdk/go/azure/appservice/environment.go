@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG1"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -47,7 +49,8 @@ import (
 //				return err
 //			}
 //			ase, err := network.NewSubnet(ctx, "ase", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("asesubnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -57,7 +60,8 @@ import (
 //				return err
 //			}
 //			_, err = network.NewSubnet(ctx, "gateway", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("gatewaysubnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -66,8 +70,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewEnvironment(ctx, "exampleEnvironment", &appservice.EnvironmentArgs{
-//				ResourceGroupName:         exampleResourceGroup.Name,
+//			_, err = appservice.NewEnvironment(ctx, "example", &appservice.EnvironmentArgs{
+//				Name:                      pulumi.String("example-ase"),
+//				ResourceGroupName:         example.Name,
 //				SubnetId:                  ase.ID(),
 //				PricingTier:               pulumi.String("I2"),
 //				FrontEndScaleFactor:       pulumi.Int(10),

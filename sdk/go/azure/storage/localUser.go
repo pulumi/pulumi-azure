@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("WestEurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example-account"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountKind:            pulumi.String("StorageV2"),
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
@@ -46,13 +48,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:               pulumi.String("example-container"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewLocalUser(ctx, "exampleLocalUser", &storage.LocalUserArgs{
+//			_, err = storage.NewLocalUser(ctx, "example", &storage.LocalUserArgs{
+//				Name:               pulumi.String("user1"),
 //				StorageAccountId:   exampleAccount.ID(),
 //				SshKeyEnabled:      pulumi.Bool(true),
 //				SshPasswordEnabled: pulumi.Bool(true),
@@ -60,11 +64,11 @@ import (
 //				SshAuthorizedKeys: storage.LocalUserSshAuthorizedKeyArray{
 //					&storage.LocalUserSshAuthorizedKeyArgs{
 //						Description: pulumi.String("key1"),
-//						Key:         pulumi.Any(local.First_public_key),
+//						Key:         pulumi.Any(firstPublicKey),
 //					},
 //					&storage.LocalUserSshAuthorizedKeyArgs{
 //						Description: pulumi.String("key2"),
-//						Key:         pulumi.Any(local.Second_public_key),
+//						Key:         pulumi.Any(secondPublicKey),
 //					},
 //				},
 //				PermissionScopes: storage.LocalUserPermissionScopeArray{

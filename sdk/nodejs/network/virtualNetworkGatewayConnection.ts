@@ -19,31 +19,39 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "test",
+ *     location: "West US",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "GatewaySubnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const onpremiseLocalNetworkGateway = new azure.network.LocalNetworkGateway("onpremiseLocalNetworkGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const onpremise = new azure.network.LocalNetworkGateway("onpremise", {
+ *     name: "onpremise",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     gatewayAddress: "168.62.225.23",
  *     addressSpaces: ["10.1.1.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Dynamic",
  * });
- * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("exampleVirtualNetworkGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("example", {
+ *     name: "test",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     activeActive: false,
@@ -55,12 +63,13 @@ import * as utilities from "../utilities";
  *         subnetId: exampleSubnet.id,
  *     }],
  * });
- * const onpremiseVirtualNetworkGatewayConnection = new azure.network.VirtualNetworkGatewayConnection("onpremiseVirtualNetworkGatewayConnection", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const onpremiseVirtualNetworkGatewayConnection = new azure.network.VirtualNetworkGatewayConnection("onpremise", {
+ *     name: "onpremise",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     type: "IPsec",
  *     virtualNetworkGatewayId: exampleVirtualNetworkGateway.id,
- *     localNetworkGatewayId: onpremiseLocalNetworkGateway.id,
+ *     localNetworkGatewayId: onpremise.id,
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
  * ```
@@ -73,25 +82,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const usResourceGroup = new azure.core.ResourceGroup("usResourceGroup", {location: "East US"});
- * const usVirtualNetwork = new azure.network.VirtualNetwork("usVirtualNetwork", {
- *     location: usResourceGroup.location,
- *     resourceGroupName: usResourceGroup.name,
+ * const us = new azure.core.ResourceGroup("us", {
+ *     name: "us",
+ *     location: "East US",
+ * });
+ * const usVirtualNetwork = new azure.network.VirtualNetwork("us", {
+ *     name: "us",
+ *     location: us.location,
+ *     resourceGroupName: us.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const usGateway = new azure.network.Subnet("usGateway", {
- *     resourceGroupName: usResourceGroup.name,
+ * const usGateway = new azure.network.Subnet("us_gateway", {
+ *     name: "GatewaySubnet",
+ *     resourceGroupName: us.name,
  *     virtualNetworkName: usVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const usPublicIp = new azure.network.PublicIp("usPublicIp", {
- *     location: usResourceGroup.location,
- *     resourceGroupName: usResourceGroup.name,
+ * const usPublicIp = new azure.network.PublicIp("us", {
+ *     name: "us",
+ *     location: us.location,
+ *     resourceGroupName: us.name,
  *     allocationMethod: "Dynamic",
  * });
- * const usVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("usVirtualNetworkGateway", {
- *     location: usResourceGroup.location,
- *     resourceGroupName: usResourceGroup.name,
+ * const usVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("us", {
+ *     name: "us-gateway",
+ *     location: us.location,
+ *     resourceGroupName: us.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
@@ -101,25 +117,32 @@ import * as utilities from "../utilities";
  *         subnetId: usGateway.id,
  *     }],
  * });
- * const europeResourceGroup = new azure.core.ResourceGroup("europeResourceGroup", {location: "West Europe"});
- * const europeVirtualNetwork = new azure.network.VirtualNetwork("europeVirtualNetwork", {
- *     location: europeResourceGroup.location,
- *     resourceGroupName: europeResourceGroup.name,
+ * const europe = new azure.core.ResourceGroup("europe", {
+ *     name: "europe",
+ *     location: "West Europe",
+ * });
+ * const europeVirtualNetwork = new azure.network.VirtualNetwork("europe", {
+ *     name: "europe",
+ *     location: europe.location,
+ *     resourceGroupName: europe.name,
  *     addressSpaces: ["10.1.0.0/16"],
  * });
- * const europeGateway = new azure.network.Subnet("europeGateway", {
- *     resourceGroupName: europeResourceGroup.name,
+ * const europeGateway = new azure.network.Subnet("europe_gateway", {
+ *     name: "GatewaySubnet",
+ *     resourceGroupName: europe.name,
  *     virtualNetworkName: europeVirtualNetwork.name,
  *     addressPrefixes: ["10.1.1.0/24"],
  * });
- * const europePublicIp = new azure.network.PublicIp("europePublicIp", {
- *     location: europeResourceGroup.location,
- *     resourceGroupName: europeResourceGroup.name,
+ * const europePublicIp = new azure.network.PublicIp("europe", {
+ *     name: "europe",
+ *     location: europe.location,
+ *     resourceGroupName: europe.name,
  *     allocationMethod: "Dynamic",
  * });
- * const europeVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("europeVirtualNetworkGateway", {
- *     location: europeResourceGroup.location,
- *     resourceGroupName: europeResourceGroup.name,
+ * const europeVirtualNetworkGateway = new azure.network.VirtualNetworkGateway("europe", {
+ *     name: "europe-gateway",
+ *     location: europe.location,
+ *     resourceGroupName: europe.name,
  *     type: "Vpn",
  *     vpnType: "RouteBased",
  *     sku: "Basic",
@@ -129,17 +152,19 @@ import * as utilities from "../utilities";
  *         subnetId: europeGateway.id,
  *     }],
  * });
- * const usToEurope = new azure.network.VirtualNetworkGatewayConnection("usToEurope", {
- *     location: usResourceGroup.location,
- *     resourceGroupName: usResourceGroup.name,
+ * const usToEurope = new azure.network.VirtualNetworkGatewayConnection("us_to_europe", {
+ *     name: "us-to-europe",
+ *     location: us.location,
+ *     resourceGroupName: us.name,
  *     type: "Vnet2Vnet",
  *     virtualNetworkGatewayId: usVirtualNetworkGateway.id,
  *     peerVirtualNetworkGatewayId: europeVirtualNetworkGateway.id,
  *     sharedKey: "4-v3ry-53cr37-1p53c-5h4r3d-k3y",
  * });
- * const europeToUs = new azure.network.VirtualNetworkGatewayConnection("europeToUs", {
- *     location: europeResourceGroup.location,
- *     resourceGroupName: europeResourceGroup.name,
+ * const europeToUs = new azure.network.VirtualNetworkGatewayConnection("europe_to_us", {
+ *     name: "europe-to-us",
+ *     location: europe.location,
+ *     resourceGroupName: europe.name,
  *     type: "Vnet2Vnet",
  *     virtualNetworkGatewayId: europeVirtualNetworkGateway.id,
  *     peerVirtualNetworkGatewayId: usVirtualNetworkGateway.id,

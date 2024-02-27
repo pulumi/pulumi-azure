@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSqlServer = new SqlServer(&#34;exampleSqlServer&#34;, SqlServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;mysqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
@@ -62,7 +64,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleActiveDirectoryAdministrator = new ActiveDirectoryAdministrator(&#34;exampleActiveDirectoryAdministrator&#34;, ActiveDirectoryAdministratorArgs.builder()        
  *             .serverName(exampleSqlServer.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .login(&#34;sqladmin&#34;)
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))

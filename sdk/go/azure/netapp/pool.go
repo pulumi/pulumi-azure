@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("example-netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
+//			_, err = netapp.NewPool(ctx, "example", &netapp.PoolArgs{
+//				Name:              pulumi.String("example-netapppool"),
 //				AccountName:       exampleAccount.Name,
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ServiceLevel:      pulumi.String("Premium"),
 //				SizeInTb:          pulumi.Int(4),
 //			})

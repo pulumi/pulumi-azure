@@ -346,26 +346,32 @@ class RouteServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vn",
             address_spaces=["10.0.0.0/16"],
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "environment": "Production",
             })
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="RouteServerSubnet",
             virtual_network_name=example_virtual_network.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard")
-        example_route_server = azure.network.RouteServer("exampleRouteServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_route_server = azure.network.RouteServer("example",
+            name="example-routerserver",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id,
@@ -408,26 +414,32 @@ class RouteServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vn",
             address_spaces=["10.0.0.0/16"],
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            resource_group_name=example.name,
+            location=example.location,
             tags={
                 "environment": "Production",
             })
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="RouteServerSubnet",
             virtual_network_name=example_virtual_network.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             address_prefixes=["10.0.1.0/24"])
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_method="Static",
             sku="Standard")
-        example_route_server = azure.network.RouteServer("exampleRouteServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_route_server = azure.network.RouteServer("example",
+            name="example-routerserver",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id,

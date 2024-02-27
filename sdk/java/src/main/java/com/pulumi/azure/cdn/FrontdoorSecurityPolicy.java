@@ -18,7 +18,6 @@ import javax.annotation.Nullable;
  * Manages a Front Door (standard/premium) Security Policy.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -55,17 +54,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-cdn-frontdoor&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorFirewallPolicy = new FrontdoorFirewallPolicy(&#34;exampleFrontdoorFirewallPolicy&#34;, FrontdoorFirewallPolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleWAF&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(exampleFrontdoorProfile.skuName())
  *             .enabled(true)
  *             .mode(&#34;Prevention&#34;)
@@ -92,10 +94,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;sub-domain.domain.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleFrontdoorCustomDomain = new FrontdoorCustomDomain(&#34;exampleFrontdoorCustomDomain&#34;, FrontdoorCustomDomainArgs.builder()        
+ *             .name(&#34;example-customDomain&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .dnsZoneId(exampleZone.id())
  *             .hostName(&#34;contoso.fabrikam.com&#34;)
@@ -106,6 +110,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFrontdoorSecurityPolicy = new FrontdoorSecurityPolicy(&#34;exampleFrontdoorSecurityPolicy&#34;, FrontdoorSecurityPolicyArgs.builder()        
+ *             .name(&#34;Example-Security-Policy&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .securityPolicies(FrontdoorSecurityPolicySecurityPoliciesArgs.builder()
  *                 .firewall(FrontdoorSecurityPolicySecurityPoliciesFirewallArgs.builder()

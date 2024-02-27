@@ -43,20 +43,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .version(&#34;5.7&#34;)
  *             .skuName(&#34;GP_Gen5_2&#34;)
  *             .sslEnforcementEnabled(true)
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;40.112.8.12&#34;)
  *             .endIpAddress(&#34;40.112.8.12&#34;)
@@ -90,14 +93,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;);
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;40.112.0.0&#34;)
  *             .endIpAddress(&#34;40.112.255.255&#34;)
@@ -131,14 +136,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;api-rg-pro&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;);
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;office&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
  *             .endIpAddress(&#34;0.0.0.0&#34;)

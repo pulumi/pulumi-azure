@@ -687,11 +687,12 @@ class AuthorizationServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_service = azure.apimanagement.get_service(name="search-api",
+        example = azure.apimanagement.get_service(name="search-api",
             resource_group_name="search-service")
-        example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
+        example_authorization_server = azure.apimanagement.AuthorizationServer("example",
+            name="test-server",
+            api_management_name=example.name,
+            resource_group_name=example.resource_group_name,
             display_name="Test Server",
             authorization_endpoint="https://example.mydomain.com/client/authorize",
             client_id="42424242-4242-4242-4242-424242424242",
@@ -751,11 +752,12 @@ class AuthorizationServer(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_service = azure.apimanagement.get_service(name="search-api",
+        example = azure.apimanagement.get_service(name="search-api",
             resource_group_name="search-service")
-        example_authorization_server = azure.apimanagement.AuthorizationServer("exampleAuthorizationServer",
-            api_management_name=example_service.name,
-            resource_group_name=example_service.resource_group_name,
+        example_authorization_server = azure.apimanagement.AuthorizationServer("example",
+            name="test-server",
+            api_management_name=example.name,
+            resource_group_name=example.resource_group_name,
             display_name="Test Server",
             authorization_endpoint="https://example.mydomain.com/client/authorize",
             client_id="42424242-4242-4242-4242-424242424242",

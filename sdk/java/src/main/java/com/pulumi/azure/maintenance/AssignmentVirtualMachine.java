@@ -54,25 +54,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;internal&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -81,14 +85,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-machine&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .size(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
  *             .adminSshKeys(LinuxVirtualMachineAdminSshKeyArgs.builder()
  *                 .username(&#34;adminuser&#34;)
- *                 .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *                 .publicKey(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .osDisk(LinuxVirtualMachineOsDiskArgs.builder()
  *                 .caching(&#34;ReadWrite&#34;)
@@ -103,13 +110,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scope(&#34;All&#34;)
  *             .build());
  * 
  *         var exampleAssignmentVirtualMachine = new AssignmentVirtualMachine(&#34;exampleAssignmentVirtualMachine&#34;, AssignmentVirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .maintenanceConfigurationId(exampleConfiguration.id())
  *             .virtualMachineId(exampleLinuxVirtualMachine.id())
  *             .build());

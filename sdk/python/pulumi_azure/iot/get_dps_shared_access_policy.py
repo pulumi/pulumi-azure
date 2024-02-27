@@ -133,8 +133,8 @@ def get_dps_shared_access_policy(iothub_dps_name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.iot.get_dps_shared_access_policy(name="example",
-        resource_group_name=azurerm_resource_group["example"]["name"],
-        iothub_dps_name=azurerm_iothub_dps["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"],
+        iothub_dps_name=example_azurerm_iothub_dps["name"])
     ```
 
 
@@ -175,8 +175,8 @@ def get_dps_shared_access_policy_output(iothub_dps_name: Optional[pulumi.Input[s
     import pulumi_azure as azure
 
     example = azure.iot.get_dps_shared_access_policy(name="example",
-        resource_group_name=azurerm_resource_group["example"]["name"],
-        iothub_dps_name=azurerm_iothub_dps["example"]["name"])
+        resource_group_name=example_azurerm_resource_group["name"],
+        iothub_dps_name=example_azurerm_iothub_dps["name"])
     ```
 
 

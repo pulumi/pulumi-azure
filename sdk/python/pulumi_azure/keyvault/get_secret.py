@@ -181,7 +181,7 @@ def get_secret(key_vault_id: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_secret(name="secret-sauce",
-        key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+        key_vault_id=existing["id"])
     pulumi.export("secretValue", example.value)
     ```
 
@@ -229,7 +229,7 @@ def get_secret_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.keyvault.get_secret(name="secret-sauce",
-        key_vault_id=data["azurerm_key_vault"]["existing"]["id"])
+        key_vault_id=existing["id"])
     pulumi.export("secretValue", example.value)
     ```
 

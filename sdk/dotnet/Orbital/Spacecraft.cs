@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Orbital
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("exampleSpacecraft", new()
+    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-spacecraft",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "westeurope",
     ///         NoradId = "12345",
     ///         Links = new[]

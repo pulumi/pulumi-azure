@@ -33,14 +33,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = frontdoor.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &frontdoor.FirewallPolicyArgs{
-//				ResourceGroupName:             exampleResourceGroup.Name,
+//			_, err = frontdoor.NewFirewallPolicy(ctx, "example", &frontdoor.FirewallPolicyArgs{
+//				Name:                          pulumi.String("examplefdwafpolicy"),
+//				ResourceGroupName:             example.Name,
 //				Enabled:                       pulumi.Bool(true),
 //				Mode:                          pulumi.String("Prevention"),
 //				RedirectUrl:                   pulumi.String("https://www.contoso.com"),

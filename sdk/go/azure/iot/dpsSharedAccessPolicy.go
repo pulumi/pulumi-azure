@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "exampleIotHubDps", &iot.IotHubDpsArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIotHubDps, err := iot.NewIotHubDps(ctx, "example", &iot.IotHubDpsArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IotHubDpsSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
@@ -46,8 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewDpsSharedAccessPolicy(ctx, "exampleDpsSharedAccessPolicy", &iot.DpsSharedAccessPolicyArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = iot.NewDpsSharedAccessPolicy(ctx, "example", &iot.DpsSharedAccessPolicyArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				IothubDpsName:     exampleIotHubDps.Name,
 //				EnrollmentWrite:   pulumi.Bool(true),
 //				EnrollmentRead:    pulumi.Bool(true),

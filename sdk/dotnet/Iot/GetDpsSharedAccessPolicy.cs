@@ -29,8 +29,8 @@ namespace Pulumi.Azure.Iot
         ///     var example = Azure.Iot.GetDpsSharedAccessPolicy.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         IothubDpsName = azurerm_iothub_dps.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         IothubDpsName = exampleAzurermIothubDps.Name,
         ///     });
         /// 
         /// });
@@ -59,8 +59,8 @@ namespace Pulumi.Azure.Iot
         ///     var example = Azure.Iot.GetDpsSharedAccessPolicy.Invoke(new()
         ///     {
         ///         Name = "example",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         IothubDpsName = azurerm_iothub_dps.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         IothubDpsName = exampleAzurermIothubDps.Name,
         ///     });
         /// 
         /// });

@@ -32,12 +32,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-primary"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-recovery-vault"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
@@ -46,6 +48,7 @@ import (
 //				return err
 //			}
 //			sa, err := storage.NewAccount(ctx, "sa", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
 //				Location:               example.Location,
 //				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),

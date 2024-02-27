@@ -13,12 +13,80 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing Resource Group Template Deployment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetResourceGroupTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getResourceGroupTemplateDeploymentResult =&gt; getResourceGroupTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = NotImplemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)").ExampleOutput.Value,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetResourceGroupTemplateDeploymentResult> InvokeAsync(GetResourceGroupTemplateDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Resource Group Template Deployment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetResourceGroupTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///         ResourceGroupName = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getResourceGroupTemplateDeploymentResult =&gt; getResourceGroupTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = NotImplemented("jsondecode(data.azurerm_resource_group_template_deployment.example.output_content)").ExampleOutput.Value,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetResourceGroupTemplateDeploymentResult> Invoke(GetResourceGroupTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetResourceGroupTemplateDeploymentResult>("azure:core/getResourceGroupTemplateDeployment:getResourceGroupTemplateDeployment", args ?? new GetResourceGroupTemplateDeploymentInvokeArgs(), options.WithDefaults());

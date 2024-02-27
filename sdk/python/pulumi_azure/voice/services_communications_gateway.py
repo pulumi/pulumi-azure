@@ -505,10 +505,13 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
+            name="example-vcg",
             location="West Europe",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             connectivity="PublicAddress",
             codecs="PCMA",
             e911_type="DirectToEsrp",
@@ -590,10 +593,13 @@ class ServicesCommunicationsGateway(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_services_communications_gateway = azure.voice.ServicesCommunicationsGateway("example",
+            name="example-vcg",
             location="West Europe",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             connectivity="PublicAddress",
             codecs="PCMA",
             e911_type="DirectToEsrp",

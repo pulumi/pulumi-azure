@@ -26,24 +26,13 @@ namespace Pulumi.Azure.Policy
     /// {
     ///     var policy = new Azure.Policy.Definition("policy", new()
     ///     {
+    ///         Name = "accTestPolicy",
+    ///         PolicyType = "Custom",
+    ///         Mode = "Indexed",
     ///         DisplayName = "acceptance test policy definition",
     ///         Metadata = @"    {
     ///     ""category"": ""General""
     ///     }
-    /// 
-    /// 
-    /// ",
-    ///         Mode = "Indexed",
-    ///         Parameters = @" {
-    ///     ""allowedLocations"": {
-    ///       ""type"": ""Array"",
-    ///       ""metadata"": {
-    ///         ""description"": ""The list of allowed locations for resources."",
-    ///         ""displayName"": ""Allowed locations"",
-    ///         ""strongType"": ""location""
-    ///       }
-    ///     }
-    ///   }
     /// 
     /// ",
     ///         PolicyRule = @" {
@@ -57,9 +46,18 @@ namespace Pulumi.Azure.Policy
     ///       ""effect"": ""audit""
     ///     }
     ///   }
-    /// 
     /// ",
-    ///         PolicyType = "Custom",
+    ///         Parameters = @" {
+    ///     ""allowedLocations"": {
+    ///       ""type"": ""Array"",
+    ///       ""metadata"": {
+    ///         ""description"": ""The list of allowed locations for resources."",
+    ///         ""displayName"": ""Allowed locations"",
+    ///         ""strongType"": ""location""
+    ///       }
+    ///     }
+    ///   }
+    /// ",
     ///     });
     /// 
     /// });

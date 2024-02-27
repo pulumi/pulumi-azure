@@ -223,11 +223,12 @@ class GremlinDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_gremlin_database = azure.cosmosdb.GremlinDatabase("example",
+            name="tfex-cosmos-gremlin-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             throughput=400)
         ```
 
@@ -266,11 +267,12 @@ class GremlinDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_gremlin_database = azure.cosmosdb.GremlinDatabase("exampleGremlinDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_gremlin_database = azure.cosmosdb.GremlinDatabase("example",
+            name="tfex-cosmos-gremlin-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             throughput=400)
         ```
 

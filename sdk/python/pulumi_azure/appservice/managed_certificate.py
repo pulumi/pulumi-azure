@@ -231,6 +231,62 @@ class ManagedCertificate(pulumi.CustomResource):
 
         > NOTE: A certificate is valid for six months, and about a month before the certificate’s expiration date, App Services renews/rotates the certificate. This is managed by Azure and doesn't require this resource to be changed or reprovisioned. It will change the `thumbprint` computed attribute the next time the resource is refreshed after rotation occurs, so keep that in mind if you have any dependencies on this attribute directly.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.dns.get_zone_output(name="mydomain.com",
+            resource_group_name=example_resource_group.name)
+        example_plan = azure.appservice.Plan("example",
+            name="example-plan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Basic",
+                size="B1",
+            ))
+        example_app_service = azure.appservice.AppService("example",
+            name="example-app",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id)
+        example_txt_record = azure.dns.TxtRecord("example",
+            name="asuid.mycustomhost.contoso.com",
+            zone_name=example.name,
+            resource_group_name=example.resource_group_name,
+            ttl=300,
+            records=[azure.dns.TxtRecordRecordArgs(
+                value=example_app_service.custom_domain_verification_id,
+            )])
+        example_c_name_record = azure.dns.CNameRecord("example",
+            name="example-adcr",
+            zone_name=example.name,
+            resource_group_name=example.resource_group_name,
+            ttl=300,
+            record=example_app_service.default_site_hostname)
+        example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
+            hostname=std.join_output(separator=".",
+                input=[
+                    example_c_name_record.name,
+                    example_c_name_record.zone_name,
+                ]).apply(lambda invoke: invoke.result),
+            app_service_name=example_app_service.name,
+            resource_group_name=example_resource_group.name)
+        example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
+        example_certificate_binding = azure.appservice.CertificateBinding("example",
+            hostname_binding_id=example_custom_hostname_binding.id,
+            certificate_id=example_managed_certificate.id,
+            ssl_state="SniEnabled")
+        ```
+
         ## Import
 
         App Service Managed Certificates can be imported using the `resource id`, e.g.
@@ -254,6 +310,62 @@ class ManagedCertificate(pulumi.CustomResource):
         This certificate can be used to secure custom domains on App Services (Windows and Linux) hosted on an App Service Plan of Basic and above (free and shared tiers are not supported).
 
         > NOTE: A certificate is valid for six months, and about a month before the certificate’s expiration date, App Services renews/rotates the certificate. This is managed by Azure and doesn't require this resource to be changed or reprovisioned. It will change the `thumbprint` computed attribute the next time the resource is refreshed after rotation occurs, so keep that in mind if you have any dependencies on this attribute directly.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+        import pulumi_std as std
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.dns.get_zone_output(name="mydomain.com",
+            resource_group_name=example_resource_group.name)
+        example_plan = azure.appservice.Plan("example",
+            name="example-plan",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            kind="Linux",
+            reserved=True,
+            sku=azure.appservice.PlanSkuArgs(
+                tier="Basic",
+                size="B1",
+            ))
+        example_app_service = azure.appservice.AppService("example",
+            name="example-app",
+            location=example_resource_group.location,
+            resource_group_name=example_resource_group.name,
+            app_service_plan_id=example_plan.id)
+        example_txt_record = azure.dns.TxtRecord("example",
+            name="asuid.mycustomhost.contoso.com",
+            zone_name=example.name,
+            resource_group_name=example.resource_group_name,
+            ttl=300,
+            records=[azure.dns.TxtRecordRecordArgs(
+                value=example_app_service.custom_domain_verification_id,
+            )])
+        example_c_name_record = azure.dns.CNameRecord("example",
+            name="example-adcr",
+            zone_name=example.name,
+            resource_group_name=example.resource_group_name,
+            ttl=300,
+            record=example_app_service.default_site_hostname)
+        example_custom_hostname_binding = azure.appservice.CustomHostnameBinding("example",
+            hostname=std.join_output(separator=".",
+                input=[
+                    example_c_name_record.name,
+                    example_c_name_record.zone_name,
+                ]).apply(lambda invoke: invoke.result),
+            app_service_name=example_app_service.name,
+            resource_group_name=example_resource_group.name)
+        example_managed_certificate = azure.appservice.ManagedCertificate("example", custom_hostname_binding_id=example_custom_hostname_binding.id)
+        example_certificate_binding = azure.appservice.CertificateBinding("example",
+            hostname_binding_id=example_custom_hostname_binding.id,
+            certificate_id=example_managed_certificate.id,
+            ssl_state="SniEnabled")
+        ```
 
         ## Import
 

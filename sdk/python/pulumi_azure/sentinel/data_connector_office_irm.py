@@ -148,13 +148,18 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_office_irm = azure.sentinel.DataConnectorOfficeIrm("exampleDataConnectorOfficeIrm", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_data_connector_office_irm = azure.sentinel.DataConnectorOfficeIrm("example",
+            name="example",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
 
         ## Import
@@ -188,13 +193,18 @@ class DataConnectorOfficeIrm(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_data_connector_office_irm = azure.sentinel.DataConnectorOfficeIrm("exampleDataConnectorOfficeIrm", log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_data_connector_office_irm = azure.sentinel.DataConnectorOfficeIrm("example",
+            name="example",
+            log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id)
         ```
 
         ## Import

@@ -13,13 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleSubscription = azure.core.getSubscription({});
- * const examplePolicyDefintion = azure.policy.getPolicyDefintion({
+ * const example = azure.core.getSubscription({});
+ * const exampleGetPolicyDefintion = azure.policy.getPolicyDefintion({
  *     displayName: "Allowed resource types",
  * });
- * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
- *     policyDefinitionId: examplePolicyDefintion.then(examplePolicyDefintion => examplePolicyDefintion.id),
+ * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("example", {
+ *     name: "exampleAssignment",
+ *     subscriptionId: example.then(example => example.id),
+ *     policyDefinitionId: exampleGetPolicyDefintion.then(exampleGetPolicyDefintion => exampleGetPolicyDefintion.id),
  *     parameters: JSON.stringify({
  *         listOfAllowedLocations: {
  *             value: [
@@ -29,8 +30,9 @@ import * as utilities from "../utilities";
  *         },
  *     }),
  * });
- * const exampleSubscriptionPolicyRemediation = new azure.core.SubscriptionPolicyRemediation("exampleSubscriptionPolicyRemediation", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ * const exampleSubscriptionPolicyRemediation = new azure.core.SubscriptionPolicyRemediation("example", {
+ *     name: "example",
+ *     subscriptionId: example.then(example => example.id),
  *     policyAssignmentId: exampleSubscriptionPolicyAssignment.id,
  * });
  * ```

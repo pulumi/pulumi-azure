@@ -30,20 +30,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueryPack, err := loganalytics.NewQueryPack(ctx, "exampleQueryPack", &loganalytics.QueryPackArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleQueryPack, err := loganalytics.NewQueryPack(ctx, "example", &loganalytics.QueryPackArgs{
+//				Name:              pulumi.String("example-laqp"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = operationalinsights.NewQueryPackQuery(ctx, "exampleQueryPackQuery", &operationalinsights.QueryPackQueryArgs{
+//			_, err = operationalinsights.NewQueryPackQuery(ctx, "example", &operationalinsights.QueryPackQueryArgs{
+//				Name:        pulumi.String("19952bc3-0bf9-49eb-b713-6b80e7a41847"),
 //				QueryPackId: exampleQueryPack.ID(),
 //				Body: pulumi.String(`let newExceptionsTimeRange = 1d;
 //

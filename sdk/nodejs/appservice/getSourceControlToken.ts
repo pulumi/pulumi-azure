@@ -14,7 +14,7 @@ import * as utilities from "../utilities";
  * const example = azure.appservice.getSourceControlToken({
  *     type: "GitHub",
  * });
- * export const id = data.azurerm_app_service_github_token.example.id;
+ * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
  */
 export function getSourceControlToken(args: GetSourceControlTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetSourceControlTokenResult> {
@@ -60,7 +60,7 @@ export interface GetSourceControlTokenResult {
  * const example = azure.appservice.getSourceControlToken({
  *     type: "GitHub",
  * });
- * export const id = data.azurerm_app_service_github_token.example.id;
+ * export const id = exampleAzurermAppServiceGithubToken.id;
  * ```
  */
 export function getSourceControlTokenOutput(args: GetSourceControlTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSourceControlTokenResult> {

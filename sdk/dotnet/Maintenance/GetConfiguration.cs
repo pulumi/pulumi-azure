@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = azurerm_maintenance_configuration.Existing.Id,
+        ///         ["id"] = existingAzurermMaintenanceConfiguration.Id,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Maintenance
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = azurerm_maintenance_configuration.Existing.Id,
+        ///         ["id"] = existingAzurermMaintenanceConfiguration.Id,
         ///     };
         /// });
         /// ```

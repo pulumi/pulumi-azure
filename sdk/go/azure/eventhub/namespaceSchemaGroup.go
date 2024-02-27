@@ -28,21 +28,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG-ehn-schemaGroup"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "testEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-//				Location:          pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName: pulumi.Any(azurerm_resource_group.Test.Name),
+//			test, err := eventhub.NewEventHubNamespace(ctx, "test", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("example-ehn-schemaGroup"),
+//				Location:          pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName: pulumi.Any(testAzurermResourceGroup.Name),
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventhub.NewNamespaceSchemaGroup(ctx, "testNamespaceSchemaGroup", &eventhub.NamespaceSchemaGroupArgs{
-//				NamespaceId:         testEventHubNamespace.ID(),
+//			_, err = eventhub.NewNamespaceSchemaGroup(ctx, "test", &eventhub.NamespaceSchemaGroupArgs{
+//				Name:                pulumi.String("example-schemaGroup"),
+//				NamespaceId:         test.ID(),
 //				SchemaCompatibility: pulumi.String("Forward"),
 //				SchemaType:          pulumi.String("Avro"),
 //			})

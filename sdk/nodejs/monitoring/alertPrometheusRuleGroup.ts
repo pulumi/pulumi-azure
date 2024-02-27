@@ -9,6 +9,86 @@ import * as utilities from "../utilities";
 /**
  * Manages an Alert Management Prometheus Rule Group.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example-mag",
+ *     resourceGroupName: example.name,
+ *     shortName: "testag",
+ * });
+ * const exampleWorkspace = new azure.monitoring.Workspace("example", {
+ *     name: "example-amw",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example-cluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     dnsPrefix: "example-aks",
+ *     defaultNodePool: {
+ *         name: "default",
+ *         nodeCount: 1,
+ *         vmSize: "Standard_DS2_v2",
+ *         enableHostEncryption: true,
+ *     },
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleAlertPrometheusRuleGroup = new azure.monitoring.AlertPrometheusRuleGroup("example", {
+ *     name: "example-amprg",
+ *     location: "West Europe",
+ *     resourceGroupName: example.name,
+ *     clusterName: exampleKubernetesCluster.name,
+ *     description: "This is the description of the following rule group",
+ *     ruleGroupEnabled: false,
+ *     interval: "PT1M",
+ *     scopes: [exampleWorkspace.id],
+ *     rules: [
+ *         {
+ *             enabled: false,
+ *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n",
+ *             record: "job_type:billing_jobs_duration_seconds:99p5m",
+ *             labels: {
+ *                 team: "prod",
+ *             },
+ *         },
+ *         {
+ *             alert: "Billing_Processing_Very_Slow",
+ *             enabled: true,
+ *             expression: "histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=\"billing-processing\"}[5m])) by (job_type))\n",
+ *             "for": "PT5M",
+ *             severity: 2,
+ *             actions: [{
+ *                 actionGroupId: exampleActionGroup.id,
+ *             }],
+ *             alertResolution: {
+ *                 autoResolved: true,
+ *                 timeToResolve: "PT10M",
+ *             },
+ *             annotations: {
+ *                 annotationName: "annotationValue",
+ *             },
+ *             labels: {
+ *                 team: "prod",
+ *             },
+ *         },
+ *     ],
+ *     tags: {
+ *         key: "value",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Alert Management Prometheus Rule Group can be imported using the `resource id`, e.g.

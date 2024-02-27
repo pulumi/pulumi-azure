@@ -55,15 +55,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
+ *             .name(&#34;example-namespace&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
@@ -71,6 +73,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;example-eventhub&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .partitionCount(2)
@@ -78,13 +81,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;example-consumergroup&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleStreamInputEventHubV2 = new StreamInputEventHubV2(&#34;exampleStreamInputEventHubV2&#34;, StreamInputEventHubV2Args.builder()        
- *             .streamAnalyticsJobId(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.id())))
+ *             .name(&#34;eventhub-stream-input&#34;)
+ *             .streamAnalyticsJobId(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.id())))
  *             .eventhubConsumerGroupName(exampleConsumerGroup.name())
  *             .eventhubName(exampleEventHub.name())
  *             .servicebusNamespace(exampleEventHubNamespace.name())

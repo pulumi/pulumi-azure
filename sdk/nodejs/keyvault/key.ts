@@ -21,10 +21,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,
@@ -45,6 +49,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const generated = new azure.keyvault.Key("generated", {
+ *     name: "generated-certificate",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,

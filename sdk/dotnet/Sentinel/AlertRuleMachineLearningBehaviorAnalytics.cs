@@ -22,25 +22,28 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleAlertRuleMachineLearningBehaviorAnalytics = new Azure.Sentinel.AlertRuleMachineLearningBehaviorAnalytics("exampleAlertRuleMachineLearningBehaviorAnalytics", new()
+    ///     var exampleAlertRuleMachineLearningBehaviorAnalytics = new Azure.Sentinel.AlertRuleMachineLearningBehaviorAnalytics("example", new()
     ///     {
+    ///         Name = "example-ml-alert-rule",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         AlertRuleTemplateGuid = "737a2ce1-70a3-4968-9e90-3e6aca836abf",
     ///     });

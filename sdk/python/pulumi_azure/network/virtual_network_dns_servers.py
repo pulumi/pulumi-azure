@@ -105,16 +105,19 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             subnets=[azure.network.VirtualNetworkSubnetArgs(
                 name="subnet1",
                 address_prefix="10.0.1.0/24",
             )])
-        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers",
+        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[
                 "10.7.7.2",
@@ -149,16 +152,19 @@ class VirtualNetworkDnsServers(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             subnets=[azure.network.VirtualNetworkSubnetArgs(
                 name="subnet1",
                 address_prefix="10.0.1.0/24",
             )])
-        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers",
+        example_virtual_network_dns_servers = azure.network.VirtualNetworkDnsServers("example",
             virtual_network_id=example_virtual_network.id,
             dns_servers=[
                 "10.7.7.2",

@@ -42,26 +42,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-api&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
  *             .build());
  * 
- *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .revision(&#34;2&#34;)
  *             .build());
  * 
- *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+ *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
  *             .name(&#34;example-gateway&#34;)
- *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+ *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
  *             .build());
  * 
  *         var exampleGatewayApi = new GatewayApi(&#34;exampleGatewayApi&#34;, GatewayApiArgs.builder()        
- *             .gatewayId(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.id()))
- *             .apiId(exampleApi.applyValue(getApiResult -&gt; getApiResult.id()))
+ *             .gatewayId(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.id()))
+ *             .apiId(exampleGetApi.applyValue(getApiResult -&gt; getApiResult.id()))
  *             .build());
  * 
  *     }

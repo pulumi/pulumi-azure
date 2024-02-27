@@ -36,15 +36,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("EastUs"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("mssqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
@@ -60,7 +62,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewServerTransparentDataEncryption(ctx, "exampleServerTransparentDataEncryption", &mssql.ServerTransparentDataEncryptionArgs{
+//			_, err = mssql.NewServerTransparentDataEncryption(ctx, "example", &mssql.ServerTransparentDataEncryptionArgs{
 //				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {
@@ -91,15 +93,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("EastUs"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("mssqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsKat11"),
@@ -119,9 +123,10 @@ import (
 //				return err
 //			}
 //			// Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                 exampleResourceGroup.Location,
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                     pulumi.String("example"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 *pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
@@ -160,7 +165,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("byok"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -168,13 +174,11 @@ import (
 //					pulumi.String("unwrapKey"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeyVault,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewServerTransparentDataEncryption(ctx, "exampleServerTransparentDataEncryption", &mssql.ServerTransparentDataEncryptionArgs{
+//			_, err = mssql.NewServerTransparentDataEncryption(ctx, "example", &mssql.ServerTransparentDataEncryptionArgs{
 //				ServerId:      exampleServer.ID(),
 //				KeyVaultKeyId: exampleKey.ID(),
 //			})

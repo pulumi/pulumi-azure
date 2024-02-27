@@ -49,33 +49,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var remoteVirtualNetwork = new VirtualNetwork(&#34;remoteVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *         var remote = new VirtualNetwork(&#34;remote&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;remote-vnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.1.0/24&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-workspace&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;standard&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetworkPeering = new VirtualNetworkPeering(&#34;exampleVirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;databricks-vnet-peer&#34;)
+ *             .resourceGroupName(example.name())
  *             .workspaceId(exampleWorkspace.id())
- *             .remoteAddressSpacePrefixes(remoteVirtualNetwork.addressSpaces())
- *             .remoteVirtualNetworkId(remoteVirtualNetwork.id())
+ *             .remoteAddressSpacePrefixes(remote.addressSpaces())
+ *             .remoteVirtualNetworkId(remote.id())
  *             .allowVirtualNetworkAccess(true)
  *             .build());
  * 
  *         var remoteVirtualNetworkPeering = new VirtualNetworkPeering(&#34;remoteVirtualNetworkPeering&#34;, VirtualNetworkPeeringArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .virtualNetworkName(remoteVirtualNetwork.name())
+ *             .name(&#34;peer-to-databricks&#34;)
+ *             .resourceGroupName(example.name())
+ *             .virtualNetworkName(remote.name())
  *             .remoteVirtualNetworkId(exampleVirtualNetworkPeering.virtualNetworkId())
  *             .allowVirtualNetworkAccess(true)
  *             .build());

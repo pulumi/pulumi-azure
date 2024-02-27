@@ -15,12 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "Some Management Group"});
- * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ * const example = new azure.management.Group("example", {displayName: "Some Management Group"});
+ * const exampleDefinition = new azure.policy.Definition("example", {
+ *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "my-policy-definition",
- *     managementGroupId: exampleGroup.id,
+ *     managementGroupId: example.id,
  *     policyRule: ` {
  *     "if": {
  *       "not": {
@@ -34,9 +35,10 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment", {
+ * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
+ *     name: "example-policy",
  *     policyDefinitionId: exampleDefinition.id,
- *     managementGroupId: exampleGroup.id,
+ *     managementGroupId: example.id,
  * });
  * ```
  *

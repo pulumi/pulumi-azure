@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDefinition = new azure.policy.Definition("example", {
+ *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "my-policy-definition",
@@ -33,8 +37,9 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", {
- *     resourceGroupId: exampleResourceGroup.id,
+ * const exampleResourceGroupPolicyAssignment = new azure.core.ResourceGroupPolicyAssignment("example", {
+ *     name: "example",
+ *     resourceGroupId: example.id,
  *     policyDefinitionId: exampleDefinition.id,
  *     parameters: `    {
  *       "tagName": {

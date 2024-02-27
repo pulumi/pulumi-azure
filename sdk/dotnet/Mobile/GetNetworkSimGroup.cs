@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
-        ///     var exampleNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
+        ///     var exampleGetNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
         ///     {
         ///         Name = "example-mnsg",
-        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
-        ///     var exampleNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
+        ///     var exampleGetNetworkSimGroup = Azure.Mobile.GetNetworkSimGroup.Invoke(new()
         ///     {
         ///         Name = "example-mnsg",
-        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
         ///     });
         /// 
         /// });

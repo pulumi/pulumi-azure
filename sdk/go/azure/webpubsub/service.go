@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("terraform-webpubsub"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			_, err = webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
+//				Name:                       pulumi.String("tfex-webpubsub"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				Sku:                        pulumi.String("Standard_S1"),
 //				Capacity:                   pulumi.Int(1),
 //				PublicNetworkAccessEnabled: pulumi.Bool(false),

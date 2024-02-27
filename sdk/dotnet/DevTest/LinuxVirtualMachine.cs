@@ -16,32 +16,35 @@ namespace Pulumi.Azure.DevTest
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.DevTest.Lab("exampleLab", new()
+    ///     var exampleLab = new Azure.DevTest.Lab("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-devtestlab",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "Sydney", "Australia" },
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.DevTest.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-network",
     ///         LabName = exampleLab.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Subnet = new Azure.DevTest.Inputs.VirtualNetworkSubnetArgs
     ///         {
     ///             UsePublicIpAddress = "Allow",
@@ -49,14 +52,18 @@ namespace Pulumi.Azure.DevTest
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.DevTest.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.DevTest.LinuxVirtualMachine("example", new()
     ///     {
+    ///         Name = "example-vm03",
     ///         LabName = exampleLab.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Size = "Standard_DS2",
     ///         Username = "exampleuser99",
-    ///         SshKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///         SshKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "~/.ssh/id_rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         LabVirtualNetworkId = exampleVirtualNetwork.Id,
     ///         LabSubnetName = exampleVirtualNetwork.Subnet.Apply(subnet =&gt; subnet.Name),
     ///         StorageType = "Premium",

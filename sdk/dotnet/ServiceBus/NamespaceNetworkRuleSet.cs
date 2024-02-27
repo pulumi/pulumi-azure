@@ -26,23 +26,26 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-sb-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "172.17.0.0/16",
@@ -54,9 +57,10 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "default",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -68,7 +72,7 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("exampleNamespaceNetworkRuleSet", new()
+    ///     var exampleNamespaceNetworkRuleSet = new Azure.ServiceBus.NamespaceNetworkRuleSet("example", new()
     ///     {
     ///         NamespaceId = exampleNamespace.Id,
     ///         DefaultAction = "Deny",

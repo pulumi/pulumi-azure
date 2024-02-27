@@ -26,13 +26,14 @@ namespace Pulumi.Azure.CostManagement
     /// {
     ///     var example = new Azure.CostManagement.AnomalyAlert("example", new()
     ///     {
+    ///         Name = "alertname",
     ///         DisplayName = "Alert DisplayName",
+    ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000",
+    ///         EmailSubject = "My Test Anomaly Alert",
     ///         EmailAddresses = new[]
     ///         {
     ///             "example@test.net",
     ///         },
-    ///         EmailSubject = "My Test Anomaly Alert",
-    ///         SubscriptionId = "/subscriptions/00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
     /// });

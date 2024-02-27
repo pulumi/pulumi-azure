@@ -13,20 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageacc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     accountKind: "StorageV2",
  *     isHnsEnabled: true,
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
@@ -43,7 +51,8 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "workspace-encryption-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -51,12 +60,11 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [deployer],
  * });
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
@@ -67,7 +75,7 @@ import * as utilities from "../utilities";
  *         Env: "production",
  *     },
  * });
- * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin", {
+ * const exampleWorkspaceAadAdmin = new azure.synapse.WorkspaceAadAdmin("example", {
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     login: "AzureAD Admin",
  *     objectId: current.then(current => current.objectId),

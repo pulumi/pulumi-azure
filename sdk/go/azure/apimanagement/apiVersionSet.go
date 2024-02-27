@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("pub1"),
 //				PublisherEmail:    pulumi.String("pub1@email.com"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiVersionSet(ctx, "exampleApiVersionSet", &apimanagement.ApiVersionSetArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = apimanagement.NewApiVersionSet(ctx, "example", &apimanagement.ApiVersionSetArgs{
+//				Name:              pulumi.String("example-apimapi-1_0_0"),
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				DisplayName:       pulumi.String("ExampleAPIVersionSet"),
 //				VersioningScheme:  pulumi.String("Segment"),

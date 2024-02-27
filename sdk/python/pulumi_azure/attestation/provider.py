@@ -424,12 +424,16 @@ class Provider(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_provider = azure.attestation.Provider("exampleProvider",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            policy_signing_certificate_data=(lambda path: open(path).read())("./example/cert.pem"))
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_provider = azure.attestation.Provider("example",
+            name="exampleprovider",
+            resource_group_name=example.name,
+            location=example.location,
+            policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
 
         ## Import
@@ -470,12 +474,16 @@ class Provider(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_provider = azure.attestation.Provider("exampleProvider",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            policy_signing_certificate_data=(lambda path: open(path).read())("./example/cert.pem"))
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_provider = azure.attestation.Provider("example",
+            name="exampleprovider",
+            resource_group_name=example.name,
+            location=example.location,
+            policy_signing_certificate_data=std.file(input="./example/cert.pem").result)
         ```
 
         ## Import

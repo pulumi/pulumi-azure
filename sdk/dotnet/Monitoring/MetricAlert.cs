@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var toMonitor = new Azure.Storage.Account("toMonitor", new()
+    ///     var toMonitor = new Azure.Storage.Account("to_monitor", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
     ///     var main = new Azure.Monitoring.ActionGroup("main", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-actiongroup",
+    ///         ResourceGroupName = example.Name,
     ///         ShortName = "exampleact",
     ///         WebhookReceivers = new[]
     ///         {
@@ -49,9 +52,10 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("exampleMetricAlert", new()
+    ///     var exampleMetricAlert = new Azure.Monitoring.MetricAlert("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-metricalert",
+    ///         ResourceGroupName = example.Name,
     ///         Scopes = new[]
     ///         {
     ///             toMonitor.Id,

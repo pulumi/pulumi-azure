@@ -25,9 +25,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "FrontDoorExampleResourceGroup",
+ *     location: "West Europe",
+ * });
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
+ *     name: "example-FrontDoor",
+ *     resourceGroupName: example.name,
  *     routingRules: [{
  *         name: "exampleRoutingRule1",
  *         acceptedProtocols: [

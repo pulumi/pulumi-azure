@@ -28,9 +28,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := kusto.LookupDatabase(ctx, &kusto.LookupDatabaseArgs{
-//				ClusterName:       "test_cluster",
 //				Name:              "my-kusto-database",
 //				ResourceGroupName: "test_resource_group",
+//				ClusterName:       "test_cluster",
 //			}, nil)
 //			if err != nil {
 //				return err

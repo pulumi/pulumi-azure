@@ -29,21 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
+//			example, err := core.LookupResourceGroup(ctx, &core.LookupResourceGroupArgs{
 //				Name: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
+//			exampleGetJob, err := streamanalytics.LookupJob(ctx, &streamanalytics.LookupJobArgs{
 //				Name:              "example-job",
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewFunctionJavascriptUda(ctx, "exampleFunctionJavascriptUda", &streamanalytics.FunctionJavascriptUdaArgs{
-//				StreamAnalyticsJobId: *pulumi.String(exampleJob.Id),
+//			_, err = streamanalytics.NewFunctionJavascriptUda(ctx, "example", &streamanalytics.FunctionJavascriptUdaArgs{
+//				Name:                 pulumi.String("example-javascript-function"),
+//				StreamAnalyticsJobId: *pulumi.String(exampleGetJob.Id),
 //				Script: pulumi.String(`function main() {
 //	    this.init = function () {
 //	        this.state = 0;

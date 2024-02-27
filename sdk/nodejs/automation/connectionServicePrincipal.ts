@@ -12,22 +12,29 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroup-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.core.getClientConfig({});
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account-example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  * });
- * const exampleConnectionServicePrincipal = new azure.automation.ConnectionServicePrincipal("exampleConnectionServicePrincipal", {
+ * const exampleConnectionServicePrincipal = new azure.automation.ConnectionServicePrincipal("example", {
+ *     name: "connection-example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
  *     applicationId: "00000000-0000-0000-0000-000000000000",
- *     tenantId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.tenantId),
- *     subscriptionId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.subscriptionId),
- *     certificateThumbprint: fs.readFileSync("automation_certificate_test.thumb", "utf8"),
+ *     tenantId: example.then(example => example.tenantId),
+ *     subscriptionId: example.then(example => example.subscriptionId),
+ *     certificateThumbprint: std.file({
+ *         input: "automation_certificate_test.thumb",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

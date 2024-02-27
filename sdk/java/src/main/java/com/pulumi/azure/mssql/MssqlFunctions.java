@@ -53,10 +53,12 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .version(&#34;12.0&#34;)
@@ -64,12 +66,12 @@ public final class MssqlFunctions {
      *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
      *             .build());
      * 
-     *         final var exampleDatabase = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example-mssql-db&#34;)
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(exampleDatabase -&gt; exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
      *     }
      * }
      * ```
@@ -108,10 +110,12 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .version(&#34;12.0&#34;)
@@ -119,12 +123,12 @@ public final class MssqlFunctions {
      *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
      *             .build());
      * 
-     *         final var exampleDatabase = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example-mssql-db&#34;)
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(exampleDatabase -&gt; exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
      *     }
      * }
      * ```
@@ -163,10 +167,12 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .version(&#34;12.0&#34;)
@@ -174,12 +180,12 @@ public final class MssqlFunctions {
      *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
      *             .build());
      * 
-     *         final var exampleDatabase = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example-mssql-db&#34;)
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(exampleDatabase -&gt; exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
      *     }
      * }
      * ```
@@ -218,10 +224,12 @@ public final class MssqlFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .version(&#34;12.0&#34;)
@@ -229,12 +237,12 @@ public final class MssqlFunctions {
      *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
      *             .build());
      * 
-     *         final var exampleDatabase = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
+     *         final var example = MssqlFunctions.getDatabase(GetDatabaseArgs.builder()
      *             .name(&#34;example-mssql-db&#34;)
      *             .serverId(exampleServer.id())
      *             .build());
      * 
-     *         ctx.export(&#34;databaseId&#34;, exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(exampleDatabase -&gt; exampleDatabase.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
+     *         ctx.export(&#34;databaseId&#34;, example.applyValue(getDatabaseResult -&gt; getDatabaseResult).applyValue(example -&gt; example.applyValue(getDatabaseResult -&gt; getDatabaseResult.id())));
      *     }
      * }
      * ```
@@ -430,7 +438,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -468,7 +476,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -506,7 +514,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -544,7 +552,7 @@ public final class MssqlFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = MssqlFunctions.getManagedInstance(GetManagedInstanceArgs.builder()
      *             .name(&#34;managedsqlinstance&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }

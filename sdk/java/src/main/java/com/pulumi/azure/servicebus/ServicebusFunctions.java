@@ -709,7 +709,7 @@ public final class ServicebusFunctions {
      *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
+     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
      *     }
      * }
      * ```
@@ -748,7 +748,7 @@ public final class ServicebusFunctions {
      *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
+     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
      *     }
      * }
      * ```
@@ -787,7 +787,7 @@ public final class ServicebusFunctions {
      *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
+     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
      *     }
      * }
      * ```
@@ -826,7 +826,7 @@ public final class ServicebusFunctions {
      *             .topicId(&#34;exampletopic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusSubscription&#34;, data.azurerm_servicebus_namespace().example());
+     *         ctx.export(&#34;servicebusSubscription&#34;, exampleAzurermServicebusNamespace);
      *     }
      * }
      * ```
@@ -1023,7 +1023,7 @@ public final class ServicebusFunctions {
      *             .topicName(&#34;example-servicebus_topic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
+     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
      * ```
@@ -1064,7 +1064,7 @@ public final class ServicebusFunctions {
      *             .topicName(&#34;example-servicebus_topic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
+     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
      * ```
@@ -1105,7 +1105,7 @@ public final class ServicebusFunctions {
      *             .topicName(&#34;example-servicebus_topic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
+     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
      * ```
@@ -1146,7 +1146,7 @@ public final class ServicebusFunctions {
      *             .topicName(&#34;example-servicebus_topic&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, data.azurem_servicebus_topic_authorization_rule().example().id());
+     *         ctx.export(&#34;servicebusAuthorizationRuleId&#34;, exampleAzuremServicebusTopicAuthorizationRule.id());
      *     }
      * }
      * ```

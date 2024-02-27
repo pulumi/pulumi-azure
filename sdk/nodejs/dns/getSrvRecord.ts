@@ -14,10 +14,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.SrvRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSrvRecordId = example.id;
+ * export const dnsSrvRecordId = exampleAzurermDnsSrvRecord.id;
  * ```
  */
 export function getSrvRecord(args: GetSrvRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSrvRecordResult> {
@@ -84,10 +85,11 @@ export interface GetSrvRecordResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.dns.SrvRecord("example", {
+ *     name: "test",
  *     zoneName: "test-zone",
  *     resourceGroupName: "test-rg",
  * });
- * export const dnsSrvRecordId = example.id;
+ * export const dnsSrvRecordId = exampleAzurermDnsSrvRecord.id;
  * ```
  */
 export function getSrvRecordOutput(args: GetSrvRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSrvRecordResult> {

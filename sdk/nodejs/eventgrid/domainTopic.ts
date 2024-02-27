@@ -13,17 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDomain = new azure.eventgrid.Domain("exampleDomain", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDomain = new azure.eventgrid.Domain("example", {
+ *     name: "my-eventgrid-domain",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const exampleDomainTopic = new azure.eventgrid.DomainTopic("exampleDomainTopic", {
+ * const exampleDomainTopic = new azure.eventgrid.DomainTopic("example", {
+ *     name: "my-eventgrid-domain-topic",
  *     domainName: exampleDomain.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

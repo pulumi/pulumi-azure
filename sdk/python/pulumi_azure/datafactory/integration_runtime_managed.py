@@ -440,13 +440,17 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("example",
+            name="example",
             data_factory_id=example_factory.id,
-            location=example_resource_group.location,
+            location=example.location,
             node_size="Standard_D8_v3")
         ```
 
@@ -490,13 +494,17 @@ class IntegrationRuntimeManaged(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("exampleIntegrationRuntimeManaged",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_integration_runtime_managed = azure.datafactory.IntegrationRuntimeManaged("example",
+            name="example",
             data_factory_id=example_factory.id,
-            location=example_resource_group.location,
+            location=example.location,
             node_size="Standard_D8_v3")
         ```
 

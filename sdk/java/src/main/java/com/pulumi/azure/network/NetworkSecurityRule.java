@@ -49,16 +49,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acceptanceTestSecurityGroup1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleNetworkSecurityRule = new NetworkSecurityRule(&#34;exampleNetworkSecurityRule&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;test123&#34;)
  *             .priority(100)
  *             .direction(&#34;Outbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -67,7 +70,7 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;*&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 

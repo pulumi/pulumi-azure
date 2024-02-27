@@ -30,27 +30,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
 //				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewDataConnectorAwsCloudTrail(ctx, "exampleDataConnectorAwsCloudTrail", &sentinel.DataConnectorAwsCloudTrailArgs{
+//			_, err = sentinel.NewDataConnectorAwsCloudTrail(ctx, "example", &sentinel.DataConnectorAwsCloudTrailArgs{
+//				Name:                    pulumi.String("example"),
 //				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				AwsRoleArn:              pulumi.String("arn:aws:iam::000000000000:role/role1"),
 //			})

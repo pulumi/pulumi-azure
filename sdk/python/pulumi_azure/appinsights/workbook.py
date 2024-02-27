@@ -413,10 +413,13 @@ class Workbook(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_workbook = azure.appinsights.Workbook("example",
+            name="85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+            resource_group_name=example.name,
+            location=example.location,
             display_name="workbook1",
             data_json=json.dumps({
                 "version": "Notebook/1.0",
@@ -475,10 +478,13 @@ class Workbook(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook = azure.appinsights.Workbook("exampleWorkbook",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_workbook = azure.appinsights.Workbook("example",
+            name="85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+            resource_group_name=example.name,
+            location=example.location,
             display_name="workbook1",
             data_json=json.dumps({
                 "version": "Notebook/1.0",

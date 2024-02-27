@@ -512,12 +512,13 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.management.Group("example", display_name="Some Management Group")
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
-            management_group_id=example_group.id,
+            management_group_id=example.id,
             policy_rule=\"\"\" {
             "if": {
               "not": {
@@ -530,9 +531,10 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            name="example-policy",
             policy_definition_id=example_definition.id,
-            management_group_id=example_group.id)
+            management_group_id=example.id)
         ```
 
         ## Import
@@ -577,12 +579,13 @@ class GroupPolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="Some Management Group")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.management.Group("example", display_name="Some Management Group")
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
-            management_group_id=example_group.id,
+            management_group_id=example.id,
             policy_rule=\"\"\" {
             "if": {
               "not": {
@@ -595,9 +598,10 @@ class GroupPolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_group_policy_assignment = azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment",
+        example_group_policy_assignment = azure.management.GroupPolicyAssignment("example",
+            name="example-policy",
             policy_definition_id=example_definition.id,
-            management_group_id=example_group.id)
+            management_group_id=example.id)
         ```
 
         ## Import

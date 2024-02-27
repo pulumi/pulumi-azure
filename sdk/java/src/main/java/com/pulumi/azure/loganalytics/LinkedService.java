@@ -45,26 +45,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;resourcegroup-01&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;automation-01&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .tags(Map.of(&#34;environment&#34;, &#34;development&#34;))
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;workspace-01&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .retentionInDays(30)
  *             .build());
  * 
  *         var exampleLinkedService = new LinkedService(&#34;exampleLinkedService&#34;, LinkedServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .workspaceId(exampleAnalyticsWorkspace.id())
  *             .readAccessId(exampleAccount.id())
  *             .build());

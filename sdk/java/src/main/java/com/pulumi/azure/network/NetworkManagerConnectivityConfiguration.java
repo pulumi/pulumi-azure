@@ -58,15 +58,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-network-manager&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
@@ -77,21 +79,25 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+ *             .name(&#34;example-group&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-net&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .flowTimeoutInMinutes(10)
  *             .build());
  * 
  *         var example2 = new NetworkManagerNetworkGroup(&#34;example2&#34;, NetworkManagerNetworkGroupArgs.builder()        
+ *             .name(&#34;example-group2&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
  *         var exampleNetworkManagerConnectivityConfiguration = new NetworkManagerConnectivityConfiguration(&#34;exampleNetworkManagerConnectivityConfiguration&#34;, NetworkManagerConnectivityConfigurationArgs.builder()        
+ *             .name(&#34;example-connectivity-conf&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .connectivityTopology(&#34;HubAndSpoke&#34;)
  *             .appliesToGroups(            

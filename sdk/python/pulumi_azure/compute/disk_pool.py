@@ -271,12 +271,16 @@ class DiskPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
             resource_group_name=example_virtual_network.resource_group_name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
@@ -287,9 +291,10 @@ class DiskPool(pulumi.CustomResource):
                     name="Microsoft.StoragePool/diskPools",
                 ),
             )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_disk_pool = azure.compute.DiskPool("example",
+            name="example-disk-pool",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Basic_B1",
             subnet_id=example_subnet.id,
             zones=["1"])
@@ -330,12 +335,16 @@ class DiskPool(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
             resource_group_name=example_virtual_network.resource_group_name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/24"],
@@ -346,9 +355,10 @@ class DiskPool(pulumi.CustomResource):
                     name="Microsoft.StoragePool/diskPools",
                 ),
             )])
-        example_disk_pool = azure.compute.DiskPool("exampleDiskPool",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_disk_pool = azure.compute.DiskPool("example",
+            name="example-disk-pool",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Basic_B1",
             subnet_id=example_subnet.id,
             zones=["1"])

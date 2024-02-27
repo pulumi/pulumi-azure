@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  *
  * const container = azure.siterecovery.getProtectionContainer({
  *     name: "primary-container",
- *     recoveryFabricName: "primary-fabric",
  *     recoveryVaultName: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
+ *     recoveryFabricName: "primary-fabric",
  * });
  * ```
  */
@@ -78,9 +78,9 @@ export interface GetProtectionContainerResult {
  *
  * const container = azure.siterecovery.getProtectionContainer({
  *     name: "primary-container",
- *     recoveryFabricName: "primary-fabric",
  *     recoveryVaultName: "tfex-recovery_vault",
  *     resourceGroupName: "tfex-resource_group",
+ *     recoveryFabricName: "primary-fabric",
  * });
  * ```
  */

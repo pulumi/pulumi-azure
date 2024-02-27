@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *     name: "example-mc",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = azurerm_maintenance_configuration.existing.id;
+ * export const id = existingAzurermMaintenanceConfiguration.id;
  * ```
  */
 export function getConfiguration(args: GetConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetConfigurationResult> {
@@ -101,7 +101,7 @@ export interface GetConfigurationResult {
  *     name: "example-mc",
  *     resourceGroupName: "example-resources",
  * });
- * export const id = azurerm_maintenance_configuration.existing.id;
+ * export const id = existingAzurermMaintenanceConfiguration.id;
  * ```
  */
 export function getConfigurationOutput(args: GetConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConfigurationResult> {

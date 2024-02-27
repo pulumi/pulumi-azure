@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("api-rg-pro"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Name:                       pulumi.String("postgresql-server-1"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				SkuName:                    pulumi.String("B_Gen5_2"),
 //				StorageMb:                  pulumi.Int(5120),
 //				BackupRetentionDays:        pulumi.Int(7),
@@ -55,9 +57,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewConfiguration(ctx, "exampleConfiguration", &postgresql.ConfigurationArgs{
+//			_, err = postgresql.NewConfiguration(ctx, "example", &postgresql.ConfigurationArgs{
 //				Name:              pulumi.String("backslash_quote"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				Value:             pulumi.String("on"),
 //			})

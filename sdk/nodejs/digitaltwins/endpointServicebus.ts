@@ -13,24 +13,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example_resources",
+ *     location: "West Europe",
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInstance = new azure.digitaltwins.Instance("example", {
+ *     name: "example-DT",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "exampleservicebusnamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {namespaceId: exampleNamespace.id});
- * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule", {
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     name: "exampleservicebustopic",
+ *     namespaceId: exampleNamespace.id,
+ * });
+ * const exampleTopicAuthorizationRule = new azure.servicebus.TopicAuthorizationRule("example", {
+ *     name: "example-rule",
  *     topicId: exampleTopic.id,
  *     listen: false,
  *     send: true,
  *     manage: false,
  * });
- * const exampleEndpointServicebus = new azure.digitaltwins.EndpointServicebus("exampleEndpointServicebus", {
+ * const exampleEndpointServicebus = new azure.digitaltwins.EndpointServicebus("example", {
+ *     name: "example-EndpointSB",
  *     digitalTwinsId: exampleInstance.id,
  *     servicebusPrimaryConnectionString: exampleTopicAuthorizationRule.primaryConnectionString,
  *     servicebusSecondaryConnectionString: exampleTopicAuthorizationRule.secondaryConnectionString,

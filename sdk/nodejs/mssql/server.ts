@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "database-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "mssqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
@@ -39,15 +43,20 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-admin",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * // Create a key vault with access policies which allow for the current user to get, list, create, delete, update, recover, purge and getRotationPolicy for the key vault key and also add a key vault access policy for the Microsoft Sql Server instance User Managed Identity to get, wrap, and unwrap key(s)
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "mssqltdeexample",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     enabledForDiskEncryption: true,
  *     tenantId: exampleUserAssignedIdentity.tenantId,
  *     softDeleteRetentionDays: 7,
@@ -79,7 +88,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -87,12 +97,11 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [exampleKeyVault],
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "Example-Administrator",
  *     administratorLoginPassword: "Example_Password!",

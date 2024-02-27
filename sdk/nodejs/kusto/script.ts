@@ -13,8 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: {
@@ -22,28 +26,32 @@ import * as utilities from "../utilities";
  *         capacity: 1,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "setup-files",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleBlob = new azure.storage.Blob("exampleBlob", {
+ * const exampleBlob = new azure.storage.Blob("example", {
+ *     name: "script.txt",
  *     storageAccountName: exampleAccount.name,
  *     storageContainerName: exampleContainer.name,
  *     type: "Block",
  *     sourceContent: ".create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)",
  * });
- * const exampleAccountBlobContainerSAS = azure.storage.getAccountBlobContainerSASOutput({
+ * const example = azure.storage.getAccountBlobContainerSASOutput({
  *     connectionString: exampleAccount.primaryConnectionString,
  *     containerName: exampleContainer.name,
  *     httpsOnly: true,
@@ -58,10 +66,11 @@ import * as utilities from "../utilities";
  *         list: true,
  *     },
  * });
- * const exampleScript = new azure.kusto.Script("exampleScript", {
+ * const exampleScript = new azure.kusto.Script("example", {
+ *     name: "example",
  *     databaseId: exampleDatabase.id,
  *     url: exampleBlob.id,
- *     sasToken: exampleAccountBlobContainerSAS.apply(exampleAccountBlobContainerSAS => exampleAccountBlobContainerSAS.sas),
+ *     sasToken: example.apply(example => example.sas),
  *     continueOnErrorsEnabled: true,
  *     forceAnUpdateWhenValueChanged: "first",
  * });

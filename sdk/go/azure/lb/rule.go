@@ -32,23 +32,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("LoadBalancerRG"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("PublicIPForLB"),
 //				Location:          pulumi.String("West US"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("TestLoadBalancer"),
 //				Location:          pulumi.String("West US"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
@@ -59,8 +62,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewRule(ctx, "exampleRule", &lb.RuleArgs{
+//			_, err = lb.NewRule(ctx, "example", &lb.RuleArgs{
 //				LoadbalancerId:              exampleLoadBalancer.ID(),
+//				Name:                        pulumi.String("LBRule"),
 //				Protocol:                    pulumi.String("Tcp"),
 //				FrontendPort:                pulumi.Int(3389),
 //				BackendPort:                 pulumi.Int(3389),

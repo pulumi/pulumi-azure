@@ -244,12 +244,16 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
+        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("example",
+            name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
             sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(
@@ -301,12 +305,16 @@ class SpringCloudDevToolPortal(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("exampleSpringCloudDevToolPortal",
+        example_spring_cloud_dev_tool_portal = azure.appplatform.SpringCloudDevToolPortal("example",
+            name="default",
             spring_cloud_service_id=example_spring_cloud_service.id,
             public_network_access_enabled=True,
             sso=azure.appplatform.SpringCloudDevToolPortalSsoArgs(

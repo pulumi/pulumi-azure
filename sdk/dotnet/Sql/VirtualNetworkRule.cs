@@ -26,11 +26,13 @@ namespace Pulumi.Azure.Sql
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-sql-server-vnet-rule",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var vnet = new Azure.Network.VirtualNetwork("vnet", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.7.29.0/29",
@@ -41,6 +43,7 @@ namespace Pulumi.Azure.Sql
     /// 
     ///     var subnet = new Azure.Network.Subnet("subnet", new()
     ///     {
+    ///         Name = "example-subnet",
     ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = vnet.Name,
     ///         AddressPrefixes = new[]
@@ -55,6 +58,7 @@ namespace Pulumi.Azure.Sql
     /// 
     ///     var sqlserver = new Azure.Sql.SqlServer("sqlserver", new()
     ///     {
+    ///         Name = "uniqueazuresqlserver",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Version = "12.0",
@@ -64,6 +68,7 @@ namespace Pulumi.Azure.Sql
     /// 
     ///     var sqlvnetrule = new Azure.Sql.VirtualNetworkRule("sqlvnetrule", new()
     ///     {
+    ///         Name = "sql-vnet-rule",
     ///         ResourceGroupName = example.Name,
     ///         ServerName = sqlserver.Name,
     ///         SubnetId = subnet.Id,

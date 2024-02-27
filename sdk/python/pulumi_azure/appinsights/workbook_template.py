@@ -339,9 +339,12 @@ class WorkbookTemplate(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_workbook_template = azure.appinsights.WorkbookTemplate("example",
+            name="example-aiwt",
+            resource_group_name=example.name,
             location="West Europe",
             author="test author",
             priority=1,
@@ -434,9 +437,12 @@ class WorkbookTemplate(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_workbook_template = azure.appinsights.WorkbookTemplate("exampleWorkbookTemplate",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_workbook_template = azure.appinsights.WorkbookTemplate("example",
+            name="example-aiwt",
+            resource_group_name=example.name,
             location="West Europe",
             author="test author",
             priority=1,

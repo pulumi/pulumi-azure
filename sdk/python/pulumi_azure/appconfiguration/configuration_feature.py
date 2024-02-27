@@ -433,18 +433,22 @@ class ConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",
+            name="test-ackey",
             label="test-ackeylabel",
             enabled=True)
         ```
@@ -494,18 +498,22 @@ class ConfigurationFeature(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         appconf = azure.appconfiguration.ConfigurationStore("appconf",
+            name="appConf1",
             resource_group_name=example.name,
             location=example.location)
         current = azure.core.get_client_config()
-        appconf_dataowner = azure.authorization.Assignment("appconfDataowner",
+        appconf_dataowner = azure.authorization.Assignment("appconf_dataowner",
             scope=appconf.id,
             role_definition_name="App Configuration Data Owner",
             principal_id=current.object_id)
         test = azure.appconfiguration.ConfigurationFeature("test",
             configuration_store_id=appconf.id,
             description="test description",
+            name="test-ackey",
             label="test-ackeylabel",
             enabled=True)
         ```

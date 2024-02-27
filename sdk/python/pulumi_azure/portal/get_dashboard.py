@@ -123,7 +123,7 @@ def get_dashboard(dashboard_properties: Optional[str] = None,
 
     example = azure.portal.get_dashboard(name="existing-dashboard",
         resource_group_name="dashboard-rg")
-    pulumi.export("id", data["azurerm_dashboard"]["example"]["id"])
+    pulumi.export("id", example_azurerm_dashboard["id"])
     ```
 
 
@@ -167,7 +167,7 @@ def get_dashboard_output(dashboard_properties: Optional[pulumi.Input[Optional[st
 
     example = azure.portal.get_dashboard(name="existing-dashboard",
         resource_group_name="dashboard-rg")
-    pulumi.export("id", data["azurerm_dashboard"]["example"]["id"])
+    pulumi.export("id", example_azurerm_dashboard["id"])
     ```
 
 

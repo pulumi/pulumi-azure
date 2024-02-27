@@ -16,6 +16,125 @@ import (
 //
 // > NOTE: A certificate is valid for six months, and about a month before the certificate’s expiration date, App Services renews/rotates the certificate. This is managed by Azure and doesn't require this resource to be changed or reprovisioned. It will change the `thumbprint` computed attribute the next time the resource is refreshed after rotation occurs, so keep that in mind if you have any dependencies on this attribute directly.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/dns"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := dns.LookupZoneOutput(ctx, dns.GetZoneOutputArgs{
+//				Name:              pulumi.String("mydomain.com"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("example-plan"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				Kind:              pulumi.Any("Linux"),
+//				Reserved:          pulumi.Bool(true),
+//				Sku: &appservice.PlanSkuArgs{
+//					Tier: pulumi.String("Basic"),
+//					Size: pulumi.String("B1"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
+//				Name:              pulumi.String("example-app"),
+//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//				AppServicePlanId:  examplePlan.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = dns.NewTxtRecord(ctx, "example", &dns.TxtRecordArgs{
+//				Name: pulumi.String("asuid.mycustomhost.contoso.com"),
+//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//					return &example.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
+//				Ttl: pulumi.Int(300),
+//				Records: dns.TxtRecordRecordArray{
+//					&dns.TxtRecordRecordArgs{
+//						Value: exampleAppService.CustomDomainVerificationId,
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
+//				Name: pulumi.String("example-adcr"),
+//				ZoneName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//					return &example.Name, nil
+//				}).(pulumi.StringPtrOutput),
+//				ResourceGroupName: example.ApplyT(func(example dns.GetZoneResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
+//				}).(pulumi.StringPtrOutput),
+//				Ttl:    pulumi.Int(300),
+//				Record: exampleAppService.DefaultSiteHostname,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleCustomHostnameBinding, err := appservice.NewCustomHostnameBinding(ctx, "example", &appservice.CustomHostnameBindingArgs{
+//				Hostname: std.JoinOutput(ctx, std.JoinOutputArgs{
+//					Separator: pulumi.String("."),
+//					Input: pulumi.StringArray{
+//						exampleCNameRecord.Name,
+//						exampleCNameRecord.ZoneName,
+//					},
+//				}, nil).ApplyT(func(invoke std.JoinResult) (*string, error) {
+//					return invoke.Result, nil
+//				}).(pulumi.StringPtrOutput),
+//				AppServiceName:    exampleAppService.Name,
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleManagedCertificate, err := appservice.NewManagedCertificate(ctx, "example", &appservice.ManagedCertificateArgs{
+//				CustomHostnameBindingId: exampleCustomHostnameBinding.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewCertificateBinding(ctx, "example", &appservice.CertificateBindingArgs{
+//				HostnameBindingId: exampleCustomHostnameBinding.ID(),
+//				CertificateId:     exampleManagedCertificate.ID(),
+//				SslState:          pulumi.String("SniEnabled"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // App Service Managed Certificates can be imported using the `resource id`, e.g.

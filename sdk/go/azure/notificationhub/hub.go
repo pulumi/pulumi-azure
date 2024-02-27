@@ -29,25 +29,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("notificationhub-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := notificationhub.NewNamespace(ctx, "exampleNamespace", &notificationhub.NamespaceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleNamespace, err := notificationhub.NewNamespace(ctx, "example", &notificationhub.NamespaceArgs{
+//				Name:              pulumi.String("myappnamespace"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				NamespaceType:     pulumi.String("NotificationHub"),
 //				SkuName:           pulumi.String("Free"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = notificationhub.NewHub(ctx, "exampleHub", &notificationhub.HubArgs{
+//			_, err = notificationhub.NewHub(ctx, "example", &notificationhub.HubArgs{
+//				Name:              pulumi.String("mynotificationhub"),
 //				NamespaceName:     exampleNamespace.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

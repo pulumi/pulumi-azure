@@ -20,10 +20,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUs"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "EastUs",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "mssqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
@@ -36,7 +40,7 @@ import * as utilities from "../utilities";
  *         environment: "production",
  *     },
  * });
- * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", {serverId: exampleServer.id});
+ * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("example", {serverId: exampleServer.id});
  * ```
  * ### With Customer Managed Key
  *
@@ -45,10 +49,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "EastUs"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "EastUs",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "mssqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
@@ -65,9 +73,10 @@ import * as utilities from "../utilities";
  *     },
  * });
  * // Create a key vault with policies for the deployer to create a key & SQL Server to wrap/unwrap/get key
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     enabledForDiskEncryption: true,
  *     tenantId: current.then(current => current.tenantId),
  *     softDeleteRetentionDays: 7,
@@ -99,7 +108,8 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "byok",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -107,10 +117,8 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [exampleKeyVault],
  * });
- * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", {
+ * const exampleServerTransparentDataEncryption = new azure.mssql.ServerTransparentDataEncryption("example", {
  *     serverId: exampleServer.id,
  *     keyVaultKeyId: exampleKey.id,
  * });

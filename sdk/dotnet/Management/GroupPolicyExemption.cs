@@ -22,20 +22,21 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = new Azure.Management.Group("exampleGroup", new()
+    ///     var exampleGroup = new Azure.Management.Group("example", new()
     ///     {
     ///         DisplayName = "Example MgmtGroup",
     ///     });
     /// 
-    ///     var examplePolicySetDefinition = Azure.Policy.GetPolicySetDefinition.Invoke(new()
+    ///     var example = Azure.Policy.GetPolicySetDefinition.Invoke(new()
     ///     {
     ///         DisplayName = "Audit machines with insecure password security settings",
     ///     });
     /// 
-    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("exampleGroupPolicyAssignment", new()
+    ///     var exampleGroupPolicyAssignment = new Azure.Management.GroupPolicyAssignment("example", new()
     ///     {
+    ///         Name = "assignment1",
     ///         ManagementGroupId = exampleGroup.Id,
-    ///         PolicyDefinitionId = examplePolicySetDefinition.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
+    ///         PolicyDefinitionId = example.Apply(getPolicySetDefinitionResult =&gt; getPolicySetDefinitionResult.Id),
     ///         Location = "westus",
     ///         Identity = new Azure.Management.Inputs.GroupPolicyAssignmentIdentityArgs
     ///         {
@@ -43,8 +44,9 @@ namespace Pulumi.Azure.Management
     ///         },
     ///     });
     /// 
-    ///     var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("exampleGroupPolicyExemption", new()
+    ///     var exampleGroupPolicyExemption = new Azure.Management.GroupPolicyExemption("example", new()
     ///     {
+    ///         Name = "exemption1",
     ///         ManagementGroupId = exampleGroup.Id,
     ///         PolicyAssignmentId = exampleGroupPolicyAssignment.Id,
     ///         ExemptionCategory = "Mitigated",

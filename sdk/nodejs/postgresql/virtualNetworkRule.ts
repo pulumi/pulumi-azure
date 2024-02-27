@@ -15,21 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServer = new azure.postgresql.Server("example", {
+ *     name: "postgresql-server-1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "GP_Gen5_2",
  *     storageMb: 5120,
  *     backupRetentionDays: 7,
@@ -38,8 +44,9 @@ import * as utilities from "../utilities";
  *     version: "9.5",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("exampleVirtualNetworkRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetworkRule = new azure.postgresql.VirtualNetworkRule("example", {
+ *     name: "postgresql-vnet-rule",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     subnetId: internal.id,
  *     ignoreMissingVnetServiceEndpoint: true,

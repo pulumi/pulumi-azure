@@ -38,15 +38,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("examplekeyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -74,6 +76,7 @@ import (
 //				return err
 //			}
 //			_, err = keyvault.NewKey(ctx, "generated", &keyvault.KeyArgs{
+//				Name:       pulumi.String("generated-certificate"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),

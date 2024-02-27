@@ -26,13 +26,14 @@ namespace Pulumi.Azure.PrivateDns
         /// {
         ///     var example = new Azure.PrivateDns.AAAARecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["privateDnsAaaaRecordId"] = example.Id,
+        ///         ["privateDnsAaaaRecordId"] = exampleAzurermPrivateDnsAaaaRecord.Id,
         ///     };
         /// });
         /// ```
@@ -57,13 +58,14 @@ namespace Pulumi.Azure.PrivateDns
         /// {
         ///     var example = new Azure.PrivateDns.AAAARecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["privateDnsAaaaRecordId"] = example.Id,
+        ///         ["privateDnsAaaaRecordId"] = exampleAzurermPrivateDnsAaaaRecord.Id,
         ///     };
         /// });
         /// ```

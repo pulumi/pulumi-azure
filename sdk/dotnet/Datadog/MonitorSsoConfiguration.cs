@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Datadog
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-datadog",
     ///         Location = "West US 2",
     ///     });
     /// 
-    ///     var exampleMonitor = new Azure.Datadog.Monitor("exampleMonitor", new()
+    ///     var exampleMonitor = new Azure.Datadog.Monitor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-monitor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DatadogOrganization = new Azure.Datadog.Inputs.MonitorDatadogOrganizationArgs
     ///         {
     ///             ApiKey = "XXXX",
@@ -48,7 +50,7 @@ namespace Pulumi.Azure.Datadog
     ///         },
     ///     });
     /// 
-    ///     var exampleMonitorSsoConfiguration = new Azure.Datadog.MonitorSsoConfiguration("exampleMonitorSsoConfiguration", new()
+    ///     var exampleMonitorSsoConfiguration = new Azure.Datadog.MonitorSsoConfiguration("example", new()
     ///     {
     ///         DatadogMonitorId = exampleMonitor.Id,
     ///         SingleSignOnEnabled = "Enable",

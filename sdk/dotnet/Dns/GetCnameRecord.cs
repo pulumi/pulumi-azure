@@ -26,13 +26,14 @@ namespace Pulumi.Azure.Dns
         /// {
         ///     var example = new Azure.Dns.CNameRecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCnameRecordId"] = example.Id,
+        ///         ["dnsCnameRecordId"] = exampleAzurermDnsCnameRecord.Id,
         ///     };
         /// });
         /// ```
@@ -57,13 +58,14 @@ namespace Pulumi.Azure.Dns
         /// {
         ///     var example = new Azure.Dns.CNameRecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCnameRecordId"] = example.Id,
+        ///         ["dnsCnameRecordId"] = exampleAzurermDnsCnameRecord.Id,
         ///     };
         /// });
         /// ```

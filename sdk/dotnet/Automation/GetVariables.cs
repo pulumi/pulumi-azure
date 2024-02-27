@@ -26,20 +26,20 @@ namespace Pulumi.Azure.Automation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
+        ///     var example = Azure.Automation.GetAccount.Invoke(new()
         ///     {
         ///         Name = "example-account",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
+        ///     var exampleGetVariables = Azure.Automation.GetVariables.Invoke(new()
         ///     {
-        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         AutomationAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
+        ///         ["stringVars"] = exampleAzurermAutomationVariableString.String,
         ///     };
         /// });
         /// ```
@@ -64,20 +64,20 @@ namespace Pulumi.Azure.Automation
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleAccount = Azure.Automation.GetAccount.Invoke(new()
+        ///     var example = Azure.Automation.GetAccount.Invoke(new()
         ///     {
         ///         Name = "example-account",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
-        ///     var exampleVariables = Azure.Automation.GetVariables.Invoke(new()
+        ///     var exampleGetVariables = Azure.Automation.GetVariables.Invoke(new()
         ///     {
-        ///         AutomationAccountId = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Id),
+        ///         AutomationAccountId = example.Apply(getAccountResult =&gt; getAccountResult.Id),
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["stringVars"] = data.Azurerm_automation_variable_string.Example.String,
+        ///         ["stringVars"] = exampleAzurermAutomationVariableString.String,
         ///     };
         /// });
         /// ```

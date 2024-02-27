@@ -47,10 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;analysis-services-server-test&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var server = new Server(&#34;server&#34;, ServerArgs.builder()        
+ *             .name(&#34;analysisservicesserver&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;S0&#34;)

@@ -22,23 +22,26 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mysqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///         OutboundNetworkRestrictionEnabled = true,
     ///     });
     /// 
-    ///     var exampleOutboundFirewallRule = new Azure.MSSql.OutboundFirewallRule("exampleOutboundFirewallRule", new()
+    ///     var exampleOutboundFirewallRule = new Azure.MSSql.OutboundFirewallRule("example", new()
     ///     {
+    ///         Name = "sqlexamplefdqn.database.windows.net",
     ///         ServerId = exampleServer.Id,
     ///     });
     /// 

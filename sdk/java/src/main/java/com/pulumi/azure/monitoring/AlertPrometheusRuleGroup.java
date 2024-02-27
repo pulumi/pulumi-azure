@@ -21,6 +21,116 @@ import javax.annotation.Nullable;
 /**
  * Manages an Alert Management Prometheus Rule Group.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.monitoring.ActionGroup;
+ * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.monitoring.Workspace;
+ * import com.pulumi.azure.monitoring.WorkspaceArgs;
+ * import com.pulumi.azure.containerservice.KubernetesCluster;
+ * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterDefaultNodePoolArgs;
+ * import com.pulumi.azure.containerservice.inputs.KubernetesClusterIdentityArgs;
+ * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroup;
+ * import com.pulumi.azure.monitoring.AlertPrometheusRuleGroupArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleArgs;
+ * import com.pulumi.azure.monitoring.inputs.AlertPrometheusRuleGroupRuleAlertResolutionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
+ *             .name(&#34;example-mag&#34;)
+ *             .resourceGroupName(example.name())
+ *             .shortName(&#34;testag&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;example-amw&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .build());
+ * 
+ *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
+ *             .name(&#34;example-cluster&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .dnsPrefix(&#34;example-aks&#34;)
+ *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
+ *                 .name(&#34;default&#34;)
+ *                 .nodeCount(1)
+ *                 .vmSize(&#34;Standard_DS2_v2&#34;)
+ *                 .enableHostEncryption(true)
+ *                 .build())
+ *             .identity(KubernetesClusterIdentityArgs.builder()
+ *                 .type(&#34;SystemAssigned&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var exampleAlertPrometheusRuleGroup = new AlertPrometheusRuleGroup(&#34;exampleAlertPrometheusRuleGroup&#34;, AlertPrometheusRuleGroupArgs.builder()        
+ *             .name(&#34;example-amprg&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .resourceGroupName(example.name())
+ *             .clusterName(exampleKubernetesCluster.name())
+ *             .description(&#34;This is the description of the following rule group&#34;)
+ *             .ruleGroupEnabled(false)
+ *             .interval(&#34;PT1M&#34;)
+ *             .scopes(exampleWorkspace.id())
+ *             .rules(            
+ *                 AlertPrometheusRuleGroupRuleArgs.builder()
+ *                     .enabled(false)
+ *                     .expression(&#34;&#34;&#34;
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
+ *                     &#34;&#34;&#34;)
+ *                     .record(&#34;job_type:billing_jobs_duration_seconds:99p5m&#34;)
+ *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
+ *                     .build(),
+ *                 AlertPrometheusRuleGroupRuleArgs.builder()
+ *                     .alert(&#34;Billing_Processing_Very_Slow&#34;)
+ *                     .enabled(true)
+ *                     .expression(&#34;&#34;&#34;
+ * histogram_quantile(0.99, sum(rate(jobs_duration_seconds_bucket{service=&#34;billing-processing&#34;}[5m])) by (job_type))
+ *                     &#34;&#34;&#34;)
+ *                     .for_(&#34;PT5M&#34;)
+ *                     .severity(2)
+ *                     .actions(AlertPrometheusRuleGroupRuleActionArgs.builder()
+ *                         .actionGroupId(exampleActionGroup.id())
+ *                         .build())
+ *                     .alertResolution(AlertPrometheusRuleGroupRuleAlertResolutionArgs.builder()
+ *                         .autoResolved(true)
+ *                         .timeToResolve(&#34;PT10M&#34;)
+ *                         .build())
+ *                     .annotations(Map.of(&#34;annotationName&#34;, &#34;annotationValue&#34;))
+ *                     .labels(Map.of(&#34;team&#34;, &#34;prod&#34;))
+ *                     .build())
+ *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Alert Management Prometheus Rule Group can be imported using the `resource id`, e.g.

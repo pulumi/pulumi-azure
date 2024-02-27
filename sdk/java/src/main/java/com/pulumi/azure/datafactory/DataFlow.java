@@ -66,23 +66,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleLinkedCustomService = new LinkedCustomService(&#34;exampleLinkedCustomService&#34;, LinkedCustomServiceArgs.builder()        
+ *             .name(&#34;linked_service&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .type(&#34;AzureBlobStorage&#34;)
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
@@ -92,7 +96,8 @@ import javax.annotation.Nullable;
  * &#34;, primaryConnectionString)))
  *             .build());
  * 
- *         var example1DatasetJson = new DatasetJson(&#34;example1DatasetJson&#34;, DatasetJsonArgs.builder()        
+ *         var example1 = new DatasetJson(&#34;example1&#34;, DatasetJsonArgs.builder()        
+ *             .name(&#34;dataset1&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
@@ -103,7 +108,8 @@ import javax.annotation.Nullable;
  *             .encoding(&#34;UTF-8&#34;)
  *             .build());
  * 
- *         var example2DatasetJson = new DatasetJson(&#34;example2DatasetJson&#34;, DatasetJsonArgs.builder()        
+ *         var example2 = new DatasetJson(&#34;example2&#34;, DatasetJsonArgs.builder()        
+ *             .name(&#34;dataset2&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedCustomService.name())
  *             .azureBlobStorageLocation(DatasetJsonAzureBlobStorageLocationArgs.builder()
@@ -115,6 +121,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1FlowletDataFlow = new FlowletDataFlow(&#34;example1FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
  *                 .name(&#34;source1&#34;)
@@ -144,6 +151,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example2FlowletDataFlow = new FlowletDataFlow(&#34;example2FlowletDataFlow&#34;, FlowletDataFlowArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(FlowletDataFlowSourceArgs.builder()
  *                 .name(&#34;source1&#34;)
@@ -173,6 +181,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataFlow = new DataFlow(&#34;exampleDataFlow&#34;, DataFlowArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .sources(DataFlowSourceArgs.builder()
  *                 .name(&#34;source1&#34;)
@@ -181,7 +190,7 @@ import javax.annotation.Nullable;
  *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
  *                     .build())
  *                 .dataset(DataFlowSourceDatasetArgs.builder()
- *                     .name(example1DatasetJson.name())
+ *                     .name(example1.name())
  *                     .build())
  *                 .build())
  *             .sinks(DataFlowSinkArgs.builder()
@@ -191,7 +200,7 @@ import javax.annotation.Nullable;
  *                     .parameters(Map.of(&#34;Key1&#34;, &#34;value1&#34;))
  *                     .build())
  *                 .dataset(DataFlowSinkDatasetArgs.builder()
- *                     .name(example2DatasetJson.name())
+ *                     .name(example2.name())
  *                     .build())
  *                 .build())
  *             .script(&#34;&#34;&#34;

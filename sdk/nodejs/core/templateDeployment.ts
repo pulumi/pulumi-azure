@@ -19,9 +19,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleTemplateDeployment = new azure.core.TemplateDeployment("exampleTemplateDeployment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleTemplateDeployment = new azure.core.TemplateDeployment("example", {
+ *     name: "acctesttemplate-01",
+ *     resourceGroupName: example.name,
  *     templateBody: `{
  *   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
  *   "contentVersion": "1.0.0.0",

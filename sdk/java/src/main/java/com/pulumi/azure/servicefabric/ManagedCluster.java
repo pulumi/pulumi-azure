@@ -50,7 +50,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ManagedCluster(&#34;example&#34;, ManagedClusterArgs.builder()        
- *             .clientConnectionPort(12345)
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(&#34;example&#34;)
+ *             .location(&#34;West Europe&#34;)
  *             .httpGatewayPort(4567)
  *             .lbRules(ManagedClusterLbRuleArgs.builder()
  *                 .backendPort(38080)
@@ -59,21 +61,20 @@ import javax.annotation.Nullable;
  *                 .probeRequestPath(&#34;/test&#34;)
  *                 .protocol(&#34;tcp&#34;)
  *                 .build())
- *             .location(&#34;West Europe&#34;)
+ *             .clientConnectionPort(12345)
  *             .nodeTypes(ManagedClusterNodeTypeArgs.builder()
- *                 .applicationPortRange(&#34;30000-49000&#34;)
  *                 .dataDiskSizeGb(130)
- *                 .ephemeralPortRange(&#34;10000-20000&#34;)
  *                 .name(&#34;test1&#34;)
  *                 .primary(true)
- *                 .vmImageOffer(&#34;WindowsServer&#34;)
+ *                 .applicationPortRange(&#34;30000-49000&#34;)
+ *                 .ephemeralPortRange(&#34;10000-20000&#34;)
+ *                 .vmSize(&#34;Standard_DS1_v2&#34;)
  *                 .vmImagePublisher(&#34;MicrosoftWindowsServer&#34;)
  *                 .vmImageSku(&#34;2019-Datacenter-with-Containers&#34;)
+ *                 .vmImageOffer(&#34;WindowsServer&#34;)
  *                 .vmImageVersion(&#34;latest&#34;)
  *                 .vmInstanceCount(5)
- *                 .vmSize(&#34;Standard_DS1_v2&#34;)
  *                 .build())
- *             .resourceGroupName(&#34;example&#34;)
  *             .build());
  * 
  *     }

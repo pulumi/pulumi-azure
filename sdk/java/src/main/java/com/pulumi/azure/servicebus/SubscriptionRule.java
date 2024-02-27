@@ -52,28 +52,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-servicebus-subscription-rule-sql&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-servicebus-namespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;tfex_servicebus_topic&#34;)
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
+ *             .name(&#34;tfex_servicebus_subscription&#34;)
  *             .topicId(exampleTopic.id())
  *             .maxDeliveryCount(1)
  *             .build());
  * 
  *         var exampleSubscriptionRule = new SubscriptionRule(&#34;exampleSubscriptionRule&#34;, SubscriptionRuleArgs.builder()        
+ *             .name(&#34;tfex_servicebus_rule&#34;)
  *             .subscriptionId(exampleSubscription.id())
  *             .filterType(&#34;SqlFilter&#34;)
  *             .sqlFilter(&#34;colour = &#39;red&#39;&#34;)
@@ -113,28 +118,33 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-servicebus-subscription-rule-cor&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-servicebus-namespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .tags(Map.of(&#34;source&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
+ *             .name(&#34;tfex_servicebus_topic&#34;)
  *             .namespaceId(exampleNamespace.id())
  *             .enablePartitioning(true)
  *             .build());
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
+ *             .name(&#34;tfex_servicebus_subscription&#34;)
  *             .topicId(exampleTopic.id())
  *             .maxDeliveryCount(1)
  *             .build());
  * 
  *         var exampleSubscriptionRule = new SubscriptionRule(&#34;exampleSubscriptionRule&#34;, SubscriptionRuleArgs.builder()        
+ *             .name(&#34;tfex_servicebus_rule&#34;)
  *             .subscriptionId(exampleSubscription.id())
  *             .filterType(&#34;CorrelationFilter&#34;)
  *             .correlationFilter(SubscriptionRuleCorrelationFilterArgs.builder()

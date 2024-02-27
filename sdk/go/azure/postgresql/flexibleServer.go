@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -47,8 +49,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-sn"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -71,25 +74,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := privatedns.NewZone(ctx, "exampleZone", &privatedns.ZoneArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleZone, err := privatedns.NewZone(ctx, "example", &privatedns.ZoneArgs{
+//				Name:              pulumi.String("example.postgres.database.azure.com"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleZoneVirtualNetworkLink, err := privatedns.NewZoneVirtualNetworkLink(ctx, "exampleZoneVirtualNetworkLink", &privatedns.ZoneVirtualNetworkLinkArgs{
+//			_, err = privatedns.NewZoneVirtualNetworkLink(ctx, "example", &privatedns.ZoneVirtualNetworkLinkArgs{
+//				Name:               pulumi.String("exampleVnetZone.com"),
 //				PrivateDnsZoneName: exampleZone.Name,
 //				VirtualNetworkId:   exampleVirtualNetwork.ID(),
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSubnet,
-//			}))
+//				ResourceGroupName:  example.Name,
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
+//			_, err = postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-psqlflexibleserver"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
 //				Version:               pulumi.String("12"),
 //				DelegatedSubnetId:     exampleSubnet.ID(),
 //				PrivateDnsZoneId:      exampleZone.ID(),
@@ -98,9 +102,7 @@ import (
 //				Zone:                  pulumi.String("1"),
 //				StorageMb:             pulumi.Int(32768),
 //				SkuName:               pulumi.String("GP_Standard_D4s_v3"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleZoneVirtualNetworkLink,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

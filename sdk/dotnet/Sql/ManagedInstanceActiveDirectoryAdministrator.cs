@@ -24,37 +24,32 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("exampleManagedInstance", new()
+    ///     var exampleManagedInstance = new Azure.Sql.ManagedInstance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "managedsqlinstance",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
-    ///         SubnetId = azurerm_subnet.Example.Id,
+    ///         SubnetId = exampleAzurermSubnet.Id,
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_subnet_network_security_group_association.Example,
-    ///             azurerm_subnet_route_table_association.Example,
-    ///         },
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator", new()
+    ///     var exampleManagedInstanceActiveDirectoryAdministrator = new Azure.Sql.ManagedInstanceActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ManagedInstanceName = exampleManagedInstance.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Login = "sqladmin",
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),

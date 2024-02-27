@@ -22,20 +22,23 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-uai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli", new()
+    ///     var exampleResourceDeploymentScriptAzureCli = new Azure.Core.ResourceDeploymentScriptAzureCli("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-rdsac",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         Version = "2.40.0",
     ///         RetentionInterval = "P1D",

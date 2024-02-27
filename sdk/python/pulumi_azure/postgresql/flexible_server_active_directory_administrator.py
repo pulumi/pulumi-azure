@@ -236,9 +236,12 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(object_id=current.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
+        example = azuread.get_service_principal(object_id=current.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-fs",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             administrator_login="adminTerraform",
@@ -251,12 +254,12 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
                 active_directory_auth_enabled=True,
                 tenant_id=current.tenant_id,
             ))
-        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator",
+        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
             server_name=example_flexible_server.name,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
-            object_id=example_service_principal.object_id,
-            principal_name=example_service_principal.display_name,
+            object_id=example.object_id,
+            principal_name=example.display_name,
             principal_type="ServicePrincipal")
         ```
 
@@ -294,9 +297,12 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azuread as azuread
 
         current = azure.core.get_client_config()
-        example_service_principal = azuread.get_service_principal(object_id=current.object_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_flexible_server = azure.postgresql.FlexibleServer("exampleFlexibleServer",
+        example = azuread.get_service_principal(object_id=current.object_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_flexible_server = azure.postgresql.FlexibleServer("example",
+            name="example-fs",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             administrator_login="adminTerraform",
@@ -309,12 +315,12 @@ class FlexibleServerActiveDirectoryAdministrator(pulumi.CustomResource):
                 active_directory_auth_enabled=True,
                 tenant_id=current.tenant_id,
             ))
-        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator",
+        example_flexible_server_active_directory_administrator = azure.postgresql.FlexibleServerActiveDirectoryAdministrator("example",
             server_name=example_flexible_server.name,
             resource_group_name=example_resource_group.name,
             tenant_id=current.tenant_id,
-            object_id=example_service_principal.object_id,
-            principal_name=example_service_principal.display_name,
+            object_id=example.object_id,
+            principal_name=example.display_name,
             principal_type="ServicePrincipal")
         ```
 

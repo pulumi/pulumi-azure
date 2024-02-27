@@ -13,13 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "pergb2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
  *     solutionName: "SecurityInsights",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -30,13 +34,14 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/SecurityInsights",
  *     },
  * });
- * const exampleAlertRuleTemplate = azure.sentinel.getAlertRuleTemplateOutput({
+ * const example = azure.sentinel.getAlertRuleTemplateOutput({
  *     displayName: "(Preview) Microsoft Defender Threat Intelligence Analytics",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
  * });
- * const exampleAlertRuleThreatIntelligence = new azure.sentinel.AlertRuleThreatIntelligence("exampleAlertRuleThreatIntelligence", {
+ * const exampleAlertRuleThreatIntelligence = new azure.sentinel.AlertRuleThreatIntelligence("example", {
+ *     name: "example-rule",
  *     logAnalyticsWorkspaceId: exampleAnalyticsSolution.workspaceResourceId,
- *     alertRuleTemplateGuid: exampleAlertRuleTemplate.apply(exampleAlertRuleTemplate => exampleAlertRuleTemplate.name),
+ *     alertRuleTemplateGuid: example.apply(example => example.name),
  * });
  * ```
  *

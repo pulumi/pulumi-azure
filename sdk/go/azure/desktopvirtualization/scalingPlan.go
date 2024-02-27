@@ -38,17 +38,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleRandomUuid, err := random.NewRandomUuid(ctx, "exampleRandomUuid", nil)
+//			exampleRandomUuid, err := random.NewRandomUuid(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "exampleRoleDefinition", &authorization.RoleDefinitionArgs{
+//			exampleRoleDefinition, err := authorization.NewRoleDefinition(ctx, "example", &authorization.RoleDefinitionArgs{
+//				Name:        pulumi.String("AVD-AutoScale"),
 //				Scope:       exampleResourceGroup.ID(),
 //				Description: pulumi.String("AVD AutoScale Role"),
 //				Permissions: authorization.RoleDefinitionPermissionArray{
@@ -79,23 +81,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("Windows Virtual Desktop"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Name:                         exampleRandomUuid.Result,
 //				Scope:                        exampleResourceGroup.ID(),
 //				RoleDefinitionId:             exampleRoleDefinition.RoleDefinitionResourceId,
-//				PrincipalId:                  *pulumi.String(exampleServicePrincipal.Id),
+//				PrincipalId:                  *pulumi.String(example.Id),
 //				SkipServicePrincipalAadCheck: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
+//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
+//				Name:                pulumi.String("example-hostpool"),
 //				Location:            exampleResourceGroup.Location,
 //				ResourceGroupName:   exampleResourceGroup.Name,
 //				Type:                pulumi.String("Pooled"),
@@ -105,7 +108,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = desktopvirtualization.NewScalingPlan(ctx, "exampleScalingPlan", &desktopvirtualization.ScalingPlanArgs{
+//			_, err = desktopvirtualization.NewScalingPlan(ctx, "example", &desktopvirtualization.ScalingPlanArgs{
+//				Name:              pulumi.String("example-scaling-plan"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				FriendlyName:      pulumi.String("Scaling Plan Example"),

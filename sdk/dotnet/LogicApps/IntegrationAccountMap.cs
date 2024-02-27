@@ -16,31 +16,37 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ia",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountMap = new Azure.LogicApps.IntegrationAccountMap("exampleIntegrationAccountMap", new()
+    ///     var exampleIntegrationAccountMap = new Azure.LogicApps.IntegrationAccountMap("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-iamap",
+    ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         MapType = "Xslt",
-    ///         Content = File.ReadAllText("testdata/integration_account_map_content.xsd"),
+    ///         Content = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "testdata/integration_account_map_content.xsd",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

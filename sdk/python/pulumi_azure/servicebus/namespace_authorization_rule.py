@@ -310,15 +310,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West US")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             tags={
                 "source": "example",
             })
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
+            name="examplerule",
             namespace_id=example_namespace.id,
             listen=True,
             send=True,
@@ -358,15 +362,19 @@ class NamespaceAuthorizationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-servicebus",
+            location="West US")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="tfex-servicebus-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             tags={
                 "source": "example",
             })
-        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule",
+        example_namespace_authorization_rule = azure.servicebus.NamespaceAuthorizationRule("example",
+            name="examplerule",
             namespace_id=example_namespace.id,
             listen=True,
             send=True,

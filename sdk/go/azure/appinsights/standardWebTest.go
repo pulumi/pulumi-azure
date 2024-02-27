@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appinsights.NewStandardWebTest(ctx, "exampleStandardWebTest", &appinsights.StandardWebTestArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = appinsights.NewStandardWebTest(ctx, "example", &appinsights.StandardWebTestArgs{
+//				Name:                  pulumi.String("example-test"),
+//				ResourceGroupName:     example.Name,
 //				Location:              pulumi.String("West Europe"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				GeoLocations: pulumi.StringArray{

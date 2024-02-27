@@ -14,13 +14,19 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCertificate = new azure.appservice.Certificate("exampleCertificate", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
- *     pfxBlob: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCertificate = new azure.appservice.Certificate("example", {
+ *     name: "example-cert",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     pfxBlob: std.filebase64({
+ *         input: "certificate.pfx",
+ *     }).then(invoke => invoke.result),
  *     password: "password123!",
  * });
  * ```

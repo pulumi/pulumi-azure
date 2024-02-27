@@ -62,10 +62,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *         var example = new Insights(&#34;example&#34;, InsightsArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .applicationType(&#34;example-value&#34;)
@@ -74,21 +76,23 @@ import javax.annotation.Nullable;
  *         final var test = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .tenantId(data.azurerm_client_config().example().tenant_id())
+ *             .tenantId(exampleAzurermClientConfig.tenantId())
  *             .skuName(&#34;example-value&#34;)
  *             .softDeleteRetentionDays(&#34;example-value&#34;)
  *             .build());
  * 
  *         var exampleAccessPolicy = new AccessPolicy(&#34;exampleAccessPolicy&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
- *             .tenantId(data.azurerm_client_config().example().tenant_id())
- *             .objectId(data.azurerm_client_config().example().object_id())
+ *             .tenantId(exampleAzurermClientConfig.tenantId())
+ *             .objectId(exampleAzurermClientConfig.objectId())
  *             .keyPermissions(&#34;example-value&#34;)
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .dnsPrefix(&#34;acctestaksexample&#34;)
@@ -103,6 +107,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountTier(&#34;example-value&#34;)
@@ -110,11 +115,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
- *             .applicationInsightsId(exampleInsights.id())
+ *             .applicationInsightsId(example.id())
  *             .identity(WorkspaceIdentityArgs.builder()
  *                 .type(&#34;example-value&#34;)
  *                 .build())
@@ -122,6 +128,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleClusterTrustedAccessRoleBinding = new ClusterTrustedAccessRoleBinding(&#34;exampleClusterTrustedAccessRoleBinding&#34;, ClusterTrustedAccessRoleBindingArgs.builder()        
  *             .kubernetesClusterId(exampleKubernetesCluster.id())
+ *             .name(&#34;example&#34;)
  *             .roles(&#34;example-value&#34;)
  *             .sourceResourceId(exampleWorkspace.id())
  *             .build());

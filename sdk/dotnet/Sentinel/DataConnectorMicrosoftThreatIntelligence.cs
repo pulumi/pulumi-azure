@@ -22,25 +22,28 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleDataConnectorMicrosoftThreatIntelligence = new Azure.Sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", new()
+    ///     var exampleDataConnectorMicrosoftThreatIntelligence = new Azure.Sentinel.DataConnectorMicrosoftThreatIntelligence("example", new()
     ///     {
+    ///         Name = "example-dc-msti",
     ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         MicrosoftEmergingThreatFeedLookbackDate = "1970-01-01T00:00:00Z",
     ///     });

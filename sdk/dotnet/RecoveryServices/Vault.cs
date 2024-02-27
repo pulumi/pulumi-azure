@@ -24,11 +24,13 @@ namespace Pulumi.Azure.RecoveryServices
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-recovery_vault",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
+    ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",

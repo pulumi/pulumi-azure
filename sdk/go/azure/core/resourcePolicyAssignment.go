@@ -30,14 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//			example, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
 //				Name:              "production",
 //				ResourceGroupName: "networking",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := policy.NewDefinition(ctx, "exampleDefinition", &policy.DefinitionArgs{
+//			exampleDefinition, err := policy.NewDefinition(ctx, "example", &policy.DefinitionArgs{
+//				Name:        pulumi.String("only-deploy-in-westeurope"),
 //				PolicyType:  pulumi.String("Custom"),
 //				Mode:        pulumi.String("All"),
 //				DisplayName: pulumi.String("my-policy-definition"),
@@ -59,8 +60,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
-//				ResourceId:         *pulumi.String(exampleVirtualNetwork.Id),
+//			_, err = core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
+//				Name:               pulumi.String("example-policy-assignment"),
+//				ResourceId:         *pulumi.String(example.Id),
 //				PolicyDefinitionId: exampleDefinition.ID(),
 //			})
 //			if err != nil {

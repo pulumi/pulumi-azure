@@ -45,14 +45,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .pfxBlob(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate.pfx&#34;))))
+ *             .name(&#34;example-cert&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .pfxBlob(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;certificate.pfx&#34;)
+ *                 .build()).result())
  *             .password(&#34;password123!&#34;)
  *             .build());
  * 

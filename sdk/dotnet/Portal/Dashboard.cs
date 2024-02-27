@@ -25,17 +25,21 @@ namespace Pulumi.Azure.Portal
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var config = new Config();
+    ///     // Content for the MD tile
     ///     var mdContent = config.Get("mdContent") ?? "# Hello all :)";
+    ///     // Link to a video
     ///     var videoLink = config.Get("videoLink") ?? "https://www.youtube.com/watch?v=......";
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "mygroup",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var my_board = new Azure.Portal.Dashboard("my-board", new()
     ///     {
+    ///         Name = "my-cool-dashboard",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Tags = 

@@ -23,20 +23,22 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourceGroup1",
     ///         Location = "westus",
     ///     });
     /// 
-    ///     var examplePolicyDefintion = Azure.Policy.GetPolicyDefintion.Invoke(new()
+    ///     var example = Azure.Policy.GetPolicyDefintion.Invoke(new()
     ///     {
     ///         DisplayName = "Allowed locations",
     ///     });
     /// 
-    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment", new()
+    ///     var exampleResourceGroupPolicyAssignment = new Azure.Core.ResourceGroupPolicyAssignment("example", new()
     ///     {
+    ///         Name = "exampleAssignment",
     ///         ResourceGroupId = exampleResourceGroup.Id,
-    ///         PolicyDefinitionId = examplePolicyDefintion.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
+    ///         PolicyDefinitionId = example.Apply(getPolicyDefintionResult =&gt; getPolicyDefintionResult.Id),
     ///         Parameters = Output.JsonSerialize(Output.Create(new Dictionary&lt;string, object?&gt;
     ///         {
     ///             ["listOfAllowedLocations"] = new Dictionary&lt;string, object?&gt;
@@ -49,8 +51,9 @@ namespace Pulumi.Azure.Core
     ///         })),
     ///     });
     /// 
-    ///     var exampleResourceGroupPolicyExemption = new Azure.Core.ResourceGroupPolicyExemption("exampleResourceGroupPolicyExemption", new()
+    ///     var exampleResourceGroupPolicyExemption = new Azure.Core.ResourceGroupPolicyExemption("example", new()
     ///     {
+    ///         Name = "exampleExemption",
     ///         ResourceGroupId = exampleResourceGroup.Id,
     ///         PolicyAssignmentId = exampleResourceGroupPolicyAssignment.Id,
     ///         ExemptionCategory = "Mitigated",

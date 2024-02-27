@@ -49,17 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleaccount&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplepool&#34;)
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
  *             .nodeAgentSkuId(&#34;batch.node.ubuntu 16.04&#34;)
  *             .vmSize(&#34;Standard_A1&#34;)
@@ -75,6 +78,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleJob = new Job(&#34;exampleJob&#34;, JobArgs.builder()        
+ *             .name(&#34;examplejob&#34;)
  *             .batchPoolId(examplePool.id())
  *             .build());
  * 

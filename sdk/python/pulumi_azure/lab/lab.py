@@ -468,10 +468,13 @@ class Lab(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,
@@ -533,10 +536,13 @@ class Lab(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,

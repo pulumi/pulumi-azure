@@ -32,29 +32,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
+//				Name:          pulumi.String("linked_service"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
@@ -64,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example1DatasetJson, err := datafactory.NewDatasetJson(ctx, "example1DatasetJson", &datafactory.DatasetJsonArgs{
+//			example1, err := datafactory.NewDatasetJson(ctx, "example1", &datafactory.DatasetJsonArgs{
+//				Name:              pulumi.String("dataset1"),
 //				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
@@ -77,7 +82,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2DatasetJson, err := datafactory.NewDatasetJson(ctx, "example2DatasetJson", &datafactory.DatasetJsonArgs{
+//			example2, err := datafactory.NewDatasetJson(ctx, "example2", &datafactory.DatasetJsonArgs{
+//				Name:              pulumi.String("dataset2"),
 //				DataFactoryId:     exampleFactory.ID(),
 //				LinkedServiceName: exampleLinkedCustomService.Name,
 //				AzureBlobStorageLocation: &datafactory.DatasetJsonAzureBlobStorageLocationArgs{
@@ -90,7 +96,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
+//			example1FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example1", &datafactory.FlowletDataFlowArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
@@ -128,7 +135,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2FlowletDataFlow", &datafactory.FlowletDataFlowArgs{
+//			example2FlowletDataFlow, err := datafactory.NewFlowletDataFlow(ctx, "example2", &datafactory.FlowletDataFlowArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.FlowletDataFlowSourceArray{
 //					&datafactory.FlowletDataFlowSourceArgs{
@@ -166,7 +174,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewDataFlow(ctx, "exampleDataFlow", &datafactory.DataFlowArgs{
+//			_, err = datafactory.NewDataFlow(ctx, "example", &datafactory.DataFlowArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Sources: datafactory.DataFlowSourceArray{
 //					&datafactory.DataFlowSourceArgs{
@@ -178,7 +187,7 @@ import (
 //							},
 //						},
 //						Dataset: &datafactory.DataFlowSourceDatasetArgs{
-//							Name: example1DatasetJson.Name,
+//							Name: example1.Name,
 //						},
 //					},
 //				},
@@ -192,7 +201,7 @@ import (
 //							},
 //						},
 //						Dataset: &datafactory.DataFlowSinkDatasetArgs{
-//							Name: example2DatasetJson.Name,
+//							Name: example2.Name,
 //						},
 //					},
 //				},

@@ -42,20 +42,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mysql-flexible-server&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .administratorLogin(&#34;mysqladminun&#34;)
  *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
  *             .skuName(&#34;B_Standard_B1s&#34;)
  *             .build());
  * 
  *         var exampleFlexibleDatabase = new FlexibleDatabase(&#34;exampleFlexibleDatabase&#34;, FlexibleDatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampledb&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleFlexibleServer.name())
  *             .charset(&#34;utf8&#34;)
  *             .collation(&#34;utf8_unicode_ci&#34;)

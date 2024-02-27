@@ -13,20 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "Example Management Group"});
- * const examplePolicyDefintion = azure.policy.getPolicyDefintion({
+ * const exampleGroup = new azure.management.Group("example", {displayName: "Example Management Group"});
+ * const example = azure.policy.getPolicyDefintion({
  *     displayName: "Allowed locations",
  * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment", {
+ * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
+ *     name: "exampleAssignment",
  *     managementGroupId: exampleGroup.id,
- *     policyDefinitionId: examplePolicyDefintion.then(examplePolicyDefintion => examplePolicyDefintion.id),
+ *     policyDefinitionId: example.then(example => example.id),
  *     parameters: JSON.stringify({
  *         listOfAllowedLocations: {
  *             value: ["East US"],
  *         },
  *     }),
  * });
- * const exampleGroupPolicyRemediation = new azure.management.GroupPolicyRemediation("exampleGroupPolicyRemediation", {
+ * const exampleGroupPolicyRemediation = new azure.management.GroupPolicyRemediation("example", {
+ *     name: "example",
  *     managementGroupId: exampleGroup.id,
  *     policyAssignmentId: exampleGroupPolicyAssignment.id,
  * });

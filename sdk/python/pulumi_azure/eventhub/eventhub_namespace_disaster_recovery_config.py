@@ -171,17 +171,22 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="eventhub-replication",
+            location="West Europe")
         primary = azure.eventhub.EventHubNamespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="eventhub-primary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         secondary = azure.eventhub.EventHubNamespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="eventhub-secondary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",
-            resource_group_name=example_resource_group.name,
+        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("example",
+            name="replicate-eventhub",
+            resource_group_name=example.name,
             namespace_name=primary.name,
             partner_namespace_id=secondary.id)
         ```
@@ -216,17 +221,22 @@ class EventhubNamespaceDisasterRecoveryConfig(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="eventhub-replication",
+            location="West Europe")
         primary = azure.eventhub.EventHubNamespace("primary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="eventhub-primary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
         secondary = azure.eventhub.EventHubNamespace("secondary",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            name="eventhub-secondary",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("exampleEventhubNamespaceDisasterRecoveryConfig",
-            resource_group_name=example_resource_group.name,
+        example_eventhub_namespace_disaster_recovery_config = azure.eventhub.EventhubNamespaceDisasterRecoveryConfig("example",
+            name="replicate-eventhub",
+            resource_group_name=example.name,
             namespace_name=primary.name,
             partner_namespace_id=secondary.id)
         ```

@@ -31,21 +31,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroup1"),
 //				Location: pulumi.String("westus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
+//			example, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
 //				DisplayName: pulumi.StringRef("Allowed locations"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "exampleResourceGroupPolicyAssignment", &core.ResourceGroupPolicyAssignmentArgs{
+//			exampleResourceGroupPolicyAssignment, err := core.NewResourceGroupPolicyAssignment(ctx, "example", &core.ResourceGroupPolicyAssignmentArgs{
+//				Name:               pulumi.String("exampleAssignment"),
 //				ResourceGroupId:    exampleResourceGroup.ID(),
-//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
+//				PolicyDefinitionId: *pulumi.String(example.Id),
 //				Parameters: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
@@ -65,7 +67,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceGroupPolicyExemption(ctx, "exampleResourceGroupPolicyExemption", &core.ResourceGroupPolicyExemptionArgs{
+//			_, err = core.NewResourceGroupPolicyExemption(ctx, "example", &core.ResourceGroupPolicyExemptionArgs{
+//				Name:               pulumi.String("exampleExemption"),
 //				ResourceGroupId:    exampleResourceGroup.ID(),
 //				PolicyAssignmentId: exampleResourceGroupPolicyAssignment.ID(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),

@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-public-ip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  *     domainNameLabel: "example-public-ip",
  * });
- * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
  *     trafficRoutingMethod: "Weighted",
  *     dnsConfig: {
  *         relativeName: "example-profile",
@@ -41,7 +46,8 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleTrafficManagerAzureEndpoint = new azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", {
+ * const exampleTrafficManagerAzureEndpoint = new azure.network.TrafficManagerAzureEndpoint("example", {
+ *     name: "example-endpoint",
  *     profileId: exampleTrafficManagerProfile.id,
  *     alwaysServeEnabled: true,
  *     weight: 100,

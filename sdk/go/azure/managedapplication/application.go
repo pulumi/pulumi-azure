@@ -26,6 +26,7 @@ import (
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/authorization"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/managedapplication"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
@@ -42,15 +43,31 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDefinition, err := managedapplication.NewDefinition(ctx, "exampleDefinition", &managedapplication.DefinitionArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			invokeSplit, err := std.Split(ctx, &std.SplitArgs{
+//				Separator: "/",
+//				Text:      builtin.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeSplit1, err := std.Split(ctx, &std.SplitArgs{
+//				Separator: "/",
+//				Text:      builtin.Id,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleDefinition, err := managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
+//				Name:              pulumi.String("examplemanagedapplicationdefinition"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				LockLevel:         pulumi.String("ReadOnly"),
 //				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
 //				DisplayName:       pulumi.String("TestManagedAppDefinition"),
@@ -58,20 +75,21 @@ import (
 //				Authorizations: managedapplication.DefinitionAuthorizationArray{
 //					&managedapplication.DefinitionAuthorizationArgs{
 //						ServicePrincipalId: *pulumi.String(current.ObjectId),
-//						RoleDefinitionId:   "TODO: call split"[len("TODO: call split")-1],
+//						RoleDefinitionId:   invokeSplit.Result[len(invokeSplit1.Result)-1],
 //					},
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = managedapplication.NewApplication(ctx, "exampleApplication", &managedapplication.ApplicationArgs{
-//				Location:                 exampleResourceGroup.Location,
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			_, err = managedapplication.NewApplication(ctx, "example", &managedapplication.ApplicationArgs{
+//				Name:                     pulumi.String("example-managedapplication"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
 //				Kind:                     pulumi.String("ServiceCatalog"),
 //				ManagedResourceGroupName: pulumi.String("infrastructureGroup"),
 //				ApplicationDefinitionId:  exampleDefinition.ID(),
-//				ParameterValues: exampleResourceGroup.Location.ApplyT(func(location string) (pulumi.String, error) {
+//				ParameterValues: example.Location.ApplyT(func(location string) (pulumi.String, error) {
 //					var _zero pulumi.String
 //					tmpJSON0, err := json.Marshal(map[string]interface{}{
 //						"location": map[string]interface{}{

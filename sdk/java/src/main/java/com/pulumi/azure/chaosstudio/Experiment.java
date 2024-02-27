@@ -65,30 +65,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .name(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;example&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -97,8 +102,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .size(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .adminPassword(&#34;example&#34;)
@@ -117,7 +123,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTarget = new Target(&#34;exampleTarget&#34;, TargetArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .targetResourceId(exampleLinuxVirtualMachine.id())
  *             .targetType(&#34;Microsoft-VirtualMachine&#34;)
  *             .build());
@@ -128,8 +134,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExperiment = new Experiment(&#34;exampleExperiment&#34;, ExperimentArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .identity(ExperimentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())

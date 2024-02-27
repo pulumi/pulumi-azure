@@ -51,17 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;eastus&#34;)
  *             .build());
  * 
  *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .shortName(&#34;example&#34;)
  *             .build());
  * 
  *         var exampleBudgetResourceGroup = new BudgetResourceGroup(&#34;exampleBudgetResourceGroup&#34;, BudgetResourceGroupArgs.builder()        
- *             .resourceGroupId(exampleResourceGroup.id())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupId(example.id())
  *             .amount(1000)
  *             .timeGrain(&#34;Monthly&#34;)
  *             .timePeriod(BudgetResourceGroupTimePeriodArgs.builder()

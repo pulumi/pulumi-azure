@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example-virtualdesktop"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			pooledbreadthfirst, err := desktopvirtualization.NewHostPool(ctx, "pooledbreadthfirst", &desktopvirtualization.HostPoolArgs{
+//				Name:              pulumi.String("pooledbreadthfirst"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("Pooled"),
@@ -45,6 +47,7 @@ import (
 //				return err
 //			}
 //			personalautomatic, err := desktopvirtualization.NewHostPool(ctx, "personalautomatic", &desktopvirtualization.HostPoolArgs{
+//				Name:                          pulumi.String("personalautomatic"),
 //				Location:                      example.Location,
 //				ResourceGroupName:             example.Name,
 //				Type:                          pulumi.String("Personal"),
@@ -55,6 +58,7 @@ import (
 //				return err
 //			}
 //			_, err = desktopvirtualization.NewApplicationGroup(ctx, "remoteapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Name:              pulumi.String("acctag"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("RemoteApp"),
@@ -66,6 +70,7 @@ import (
 //				return err
 //			}
 //			_, err = desktopvirtualization.NewApplicationGroup(ctx, "desktopapp", &desktopvirtualization.ApplicationGroupArgs{
+//				Name:              pulumi.String("appgroupdesktop"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("Desktop"),

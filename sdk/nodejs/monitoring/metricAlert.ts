@@ -15,23 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const toMonitor = new azure.storage.Account("toMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const toMonitor = new azure.storage.Account("to_monitor", {
+ *     name: "examplestorageaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const main = new azure.monitoring.ActionGroup("main", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "example-actiongroup",
+ *     resourceGroupName: example.name,
  *     shortName: "exampleact",
  *     webhookReceivers: [{
  *         name: "callmyapi",
  *         serviceUri: "http://example.com/alert",
  *     }],
  * });
- * const exampleMetricAlert = new azure.monitoring.MetricAlert("exampleMetricAlert", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleMetricAlert = new azure.monitoring.MetricAlert("example", {
+ *     name: "example-metricalert",
+ *     resourceGroupName: example.name,
  *     scopes: [toMonitor.id],
  *     description: "Action will be triggered when Transactions count is greater than 50.",
  *     criterias: [{

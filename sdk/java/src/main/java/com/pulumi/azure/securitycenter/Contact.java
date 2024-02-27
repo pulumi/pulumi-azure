@@ -43,10 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Contact(&#34;example&#34;, ContactArgs.builder()        
- *             .alertNotifications(true)
- *             .alertsToAdmins(true)
+ *             .name(&#34;contact&#34;)
  *             .email(&#34;contact@example.com&#34;)
  *             .phone(&#34;+1-555-555-5555&#34;)
+ *             .alertNotifications(true)
+ *             .alertsToAdmins(true)
  *             .build());
  * 
  *     }

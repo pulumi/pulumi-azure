@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OsType:            pulumi.String("Linux"),
 //				SkuName:           pulumi.String("P1v2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "exampleLinuxWebApp", &appservice.LinuxWebAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLinuxWebApp, err := appservice.NewLinuxWebApp(ctx, "example", &appservice.LinuxWebAppArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        nil,
@@ -53,7 +56,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewSourceControl(ctx, "exampleSourceControl", &appservice.SourceControlArgs{
+//			_, err = appservice.NewSourceControl(ctx, "example", &appservice.SourceControlArgs{
 //				AppId:   exampleLinuxWebApp.ID(),
 //				RepoUrl: pulumi.String("https://github.com/Azure-Samples/python-docs-hello-world"),
 //				Branch:  pulumi.String("master"),

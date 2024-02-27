@@ -39,9 +39,9 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var barracuda = new Agreement(&#34;barracuda&#34;, AgreementArgs.builder()        
+ *             .publisher(&#34;barracudanetworks&#34;)
  *             .offer(&#34;waf&#34;)
  *             .plan(&#34;hourly&#34;)
- *             .publisher(&#34;barracudanetworks&#34;)
  *             .build());
  * 
  *     }

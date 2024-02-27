@@ -20,29 +20,36 @@ import * as utilities from "../utilities";
  * const config = new pulumi.Config();
  * const prefix = config.get("prefix") || "example";
  * const vmName = `${prefix}-vm`;
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const mainVirtualNetwork = new azure.network.VirtualNetwork("mainVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: `${prefix}-resources`,
+ *     location: "West Europe",
+ * });
+ * const main = new azure.network.VirtualNetwork("main", {
+ *     name: `${prefix}-network`,
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     virtualNetworkName: mainVirtualNetwork.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: main.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const mainNetworkInterface = new azure.network.NetworkInterface("mainNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const mainNetworkInterface = new azure.network.NetworkInterface("main", {
+ *     name: `${prefix}-nic`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "internal",
  *         subnetId: internal.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
+ *     name: vmName,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     networkInterfaceIds: [mainNetworkInterface.id],
  *     vmSize: "Standard_F2",
  *     storageImageReference: {
@@ -66,14 +73,15 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: false,
  *     },
  * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
+ *     name: `${vmName}-disk1`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
  *     diskSizeGb: 10,
  * });
- * const exampleDataDiskAttachment = new azure.compute.DataDiskAttachment("exampleDataDiskAttachment", {
+ * const exampleDataDiskAttachment = new azure.compute.DataDiskAttachment("example", {
  *     managedDiskId: exampleManagedDisk.id,
  *     virtualMachineId: exampleVirtualMachine.id,
  *     lun: 10,

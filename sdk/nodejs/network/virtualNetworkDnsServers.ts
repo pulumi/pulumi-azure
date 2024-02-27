@@ -11,17 +11,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     subnets: [{
  *         name: "subnet1",
  *         addressPrefix: "10.0.1.0/24",
  *     }],
  * });
- * const exampleVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", {
+ * const exampleVirtualNetworkDnsServers = new azure.network.VirtualNetworkDnsServers("example", {
  *     virtualNetworkId: exampleVirtualNetwork.id,
  *     dnsServers: [
  *         "10.7.7.2",

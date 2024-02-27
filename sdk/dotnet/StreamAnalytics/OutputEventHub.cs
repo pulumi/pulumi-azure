@@ -22,37 +22,41 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
+    ///         Name = "example-ehnamespace",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "example-eventhub",
     ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleOutputEventHub = new Azure.StreamAnalytics.OutputEventHub("exampleOutputEventHub", new()
+    ///     var exampleOutputEventHub = new Azure.StreamAnalytics.OutputEventHub("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "output-to-eventhub",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         EventhubName = exampleEventHub.Name,
     ///         ServicebusNamespace = exampleEventHubNamespace.Name,
     ///         SharedAccessPolicyKey = exampleEventHubNamespace.DefaultPrimaryKey,

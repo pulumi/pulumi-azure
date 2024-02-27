@@ -387,24 +387,30 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        remote_virtual_network = azure.network.VirtualNetwork("remoteVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        remote = azure.network.VirtualNetwork("remote",
+            name="remote-vnet",
+            resource_group_name=example.name,
             address_spaces=["10.0.1.0/24"],
-            location=example_resource_group.location)
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            location=example.location)
+        example_workspace = azure.databricks.Workspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("example",
+            name="databricks-vnet-peer",
+            resource_group_name=example.name,
             workspace_id=example_workspace.id,
-            remote_address_space_prefixes=remote_virtual_network.address_spaces,
-            remote_virtual_network_id=remote_virtual_network.id,
+            remote_address_space_prefixes=remote.address_spaces,
+            remote_virtual_network_id=remote.id,
             allow_virtual_network_access=True)
-        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=remote_virtual_network.name,
+        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remote",
+            name="peer-to-databricks",
+            resource_group_name=example.name,
+            virtual_network_name=remote.name,
             remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
             allow_virtual_network_access=True)
         ```
@@ -448,24 +454,30 @@ class VirtualNetworkPeering(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        remote_virtual_network = azure.network.VirtualNetwork("remoteVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        remote = azure.network.VirtualNetwork("remote",
+            name="remote-vnet",
+            resource_group_name=example.name,
             address_spaces=["10.0.1.0/24"],
-            location=example_resource_group.location)
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            location=example.location)
+        example_workspace = azure.databricks.Workspace("example",
+            name="example-workspace",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("exampleVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network_peering = azure.databricks.VirtualNetworkPeering("example",
+            name="databricks-vnet-peer",
+            resource_group_name=example.name,
             workspace_id=example_workspace.id,
-            remote_address_space_prefixes=remote_virtual_network.address_spaces,
-            remote_virtual_network_id=remote_virtual_network.id,
+            remote_address_space_prefixes=remote.address_spaces,
+            remote_virtual_network_id=remote.id,
             allow_virtual_network_access=True)
-        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remoteVirtualNetworkPeering",
-            resource_group_name=example_resource_group.name,
-            virtual_network_name=remote_virtual_network.name,
+        remote_virtual_network_peering = azure.network.VirtualNetworkPeering("remote",
+            name="peer-to-databricks",
+            resource_group_name=example.name,
+            virtual_network_name=remote.name,
             remote_virtual_network_id=example_virtual_network_peering.virtual_network_id,
             allow_virtual_network_access=True)
         ```

@@ -32,13 +32,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
+//			exampleAccount, err := datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
+//				Name:              pulumi.String("example-dsa"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Identity: &datashare.AccountIdentityArgs{
@@ -48,14 +50,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleShare, err := datashare.NewShare(ctx, "exampleShare", &datashare.ShareArgs{
+//			exampleShare, err := datashare.NewShare(ctx, "example", &datashare.ShareArgs{
+//				Name:      pulumi.String("example_ds"),
 //				AccountId: exampleAccount.ID(),
 //				Kind:      pulumi.String("CopyBased"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewAccount(ctx, "exampleStorage/accountAccount", &storage.AccountArgs{
+//			exampleAccount2, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestr"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -64,38 +68,38 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
-//				StorageAccountName:  exampleStorage / accountAccount.Name,
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example-sc"),
+//				StorageAccountName:  exampleAccount2.Name,
 //				ContainerAccessType: pulumi.String("container"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
+//			example := azuread.LookupServicePrincipalOutput(ctx, azuread.GetServicePrincipalOutputArgs{
 //				DisplayName: exampleAccount.Name,
 //			}, nil)
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
-//				Scope:              exampleStorage / accountAccount.Id,
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
+//				Scope:              exampleAccount2.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Reader"),
-//				PrincipalId: exampleServicePrincipal.ApplyT(func(exampleServicePrincipal azuread.GetServicePrincipalResult) (*string, error) {
-//					return &exampleServicePrincipal.ObjectId, nil
+//				PrincipalId: example.ApplyT(func(example azuread.GetServicePrincipalResult) (*string, error) {
+//					return &example.ObjectId, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datashare.NewDatasetBlobStorage(ctx, "exampleDatasetBlobStorage", &datashare.DatasetBlobStorageArgs{
+//			_, err = datashare.NewDatasetBlobStorage(ctx, "example", &datashare.DatasetBlobStorageArgs{
+//				Name:          pulumi.String("example-dsbsds-file"),
 //				DataShareId:   exampleShare.ID(),
 //				ContainerName: exampleContainer.Name,
 //				StorageAccount: &datashare.DatasetBlobStorageStorageAccountArgs{
-//					Name:              exampleStorage / accountAccount.Name,
-//					ResourceGroupName: exampleStorage / accountAccount.ResourceGroupName,
+//					Name:              exampleAccount2.Name,
+//					ResourceGroupName: exampleAccount2.ResourceGroupName,
 //					SubscriptionId:    pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				},
 //				FilePath: pulumi.String("myfile.txt"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

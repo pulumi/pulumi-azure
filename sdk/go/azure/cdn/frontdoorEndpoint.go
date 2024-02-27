@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-cdn-frontdoor"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorEndpoint(ctx, "exampleFrontdoorEndpoint", &cdn.FrontdoorEndpointArgs{
+//			_, err = cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
+//				Name:                  pulumi.String("example-endpoint"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				Tags: pulumi.StringMap{
 //					"ENV": pulumi.String("example"),

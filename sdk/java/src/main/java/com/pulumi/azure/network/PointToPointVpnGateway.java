@@ -55,25 +55,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-virtualwan&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-virtualhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressPrefix(&#34;10.0.0.0/23&#34;)
  *             .build());
  * 
  *         var exampleVpnServerConfiguration = new VpnServerConfiguration(&#34;exampleVpnServerConfiguration&#34;, VpnServerConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-config&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .vpnAuthenticationTypes(&#34;Certificate&#34;)
  *             .clientRootCertificates(VpnServerConfigurationClientRootCertificateArgs.builder()
  *                 .name(&#34;DigiCert-Federated-ID-Root-CA&#34;)
@@ -103,8 +107,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePointToPointVpnGateway = new PointToPointVpnGateway(&#34;examplePointToPointVpnGateway&#34;, PointToPointVpnGatewayArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vpn-gateway&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .vpnServerConfigurationId(exampleVpnServerConfiguration.id())
  *             .scaleUnit(1)

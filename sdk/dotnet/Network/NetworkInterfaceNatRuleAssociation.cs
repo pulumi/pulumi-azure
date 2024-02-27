@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -47,17 +50,19 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-pip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-lb",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -68,20 +73,22 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNatRule = new Azure.Lb.NatRule("exampleNatRule", new()
+    ///     var exampleNatRule = new Azure.Lb.NatRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         LoadbalancerId = exampleLoadBalancer.Id,
+    ///         Name = "RDPAccess",
     ///         Protocol = "Tcp",
     ///         FrontendPort = 3389,
     ///         BackendPort = 3389,
     ///         FrontendIpConfigurationName = "primary",
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -93,7 +100,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterfaceNatRuleAssociation = new Azure.Network.NetworkInterfaceNatRuleAssociation("exampleNetworkInterfaceNatRuleAssociation", new()
+    ///     var exampleNetworkInterfaceNatRuleAssociation = new Azure.Network.NetworkInterfaceNatRuleAssociation("example", new()
     ///     {
     ///         NetworkInterfaceId = exampleNetworkInterface.Id,
     ///         IpConfigurationName = "testconfiguration1",

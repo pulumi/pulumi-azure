@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("mysqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -47,8 +49,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sql.NewFirewallRule(ctx, "exampleFirewallRule", &sql.FirewallRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = sql.NewFirewallRule(ctx, "example", &sql.FirewallRuleArgs{
+//				Name:              pulumi.String("FirewallRule1"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleSqlServer.Name,
 //				StartIpAddress:    pulumi.String("10.0.17.62"),
 //				EndIpAddress:      pulumi.String("10.0.17.62"),

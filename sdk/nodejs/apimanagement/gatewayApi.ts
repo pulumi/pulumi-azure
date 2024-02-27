@@ -13,23 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleApi = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getApi({
+ * const exampleGetApi = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getApi({
  *     name: "search-api",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
+ *     apiManagementName: example.name,
+ *     resourceGroupName: example1.resourceGroupName,
  *     revision: "2",
  * }));
- * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
+ * const exampleGetGateway = example.then(example => azure.apimanagement.getGateway({
  *     name: "example-gateway",
- *     apiManagementId: exampleService.id,
+ *     apiManagementId: example.id,
  * }));
- * const exampleGatewayApi = new azure.apimanagement.GatewayApi("exampleGatewayApi", {
- *     gatewayId: exampleGateway.then(exampleGateway => exampleGateway.id),
- *     apiId: exampleApi.then(exampleApi => exampleApi.id),
+ * const exampleGatewayApi = new azure.apimanagement.GatewayApi("example", {
+ *     gatewayId: exampleGetGateway.then(exampleGetGateway => exampleGetGateway.id),
+ *     apiId: exampleGetApi.then(exampleGetApi => exampleGetApi.id),
  * });
  * ```
  *

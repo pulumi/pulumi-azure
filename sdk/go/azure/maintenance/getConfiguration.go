@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", azurerm_maintenance_configuration.Existing.Id)
+//			ctx.Export("id", existingAzurermMaintenanceConfiguration.Id)
 //			return nil
 //		})
 //	}

@@ -53,13 +53,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exprtTest&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;expressRoute1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .serviceProviderName(&#34;Equinix&#34;)
  *             .peeringLocation(&#34;Silicon Valley&#34;)
  *             .bandwidthInMbps(50)
@@ -74,7 +76,7 @@ import javax.annotation.Nullable;
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;MicrosoftPeering&#34;)
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
  *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)
@@ -124,13 +126,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exprtTest&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;expressRoute1&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .serviceProviderName(&#34;Equinix&#34;)
  *             .peeringLocation(&#34;Silicon Valley&#34;)
  *             .bandwidthInMbps(50)
@@ -145,7 +149,7 @@ import javax.annotation.Nullable;
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;AzurePrivatePeering&#34;)
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;123.0.0.0/30&#34;)
  *             .secondaryPeerAddressPrefix(&#34;123.0.0.4/30&#34;)

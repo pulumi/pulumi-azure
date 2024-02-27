@@ -47,26 +47,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDevice = new Device(&#34;exampleDevice&#34;, DeviceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-device&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;EdgeP_Base-Standard&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkSite = new NetworkSite(&#34;exampleNetworkSite&#34;, NetworkSiteArgs.builder()        
+ *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .tags(Map.of(&#34;key&#34;, &#34;value&#34;))
  *             .build());
  * 

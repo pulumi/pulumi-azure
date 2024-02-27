@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApi, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
+//			example, err := apimanagement.LookupApi(ctx, &apimanagement.LookupApiArgs{
 //				Name:              "my-api",
 //				ApiManagementName: "example-apim",
 //				ResourceGroupName: "search-service",
@@ -37,10 +37,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiPolicy(ctx, "exampleApiPolicy", &apimanagement.ApiPolicyArgs{
-//				ApiName:           *pulumi.String(exampleApi.Name),
-//				ApiManagementName: *pulumi.String(exampleApi.ApiManagementName),
-//				ResourceGroupName: *pulumi.String(exampleApi.ResourceGroupName),
+//			_, err = apimanagement.NewApiPolicy(ctx, "example", &apimanagement.ApiPolicyArgs{
+//				ApiName:           *pulumi.String(example.Name),
+//				ApiManagementName: *pulumi.String(example.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //				XmlContent: pulumi.String(`<policies>
 //	  <inbound>
 //	    <find-and-replace from="xyz" to="abc" />

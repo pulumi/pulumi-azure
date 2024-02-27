@@ -58,18 +58,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exampleRG1&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vnet&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -82,7 +85,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEnvironmentV3 = new EnvironmentV3(&#34;exampleEnvironmentV3&#34;, EnvironmentV3Args.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-asev3&#34;)
+ *             .resourceGroupName(example.name())
  *             .subnetId(exampleSubnet.id())
  *             .internalLoadBalancingMode(&#34;Web, Publishing&#34;)
  *             .clusterSettings(            
@@ -105,8 +109,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .osType(&#34;Linux&#34;)
  *             .skuName(&#34;I1v2&#34;)
  *             .appServiceEnvironmentId(exampleEnvironmentV3.id())

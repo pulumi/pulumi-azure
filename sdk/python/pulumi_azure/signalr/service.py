@@ -825,10 +825,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-signalr",
+            location="West US")
+        example_service = azure.signalr.Service("example",
+            name="tfex-signalr",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.signalr.ServiceSkuArgs(
                 name="Free_F1",
                 capacity=1,
@@ -900,10 +903,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US")
-        example_service = azure.signalr.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-signalr",
+            location="West US")
+        example_service = azure.signalr.Service("example",
+            name="tfex-signalr",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.signalr.ServiceSkuArgs(
                 name="Free_F1",
                 capacity=1,

@@ -835,17 +835,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -880,17 +880,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -925,17 +925,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```
@@ -970,17 +970,17 @@ public final class DatashareFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = DatashareFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = DatashareFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleShare = DatashareFunctions.getShare(GetShareArgs.builder()
+     *         final var exampleGetShare = DatashareFunctions.getShare(GetShareArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .accountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .accountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleShare.applyValue(getShareResult -&gt; getShareResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetShare.applyValue(getShareResult -&gt; getShareResult.id()));
      *     }
      * }
      * ```

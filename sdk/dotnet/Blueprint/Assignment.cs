@@ -28,23 +28,24 @@ namespace Pulumi.Azure.Blueprint
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var example = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleDefinition = Azure.Blueprint.GetDefinition.Invoke(new()
+    ///     var exampleGetDefinition = Azure.Blueprint.GetDefinition.Invoke(new()
     ///     {
     ///         Name = "exampleBlueprint",
-    ///         ScopeId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         ScopeId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 
-    ///     var examplePublishedVersion = Azure.Blueprint.GetPublishedVersion.Invoke(new()
+    ///     var exampleGetPublishedVersion = Azure.Blueprint.GetPublishedVersion.Invoke(new()
     ///     {
-    ///         ScopeId = exampleDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.ScopeId),
-    ///         BlueprintName = exampleDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.Name),
+    ///         ScopeId = exampleGetDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.ScopeId),
+    ///         BlueprintName = exampleGetDefinition.Apply(getDefinitionResult =&gt; getDefinitionResult.Name),
     ///         Version = "v1.0.0",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleRG-bp",
     ///         Location = "West Europe",
     ///         Tags = 
     ///         {
@@ -52,30 +53,32 @@ namespace Pulumi.Azure.Blueprint
     ///         },
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
+    ///         Name = "bp-user-example",
     ///     });
     /// 
     ///     var @operator = new Azure.Authorization.Assignment("operator", new()
     ///     {
-    ///         Scope = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Scope = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Blueprint Operator",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
     ///     var owner = new Azure.Authorization.Assignment("owner", new()
     ///     {
-    ///         Scope = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Scope = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RoleDefinitionName = "Owner",
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Blueprint.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Blueprint.Assignment("example", new()
     ///     {
-    ///         TargetSubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
-    ///         VersionId = examplePublishedVersion.Apply(getPublishedVersionResult =&gt; getPublishedVersionResult.Id),
+    ///         Name = "testAccBPAssignment",
+    ///         TargetSubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         VersionId = exampleGetPublishedVersion.Apply(getPublishedVersionResult =&gt; getPublishedVersionResult.Id),
     ///         Location = exampleResourceGroup.Location,
     ///         LockMode = "AllResourcesDoNotDelete",
     ///         LockExcludePrincipals = new[]
@@ -102,13 +105,6 @@ namespace Pulumi.Azure.Blueprint
     ///       }
     ///     }
     /// ",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             @operator,
-    ///             owner,
-    ///         },
     ///     });
     /// 
     /// });

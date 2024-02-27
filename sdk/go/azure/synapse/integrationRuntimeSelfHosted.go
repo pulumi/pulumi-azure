@@ -30,37 +30,42 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			_, err = storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("content"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example"),
 //				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-//				Location:                        exampleResourceGroup.Location,
-//				ResourceGroupName:               exampleResourceGroup.Name,
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Name:                            pulumi.String("example"),
+//				Location:                        example.Location,
+//				ResourceGroupName:               example.Name,
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
@@ -72,7 +77,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewFirewallRule(ctx, "exampleFirewallRule", &synapse.FirewallRuleArgs{
+//			_, err = synapse.NewFirewallRule(ctx, "example", &synapse.FirewallRuleArgs{
+//				Name:               pulumi.String("AllowAll"),
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				StartIpAddress:     pulumi.String("0.0.0.0"),
 //				EndIpAddress:       pulumi.String("255.255.255.255"),
@@ -80,7 +86,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewIntegrationRuntimeSelfHosted(ctx, "exampleIntegrationRuntimeSelfHosted", &synapse.IntegrationRuntimeSelfHostedArgs{
+//			_, err = synapse.NewIntegrationRuntimeSelfHosted(ctx, "example", &synapse.IntegrationRuntimeSelfHostedArgs{
+//				Name:               pulumi.String("example"),
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //			})
 //			if err != nil {

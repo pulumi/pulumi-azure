@@ -22,15 +22,17 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleasa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         Tags = 
@@ -39,14 +41,16 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
     ///     {
+    ///         Name = "example-astq",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("exampleEventSubscription", new()
+    ///     var exampleEventSubscription = new Azure.EventGrid.EventSubscription("example", new()
     ///     {
-    ///         Scope = exampleResourceGroup.Id,
+    ///         Name = "example-aees",
+    ///         Scope = example.Id,
     ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.EventSubscriptionStorageQueueEndpointArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,

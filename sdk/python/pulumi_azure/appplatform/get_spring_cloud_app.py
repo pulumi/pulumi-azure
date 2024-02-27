@@ -169,9 +169,9 @@ def get_spring_cloud_app(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appplatform.get_spring_cloud_app(name=azurerm_spring_cloud_app["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_app["example"]["resource_group_name"],
-        service_name=azurerm_spring_cloud_app["example"]["service_name"])
+    example = azure.appplatform.get_spring_cloud_app(name=example_azurerm_spring_cloud_app["name"],
+        resource_group_name=example_azurerm_spring_cloud_app["resourceGroupName"],
+        service_name=example_azurerm_spring_cloud_app["serviceName"])
     pulumi.export("springCloudAppId", example.id)
     ```
 
@@ -215,9 +215,9 @@ def get_spring_cloud_app_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.appplatform.get_spring_cloud_app(name=azurerm_spring_cloud_app["example"]["name"],
-        resource_group_name=azurerm_spring_cloud_app["example"]["resource_group_name"],
-        service_name=azurerm_spring_cloud_app["example"]["service_name"])
+    example = azure.appplatform.get_spring_cloud_app(name=example_azurerm_spring_cloud_app["name"],
+        resource_group_name=example_azurerm_spring_cloud_app["resourceGroupName"],
+        service_name=example_azurerm_spring_cloud_app["serviceName"])
     pulumi.export("springCloudAppId", example.id)
     ```
 

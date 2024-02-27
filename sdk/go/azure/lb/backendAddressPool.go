@@ -32,23 +32,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("LoadBalancerRG"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("PublicIPForLB"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("TestLoadBalancer"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              pulumi.String("PublicIPAddress"),
@@ -59,8 +62,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewBackendAddressPool(ctx, "exampleBackendAddressPool", &lb.BackendAddressPoolArgs{
+//			_, err = lb.NewBackendAddressPool(ctx, "example", &lb.BackendAddressPoolArgs{
 //				LoadbalancerId: exampleLoadBalancer.ID(),
+//				Name:           pulumi.String("BackEndAddressPool"),
 //			})
 //			if err != nil {
 //				return err

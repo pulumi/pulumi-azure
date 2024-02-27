@@ -24,31 +24,35 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OsType = "Linux",
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("exampleLinuxFunctionApp", new()
+    ///     var exampleLinuxFunctionApp = new Azure.AppService.LinuxFunctionApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-function-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
@@ -61,8 +65,9 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new()
+    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("example", new()
     ///     {
+    ///         Name = "example-function-app-function",
     ///         FunctionAppId = exampleLinuxFunctionApp.Id,
     ///         Language = "Python",
     ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
@@ -101,39 +106,43 @@ namespace Pulumi.Azure.AppService
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OsType = "Windows",
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-function-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
@@ -146,8 +155,9 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("exampleFunctionAppFunction", new()
+    ///     var exampleFunctionAppFunction = new Azure.AppService.FunctionAppFunction("example", new()
     ///     {
+    ///         Name = "example-function-app-function",
     ///         FunctionAppId = exampleWindowsFunctionApp.Id,
     ///         Language = "CSharp",
     ///         Files = new[]
@@ -155,7 +165,10 @@ namespace Pulumi.Azure.AppService
     ///             new Azure.AppService.Inputs.FunctionAppFunctionFileArgs
     ///             {
     ///                 Name = "run.csx",
-    ///                 Content = File.ReadAllText("exampledata/run.csx"),
+    ///                 Content = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "exampledata/run.csx",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
     ///             },
     ///         },
     ///         TestData = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;

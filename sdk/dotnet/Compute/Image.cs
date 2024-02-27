@@ -24,17 +24,18 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
     ///     {
     ///         Name = "examplevm",
     ///         ResourceGroupName = "example-resources",
     ///     });
     /// 
-    ///     var exampleImage = new Azure.Compute.Image("exampleImage", new()
+    ///     var exampleImage = new Azure.Compute.Image("example", new()
     ///     {
-    ///         Location = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Location),
-    ///         ResourceGroupName = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Name),
-    ///         SourceVirtualMachineId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         Name = "exampleimage",
+    ///         Location = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Location),
+    ///         ResourceGroupName = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Name),
+    ///         SourceVirtualMachineId = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
     ///     });
     /// 
     /// });

@@ -30,23 +30,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example-plan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OsType:            pulumi.String("Windows"),
 //				SkuName:           pulumi.String("P1v2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleWindowsWebApp, err := appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				Name:              pulumi.String("example-windows-web-app"),
+//				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        nil,
@@ -54,14 +57,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsWebAppSlot, err := appservice.NewWindowsWebAppSlot(ctx, "exampleWindowsWebAppSlot", &appservice.WindowsWebAppSlotArgs{
+//			exampleWindowsWebAppSlot, err := appservice.NewWindowsWebAppSlot(ctx, "example", &appservice.WindowsWebAppSlotArgs{
+//				Name:         pulumi.String("example-windows-web-app-slot"),
 //				AppServiceId: exampleWindowsWebApp.Name,
 //				SiteConfig:   nil,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewWebAppActiveSlot(ctx, "exampleWebAppActiveSlot", &appservice.WebAppActiveSlotArgs{
+//			_, err = appservice.NewWebAppActiveSlot(ctx, "example", &appservice.WebAppActiveSlotArgs{
 //				SlotId: exampleWindowsWebAppSlot.ID(),
 //			})
 //			if err != nil {

@@ -29,24 +29,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "exampleTimeSeriesInsightsStandardEnvironment", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleTimeSeriesInsightsStandardEnvironment, err := iot.NewTimeSeriesInsightsStandardEnvironment(ctx, "example", &iot.TimeSeriesInsightsStandardEnvironmentArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("S1_1"),
 //				DataRetentionTime: pulumi.String("P30D"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewTimeSeriesInsightsReferenceDataSet(ctx, "exampleTimeSeriesInsightsReferenceDataSet", &iot.TimeSeriesInsightsReferenceDataSetArgs{
+//			_, err = iot.NewTimeSeriesInsightsReferenceDataSet(ctx, "example", &iot.TimeSeriesInsightsReferenceDataSetArgs{
+//				Name:                            pulumi.String("example"),
 //				TimeSeriesInsightsEnvironmentId: exampleTimeSeriesInsightsStandardEnvironment.ID(),
-//				Location:                        exampleResourceGroup.Location,
+//				Location:                        example.Location,
 //				KeyProperties: iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArray{
 //					&iot.TimeSeriesInsightsReferenceDataSetKeyPropertyArgs{
 //						Name: pulumi.String("keyProperty1"),

@@ -155,16 +155,19 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
         import pulumi_azuread as azuread
+        import pulumi_std as std
 
         current = azure.core.get_client_config()
         frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -191,15 +194,18 @@ class FrontdoorSecret(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
             ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="example-cert",
             key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
+                contents=std.filebase64(input="my-certificate.pfx").result,
             ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-cdn-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
+        example_frontdoor_secret = azure.cdn.FrontdoorSecret("example",
+            name="example-customer-managed-secret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(
@@ -235,16 +241,19 @@ class FrontdoorSecret(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
         import pulumi_azuread as azuread
+        import pulumi_std as std
 
         current = azure.core.get_client_config()
         frontdoor = azuread.get_service_principal(display_name="Microsoft.Azure.Cdn")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example-keyvault",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="premium",
             soft_delete_retention_days=7,
@@ -271,15 +280,18 @@ class FrontdoorSecret(pulumi.CustomResource):
                     secret_permissions=["Get"],
                 ),
             ])
-        example_certificate = azure.keyvault.Certificate("exampleCertificate",
+        example_certificate = azure.keyvault.Certificate("example",
+            name="example-cert",
             key_vault_id=example_key_vault.id,
             certificate=azure.keyvault.CertificateCertificateArgs(
-                contents=(lambda path: base64.b64encode(open(path).read().encode()).decode())("my-certificate.pfx"),
+                contents=std.filebase64(input="my-certificate.pfx").result,
             ))
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-cdn-profile",
+            resource_group_name=example.name,
             sku_name="Standard_AzureFrontDoor")
-        example_frontdoor_secret = azure.cdn.FrontdoorSecret("exampleFrontdoorSecret",
+        example_frontdoor_secret = azure.cdn.FrontdoorSecret("example",
+            name="example-customer-managed-secret",
             cdn_frontdoor_profile_id=example_frontdoor_profile.id,
             secret=azure.cdn.FrontdoorSecretSecretArgs(
                 customer_certificates=[azure.cdn.FrontdoorSecretSecretCustomerCertificateArgs(

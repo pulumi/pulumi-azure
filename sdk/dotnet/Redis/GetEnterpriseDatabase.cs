@@ -29,8 +29,8 @@ namespace Pulumi.Azure.Redis
         ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
         ///     {
         ///         Name = "default",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         ClusterId = azurerm_redis_enterprise_cluster.Example.Id,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -64,8 +64,8 @@ namespace Pulumi.Azure.Redis
         ///     var example = Azure.Redis.GetEnterpriseDatabase.Invoke(new()
         ///     {
         ///         Name = "default",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         ClusterId = azurerm_redis_enterprise_cluster.Example.Id,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         ClusterId = exampleAzurermRedisEnterpriseCluster.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

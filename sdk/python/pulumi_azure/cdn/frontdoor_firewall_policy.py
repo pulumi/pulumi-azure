@@ -469,12 +469,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
+            name="examplecdnfdwafpolicy",
+            resource_group_name=example.name,
             sku_name=example_frontdoor_profile.sku_name,
             enabled=True,
             mode="Prevention",
@@ -616,12 +620,16 @@ class FrontdoorFirewallPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_frontdoor_profile = azure.cdn.FrontdoorProfile("exampleFrontdoorProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-cdn-frontdoor",
+            location="West Europe")
+        example_frontdoor_profile = azure.cdn.FrontdoorProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             sku_name="Premium_AzureFrontDoor")
-        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("exampleFrontdoorFirewallPolicy",
-            resource_group_name=example_resource_group.name,
+        example_frontdoor_firewall_policy = azure.cdn.FrontdoorFirewallPolicy("example",
+            name="examplecdnfdwafpolicy",
+            resource_group_name=example.name,
             sku_name=example_frontdoor_profile.sku_name,
             enabled=True,
             mode="Prevention",

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exprtTest"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//			_, err = network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Name:                pulumi.String("expressRoute1"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				ServiceProviderName: pulumi.String("Equinix"),
 //				PeeringLocation:     pulumi.String("Silicon Valley"),
 //				BandwidthInMbps:     pulumi.Int(50),

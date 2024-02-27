@@ -50,38 +50,44 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example_resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-DT&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-eh-ns&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;example-eh&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(1)
  *             .build());
  * 
  *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
+ *             .name(&#34;example-ar&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .listen(false)
  *             .send(true)
  *             .manage(false)
  *             .build());
  * 
  *         var exampleEndpointEventHub = new EndpointEventHub(&#34;exampleEndpointEventHub&#34;, EndpointEventHubArgs.builder()        
+ *             .name(&#34;example-EH&#34;)
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubPrimaryConnectionString(exampleAuthorizationRule.primaryConnectionString())
  *             .eventhubSecondaryConnectionString(exampleAuthorizationRule.secondaryConnectionString())

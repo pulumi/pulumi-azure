@@ -22,15 +22,17 @@ namespace Pulumi.Azure.NewRelic
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleMonitor = new Azure.NewRelic.Monitor("exampleMonitor", new()
+    ///     var exampleMonitor = new Azure.NewRelic.Monitor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-nrm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Plan = new Azure.NewRelic.Inputs.MonitorPlanArgs
     ///         {
     ///             EffectiveDate = "2023-06-06T00:00:00Z",
@@ -44,7 +46,7 @@ namespace Pulumi.Azure.NewRelic
     ///         },
     ///     });
     /// 
-    ///     var exampleTagRule = new Azure.NewRelic.TagRule("exampleTagRule", new()
+    ///     var exampleTagRule = new Azure.NewRelic.TagRule("example", new()
     ///     {
     ///         MonitorId = exampleMonitor.Id,
     ///         AzureActiveDirectoryLogEnabled = true,

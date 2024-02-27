@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Healthcare
         ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
         ///     {
         ///         Name = "example-healthcare_dicom_service",
-        ///         WorkspaceId = data.Azurerm_healthcare_workspace.Example.Id,
+        ///         WorkspaceId = exampleAzurermHealthcareWorkspace.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,7 +62,7 @@ namespace Pulumi.Azure.Healthcare
         ///     var example = Azure.Healthcare.GetDicomService.Invoke(new()
         ///     {
         ///         Name = "example-healthcare_dicom_service",
-        ///         WorkspaceId = data.Azurerm_healthcare_workspace.Example.Id,
+        ///         WorkspaceId = exampleAzurermHealthcareWorkspace.Id,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

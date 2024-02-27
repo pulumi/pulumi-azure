@@ -420,10 +420,13 @@ class IotHubDps(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_policy="Hashed",
             sku=azure.iot.IotHubDpsSkuArgs(
                 name="S1",
@@ -467,10 +470,13 @@ class IotHubDps(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_iot_hub_dps = azure.iot.IotHubDps("exampleIotHubDps",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_iot_hub_dps = azure.iot.IotHubDps("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             allocation_policy="Hashed",
             sku=azure.iot.IotHubDpsSkuArgs(
                 name="S1",

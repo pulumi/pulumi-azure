@@ -23,19 +23,22 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplewkspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("exampleMedtechService", new()
+    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("example", new()
     ///     {
+    ///         Name = "examplemed",
     ///         WorkspaceId = exampleWorkspace.Id,
     ///         Location = "east us",
     ///         Identity = new Azure.Healthcare.Inputs.MedtechServiceIdentityArgs

@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Maintenance
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "internal",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -47,17 +50,19 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = example.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = example.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -68,20 +73,23 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///     });
     /// 
-    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("exampleBackendAddressPool", new()
+    ///     var exampleBackendAddressPool = new Azure.Lb.BackendAddressPool("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///     });
     /// 
-    ///     var exampleProbe = new Azure.Lb.Probe("exampleProbe", new()
+    ///     var exampleProbe = new Azure.Lb.Probe("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///         Port = 22,
     ///         Protocol = "Tcp",
     ///     });
     /// 
-    ///     var exampleRule = new Azure.Lb.Rule("exampleRule", new()
+    ///     var exampleRule = new Azure.Lb.Rule("example", new()
     ///     {
+    ///         Name = "example",
     ///         LoadbalancerId = exampleLoadBalancer.Id,
     ///         ProbeId = exampleProbe.Id,
     ///         FrontendIpConfigurationName = "internal",
@@ -90,10 +98,11 @@ namespace Pulumi.Azure.Maintenance
     ///         BackendPort = 22,
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.Maintenance.Configuration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Scope = "OSImage",
     ///         Visibility = "Custom",
     ///         Window = new Azure.Maintenance.Inputs.ConfigurationWindowArgs
@@ -106,10 +115,11 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "sample-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -120,10 +130,11 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Size = "Standard_F2",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
@@ -137,10 +148,11 @@ namespace Pulumi.Azure.Maintenance
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", new()
+    ///     var exampleLinuxVirtualMachineScaleSet = new Azure.Compute.LinuxVirtualMachineScaleSet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard_F2",
     ///         Instances = 1,
     ///         AdminUsername = "adminuser",
@@ -193,17 +205,11 @@ namespace Pulumi.Azure.Maintenance
     ///             MaxUnhealthyUpgradedInstancePercent = 20,
     ///             PauseTimeBetweenBatches = "PT0S",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             "azurerm_lb_rule.example",
-    ///         },
     ///     });
     /// 
-    ///     var exampleAssignmentVirtualMachineScaleSet = new Azure.Maintenance.AssignmentVirtualMachineScaleSet("exampleAssignmentVirtualMachineScaleSet", new()
+    ///     var exampleAssignmentVirtualMachineScaleSet = new Azure.Maintenance.AssignmentVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         MaintenanceConfigurationId = exampleConfiguration.Id,
     ///         VirtualMachineScaleSetId = exampleLinuxVirtualMachine.Id,
     ///     });

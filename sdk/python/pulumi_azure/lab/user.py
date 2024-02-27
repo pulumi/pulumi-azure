@@ -172,10 +172,13 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,
@@ -196,7 +199,8 @@ class User(pulumi.CustomResource):
                     capacity=1,
                 ),
             ))
-        example_user = azure.lab.User("exampleUser",
+        example_user = azure.lab.User("example",
+            name="example-labuser",
             lab_id=example_lab.id,
             email="terraform-acctest@example.com")
         ```
@@ -231,10 +235,13 @@ class User(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_lab = azure.lab.Lab("exampleLab",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_lab = azure.lab.Lab("example",
+            name="example-lab",
+            resource_group_name=example.name,
+            location=example.location,
             title="Test Title",
             security=azure.lab.LabSecurityArgs(
                 open_access_enabled=False,
@@ -255,7 +262,8 @@ class User(pulumi.CustomResource):
                     capacity=1,
                 ),
             ))
-        example_user = azure.lab.User("exampleUser",
+        example_user = azure.lab.User("example",
+            name="example-labuser",
             lab_id=example_lab.id,
             email="terraform-acctest@example.com")
         ```

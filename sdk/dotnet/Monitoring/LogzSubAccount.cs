@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-logz",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("exampleLogzMonitor", new()
+    ///     var exampleLogzMonitor = new Azure.Monitoring.LogzMonitor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-monitor",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Plan = new Azure.Monitoring.Inputs.LogzMonitorPlanArgs
     ///         {
     ///             BillingCycle = "MONTHLY",
@@ -46,8 +48,9 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleLogzSubAccount = new Azure.Monitoring.LogzSubAccount("exampleLogzSubAccount", new()
+    ///     var exampleLogzSubAccount = new Azure.Monitoring.LogzSubAccount("example", new()
     ///     {
+    ///         Name = "example-subaccount",
     ///         LogzMonitorId = exampleLogzMonitor.Id,
     ///         User = new Azure.Monitoring.Inputs.LogzSubAccountUserArgs
     ///         {

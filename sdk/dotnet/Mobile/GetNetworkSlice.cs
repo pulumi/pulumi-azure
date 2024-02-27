@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkSlice = Azure.Mobile.GetNetworkSlice.Invoke(new()
+        ///     var exampleGetNetworkSlice = Azure.Mobile.GetNetworkSlice.Invoke(new()
         ///     {
         ///         Name = "example-mns",
-        ///         MobileNetworkId = data.Azurerm_mobile_network.Test.Id,
+        ///         MobileNetworkId = test.Id,
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkSlice = Azure.Mobile.GetNetworkSlice.Invoke(new()
+        ///     var exampleGetNetworkSlice = Azure.Mobile.GetNetworkSlice.Invoke(new()
         ///     {
         ///         Name = "example-mns",
-        ///         MobileNetworkId = data.Azurerm_mobile_network.Test.Id,
+        ///         MobileNetworkId = test.Id,
         ///     });
         /// 
         /// });

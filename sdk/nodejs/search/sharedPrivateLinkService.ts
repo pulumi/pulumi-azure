@@ -13,19 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "east us"});
- * const testService = new azure.search.Service("testService", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
+ * const test = new azure.core.ResourceGroup("test", {
+ *     name: "example-resourceGroup",
+ *     location: "east us",
+ * });
+ * const testService = new azure.search.Service("test", {
+ *     name: "example-search",
+ *     resourceGroupName: test.name,
+ *     location: test.location,
  *     sku: "standard",
  * });
- * const testAccount = new azure.storage.Account("testAccount", {
- *     resourceGroupName: testResourceGroup.name,
- *     location: testResourceGroup.location,
+ * const testAccount = new azure.storage.Account("test", {
+ *     name: "xiaxintestsaforsearchspl",
+ *     resourceGroupName: test.name,
+ *     location: test.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const testSharedPrivateLinkService = new azure.search.SharedPrivateLinkService("testSharedPrivateLinkService", {
+ * const testSharedPrivateLinkService = new azure.search.SharedPrivateLinkService("test", {
+ *     name: "example-spl",
  *     searchServiceId: testService.id,
  *     subresourceName: "blob",
  *     targetResourceId: testAccount.id,

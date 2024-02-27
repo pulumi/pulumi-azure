@@ -24,24 +24,27 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "my-sql-server",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleElasticPool = new Azure.Sql.ElasticPool("exampleElasticPool", new()
+    ///     var exampleElasticPool = new Azure.Sql.ElasticPool("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "test",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ServerName = exampleSqlServer.Name,
     ///         Edition = "Basic",
     ///         Dtu = 50,

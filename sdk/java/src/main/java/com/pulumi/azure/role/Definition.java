@@ -47,6 +47,7 @@ import javax.annotation.Nullable;
  *         final var primary = CoreFunctions.getSubscription();
  * 
  *         var example = new RoleDefinition(&#34;example&#34;, RoleDefinitionArgs.builder()        
+ *             .name(&#34;my-custom-role&#34;)
  *             .scope(primary.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .description(&#34;This is a custom role created&#34;)
  *             .permissions(RoleDefinitionPermissionArgs.builder()

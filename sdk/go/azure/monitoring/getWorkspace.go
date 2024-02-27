@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := monitoring.LookupWorkspace(ctx, &monitoring.LookupWorkspaceArgs{
 //				Name:              "example-workspace",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

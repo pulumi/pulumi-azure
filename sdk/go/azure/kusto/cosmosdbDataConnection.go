@@ -35,7 +35,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleRG"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -47,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("examplekc"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku: &kusto.ClusterSkuArgs{
@@ -61,7 +63,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleResourceGroup.ID(),
 //				RoleDefinitionName: *pulumi.String(builtin.Name),
 //				PrincipalId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
@@ -71,7 +73,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-ca"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				OfferType:         pulumi.String("Standard"),
@@ -91,14 +94,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("examplecosmosdbsqldb"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
+//			exampleSqlContainer, err := cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:              pulumi.String("examplecosmosdbsqlcon"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //				DatabaseName:      exampleSqlDatabase.Name,
@@ -108,16 +113,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlRoleDefinition := cosmosdb.LookupSqlRoleDefinitionOutput(ctx, cosmosdb.GetSqlRoleDefinitionOutputArgs{
+//			example := cosmosdb.LookupSqlRoleDefinitionOutput(ctx, cosmosdb.GetSqlRoleDefinitionOutputArgs{
 //				RoleDefinitionId:  pulumi.String("00000000-0000-0000-0000-000000000001"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
 //			}, nil)
-//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "exampleSqlRoleAssignment", &cosmosdb.SqlRoleAssignmentArgs{
+//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "example", &cosmosdb.SqlRoleAssignmentArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				AccountName:       exampleAccount.Name,
-//				RoleDefinitionId: exampleSqlRoleDefinition.ApplyT(func(exampleSqlRoleDefinition cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
-//					return &exampleSqlRoleDefinition.Id, nil
+//				RoleDefinitionId: example.ApplyT(func(example cosmosdb.GetSqlRoleDefinitionResult) (*string, error) {
+//					return &example.Id, nil
 //				}).(pulumi.StringPtrOutput),
 //				PrincipalId: exampleCluster.Identity.ApplyT(func(identity kusto.ClusterIdentity) (*string, error) {
 //					return &identity.PrincipalId, nil
@@ -127,7 +132,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("examplekd"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				ClusterName:       exampleCluster.Name,
@@ -135,7 +141,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewScript(ctx, "exampleScript", &kusto.ScriptArgs{
+//			_, err = kusto.NewScript(ctx, "example", &kusto.ScriptArgs{
+//				Name:       pulumi.String("create-table-script"),
 //				DatabaseId: exampleDatabase.ID(),
 //				ScriptContent: pulumi.String(`.create table TestTable(Id:string, Name:string, _ts:long, _timestamp:datetime)
 //
@@ -153,7 +160,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewCosmosdbDataConnection(ctx, "exampleCosmosdbDataConnection", &kusto.CosmosdbDataConnectionArgs{
+//			_, err = kusto.NewCosmosdbDataConnection(ctx, "example", &kusto.CosmosdbDataConnectionArgs{
+//				Name:                pulumi.String("examplekcdcd"),
 //				Location:            exampleResourceGroup.Location,
 //				CosmosdbContainerId: exampleSqlContainer.ID(),
 //				KustoDatabaseId:     exampleDatabase.ID(),

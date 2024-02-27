@@ -254,16 +254,21 @@ def get_public_ip(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="test-resources",
+        location="West Europe")
+    example_virtual_network = azure.network.VirtualNetwork("example",
+        name="test-network",
         address_spaces=["10.0.0.0/16"],
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name)
-    example_subnet = azure.network.Subnet("exampleSubnet",
+    example_subnet = azure.network.Subnet("example",
+        name="acctsub",
         resource_group_name=example_resource_group.name,
         virtual_network_name=example_virtual_network.name,
         address_prefixes=["10.0.2.0/24"])
-    example_public_ip = azure.network.PublicIp("examplePublicIp",
+    example_public_ip = azure.network.PublicIp("example",
+        name="test-pip",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         allocation_method="Dynamic",
@@ -271,7 +276,8 @@ def get_public_ip(name: Optional[str] = None,
         tags={
             "environment": "test",
         })
-    example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+    example_network_interface = azure.network.NetworkInterface("example",
+        name="test-nic",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
@@ -281,14 +287,14 @@ def get_public_ip(name: Optional[str] = None,
             private_ip_address="10.0.2.5",
             public_ip_address_id=example_public_ip.id,
         )])
-    example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+    example_virtual_machine = azure.compute.VirtualMachine("example",
+        name="test-vm",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         network_interface_ids=[example_network_interface.id])
-    # ...
-    example_public_ip = azure.network.get_public_ip_output(name=example_public_ip.name,
+    example = azure.network.get_public_ip_output(name=example_public_ip.name,
         resource_group_name=example_virtual_machine.resource_group_name)
-    pulumi.export("publicIpAddress", example_public_ip.ip_address)
+    pulumi.export("publicIpAddress", example.ip_address)
     ```
 
 
@@ -346,16 +352,21 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="test-resources",
+        location="West Europe")
+    example_virtual_network = azure.network.VirtualNetwork("example",
+        name="test-network",
         address_spaces=["10.0.0.0/16"],
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name)
-    example_subnet = azure.network.Subnet("exampleSubnet",
+    example_subnet = azure.network.Subnet("example",
+        name="acctsub",
         resource_group_name=example_resource_group.name,
         virtual_network_name=example_virtual_network.name,
         address_prefixes=["10.0.2.0/24"])
-    example_public_ip = azure.network.PublicIp("examplePublicIp",
+    example_public_ip = azure.network.PublicIp("example",
+        name="test-pip",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         allocation_method="Dynamic",
@@ -363,7 +374,8 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
         tags={
             "environment": "test",
         })
-    example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
+    example_network_interface = azure.network.NetworkInterface("example",
+        name="test-nic",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
@@ -373,14 +385,14 @@ def get_public_ip_output(name: Optional[pulumi.Input[str]] = None,
             private_ip_address="10.0.2.5",
             public_ip_address_id=example_public_ip.id,
         )])
-    example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
+    example_virtual_machine = azure.compute.VirtualMachine("example",
+        name="test-vm",
         location=example_resource_group.location,
         resource_group_name=example_resource_group.name,
         network_interface_ids=[example_network_interface.id])
-    # ...
-    example_public_ip = azure.network.get_public_ip_output(name=example_public_ip.name,
+    example = azure.network.get_public_ip_output(name=example_public_ip.name,
         resource_group_name=example_virtual_machine.resource_group_name)
-    pulumi.export("publicIpAddress", example_public_ip.ip_address)
+    pulumi.export("publicIpAddress", example.ip_address)
     ```
 
 

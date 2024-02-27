@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Portal
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
+        ///         ["id"] = exampleAzurermDashboard.Id,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Portal
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_dashboard.Example.Id,
+        ///         ["id"] = exampleAzurermDashboard.Id,
         ///     };
         /// });
         /// ```

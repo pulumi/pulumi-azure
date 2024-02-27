@@ -17,33 +17,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-vhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
- * const exampleExpressRouteGateway = new azure.network.ExpressRouteGateway("exampleExpressRouteGateway", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleExpressRouteGateway = new azure.network.ExpressRouteGateway("example", {
+ *     name: "example-expressroutegateway",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualHubId: exampleVirtualHub.id,
  *     scaleUnits: 1,
  * });
- * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("exampleExpressRoutePort", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleExpressRoutePort = new azure.network.ExpressRoutePort("example", {
+ *     name: "example-erp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     peeringLocation: "Equinix-Seattle-SE2",
  *     bandwidthInGbps: 10,
  *     encapsulation: "Dot1Q",
  * });
- * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("exampleExpressRouteCircuit", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleExpressRouteCircuit = new azure.network.ExpressRouteCircuit("example", {
+ *     name: "example-erc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     expressRoutePortId: exampleExpressRoutePort.id,
  *     bandwidthInGbps: 5,
  *     sku: {
@@ -51,17 +59,18 @@ import * as utilities from "../utilities";
  *         family: "MeteredData",
  *     },
  * });
- * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("exampleExpressRouteCircuitPeering", {
+ * const exampleExpressRouteCircuitPeering = new azure.network.ExpressRouteCircuitPeering("example", {
  *     peeringType: "AzurePrivatePeering",
  *     expressRouteCircuitName: exampleExpressRouteCircuit.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sharedKey: "ItsASecret",
  *     peerAsn: 100,
  *     primaryPeerAddressPrefix: "192.168.1.0/30",
  *     secondaryPeerAddressPrefix: "192.168.2.0/30",
  *     vlanId: 100,
  * });
- * const exampleExpressRouteConnection = new azure.network.ExpressRouteConnection("exampleExpressRouteConnection", {
+ * const exampleExpressRouteConnection = new azure.network.ExpressRouteConnection("example", {
+ *     name: "example-expressrouteconn",
  *     expressRouteGatewayId: exampleExpressRouteGateway.id,
  *     expressRouteCircuitPeeringId: exampleExpressRouteCircuitPeering.id,
  * });

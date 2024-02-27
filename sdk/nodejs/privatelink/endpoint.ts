@@ -17,42 +17,51 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const service = new azure.network.Subnet("service", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "service",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     enforcePrivateLinkServiceNetworkPolicies: true,
  * });
  * const endpoint = new azure.network.Subnet("endpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "endpoint",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "example-lb",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ *     name: "example-privatelink",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     natIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         primary: true,
@@ -60,9 +69,10 @@ import * as utilities from "../utilities";
  *     }],
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-endpoint",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     subnetId: endpoint.id,
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
@@ -78,21 +88,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
+ * const example = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const vnet = exampleResourceGroup.then(exampleResourceGroup => azure.network.getVirtualNetwork({
+ * const vnet = example.then(example => azure.network.getVirtualNetwork({
  *     name: "example-network",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * }));
- * const subnet = Promise.all([vnet, exampleResourceGroup]).then(([vnet, exampleResourceGroup]) => azure.network.getSubnet({
+ * const subnet = Promise.all([vnet, example]).then(([vnet, example]) => azure.network.getSubnet({
  *     name: "default",
  *     virtualNetworkName: vnet.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * }));
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     location: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.location),
- *     resourceGroupName: exampleResourceGroup.then(exampleResourceGroup => exampleResourceGroup.name),
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-endpoint",
+ *     location: example.then(example => example.location),
+ *     resourceGroupName: example.then(example => example.name),
  *     subnetId: subnet.then(subnet => subnet.id),
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
@@ -109,27 +120,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "exampleaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "virtnetname",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "subnetname",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleZone = new azure.privatedns.Zone("exampleZone", {resourceGroupName: exampleResourceGroup.name});
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleZone = new azure.privatedns.Zone("example", {
+ *     name: "privatelink.blob.core.windows.net",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-endpoint",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     subnetId: exampleSubnet.id,
  *     privateServiceConnection: {
  *         name: "example-privateserviceconnection",
@@ -142,8 +163,9 @@ import * as utilities from "../utilities";
  *         privateDnsZoneIds: [exampleZone.id],
  *     },
  * });
- * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleZoneVirtualNetworkLink = new azure.privatedns.ZoneVirtualNetworkLink("example", {
+ *     name: "example-link",
+ *     resourceGroupName: example.name,
  *     privateDnsZoneName: exampleZone.name,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });

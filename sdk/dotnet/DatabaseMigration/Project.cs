@@ -24,24 +24,27 @@ namespace Pulumi.Azure.DatabaseMigration
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -49,19 +52,21 @@ namespace Pulumi.Azure.DatabaseMigration
     ///         },
     ///     });
     /// 
-    ///     var exampleService = new Azure.DatabaseMigration.Service("exampleService", new()
+    ///     var exampleService = new Azure.DatabaseMigration.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-dbms",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SubnetId = exampleSubnet.Id,
     ///         SkuName = "Standard_1vCores",
     ///     });
     /// 
-    ///     var exampleProject = new Azure.DatabaseMigration.Project("exampleProject", new()
+    ///     var exampleProject = new Azure.DatabaseMigration.Project("example", new()
     ///     {
+    ///         Name = "example-dbms-project",
     ///         ServiceName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         SourcePlatform = "SQL",
     ///         TargetPlatform = "SQLDB",
     ///     });

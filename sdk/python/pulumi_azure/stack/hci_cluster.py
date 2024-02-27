@@ -280,13 +280,16 @@ class HciCluster(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_application = azuread.get_application(display_name="Allowed resource types")
+        example = azuread.get_application(display_name="Allowed resource types")
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_hci_cluster = azure.stack.HciCluster("example",
+            name="example-cluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            client_id=example_application.application_id,
+            client_id=example.application_id,
             tenant_id=current.tenant_id)
         ```
 
@@ -326,13 +329,16 @@ class HciCluster(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_application = azuread.get_application(display_name="Allowed resource types")
+        example = azuread.get_application(display_name="Allowed resource types")
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_hci_cluster = azure.stack.HciCluster("exampleHciCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_hci_cluster = azure.stack.HciCluster("example",
+            name="example-cluster",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
-            client_id=example_application.application_id,
+            client_id=example.application_id,
             tenant_id=current.tenant_id)
         ```
 

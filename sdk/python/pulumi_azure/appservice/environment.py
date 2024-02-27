@@ -419,21 +419,27 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG1",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet1",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         ase = azure.network.Subnet("ase",
-            resource_group_name=example_resource_group.name,
+            name="asesubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         gateway = azure.network.Subnet("gateway",
-            resource_group_name=example_resource_group.name,
+            name="gatewaysubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("exampleEnvironment",
-            resource_group_name=example_resource_group.name,
+        example_environment = azure.appservice.Environment("example",
+            name="example-ase",
+            resource_group_name=example.name,
             subnet_id=ase.id,
             pricing_tier="I2",
             front_end_scale_factor=10,
@@ -487,21 +493,27 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG1",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet1",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
         ase = azure.network.Subnet("ase",
-            resource_group_name=example_resource_group.name,
+            name="asesubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"])
         gateway = azure.network.Subnet("gateway",
-            resource_group_name=example_resource_group.name,
+            name="gatewaysubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_environment = azure.appservice.Environment("exampleEnvironment",
-            resource_group_name=example_resource_group.name,
+        example_environment = azure.appservice.Environment("example",
+            name="example-ase",
+            resource_group_name=example.name,
             subnet_id=ase.id,
             pricing_tier="I2",
             front_end_scale_factor=10,

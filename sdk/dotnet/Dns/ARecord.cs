@@ -20,20 +20,23 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     var exampleZone = new Azure.Dns.Zone("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mydomain.com",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new()
+    ///     var exampleARecord = new Azure.Dns.ARecord("example", new()
     ///     {
+    ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
@@ -53,28 +56,32 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     var exampleZone = new Azure.Dns.Zone("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mydomain.com",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mypublicip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Dynamic",
     ///         IpVersion = "IPv4",
     ///     });
     /// 
-    ///     var exampleARecord = new Azure.Dns.ARecord("exampleARecord", new()
+    ///     var exampleARecord = new Azure.Dns.ARecord("example", new()
     ///     {
+    ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Ttl = 300,
     ///         TargetResourceId = examplePublicIp.Id,
     ///     });

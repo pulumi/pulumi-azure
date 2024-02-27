@@ -397,19 +397,22 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
+        example_application = azuread.Application("example", display_name="acctestam-example")
+        example_application_password = azuread.ApplicationPassword("example",
             application_object_id=example_application.object_id,
             end_date_relative="36h")
-        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
-            resource_group_name=example_resource_group.name,
+        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("example",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             client_id=example_application.application_id,
             client_secret="P@55w0rD!",
@@ -417,8 +420,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             signin_tenant="myb2ctenant.onmicrosoft.com",
             authority="myb2ctenant.b2clogin.com",
             signin_policy="B2C_1_Login",
-            signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+            signup_policy="B2C_1_Signup")
         ```
 
         ## Import
@@ -459,19 +461,22 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@terraform.io",
             sku_name="Developer_1")
-        example_application = azuread.Application("exampleApplication", display_name="acctestam-example")
-        example_application_password = azuread.ApplicationPassword("exampleApplicationPassword",
+        example_application = azuread.Application("example", display_name="acctestam-example")
+        example_application_password = azuread.ApplicationPassword("example",
             application_object_id=example_application.object_id,
             end_date_relative="36h")
-        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("exampleIdentityProviderAadb2c",
-            resource_group_name=example_resource_group.name,
+        example_identity_provider_aadb2c = azure.apimanagement.IdentityProviderAadb2c("example",
+            resource_group_name=example.name,
             api_management_name=example_service.name,
             client_id=example_application.application_id,
             client_secret="P@55w0rD!",
@@ -479,8 +484,7 @@ class IdentityProviderAadb2c(pulumi.CustomResource):
             signin_tenant="myb2ctenant.onmicrosoft.com",
             authority="myb2ctenant.b2clogin.com",
             signin_policy="B2C_1_Login",
-            signup_policy="B2C_1_Signup",
-            opts=pulumi.ResourceOptions(depends_on=[example_application_password]))
+            signup_policy="B2C_1_Signup")
         ```
 
         ## Import

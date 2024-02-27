@@ -22,35 +22,40 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressPrefix = "10.0.1.0/24",
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///     });
     /// 
-    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("exampleVpnGateway", new()
+    ///     var exampleVpnGateway = new Azure.Network.VpnGateway("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vpngateway",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///     });
     /// 
-    ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule("exampleVnpGatewayNatRule", new()
+    ///     var exampleVnpGatewayNatRule = new Azure.Network.VnpGatewayNatRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vpngatewaynatrule",
+    ///         ResourceGroupName = example.Name,
     ///         VpnGatewayId = exampleVpnGateway.Id,
     ///         ExternalMappings = new[]
     ///         {

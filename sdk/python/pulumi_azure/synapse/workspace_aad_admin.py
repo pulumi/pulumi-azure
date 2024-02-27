@@ -170,19 +170,25 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -197,18 +203,19 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                 "Purge",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="workspace-encryption-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            ])
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -218,7 +225,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             tags={
                 "Env": "production",
             })
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
+        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id=current.object_id,
@@ -255,19 +262,25 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
@@ -282,18 +295,19 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
                 "Purge",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="workspace-encryption-key",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
             key_opts=[
                 "unwrapKey",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[deployer]))
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            ])
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -303,7 +317,7 @@ class WorkspaceAadAdmin(pulumi.CustomResource):
             tags={
                 "Env": "production",
             })
-        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("exampleWorkspaceAadAdmin",
+        example_workspace_aad_admin = azure.synapse.WorkspaceAadAdmin("example",
             synapse_workspace_id=example_workspace.id,
             login="AzureAD Admin",
             object_id=current.object_id,

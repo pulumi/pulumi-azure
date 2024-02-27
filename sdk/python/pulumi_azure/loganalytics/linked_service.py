@@ -196,21 +196,25 @@ class LinkedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="resourcegroup-01",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="automation-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic",
             tags={
                 "environment": "development",
             })
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="workspace-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_linked_service = azure.loganalytics.LinkedService("exampleLinkedService",
-            resource_group_name=example_resource_group.name,
+        example_linked_service = azure.loganalytics.LinkedService("example",
+            resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
             read_access_id=example_account.id)
         ```
@@ -247,21 +251,25 @@ class LinkedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="resourcegroup-01",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="automation-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic",
             tags={
                 "environment": "development",
             })
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="workspace-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_linked_service = azure.loganalytics.LinkedService("exampleLinkedService",
-            resource_group_name=example_resource_group.name,
+        example_linked_service = azure.loganalytics.LinkedService("example",
+            resource_group_name=example.name,
             workspace_id=example_analytics_workspace.id,
             read_access_id=example_account.id)
         ```

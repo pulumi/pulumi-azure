@@ -22,27 +22,31 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("exampleLinkedCustomService", new()
+    ///     var exampleLinkedCustomService = new Azure.DataFactory.LinkedCustomService("example", new()
     ///     {
+    ///         Name = "linked_service",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
@@ -51,8 +55,9 @@ namespace Pulumi.Azure.DataFactory
     /// "),
     ///     });
     /// 
-    ///     var example1DatasetJson = new Azure.DataFactory.DatasetJson("example1DatasetJson", new()
+    ///     var example1 = new Azure.DataFactory.DatasetJson("example1", new()
     ///     {
+    ///         Name = "dataset1",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
@@ -64,8 +69,9 @@ namespace Pulumi.Azure.DataFactory
     ///         Encoding = "UTF-8",
     ///     });
     /// 
-    ///     var example2DatasetJson = new Azure.DataFactory.DatasetJson("example2DatasetJson", new()
+    ///     var example2 = new Azure.DataFactory.DatasetJson("example2", new()
     ///     {
+    ///         Name = "dataset2",
     ///         DataFactoryId = exampleFactory.Id,
     ///         LinkedServiceName = exampleLinkedCustomService.Name,
     ///         AzureBlobStorageLocation = new Azure.DataFactory.Inputs.DatasetJsonAzureBlobStorageLocationArgs
@@ -77,8 +83,9 @@ namespace Pulumi.Azure.DataFactory
     ///         Encoding = "UTF-8",
     ///     });
     /// 
-    ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1FlowletDataFlow", new()
+    ///     var example1FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example1", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Sources = new[]
     ///         {
@@ -116,8 +123,9 @@ namespace Pulumi.Azure.DataFactory
     /// ",
     ///     });
     /// 
-    ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2FlowletDataFlow", new()
+    ///     var example2FlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example2", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Sources = new[]
     ///         {
@@ -155,8 +163,9 @@ namespace Pulumi.Azure.DataFactory
     /// ",
     ///     });
     /// 
-    ///     var exampleFlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("exampleFlowletDataFlow", new()
+    ///     var exampleFlowletDataFlow = new Azure.DataFactory.FlowletDataFlow("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Sources = new[]
     ///         {

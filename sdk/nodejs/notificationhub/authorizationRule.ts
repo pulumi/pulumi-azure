@@ -13,22 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.notificationhub.Namespace("exampleNamespace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "notificationhub-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.notificationhub.Namespace("example", {
+ *     name: "myappnamespace",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     namespaceType: "NotificationHub",
  *     skuName: "Free",
  * });
- * const exampleHub = new azure.notificationhub.Hub("exampleHub", {
+ * const exampleHub = new azure.notificationhub.Hub("example", {
+ *     name: "mynotificationhub",
  *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleAuthorizationRule = new azure.notificationhub.AuthorizationRule("exampleAuthorizationRule", {
+ * const exampleAuthorizationRule = new azure.notificationhub.AuthorizationRule("example", {
+ *     name: "management-auth-rule",
  *     notificationHubName: exampleHub.name,
  *     namespaceName: exampleNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     manage: true,
  *     send: true,
  *     listen: true,

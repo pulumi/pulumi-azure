@@ -24,8 +24,9 @@ namespace Pulumi.Azure.Core
     /// {
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     var example = new Azure.Policy.Definition("example", new()
     ///     {
+    ///         Name = "only-deploy-in-westeurope",
     ///         PolicyType = "Custom",
     ///         Mode = "All",
     ///         DisplayName = "Allowed resource types",
@@ -43,9 +44,10 @@ namespace Pulumi.Azure.Core
     /// ",
     ///     });
     /// 
-    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", new()
+    ///     var exampleSubscriptionPolicyAssignment = new Azure.Core.SubscriptionPolicyAssignment("example", new()
     ///     {
-    ///         PolicyDefinitionId = exampleDefinition.Id,
+    ///         Name = "example",
+    ///         PolicyDefinitionId = example.Id,
     ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///     });
     /// 

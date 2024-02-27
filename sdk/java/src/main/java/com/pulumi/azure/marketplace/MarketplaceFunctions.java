@@ -45,7 +45,7 @@ public final class MarketplaceFunctions {
      *             .plan(&#34;hourly&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, data.azurerm_marketplace_agreement().id());
+     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
      *     }
      * }
      * ```
@@ -85,7 +85,7 @@ public final class MarketplaceFunctions {
      *             .plan(&#34;hourly&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, data.azurerm_marketplace_agreement().id());
+     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
      *     }
      * }
      * ```
@@ -125,7 +125,7 @@ public final class MarketplaceFunctions {
      *             .plan(&#34;hourly&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, data.azurerm_marketplace_agreement().id());
+     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
      *     }
      * }
      * ```
@@ -165,7 +165,7 @@ public final class MarketplaceFunctions {
      *             .plan(&#34;hourly&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, data.azurerm_marketplace_agreement().id());
+     *         ctx.export(&#34;azurermMarketplaceAgreementId&#34;, id);
      *     }
      * }
      * ```

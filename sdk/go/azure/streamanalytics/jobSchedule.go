@@ -30,29 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//			_, err = storage.NewBlob(ctx, "example", &storage.BlobArgs{
+//				Name:                 pulumi.String("example"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Block"),
@@ -61,9 +65,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob, err := streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
-//				ResourceGroupName:                  exampleResourceGroup.Name,
-//				Location:                           exampleResourceGroup.Location,
+//			exampleJob, err := streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
+//				Name:                               pulumi.String("example-job"),
+//				ResourceGroupName:                  example.Name,
+//				Location:                           example.Location,
 //				CompatibilityLevel:                 pulumi.String("1.2"),
 //				DataLocale:                         pulumi.String("en-GB"),
 //				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),
@@ -79,7 +84,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleStreamInputBlob, err := streamanalytics.NewStreamInputBlob(ctx, "exampleStreamInputBlob", &streamanalytics.StreamInputBlobArgs{
+//			_, err = streamanalytics.NewStreamInputBlob(ctx, "example", &streamanalytics.StreamInputBlobArgs{
+//				Name:                   pulumi.String("exampleinput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
 //				StorageAccountName:     exampleAccount.Name,
@@ -97,7 +103,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleOutputBlob, err := streamanalytics.NewOutputBlob(ctx, "exampleOutputBlob", &streamanalytics.OutputBlobArgs{
+//			_, err = streamanalytics.NewOutputBlob(ctx, "example", &streamanalytics.OutputBlobArgs{
+//				Name:                   pulumi.String("exampleoutput"),
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
 //				StorageAccountName:     exampleAccount.Name,
@@ -113,15 +120,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewJobSchedule(ctx, "exampleJobSchedule", &streamanalytics.JobScheduleArgs{
+//			_, err = streamanalytics.NewJobSchedule(ctx, "example", &streamanalytics.JobScheduleArgs{
 //				StreamAnalyticsJobId: exampleJob.ID(),
 //				StartMode:            pulumi.String("CustomTime"),
 //				StartTime:            pulumi.String("2022-09-21T00:00:00Z"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleJob,
-//				exampleStreamInputBlob,
-//				exampleOutputBlob,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

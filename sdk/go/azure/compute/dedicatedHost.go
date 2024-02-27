@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "exampleDedicatedHostGroup", &compute.DedicatedHostGroupArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
-//				Location:                 exampleResourceGroup.Location,
+//			exampleDedicatedHostGroup, err := compute.NewDedicatedHostGroup(ctx, "example", &compute.DedicatedHostGroupArgs{
+//				Name:                     pulumi.String("example-host-group"),
+//				ResourceGroupName:        example.Name,
+//				Location:                 example.Location,
 //				PlatformFaultDomainCount: pulumi.Int(2),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewDedicatedHost(ctx, "exampleDedicatedHost", &compute.DedicatedHostArgs{
-//				Location:             exampleResourceGroup.Location,
+//			_, err = compute.NewDedicatedHost(ctx, "example", &compute.DedicatedHostArgs{
+//				Name:                 pulumi.String("example-host"),
+//				Location:             example.Location,
 //				DedicatedHostGroupId: exampleDedicatedHostGroup.ID(),
 //				SkuName:              pulumi.String("DSv3-Type3"),
 //				PlatformFaultDomain:  pulumi.Int(1),

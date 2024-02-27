@@ -22,28 +22,32 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "WestEurope",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-account",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountKind = "StorageV2",
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         IsHnsEnabled = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "example-container",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleLocalUser = new Azure.Storage.LocalUser("exampleLocalUser", new()
+    ///     var exampleLocalUser = new Azure.Storage.LocalUser("example", new()
     ///     {
+    ///         Name = "user1",
     ///         StorageAccountId = exampleAccount.Id,
     ///         SshKeyEnabled = true,
     ///         SshPasswordEnabled = true,
@@ -53,12 +57,12 @@ namespace Pulumi.Azure.Storage
     ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
     ///             {
     ///                 Description = "key1",
-    ///                 Key = local.First_public_key,
+    ///                 Key = firstPublicKey,
     ///             },
     ///             new Azure.Storage.Inputs.LocalUserSshAuthorizedKeyArgs
     ///             {
     ///                 Description = "key2",
-    ///                 Key = local.Second_public_key,
+    ///                 Key = secondPublicKey,
     ///             },
     ///         },
     ///         PermissionScopes = new[]

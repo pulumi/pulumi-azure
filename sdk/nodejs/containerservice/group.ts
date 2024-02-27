@@ -19,10 +19,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleGroup = new azure.containerservice.Group("exampleGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleGroup = new azure.containerservice.Group("example", {
+ *     name: "example-continst",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipAddressType: "Public",
  *     dnsNameLabel: "aci-label",
  *     osType: "Linux",

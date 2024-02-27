@@ -31,7 +31,7 @@ namespace Pulumi.Azure.AppService
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///         ["id"] = exampleAzurermAppServiceGithubToken.Id,
         ///     };
         /// });
         /// ```
@@ -61,7 +61,7 @@ namespace Pulumi.Azure.AppService
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_app_service_github_token.Example.Id,
+        ///         ["id"] = exampleAzurermAppServiceGithubToken.Id,
         ///     };
         /// });
         /// ```

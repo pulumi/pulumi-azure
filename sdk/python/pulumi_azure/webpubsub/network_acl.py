@@ -174,24 +174,30 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
             subnet_id=example_subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="psc-sig-test",
@@ -199,7 +205,7 @@ class NetworkAcl(pulumi.CustomResource):
                 private_connection_resource_id=example_service.id,
                 subresource_names=["webpubsub"],
             ))
-        example_network_acl = azure.webpubsub.NetworkAcl("exampleNetworkAcl",
+        example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
             public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
@@ -211,8 +217,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
+            )])
         ```
 
         ## Import
@@ -245,24 +250,30 @@ class NetworkAcl(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-privateendpoint",
+            resource_group_name=example.name,
+            location=example.location,
             subnet_id=example_subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="psc-sig-test",
@@ -270,7 +281,7 @@ class NetworkAcl(pulumi.CustomResource):
                 private_connection_resource_id=example_service.id,
                 subresource_names=["webpubsub"],
             ))
-        example_network_acl = azure.webpubsub.NetworkAcl("exampleNetworkAcl",
+        example_network_acl = azure.webpubsub.NetworkAcl("example",
             web_pubsub_id=example_service.id,
             default_action="Allow",
             public_network=azure.webpubsub.NetworkAclPublicNetworkArgs(
@@ -282,8 +293,7 @@ class NetworkAcl(pulumi.CustomResource):
                     "RESTAPI",
                     "ClientConnection",
                 ],
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_endpoint]))
+            )])
         ```
 
         ## Import

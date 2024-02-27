@@ -15,28 +15,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "database-rg",
+ *     location: "West Europe",
+ * });
  * const primary = new azure.mssql.Server("primary", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     name: "mssqlserver-primary",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat11",
  * });
  * const secondary = new azure.mssql.Server("secondary", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "mssqlserver-secondary",
+ *     resourceGroupName: example.name,
  *     location: "North Europe",
  *     version: "12.0",
  *     administratorLogin: "missadministrator",
  *     administratorLoginPassword: "thisIsKat12",
  * });
- * const exampleDatabase = new azure.mssql.Database("exampleDatabase", {
+ * const exampleDatabase = new azure.mssql.Database("example", {
+ *     name: "exampledb",
  *     serverId: primary.id,
  *     skuName: "S1",
  *     collation: "SQL_Latin1_General_CP1_CI_AS",
  *     maxSizeGb: 200,
  * });
- * const exampleFailoverGroup = new azure.mssql.FailoverGroup("exampleFailoverGroup", {
+ * const exampleFailoverGroup = new azure.mssql.FailoverGroup("example", {
+ *     name: "example",
  *     serverId: primary.id,
  *     databases: [exampleDatabase.id],
  *     partnerServers: [{

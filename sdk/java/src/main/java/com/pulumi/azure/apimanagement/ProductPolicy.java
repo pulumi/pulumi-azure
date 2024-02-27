@@ -41,16 +41,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
+ *         final var example = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId(&#34;my-product&#34;)
  *             .apiManagementName(&#34;example-apim&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
  *             .build());
  * 
  *         var exampleProductPolicy = new ProductPolicy(&#34;exampleProductPolicy&#34;, ProductPolicyArgs.builder()        
- *             .productId(exampleProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
- *             .apiManagementName(exampleProduct.applyValue(getProductResult -&gt; getProductResult.apiManagementName()))
- *             .resourceGroupName(exampleProduct.applyValue(getProductResult -&gt; getProductResult.resourceGroupName()))
+ *             .productId(example.applyValue(getProductResult -&gt; getProductResult.productId()))
+ *             .apiManagementName(example.applyValue(getProductResult -&gt; getProductResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getProductResult -&gt; getProductResult.resourceGroupName()))
  *             .xmlContent(&#34;&#34;&#34;
  * &lt;policies&gt;
  *   &lt;inbound&gt;

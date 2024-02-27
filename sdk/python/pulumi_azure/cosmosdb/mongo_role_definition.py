@@ -182,10 +182,13 @@ class MongoRoleDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
@@ -200,13 +203,14 @@ class MongoRoleDefinition(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
+        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
+            name="example-mongodb",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
-        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
+        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("example",
             cosmos_mongo_database_id=example_mongo_database.id,
             role_name="example-roledefinition")
         ```
@@ -243,10 +247,13 @@ class MongoRoleDefinition(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-ca",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="MongoDB",
             capabilities=[
@@ -261,13 +268,14 @@ class MongoRoleDefinition(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
+        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
+            name="example-mongodb",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name)
-        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("exampleMongoRoleDefinition",
+        example_mongo_role_definition = azure.cosmosdb.MongoRoleDefinition("example",
             cosmos_mongo_database_id=example_mongo_database.id,
             role_name="example-roledefinition")
         ```

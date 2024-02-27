@@ -15,20 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkDataNetwork = new azure.mobile.NetworkDataNetwork("exampleNetworkDataNetwork", {
+ * const exampleNetworkDataNetwork = new azure.mobile.NetworkDataNetwork("example", {
+ *     name: "example-mndn",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  * });
- * const exampleNetworkService = new azure.mobile.NetworkService("exampleNetworkService", {
+ * const exampleNetworkService = new azure.mobile.NetworkService("example", {
+ *     name: "example-mns",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     servicePrecedence: 0,
  *     pccRules: [{
  *         name: "default-rule",
@@ -43,16 +49,18 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
+ * const exampleNetworkSlice = new azure.mobile.NetworkSlice("example", {
+ *     name: "example-mns",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     singleNetworkSliceSelectionAssistanceInformation: {
  *         sliceServiceType: 1,
  *     },
  * });
- * const exampleNetworkSimPolicy = new azure.mobile.NetworkSimPolicy("exampleNetworkSimPolicy", {
+ * const exampleNetworkSimPolicy = new azure.mobile.NetworkSimPolicy("example", {
+ *     name: "example-mnsp",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     registrationTimerInSeconds: 3240,
  *     defaultSliceId: exampleNetworkSlice.id,
  *     slices: [{

@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
         ///     {
-        ///         Name = azurerm_cdn_frontdoor_custom_domain.Example.Name,
-        ///         ProfileName = azurerm_cdn_frontdoor_profile.Example.Name,
-        ///         ResourceGroupName = azurerm_cdn_frontdoor_profile.Example.Resource_group_name,
+        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
+        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
+        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
         ///     });
         /// 
         /// });
@@ -58,9 +58,9 @@ namespace Pulumi.Azure.Cdn
         /// {
         ///     var example = Azure.Cdn.GetFrontdoorCustomDomain.Invoke(new()
         ///     {
-        ///         Name = azurerm_cdn_frontdoor_custom_domain.Example.Name,
-        ///         ProfileName = azurerm_cdn_frontdoor_profile.Example.Name,
-        ///         ResourceGroupName = azurerm_cdn_frontdoor_profile.Example.Resource_group_name,
+        ///         Name = exampleAzurermCdnFrontdoorCustomDomain.Name,
+        ///         ProfileName = exampleAzurermCdnFrontdoorProfile.Name,
+        ///         ResourceGroupName = exampleAzurermCdnFrontdoorProfile.ResourceGroupName,
         ///     });
         /// 
         /// });

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLab, err := devtest.NewLab(ctx, "exampleLab", &devtest.LabArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLab, err := devtest.NewLab(ctx, "example", &devtest.LabArgs{
+//				Name:              pulumi.String("example-devtestlab"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"Sydney": pulumi.String("Australia"),
 //				},
@@ -45,10 +47,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = devtest.NewPolicy(ctx, "examplePolicy", &devtest.PolicyArgs{
+//			_, err = devtest.NewPolicy(ctx, "example", &devtest.PolicyArgs{
+//				Name:              pulumi.String("LabVmCount"),
 //				PolicySetName:     pulumi.String("default"),
 //				LabName:           exampleLab.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				FactData:          pulumi.String(""),
 //				Threshold:         pulumi.String("999"),
 //				EvaluatorType:     pulumi.String("MaxValuePolicy"),

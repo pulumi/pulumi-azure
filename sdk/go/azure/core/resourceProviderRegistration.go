@@ -33,7 +33,9 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := core.NewResourceProviderRegistration(ctx, "example", nil)
+//			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
+//				Name: pulumi.String("Microsoft.PolicyInsights"),
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -57,6 +59,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewResourceProviderRegistration(ctx, "example", &core.ResourceProviderRegistrationArgs{
+//				Name: pulumi.String("Microsoft.ContainerService"),
 //				Features: core.ResourceProviderRegistrationFeatureArray{
 //					&core.ResourceProviderRegistrationFeatureArgs{
 //						Name:       pulumi.String("AKS-DataPlaneAutoApprove"),

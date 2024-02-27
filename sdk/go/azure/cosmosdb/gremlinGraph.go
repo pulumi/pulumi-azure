@@ -28,23 +28,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
 //				Name:              "tfex-cosmosdb-account",
 //				ResourceGroupName: "tfex-cosmosdb-account-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "exampleGremlinDatabase", &cosmosdb.GremlinDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			exampleGremlinDatabase, err := cosmosdb.NewGremlinDatabase(ctx, "example", &cosmosdb.GremlinDatabaseArgs{
+//				Name:              pulumi.String("tfex-cosmos-gremlin-db"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewGremlinGraph(ctx, "exampleGremlinGraph", &cosmosdb.GremlinGraphArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			_, err = cosmosdb.NewGremlinGraph(ctx, "example", &cosmosdb.GremlinGraphArgs{
+//				Name:              pulumi.String("tfex-cosmos-gremlin-graph"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //				DatabaseName:      exampleGremlinDatabase.Name,
 //				PartitionKeyPath:  pulumi.String("/Example"),
 //				Throughput:        pulumi.Int(400),

@@ -23,6 +23,107 @@ import javax.annotation.Nullable;
 /**
  * Manages an AlertingAction Scheduled Query Rules Version 2 resource within Azure Monitor
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azure.appinsights.Insights;
+ * import com.pulumi.azure.appinsights.InsightsArgs;
+ * import com.pulumi.azure.monitoring.ActionGroup;
+ * import com.pulumi.azure.monitoring.ActionGroupArgs;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2;
+ * import com.pulumi.azure.monitoring.ScheduledQueryRulesAlertV2Args;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs;
+ * import com.pulumi.azure.monitoring.inputs.ScheduledQueryRulesAlertV2ActionArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
+ *             .name(&#34;example-ai&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .applicationType(&#34;web&#34;)
+ *             .build());
+ * 
+ *         var exampleActionGroup = new ActionGroup(&#34;exampleActionGroup&#34;, ActionGroupArgs.builder()        
+ *             .name(&#34;example-mag&#34;)
+ *             .resourceGroupName(example.name())
+ *             .shortName(&#34;test mag&#34;)
+ *             .build());
+ * 
+ *         var exampleScheduledQueryRulesAlertV2 = new ScheduledQueryRulesAlertV2(&#34;exampleScheduledQueryRulesAlertV2&#34;, ScheduledQueryRulesAlertV2Args.builder()        
+ *             .name(&#34;example-msqrv2&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .evaluationFrequency(&#34;PT10M&#34;)
+ *             .windowDuration(&#34;PT10M&#34;)
+ *             .scopes(exampleInsights.id())
+ *             .severity(4)
+ *             .criterias(ScheduledQueryRulesAlertV2CriteriaArgs.builder()
+ *                 .query(&#34;&#34;&#34;
+ * requests
+ *   | summarize CountByCountry=count() by client_CountryOrRegion
+ *                 &#34;&#34;&#34;)
+ *                 .timeAggregationMethod(&#34;Maximum&#34;)
+ *                 .threshold(17.5)
+ *                 .operator(&#34;LessThan&#34;)
+ *                 .resourceIdColumn(&#34;client_CountryOrRegion&#34;)
+ *                 .metricMeasureColumn(&#34;CountByCountry&#34;)
+ *                 .dimensions(ScheduledQueryRulesAlertV2CriteriaDimensionArgs.builder()
+ *                     .name(&#34;client_CountryOrRegion&#34;)
+ *                     .operator(&#34;Exclude&#34;)
+ *                     .values(&#34;123&#34;)
+ *                     .build())
+ *                 .failingPeriods(ScheduledQueryRulesAlertV2CriteriaFailingPeriodsArgs.builder()
+ *                     .minimumFailingPeriodsToTriggerAlert(1)
+ *                     .numberOfEvaluationPeriods(1)
+ *                     .build())
+ *                 .build())
+ *             .autoMitigationEnabled(true)
+ *             .workspaceAlertsStorageEnabled(false)
+ *             .description(&#34;example sqr&#34;)
+ *             .displayName(&#34;example-sqr&#34;)
+ *             .enabled(true)
+ *             .queryTimeRangeOverride(&#34;PT1H&#34;)
+ *             .skipQueryValidation(true)
+ *             .action(ScheduledQueryRulesAlertV2ActionArgs.builder()
+ *                 .actionGroups(exampleActionGroup.id())
+ *                 .customProperties(Map.ofEntries(
+ *                     Map.entry(&#34;key&#34;, &#34;value&#34;),
+ *                     Map.entry(&#34;key2&#34;, &#34;value2&#34;)
+ *                 ))
+ *                 .build())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;key&#34;, &#34;value&#34;),
+ *                 Map.entry(&#34;key2&#34;, &#34;value2&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Monitor Scheduled Query Rule Alert can be imported using the `resource id`, e.g.

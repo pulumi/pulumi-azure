@@ -30,44 +30,50 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
+//				Name:              pulumi.String("examplegallery"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleGalleryApplication, err := compute.NewGalleryApplication(ctx, "exampleGalleryApplication", &compute.GalleryApplicationArgs{
+//			exampleGalleryApplication, err := compute.NewGalleryApplication(ctx, "example", &compute.GalleryApplicationArgs{
+//				Name:            pulumi.String("example-app"),
 //				GalleryId:       exampleSharedImageGallery.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //				SupportedOsType: pulumi.String("Linux"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example-container"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("blob"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBlob, err := storage.NewBlob(ctx, "exampleBlob", &storage.BlobArgs{
+//			exampleBlob, err := storage.NewBlob(ctx, "example", &storage.BlobArgs{
+//				Name:                 pulumi.String("scripts"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Block"),
@@ -76,7 +82,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewGalleryApplicationVersion(ctx, "exampleGalleryApplicationVersion", &compute.GalleryApplicationVersionArgs{
+//			_, err = compute.NewGalleryApplicationVersion(ctx, "example", &compute.GalleryApplicationVersionArgs{
+//				Name:                 pulumi.String("0.0.1"),
 //				GalleryApplicationId: exampleGalleryApplication.ID(),
 //				Location:             exampleGalleryApplication.Location,
 //				ManageAction: &compute.GalleryApplicationVersionManageActionArgs{

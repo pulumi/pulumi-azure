@@ -229,6 +229,28 @@ class FederatedIdentityCredential(pulumi.CustomResource):
         """
         Manages a Federated Identity Credential.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example",
+            resource_group_name=example.name,
+            audience="foo",
+            issuer="https://foo",
+            parent_id=example_user_assigned_identity.id,
+            subject="foo")
+        ```
+
         ## Import
 
         An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.
@@ -254,6 +276,28 @@ class FederatedIdentityCredential(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Federated Identity Credential.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
+        example_federated_identity_credential = azure.armmsi.FederatedIdentityCredential("example",
+            name="example",
+            resource_group_name=example.name,
+            audience="foo",
+            issuer="https://foo",
+            parent_id=example_user_assigned_identity.id,
+            subject="foo")
+        ```
 
         ## Import
 

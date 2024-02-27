@@ -15,14 +15,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "east us"});
- * const testService = new azure.webpubsub.Service("testService", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     name: "terraform-webpubsub",
+ *     location: "east us",
+ * });
+ * const testService = new azure.webpubsub.Service("test", {
+ *     name: "tfex-webpubsub",
  *     location: testResourceGroup.location,
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const testPrivateLinkResource = azure.webpubsub.getPrivateLinkResourceOutput({
+ * const test = azure.webpubsub.getPrivateLinkResourceOutput({
  *     webPubsubId: testService.id,
  * });
  * ```
@@ -68,14 +72,18 @@ export interface GetPrivateLinkResourceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const testResourceGroup = new azure.core.ResourceGroup("testResourceGroup", {location: "east us"});
- * const testService = new azure.webpubsub.Service("testService", {
+ * const testResourceGroup = new azure.core.ResourceGroup("test", {
+ *     name: "terraform-webpubsub",
+ *     location: "east us",
+ * });
+ * const testService = new azure.webpubsub.Service("test", {
+ *     name: "tfex-webpubsub",
  *     location: testResourceGroup.location,
  *     resourceGroupName: testResourceGroup.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const testPrivateLinkResource = azure.webpubsub.getPrivateLinkResourceOutput({
+ * const test = azure.webpubsub.getPrivateLinkResourceOutput({
  *     webPubsubId: testService.id,
  * });
  * ```

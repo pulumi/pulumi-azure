@@ -24,23 +24,26 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleProfile = new Azure.Cdn.Profile("exampleProfile", new()
+    ///     var exampleProfile = new Azure.Cdn.Profile("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cdn",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard_Verizon",
     ///     });
     /// 
-    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("exampleEndpoint", new()
+    ///     var exampleEndpoint = new Azure.Cdn.Endpoint("example", new()
     ///     {
+    ///         Name = "example",
     ///         ProfileName = exampleProfile.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Origins = new[]
     ///         {
     ///             new Azure.Cdn.Inputs.EndpointOriginArgs

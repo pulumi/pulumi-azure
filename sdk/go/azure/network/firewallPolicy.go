@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewFirewallPolicy(ctx, "exampleFirewallPolicy", &network.FirewallPolicyArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = network.NewFirewallPolicy(ctx, "example", &network.FirewallPolicyArgs{
+//				Name:              pulumi.String("example-policy"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err

@@ -34,12 +34,14 @@ import (
 //				return err
 //			}
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = confidentialledger.NewLedger(ctx, "ledger", &confidentialledger.LedgerArgs{
+//				Name:              pulumi.String("example-ledger"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				LedgerType:        pulumi.String("Private"),

@@ -22,21 +22,24 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-recovery_vault",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-recovery-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new()
+    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-recovery-vault-policy",
+    ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = exampleVault.Name,
     ///         Timezone = "UTC",
     ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := appplatform.LookupSpringCloudService(ctx, &appplatform.LookupSpringCloudServiceArgs{
-//				Name:              azurerm_spring_cloud_service.Example.Name,
-//				ResourceGroupName: azurerm_spring_cloud_service.Example.Resource_group_name,
+//				Name:              exampleAzurermSpringCloudService.Name,
+//				ResourceGroupName: exampleAzurermSpringCloudService.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err

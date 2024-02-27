@@ -15,23 +15,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleNamespace = new azure.servicebus.Namespace("exampleNamespace", {
+ * const exampleNamespace = new azure.servicebus.Namespace("example", {
+ *     name: "example-namespace",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard",
  * });
- * const exampleTopic = new azure.servicebus.Topic("exampleTopic", {
+ * const exampleTopic = new azure.servicebus.Topic("example", {
+ *     name: "example-topic",
  *     namespaceId: exampleNamespace.id,
  *     enablePartitioning: true,
  * });
- * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("exampleOutputServicebusTopic", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleOutputServicebusTopic = new azure.streamanalytics.OutputServicebusTopic("example", {
+ *     name: "service-bus-topic-output",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     topicName: exampleTopic.name,
  *     servicebusNamespace: exampleNamespace.name,
  *     sharedAccessPolicyKey: exampleNamespace.defaultPrimaryKey,

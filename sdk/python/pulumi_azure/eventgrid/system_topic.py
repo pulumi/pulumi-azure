@@ -304,18 +304,22 @@ class SystemTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracct",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_system_topic = azure.eventgrid.SystemTopic("example",
+            name="example-topic",
+            resource_group_name=example.name,
+            location=example.location,
             source_arm_resource_id=example_account.id,
             topic_type="Microsoft.Storage.StorageAccounts")
         ```
@@ -357,18 +361,22 @@ class SystemTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracct",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_system_topic = azure.eventgrid.SystemTopic("example",
+            name="example-topic",
+            resource_group_name=example.name,
+            location=example.location,
             source_arm_resource_id=example_account.id,
             topic_type="Microsoft.Storage.StorageAccounts")
         ```

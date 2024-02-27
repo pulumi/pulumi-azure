@@ -162,8 +162,10 @@ def get_service(name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_service = azure.search.get_service_output(name="example-search-service",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="example-resources",
+        location="West Europe")
+    example = azure.search.get_service_output(name="example-search-service",
         resource_group_name=example_resource_group.name)
     ```
 
@@ -203,8 +205,10 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_service = azure.search.get_service_output(name="example-search-service",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="example-resources",
+        location="West Europe")
+    example = azure.search.get_service_output(name="example-search-service",
         resource_group_name=example_resource_group.name)
     ```
 

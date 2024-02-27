@@ -22,41 +22,45 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-appinsights",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@mycompany.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleLogger = new Azure.ApiManagement.Logger("exampleLogger", new()
+    ///     var exampleLogger = new Azure.ApiManagement.Logger("example", new()
     ///     {
+    ///         Name = "example-apimlogger",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsights = new Azure.ApiManagement.Inputs.LoggerApplicationInsightsArgs
     ///         {
     ///             InstrumentationKey = exampleInsights.InstrumentationKey,
     ///         },
     ///     });
     /// 
-    ///     var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("exampleDiagnostic", new()
+    ///     var exampleDiagnostic = new Azure.ApiManagement.Diagnostic("example", new()
     ///     {
     ///         Identifier = "applicationinsights",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
     ///         ApiManagementLoggerId = exampleLogger.Id,
     ///         SamplingPercentage = 5,

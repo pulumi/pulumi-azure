@@ -204,19 +204,24 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             license_type="BasePrice",
             sku_name="GP_Gen5",
             storage_size_in_gb=32,
@@ -228,7 +233,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("exampleDirectoryRoleMember",
+        example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
@@ -236,7 +241,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             display_name="Ms Admin",
             mail_nickname="ms.admin",
             password="SecretP@sswd99!")
-        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
+        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
             object_id=admin.object_id,
@@ -275,19 +280,24 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_azuread as azuread
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_managed_instance = azure.mssql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_managed_instance = azure.mssql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             license_type="BasePrice",
             sku_name="GP_Gen5",
             storage_size_in_gb=32,
@@ -299,7 +309,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
                 type="SystemAssigned",
             ))
         reader = azuread.DirectoryRole("reader", display_name="Directory Readers")
-        example_directory_role_member = azuread.DirectoryRoleMember("exampleDirectoryRoleMember",
+        example_directory_role_member = azuread.DirectoryRoleMember("example",
             role_object_id=reader.object_id,
             member_object_id=example_managed_instance.identity.principal_id)
         admin = azuread.User("admin",
@@ -307,7 +317,7 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
             display_name="Ms Admin",
             mail_nickname="ms.admin",
             password="SecretP@sswd99!")
-        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
+        example_managed_instance_active_directory_administrator = azure.mssql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_id=example_managed_instance.id,
             login_username="msadmin",
             object_id=admin.object_id,

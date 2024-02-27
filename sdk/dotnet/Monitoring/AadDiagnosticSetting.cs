@@ -24,22 +24,25 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "west europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountKind = "StorageV2",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("exampleAadDiagnosticSetting", new()
+    ///     var exampleAadDiagnosticSetting = new Azure.Monitoring.AadDiagnosticSetting("example", new()
     ///     {
+    ///         Name = "setting1",
     ///         StorageAccountId = exampleAccount.Id,
     ///         EnabledLogs = new[]
     ///         {

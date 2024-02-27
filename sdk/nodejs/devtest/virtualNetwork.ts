@@ -15,17 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.devtest.Lab("exampleLab", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleLab = new azure.devtest.Lab("example", {
+ *     name: "example-devtestlab",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
+ *     name: "example-network",
  *     labName: exampleLab.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     subnet: {
  *         usePublicIpAddress: "Allow",
  *         useInVirtualMachineCreation: "Allow",

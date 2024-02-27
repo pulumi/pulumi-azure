@@ -74,20 +74,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;testaccbatch&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;testaccsa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
- *         var exampleBatch_accountAccount = new Account(&#34;exampleBatch/accountAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
+ *             .name(&#34;testaccbatch&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .poolAllocationMode(&#34;BatchService&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .storageAccountAuthenticationMode(&#34;StorageKeys&#34;)
@@ -95,17 +98,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .accountName(exampleBatch / accountAccount.name())
- *             .certificate(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate.cer&#34;))))
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount2.name())
+ *             .certificate(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;certificate.cer&#34;)
+ *                 .build()).result())
  *             .format(&#34;Cer&#34;)
  *             .thumbprint(&#34;312d31a79fa0cef49c00f769afc2b73e9f4edf34&#34;)
  *             .thumbprintAlgorithm(&#34;SHA1&#34;)
  *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .accountName(exampleBatch / accountAccount.name())
+ *             .name(&#34;testaccpool&#34;)
+ *             .resourceGroupName(example.name())
+ *             .accountName(exampleAccount2.name())
  *             .displayName(&#34;Test Acc Pool Auto&#34;)
  *             .vmSize(&#34;Standard_A1&#34;)
  *             .nodeAgentSkuId(&#34;batch.node.ubuntu 20.04&#34;)

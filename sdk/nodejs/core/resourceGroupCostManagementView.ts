@@ -15,12 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleResourceGroupCostManagementView = new azure.core.ResourceGroupCostManagementView("exampleResourceGroupCostManagementView", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleResourceGroupCostManagementView = new azure.core.ResourceGroupCostManagementView("example", {
+ *     name: "example",
  *     displayName: "Cost View per Month",
  *     chartType: "StackedColumn",
  *     accumulated: false,
- *     resourceGroupId: exampleResourceGroup.id,
+ *     resourceGroupId: example.id,
  *     reportType: "Usage",
  *     timeframe: "MonthToDate",
  *     dataset: {

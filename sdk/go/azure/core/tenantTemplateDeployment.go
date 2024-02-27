@@ -25,7 +25,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+//			example, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
 //				Name:              "myTemplateForTenant",
 //				ResourceGroupName: "myResourceGroup",
 //				Version:           "v0.1",
@@ -33,9 +33,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewTenantTemplateDeployment(ctx, "exampleTenantTemplateDeployment", &core.TenantTemplateDeploymentArgs{
+//			_, err = core.NewTenantTemplateDeployment(ctx, "example", &core.TenantTemplateDeploymentArgs{
+//				Name:                  pulumi.String("example"),
 //				Location:              pulumi.String("West Europe"),
-//				TemplateSpecVersionId: *pulumi.String(exampleTemplateSpecVersion.Id),
+//				TemplateSpecVersionId: *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

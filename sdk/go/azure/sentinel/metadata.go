@@ -30,24 +30,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("pergb2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
 //				SolutionName:        pulumi.String("SecurityInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
 //				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{
@@ -58,7 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAlertRuleNrt, err := sentinel.NewAlertRuleNrt(ctx, "exampleAlertRuleNrt", &sentinel.AlertRuleNrtArgs{
+//			exampleAlertRuleNrt, err := sentinel.NewAlertRuleNrt(ctx, "example", &sentinel.AlertRuleNrtArgs{
+//				Name:                    pulumi.String("example"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //				DisplayName:             pulumi.String("example"),
 //				Severity:                pulumi.String("High"),
@@ -67,7 +70,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewMetadata(ctx, "exampleMetadata", &sentinel.MetadataArgs{
+//			_, err = sentinel.NewMetadata(ctx, "example", &sentinel.MetadataArgs{
+//				Name:        pulumi.String("exampl"),
 //				WorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //				ContentId:   exampleAlertRuleNrt.Name,
 //				Kind:        pulumi.String("AnalyticsRule"),

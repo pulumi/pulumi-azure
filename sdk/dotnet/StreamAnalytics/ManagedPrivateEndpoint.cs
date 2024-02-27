@@ -22,31 +22,35 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageacc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         AccountKind = "StorageV2",
     ///         IsHnsEnabled = true,
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.StreamAnalytics.Cluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestreamanalyticscluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         StreamingCapacity = 36,
     ///     });
     /// 
-    ///     var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", new()
+    ///     var exampleManagedPrivateEndpoint = new Azure.StreamAnalytics.ManagedPrivateEndpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleprivateendpoint",
+    ///         ResourceGroupName = example.Name,
     ///         StreamAnalyticsClusterName = exampleCluster.Name,
     ///         TargetResourceId = exampleAccount.Id,
     ///         SubresourceName = "blob",

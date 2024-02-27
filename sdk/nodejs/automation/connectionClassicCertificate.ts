@@ -13,19 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleClientConfig = azure.core.getClientConfig({});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "resourceGroup-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.core.getClientConfig({});
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account-example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  * });
- * const exampleConnectionClassicCertificate = new azure.automation.ConnectionClassicCertificate("exampleConnectionClassicCertificate", {
+ * const exampleConnectionClassicCertificate = new azure.automation.ConnectionClassicCertificate("example", {
+ *     name: "connection-example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
  *     certificateAssetName: "cert1",
  *     subscriptionName: "subs1",
- *     subscriptionId: exampleClientConfig.then(exampleClientConfig => exampleClientConfig.subscriptionId),
+ *     subscriptionId: example.then(example => example.subscriptionId),
  * });
  * ```
  *

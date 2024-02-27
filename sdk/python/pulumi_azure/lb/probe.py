@@ -318,20 +318,25 @@ class Probe(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,
+            name="ssh-running-probe",
             port=22)
         ```
 
@@ -371,20 +376,25 @@ class Probe(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_probe = azure.lb.Probe("exampleProbe",
+        example_probe = azure.lb.Probe("example",
             loadbalancer_id=example_load_balancer.id,
+            name="ssh-running-probe",
             port=22)
         ```
 

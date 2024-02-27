@@ -305,20 +305,25 @@ class ActivityLogAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        main = azure.monitoring.ActionGroup("main",
+            name="example-actiongroup",
             resource_group_name=example.name,
             short_name="p0action",
             webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
-        to_monitor = azure.storage.Account("toMonitor",
+        to_monitor = azure.storage.Account("to_monitor",
+            name="examplesa",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        main_activity_log_alert = azure.monitoring.ActivityLogAlert("mainActivityLogAlert",
+        main_activity_log_alert = azure.monitoring.ActivityLogAlert("main",
+            name="example-activitylogalert",
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
@@ -328,7 +333,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                 category="Recommendation",
             ),
             actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main_action_group.id,
+                action_group_id=main.id,
                 webhook_properties={
                     "from": "source",
                 },
@@ -369,20 +374,25 @@ class ActivityLogAlert(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
-        main_action_group = azure.monitoring.ActionGroup("mainActionGroup",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        main = azure.monitoring.ActionGroup("main",
+            name="example-actiongroup",
             resource_group_name=example.name,
             short_name="p0action",
             webhook_receivers=[azure.monitoring.ActionGroupWebhookReceiverArgs(
                 name="callmyapi",
                 service_uri="http://example.com/alert",
             )])
-        to_monitor = azure.storage.Account("toMonitor",
+        to_monitor = azure.storage.Account("to_monitor",
+            name="examplesa",
             resource_group_name=example.name,
             location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        main_activity_log_alert = azure.monitoring.ActivityLogAlert("mainActivityLogAlert",
+        main_activity_log_alert = azure.monitoring.ActivityLogAlert("main",
+            name="example-activitylogalert",
             resource_group_name=example.name,
             scopes=[example.id],
             description="This alert will monitor a specific storage account updates.",
@@ -392,7 +402,7 @@ class ActivityLogAlert(pulumi.CustomResource):
                 category="Recommendation",
             ),
             actions=[azure.monitoring.ActivityLogAlertActionArgs(
-                action_group_id=main_action_group.id,
+                action_group_id=main.id,
                 webhook_properties={
                     "from": "source",
                 },

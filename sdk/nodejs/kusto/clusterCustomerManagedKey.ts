@@ -14,17 +14,22 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
@@ -56,7 +61,8 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "tfex-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -68,13 +74,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         client,
- *         cluster,
- *     ],
  * });
- * const exampleClusterCustomerManagedKey = new azure.kusto.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", {
+ * const exampleClusterCustomerManagedKey = new azure.kusto.ClusterCustomerManagedKey("example", {
  *     clusterId: exampleCluster.id,
  *     keyVaultId: exampleKeyVault.id,
  *     keyName: exampleKey.name,

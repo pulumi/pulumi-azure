@@ -47,7 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var example = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
  *             .apiManagementName(&#34;search-api-management&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
@@ -56,9 +56,9 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApiOperation = new ApiOperation(&#34;exampleApiOperation&#34;, ApiOperationArgs.builder()        
  *             .operationId(&#34;user-delete&#34;)
- *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .apiManagementName(exampleApi.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
- *             .resourceGroupName(exampleApi.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
+ *             .apiName(example.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .apiManagementName(example.applyValue(getApiResult -&gt; getApiResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getApiResult -&gt; getApiResult.resourceGroupName()))
  *             .displayName(&#34;Delete User Operation&#34;)
  *             .method(&#34;DELETE&#34;)
  *             .urlTemplate(&#34;/users/{id}/delete&#34;)

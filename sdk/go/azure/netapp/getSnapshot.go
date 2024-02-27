@@ -37,7 +37,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("netappSnapshotId", data.Azurerm_netapp_snapshot.Example.Id)
+//			ctx.Export("netappSnapshotId", example.Id)
 //			return nil
 //		})
 //	}

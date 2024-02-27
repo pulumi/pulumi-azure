@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Iot
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("exampleIotHubDps", new()
+    ///     var exampleIotHubDps = new Azure.Iot.IotHubDps("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = new Azure.Iot.Inputs.IotHubDpsSkuArgs
     ///         {
     ///             Name = "S1",
@@ -38,9 +40,10 @@ namespace Pulumi.Azure.Iot
     ///         },
     ///     });
     /// 
-    ///     var exampleDpsSharedAccessPolicy = new Azure.Iot.DpsSharedAccessPolicy("exampleDpsSharedAccessPolicy", new()
+    ///     var exampleDpsSharedAccessPolicy = new Azure.Iot.DpsSharedAccessPolicy("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         IothubDpsName = exampleIotHubDps.Name,
     ///         EnrollmentWrite = true,
     ///         EnrollmentRead = true,

@@ -16,10 +16,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDefinition = new azure.managedapplication.Definition("example", {
+ *     name: "examplemanagedapplicationdefinition",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     lockLevel: "ReadOnly",
  *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
  *     displayName: "TestManagedApplicationDefinition",

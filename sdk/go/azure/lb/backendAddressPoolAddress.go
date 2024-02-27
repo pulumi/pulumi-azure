@@ -31,30 +31,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleVirtualNetwork, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
+//			example, err := network.LookupVirtualNetwork(ctx, &network.LookupVirtualNetworkArgs{
 //				Name:              "example-network",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
+//			exampleGetLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
 //				Name:              "example-lb",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
+//			exampleGetBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
 //				Name:           "first",
-//				LoadbalancerId: exampleLB.Id,
+//				LoadbalancerId: exampleGetLB.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lb.NewBackendAddressPoolAddress(ctx, "exampleBackendAddressPoolAddress", &lb.BackendAddressPoolAddressArgs{
-//				BackendAddressPoolId: *pulumi.String(exampleBackendAddressPool.Id),
-//				VirtualNetworkId:     *pulumi.String(exampleVirtualNetwork.Id),
+//			_, err = lb.NewBackendAddressPoolAddress(ctx, "example", &lb.BackendAddressPoolAddressArgs{
+//				Name:                 pulumi.String("example"),
+//				BackendAddressPoolId: *pulumi.String(exampleGetBackendAddressPool.Id),
+//				VirtualNetworkId:     *pulumi.String(example.Id),
 //				IpAddress:            pulumi.String("10.0.0.1"),
 //			})
 //			if err != nil {
@@ -62,21 +63,23 @@ import (
 //			}
 //			backend_pool_cr, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
 //				Name:           "globalLBBackendPool",
-//				LoadbalancerId: exampleLB.Id,
+//				LoadbalancerId: exampleGetLB.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-1", &lb.BackendAddressPoolAddressArgs{
+//				Name:                            pulumi.String("address1"),
 //				BackendAddressPoolId:            *pulumi.String(backend_pool_cr.Id),
-//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.BackendLbR1.Frontend_ip_configuration[0].Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(backend_lb_R1.FrontendIpConfiguration[0].Id),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = lb.NewBackendAddressPoolAddress(ctx, "example-2", &lb.BackendAddressPoolAddressArgs{
+//				Name:                            pulumi.String("address2"),
 //				BackendAddressPoolId:            *pulumi.String(backend_pool_cr.Id),
-//				BackendAddressIpConfigurationId: pulumi.Any(azurerm_lb.BackendLbR2.Frontend_ip_configuration[0].Id),
+//				BackendAddressIpConfigurationId: pulumi.Any(backend_lb_R2.FrontendIpConfiguration[0].Id),
 //			})
 //			if err != nil {
 //				return err

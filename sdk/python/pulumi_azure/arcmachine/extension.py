@@ -420,6 +420,25 @@ class Extension(pulumi.CustomResource):
         """
         Manages a Hybrid Compute Machine Extension.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example = azure.arcmachine.get_output(name="existing-hcmachine",
+            resource_group_name=example_resource_group.name)
+        example_extension = azure.arcmachine.Extension("example",
+            name="example",
+            location="West Europe",
+            arc_machine_id=example.id,
+            publisher="Microsoft.Azure.Monitor",
+            type="AzureMonitorLinuxAgent")
+        ```
+
         ## Import
 
         Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.
@@ -456,6 +475,25 @@ class Extension(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Hybrid Compute Machine Extension.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example = azure.arcmachine.get_output(name="existing-hcmachine",
+            resource_group_name=example_resource_group.name)
+        example_extension = azure.arcmachine.Extension("example",
+            name="example",
+            location="West Europe",
+            arc_machine_id=example.id,
+            publisher="Microsoft.Azure.Monitor",
+            type="AzureMonitorLinuxAgent")
+        ```
 
         ## Import
 

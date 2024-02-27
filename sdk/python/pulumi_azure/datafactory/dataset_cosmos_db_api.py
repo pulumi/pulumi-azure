@@ -380,17 +380,22 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("exampleFactory",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
+        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("example",
+            name="example",
             data_factory_id=example_factory.id,
-            account_endpoint=example_account.endpoint,
+            account_endpoint=example.endpoint,
             database="foo")
-        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi",
+        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_cosmos_db.name,
             collection_name="bar")
@@ -434,17 +439,22 @@ class DatasetCosmosDBApi(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_factory = azure.datafactory.Factory("exampleFactory",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb",
+        example_linked_service_cosmos_db = azure.datafactory.LinkedServiceCosmosDb("example",
+            name="example",
             data_factory_id=example_factory.id,
-            account_endpoint=example_account.endpoint,
+            account_endpoint=example.endpoint,
             database="foo")
-        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi",
+        example_dataset_cosmos_db_api = azure.datafactory.DatasetCosmosDBApi("example",
+            name="example",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_service_cosmos_db.name,
             collection_name="bar")

@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpccp",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
+        ///     var exampleGetNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
         ///     {
-        ///         MobileNetworkDataNetworkName = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
-        ///         MobileNetworkPacketCoreDataPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///         MobileNetworkDataNetworkName = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
+        ///         MobileNetworkPacketCoreDataPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpccp",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
+        ///     var exampleGetNetworkAttachedDataNetwork = Azure.Mobile.GetNetworkAttachedDataNetwork.Invoke(new()
         ///     {
-        ///         MobileNetworkDataNetworkName = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
-        ///         MobileNetworkPacketCoreDataPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///         MobileNetworkDataNetworkName = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Name),
+        ///         MobileNetworkPacketCoreDataPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
         ///     });
         /// 
         /// });

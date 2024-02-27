@@ -397,32 +397,39 @@ class LinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"],
             enforce_private_link_service_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-api",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
             auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],
@@ -484,32 +491,39 @@ class LinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.5.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example-subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"],
             enforce_private_link_service_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-api",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            resource_group_name=example.name,
+            location=example.location,
             auto_approval_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             visibility_subscription_ids=["00000000-0000-0000-0000-000000000000"],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id],

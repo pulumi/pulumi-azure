@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Lab
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLab = new Azure.Lab.Lab("exampleLab", new()
+    ///     var exampleLab = new Azure.Lab.Lab("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-lab",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Title = "Test Title",
     ///         Security = new Azure.Lab.Inputs.LabSecurityArgs
     ///         {
@@ -58,8 +60,9 @@ namespace Pulumi.Azure.Lab
     ///         },
     ///     });
     /// 
-    ///     var exampleSchedule = new Azure.Lab.Schedule("exampleSchedule", new()
+    ///     var exampleSchedule = new Azure.Lab.Schedule("example", new()
     ///     {
+    ///         Name = "example-labschedule",
     ///         LabId = exampleLab.Id,
     ///         StopTime = "2022-11-28T00:00:00Z",
     ///         TimeZone = "America/Los_Angeles",

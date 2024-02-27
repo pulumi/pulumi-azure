@@ -16,22 +16,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-group",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     osType: "Linux",
  *     skuName: "S1",
  * });
- * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     name: "example-function-app",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
@@ -41,7 +47,8 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("exampleFunctionAppFunction", {
+ * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
+ *     name: "example-function-app-function",
  *     functionAppId: exampleLinuxFunctionApp.id,
  *     language: "Python",
  *     testData: JSON.stringify({
@@ -73,24 +80,30 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-group",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     osType: "Windows",
  *     skuName: "S1",
  * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     name: "example-function-app",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
@@ -100,12 +113,15 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("exampleFunctionAppFunction", {
+ * const exampleFunctionAppFunction = new azure.appservice.FunctionAppFunction("example", {
+ *     name: "example-function-app-function",
  *     functionAppId: exampleWindowsFunctionApp.id,
  *     language: "CSharp",
  *     files: [{
  *         name: "run.csx",
- *         content: fs.readFileSync("exampledata/run.csx", "utf8"),
+ *         content: std.file({
+ *             input: "exampledata/run.csx",
+ *         }).then(invoke => invoke.result),
  *     }],
  *     testData: JSON.stringify({
  *         name: "Azure",

@@ -21,33 +21,26 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/apimanagement"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("pub1"),
 //				PublisherEmail:    pulumi.String("pub1@email.com"),
 //				SkuName:           pulumi.String("Consumption_0"),
@@ -55,12 +48,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewGlobalSchema(ctx, "exampleGlobalSchema", &apimanagement.GlobalSchemaArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "api_management_api_schema.xml",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = apimanagement.NewGlobalSchema(ctx, "example", &apimanagement.GlobalSchemaArgs{
 //				SchemaId:          pulumi.String("example-schema1"),
 //				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("xml"),
-//				Value:             readFileOrPanic("api_management_api_schema.xml"),
+//				Value:             invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

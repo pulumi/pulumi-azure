@@ -22,15 +22,17 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("exampleElasticSan", new()
+    ///     var exampleElasticSan = new Azure.ElasticSan.ElasticSan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplees-es",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         BaseSizeInTib = 1,
     ///         Sku = new Azure.ElasticSan.Inputs.ElasticSanSkuArgs
     ///         {
@@ -40,25 +42,28 @@ namespace Pulumi.Azure.ElasticSan
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-uai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -70,10 +75,11 @@ namespace Pulumi.Azure.ElasticSan
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,
@@ -126,8 +132,9 @@ namespace Pulumi.Azure.ElasticSan
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "example-kvk",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -140,17 +147,11 @@ namespace Pulumi.Azure.ElasticSan
     ///             "verify",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             userAssignedIdentity,
-    ///             client,
-    ///         },
     ///     });
     /// 
-    ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("exampleVolumeGroup", new()
+    ///     var exampleVolumeGroup = new Azure.ElasticSan.VolumeGroup("example", new()
     ///     {
+    ///         Name = "example-esvg",
     ///         ElasticSanId = exampleElasticSan.Id,
     ///         EncryptionType = "EncryptionAtRestWithCustomerManagedKey",
     ///         Encryption = new Azure.ElasticSan.Inputs.VolumeGroupEncryptionArgs

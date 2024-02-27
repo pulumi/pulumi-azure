@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
 //				Name:              "example-mn",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

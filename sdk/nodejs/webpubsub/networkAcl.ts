@@ -15,27 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleService = new azure.webpubsub.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "terraform-webpubsub",
+ *     location: "east us",
+ * });
+ * const exampleService = new azure.webpubsub.Service("example", {
+ *     name: "tfex-webpubsub",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.5.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.2.0/24"],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-privateendpoint",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     subnetId: exampleSubnet.id,
  *     privateServiceConnection: {
  *         name: "psc-sig-test",
@@ -44,7 +51,7 @@ import * as utilities from "../utilities";
  *         subresourceNames: ["webpubsub"],
  *     },
  * });
- * const exampleNetworkAcl = new azure.webpubsub.NetworkAcl("exampleNetworkAcl", {
+ * const exampleNetworkAcl = new azure.webpubsub.NetworkAcl("example", {
  *     webPubsubId: exampleService.id,
  *     defaultAction: "Allow",
  *     publicNetwork: {
@@ -57,8 +64,6 @@ import * as utilities from "../utilities";
  *             "ClientConnection",
  *         ],
  *     }],
- * }, {
- *     dependsOn: [exampleEndpoint],
  * });
  * ```
  *

@@ -873,11 +873,14 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
             capacity=2,
             family="C",
             sku_name="Standard",
@@ -947,11 +950,14 @@ class Cache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         # NOTE: the Name used for Redis needs to be globally unique
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
             capacity=2,
             family="C",
             sku_name="Standard",

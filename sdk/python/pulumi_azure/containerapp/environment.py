@@ -518,15 +518,19 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="acctest-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_environment = azure.containerapp.Environment("example",
+            name="my-environment",
+            location=example.location,
+            resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
 
@@ -575,15 +579,19 @@ class Environment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="acctest-01",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018",
             retention_in_days=30)
-        example_environment = azure.containerapp.Environment("exampleEnvironment",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_environment = azure.containerapp.Environment("example",
+            name="my-environment",
+            location=example.location,
+            resource_group_name=example.name,
             log_analytics_workspace_id=example_analytics_workspace.id)
         ```
 

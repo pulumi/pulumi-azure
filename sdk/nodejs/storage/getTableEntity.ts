@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getTableEntity({
+ *     tableName: "example-table-name",
+ *     storageAccountName: "example-storage-account-name",
  *     partitionKey: "example-partition-key",
  *     rowKey: "example-row-key",
- *     storageAccountName: "example-storage-account-name",
- *     tableName: "example-table-name",
  * });
  * ```
  */
@@ -81,10 +81,10 @@ export interface GetTableEntityResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.storage.getTableEntity({
+ *     tableName: "example-table-name",
+ *     storageAccountName: "example-storage-account-name",
  *     partitionKey: "example-partition-key",
  *     rowKey: "example-row-key",
- *     storageAccountName: "example-storage-account-name",
- *     tableName: "example-table-name",
  * });
  * ```
  */

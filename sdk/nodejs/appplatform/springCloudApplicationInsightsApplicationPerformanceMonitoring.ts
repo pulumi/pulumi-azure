@@ -15,18 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring = new azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring", {
+ * const exampleSpringCloudApplicationInsightsApplicationPerformanceMonitoring = new azure.appplatform.SpringCloudApplicationInsightsApplicationPerformanceMonitoring("example", {
+ *     name: "example",
  *     springCloudServiceId: exampleSpringCloudService.id,
  *     connectionString: exampleInsights.instrumentationKey,
  *     globallyEnabled: true,

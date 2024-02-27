@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"foo": pulumi.String("bar"),

@@ -30,13 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("pergb2018"),
@@ -44,7 +46,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//			exampleAnalyticsSolution, err := operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
 //				SolutionName:        pulumi.String("SecurityInsights"),
 //				Location:            exampleResourceGroup.Location,
 //				ResourceGroupName:   exampleResourceGroup.Name,
@@ -58,14 +60,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAlertRuleTemplate := sentinel.GetAlertRuleTemplateOutput(ctx, sentinel.GetAlertRuleTemplateOutputArgs{
+//			example := sentinel.GetAlertRuleTemplateOutput(ctx, sentinel.GetAlertRuleTemplateOutputArgs{
 //				DisplayName:             pulumi.String("(Preview) Microsoft Defender Threat Intelligence Analytics"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
 //			}, nil)
-//			_, err = sentinel.NewAlertRuleThreatIntelligence(ctx, "exampleAlertRuleThreatIntelligence", &sentinel.AlertRuleThreatIntelligenceArgs{
+//			_, err = sentinel.NewAlertRuleThreatIntelligence(ctx, "example", &sentinel.AlertRuleThreatIntelligenceArgs{
+//				Name:                    pulumi.String("example-rule"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsSolution.WorkspaceResourceId,
-//				AlertRuleTemplateGuid: exampleAlertRuleTemplate.ApplyT(func(exampleAlertRuleTemplate sentinel.GetAlertRuleTemplateResult) (*string, error) {
-//					return &exampleAlertRuleTemplate.Name, nil
+//				AlertRuleTemplateGuid: example.ApplyT(func(example sentinel.GetAlertRuleTemplateResult) (*string, error) {
+//					return &example.Name, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

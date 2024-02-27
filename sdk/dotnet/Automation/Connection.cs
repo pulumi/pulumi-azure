@@ -22,30 +22,33 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourceGroup-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
+    ///         Name = "account-example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleConnection = new Azure.Automation.Connection("exampleConnection", new()
+    ///     var exampleConnection = new Azure.Automation.Connection("example", new()
     ///     {
+    ///         Name = "connection-example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         Type = "AzureServicePrincipal",
     ///         Values = 
     ///         {
     ///             { "ApplicationId", "00000000-0000-0000-0000-000000000000" },
-    ///             { "TenantId", exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId) },
-    ///             { "SubscriptionId", exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId) },
+    ///             { "TenantId", example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId) },
+    ///             { "SubscriptionId", example.Apply(getClientConfigResult =&gt; getClientConfigResult.SubscriptionId) },
     ///             { "CertificateThumbprint", "sample-certificate-thumbprint" },
     ///         },
     ///     });

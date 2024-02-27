@@ -21,28 +21,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     serviceEndpoints: ["Microsoft.Storage"],
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  *     tags: {
  *         environment: "staging",
  *     },
  * });
- * const exampleAccountNetworkRules = new azure.storage.AccountNetworkRules("exampleAccountNetworkRules", {
+ * const exampleAccountNetworkRules = new azure.storage.AccountNetworkRules("example", {
  *     storageAccountId: exampleAccount.id,
  *     defaultAction: "Allow",
  *     ipRules: ["127.0.0.1"],

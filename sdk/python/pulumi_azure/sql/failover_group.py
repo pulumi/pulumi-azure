@@ -346,24 +346,30 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         primary = azure.sql.SqlServer("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="sql-primary",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="sqladmin",
             administrator_login_password="pa$$w0rd")
         secondary = azure.sql.SqlServer("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="sql-secondary",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="sqladmin",
             administrator_login_password="pa$$w0rd")
         db1 = azure.sql.Database("db1",
+            name="db1",
             resource_group_name=primary.resource_group_name,
             location=primary.location,
             server_name=primary.name)
-        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
+        example_failover_group = azure.sql.FailoverGroup("example",
+            name="example-failover-group",
             resource_group_name=primary.resource_group_name,
             server_name=primary.name,
             databases=[db1.id],
@@ -414,24 +420,30 @@ class FailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         primary = azure.sql.SqlServer("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="sql-primary",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="sqladmin",
             administrator_login_password="pa$$w0rd")
         secondary = azure.sql.SqlServer("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="sql-secondary",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="sqladmin",
             administrator_login_password="pa$$w0rd")
         db1 = azure.sql.Database("db1",
+            name="db1",
             resource_group_name=primary.resource_group_name,
             location=primary.location,
             server_name=primary.name)
-        example_failover_group = azure.sql.FailoverGroup("exampleFailoverGroup",
+        example_failover_group = azure.sql.FailoverGroup("example",
+            name="example-failover-group",
             resource_group_name=primary.resource_group_name,
             server_name=primary.name,
             databases=[db1.id],

@@ -238,16 +238,19 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sql_server = azure.sql.SqlServer("example",
+            name="mysqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
+        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("example",
             server_name=example_sql_server.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             login="sqladmin",
             tenant_id=current.tenant_id,
             object_id=current.object_id)
@@ -288,16 +291,19 @@ class ActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sql_server = azure.sql.SqlServer("exampleSqlServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sql_server = azure.sql.SqlServer("example",
+            name="mysqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
-        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator",
+        example_active_directory_administrator = azure.sql.ActiveDirectoryAdministrator("example",
             server_name=example_sql_server.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             login="sqladmin",
             tenant_id=current.tenant_id,
             object_id=current.object_id)

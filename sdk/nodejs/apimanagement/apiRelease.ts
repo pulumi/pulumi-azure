@@ -13,16 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleApi = new azure.apimanagement.Api("exampleApi", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleApi = new azure.apimanagement.Api("example", {
+ *     name: "example-api",
+ *     resourceGroupName: example.name,
  *     apiManagementName: exampleService.name,
  *     revision: "1",
  *     displayName: "Example API",
@@ -33,7 +38,10 @@ import * as utilities from "../utilities";
  *         contentValue: "http://conferenceapi.azurewebsites.net/?format=json",
  *     },
  * });
- * const exampleApiRelease = new azure.apimanagement.ApiRelease("exampleApiRelease", {apiId: exampleApi.id});
+ * const exampleApiRelease = new azure.apimanagement.ApiRelease("example", {
+ *     name: "example-Api-Release",
+ *     apiId: exampleApi.id,
+ * });
  * ```
  *
  * ## Import

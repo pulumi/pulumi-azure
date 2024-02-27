@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var primary = new Azure.Sql.SqlServer("primary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "sql-primary",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "sqladmin",
     ///         AdministratorLoginPassword = "pa$$w0rd",
@@ -40,8 +42,9 @@ namespace Pulumi.Azure.Sql
     /// 
     ///     var secondary = new Azure.Sql.SqlServer("secondary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "sql-secondary",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "sqladmin",
     ///         AdministratorLoginPassword = "pa$$w0rd",
@@ -49,13 +52,15 @@ namespace Pulumi.Azure.Sql
     /// 
     ///     var db1 = new Azure.Sql.Database("db1", new()
     ///     {
+    ///         Name = "db1",
     ///         ResourceGroupName = primary.ResourceGroupName,
     ///         Location = primary.Location,
     ///         ServerName = primary.Name,
     ///     });
     /// 
-    ///     var exampleFailoverGroup = new Azure.Sql.FailoverGroup("exampleFailoverGroup", new()
+    ///     var exampleFailoverGroup = new Azure.Sql.FailoverGroup("example", new()
     ///     {
+    ///         Name = "example-failover-group",
     ///         ResourceGroupName = primary.ResourceGroupName,
     ///         ServerName = primary.Name,
     ///         Databases = new[]

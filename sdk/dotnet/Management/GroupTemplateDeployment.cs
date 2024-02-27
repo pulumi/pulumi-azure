@@ -26,15 +26,16 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var example = Azure.Management.GetGroup.Invoke(new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
-    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
     ///         TemplateContent = @"{
     ///   ""$schema"": ""https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#"",
     ///   ""contentVersion"": ""1.0.0.0"",
@@ -83,24 +84,31 @@ namespace Pulumi.Azure.Management
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var example = Azure.Management.GetGroup.Invoke(new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
-    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         TemplateContent = File.ReadAllText("templates/example-deploy-template.json"),
-    ///         ParametersContent = File.ReadAllText("templates/example-deploy-params.json"),
+    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         TemplateContent = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "templates/example-deploy-template.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         ParametersContent = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "templates/example-deploy-params.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });
@@ -114,23 +122,24 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var example = Azure.Management.GetGroup.Invoke(new()
     ///     {
     ///         Name = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     var exampleTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
+    ///     var exampleGetTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
     ///     {
     ///         Name = "exampleTemplateForManagementGroup",
     ///         ResourceGroupName = "exampleResourceGroup",
     ///         Version = "v1.0.9",
     ///     });
     /// 
-    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("exampleGroupTemplateDeployment", new()
+    ///     var exampleGroupTemplateDeployment = new Azure.Management.GroupTemplateDeployment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
-    ///         ManagementGroupId = exampleGroup.Apply(getGroupResult =&gt; getGroupResult.Id),
-    ///         TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+    ///         ManagementGroupId = example.Apply(getGroupResult =&gt; getGroupResult.Id),
+    ///         TemplateSpecVersionId = exampleGetTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
     ///     });
     /// 
     /// });

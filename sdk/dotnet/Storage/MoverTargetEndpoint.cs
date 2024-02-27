@@ -22,34 +22,39 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestr",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         AllowNestedItemsToBePublic = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "example-sc",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "blob",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
+    ///     var exampleMover = new Azure.Storage.Mover("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ssm",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", new()
+    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("example", new()
     ///     {
+    ///         Name = "example-se",
     ///         StorageMoverId = exampleMover.Id,
     ///         StorageAccountId = exampleAccount.Id,
     ///         StorageContainerName = exampleContainer.Name,

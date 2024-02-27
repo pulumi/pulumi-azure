@@ -25,7 +25,6 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Since this resource is provisioned by default, the Azure Provider will not check for the presence of an existing resource prior to attempting to create it.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -58,25 +57,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestorageaccount&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleIoTHub = new IoTHub(&#34;exampleIoTHub&#34;, IoTHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleIothub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(IoTHubSkuArgs.builder()
  *                 .name(&#34;S1&#34;)
  *                 .capacity(&#34;1&#34;)
@@ -85,8 +88,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpointStorageContainer = new EndpointStorageContainer(&#34;exampleEndpointStorageContainer&#34;, EndpointStorageContainerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .iothubId(exampleIoTHub.id())
+ *             .name(&#34;example&#34;)
  *             .connectionString(exampleAccount.primaryBlobConnectionString())
  *             .batchFrequencyInSeconds(60)
  *             .maxChunkSizeInBytes(10485760)
@@ -96,7 +100,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFallbackRoute = new FallbackRoute(&#34;exampleFallbackRoute&#34;, FallbackRouteArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .iothubName(exampleIoTHub.name())
  *             .condition(&#34;true&#34;)
  *             .endpointNames(exampleEndpointStorageContainer.name())

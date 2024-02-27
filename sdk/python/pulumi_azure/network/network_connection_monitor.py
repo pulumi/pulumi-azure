@@ -339,29 +339,36 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-Watcher-resources",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="example-Watcher",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-Vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-Subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-Nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_machine = azure.compute.VirtualMachine("example",
+            name="example-VM",
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_D2s_v3",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -384,17 +391,20 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
                 disable_password_authentication=False,
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
             publisher="Microsoft.Azure.NetworkWatcher",
             type="NetworkWatcherAgentLinux",
             type_handler_version="1.4",
             auto_upgrade_minor_version=True)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-Workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor",
+        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
+            name="example-Monitor",
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
@@ -429,8 +439,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 test_configuration_names=["tcpName"],
             )],
             notes="examplenote",
-            output_workspace_resource_ids=[example_analytics_workspace.id],
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+            output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
 
         ## Import
@@ -470,29 +479,36 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_watcher = azure.network.NetworkWatcher("exampleNetworkWatcher",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-Watcher-resources",
+            location="West Europe")
+        example_network_watcher = azure.network.NetworkWatcher("example",
+            name="example-Watcher",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-Vnet",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="example-Subnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-Nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="testconfiguration1",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_virtual_machine = azure.compute.VirtualMachine("exampleVirtualMachine",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_virtual_machine = azure.compute.VirtualMachine("example",
+            name="example-VM",
+            location=example.location,
+            resource_group_name=example.name,
             network_interface_ids=[example_network_interface.id],
             vm_size="Standard_D2s_v3",
             storage_image_reference=azure.compute.VirtualMachineStorageImageReferenceArgs(
@@ -515,17 +531,20 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
             os_profile_linux_config=azure.compute.VirtualMachineOsProfileLinuxConfigArgs(
                 disable_password_authentication=False,
             ))
-        example_extension = azure.compute.Extension("exampleExtension",
+        example_extension = azure.compute.Extension("example",
+            name="example-VMExtension",
             virtual_machine_id=example_virtual_machine.id,
             publisher="Microsoft.Azure.NetworkWatcher",
             type="NetworkWatcherAgentLinux",
             type_handler_version="1.4",
             auto_upgrade_minor_version=True)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-Workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor",
+        example_network_connection_monitor = azure.network.NetworkConnectionMonitor("example",
+            name="example-Monitor",
             network_watcher_id=example_network_watcher.id,
             location=example_network_watcher.location,
             endpoints=[
@@ -560,8 +579,7 @@ class NetworkConnectionMonitor(pulumi.CustomResource):
                 test_configuration_names=["tcpName"],
             )],
             notes="examplenote",
-            output_workspace_resource_ids=[example_analytics_workspace.id],
-            opts=pulumi.ResourceOptions(depends_on=[example_extension]))
+            output_workspace_resource_ids=[example_analytics_workspace.id])
         ```
 
         ## Import

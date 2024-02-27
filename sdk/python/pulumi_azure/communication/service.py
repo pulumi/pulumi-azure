@@ -237,9 +237,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.communication.Service("exampleService",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.communication.Service("example",
+            name="example-communicationservice",
+            resource_group_name=example.name,
             data_location="United States")
         ```
 
@@ -273,9 +276,12 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.communication.Service("exampleService",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.communication.Service("example",
+            name="example-communicationservice",
+            resource_group_name=example.name,
             data_location="United States")
         ```
 

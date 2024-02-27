@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/redis"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
@@ -30,24 +32,28 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.Map{
-//					"azi_id": pulumi.Any(1),
+//			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
 //				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("redis-resourcegroup"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCache, err := redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name: server.Hex.ApplyT(func(hex string) (string, error) {
+//					return fmt.Sprintf("redis%v", hex), nil
+//				}).(pulumi.StringOutput),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Capacity:          pulumi.Int(1),
 //				Family:            pulumi.String("P"),
 //				SkuName:           pulumi.String("Premium"),
@@ -61,9 +67,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = redis.NewFirewallRule(ctx, "exampleFirewallRule", &redis.FirewallRuleArgs{
+//			_, err = redis.NewFirewallRule(ctx, "example", &redis.FirewallRuleArgs{
+//				Name:              pulumi.String("someIPrange"),
 //				RedisCacheName:    exampleCache.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				StartIp:           pulumi.String("1.2.3.4"),
 //				EndIp:             pulumi.String("2.3.4.5"),
 //			})

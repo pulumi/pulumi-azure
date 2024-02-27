@@ -333,19 +333,23 @@ class StreamInputIotHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example-iothub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
             ))
-        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
+        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("example",
+            name="example-iothub-input",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
             endpoint="messages/events",
             eventhub_consumer_group_name="$Default",
             iothub_namespace=example_io_t_hub.name,
@@ -392,19 +396,23 @@ class StreamInputIotHub(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example-iothub",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
             ))
-        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("exampleStreamInputIotHub",
-            stream_analytics_job_name=example_job.name,
-            resource_group_name=example_job.resource_group_name,
+        example_stream_input_iot_hub = azure.streamanalytics.StreamInputIotHub("example",
+            name="example-iothub-input",
+            stream_analytics_job_name=example.name,
+            resource_group_name=example.resource_group_name,
             endpoint="messages/events",
             eventhub_consumer_group_name="$Default",
             iothub_namespace=example_io_t_hub.name,

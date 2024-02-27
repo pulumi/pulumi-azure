@@ -52,25 +52,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePipeline = new Pipeline(&#34;examplePipeline&#34;, PipelineArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-topic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleTriggerCustomEvent = new TriggerCustomEvent(&#34;exampleTriggerCustomEvent&#34;, TriggerCustomEventArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .eventgridTopicId(exampleTopic.id())
  *             .events(            

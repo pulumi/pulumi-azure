@@ -60,13 +60,15 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Microsoft.Azure.Cdn&#34;)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-cdn-frontdoor&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-keyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .softDeleteRetentionDays(7)
@@ -94,18 +96,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;example-cert&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;my-certificate.pfx&#34;))))
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(&#34;my-certificate.pfx&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cdn-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorSecret = new FrontdoorSecret(&#34;exampleFrontdoorSecret&#34;, FrontdoorSecretArgs.builder()        
+ *             .name(&#34;example-customer-managed-secret&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .secret(FrontdoorSecretSecretArgs.builder()
  *                 .customerCertificates(FrontdoorSecretSecretCustomerCertificateArgs.builder()

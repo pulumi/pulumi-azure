@@ -50,22 +50,25 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;group1&#34;)
  *             .location(&#34;westus&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;network1&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
- *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
  *             .build());
  * 
  *         var exampleResourcePolicyAssignment = new ResourcePolicyAssignment(&#34;exampleResourcePolicyAssignment&#34;, ResourcePolicyAssignmentArgs.builder()        
+ *             .name(&#34;assignment1&#34;)
  *             .resourceId(exampleVirtualNetwork.id())
- *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(exampleResourceGroup.location())
  *             .identity(ResourcePolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
@@ -73,6 +76,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResourcePolicyExemption = new ResourcePolicyExemption(&#34;exampleResourcePolicyExemption&#34;, ResourcePolicyExemptionArgs.builder()        
+ *             .name(&#34;exemption1&#34;)
  *             .resourceId(exampleResourcePolicyAssignment.resourceId())
  *             .policyAssignmentId(exampleResourcePolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)

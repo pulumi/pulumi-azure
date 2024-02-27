@@ -14,42 +14,51 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getSubscription({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-PEASGAsso",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "examplevnet",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.5.0.0/16"],
  * });
  * const service = new azure.network.Subnet("service", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "examplenetservice",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.1.0/24"],
  *     enforcePrivateLinkServiceNetworkPolicies: true,
  * });
  * const endpoint = new azure.network.Subnet("endpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "examplenetendpoint",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.5.2.0/24"],
  *     enforcePrivateLinkEndpointNetworkPolicies: true,
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "examplepip",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     allocationMethod: "Static",
  * });
- * const exampleLoadBalancer = new azure.lb.LoadBalancer("exampleLoadBalancer", {
+ * const exampleLoadBalancer = new azure.lb.LoadBalancer("example", {
+ *     name: "examplelb",
  *     sku: "Standard",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     frontendIpConfigurations: [{
  *         name: examplePublicIp.name,
  *         publicIpAddressId: examplePublicIp.id,
  *     }],
  * });
- * const exampleLinkService = new azure.privatedns.LinkService("exampleLinkService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinkService = new azure.privatedns.LinkService("example", {
+ *     name: "examplePLS",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     autoApprovalSubscriptionIds: [current.then(current => current.subscriptionId)],
  *     visibilitySubscriptionIds: [current.then(current => current.subscriptionId)],
  *     natIpConfigurations: [{
@@ -59,9 +68,10 @@ import * as utilities from "../utilities";
  *     }],
  *     loadBalancerFrontendIpConfigurationIds: [exampleLoadBalancer.frontendIpConfigurations.apply(frontendIpConfigurations => frontendIpConfigurations?.[0]?.id)],
  * });
- * const exampleEndpoint = new azure.privatelink.Endpoint("exampleEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleEndpoint = new azure.privatelink.Endpoint("example", {
+ *     name: "example-privatelink",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     subnetId: endpoint.id,
  *     privateServiceConnection: {
  *         name: exampleLinkService.name,
@@ -69,11 +79,12 @@ import * as utilities from "../utilities";
  *         privateConnectionResourceId: exampleLinkService.id,
  *     },
  * });
- * const exampleApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleApplicationSecurityGroup = new azure.network.ApplicationSecurityGroup("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleApplicationSecurityGroupAssociation = new azure.privatelink.ApplicationSecurityGroupAssociation("exampleApplicationSecurityGroupAssociation", {
+ * const exampleApplicationSecurityGroupAssociation = new azure.privatelink.ApplicationSecurityGroupAssociation("example", {
  *     privateEndpointId: exampleEndpoint.id,
  *     applicationSecurityGroupId: exampleApplicationSecurityGroup.id,
  * });

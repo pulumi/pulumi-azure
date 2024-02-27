@@ -51,19 +51,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;account1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Get-AzureVMTutorial&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .logVerbose(&#34;true&#34;)
  *             .logProgress(&#34;true&#34;)
@@ -72,62 +75,6 @@ import javax.annotation.Nullable;
  *             .publishContentLink(RunBookPublishContentLinkArgs.builder()
  *                 .uri(&#34;https://raw.githubusercontent.com/Azure/azure-quickstart-templates/c4935ffb69246a6058eb24f54640f53f69d3ac9f/101-automation-runbook-getvms/Runbooks/Get-AzureVMTutorial.ps1&#34;)
  *                 .build())
- *             .build());
- * 
- *     }
- * }
- * ```
- * ### Custom Content
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import com.pulumi.azure.core.ResourceGroup;
- * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.automation.Account;
- * import com.pulumi.azure.automation.AccountArgs;
- * import com.pulumi.local.LocalFunctions;
- * import com.pulumi.local.inputs.GetFileArgs;
- * import com.pulumi.azure.automation.RunBook;
- * import com.pulumi.azure.automation.RunBookArgs;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(&#34;West Europe&#34;)
- *             .build());
- * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .skuName(&#34;Basic&#34;)
- *             .build());
- * 
- *         final var exampleFile = LocalFunctions.getFile(GetFileArgs.builder()
- *             .filename(String.format(&#34;%s/example.ps1&#34;, path.module()))
- *             .build());
- * 
- *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .automationAccountName(exampleAccount.name())
- *             .logVerbose(&#34;true&#34;)
- *             .logProgress(&#34;true&#34;)
- *             .description(&#34;This is an example runbook&#34;)
- *             .runbookType(&#34;PowerShell&#34;)
- *             .content(exampleFile.applyValue(getFileResult -&gt; getFileResult.content()))
  *             .build());
  * 
  *     }

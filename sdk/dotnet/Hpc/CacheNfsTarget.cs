@@ -14,6 +14,162 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// &gt; **NOTE:**: By request of the service team the provider no longer automatically registering the `Microsoft.StorageCache` Resource Provider for this resource. To register it you can run `az provider register --namespace 'Microsoft.StorageCache'`.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "examplevn",
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleHpc = new Azure.Network.Subnet("example_hpc", new()
+    ///     {
+    ///         Name = "examplesubnethpc",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleCache = new Azure.Hpc.Cache("example", new()
+    ///     {
+    ///         Name = "examplehpccache",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         CacheSizeInGb = 3072,
+    ///         SubnetId = exampleHpc.Id,
+    ///         SkuName = "Standard_2G",
+    ///     });
+    /// 
+    ///     var exampleVm = new Azure.Network.Subnet("example_vm", new()
+    ///     {
+    ///         Name = "examplesubnetvm",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
+    ///     {
+    ///         Name = "examplenic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
+    ///             {
+    ///                 Name = "internal",
+    ///                 SubnetId = exampleVm.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var customData = @"#!/bin/bash
+    /// sudo -i 
+    /// apt-get install -y nfs-kernel-server
+    /// mkdir -p /export/a/1
+    /// mkdir -p /export/a/2
+    /// mkdir -p /export/b
+    /// cat &lt;&lt; EOF &gt; /etc/exports
+    /// /export/a *(rw,fsid=0,insecure,no_subtree_check,async)
+    /// /export/b *(rw,fsid=0,insecure,no_subtree_check,async)
+    /// EOF
+    /// systemctl start nfs-server
+    /// exportfs -arv
+    /// ";
+    /// 
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
+    ///     {
+    ///         Name = "examplevm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Size = "Standard_F2",
+    ///         AdminUsername = "adminuser",
+    ///         NetworkInterfaceIds = new[]
+    ///         {
+    ///             exampleNetworkInterface.Id,
+    ///         },
+    ///         AdminSshKeys = new[]
+    ///         {
+    ///             new Azure.Compute.Inputs.LinuxVirtualMachineAdminSshKeyArgs
+    ///             {
+    ///                 Username = "adminuser",
+    ///                 PublicKey = Std.File.Invoke(new()
+    ///                 {
+    ///                     Input = "~/.ssh/id_rsa.pub",
+    ///                 }).Apply(invoke =&gt; invoke.Result),
+    ///             },
+    ///         },
+    ///         OsDisk = new Azure.Compute.Inputs.LinuxVirtualMachineOsDiskArgs
+    ///         {
+    ///             Caching = "ReadWrite",
+    ///             StorageAccountType = "Standard_LRS",
+    ///         },
+    ///         SourceImageReference = new Azure.Compute.Inputs.LinuxVirtualMachineSourceImageReferenceArgs
+    ///         {
+    ///             Publisher = "Canonical",
+    ///             Offer = "0001-com-ubuntu-server-jammy",
+    ///             Sku = "22_04-lts",
+    ///             Version = "latest",
+    ///         },
+    ///         CustomData = Std.Base64encode.Invoke(new()
+    ///         {
+    ///             Input = customData,
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///     });
+    /// 
+    ///     var exampleCacheNfsTarget = new Azure.Hpc.CacheNfsTarget("example", new()
+    ///     {
+    ///         Name = "examplehpcnfstarget",
+    ///         ResourceGroupName = example.Name,
+    ///         CacheName = exampleCache.Name,
+    ///         TargetHostName = exampleLinuxVirtualMachine.PrivateIpAddress,
+    ///         UsageModel = "READ_HEAVY_INFREQ",
+    ///         NamespaceJunctions = new[]
+    ///         {
+    ///             new Azure.Hpc.Inputs.CacheNfsTargetNamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/nfs/a1",
+    ///                 NfsExport = "/export/a",
+    ///                 TargetPath = "1",
+    ///             },
+    ///             new Azure.Hpc.Inputs.CacheNfsTargetNamespaceJunctionArgs
+    ///             {
+    ///                 NamespacePath = "/nfs/b",
+    ///                 NfsExport = "/export/b",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// NFS Target within a HPC Cache can be imported using the `resource id`, e.g.

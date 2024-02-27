@@ -15,17 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDevCenter = new azure.devcenter.DevCenter("exampleDevCenter", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = new azure.devcenter.DevCenter("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     identity: {
  *         type: "example-value",
  *     },
  * });
- * const exampleProject = new azure.devcenter.Project("exampleProject", {
- *     devCenterId: exampleDevCenter.id,
+ * const exampleProject = new azure.devcenter.Project("example", {
+ *     devCenterId: example.id,
  *     location: exampleResourceGroup.location,
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
  * ```

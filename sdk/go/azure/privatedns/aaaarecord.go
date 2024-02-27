@@ -30,19 +30,22 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testZone, err := privatedns.NewZone(ctx, "testZone", &privatedns.ZoneArgs{
+//			test, err := privatedns.NewZone(ctx, "test", &privatedns.ZoneArgs{
+//				Name:              pulumi.String("mydomain.com"),
 //				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = privatedns.NewAAAARecord(ctx, "testAAAARecord", &privatedns.AAAARecordArgs{
-//				ZoneName:          testZone.Name,
+//			_, err = privatedns.NewAAAARecord(ctx, "test", &privatedns.AAAARecordArgs{
+//				Name:              pulumi.String("test"),
+//				ZoneName:          test.Name,
 //				ResourceGroupName: example.Name,
 //				Ttl:               pulumi.Int(300),
 //				Records: pulumi.StringArray{

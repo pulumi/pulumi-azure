@@ -13,17 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@exmaple.com",
  *     skuName: "Developer_1",
  * });
- * const exampleOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("exampleOpenIdConnectProvider", {
+ * const exampleOpenIdConnectProvider = new azure.apimanagement.OpenIdConnectProvider("example", {
+ *     name: "example-provider",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     clientId: "00001111-2222-3333-4444-555566667777",
  *     clientSecret: "00001111-423egvwdcsjx-00001111",
  *     displayName: "Example Provider",

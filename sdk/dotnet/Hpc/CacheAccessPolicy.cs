@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "examplevn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplesubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -47,17 +50,19 @@ namespace Pulumi.Azure.Hpc
     ///         },
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Hpc.Cache("exampleCache", new()
+    ///     var exampleCache = new Azure.Hpc.Cache("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplehpccache",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         CacheSizeInGb = 3072,
     ///         SubnetId = exampleSubnet.Id,
     ///         SkuName = "Standard_2G",
     ///     });
     /// 
-    ///     var exampleCacheAccessPolicy = new Azure.Hpc.CacheAccessPolicy("exampleCacheAccessPolicy", new()
+    ///     var exampleCacheAccessPolicy = new Azure.Hpc.CacheAccessPolicy("example", new()
     ///     {
+    ///         Name = "example",
     ///         HpcCacheId = exampleCache.Id,
     ///         AccessRules = new[]
     ///         {

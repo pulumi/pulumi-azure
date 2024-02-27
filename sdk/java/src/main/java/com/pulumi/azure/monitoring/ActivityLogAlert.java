@@ -54,10 +54,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var mainActionGroup = new ActionGroup(&#34;mainActionGroup&#34;, ActionGroupArgs.builder()        
+ *         var main = new ActionGroup(&#34;main&#34;, ActionGroupArgs.builder()        
+ *             .name(&#34;example-actiongroup&#34;)
  *             .resourceGroupName(example.name())
  *             .shortName(&#34;p0action&#34;)
  *             .webhookReceivers(ActionGroupWebhookReceiverArgs.builder()
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var toMonitor = new Account(&#34;toMonitor&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplesa&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -74,6 +77,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var mainActivityLogAlert = new ActivityLogAlert(&#34;mainActivityLogAlert&#34;, ActivityLogAlertArgs.builder()        
+ *             .name(&#34;example-activitylogalert&#34;)
  *             .resourceGroupName(example.name())
  *             .scopes(example.id())
  *             .description(&#34;This alert will monitor a specific storage account updates.&#34;)
@@ -83,7 +87,7 @@ import javax.annotation.Nullable;
  *                 .category(&#34;Recommendation&#34;)
  *                 .build())
  *             .actions(ActivityLogAlertActionArgs.builder()
- *                 .actionGroupId(mainActionGroup.id())
+ *                 .actionGroupId(main.id())
  *                 .webhookProperties(Map.of(&#34;from&#34;, &#34;source&#34;))
  *                 .build())
  *             .build());

@@ -22,15 +22,17 @@ namespace Pulumi.Azure.EventHub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-servicebus",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {

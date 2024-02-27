@@ -26,23 +26,27 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testNetworkSecurityGroup = new Azure.Network.NetworkSecurityGroup("testNetworkSecurityGroup", new()
+    ///     var test = new Azure.Network.NetworkSecurityGroup("test", new()
     ///     {
+    ///         Name = "acctestnsg",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var testNetworkWatcher = new Azure.Network.NetworkWatcher("testNetworkWatcher", new()
+    ///     var testNetworkWatcher = new Azure.Network.NetworkWatcher("test", new()
     ///     {
+    ///         Name = "acctestnw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var testAccount = new Azure.Storage.Account("testAccount", new()
+    ///     var testAccount = new Azure.Storage.Account("test", new()
     ///     {
+    ///         Name = "acctestsa",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         AccountTier = "Standard",
@@ -51,18 +55,20 @@ namespace Pulumi.Azure.Network
     ///         EnableHttpsTrafficOnly = true,
     ///     });
     /// 
-    ///     var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("testAnalyticsWorkspace", new()
+    ///     var testAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("test", new()
     ///     {
+    ///         Name = "acctestlaw",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("testNetworkWatcherFlowLog", new()
+    ///     var testNetworkWatcherFlowLog = new Azure.Network.NetworkWatcherFlowLog("test", new()
     ///     {
     ///         NetworkWatcherName = testNetworkWatcher.Name,
     ///         ResourceGroupName = example.Name,
-    ///         NetworkSecurityGroupId = testNetworkSecurityGroup.Id,
+    ///         Name = "example-log",
+    ///         NetworkSecurityGroupId = test.Id,
     ///         StorageAccountId = testAccount.Id,
     ///         Enabled = true,
     ///         RetentionPolicy = new Azure.Network.Inputs.NetworkWatcherFlowLogRetentionPolicyArgs

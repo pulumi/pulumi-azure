@@ -22,21 +22,22 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
+    ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
     ///     {
     ///         Name = "example-resources",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var exampleGetJob = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
     ///     });
     /// 
-    ///     var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", new()
+    ///     var exampleFunctionJavaScriptUDF = new Azure.StreamAnalytics.FunctionJavaScriptUDF("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "example-javascript-function",
+    ///         StreamAnalyticsJobName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = exampleGetJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         Script = @"function getRandomNumber(in) {
     ///   return in;
     /// }

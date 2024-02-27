@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := batch.LookupPool(ctx, &batch.LookupPoolArgs{
-//				AccountName:       "testbatchaccount",
 //				Name:              "testbatchpool",
+//				AccountName:       "testbatchaccount",
 //				ResourceGroupName: "test",
 //			}, nil)
 //			if err != nil {

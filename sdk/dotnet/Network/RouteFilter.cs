@@ -24,17 +24,18 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Network.RouteFilter("example", new()
     ///     {
-    ///         Location = "East US",
+    ///         Name = "example",
     ///         ResourceGroupName = "example",
+    ///         Location = "East US",
     ///         Rule = new Azure.Network.Inputs.RouteFilterRuleArgs
     ///         {
+    ///             Name = "rule",
     ///             Access = "Allow",
+    ///             RuleType = "Community",
     ///             Communities = new[]
     ///             {
     ///                 "12076:52004",
     ///             },
-    ///             Name = "rule",
-    ///             RuleType = "Community",
     ///         },
     ///     });
     /// 

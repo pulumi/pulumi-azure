@@ -43,10 +43,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new AnomalyAlert(&#34;example&#34;, AnomalyAlertArgs.builder()        
+ *             .name(&#34;alertname&#34;)
  *             .displayName(&#34;Alert DisplayName&#34;)
- *             .emailAddresses(&#34;example@test.net&#34;)
- *             .emailSubject(&#34;My Test Anomaly Alert&#34;)
  *             .subscriptionId(&#34;/subscriptions/00000000-0000-0000-0000-000000000000&#34;)
+ *             .emailSubject(&#34;My Test Anomaly Alert&#34;)
+ *             .emailAddresses(&#34;example@test.net&#34;)
  *             .build());
  * 
  *     }

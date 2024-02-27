@@ -43,13 +43,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleEmbedded = new Embedded(&#34;exampleEmbedded&#34;, EmbeddedArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplepowerbi&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;A1&#34;)
  *             .administrators(&#34;azsdktest@microsoft.com&#34;)
  *             .build());

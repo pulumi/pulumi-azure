@@ -57,12 +57,14 @@ import javax.annotation.Nullable;
  *             .byteLength(8)
  *             .build());
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;trafficmanagerProfile&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleTrafficManagerProfile = new TrafficManagerProfile(&#34;exampleTrafficManagerProfile&#34;, TrafficManagerProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(server.hex())
+ *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod(&#34;Weighted&#34;)
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName(server.hex())

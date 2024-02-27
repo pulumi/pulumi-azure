@@ -52,20 +52,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;media-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemediaacc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .isPrimary(true)
@@ -73,18 +76,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccountFilter = new AccountFilter(&#34;exampleAccountFilter&#34;, AccountFilterArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Filter1&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .build());
  * 
  *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Asset1&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;Asset description&#34;)
  *             .build());
  * 
  *         var exampleStreamingLocator = new StreamingLocator(&#34;exampleStreamingLocator&#34;, StreamingLocatorArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .assetName(exampleAsset.name())
  *             .streamingPolicyName(&#34;Predefined_ClearStreamingOnly&#34;)

@@ -29,17 +29,18 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			currentClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			current, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			currentSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			currentGetSubscription, err := core.LookupSubscription(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
@@ -49,12 +50,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
+//				Name:              pulumi.String("example-networkmanager"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
-//						*pulumi.String(currentSubscription.Id),
+//						*pulumi.String(currentGetSubscription.Id),
 //					},
 //				},
 //				ScopeAccesses: pulumi.StringArray{
@@ -64,9 +66,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkManagerScopeConnection(ctx, "exampleNetworkManagerScopeConnection", &network.NetworkManagerScopeConnectionArgs{
+//			_, err = network.NewNetworkManagerScopeConnection(ctx, "example", &network.NetworkManagerScopeConnectionArgs{
+//				Name:             pulumi.String("example-nsc"),
 //				NetworkManagerId: exampleNetworkManager.ID(),
-//				TenantId:         *pulumi.String(currentClientConfig.TenantId),
+//				TenantId:         *pulumi.String(current.TenantId),
 //				TargetScopeId:    *pulumi.String(alt.Id),
 //				Description:      pulumi.String("example"),
 //			})

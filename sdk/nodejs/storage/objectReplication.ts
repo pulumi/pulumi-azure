@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const srcResourceGroup = new azure.core.ResourceGroup("srcResourceGroup", {location: "West Europe"});
- * const srcAccount = new azure.storage.Account("srcAccount", {
- *     resourceGroupName: srcResourceGroup.name,
- *     location: srcResourceGroup.location,
+ * const src = new azure.core.ResourceGroup("src", {
+ *     name: "srcResourceGroupName",
+ *     location: "West Europe",
+ * });
+ * const srcAccount = new azure.storage.Account("src", {
+ *     name: "srcstorageaccount",
+ *     resourceGroupName: src.name,
+ *     location: src.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     blobProperties: {
@@ -26,14 +30,19 @@ import * as utilities from "../utilities";
  *         changeFeedEnabled: true,
  *     },
  * });
- * const srcContainer = new azure.storage.Container("srcContainer", {
+ * const srcContainer = new azure.storage.Container("src", {
+ *     name: "srcstrcontainer",
  *     storageAccountName: srcAccount.name,
  *     containerAccessType: "private",
  * });
- * const dstResourceGroup = new azure.core.ResourceGroup("dstResourceGroup", {location: "East US"});
- * const dstAccount = new azure.storage.Account("dstAccount", {
- *     resourceGroupName: dstResourceGroup.name,
- *     location: dstResourceGroup.location,
+ * const dst = new azure.core.ResourceGroup("dst", {
+ *     name: "dstResourceGroupName",
+ *     location: "East US",
+ * });
+ * const dstAccount = new azure.storage.Account("dst", {
+ *     name: "dststorageaccount",
+ *     resourceGroupName: dst.name,
+ *     location: dst.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  *     blobProperties: {
@@ -41,7 +50,8 @@ import * as utilities from "../utilities";
  *         changeFeedEnabled: true,
  *     },
  * });
- * const dstContainer = new azure.storage.Container("dstContainer", {
+ * const dstContainer = new azure.storage.Container("dst", {
+ *     name: "dststrcontainer",
  *     storageAccountName: dstAccount.name,
  *     containerAccessType: "private",
  * });

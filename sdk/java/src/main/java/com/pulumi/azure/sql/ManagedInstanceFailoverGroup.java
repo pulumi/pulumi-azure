@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroup;
  * import com.pulumi.azure.sql.ManagedInstanceFailoverGroupArgs;
  * import com.pulumi.azure.sql.inputs.ManagedInstanceFailoverGroupReadWriteEndpointFailoverPolicyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -53,46 +52,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var primary = new ManagedInstance(&#34;primary&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.primary().name())
- *             .location(azurerm_resource_group.primary().location())
+ *             .name(&#34;example-primary&#34;)
+ *             .resourceGroupName(primaryAzurermResourceGroup.name())
+ *             .location(primaryAzurermResourceGroup.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
- *             .subnetId(azurerm_subnet.primary().id())
+ *             .subnetId(primaryAzurermSubnet.id())
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     azurerm_subnet_network_security_group_association.primary(),
- *                     azurerm_subnet_route_table_association.primary())
- *                 .build());
+ *             .build());
  * 
  *         var secondary = new ManagedInstance(&#34;secondary&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.secondary().name())
- *             .location(azurerm_resource_group.secondary().location())
+ *             .name(&#34;example-secondary&#34;)
+ *             .resourceGroupName(secondaryAzurermResourceGroup.name())
+ *             .location(secondaryAzurermResourceGroup.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
- *             .subnetId(azurerm_subnet.secondary().id())
+ *             .subnetId(secondaryAzurermSubnet.id())
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .vcores(4)
  *             .storageSizeInGb(32)
  *             .tags(Map.of(&#34;environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     azurerm_subnet_network_security_group_association.secondary(),
- *                     azurerm_subnet_route_table_association.secondary())
- *                 .build());
+ *             .build());
  * 
  *         var exampleManagedInstanceFailoverGroup = new ManagedInstanceFailoverGroup(&#34;exampleManagedInstanceFailoverGroup&#34;, ManagedInstanceFailoverGroupArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.primary().name())
+ *             .name(&#34;example-failover-group&#34;)
+ *             .resourceGroupName(primaryAzurermResourceGroup.name())
  *             .location(primary.location())
  *             .managedInstanceName(primary.name())
  *             .partnerManagedInstanceId(secondary.id())

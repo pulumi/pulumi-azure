@@ -22,29 +22,33 @@ namespace Pulumi.Azure.Mobile
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleNetwork = new Azure.Mobile.Network("exampleNetwork", new()
+    ///     var exampleNetwork = new Azure.Mobile.Network("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mn",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         MobileCountryCode = "001",
     ///         MobileNetworkCode = "01",
     ///     });
     /// 
-    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("exampleNetworkDataNetwork", new()
+    ///     var exampleNetworkDataNetwork = new Azure.Mobile.NetworkDataNetwork("example", new()
     ///     {
+    ///         Name = "example-mndn",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleNetworkService = new Azure.Mobile.NetworkService("exampleNetworkService", new()
+    ///     var exampleNetworkService = new Azure.Mobile.NetworkService("example", new()
     ///     {
+    ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         ServicePrecedence = 0,
     ///         PccRules = new[]
     ///         {
@@ -74,20 +78,22 @@ namespace Pulumi.Azure.Mobile
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("exampleNetworkSlice", new()
+    ///     var exampleNetworkSlice = new Azure.Mobile.NetworkSlice("example", new()
     ///     {
+    ///         Name = "example-mns",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         SingleNetworkSliceSelectionAssistanceInformation = new Azure.Mobile.Inputs.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs
     ///         {
     ///             SliceServiceType = 1,
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy("exampleNetworkSimPolicy", new()
+    ///     var exampleNetworkSimPolicy = new Azure.Mobile.NetworkSimPolicy("example", new()
     ///     {
+    ///         Name = "example-mnsp",
     ///         MobileNetworkId = exampleNetwork.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         RegistrationTimerInSeconds = 3240,
     ///         DefaultSliceId = exampleNetworkSlice.Id,
     ///         Slices = new[]

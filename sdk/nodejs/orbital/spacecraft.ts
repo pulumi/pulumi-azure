@@ -15,9 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpacecraft = new azure.orbital.Spacecraft("exampleSpacecraft", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpacecraft = new azure.orbital.Spacecraft("example", {
+ *     name: "example-spacecraft",
+ *     resourceGroupName: example.name,
  *     location: "westeurope",
  *     noradId: "12345",
  *     links: [{

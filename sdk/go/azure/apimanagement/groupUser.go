@@ -28,7 +28,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleUser, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
+//			example, err := apimanagement.LookupUser(ctx, &apimanagement.LookupUserArgs{
 //				UserId:            "my-user",
 //				ApiManagementName: "example-apim",
 //				ResourceGroupName: "search-service",
@@ -36,11 +36,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewGroupUser(ctx, "exampleGroupUser", &apimanagement.GroupUserArgs{
-//				UserId:            *pulumi.String(exampleUser.Id),
+//			_, err = apimanagement.NewGroupUser(ctx, "example", &apimanagement.GroupUserArgs{
+//				UserId:            *pulumi.String(example.Id),
 //				GroupName:         pulumi.String("example-group"),
-//				ResourceGroupName: *pulumi.String(exampleUser.ResourceGroupName),
-//				ApiManagementName: *pulumi.String(exampleUser.ApiManagementName),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				ApiManagementName: *pulumi.String(example.ApiManagementName),
 //			})
 //			if err != nil {
 //				return err

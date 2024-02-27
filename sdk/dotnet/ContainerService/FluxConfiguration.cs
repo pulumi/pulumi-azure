@@ -22,15 +22,17 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
+    ///         Name = "example-aks",
     ///         Location = "West Europe",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         DnsPrefix = "example-aks",
     ///         DefaultNodePool = new Azure.ContainerService.Inputs.KubernetesClusterDefaultNodePoolArgs
     ///         {
@@ -44,15 +46,17 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("exampleKubernetesClusterExtension", new()
+    ///     var exampleKubernetesClusterExtension = new Azure.ContainerService.KubernetesClusterExtension("example", new()
     ///     {
-    ///         ClusterId = azurerm_kubernetes_cluster.Test.Id,
+    ///         Name = "example-ext",
+    ///         ClusterId = test.Id,
     ///         ExtensionType = "microsoft.flux",
     ///     });
     /// 
-    ///     var exampleFluxConfiguration = new Azure.ContainerService.FluxConfiguration("exampleFluxConfiguration", new()
+    ///     var exampleFluxConfiguration = new Azure.ContainerService.FluxConfiguration("example", new()
     ///     {
-    ///         ClusterId = azurerm_kubernetes_cluster.Test.Id,
+    ///         Name = "example-fc",
+    ///         ClusterId = test.Id,
     ///         Namespace = "flux",
     ///         GitRepository = new Azure.ContainerService.Inputs.FluxConfigurationGitRepositoryArgs
     ///         {
@@ -66,12 +70,6 @@ namespace Pulumi.Azure.ContainerService
     ///             {
     ///                 Name = "kustomization-1",
     ///             },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleKubernetesClusterExtension,
     ///         },
     ///     });
     /// 

@@ -16,45 +16,56 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "examplevn",
  *     addressSpaces: ["10.0.0.0/16"],
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "examplesubnet",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const exampleCache = new azure.hpc.Cache("exampleCache", {
+ * const exampleCache = new azure.hpc.Cache("example", {
+ *     name: "examplehpccache",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     cacheSizeInGb: 3072,
  *     subnetId: exampleSubnet.id,
  *     skuName: "Standard_2G",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorgaccount",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "examplestoragecontainer",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const example = azuread.getServicePrincipal({
  *     displayName: "HPC Cache Resource Provider",
  * });
- * const exampleStorageAccountContrib = new azure.authorization.Assignment("exampleStorageAccountContrib", {
+ * const exampleStorageAccountContrib = new azure.authorization.Assignment("example_storage_account_contrib", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Account Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
- * const exampleStorageBlobDataContrib = new azure.authorization.Assignment("exampleStorageBlobDataContrib", {
+ * const exampleStorageBlobDataContrib = new azure.authorization.Assignment("example_storage_blob_data_contrib", {
  *     scope: exampleAccount.id,
  *     roleDefinitionName: "Storage Blob Data Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
- * const exampleCacheBlobTarget = new azure.hpc.CacheBlobTarget("exampleCacheBlobTarget", {
+ * const exampleCacheBlobTarget = new azure.hpc.CacheBlobTarget("example", {
+ *     name: "examplehpccblobtarget",
  *     resourceGroupName: exampleResourceGroup.name,
  *     cacheName: exampleCache.name,
  *     storageContainerId: exampleContainer.resourceManagerId,

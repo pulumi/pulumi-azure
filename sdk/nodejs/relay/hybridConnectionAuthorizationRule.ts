@@ -13,23 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNamespace = new azure.relay.Namespace("example", {
+ *     name: "example-relay",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  *     tags: {
  *         source: "terraform",
  *     },
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ *     name: "acctestrnhc-%d",
+ *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,
  *     requiresClientAuthorization: false,
  *     userMetadata: "testmetadata",
  * });
- * const exampleHybridConnectionAuthorizationRule = new azure.relay.HybridConnectionAuthorizationRule("exampleHybridConnectionAuthorizationRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridConnectionAuthorizationRule = new azure.relay.HybridConnectionAuthorizationRule("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     hybridConnectionName: exampleHybridConnection.name,
  *     namespaceName: exampleNamespace.name,
  *     listen: true,

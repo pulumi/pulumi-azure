@@ -13,12 +13,114 @@ namespace Pulumi.Azure.Network
     {
         /// <summary>
         /// Use this data source to access information about a Network Manager.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "example-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
+        ///     {
+        ///         Name = "example-network-manager",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+        ///         {
+        ///             SubscriptionIds = new[]
+        ///             {
+        ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///             },
+        ///         },
+        ///         ScopeAccesses = new[]
+        ///         {
+        ///             "Connectivity",
+        ///             "SecurityAdmin",
+        ///         },
+        ///         Description = "example network manager",
+        ///     });
+        /// 
+        ///     var example = Azure.Network.GetNetworkManager.Invoke(new()
+        ///     {
+        ///         Name = exampleNetworkManager.Name,
+        ///         ResourceGroupName = exampleNetworkManager.ResourceGroupName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetNetworkManagerResult> InvokeAsync(GetNetworkManagerArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetNetworkManagerResult>("azure:network/getNetworkManager:getNetworkManager", args ?? new GetNetworkManagerArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about a Network Manager.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+        ///     {
+        ///         Name = "example-resources",
+        ///         Location = "West Europe",
+        ///     });
+        /// 
+        ///     var current = Azure.Core.GetSubscription.Invoke();
+        /// 
+        ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
+        ///     {
+        ///         Name = "example-network-manager",
+        ///         Location = exampleResourceGroup.Location,
+        ///         ResourceGroupName = exampleResourceGroup.Name,
+        ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+        ///         {
+        ///             SubscriptionIds = new[]
+        ///             {
+        ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+        ///             },
+        ///         },
+        ///         ScopeAccesses = new[]
+        ///         {
+        ///             "Connectivity",
+        ///             "SecurityAdmin",
+        ///         },
+        ///         Description = "example network manager",
+        ///     });
+        /// 
+        ///     var example = Azure.Network.GetNetworkManager.Invoke(new()
+        ///     {
+        ///         Name = exampleNetworkManager.Name,
+        ///         ResourceGroupName = exampleNetworkManager.ResourceGroupName,
+        ///     });
+        /// 
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetNetworkManagerResult> Invoke(GetNetworkManagerInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetNetworkManagerResult>("azure:network/getNetworkManager:getNetworkManager", args ?? new GetNetworkManagerInvokeArgs(), options.WithDefaults());

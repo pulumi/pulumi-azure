@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cosmosdb.getSqlDatabase({
- *     accountName: "tfex-cosmosdb-sql-database-account-name",
  *     name: "tfex-cosmosdb-sql-database",
  *     resourceGroupName: "tfex-cosmosdb-sql-database-rg",
+ *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
  */
@@ -80,9 +80,9 @@ export interface GetSqlDatabaseResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.cosmosdb.getSqlDatabase({
- *     accountName: "tfex-cosmosdb-sql-database-account-name",
  *     name: "tfex-cosmosdb-sql-database",
  *     resourceGroupName: "tfex-cosmosdb-sql-database-rg",
+ *     accountName: "tfex-cosmosdb-sql-database-account-name",
  * });
  * ```
  */

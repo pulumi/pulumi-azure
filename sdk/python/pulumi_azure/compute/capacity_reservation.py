@@ -207,11 +207,15 @@ class CapacityReservation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("example",
+            name="example-capacity-reservation-group",
+            resource_group_name=example.name,
+            location=example.location)
+        example_capacity_reservation = azure.compute.CapacityReservation("example",
+            name="example-capacity-reservation",
             capacity_reservation_group_id=example_capacity_reservation_group.id,
             sku=azure.compute.CapacityReservationSkuArgs(
                 name="Standard_D2s_v3",
@@ -250,11 +254,15 @@ class CapacityReservation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("exampleCapacityReservationGroup",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_capacity_reservation = azure.compute.CapacityReservation("exampleCapacityReservation",
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_capacity_reservation_group = azure.compute.CapacityReservationGroup("example",
+            name="example-capacity-reservation-group",
+            resource_group_name=example.name,
+            location=example.location)
+        example_capacity_reservation = azure.compute.CapacityReservation("example",
+            name="example-capacity-reservation",
             capacity_reservation_group_id=example_capacity_reservation_group.id,
             sku=azure.compute.CapacityReservationSkuArgs(
                 name="Standard_D2s_v3",

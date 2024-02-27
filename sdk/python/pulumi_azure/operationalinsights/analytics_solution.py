@@ -271,20 +271,23 @@ class AnalyticsSolution(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="k8s-log-analytics-test",
+            location="West Europe")
         workspace = random.RandomId("workspace",
             keepers={
-                "group_name": example_resource_group.name,
+                "group_name": example.name,
             },
             byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="ContainerInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(
@@ -327,20 +330,23 @@ class AnalyticsSolution(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="k8s-log-analytics-test",
+            location="West Europe")
         workspace = random.RandomId("workspace",
             keepers={
-                "group_name": example_resource_group.name,
+                "group_name": example.name,
             },
             byte_length=8)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name=workspace.hex.apply(lambda hex: f"k8s-workspace-{hex}"),
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution",
+        example_analytics_solution = azure.operationalinsights.AnalyticsSolution("example",
             solution_name="ContainerInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             workspace_resource_id=example_analytics_workspace.id,
             workspace_name=example_analytics_workspace.name,
             plan=azure.operationalinsights.AnalyticsSolutionPlanArgs(

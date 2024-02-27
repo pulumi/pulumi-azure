@@ -28,8 +28,8 @@ namespace Pulumi.Azure.AppService
     /// {
     ///     var example = new Azure.AppService.SourceCodeToken("example", new()
     ///     {
-    ///         Token = "7e57735e77e577e57",
     ///         Type = "GitHub",
+    ///         Token = "7e57735e77e577e57",
     ///     });
     /// 
     /// });

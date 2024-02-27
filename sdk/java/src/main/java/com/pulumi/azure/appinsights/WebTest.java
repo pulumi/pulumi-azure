@@ -47,19 +47,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tf-test&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tf-test-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var exampleWebTest = new WebTest(&#34;exampleWebTest&#34;, WebTestArgs.builder()        
+ *             .name(&#34;tf-test-appinsights-webtest&#34;)
  *             .location(exampleInsights.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .kind(&#34;ping&#34;)
  *             .frequency(300)

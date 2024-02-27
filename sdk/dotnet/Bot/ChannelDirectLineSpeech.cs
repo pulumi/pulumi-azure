@@ -24,32 +24,35 @@ namespace Pulumi.Azure.Bot
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cogacct",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "SpeechServices",
     ///         SkuName = "S0",
     ///     });
     /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("example", new()
     ///     {
+    ///         Name = "example-bcr",
     ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "F0",
     ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///     });
     /// 
-    ///     var exampleChannelDirectLineSpeech = new Azure.Bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech", new()
+    ///     var exampleChannelDirectLineSpeech = new Azure.Bot.ChannelDirectLineSpeech("example", new()
     ///     {
     ///         BotName = exampleChannelsRegistration.Name,
     ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         CognitiveServiceLocation = exampleAccount.Location,
     ///         CognitiveServiceAccessKey = exampleAccount.PrimaryAccessKey,
     ///     });

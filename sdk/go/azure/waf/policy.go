@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = waf.NewPolicy(ctx, "examplePolicy", &waf.PolicyArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = waf.NewPolicy(ctx, "example", &waf.PolicyArgs{
+//				Name:              pulumi.String("example-wafpolicy"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				CustomRules: waf.PolicyCustomRuleArray{
 //					&waf.PolicyCustomRuleArgs{
 //						Name:     pulumi.String("Rule1"),

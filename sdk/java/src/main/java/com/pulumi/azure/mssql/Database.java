@@ -52,26 +52,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-sqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;example-db&#34;)
  *             .serverId(exampleServer.id())
  *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
  *             .licenseType(&#34;LicenseIncluded&#34;)
@@ -109,7 +113,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.mssql.Database;
  * import com.pulumi.azure.mssql.DatabaseArgs;
  * import com.pulumi.azure.mssql.inputs.DatabaseIdentityArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -123,33 +126,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-admin&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplesa&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-sqlserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;4dm1n157r470r&#34;)
  *             .administratorLoginPassword(&#34;4-v3ry-53cr37-p455w0rd&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mssqltdeexample&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .tenantId(exampleUserAssignedIdentity.tenantId())
  *             .softDeleteRetentionDays(7)
@@ -157,8 +165,8 @@ import javax.annotation.Nullable;
  *             .skuName(&#34;standard&#34;)
  *             .accessPolicies(            
  *                 KeyVaultAccessPolicyArgs.builder()
- *                     .tenantId(data.azurerm_client_config().current().tenant_id())
- *                     .objectId(data.azurerm_client_config().current().object_id())
+ *                     .tenantId(current.tenantId())
+ *                     .objectId(current.objectId())
  *                     .keyPermissions(                    
  *                         &#34;Get&#34;,
  *                         &#34;List&#34;,
@@ -180,17 +188,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;example-key&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
  *             .keyOpts(            
  *                 &#34;unwrapKey&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKeyVault)
- *                 .build());
+ *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;example-db&#34;)
  *             .serverId(exampleServer.id())
  *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
  *             .licenseType(&#34;LicenseIncluded&#34;)

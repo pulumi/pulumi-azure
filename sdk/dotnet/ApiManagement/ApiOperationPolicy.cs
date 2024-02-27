@@ -22,39 +22,42 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@terraform.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-api",
+    ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
     ///         Revision = "1",
     ///     });
     /// 
-    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("example", new()
     ///     {
     ///         OperationId = "acctest-operation",
     ///         ApiName = exampleApi.Name,
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         DisplayName = "DELETE Resource",
     ///         Method = "DELETE",
     ///         UrlTemplate = "/resource",
     ///     });
     /// 
-    ///     var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("exampleApiOperationPolicy", new()
+    ///     var exampleApiOperationPolicy = new Azure.ApiManagement.ApiOperationPolicy("example", new()
     ///     {
     ///         ApiName = exampleApiOperation.ApiName,
     ///         ApiManagementName = exampleApiOperation.ApiManagementName,

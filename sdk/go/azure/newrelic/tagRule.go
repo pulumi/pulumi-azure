@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleMonitor, err := newrelic.NewMonitor(ctx, "exampleMonitor", &newrelic.MonitorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleMonitor, err := newrelic.NewMonitor(ctx, "example", &newrelic.MonitorArgs{
+//				Name:              pulumi.String("example-nrm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Plan: &newrelic.MonitorPlanArgs{
 //					EffectiveDate: pulumi.String("2023-06-06T00:00:00Z"),
 //				},
@@ -51,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = newrelic.NewTagRule(ctx, "exampleTagRule", &newrelic.TagRuleArgs{
+//			_, err = newrelic.NewTagRule(ctx, "example", &newrelic.TagRuleArgs{
 //				MonitorId:                      exampleMonitor.ID(),
 //				AzureActiveDirectoryLogEnabled: pulumi.Bool(true),
 //				ActivityLogEnabled:             pulumi.Bool(true),

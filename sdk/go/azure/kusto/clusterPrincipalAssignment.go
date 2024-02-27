@@ -33,15 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("KustoRG"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Standard_D13_v2"),
 //					Capacity: pulumi.Int(2),
@@ -50,8 +52,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewClusterPrincipalAssignment(ctx, "exampleClusterPrincipalAssignment", &kusto.ClusterPrincipalAssignmentArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = kusto.NewClusterPrincipalAssignment(ctx, "example", &kusto.ClusterPrincipalAssignmentArgs{
+//				Name:              pulumi.String("KustoPrincipalAssignment"),
+//				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				PrincipalId:       *pulumi.String(current.ClientId),

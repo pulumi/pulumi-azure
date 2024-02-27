@@ -29,7 +29,7 @@ namespace Pulumi.Azure.Cdn
         ///     var example = Azure.Cdn.GetFrontdoorFirewallPolicy.Invoke(new()
         ///     {
         ///         Name = "examplecdnfdwafpolicy",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -58,7 +58,7 @@ namespace Pulumi.Azure.Cdn
         ///     var example = Azure.Cdn.GetFrontdoorFirewallPolicy.Invoke(new()
         ///     {
         ///         Name = "examplecdnfdwafpolicy",
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

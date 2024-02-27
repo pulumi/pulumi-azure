@@ -22,20 +22,23 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-recovery_vault",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
     ///     {
+    ///         Name = "tfex-recovery-vault",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("examplePolicyVM", new()
+    ///     var examplePolicyVM = new Azure.Backup.PolicyVM("example", new()
     ///     {
+    ///         Name = "tfex-recovery-vault-policy",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         RecoveryVaultName = exampleVault.Name,
     ///         Backup = new Azure.Backup.Inputs.PolicyVMBackupArgs
@@ -49,7 +52,7 @@ namespace Pulumi.Azure.Backup
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualMachine = Azure.Compute.GetVirtualMachine.Invoke(new()
+    ///     var example = Azure.Compute.GetVirtualMachine.Invoke(new()
     ///     {
     ///         Name = "example-vm",
     ///         ResourceGroupName = exampleResourceGroup.Name,
@@ -59,7 +62,7 @@ namespace Pulumi.Azure.Backup
     ///     {
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         RecoveryVaultName = exampleVault.Name,
-    ///         SourceVmId = exampleVirtualMachine.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
+    ///         SourceVmId = example.Apply(getVirtualMachineResult =&gt; getVirtualMachineResult.Id),
     ///         BackupPolicyId = examplePolicyVM.Id,
     ///     });
     /// 

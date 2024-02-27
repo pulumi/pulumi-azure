@@ -47,17 +47,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
- *         final var exampleGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
- *             .name(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *         final var exampleGetGroup = ManagementFunctions.getGroup(GetGroupArgs.builder()
+ *             .name(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePrivateLink = new PrivateLink(&#34;examplePrivateLink&#34;, PrivateLinkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
@@ -65,7 +67,8 @@ import javax.annotation.Nullable;
  *         var exampleRandomUuid = new RandomUuid(&#34;exampleRandomUuid&#34;);
  * 
  *         var examplePrivateLinkAssociation = new PrivateLinkAssociation(&#34;examplePrivateLinkAssociation&#34;, PrivateLinkAssociationArgs.builder()        
- *             .managementGroupId(azurerm_management_group.example().id())
+ *             .name(exampleRandomUuid.result())
+ *             .managementGroupId(exampleAzurermManagementGroup.id())
  *             .resourceManagementPrivateLinkId(examplePrivateLink.id())
  *             .publicNetworkAccessEnabled(true)
  *             .build());
@@ -127,8 +130,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
-     *             .managementGroupId(azurerm_management_group.example().id())
-     *             .resourceManagementPrivateLinkId(azurerm_resource_management_private_link.example().id())
+     *             .managementGroupId(exampleAzurermManagementGroup.id())
+     *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
      *             .build());
      * 
@@ -164,8 +167,8 @@ public class PrivateLinkAssociation extends com.pulumi.resources.CustomResource 
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PrivateLinkAssociation(&#34;example&#34;, PrivateLinkAssociationArgs.builder()        
-     *             .managementGroupId(azurerm_management_group.example().id())
-     *             .resourceManagementPrivateLinkId(azurerm_resource_management_private_link.example().id())
+     *             .managementGroupId(exampleAzurermManagementGroup.id())
+     *             .resourceManagementPrivateLinkId(exampleAzurermResourceManagementPrivateLink.id())
      *             .publicNetworkAccessEnabled(true)
      *             .build());
      * 

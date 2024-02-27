@@ -19,27 +19,31 @@ import * as utilities from "../utilities";
  * import * as azuread from "@pulumi/azuread";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
  *     keyPermissions: ["Get"],
  *     secretPermissions: ["Get"],
  * });
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const example = azuread.getServicePrincipal({
  *     displayName: "example-app",
  * });
  * const example_principal = new azure.keyvault.AccessPolicy("example-principal", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
- *     objectId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     objectId: example.then(example => example.objectId),
  *     keyPermissions: [
  *         "Get",
  *         "List",

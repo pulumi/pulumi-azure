@@ -13,29 +13,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
  *     },
  * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.iot.ConsumerGroup("example", {
+ *     name: "example",
  *     iothubName: exampleIoTHub.name,
  *     eventhubEndpointName: "events",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
  * const storage = new azure.storage.Account("storage", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("exampleTimeSeriesInsightsGen2Environment", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleTimeSeriesInsightsGen2Environment = new azure.iot.TimeSeriesInsightsGen2Environment("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "L1",
  *     idProperties: ["id"],
  *     storage: {
@@ -43,8 +50,9 @@ import * as utilities from "../utilities";
  *         key: storage.primaryAccessKey,
  *     },
  * });
- * const exampleTimeSeriesInsightsEventSourceIothub = new azure.iot.TimeSeriesInsightsEventSourceIothub("exampleTimeSeriesInsightsEventSourceIothub", {
- *     location: exampleResourceGroup.location,
+ * const exampleTimeSeriesInsightsEventSourceIothub = new azure.iot.TimeSeriesInsightsEventSourceIothub("example", {
+ *     name: "example",
+ *     location: example.location,
  *     environmentId: exampleTimeSeriesInsightsGen2Environment.id,
  *     iothubName: exampleIoTHub.name,
  *     sharedAccessKey: exampleIoTHub.sharedAccessPolicies.apply(sharedAccessPolicies => sharedAccessPolicies[0].primaryKey),

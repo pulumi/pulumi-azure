@@ -33,15 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = managedapplication.NewDefinition(ctx, "exampleDefinition", &managedapplication.DefinitionArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = managedapplication.NewDefinition(ctx, "example", &managedapplication.DefinitionArgs{
+//				Name:              pulumi.String("examplemanagedapplicationdefinition"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				LockLevel:         pulumi.String("ReadOnly"),
 //				PackageFileUri:    pulumi.String("https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip"),
 //				DisplayName:       pulumi.String("TestManagedApplicationDefinition"),

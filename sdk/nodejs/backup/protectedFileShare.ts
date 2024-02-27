@@ -13,29 +13,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tfex-recovery_vault",
+ *     location: "West Europe",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "tfex-recovery-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
  * const sa = new azure.storage.Account("sa", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "examplesa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleShare = new azure.storage.Share("exampleShare", {
+ * const exampleShare = new azure.storage.Share("example", {
+ *     name: "example-share",
  *     storageAccountName: sa.name,
  *     quota: 1,
  * });
  * const protection_container = new azure.backup.ContainerStorageAccount("protection-container", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     storageAccountId: sa.id,
  * });
- * const examplePolicyFileShare = new azure.backup.PolicyFileShare("examplePolicyFileShare", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePolicyFileShare = new azure.backup.PolicyFileShare("example", {
+ *     name: "tfex-recovery-vault-policy",
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     backup: {
  *         frequency: "Daily",
@@ -46,7 +53,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const share1 = new azure.backup.ProtectedFileShare("share1", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: vault.name,
  *     sourceStorageAccountId: protection_container.storageAccountId,
  *     sourceFileShareName: exampleShare.name,

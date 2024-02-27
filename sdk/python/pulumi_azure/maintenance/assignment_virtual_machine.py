@@ -138,33 +138,40 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
                 username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
             )],
             os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
                 caching="ReadWrite",
@@ -176,12 +183,13 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_configuration = azure.maintenance.Configuration("example",
+            name="example-mc",
+            resource_group_name=example.name,
+            location=example.location,
             scope="All")
-        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine",
-            location=example_resource_group.location,
+        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("example",
+            location=example.location,
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_id=example_linux_virtual_machine.id)
         ```
@@ -214,33 +222,40 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
         ```python
         import pulumi
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="internal",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_interface = azure.network.NetworkInterface("exampleNetworkInterface",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_interface = azure.network.NetworkInterface("example",
+            name="example-nic",
+            location=example.location,
+            resource_group_name=example.name,
             ip_configurations=[azure.network.NetworkInterfaceIpConfigurationArgs(
                 name="internal",
                 subnet_id=example_subnet.id,
                 private_ip_address_allocation="Dynamic",
             )])
-        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("exampleLinuxVirtualMachine",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_linux_virtual_machine = azure.compute.LinuxVirtualMachine("example",
+            name="example-machine",
+            resource_group_name=example.name,
+            location=example.location,
             size="Standard_F2",
             admin_username="adminuser",
             network_interface_ids=[example_network_interface.id],
             admin_ssh_keys=[azure.compute.LinuxVirtualMachineAdminSshKeyArgs(
                 username="adminuser",
-                public_key=(lambda path: open(path).read())("~/.ssh/id_rsa.pub"),
+                public_key=std.file(input="~/.ssh/id_rsa.pub").result,
             )],
             os_disk=azure.compute.LinuxVirtualMachineOsDiskArgs(
                 caching="ReadWrite",
@@ -252,12 +267,13 @@ class AssignmentVirtualMachine(pulumi.CustomResource):
                 sku="22_04-lts",
                 version="latest",
             ))
-        example_configuration = azure.maintenance.Configuration("exampleConfiguration",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_configuration = azure.maintenance.Configuration("example",
+            name="example-mc",
+            resource_group_name=example.name,
+            location=example.location,
             scope="All")
-        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("exampleAssignmentVirtualMachine",
-            location=example_resource_group.location,
+        example_assignment_virtual_machine = azure.maintenance.AssignmentVirtualMachine("example",
+            location=example.location,
             maintenance_configuration_id=example_configuration.id,
             virtual_machine_id=example_linux_virtual_machine.id)
         ```

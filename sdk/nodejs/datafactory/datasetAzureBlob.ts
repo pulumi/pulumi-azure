@@ -15,20 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.storage.getAccountOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.storage.getAccountOutput({
  *     name: "storageaccountname",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("exampleLinkedServiceAzureBlobStorage", {
+ * const exampleLinkedServiceAzureBlobStorage = new azure.datafactory.LinkedServiceAzureBlobStorage("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     connectionString: exampleAccount.apply(exampleAccount => exampleAccount.primaryConnectionString),
+ *     connectionString: example.apply(example => example.primaryConnectionString),
  * });
- * const exampleDatasetAzureBlob = new azure.datafactory.DatasetAzureBlob("exampleDatasetAzureBlob", {
+ * const exampleDatasetAzureBlob = new azure.datafactory.DatasetAzureBlob("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceAzureBlobStorage.name,
  *     path: "foo",

@@ -22,29 +22,33 @@ namespace Pulumi.Azure.Synapse
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountKind = "BlobStorage",
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", new()
+    ///     var exampleDataLakeGen2Filesystem = new Azure.Storage.DataLakeGen2Filesystem("example", new()
     ///     {
+    ///         Name = "example",
     ///         StorageAccountId = exampleAccount.Id,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Synapse.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Synapse.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         StorageDataLakeGen2FilesystemId = exampleDataLakeGen2Filesystem.Id,
     ///         SqlAdministratorLogin = "sqladminuser",
     ///         SqlAdministratorLoginPassword = "H@Sh1CoR3!",
@@ -55,21 +59,24 @@ namespace Pulumi.Azure.Synapse
     ///         },
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.Synapse.FirewallRule("example", new()
     ///     {
+    ///         Name = "allowAll",
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         StartIpAddress = "0.0.0.0",
     ///         EndIpAddress = "255.255.255.255",
     ///     });
     /// 
-    ///     var exampleIntegrationRuntimeAzure = new Azure.Synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure", new()
+    ///     var exampleIntegrationRuntimeAzure = new Azure.Synapse.IntegrationRuntimeAzure("example", new()
     ///     {
+    ///         Name = "example",
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleLinkedService = new Azure.Synapse.LinkedService("exampleLinkedService", new()
+    ///     var exampleLinkedService = new Azure.Synapse.LinkedService("example", new()
     ///     {
+    ///         Name = "example",
     ///         SynapseWorkspaceId = exampleWorkspace.Id,
     ///         Type = "AzureBlobStorage",
     ///         TypePropertiesJson = exampleAccount.PrimaryConnectionString.Apply(primaryConnectionString =&gt; @$"{{
@@ -79,12 +86,6 @@ namespace Pulumi.Azure.Synapse
     ///         IntegrationRuntime = new Azure.Synapse.Inputs.LinkedServiceIntegrationRuntimeArgs
     ///         {
     ///             Name = exampleIntegrationRuntimeAzure.Name,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleFirewallRule,
     ///         },
     ///     });
     /// 

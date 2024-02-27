@@ -22,21 +22,24 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("exampleIntegrationAccount", new()
+    ///     var exampleIntegrationAccount = new Azure.LogicApps.IntegrationAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ia",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleIntegrationAccountSession = new Azure.LogicApps.IntegrationAccountSession("exampleIntegrationAccountSession", new()
+    ///     var exampleIntegrationAccountSession = new Azure.LogicApps.IntegrationAccountSession("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ias",
+    ///         ResourceGroupName = example.Name,
     ///         IntegrationAccountName = exampleIntegrationAccount.Name,
     ///         Content = @" {
     ///        ""controlNumber"": ""1234""

@@ -44,25 +44,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;test-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctsub&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
@@ -74,7 +78,8 @@ import javax.annotation.Nullable;
  * 
  *         var exampleManagedDatabase = new ManagedDatabase(&#34;exampleManagedDatabase&#34;, ManagedDatabaseArgs.builder()        
  *             .sqlManagedInstanceId(exampleManagedInstance.id())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampledatabase&#34;)
+ *             .location(example.location())
  *             .build());
  * 
  *     }

@@ -11,20 +11,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "test-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleManagedInstance = new azure.sql.ManagedInstance("exampleManagedInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleManagedInstance = new azure.sql.ManagedInstance("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     administratorLogin: "mradministrator",
  *     administratorLoginPassword: "thisIsDog11",
  *     licenseType: "BasePrice",
@@ -33,9 +39,10 @@ import * as utilities from "../utilities";
  *     vcores: 4,
  *     storageSizeInGb: 32,
  * });
- * const exampleManagedDatabase = new azure.sql.ManagedDatabase("exampleManagedDatabase", {
+ * const exampleManagedDatabase = new azure.sql.ManagedDatabase("example", {
  *     sqlManagedInstanceId: exampleManagedInstance.id,
- *     location: exampleResourceGroup.location,
+ *     name: "exampledatabase",
+ *     location: example.location,
  * });
  * ```
  *

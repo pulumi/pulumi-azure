@@ -13,17 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const current = azure.core.getSubscription({});
- * const exampleNetworkManager = new azure.network.NetworkManager("exampleNetworkManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkManager = new azure.network.NetworkManager("example", {
+ *     name: "example-networkmanager",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     scope: {
  *         subscriptionIds: [current.then(current => current.id)],
  *     },
  *     scopeAccesses: ["SecurityAdmin"],
  * });
- * const exampleNetworkManagerSubscriptionConnection = new azure.network.NetworkManagerSubscriptionConnection("exampleNetworkManagerSubscriptionConnection", {
+ * const exampleNetworkManagerSubscriptionConnection = new azure.network.NetworkManagerSubscriptionConnection("example", {
+ *     name: "example-nsnmc",
  *     subscriptionId: current.then(current => current.id),
  *     networkManagerId: exampleNetworkManager.id,
  *     description: "example",

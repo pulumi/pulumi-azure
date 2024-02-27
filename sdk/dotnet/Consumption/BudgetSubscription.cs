@@ -24,19 +24,22 @@ namespace Pulumi.Azure.Consumption
     /// {
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "eastus",
     ///     });
     /// 
-    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("exampleActionGroup", new()
+    ///     var exampleActionGroup = new Azure.Monitoring.ActionGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         ShortName = "example",
     ///     });
     /// 
-    ///     var exampleBudgetSubscription = new Azure.Consumption.BudgetSubscription("exampleBudgetSubscription", new()
+    ///     var exampleBudgetSubscription = new Azure.Consumption.BudgetSubscription("example", new()
     ///     {
+    ///         Name = "example",
     ///         SubscriptionId = current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Amount = 1000,
     ///         TimeGrain = "Monthly",
@@ -54,7 +57,7 @@ namespace Pulumi.Azure.Consumption
     ///                     Name = "ResourceGroupName",
     ///                     Values = new[]
     ///                     {
-    ///                         exampleResourceGroup.Name,
+    ///                         example.Name,
     ///                     },
     ///                 },
     ///             },

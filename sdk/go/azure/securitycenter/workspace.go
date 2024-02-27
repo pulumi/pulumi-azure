@@ -32,21 +32,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-security-workspace"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("tfex-security-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securitycenter.NewWorkspace(ctx, "exampleWorkspace", &securitycenter.WorkspaceArgs{
+//			_, err = securitycenter.NewWorkspace(ctx, "example", &securitycenter.WorkspaceArgs{
 //				Scope:       pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
 //				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})

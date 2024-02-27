@@ -22,22 +22,24 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
     ///     });
     /// 
-    ///     var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("exampleGremlinDatabase", new()
+    ///     var exampleGremlinDatabase = new Azure.CosmosDB.GremlinDatabase("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "tfex-cosmos-gremlin-db",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///     });
     /// 
-    ///     var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("exampleGremlinGraph", new()
+    ///     var exampleGremlinGraph = new Azure.CosmosDB.GremlinGraph("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "tfex-cosmos-gremlin-graph",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         DatabaseName = exampleGremlinDatabase.Name,
     ///         PartitionKeyPath = "/Example",
     ///         Throughput = 400,

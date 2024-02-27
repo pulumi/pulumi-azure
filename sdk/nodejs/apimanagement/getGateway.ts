@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
+ * const exampleGetGateway = example.then(example => azure.apimanagement.getGateway({
  *     name: "example-api-gateway",
- *     apiManagementId: exampleService.id,
+ *     apiManagementId: example.id,
  * }));
  * ```
  */
@@ -79,13 +79,13 @@ export interface GetGatewayResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-apim",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleGateway = exampleService.then(exampleService => azure.apimanagement.getGateway({
+ * const exampleGetGateway = example.then(example => azure.apimanagement.getGateway({
  *     name: "example-api-gateway",
- *     apiManagementId: exampleService.id,
+ *     apiManagementId: example.id,
  * }));
  * ```
  */

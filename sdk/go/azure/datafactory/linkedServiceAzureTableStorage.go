@@ -30,27 +30,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
+//			example := storage.LookupAccountOutput(ctx, storage.GetAccountOutputArgs{
 //				Name:              pulumi.String("storageaccountname"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceAzureTableStorage(ctx, "exampleLinkedServiceAzureTableStorage", &datafactory.LinkedServiceAzureTableStorageArgs{
+//			_, err = datafactory.NewLinkedServiceAzureTableStorage(ctx, "example", &datafactory.LinkedServiceAzureTableStorageArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
-//				ConnectionString: exampleAccount.ApplyT(func(exampleAccount storage.GetAccountResult) (*string, error) {
-//					return &exampleAccount.PrimaryConnectionString, nil
+//				ConnectionString: example.ApplyT(func(example storage.GetAccountResult) (*string, error) {
+//					return &example.PrimaryConnectionString, nil
 //				}).(pulumi.StringPtrOutput),
 //			})
 //			if err != nil {

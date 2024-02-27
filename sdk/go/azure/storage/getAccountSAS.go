@@ -33,13 +33,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroupName"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -51,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+//			example := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
 //				ConnectionString: exampleAccount.PrimaryConnectionString,
 //				HttpsOnly:        pulumi.Bool(true),
 //				SignedVersion:    pulumi.String("2017-07-29"),
@@ -81,8 +83,8 @@ import (
 //					Filter:  pulumi.Bool(false),
 //				},
 //			}, nil)
-//			ctx.Export("sasUrlQueryString", exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
-//				return &exampleAccountSAS.Sas, nil
+//			ctx.Export("sasUrlQueryString", example.ApplyT(func(example storage.GetAccountSASResult) (*string, error) {
+//				return &example.Sas, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

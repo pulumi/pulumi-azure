@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
  * });
- * const exampleVpnSite = new azure.network.VpnSite("exampleVpnSite", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVpnSite = new azure.network.VpnSite("example", {
+ *     name: "site1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressCidrs: ["10.0.0.0/24"],
  *     links: [{

@@ -12,6 +12,106 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Virtual Network Gateway Nat Rule.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
+    ///     {
+    ///         Name = "example-vnet",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.0.0/16",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
+    ///     {
+    ///         Name = "GatewaySubnet",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkName = exampleVirtualNetwork.Name,
+    ///         AddressPrefixes = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///     });
+    /// 
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
+    ///     {
+    ///         Name = "example-pip",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         AllocationMethod = "Dynamic",
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkGateway = new Azure.Network.VirtualNetworkGateway("example", new()
+    ///     {
+    ///         Name = "example-vnetgw",
+    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Type = "Vpn",
+    ///         VpnType = "RouteBased",
+    ///         Sku = "Basic",
+    ///         IpConfigurations = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayIpConfigurationArgs
+    ///             {
+    ///                 PublicIpAddressId = examplePublicIp.Id,
+    ///                 PrivateIpAddressAllocation = "Dynamic",
+    ///                 SubnetId = exampleSubnet.Id,
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var example = Azure.Network.GetVirtualNetworkGateway.Invoke(new()
+    ///     {
+    ///         Name = exampleVirtualNetworkGateway.Name,
+    ///         ResourceGroupName = exampleVirtualNetworkGateway.ResourceGroupName,
+    ///     });
+    /// 
+    ///     var exampleVirtualNetworkGatewayNatRule = new Azure.Network.VirtualNetworkGatewayNatRule("example", new()
+    ///     {
+    ///         Name = "example-vnetgwnatrule",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         VirtualNetworkGatewayId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.Id),
+    ///         Mode = "EgressSnat",
+    ///         Type = "Dynamic",
+    ///         IpConfigurationId = example.Apply(getVirtualNetworkGatewayResult =&gt; getVirtualNetworkGatewayResult.IpConfigurations[0]?.Id),
+    ///         ExternalMappings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayNatRuleExternalMappingArgs
+    ///             {
+    ///                 AddressSpace = "10.2.0.0/26",
+    ///                 PortRange = "200",
+    ///             },
+    ///         },
+    ///         InternalMappings = new[]
+    ///         {
+    ///             new Azure.Network.Inputs.VirtualNetworkGatewayNatRuleInternalMappingArgs
+    ///             {
+    ///                 AddressSpace = "10.4.0.0/26",
+    ///                 PortRange = "400",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Virtual Network Gateway Nat Rules can be imported using the `resource id`, e.g.

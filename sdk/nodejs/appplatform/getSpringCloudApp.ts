@@ -16,9 +16,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appplatform.getSpringCloudApp({
- *     name: azurerm_spring_cloud_app.example.name,
- *     resourceGroupName: azurerm_spring_cloud_app.example.resource_group_name,
- *     serviceName: azurerm_spring_cloud_app.example.service_name,
+ *     name: exampleAzurermSpringCloudApp.name,
+ *     resourceGroupName: exampleAzurermSpringCloudApp.resourceGroupName,
+ *     serviceName: exampleAzurermSpringCloudApp.serviceName,
  * });
  * export const springCloudAppId = example.then(example => example.id);
  * ```
@@ -101,9 +101,9 @@ export interface GetSpringCloudAppResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.appplatform.getSpringCloudApp({
- *     name: azurerm_spring_cloud_app.example.name,
- *     resourceGroupName: azurerm_spring_cloud_app.example.resource_group_name,
- *     serviceName: azurerm_spring_cloud_app.example.service_name,
+ *     name: exampleAzurermSpringCloudApp.name,
+ *     resourceGroupName: exampleAzurermSpringCloudApp.resourceGroupName,
+ *     serviceName: exampleAzurermSpringCloudApp.serviceName,
  * });
  * export const springCloudAppId = example.then(example => example.id);
  * ```

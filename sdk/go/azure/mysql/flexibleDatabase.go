@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "exampleFlexibleServer", &mysql.FlexibleServerArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
-//				Location:              exampleResourceGroup.Location,
+//			exampleFlexibleServer, err := mysql.NewFlexibleServer(ctx, "example", &mysql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-mysql-flexible-server"),
+//				ResourceGroupName:     example.Name,
+//				Location:              example.Location,
 //				AdministratorLogin:    pulumi.String("mysqladminun"),
 //				AdministratorPassword: pulumi.String("H@Sh1CoR3!"),
 //				SkuName:               pulumi.String("B_Standard_B1s"),
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewFlexibleDatabase(ctx, "exampleFlexibleDatabase", &mysql.FlexibleDatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = mysql.NewFlexibleDatabase(ctx, "example", &mysql.FlexibleDatabaseArgs{
+//				Name:              pulumi.String("exampledb"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleFlexibleServer.Name,
 //				Charset:           pulumi.String("utf8"),
 //				Collation:         pulumi.String("utf8_unicode_ci"),

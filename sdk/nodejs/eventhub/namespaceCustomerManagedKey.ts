@@ -16,15 +16,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.eventhub.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.eventhub.Cluster("example", {
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Dedicated_1",
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     dedicatedClusterId: exampleCluster.id,
  *     identity: {
@@ -32,14 +37,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleEventHubNamespace.identity.apply(identity => identity?.tenantId),
  *     objectId: exampleEventHubNamespace.identity.apply(identity => identity?.principalId),
@@ -63,7 +69,8 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "examplekvkey",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -75,13 +82,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         exampleAccessPolicy,
- *         example2,
- *     ],
  * });
- * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", {
+ * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("example", {
  *     eventhubNamespaceId: exampleEventHubNamespace.id,
  *     keyVaultKeyIds: [exampleKey.id],
  * });
@@ -92,19 +94,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.eventhub.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.eventhub.Cluster("example", {
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Dedicated_1",
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "example-namespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     dedicatedClusterId: exampleCluster.id,
  *     identity: {
@@ -113,17 +121,18 @@ import * as utilities from "../utilities";
  *     },
  * });
  * const current = azure.core.getClientConfig({});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
- *     tenantId: azurerm_user_assigned_identity.test.tenant_id,
- *     objectId: azurerm_user_assigned_identity.test.principal_id,
+ *     tenantId: test.tenantId,
+ *     objectId: test.principalId,
  *     keyPermissions: [
  *         "Get",
  *         "UnwrapKey",
@@ -144,7 +153,8 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "examplekvkey",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -156,13 +166,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         exampleAccessPolicy,
- *         example2,
- *     ],
  * });
- * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey", {
+ * const exampleNamespaceCustomerManagedKey = new azure.eventhub.NamespaceCustomerManagedKey("example", {
  *     eventhubNamespaceId: exampleEventHubNamespace.id,
  *     keyVaultKeyIds: [exampleKey.id],
  *     userAssignedIdentityId: exampleUserAssignedIdentity.id,

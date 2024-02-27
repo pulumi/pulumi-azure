@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "account1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         LogVerbose = true,
     ///         LogProgress = true,
@@ -49,9 +52,10 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleWebhook = new Azure.Automation.Webhook("exampleWebhook", new()
+    ///     var exampleWebhook = new Azure.Automation.Webhook("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "TestRunbook_webhook",
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         ExpiryTime = "2021-12-31T00:00:00Z",
     ///         Enabled = true,

@@ -37,7 +37,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("west europe"),
 //				Tags: pulumi.StringMap{
 //					"stage": pulumi.String("example"),
@@ -46,17 +47,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("example-kv"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -64,18 +67,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                  pulumi.String("example-mlw"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				KeyVaultId:            exampleKeyVault.ID(),
 //				StorageAccountId:      exampleAccount.ID(),
@@ -86,15 +91,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example"),
 //				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewWorkspace(ctx, "exampleSynapse/workspaceWorkspace", &synapse.WorkspaceArgs{
-//				ResourceGroupName:               exampleResourceGroup.Name,
-//				Location:                        exampleResourceGroup.Location,
+//			exampleWorkspace2, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Name:                            pulumi.String("example"),
+//				ResourceGroupName:               example.Name,
+//				Location:                        example.Location,
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
@@ -105,8 +112,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSparkPool, err := synapse.NewSparkPool(ctx, "exampleSparkPool", &synapse.SparkPoolArgs{
-//				SynapseWorkspaceId: exampleSynapse / workspaceWorkspace.Id,
+//			exampleSparkPool, err := synapse.NewSparkPool(ctx, "example", &synapse.SparkPoolArgs{
+//				Name:               pulumi.String("example"),
+//				SynapseWorkspaceId: exampleWorkspace2.ID(),
 //				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
 //				NodeSize:           pulumi.String("Small"),
 //				NodeCount:          pulumi.Int(3),
@@ -114,9 +122,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = machinelearning.NewSynapseSpark(ctx, "exampleSynapseSpark", &machinelearning.SynapseSparkArgs{
+//			_, err = machinelearning.NewSynapseSpark(ctx, "example", &machinelearning.SynapseSparkArgs{
+//				Name:                       pulumi.String("example"),
 //				MachineLearningWorkspaceId: exampleWorkspace.ID(),
-//				Location:                   exampleResourceGroup.Location,
+//				Location:                   example.Location,
 //				SynapseSparkPoolId:         exampleSparkPool.ID(),
 //				Identity: &machinelearning.SynapseSparkIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),

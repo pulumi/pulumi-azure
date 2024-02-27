@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewRouteTable(ctx, "exampleRouteTable", &network.RouteTableArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			_, err = network.NewRouteTable(ctx, "example", &network.RouteTableArgs{
+//				Name:                       pulumi.String("example-route-table"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				DisableBgpRoutePropagation: pulumi.Bool(false),
 //				Routes: network.RouteTableRouteArray{
 //					&network.RouteTableRouteArgs{

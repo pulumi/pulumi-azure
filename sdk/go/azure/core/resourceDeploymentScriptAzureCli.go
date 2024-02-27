@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceDeploymentScriptAzureCli(ctx, "exampleResourceDeploymentScriptAzureCli", &core.ResourceDeploymentScriptAzureCliArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = core.NewResourceDeploymentScriptAzureCli(ctx, "example", &core.ResourceDeploymentScriptAzureCliArgs{
+//				Name:              pulumi.String("example-rdsac"),
+//				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West Europe"),
 //				Version:           pulumi.String("2.40.0"),
 //				RetentionInterval: pulumi.String("P1D"),

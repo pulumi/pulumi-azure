@@ -22,19 +22,22 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "workflow-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("exampleWorkflow", new()
+    ///     var exampleWorkflow = new Azure.LogicApps.Workflow("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workflow1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("exampleTriggerRecurrence", new()
+    ///     var exampleTriggerRecurrence = new Azure.LogicApps.TriggerRecurrence("example", new()
     ///     {
+    ///         Name = "run-every-day",
     ///         LogicAppId = exampleWorkflow.Id,
     ///         Frequency = "Day",
     ///         Interval = 1,

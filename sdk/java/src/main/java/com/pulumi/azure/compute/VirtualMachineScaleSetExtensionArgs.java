@@ -204,28 +204,6 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
      * Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     @Import(name="typeHandlerVersion", required=true)
@@ -235,28 +213,6 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
      * @return Specifies the version of the extension to use, available versions can be found using the Azure CLI.
      * 
      * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-     * ```java
-     * package generated_program;
-     * 
-     * import com.pulumi.Context;
-     * import com.pulumi.Pulumi;
-     * import com.pulumi.core.Output;
-     * import java.util.List;
-     * import java.util.ArrayList;
-     * import java.util.Map;
-     * import java.io.File;
-     * import java.nio.file.Files;
-     * import java.nio.file.Paths;
-     * 
-     * public class App {
-     *     public static void main(String[] args) {
-     *         Pulumi.run(App::stack);
-     *     }
-     * 
-     *     public static void stack(Context ctx) {
-     *     }
-     * }
-     * ```
      * 
      */
     public Output<String> typeHandlerVersion() {
@@ -579,28 +535,6 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
          * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
          * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 
@@ -614,28 +548,6 @@ public final class VirtualMachineScaleSetExtensionArgs extends com.pulumi.resour
          * @param typeHandlerVersion Specifies the version of the extension to use, available versions can be found using the Azure CLI.
          * 
          * &gt; **Note:** The `Publisher` and `Type` of Virtual Machine Scale Set Extensions can be found using the Azure CLI, via:
-         * ```java
-         * package generated_program;
-         * 
-         * import com.pulumi.Context;
-         * import com.pulumi.Pulumi;
-         * import com.pulumi.core.Output;
-         * import java.util.List;
-         * import java.util.ArrayList;
-         * import java.util.Map;
-         * import java.io.File;
-         * import java.nio.file.Files;
-         * import java.nio.file.Paths;
-         * 
-         * public class App {
-         *     public static void main(String[] args) {
-         *         Pulumi.run(App::stack);
-         *     }
-         * 
-         *     public static void stack(Context ctx) {
-         *     }
-         * }
-         * ```
          * 
          * @return builder
          * 

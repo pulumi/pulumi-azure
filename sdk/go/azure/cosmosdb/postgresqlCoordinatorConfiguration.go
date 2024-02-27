@@ -30,14 +30,16 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePostgresqlCluster, err := cosmosdb.NewPostgresqlCluster(ctx, "examplePostgresqlCluster", &cosmosdb.PostgresqlClusterArgs{
-//				ResourceGroupName:           pulumi.Any(azurerm_resource_group.Example.Name),
-//				Location:                    pulumi.Any(azurerm_resource_group.Example.Location),
+//			example, err := cosmosdb.NewPostgresqlCluster(ctx, "example", &cosmosdb.PostgresqlClusterArgs{
+//				Name:                        pulumi.String("examplecluster"),
+//				ResourceGroupName:           pulumi.Any(exampleAzurermResourceGroup.Name),
+//				Location:                    pulumi.Any(exampleAzurermResourceGroup.Location),
 //				AdministratorLoginPassword:  pulumi.String("H@Sh1CoR3!"),
 //				CoordinatorStorageQuotaInMb: pulumi.Int(131072),
 //				CoordinatorVcoreCount:       pulumi.Int(2),
@@ -48,8 +50,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewPostgresqlCoordinatorConfiguration(ctx, "examplePostgresqlCoordinatorConfiguration", &cosmosdb.PostgresqlCoordinatorConfigurationArgs{
-//				ClusterId: examplePostgresqlCluster.ID(),
+//			_, err = cosmosdb.NewPostgresqlCoordinatorConfiguration(ctx, "example", &cosmosdb.PostgresqlCoordinatorConfigurationArgs{
+//				Name:      pulumi.String("array_nulls"),
+//				ClusterId: example.ID(),
 //				Value:     pulumi.String("on"),
 //			})
 //			if err != nil {

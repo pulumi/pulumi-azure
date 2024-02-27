@@ -34,12 +34,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				Name:              pulumi.String("appConf1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //			})
@@ -50,7 +52,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        *pulumi.String(current.ObjectId),
@@ -63,9 +65,7 @@ import (
 //				Key:                  pulumi.String("appConfKey1"),
 //				Label:                pulumi.String("somelabel"),
 //				Value:                pulumi.String("a test"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				appconfDataowner,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -92,12 +92,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			appconf, err := appconfiguration.NewConfigurationStore(ctx, "appconf", &appconfiguration.ConfigurationStoreArgs{
+//				Name:              pulumi.String("appConf1"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //			})
@@ -109,8 +111,9 @@ import (
 //				return err
 //			}
 //			kv, err := keyvault.NewKeyVault(ctx, "kv", &keyvault.KeyVaultArgs{
-//				Location:                pulumi.Any(azurerm_resource_group.Test.Location),
-//				ResourceGroupName:       pulumi.Any(azurerm_resource_group.Test.Name),
+//				Name:                    pulumi.String("kv"),
+//				Location:                pulumi.Any(testAzurermResourceGroup.Location),
+//				ResourceGroupName:       pulumi.Any(testAzurermResourceGroup.Name),
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -136,13 +139,14 @@ import (
 //				return err
 //			}
 //			kvs, err := keyvault.NewSecret(ctx, "kvs", &keyvault.SecretArgs{
+//				Name:       pulumi.String("kvs"),
 //				Value:      pulumi.String("szechuan"),
 //				KeyVaultId: kv.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			appconfDataowner, err := authorization.NewAssignment(ctx, "appconfDataowner", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "appconf_dataowner", &authorization.AssignmentArgs{
 //				Scope:              appconf.ID(),
 //				RoleDefinitionName: pulumi.String("App Configuration Data Owner"),
 //				PrincipalId:        *pulumi.String(current.ObjectId),
@@ -151,14 +155,12 @@ import (
 //				return err
 //			}
 //			_, err = appconfiguration.NewConfigurationKey(ctx, "test", &appconfiguration.ConfigurationKeyArgs{
-//				ConfigurationStoreId: pulumi.Any(azurerm_app_configuration.Test.Id),
+//				ConfigurationStoreId: pulumi.Any(testAzurermAppConfiguration.Id),
 //				Key:                  pulumi.String("key1"),
 //				Type:                 pulumi.String("vault"),
 //				Label:                pulumi.String("label1"),
 //				VaultKeyReference:    kvs.VersionlessId,
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				appconfDataowner,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

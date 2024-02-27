@@ -61,31 +61,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resource-group&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-public-ip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *             .name(&#34;example-nsg&#34;)
+ *             .location(test.location())
+ *             .resourceGroupName(test.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());
  * 
- *         var trustSubnet = new Subnet(&#34;trustSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *         var trust = new Subnet(&#34;trust&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-trust-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -98,12 +103,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var trustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;trustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
- *             .subnetId(trustSubnet.id())
+ *             .subnetId(trust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
- *         var untrustSubnet = new Subnet(&#34;untrustSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *         var untrust = new Subnet(&#34;untrust&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-untrust-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -116,20 +122,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var untrustSubnetNetworkSecurityGroupAssociation = new SubnetNetworkSecurityGroupAssociation(&#34;untrustSubnetNetworkSecurityGroupAssociation&#34;, SubnetNetworkSecurityGroupAssociationArgs.builder()        
- *             .subnetId(untrustSubnet.id())
+ *             .subnetId(untrust.id())
  *             .networkSecurityGroupId(exampleNetworkSecurityGroup.id())
  *             .build());
  * 
  *         var exampleNextGenerationFirewallVirtualNetworkPanorama = new NextGenerationFirewallVirtualNetworkPanorama(&#34;exampleNextGenerationFirewallVirtualNetworkPanorama&#34;, NextGenerationFirewallVirtualNetworkPanoramaArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-ngfwvh&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .panoramaBase64Config(&#34;e2RnbmFtZTogY25nZnctYXotZXhhbXBsZSwgdHBsbmFtZTogY25nZnctZXhhbXBsZS10ZW1wbGF0ZS1zdGFjaywgZXhhbXBsZS1wYW5vcmFtYS1zZXJ2ZXI6IDE5Mi4xNjguMC4xLCB2bS1hdXRoLWtleTogMDAwMDAwMDAwMDAwMDAwLCBleHBpcnk6IDIwMjQvMDcvMzF9Cg==&#34;)
  *             .networkProfile(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileArgs.builder()
  *                 .publicIpAddressIds(examplePublicIp.id())
  *                 .vnetConfiguration(NextGenerationFirewallVirtualNetworkPanoramaNetworkProfileVnetConfigurationArgs.builder()
  *                     .virtualNetworkId(exampleVirtualNetwork.id())
- *                     .trustedSubnetId(trustSubnet.id())
- *                     .untrustedSubnetId(untrustSubnet.id())
+ *                     .trustedSubnetId(trust.id())
+ *                     .untrustedSubnetId(untrust.id())
  *                     .build())
  *                 .build())
  *             .build());

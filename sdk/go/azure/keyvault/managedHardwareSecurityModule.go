@@ -35,15 +35,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "exampleManagedHardwareSecurityModule", &keyvault.ManagedHardwareSecurityModuleArgs{
-//				ResourceGroupName:       exampleResourceGroup.Name,
-//				Location:                exampleResourceGroup.Location,
+//			_, err = keyvault.NewManagedHardwareSecurityModule(ctx, "example", &keyvault.ManagedHardwareSecurityModuleArgs{
+//				Name:                    pulumi.String("exampleKVHsm"),
+//				ResourceGroupName:       example.Name,
+//				Location:                example.Location,
 //				SkuName:                 pulumi.String("Standard_B1"),
 //				PurgeProtectionEnabled:  pulumi.Bool(false),
 //				SoftDeleteRetentionDays: pulumi.Int(90),

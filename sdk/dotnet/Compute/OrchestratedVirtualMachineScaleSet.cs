@@ -28,15 +28,17 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleOrchestratedVirtualMachineScaleSet = new Azure.Compute.OrchestratedVirtualMachineScaleSet("exampleOrchestratedVirtualMachineScaleSet", new()
+    ///     var exampleOrchestratedVirtualMachineScaleSet = new Azure.Compute.OrchestratedVirtualMachineScaleSet("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-VMSS",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PlatformFaultDomainCount = 1,
     ///         Zones = new[]
     ///         {

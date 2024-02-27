@@ -58,16 +58,18 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;Azure Spring Cloud Resource Provider&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .name(&#34;keyvaultcertexample&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
@@ -85,7 +87,7 @@ import javax.annotation.Nullable;
  *                     .build(),
  *                 KeyVaultAccessPolicyArgs.builder()
  *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *                     .objectId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *                     .objectId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
  *                     .secretPermissions(                    
  *                         &#34;Get&#34;,
  *                         &#34;List&#34;)
@@ -96,6 +98,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;cert-example&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificatePolicy(CertificateCertificatePolicyArgs.builder()
  *                 .issuerParameters(CertificateCertificatePolicyIssuerParametersArgs.builder()
@@ -133,11 +136,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
+ *             .name(&#34;example-springcloud&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .build());
  * 
  *         var exampleSpringCloudCertificate = new SpringCloudCertificate(&#34;exampleSpringCloudCertificate&#34;, SpringCloudCertificateArgs.builder()        
+ *             .name(&#34;example-scc&#34;)
  *             .resourceGroupName(exampleSpringCloudService.resourceGroupName())
  *             .serviceName(exampleSpringCloudService.name())
  *             .keyVaultCertificateId(exampleCertificate.id())

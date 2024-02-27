@@ -4,6 +4,20 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const example = new azurerm.index.PrivateDnsSoaRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsSoaRecordId = exampleAzurermPrivateDnsSoaRecord.id;
+ * ```
+ */
 export function getSoaRecord(args: GetSoaRecordArgs, opts?: pulumi.InvokeOptions): Promise<GetSoaRecordResult> {
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
@@ -87,6 +101,20 @@ export interface GetSoaRecordResult {
     readonly ttl: number;
     readonly zoneName: string;
 }
+/**
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azurerm from "@pulumi/azurerm";
+ *
+ * const example = new azurerm.index.PrivateDnsSoaRecord("example", {
+ *     zoneName: "test-zone",
+ *     resourceGroupName: "test-rg",
+ * });
+ * export const privateDnsSoaRecordId = exampleAzurermPrivateDnsSoaRecord.id;
+ * ```
+ */
 export function getSoaRecordOutput(args: GetSoaRecordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSoaRecordResult> {
     return pulumi.output(args).apply((a: any) => getSoaRecord(a, opts))
 }

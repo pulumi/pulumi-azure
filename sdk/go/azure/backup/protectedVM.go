@@ -31,13 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-recovery_vault"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
+//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("tfex-recovery-vault"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("Standard"),
@@ -45,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyVM, err := backup.NewPolicyVM(ctx, "examplePolicyVM", &backup.PolicyVMArgs{
+//			examplePolicyVM, err := backup.NewPolicyVM(ctx, "example", &backup.PolicyVMArgs{
+//				Name:              pulumi.String("tfex-recovery-vault-policy"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				RecoveryVaultName: exampleVault.Name,
 //				Backup: &backup.PolicyVMBackupArgs{
@@ -59,15 +62,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualMachine := compute.LookupVirtualMachineOutput(ctx, compute.GetVirtualMachineOutputArgs{
+//			example := compute.LookupVirtualMachineOutput(ctx, compute.GetVirtualMachineOutputArgs{
 //				Name:              pulumi.String("example-vm"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
 //			_, err = backup.NewProtectedVM(ctx, "vm1", &backup.ProtectedVMArgs{
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				RecoveryVaultName: exampleVault.Name,
-//				SourceVmId: exampleVirtualMachine.ApplyT(func(exampleVirtualMachine compute.GetVirtualMachineResult) (*string, error) {
-//					return &exampleVirtualMachine.Id, nil
+//				SourceVmId: example.ApplyT(func(example compute.GetVirtualMachineResult) (*string, error) {
+//					return &example.Id, nil
 //				}).(pulumi.StringPtrOutput),
 //				BackupPolicyId: examplePolicyVM.ID(),
 //			})

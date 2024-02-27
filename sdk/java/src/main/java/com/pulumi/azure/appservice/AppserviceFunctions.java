@@ -1034,7 +1034,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1074,7 +1074,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1114,7 +1114,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1154,7 +1154,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionApp(GetFunctionAppArgs.builder()
      *             .name(&#34;test-azure-functions&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1192,7 +1192,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1230,7 +1230,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1268,7 +1268,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1306,7 +1306,7 @@ public final class AppserviceFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = AppserviceFunctions.getFunctionAppHostKeys(GetFunctionAppHostKeysArgs.builder()
      *             .name(&#34;example-function&#34;)
-     *             .resourceGroupName(azurerm_resource_group.example().name())
+     *             .resourceGroupName(exampleAzurermResourceGroup.name())
      *             .build());
      * 
      *     }
@@ -1812,7 +1812,7 @@ public final class AppserviceFunctions {
      *             .type(&#34;GitHub&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
      * ```
@@ -1848,7 +1848,7 @@ public final class AppserviceFunctions {
      *             .type(&#34;GitHub&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
      * ```
@@ -1884,7 +1884,7 @@ public final class AppserviceFunctions {
      *             .type(&#34;GitHub&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
      * ```
@@ -1920,7 +1920,7 @@ public final class AppserviceFunctions {
      *             .type(&#34;GitHub&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, data.azurerm_app_service_github_token().example().id());
+     *         ctx.export(&#34;id&#34;, exampleAzurermAppServiceGithubToken.id());
      *     }
      * }
      * ```

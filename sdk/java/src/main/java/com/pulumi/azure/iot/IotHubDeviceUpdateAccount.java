@@ -45,13 +45,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var exampleIotHubDeviceUpdateAccount = new IotHubDeviceUpdateAccount(&#34;exampleIotHubDeviceUpdateAccount&#34;, IotHubDeviceUpdateAccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .identity(IotHubDeviceUpdateAccountIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())

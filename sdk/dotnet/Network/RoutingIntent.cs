@@ -22,29 +22,33 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         AddressPrefix = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var exampleFirewall = new Azure.Network.Firewall("exampleFirewall", new()
+    ///     var exampleFirewall = new Azure.Network.Firewall("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-fw",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "AZFW_Hub",
     ///         SkuTier = "Standard",
     ///         VirtualHub = new Azure.Network.Inputs.FirewallVirtualHubArgs
@@ -54,8 +58,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent("exampleRoutingIntent", new()
+    ///     var exampleRoutingIntent = new Azure.Network.RoutingIntent("example", new()
     ///     {
+    ///         Name = "example-routingintent",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         RoutingPolicies = new[]
     ///         {

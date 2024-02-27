@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticcloud.NewElasticsearch(ctx, "testElasticsearch", &elasticcloud.ElasticsearchArgs{
-//				ResourceGroupName:        testResourceGroup.Name,
-//				Location:                 testResourceGroup.Location,
+//			_, err = elasticcloud.NewElasticsearch(ctx, "test", &elasticcloud.ElasticsearchArgs{
+//				Name:                     pulumi.String("example-elasticsearch"),
+//				ResourceGroupName:        test.Name,
+//				Location:                 test.Location,
 //				SkuName:                  pulumi.String("ess-consumption-2024_Monthly"),
 //				ElasticCloudEmailAddress: pulumi.String("user@example.com"),
 //			})

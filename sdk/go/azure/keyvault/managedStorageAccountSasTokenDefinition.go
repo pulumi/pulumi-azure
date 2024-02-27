@@ -30,17 +30,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -49,7 +51,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+//			exampleGetAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
 //				ConnectionString: exampleAccount.PrimaryConnectionString,
 //				HttpsOnly:        pulumi.Bool(true),
 //				ResourceTypes: &storage.GetAccountSASResourceTypesArgs{
@@ -78,15 +80,16 @@ import (
 //					Filter:  pulumi.Bool(false),
 //				},
 //			}, nil)
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("example-keyvault"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				TenantId:          *pulumi.String(exampleClientConfig.TenantId),
+//				TenantId:          *pulumi.String(example.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
 //					&keyvault.KeyVaultAccessPolicyArgs{
-//						TenantId: *pulumi.String(exampleClientConfig.TenantId),
-//						ObjectId: *pulumi.String(exampleClientConfig.ObjectId),
+//						TenantId: *pulumi.String(example.TenantId),
+//						ObjectId: *pulumi.String(example.ObjectId),
 //						SecretPermissions: pulumi.StringArray{
 //							pulumi.String("Get"),
 //							pulumi.String("Delete"),
@@ -107,7 +110,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedStorageAccount, err := keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
+//			exampleManagedStorageAccount, err := keyvault.NewManagedStorageAccount(ctx, "example", &keyvault.ManagedStorageAccountArgs{
+//				Name:                       pulumi.String("examplemanagedstorage"),
 //				KeyVaultId:                 exampleKeyVault.ID(),
 //				StorageAccountId:           exampleAccount.ID(),
 //				StorageAccountKey:          pulumi.String("key1"),
@@ -117,11 +121,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "exampleManagedStorageAccountSasTokenDefinition", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
+//			_, err = keyvault.NewManagedStorageAccountSasTokenDefinition(ctx, "example", &keyvault.ManagedStorageAccountSasTokenDefinitionArgs{
+//				Name:                    pulumi.String("examplesasdefinition"),
 //				ValidityPeriod:          pulumi.String("P1D"),
 //				ManagedStorageAccountId: exampleManagedStorageAccount.ID(),
-//				SasTemplateUri: exampleAccountSAS.ApplyT(func(exampleAccountSAS storage.GetAccountSASResult) (*string, error) {
-//					return &exampleAccountSAS.Sas, nil
+//				SasTemplateUri: exampleGetAccountSAS.ApplyT(func(exampleGetAccountSAS storage.GetAccountSASResult) (*string, error) {
+//					return &exampleGetAccountSAS.Sas, nil
 //				}).(pulumi.StringPtrOutput),
 //				SasType: pulumi.String("account"),
 //			})

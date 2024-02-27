@@ -30,13 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("group1"),
 //				Location: pulumi.String("westus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("network1"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				AddressSpaces: pulumi.StringArray{
@@ -46,15 +48,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicySetDefinition, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
+//			example, err := policy.LookupPolicySetDefinition(ctx, &policy.LookupPolicySetDefinitionArgs{
 //				DisplayName: pulumi.StringRef("Audit machines with insecure password security settings"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "exampleResourcePolicyAssignment", &core.ResourcePolicyAssignmentArgs{
+//			exampleResourcePolicyAssignment, err := core.NewResourcePolicyAssignment(ctx, "example", &core.ResourcePolicyAssignmentArgs{
+//				Name:               pulumi.String("assignment1"),
 //				ResourceId:         exampleVirtualNetwork.ID(),
-//				PolicyDefinitionId: *pulumi.String(examplePolicySetDefinition.Id),
+//				PolicyDefinitionId: *pulumi.String(example.Id),
 //				Location:           exampleResourceGroup.Location,
 //				Identity: &core.ResourcePolicyAssignmentIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
@@ -63,7 +66,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourcePolicyExemption(ctx, "exampleResourcePolicyExemption", &core.ResourcePolicyExemptionArgs{
+//			_, err = core.NewResourcePolicyExemption(ctx, "example", &core.ResourcePolicyExemptionArgs{
+//				Name:               pulumi.String("exemption1"),
 //				ResourceId:         exampleResourcePolicyAssignment.ResourceId,
 //				PolicyAssignmentId: exampleResourcePolicyAssignment.ID(),
 //				ExemptionCategory:  pulumi.String("Mitigated"),

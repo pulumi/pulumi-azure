@@ -16,19 +16,20 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.SubscriptionCostManagementView("example", {
- *     accumulated: false,
- *     chartType: "StackedColumn",
- *     dataset: {
- *         aggregations: [{
- *             columnName: "Cost",
- *             name: "totalCost",
- *         }],
- *         granularity: "Monthly",
- *     },
+ *     name: "example",
  *     displayName: "Cost View per Month",
- *     reportType: "Usage",
+ *     chartType: "StackedColumn",
+ *     accumulated: false,
  *     subscriptionId: "/subscription/00000000-0000-0000-0000-000000000000",
+ *     reportType: "Usage",
  *     timeframe: "MonthToDate",
+ *     dataset: {
+ *         granularity: "Monthly",
+ *         aggregations: [{
+ *             name: "totalCost",
+ *             columnName: "Cost",
+ *         }],
+ *     },
  * });
  * ```
  *

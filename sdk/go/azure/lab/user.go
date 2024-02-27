@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLab, err := lab.NewLab(ctx, "exampleLab", &lab.LabArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLab, err := lab.NewLab(ctx, "example", &lab.LabArgs{
+//				Name:              pulumi.String("example-lab"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Title:             pulumi.String("Test Title"),
 //				Security: &lab.LabSecurityArgs{
 //					OpenAccessEnabled: pulumi.Bool(false),
@@ -62,7 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = lab.NewUser(ctx, "exampleUser", &lab.UserArgs{
+//			_, err = lab.NewUser(ctx, "example", &lab.UserArgs{
+//				Name:  pulumi.String("example-labuser"),
 //				LabId: exampleLab.ID(),
 //				Email: pulumi.String("terraform-acctest@example.com"),
 //			})

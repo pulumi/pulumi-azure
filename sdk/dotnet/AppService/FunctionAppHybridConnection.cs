@@ -22,59 +22,66 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OsType = "Windows",
     ///         SkuName = "S1",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.Relay.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.Relay.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-relay",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
     ///     });
     /// 
-    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("exampleHybridConnection", new()
+    ///     var exampleHybridConnection = new Azure.Relay.HybridConnection("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplerhc1",
+    ///         ResourceGroupName = example.Name,
     ///         RelayNamespaceName = exampleNamespace.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "storageaccountname",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("exampleWindowsWebApp", new()
+    ///     var exampleWindowsWebApp = new Azure.AppService.WindowsWebApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("exampleWindowsFunctionApp", new()
+    ///     var exampleWindowsFunctionApp = new Azure.AppService.WindowsFunctionApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-function-app",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", new()
+    ///     var exampleFunctionAppHybridConnection = new Azure.AppService.FunctionAppHybridConnection("example", new()
     ///     {
     ///         FunctionAppId = exampleWindowsWebApp.Id,
     ///         RelayId = exampleHybridConnection.Id,

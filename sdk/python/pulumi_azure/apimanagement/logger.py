@@ -306,20 +306,25 @@ class Logger(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="other")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
+        example_logger = azure.apimanagement.Logger("example",
+            name="example-logger",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             resource_id=example_insights.id,
             application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
                 instrumentation_key=example_insights.instrumentation_key,
@@ -360,20 +365,25 @@ class Logger(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_insights = azure.appinsights.Insights("exampleInsights",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="example-appinsights",
+            location=example.location,
+            resource_group_name=example.name,
             application_type="other")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
-        example_logger = azure.apimanagement.Logger("exampleLogger",
+        example_logger = azure.apimanagement.Logger("example",
+            name="example-logger",
             api_management_name=example_service.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             resource_id=example_insights.id,
             application_insights=azure.apimanagement.LoggerApplicationInsightsArgs(
                 instrumentation_key=example_insights.instrumentation_key,

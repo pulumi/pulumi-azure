@@ -16,14 +16,18 @@ import * as utilities from "../utilities";
  *
  * const server = new random.RandomId("server", {
  *     keepers: {
- *         azi_id: 1,
+ *         azi_id: "1",
  *     },
  *     byteLength: 8,
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCache = new azure.redis.Cache("exampleCache", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "redis-resourcegroup",
+ *     location: "West Europe",
+ * });
+ * const exampleCache = new azure.redis.Cache("example", {
+ *     name: pulumi.interpolate`redis${server.hex}`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     capacity: 1,
  *     family: "P",
  *     skuName: "Premium",
@@ -34,9 +38,10 @@ import * as utilities from "../utilities";
  *         maxmemoryPolicy: "allkeys-lru",
  *     },
  * });
- * const exampleFirewallRule = new azure.redis.FirewallRule("exampleFirewallRule", {
+ * const exampleFirewallRule = new azure.redis.FirewallRule("example", {
+ *     name: "someIPrange",
  *     redisCacheName: exampleCache.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     startIp: "1.2.3.4",
  *     endIp: "2.3.4.5",
  * });

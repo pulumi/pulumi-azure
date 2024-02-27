@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
+//				Name:              pulumi.String("example-aks"),
 //				Location:          pulumi.String("West Europe"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				DnsPrefix:         pulumi.String("example-aks"),
 //				DefaultNodePool: &containerservice.KubernetesClusterDefaultNodePoolArgs{
 //					Name:      pulumi.String("default"),
@@ -51,7 +53,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "exampleKubernetesClusterExtension", &containerservice.KubernetesClusterExtensionArgs{
+//			_, err = containerservice.NewKubernetesClusterExtension(ctx, "example", &containerservice.KubernetesClusterExtensionArgs{
+//				Name:          pulumi.String("example-ext"),
 //				ClusterId:     exampleKubernetesCluster.ID(),
 //				ExtensionType: pulumi.String("microsoft.flux"),
 //			})

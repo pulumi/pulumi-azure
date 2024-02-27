@@ -31,11 +31,11 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			example, err := core.LookupSubscription(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			examplePolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
+//			exampleGetPolicyDefintion, err := policy.GetPolicyDefintion(ctx, &policy.GetPolicyDefintionArgs{
 //				DisplayName: pulumi.StringRef("Allowed resource types"),
 //			}, nil)
 //			if err != nil {
@@ -53,16 +53,18 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "exampleSubscriptionPolicyAssignment", &core.SubscriptionPolicyAssignmentArgs{
-//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
-//				PolicyDefinitionId: *pulumi.String(examplePolicyDefintion.Id),
+//			exampleSubscriptionPolicyAssignment, err := core.NewSubscriptionPolicyAssignment(ctx, "example", &core.SubscriptionPolicyAssignmentArgs{
+//				Name:               pulumi.String("exampleAssignment"),
+//				SubscriptionId:     *pulumi.String(example.Id),
+//				PolicyDefinitionId: *pulumi.String(exampleGetPolicyDefintion.Id),
 //				Parameters:         pulumi.String(json0),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscriptionPolicyRemediation(ctx, "exampleSubscriptionPolicyRemediation", &core.SubscriptionPolicyRemediationArgs{
-//				SubscriptionId:     *pulumi.String(exampleSubscription.Id),
+//			_, err = core.NewSubscriptionPolicyRemediation(ctx, "example", &core.SubscriptionPolicyRemediationArgs{
+//				Name:               pulumi.String("example"),
+//				SubscriptionId:     *pulumi.String(example.Id),
 //				PolicyAssignmentId: exampleSubscriptionPolicyAssignment.ID(),
 //			})
 //			if err != nil {

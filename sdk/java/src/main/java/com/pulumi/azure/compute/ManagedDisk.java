@@ -46,13 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acctestmd&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(&#34;1&#34;)
@@ -87,10 +89,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var source = new ManagedDisk(&#34;source&#34;, ManagedDiskArgs.builder()        
+ *             .name(&#34;acctestmd1&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)
@@ -100,6 +104,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var copy = new ManagedDisk(&#34;copy&#34;, ManagedDiskArgs.builder()        
+ *             .name(&#34;acctestmd2&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)

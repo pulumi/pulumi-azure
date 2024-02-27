@@ -33,13 +33,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("west europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -48,7 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleProfile, err := cdn.NewProfile(ctx, "exampleProfile", &cdn.ProfileArgs{
+//			exampleProfile, err := cdn.NewProfile(ctx, "example", &cdn.ProfileArgs{
+//				Name:              pulumi.String("example-profile"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("Standard_Verizon"),
@@ -56,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleEndpoint, err := cdn.NewEndpoint(ctx, "exampleEndpoint", &cdn.EndpointArgs{
+//			exampleEndpoint, err := cdn.NewEndpoint(ctx, "example", &cdn.EndpointArgs{
+//				Name:              pulumi.String("example-endpoint"),
 //				ProfileName:       exampleProfile.Name,
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
@@ -70,26 +74,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleZone, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
+//			example, err := dns.LookupZone(ctx, &dns.LookupZoneArgs{
 //				Name:              "example-domain.com",
 //				ResourceGroupName: pulumi.StringRef("domain-rg"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "exampleCNameRecord", &dns.CNameRecordArgs{
-//				ZoneName:          *pulumi.String(exampleZone.Name),
-//				ResourceGroupName: *pulumi.String(exampleZone.ResourceGroupName),
+//			exampleCNameRecord, err := dns.NewCNameRecord(ctx, "example", &dns.CNameRecordArgs{
+//				Name:              pulumi.String("example"),
+//				ZoneName:          *pulumi.String(example.Name),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
 //				Ttl:               pulumi.Int(3600),
 //				TargetResourceId:  exampleEndpoint.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewEndpointCustomDomain(ctx, "exampleEndpointCustomDomain", &cdn.EndpointCustomDomainArgs{
+//			_, err = cdn.NewEndpointCustomDomain(ctx, "example", &cdn.EndpointCustomDomainArgs{
+//				Name:          pulumi.String("example-domain"),
 //				CdnEndpointId: exampleEndpoint.ID(),
 //				HostName: exampleCNameRecord.Name.ApplyT(func(name string) (string, error) {
-//					return fmt.Sprintf("%v.%v", name, exampleZone.Name), nil
+//					return fmt.Sprintf("%v.%v", name, example.Name), nil
 //				}).(pulumi.StringOutput),
 //			})
 //			if err != nil {

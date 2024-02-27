@@ -304,16 +304,19 @@ class ChannelSlack(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("example",
+            name="example",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
-        example_channel_slack = azure.bot.ChannelSlack("exampleChannelSlack",
+        example_channel_slack = azure.bot.ChannelSlack("example",
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             client_id="exampleId",
             client_secret="exampleSecret",
             verification_token="exampleVerificationToken")
@@ -356,16 +359,19 @@ class ChannelSlack(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_channels_registration = azure.bot.ChannelsRegistration("example",
+            name="example",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
-        example_channel_slack = azure.bot.ChannelSlack("exampleChannelSlack",
+        example_channel_slack = azure.bot.ChannelSlack("example",
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             client_id="exampleId",
             client_secret="exampleSecret",
             verification_token="exampleVerificationToken")

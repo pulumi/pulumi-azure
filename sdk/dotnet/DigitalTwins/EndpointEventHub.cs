@@ -22,44 +22,50 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-eh-ns",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "example-eh",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
     ///     {
+    ///         Name = "example-ar",
     ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Listen = false,
     ///         Send = true,
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleEndpointEventHub = new Azure.DigitalTwins.EndpointEventHub("exampleEndpointEventHub", new()
+    ///     var exampleEndpointEventHub = new Azure.DigitalTwins.EndpointEventHub("example", new()
     ///     {
+    ///         Name = "example-EH",
     ///         DigitalTwinsId = exampleInstance.Id,
     ///         EventhubPrimaryConnectionString = exampleAuthorizationRule.PrimaryConnectionString,
     ///         EventhubSecondaryConnectionString = exampleAuthorizationRule.SecondaryConnectionString,

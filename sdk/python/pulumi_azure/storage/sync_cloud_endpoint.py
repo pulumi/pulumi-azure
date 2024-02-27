@@ -206,17 +206,24 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sync = azure.storage.Sync("example",
+            name="example-ss",
+            resource_group_name=example.name,
+            location=example.location)
+        example_sync_group = azure.storage.SyncGroup("example",
+            name="example-ss-group",
+            storage_sync_id=example_sync.id)
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
+        example_share = azure.storage.Share("example",
+            name="example-share",
             storage_account_name=example_account.name,
             quota=50,
             acls=[azure.storage.ShareAclArgs(
@@ -225,7 +232,8 @@ class SyncCloudEndpoint(pulumi.CustomResource):
                     permissions="r",
                 )],
             )])
-        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint",
+        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
+            name="example-ss-ce",
             storage_sync_group_id=example_sync_group.id,
             file_share_name=example_share.name,
             storage_account_id=example_account.id)
@@ -264,17 +272,24 @@ class SyncCloudEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_sync = azure.storage.Sync("exampleSync",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_sync_group = azure.storage.SyncGroup("exampleSyncGroup", storage_sync_id=example_sync.id)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_sync = azure.storage.Sync("example",
+            name="example-ss",
+            resource_group_name=example.name,
+            location=example.location)
+        example_sync_group = azure.storage.SyncGroup("example",
+            name="example-ss-group",
+            storage_sync_id=example_sync.id)
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_share = azure.storage.Share("exampleShare",
+        example_share = azure.storage.Share("example",
+            name="example-share",
             storage_account_name=example_account.name,
             quota=50,
             acls=[azure.storage.ShareAclArgs(
@@ -283,7 +298,8 @@ class SyncCloudEndpoint(pulumi.CustomResource):
                     permissions="r",
                 )],
             )])
-        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("exampleSyncCloudEndpoint",
+        example_sync_cloud_endpoint = azure.storage.SyncCloudEndpoint("example",
+            name="example-ss-ce",
             storage_sync_group_id=example_sync_group.id,
             file_share_name=example_share.name,
             storage_account_id=example_account.id)

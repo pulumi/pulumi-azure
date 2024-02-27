@@ -34,13 +34,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -50,7 +52,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -60,7 +63,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("example-nic"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -74,14 +78,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:                          pulumi.String("example-VM"),
 //				ResourceGroupName:             exampleResourceGroup.Name,
 //				Location:                      exampleResourceGroup.Location,
 //				Size:                          pulumi.String("Standard_B2s"),
@@ -111,7 +117,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("exampleaccount"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -120,7 +127,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
 //				PrincipalId:        exampleUserAssignedIdentity.PrincipalId,
@@ -128,7 +135,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("example-sc"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("blob"),
 //			})
@@ -136,6 +144,7 @@ import (
 //				return err
 //			}
 //			example1, err := storage.NewBlob(ctx, "example1", &storage.BlobArgs{
+//				Name:                 pulumi.String("script1"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Block"),
@@ -144,7 +153,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2Blob, err := storage.NewBlob(ctx, "example2Blob", &storage.BlobArgs{
+//			example2, err := storage.NewBlob(ctx, "example2", &storage.BlobArgs{
+//				Name:                 pulumi.String("output"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Append"),
@@ -152,7 +162,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example3Blob, err := storage.NewBlob(ctx, "example3Blob", &storage.BlobArgs{
+//			example3, err := storage.NewBlob(ctx, "example3", &storage.BlobArgs{
+//				Name:                 pulumi.String("error"),
 //				StorageAccountName:   exampleAccount.Name,
 //				StorageContainerName: exampleContainer.Name,
 //				Type:                 pulumi.String("Append"),
@@ -160,7 +171,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccountSAS := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
+//			example := storage.GetAccountSASOutput(ctx, storage.GetAccountSASOutputArgs{
 //				ConnectionString: exampleAccount.PrimaryConnectionString,
 //				HttpsOnly:        pulumi.Bool(true),
 //				SignedVersion:    pulumi.String("2019-10-10"),
@@ -191,7 +202,8 @@ import (
 //				},
 //			}, nil)
 //			// basic example
-//			_, err = compute.NewRunCommand(ctx, "exampleRunCommand", &compute.RunCommandArgs{
+//			_, err = compute.NewRunCommand(ctx, "example", &compute.RunCommandArgs{
+//				Name:             pulumi.String("example-vmrc"),
 //				Location:         exampleResourceGroup.Location,
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
 //				Source: &compute.RunCommandSourceArgs{
@@ -202,11 +214,12 @@ import (
 //				return err
 //			}
 //			// authorize to storage blob using user assigned identity
-//			_, err = compute.NewRunCommand(ctx, "example2RunCommand", &compute.RunCommandArgs{
+//			_, err = compute.NewRunCommand(ctx, "example2", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
+//				Name:             pulumi.String("example2-vmrc"),
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
-//				OutputBlobUri:    example2Blob.ID(),
-//				ErrorBlobUri:     example3Blob.ID(),
+//				OutputBlobUri:    example2.ID(),
+//				ErrorBlobUri:     example3.ID(),
 //				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
 //				RunAsUser:        pulumi.String("adminuser"),
 //				Source: &compute.RunCommandSourceArgs{
@@ -237,33 +250,32 @@ import (
 //					"environment": pulumi.String("terraform-examples"),
 //					"some_key":    pulumi.String("some-value"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
 //			// authorize to storage blob using SAS token
-//			_, err = compute.NewRunCommand(ctx, "example3RunCommand", &compute.RunCommandArgs{
+//			_, err = compute.NewRunCommand(ctx, "example3", &compute.RunCommandArgs{
 //				Location:         exampleResourceGroup.Location,
+//				Name:             pulumi.String("example3-vmrc"),
 //				VirtualMachineId: exampleLinuxVirtualMachine.ID(),
 //				RunAsPassword:    pulumi.String("P@$$w0rd1234!"),
 //				RunAsUser:        pulumi.String("adminuser"),
-//				ErrorBlobUri: pulumi.All(example3Blob.ID(), exampleAccountSAS).ApplyT(func(_args []interface{}) (string, error) {
+//				ErrorBlobUri: pulumi.All(example3.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)
-//					exampleAccountSAS := _args[1].(storage.GetAccountSASResult)
-//					return fmt.Sprintf("%v%v", id, exampleAccountSAS.Sas), nil
+//					example := _args[1].(storage.GetAccountSASResult)
+//					return fmt.Sprintf("%v%v", id, example.Sas), nil
 //				}).(pulumi.StringOutput),
-//				OutputBlobUri: pulumi.All(example2Blob.ID(), exampleAccountSAS).ApplyT(func(_args []interface{}) (string, error) {
+//				OutputBlobUri: pulumi.All(example2.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
 //					id := _args[0].(string)
-//					exampleAccountSAS := _args[1].(storage.GetAccountSASResult)
-//					return fmt.Sprintf("%v%v", id, exampleAccountSAS.Sas), nil
+//					example := _args[1].(storage.GetAccountSASResult)
+//					return fmt.Sprintf("%v%v", id, example.Sas), nil
 //				}).(pulumi.StringOutput),
 //				Source: &compute.RunCommandSourceArgs{
-//					ScriptUri: pulumi.All(example1.ID(), exampleAccountSAS).ApplyT(func(_args []interface{}) (string, error) {
+//					ScriptUri: pulumi.All(example1.ID(), example).ApplyT(func(_args []interface{}) (string, error) {
 //						id := _args[0].(string)
-//						exampleAccountSAS := _args[1].(storage.GetAccountSASResult)
-//						return fmt.Sprintf("%v%v", id, exampleAccountSAS.Sas), nil
+//						example := _args[1].(storage.GetAccountSASResult)
+//						return fmt.Sprintf("%v%v", id, example.Sas), nil
 //					}).(pulumi.StringOutput),
 //				},
 //				Parameters: compute.RunCommandParameterArray{

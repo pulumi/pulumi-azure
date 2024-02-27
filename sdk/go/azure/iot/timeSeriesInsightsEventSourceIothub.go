@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
@@ -47,26 +49,29 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "exampleConsumerGroup", &iot.ConsumerGroupArgs{
+//			exampleConsumerGroup, err := iot.NewConsumerGroup(ctx, "example", &iot.ConsumerGroupArgs{
+//				Name:                 pulumi.String("example"),
 //				IothubName:           exampleIoTHub.Name,
 //				EventhubEndpointName: pulumi.String("events"),
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//				ResourceGroupName:    example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			storage, err := storage.NewAccount(ctx, "storage", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//				Name:                   pulumi.String("example"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "exampleTimeSeriesInsightsGen2Environment", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleTimeSeriesInsightsGen2Environment, err := iot.NewTimeSeriesInsightsGen2Environment(ctx, "example", &iot.TimeSeriesInsightsGen2EnvironmentArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("L1"),
 //				IdProperties: pulumi.StringArray{
 //					pulumi.String("id"),
@@ -79,8 +84,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewTimeSeriesInsightsEventSourceIothub(ctx, "exampleTimeSeriesInsightsEventSourceIothub", &iot.TimeSeriesInsightsEventSourceIothubArgs{
-//				Location:      exampleResourceGroup.Location,
+//			_, err = iot.NewTimeSeriesInsightsEventSourceIothub(ctx, "example", &iot.TimeSeriesInsightsEventSourceIothubArgs{
+//				Name:          pulumi.String("example"),
+//				Location:      example.Location,
 //				EnvironmentId: exampleTimeSeriesInsightsGen2Environment.ID(),
 //				IothubName:    exampleIoTHub.Name,
 //				SharedAccessKey: exampleIoTHub.SharedAccessPolicies.ApplyT(func(sharedAccessPolicies []iot.IoTHubSharedAccessPolicy) (*string, error) {

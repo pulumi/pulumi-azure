@@ -170,14 +170,14 @@ class GroupUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_user = azure.apimanagement.get_user(user_id="my-user",
+        example = azure.apimanagement.get_user(user_id="my-user",
             api_management_name="example-apim",
             resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("exampleGroupUser",
-            user_id=example_user.id,
+        example_group_user = azure.apimanagement.GroupUser("example",
+            user_id=example.id,
             group_name="example-group",
-            resource_group_name=example_user.resource_group_name,
-            api_management_name=example_user.api_management_name)
+            resource_group_name=example.resource_group_name,
+            api_management_name=example.api_management_name)
         ```
 
         ## Import
@@ -210,14 +210,14 @@ class GroupUser(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_user = azure.apimanagement.get_user(user_id="my-user",
+        example = azure.apimanagement.get_user(user_id="my-user",
             api_management_name="example-apim",
             resource_group_name="search-service")
-        example_group_user = azure.apimanagement.GroupUser("exampleGroupUser",
-            user_id=example_user.id,
+        example_group_user = azure.apimanagement.GroupUser("example",
+            user_id=example.id,
             group_name="example-group",
-            resource_group_name=example_user.resource_group_name,
-            api_management_name=example_user.api_management_name)
+            resource_group_name=example.resource_group_name,
+            api_management_name=example.api_management_name)
         ```
 
         ## Import

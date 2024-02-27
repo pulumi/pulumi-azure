@@ -32,7 +32,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("monitoring-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -42,15 +43,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("workspace-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("CriticalAlertsAction"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("p0action"),
 //				ArmRoleReceivers: monitoring.ActionGroupArmRoleReceiverArray{
 //					&monitoring.ActionGroupArmRoleReceiverArgs{

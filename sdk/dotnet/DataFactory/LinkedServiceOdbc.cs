@@ -24,25 +24,29 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var anonymous = new Azure.DataFactory.LinkedServiceOdbc("anonymous", new()
     ///     {
+    ///         Name = "anonymous",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///     });
     /// 
-    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdbc("basicAuth", new()
+    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdbc("basic_auth", new()
     ///     {
+    ///         Name = "basic_auth",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Driver={SQL Server};Server=test;Database=test;Uid=test;Pwd=test;",
     ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdbcBasicAuthenticationArgs

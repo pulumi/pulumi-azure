@@ -390,8 +390,11 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_definition = azure.policy.Definition("example",
+            name="my-policy-definition",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -418,11 +421,13 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("exampleResourceGroupPolicyRemediation",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("example",
+            name="example-policy-remediation",
+            resource_group_id=example.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
             location_filters=["West Europe"])
         ```
@@ -465,8 +470,11 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_definition = azure.policy.Definition("example",
+            name="my-policy-definition",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -493,11 +501,13 @@ class ResourceGroupPolicyRemediation(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("exampleResourceGroupPolicyAssignment",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_assignment = azure.core.ResourceGroupPolicyAssignment("example",
+            name="example",
+            resource_group_id=example.id,
             policy_definition_id=example_definition.id)
-        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("exampleResourceGroupPolicyRemediation",
-            resource_group_id=example_resource_group.id,
+        example_resource_group_policy_remediation = azure.core.ResourceGroupPolicyRemediation("example",
+            name="example-policy-remediation",
+            resource_group_id=example.id,
             policy_assignment_id=example_resource_group_policy_assignment.id,
             location_filters=["West Europe"])
         ```

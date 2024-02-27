@@ -23,9 +23,13 @@ import * as utilities from "../utilities";
  * import * as azuread from "@pulumi/azuread";
  * import * as random from "@pulumi/random";
  *
- * const exampleRandomUuid = new random.RandomUuid("exampleRandomUuid", {});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRoleDefinition = new azure.authorization.RoleDefinition("exampleRoleDefinition", {
+ * const exampleRandomUuid = new random.RandomUuid("example", {});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleRoleDefinition = new azure.authorization.RoleDefinition("example", {
+ *     name: "AVD-AutoScale",
  *     scope: exampleResourceGroup.id,
  *     description: "AVD AutoScale Role",
  *     permissions: [{
@@ -49,24 +53,26 @@ import * as utilities from "../utilities";
  *     }],
  *     assignableScopes: [exampleResourceGroup.id],
  * });
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const example = azuread.getServicePrincipal({
  *     displayName: "Windows Virtual Desktop",
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     name: exampleRandomUuid.result,
  *     scope: exampleResourceGroup.id,
  *     roleDefinitionId: exampleRoleDefinition.roleDefinitionResourceId,
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),
+ *     principalId: example.then(example => example.id),
  *     skipServicePrincipalAadCheck: true,
  * });
- * const exampleHostPool = new azure.desktopvirtualization.HostPool("exampleHostPool", {
+ * const exampleHostPool = new azure.desktopvirtualization.HostPool("example", {
+ *     name: "example-hostpool",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     type: "Pooled",
  *     validateEnvironment: true,
  *     loadBalancerType: "BreadthFirst",
  * });
- * const exampleScalingPlan = new azure.desktopvirtualization.ScalingPlan("exampleScalingPlan", {
+ * const exampleScalingPlan = new azure.desktopvirtualization.ScalingPlan("example", {
+ *     name: "example-scaling-plan",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     friendlyName: "Scaling Plan Example",

@@ -13,26 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.apimanagement.getService({
+ * const example = azure.apimanagement.getService({
  *     name: "example-api",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleApi = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getApi({
+ * const exampleGetApi = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getApi({
  *     name: "search-api",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
+ *     apiManagementName: example.name,
+ *     resourceGroupName: example1.resourceGroupName,
  *     revision: "2",
  * }));
- * const exampleProduct = Promise.all([exampleService, exampleService]).then(([exampleService, exampleService1]) => azure.apimanagement.getProduct({
+ * const exampleGetProduct = Promise.all([example, example]).then(([example, example1]) => azure.apimanagement.getProduct({
  *     productId: "my-product",
- *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleService1.resourceGroupName,
+ *     apiManagementName: example.name,
+ *     resourceGroupName: example1.resourceGroupName,
  * }));
- * const exampleProductApi = new azure.apimanagement.ProductApi("exampleProductApi", {
- *     apiName: exampleApi.then(exampleApi => exampleApi.name),
- *     productId: exampleProduct.then(exampleProduct => exampleProduct.productId),
- *     apiManagementName: exampleService.then(exampleService => exampleService.name),
- *     resourceGroupName: exampleService.then(exampleService => exampleService.resourceGroupName),
+ * const exampleProductApi = new azure.apimanagement.ProductApi("example", {
+ *     apiName: exampleGetApi.then(exampleGetApi => exampleGetApi.name),
+ *     productId: exampleGetProduct.then(exampleGetProduct => exampleGetProduct.productId),
+ *     apiManagementName: example.then(example => example.name),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  * });
  * ```
  *

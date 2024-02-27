@@ -29,30 +29,34 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("eventhub-replication"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			primary, err := eventhub.NewEventHubNamespace(ctx, "primary", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Name:              pulumi.String("eventhub-primary"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			secondary, err := eventhub.NewEventHubNamespace(ctx, "secondary", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Name:              pulumi.String("eventhub-secondary"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventhub.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "exampleEventhubNamespaceDisasterRecoveryConfig", &eventhub.EventhubNamespaceDisasterRecoveryConfigArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			_, err = eventhub.NewEventhubNamespaceDisasterRecoveryConfig(ctx, "example", &eventhub.EventhubNamespaceDisasterRecoveryConfigArgs{
+//				Name:               pulumi.String("replicate-eventhub"),
+//				ResourceGroupName:  example.Name,
 //				NamespaceName:      primary.Name,
 //				PartnerNamespaceId: secondary.ID(),
 //			})

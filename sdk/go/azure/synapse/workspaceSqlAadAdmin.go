@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageacc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				AccountKind:            pulumi.String("StorageV2"),
@@ -48,7 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "exampleDataLakeGen2Filesystem", &storage.DataLakeGen2FilesystemArgs{
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example"),
 //				StorageAccountId: exampleAccount.ID(),
 //			})
 //			if err != nil {
@@ -58,9 +61,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("example"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -68,7 +72,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			deployer, err := keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "deployer", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -83,7 +87,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			_, err = keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("workspace-encryption-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -91,15 +96,14 @@ import (
 //					pulumi.String("unwrapKey"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				deployer,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "exampleWorkspace", &synapse.WorkspaceArgs{
-//				ResourceGroupName:               exampleResourceGroup.Name,
-//				Location:                        exampleResourceGroup.Location,
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Name:                            pulumi.String("example"),
+//				ResourceGroupName:               example.Name,
+//				Location:                        example.Location,
 //				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
 //				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
 //				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
@@ -113,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = synapse.NewWorkspaceSqlAadAdmin(ctx, "exampleWorkspaceSqlAadAdmin", &synapse.WorkspaceSqlAadAdminArgs{
+//			_, err = synapse.NewWorkspaceSqlAadAdmin(ctx, "example", &synapse.WorkspaceSqlAadAdminArgs{
 //				SynapseWorkspaceId: exampleWorkspace.ID(),
 //				Login:              pulumi.String("AzureAD Admin"),
 //				ObjectId:           *pulumi.String(current.ObjectId),

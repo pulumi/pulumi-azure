@@ -22,19 +22,21 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
+    ///         Name = "exampledb",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         OfferType = "Standard",
@@ -55,24 +57,27 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
     ///     {
+    ///         Name = "cosmos-sql-db",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
+    ///         Name = "examplecontainer",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         DatabaseName = exampleSqlDatabase.Name,
     ///         PartitionKeyPath = "foo",
     ///     });
     /// 
-    ///     var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("exampleOutputCosmosdb", new()
+    ///     var exampleOutputCosmosdb = new Azure.StreamAnalytics.OutputCosmosdb("example", new()
     ///     {
-    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         Name = "output-to-cosmosdb",
+    ///         StreamAnalyticsJobId = example.Apply(getJobResult =&gt; getJobResult.Id),
     ///         CosmosdbAccountKey = exampleAccount.PrimaryKey,
     ///         CosmosdbSqlDatabaseId = exampleSqlDatabase.Id,
     ///         ContainerName = exampleSqlContainer.Name,

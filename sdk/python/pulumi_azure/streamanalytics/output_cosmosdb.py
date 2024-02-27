@@ -269,10 +269,13 @@ class OutputCosmosdb(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
+        example_account = azure.cosmosdb.Account("example",
+            name="exampledb",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             offer_type="Standard",
@@ -286,17 +289,20 @@ class OutputCosmosdb(pulumi.CustomResource):
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="examplecontainer",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="foo")
-        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=example_job.id,
+        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("example",
+            name="output-to-cosmosdb",
+            stream_analytics_job_id=example.id,
             cosmosdb_account_key=example_account.primary_key,
             cosmosdb_sql_database_id=example_sql_database.id,
             container_name=example_sql_container.name,
@@ -336,10 +342,13 @@ class OutputCosmosdb(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_account = azure.cosmosdb.Account("exampleAccount",
+        example_account = azure.cosmosdb.Account("example",
+            name="exampledb",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             offer_type="Standard",
@@ -353,17 +362,20 @@ class OutputCosmosdb(pulumi.CustomResource):
                 location=example_resource_group.location,
                 failover_priority=0,
             )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="examplecontainer",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="foo")
-        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("exampleOutputCosmosdb",
-            stream_analytics_job_id=example_job.id,
+        example_output_cosmosdb = azure.streamanalytics.OutputCosmosdb("example",
+            name="output-to-cosmosdb",
+            stream_analytics_job_id=example.id,
             cosmosdb_account_key=example_account.primary_key,
             cosmosdb_sql_database_id=example_sql_database.id,
             container_name=example_sql_container.name,

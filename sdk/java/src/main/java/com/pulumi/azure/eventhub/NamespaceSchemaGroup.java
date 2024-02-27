@@ -41,17 +41,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;exampleRG-ehn-schemaGroup&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
- *         var testEventHubNamespace = new EventHubNamespace(&#34;testEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
+ *         var test = new EventHubNamespace(&#34;test&#34;, EventHubNamespaceArgs.builder()        
+ *             .name(&#34;example-ehn-schemaGroup&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var testNamespaceSchemaGroup = new NamespaceSchemaGroup(&#34;testNamespaceSchemaGroup&#34;, NamespaceSchemaGroupArgs.builder()        
- *             .namespaceId(testEventHubNamespace.id())
+ *             .name(&#34;example-schemaGroup&#34;)
+ *             .namespaceId(test.id())
  *             .schemaCompatibility(&#34;Forward&#34;)
  *             .schemaType(&#34;Avro&#34;)
  *             .build());

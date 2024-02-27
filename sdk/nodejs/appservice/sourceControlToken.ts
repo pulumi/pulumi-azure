@@ -12,8 +12,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.appservice.SourceControlToken("example", {
- *     token: "ghp_sometokenvaluesecretsauce",
  *     type: "GitHub",
+ *     token: "ghp_sometokenvaluesecretsauce",
  * });
  * ```
  *

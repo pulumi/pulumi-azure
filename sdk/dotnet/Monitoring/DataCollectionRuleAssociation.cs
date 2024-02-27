@@ -22,24 +22,27 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "virtualnetwork",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -47,10 +50,11 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -62,10 +66,11 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "machine",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Size = "Standard_B1ls",
     ///         AdminUsername = "adminuser",
     ///         NetworkInterfaceIds = new[]
@@ -88,10 +93,11 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("exampleDataCollectionRule", new()
+    ///     var exampleDataCollectionRule = new Azure.Monitoring.DataCollectionRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-dcr",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Destinations = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsArgs
     ///         {
     ///             AzureMonitorMetrics = new Azure.Monitoring.Inputs.DataCollectionRuleDestinationsAzureMonitorMetricsArgs
@@ -115,15 +121,17 @@ namespace Pulumi.Azure.Monitoring
     ///         },
     ///     });
     /// 
-    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", new()
+    ///     var exampleDataCollectionEndpoint = new Azure.Monitoring.DataCollectionEndpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-dce",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
     ///     // associate to a Data Collection Rule
     ///     var example1 = new Azure.Monitoring.DataCollectionRuleAssociation("example1", new()
     ///     {
+    ///         Name = "example1-dcra",
     ///         TargetResourceId = exampleLinuxVirtualMachine.Id,
     ///         DataCollectionRuleId = exampleDataCollectionRule.Id,
     ///         Description = "example",

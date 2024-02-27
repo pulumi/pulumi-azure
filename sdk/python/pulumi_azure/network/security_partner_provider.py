@@ -238,28 +238,33 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-vwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-vhub",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.2.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_vpn_gateway = azure.network.VpnGateway("example",
+            name="example-vpngw",
+            location=example.location,
+            resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_security_partner_provider = azure.network.SecurityPartnerProvider("exampleSecurityPartnerProvider",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_security_partner_provider = azure.network.SecurityPartnerProvider("example",
+            name="example-spp",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             security_provider_name="IBoss",
             tags={
                 "ENV": "Prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_vpn_gateway]))
+            })
         ```
 
         ## Import
@@ -294,28 +299,33 @@ class SecurityPartnerProvider(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_wan = azure.network.VirtualWan("exampleVirtualWan",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_wan = azure.network.VirtualWan("example",
+            name="example-vwan",
+            resource_group_name=example.name,
+            location=example.location)
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-vhub",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_wan_id=example_virtual_wan.id,
             address_prefix="10.0.2.0/24")
-        example_vpn_gateway = azure.network.VpnGateway("exampleVpnGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_vpn_gateway = azure.network.VpnGateway("example",
+            name="example-vpngw",
+            location=example.location,
+            resource_group_name=example.name,
             virtual_hub_id=example_virtual_hub.id)
-        example_security_partner_provider = azure.network.SecurityPartnerProvider("exampleSecurityPartnerProvider",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_security_partner_provider = azure.network.SecurityPartnerProvider("example",
+            name="example-spp",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_hub_id=example_virtual_hub.id,
             security_provider_name="IBoss",
             tags={
                 "ENV": "Prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[example_vpn_gateway]))
+            })
         ```
 
         ## Import

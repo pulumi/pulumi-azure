@@ -24,11 +24,13 @@ namespace Pulumi.Azure.AnalysisServices
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "analysis-services-server-test",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var server = new Azure.AnalysisServices.Server("server", new()
     ///     {
+    ///         Name = "analysisservicesserver",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "S0",

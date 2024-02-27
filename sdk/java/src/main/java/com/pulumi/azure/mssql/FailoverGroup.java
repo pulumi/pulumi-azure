@@ -52,20 +52,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;database-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var primary = new Server(&#34;primary&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;mssqlserver-primary&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;missadministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsKat11&#34;)
  *             .build());
  * 
  *         var secondary = new Server(&#34;secondary&#34;, ServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mssqlserver-secondary&#34;)
+ *             .resourceGroupName(example.name())
  *             .location(&#34;North Europe&#34;)
  *             .version(&#34;12.0&#34;)
  *             .administratorLogin(&#34;missadministrator&#34;)
@@ -73,6 +76,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;exampledb&#34;)
  *             .serverId(primary.id())
  *             .skuName(&#34;S1&#34;)
  *             .collation(&#34;SQL_Latin1_General_CP1_CI_AS&#34;)
@@ -80,6 +84,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFailoverGroup = new FailoverGroup(&#34;exampleFailoverGroup&#34;, FailoverGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .serverId(primary.id())
  *             .databases(exampleDatabase.id())
  *             .partnerServers(FailoverGroupPartnerServerArgs.builder()

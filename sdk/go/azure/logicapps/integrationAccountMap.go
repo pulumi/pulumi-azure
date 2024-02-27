@@ -21,43 +21,43 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountMap(ctx, "exampleIntegrationAccountMap", &logicapps.IntegrationAccountMapArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "testdata/integration_account_map_content.xsd",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountMap(ctx, "example", &logicapps.IntegrationAccountMapArgs{
+//				Name:                   pulumi.String("example-iamap"),
+//				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				MapType:                pulumi.String("Xslt"),
-//				Content:                readFileOrPanic("testdata/integration_account_map_content.xsd"),
+//				Content:                invokeFile.Result,
 //			})
 //			if err != nil {
 //				return err

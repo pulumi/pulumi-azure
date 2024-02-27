@@ -27,15 +27,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetwork, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
+//			example, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
 //				Name:              "example-mn",
 //				ResourceGroupName: "example-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetworkService(ctx, "exampleNetworkService", &mobile.NetworkServiceArgs{
-//				MobileNetworkId: *pulumi.String(exampleNetwork.Id),
+//			_, err = mobile.NewNetworkService(ctx, "example", &mobile.NetworkServiceArgs{
+//				Name:            pulumi.String("example-mns"),
+//				MobileNetworkId: *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

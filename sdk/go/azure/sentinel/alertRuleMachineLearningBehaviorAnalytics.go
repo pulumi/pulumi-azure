@@ -30,27 +30,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-workspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
 //				WorkspaceId: exampleAnalyticsWorkspace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewAlertRuleMachineLearningBehaviorAnalytics(ctx, "exampleAlertRuleMachineLearningBehaviorAnalytics", &sentinel.AlertRuleMachineLearningBehaviorAnalyticsArgs{
+//			_, err = sentinel.NewAlertRuleMachineLearningBehaviorAnalytics(ctx, "example", &sentinel.AlertRuleMachineLearningBehaviorAnalyticsArgs{
+//				Name:                    pulumi.String("example-ml-alert-rule"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //				AlertRuleTemplateGuid:   pulumi.String("737a2ce1-70a3-4968-9e90-3e6aca836abf"),
 //			})

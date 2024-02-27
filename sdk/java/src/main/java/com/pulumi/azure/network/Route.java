@@ -47,17 +47,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acceptanceTestRouteTable1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleRoute = new Route(&#34;exampleRoute&#34;, RouteArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;acceptanceTestRoute1&#34;)
+ *             .resourceGroupName(example.name())
  *             .routeTableName(exampleRouteTable.name())
  *             .addressPrefix(&#34;10.1.0.0/16&#34;)
  *             .nextHopType(&#34;VnetLocal&#34;)

@@ -34,7 +34,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", azurerm_machine_learning_workspace.Existing.Id)
+//			ctx.Export("id", existingAzurermMachineLearningWorkspace.Id)
 //			return nil
 //		})
 //	}

@@ -22,24 +22,27 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("exampleLocalRulestack", new()
+    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleLocalRulestackCertificate = new Azure.PaloAlto.LocalRulestackCertificate("exampleLocalRulestackCertificate", new()
+    ///     var exampleLocalRulestackCertificate = new Azure.PaloAlto.LocalRulestackCertificate("example", new()
     ///     {
+    ///         Name = "example",
     ///         RulestackId = exampleLocalRulestack.Id,
     ///         SelfSigned = true,
     ///     });
     /// 
-    ///     var exampleLocalRulestackOutboundTrustCertificateAssociation = new Azure.PaloAlto.LocalRulestackOutboundTrustCertificateAssociation("exampleLocalRulestackOutboundTrustCertificateAssociation", new()
+    ///     var exampleLocalRulestackOutboundTrustCertificateAssociation = new Azure.PaloAlto.LocalRulestackOutboundTrustCertificateAssociation("example", new()
     ///     {
     ///         CertificateId = exampleLocalRulestackCertificate.Id,
     ///     });

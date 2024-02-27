@@ -44,21 +44,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleIntegrationAccount = new IntegrationAccount(&#34;exampleIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ia&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleIntegrationAccountAssembly = new IntegrationAccountAssembly(&#34;exampleIntegrationAccountAssembly&#34;, IntegrationAccountAssemblyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-assembly&#34;)
+ *             .resourceGroupName(example.name())
  *             .integrationAccountName(exampleIntegrationAccount.name())
  *             .assemblyName(&#34;TestAssembly&#34;)
- *             .content(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;testdata/log4net.dll&#34;))))
+ *             .content(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;testdata/log4net.dll&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "east us",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", {workspaceId: exampleAnalyticsWorkspace.id});
- * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel.DataConnectorMicrosoftThreatIntelligence("exampleDataConnectorMicrosoftThreatIntelligence", {
+ * const exampleLogAnalyticsWorkspaceOnboarding = new azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", {workspaceId: exampleAnalyticsWorkspace.id});
+ * const exampleDataConnectorMicrosoftThreatIntelligence = new azure.sentinel.DataConnectorMicrosoftThreatIntelligence("example", {
+ *     name: "example-dc-msti",
  *     logAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.workspaceId,
  *     microsoftEmergingThreatFeedLookbackDate: "1970-01-01T00:00:00Z",
  * });

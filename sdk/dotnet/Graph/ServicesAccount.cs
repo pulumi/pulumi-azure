@@ -23,20 +23,22 @@ namespace Pulumi.Azure.Graph
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApplication = new AzureAD.Application("exampleApplication", new()
+    ///     var example = new AzureAD.Application("example", new()
     ///     {
     ///         DisplayName = "example-app",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServicesAccount = new Azure.Graph.ServicesAccount("exampleServicesAccount", new()
+    ///     var exampleServicesAccount = new Azure.Graph.ServicesAccount("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApplicationId = exampleApplication.ApplicationId,
+    ///         ApplicationId = example.ApplicationId,
     ///         Tags = 
     ///         {
     ///             { "environment", "Production" },

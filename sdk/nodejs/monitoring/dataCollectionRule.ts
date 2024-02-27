@@ -15,19 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-uai",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-workspace",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
  *     solutionName: "WindowsEventForwarding",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  *     plan: {
@@ -35,35 +40,41 @@ import * as utilities from "../utilities";
  *         product: "OMSGallery/WindowsEventForwarding",
  *     },
  * });
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "exeventns",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     capacity: 1,
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "exevent2",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examstorage",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "examplecontainer",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("exampleDataCollectionEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDataCollectionEndpoint = new azure.monitoring.DataCollectionEndpoint("example", {
+ *     name: "example-dcre",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("exampleDataCollectionRule", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDataCollectionRule = new azure.monitoring.DataCollectionRule("example", {
+ *     name: "example-rule",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     dataCollectionEndpointId: exampleDataCollectionEndpoint.id,
  *     destinations: {
  *         logAnalytics: [{
@@ -176,8 +187,6 @@ import * as utilities from "../utilities";
  *     tags: {
  *         foo: "bar",
  *     },
- * }, {
- *     dependsOn: [exampleAnalyticsSolution],
  * });
  * ```
  *

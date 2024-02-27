@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example-sqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("missadministrator"),
 //				AdministratorLoginPassword: pulumi.String("AdminPassword123!"),
@@ -45,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewServerDnsAlias(ctx, "exampleServerDnsAlias", &mssql.ServerDnsAliasArgs{
+//			_, err = mssql.NewServerDnsAlias(ctx, "example", &mssql.ServerDnsAliasArgs{
+//				Name:          pulumi.String("example-dns-alias"),
 //				MssqlServerId: exampleServer.ID(),
 //			})
 //			if err != nil {

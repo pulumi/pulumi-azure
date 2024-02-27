@@ -15,13 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetworkPacketCoreControlPlane = azure.mobile.getNetworkPacketCoreControlPlane({
+ * const example = azure.mobile.getNetworkPacketCoreControlPlane({
  *     name: "example-mnpccp",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkAttachedDataNetwork = Promise.all([exampleNetworkPacketCoreControlPlane, exampleNetworkPacketCoreControlPlane]).then(([exampleNetworkPacketCoreControlPlane, exampleNetworkPacketCoreControlPlane1]) => azure.mobile.getNetworkAttachedDataNetwork({
- *     mobileNetworkDataNetworkName: exampleNetworkPacketCoreControlPlane.name,
- *     mobileNetworkPacketCoreDataPlaneId: exampleNetworkPacketCoreControlPlane1.id,
+ * const exampleGetNetworkAttachedDataNetwork = Promise.all([example, example]).then(([example, example1]) => azure.mobile.getNetworkAttachedDataNetwork({
+ *     mobileNetworkDataNetworkName: example.name,
+ *     mobileNetworkPacketCoreDataPlaneId: example1.id,
  * }));
  * ```
  */
@@ -102,13 +102,13 @@ export interface GetNetworkAttachedDataNetworkResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetworkPacketCoreControlPlane = azure.mobile.getNetworkPacketCoreControlPlane({
+ * const example = azure.mobile.getNetworkPacketCoreControlPlane({
  *     name: "example-mnpccp",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkAttachedDataNetwork = Promise.all([exampleNetworkPacketCoreControlPlane, exampleNetworkPacketCoreControlPlane]).then(([exampleNetworkPacketCoreControlPlane, exampleNetworkPacketCoreControlPlane1]) => azure.mobile.getNetworkAttachedDataNetwork({
- *     mobileNetworkDataNetworkName: exampleNetworkPacketCoreControlPlane.name,
- *     mobileNetworkPacketCoreDataPlaneId: exampleNetworkPacketCoreControlPlane1.id,
+ * const exampleGetNetworkAttachedDataNetwork = Promise.all([example, example]).then(([example, example1]) => azure.mobile.getNetworkAttachedDataNetwork({
+ *     mobileNetworkDataNetworkName: example.name,
+ *     mobileNetworkPacketCoreDataPlaneId: example1.id,
  * }));
  * ```
  */

@@ -32,24 +32,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
@@ -61,9 +64,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-//				Location:                   exampleResourceGroup.Location,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			exampleServer, err := postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Name:                       pulumi.String("postgresql-server-1"),
+//				Location:                   example.Location,
+//				ResourceGroupName:          example.Name,
 //				SkuName:                    pulumi.String("GP_Gen5_2"),
 //				StorageMb:                  pulumi.Int(5120),
 //				BackupRetentionDays:        pulumi.Int(7),
@@ -75,8 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &postgresql.VirtualNetworkRuleArgs{
-//				ResourceGroupName:                exampleResourceGroup.Name,
+//			_, err = postgresql.NewVirtualNetworkRule(ctx, "example", &postgresql.VirtualNetworkRuleArgs{
+//				Name:                             pulumi.String("postgresql-vnet-rule"),
+//				ResourceGroupName:                example.Name,
 //				ServerName:                       exampleServer.Name,
 //				SubnetId:                         internal.ID(),
 //				IgnoreMissingVnetServiceEndpoint: pulumi.Bool(true),

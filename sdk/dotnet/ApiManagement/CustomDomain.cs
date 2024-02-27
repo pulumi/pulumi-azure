@@ -26,19 +26,21 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = Azure.KeyVault.GetKeyVault.Invoke(new()
+    ///     var example = Azure.KeyVault.GetKeyVault.Invoke(new()
     ///     {
     ///         Name = "mykeyvault",
     ///         ResourceGroupName = "some-resource-group",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
+    ///         Name = "example-apim",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         PublisherName = "pub1",
@@ -46,9 +48,10 @@ namespace Pulumi.Azure.ApiManagement
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
-    ///         KeyVaultId = exampleKeyVault.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
+    ///         Name = "example-certificate",
+    ///         KeyVaultId = example.Apply(getKeyVaultResult =&gt; getKeyVaultResult.Id),
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {
     ///             IssuerParameters = new Azure.KeyVault.Inputs.CertificateCertificatePolicyIssuerParametersArgs
@@ -105,7 +108,7 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("exampleCustomDomain", new()
+    ///     var exampleCustomDomain = new Azure.ApiManagement.CustomDomain("example", new()
     ///     {
     ///         ApiManagementId = exampleService.Id,
     ///         Gateways = new[]

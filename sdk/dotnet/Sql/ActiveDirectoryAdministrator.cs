@@ -26,24 +26,26 @@ namespace Pulumi.Azure.Sql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mysqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new()
+    ///     var exampleActiveDirectoryAdministrator = new Azure.Sql.ActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ServerName = exampleSqlServer.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Login = "sqladmin",
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),

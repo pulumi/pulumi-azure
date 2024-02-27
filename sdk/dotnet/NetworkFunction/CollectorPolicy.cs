@@ -12,6 +12,96 @@ namespace Pulumi.Azure.NetworkFunction
     /// <summary>
     /// Manages a Network Function Collector Policy.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West US 2",
+    ///     });
+    /// 
+    ///     var exampleExpressRoutePort = new Azure.Network.ExpressRoutePort("example", new()
+    ///     {
+    ///         Name = "example-erp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         PeeringLocation = "Equinix-Seattle-SE2",
+    ///         BandwidthInGbps = 10,
+    ///         Encapsulation = "Dot1Q",
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuit = new Azure.Network.ExpressRouteCircuit("example", new()
+    ///     {
+    ///         Name = "example-erc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         ExpressRoutePortId = exampleExpressRoutePort.Id,
+    ///         BandwidthInGbps = 1,
+    ///         Sku = new Azure.Network.Inputs.ExpressRouteCircuitSkuArgs
+    ///         {
+    ///             Tier = "Standard",
+    ///             Family = "MeteredData",
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleExpressRouteCircuitPeering = new Azure.Network.ExpressRouteCircuitPeering("example", new()
+    ///     {
+    ///         PeeringType = "MicrosoftPeering",
+    ///         ExpressRouteCircuitName = exampleExpressRouteCircuit.Name,
+    ///         ResourceGroupName = example.Name,
+    ///         PeerAsn = 100,
+    ///         PrimaryPeerAddressPrefix = "192.168.199.0/30",
+    ///         SecondaryPeerAddressPrefix = "192.168.200.0/30",
+    ///         VlanId = 300,
+    ///         MicrosoftPeeringConfig = new Azure.Network.Inputs.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs
+    ///         {
+    ///             AdvertisedPublicPrefixes = new[]
+    ///             {
+    ///                 "123.6.0.0/24",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var exampleAzureTrafficCollector = new Azure.NetworkFunction.AzureTrafficCollector("example", new()
+    ///     {
+    ///         Name = "example-nfatc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleCollectorPolicy = new Azure.NetworkFunction.CollectorPolicy("example", new()
+    ///     {
+    ///         Name = "example-nfcp",
+    ///         TrafficCollectorId = exampleAzureTrafficCollector.Id,
+    ///         Location = example.Location,
+    ///         IpfxEmission = new Azure.NetworkFunction.Inputs.CollectorPolicyIpfxEmissionArgs
+    ///         {
+    ///             DestinationTypes = "AzureMonitor",
+    ///         },
+    ///         IpfxIngestion = new Azure.NetworkFunction.Inputs.CollectorPolicyIpfxIngestionArgs
+    ///         {
+    ///             SourceResourceIds = new[]
+    ///             {
+    ///                 exampleExpressRouteCircuit.Id,
+    ///             },
+    ///         },
+    ///         Tags = 
+    ///         {
+    ///             { "key", "value" },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Function Collector Policy can be imported using the `resource id`, e.g.

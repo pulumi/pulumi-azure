@@ -84,7 +84,7 @@ def get_source_control_token(type: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_source_control_token(type="GitHub")
-    pulumi.export("id", data["azurerm_app_service_github_token"]["example"]["id"])
+    pulumi.export("id", example_azurerm_app_service_github_token["id"])
     ```
 
 
@@ -113,7 +113,7 @@ def get_source_control_token_output(type: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.appservice.get_source_control_token(type="GitHub")
-    pulumi.export("id", data["azurerm_app_service_github_token"]["example"]["id"])
+    pulumi.export("id", example_azurerm_app_service_github_token["id"])
     ```
 
 

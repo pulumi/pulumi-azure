@@ -52,19 +52,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-publicip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .domainNameLabel(&#34;example-pip&#34;)
  *             .build());
  * 
  *         var parent = new TrafficManagerProfile(&#34;parent&#34;, TrafficManagerProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;parent-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod(&#34;Weighted&#34;)
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName(&#34;parent-profile&#34;)
@@ -82,7 +85,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var nested = new TrafficManagerProfile(&#34;nested&#34;, TrafficManagerProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;nested-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .trafficRoutingMethod(&#34;Priority&#34;)
  *             .dnsConfig(TrafficManagerProfileDnsConfigArgs.builder()
  *                 .relativeName(&#34;nested-profile&#34;)
@@ -96,6 +100,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTrafficManagerNestedEndpoint = new TrafficManagerNestedEndpoint(&#34;exampleTrafficManagerNestedEndpoint&#34;, TrafficManagerNestedEndpointArgs.builder()        
+ *             .name(&#34;example-endpoint&#34;)
  *             .targetResourceId(nested.id())
  *             .priority(1)
  *             .profileId(parent.id())

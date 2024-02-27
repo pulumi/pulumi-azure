@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpccp",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
+        ///     var exampleGetNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpcdp",
-        ///         MobileNetworkPacketCoreControlPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///         MobileNetworkPacketCoreControlPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetworkPacketCoreControlPlane = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetworkPacketCoreControlPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpccp",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
+        ///     var exampleGetNetworkPacketCoreDataPlane = Azure.Mobile.GetNetworkPacketCoreDataPlane.Invoke(new()
         ///     {
         ///         Name = "example-mnpcdp",
-        ///         MobileNetworkPacketCoreControlPlaneId = exampleNetworkPacketCoreControlPlane.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
+        ///         MobileNetworkPacketCoreControlPlaneId = example.Apply(getNetworkPacketCoreControlPlaneResult =&gt; getNetworkPacketCoreControlPlaneResult.Id),
         ///     });
         /// 
         /// });

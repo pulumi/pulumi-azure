@@ -35,13 +35,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("examplevn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -51,7 +53,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("examplesubnet"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -61,7 +64,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCache, err := hpc.NewCache(ctx, "exampleCache", &hpc.CacheArgs{
+//			exampleCache, err := hpc.NewCache(ctx, "example", &hpc.CacheArgs{
+//				Name:              pulumi.String("examplehpccache"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Location:          exampleResourceGroup.Location,
 //				CacheSizeInGb:     pulumi.Int(3072),
@@ -71,7 +75,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorgaccount"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -80,35 +85,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:               pulumi.String("examplestoragecontainer"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("HPC Cache Resource Provider"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "exampleStorageAccountContrib", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example_storage_account_contrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Contributor"),
-//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(example.ObjectId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = authorization.NewAssignment(ctx, "exampleStorageBlobDataContrib", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example_storage_blob_data_contrib", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Blob Data Contributor"),
-//				PrincipalId:        *pulumi.String(exampleServicePrincipal.ObjectId),
+//				PrincipalId:        *pulumi.String(example.ObjectId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hpc.NewCacheBlobTarget(ctx, "exampleCacheBlobTarget", &hpc.CacheBlobTargetArgs{
+//			_, err = hpc.NewCacheBlobTarget(ctx, "example", &hpc.CacheBlobTargetArgs{
+//				Name:               pulumi.String("examplehpccblobtarget"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				CacheName:          exampleCache.Name,
 //				StorageContainerId: exampleContainer.ResourceManagerId,

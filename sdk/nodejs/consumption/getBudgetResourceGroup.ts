@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.consumption.getBudgetResourceGroup({
  *     name: "existing",
- *     resourceGroupId: azurerm_resource_group.example.id,
+ *     resourceGroupId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -90,7 +90,7 @@ export interface GetBudgetResourceGroupResult {
  *
  * const example = azure.consumption.getBudgetResourceGroup({
  *     name: "existing",
- *     resourceGroupId: azurerm_resource_group.example.id,
+ *     resourceGroupId: exampleAzurermResourceGroup.id,
  * });
  * export const id = example.then(example => example.id);
  * ```

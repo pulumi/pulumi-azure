@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resource-group-01"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("netappaccount-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = netapp.NewSnapshotPolicy(ctx, "exampleSnapshotPolicy", &netapp.SnapshotPolicyArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = netapp.NewSnapshotPolicy(ctx, "example", &netapp.SnapshotPolicyArgs{
+//				Name:              pulumi.String("snapshotpolicy-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				Enabled:           pulumi.Bool(true),
 //				HourlySchedule: &netapp.SnapshotPolicyHourlyScheduleArgs{

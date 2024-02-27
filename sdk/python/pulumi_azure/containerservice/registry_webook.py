@@ -373,13 +373,17 @@ class RegistryWebook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         acr = azure.containerservice.Registry("acr",
+            name="containerRegistry1",
             resource_group_name=example.name,
             location=example.location,
             sku="Standard",
             admin_enabled=False)
         webhook = azure.containerservice.RegistryWebhook("webhook",
+            name="mywebhook",
             resource_group_name=example.name,
             registry_name=acr.name,
             location=example.location,
@@ -428,13 +432,17 @@ class RegistryWebook(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         acr = azure.containerservice.Registry("acr",
+            name="containerRegistry1",
             resource_group_name=example.name,
             location=example.location,
             sku="Standard",
             admin_enabled=False)
         webhook = azure.containerservice.RegistryWebhook("webhook",
+            name="mywebhook",
             resource_group_name=example.name,
             registry_name=acr.name,
             location=example.location,

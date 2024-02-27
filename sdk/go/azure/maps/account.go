@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = maps.NewAccount(ctx, "exampleAccount", &maps.AccountArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//			_, err = maps.NewAccount(ctx, "example", &maps.AccountArgs{
+//				Name:                       pulumi.String("example-maps-account"),
+//				ResourceGroupName:          example.Name,
 //				SkuName:                    pulumi.String("S1"),
 //				LocalAuthenticationEnabled: pulumi.Bool(true),
 //				Tags: pulumi.StringMap{

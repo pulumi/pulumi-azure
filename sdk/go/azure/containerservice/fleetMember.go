@@ -31,13 +31,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//			example, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				DnsPrefix:         pulumi.String("acctestaksexample"),
@@ -53,7 +55,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesFleetManager, err := containerservice.NewKubernetesFleetManager(ctx, "exampleKubernetesFleetManager", &containerservice.KubernetesFleetManagerArgs{
+//			exampleKubernetesFleetManager, err := containerservice.NewKubernetesFleetManager(ctx, "example", &containerservice.KubernetesFleetManagerArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				HubProfile: &containerservice.KubernetesFleetManagerHubProfileArgs{
@@ -63,9 +66,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewFleetMember(ctx, "exampleFleetMember", &containerservice.FleetMemberArgs{
-//				KubernetesClusterId: exampleKubernetesCluster.ID(),
+//			_, err = containerservice.NewFleetMember(ctx, "example", &containerservice.FleetMemberArgs{
+//				KubernetesClusterId: example.ID(),
 //				KubernetesFleetId:   exampleKubernetesFleetManager.ID(),
+//				Name:                pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err

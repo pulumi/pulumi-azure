@@ -16,12 +16,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getSubscription({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "eastus"});
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "eastus",
+ * });
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     shortName: "example",
  * });
- * const exampleBudgetSubscription = new azure.consumption.BudgetSubscription("exampleBudgetSubscription", {
+ * const exampleBudgetSubscription = new azure.consumption.BudgetSubscription("example", {
+ *     name: "example",
  *     subscriptionId: current.then(current => current.id),
  *     amount: 1000,
  *     timeGrain: "Monthly",
@@ -32,7 +37,7 @@ import * as utilities from "../utilities";
  *     filter: {
  *         dimensions: [{
  *             name: "ResourceGroupName",
- *             values: [exampleResourceGroup.name],
+ *             values: [example.name],
  *         }],
  *         tags: [{
  *             name: "foo",

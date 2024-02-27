@@ -17,12 +17,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleVirtualMachine = azure.compute.getVirtualMachine({
+ * const example = azure.compute.getVirtualMachine({
  *     name: "example-vm",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleMssql_virtualMachineVirtualMachine = new azure.mssql.VirtualMachine("exampleMssql/virtualMachineVirtualMachine", {
- *     virtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
+ * const exampleVirtualMachine = new azure.mssql.VirtualMachine("example", {
+ *     virtualMachineId: example.then(example => example.id),
  *     sqlLicenseType: "PAYG",
  *     rServicesEnabled: true,
  *     sqlConnectivityPort: 1433,

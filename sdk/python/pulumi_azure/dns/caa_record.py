@@ -252,11 +252,16 @@ class CaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_caa_record = azure.dns.CaaRecord("exampleCaaRecord",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_caa_record = azure.dns.CaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=[
                 azure.dns.CaaRecordRecordArgs(
@@ -315,11 +320,16 @@ class CaaRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.dns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_caa_record = azure.dns.CaaRecord("exampleCaaRecord",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.dns.Zone("example",
+            name="mydomain.com",
+            resource_group_name=example.name)
+        example_caa_record = azure.dns.CaaRecord("example",
+            name="test",
             zone_name=example_zone.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             ttl=300,
             records=[
                 azure.dns.CaaRecordRecordArgs(

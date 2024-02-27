@@ -17,13 +17,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleRouteTable = new azure.network.RouteTable("exampleRouteTable", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleRoute = new azure.network.Route("exampleRoute", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleRouteTable = new azure.network.RouteTable("example", {
+ *     name: "acceptanceTestRouteTable1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleRoute = new azure.network.Route("example", {
+ *     name: "acceptanceTestRoute1",
+ *     resourceGroupName: example.name,
  *     routeTableName: exampleRouteTable.name,
  *     addressPrefix: "10.1.0.0/16",
  *     nextHopType: "VnetLocal",

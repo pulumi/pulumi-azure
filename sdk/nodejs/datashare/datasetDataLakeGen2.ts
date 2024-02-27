@@ -14,41 +14,49 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.datashare.Account("example", {
+ *     name: "example-dsa",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
+ * const exampleShare = new azure.datashare.Share("example", {
+ *     name: "example_ds",
  *     accountId: exampleAccount.id,
  *     kind: "CopyBased",
  * });
- * const exampleStorage_accountAccount = new azure.storage.Account("exampleStorage/accountAccount", {
+ * const exampleAccount2 = new azure.storage.Account("example", {
+ *     name: "examplestr",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountKind: "BlobStorage",
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleStorage / accountAccount.id});
- * const exampleServicePrincipal = azuread.getServicePrincipalOutput({
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example-dlg2fs",
+ *     storageAccountId: exampleAccount2.id,
+ * });
+ * const example = azuread.getServicePrincipalOutput({
  *     displayName: exampleAccount.name,
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
- *     scope: exampleStorage / accountAccount.id,
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
+ *     scope: exampleAccount2.id,
  *     roleDefinitionName: "Storage Blob Data Reader",
- *     principalId: exampleServicePrincipal.apply(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     principalId: example.apply(example => example.objectId),
  * });
- * const exampleDatasetDataLakeGen2 = new azure.datashare.DatasetDataLakeGen2("exampleDatasetDataLakeGen2", {
+ * const exampleDatasetDataLakeGen2 = new azure.datashare.DatasetDataLakeGen2("example", {
+ *     name: "accexample-dlg2ds",
  *     shareId: exampleShare.id,
- *     storageAccountId: exampleStorage / accountAccount.id,
+ *     storageAccountId: exampleAccount2.id,
  *     fileSystemName: exampleDataLakeGen2Filesystem.name,
  *     filePath: "myfile.txt",
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var testWorkspace = new Workspace(&#34;testWorkspace&#34;, WorkspaceArgs.builder()        
+ *         var test = new Workspace(&#34;test&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;tfexworkspace&#34;)
  *             .resourceGroupName(&#34;tfex-resource_group&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var testDicomService = new DicomService(&#34;testDicomService&#34;, DicomServiceArgs.builder()        
- *             .workspaceId(testWorkspace.id())
+ *             .name(&#34;tfexDicom&#34;)
+ *             .workspaceId(test.id())
  *             .location(&#34;east us&#34;)
  *             .identity(DicomServiceIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)

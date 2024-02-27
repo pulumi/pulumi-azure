@@ -17,10 +17,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.loganalytics.Cluster("exampleCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.loganalytics.Cluster("example", {
+ *     name: "example-cluster",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     identity: {
  *         type: "SystemAssigned",
  *     },

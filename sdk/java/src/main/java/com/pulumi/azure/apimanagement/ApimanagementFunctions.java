@@ -385,14 +385,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
      *             .build());
      * 
      *     }
@@ -429,14 +429,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
      *             .build());
      * 
      *     }
@@ -473,14 +473,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
      *             .build());
      * 
      *     }
@@ -517,14 +517,14 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-rg&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-api-gateway&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
      *             .build());
      * 
      *     }
@@ -562,23 +562,23 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .apiManagementId(main.id())
      *             .build());
      * 
-     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
      * ```
@@ -614,23 +614,23 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .apiManagementId(main.id())
      *             .build());
      * 
-     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
      * ```
@@ -666,23 +666,23 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .apiManagementId(main.id())
      *             .build());
      * 
-     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
      * ```
@@ -718,23 +718,23 @@ public final class ApimanagementFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+     *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-apim&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
+     *         final var exampleGetGateway = ApimanagementFunctions.getGateway(GetGatewayArgs.builder()
      *             .name(&#34;example-gateway&#34;)
-     *             .apiManagementId(data.azurerm_api_management().main().id())
+     *             .apiManagementId(main.id())
      *             .build());
      * 
-     *         final var exampleGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
+     *         final var exampleGetGatewayHostNameConfiguration = ApimanagementFunctions.getGatewayHostNameConfiguration(GetGatewayHostNameConfigurationArgs.builder()
      *             .name(&#34;example-host-configuration&#34;)
-     *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult.id()))
-     *             .gatewayName(exampleGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
+     *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult.id()))
+     *             .gatewayName(exampleGetGateway.applyValue(getGatewayResult -&gt; getGatewayResult.name()))
      *             .build());
      * 
-     *         ctx.export(&#34;hostName&#34;, exampleGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
+     *         ctx.export(&#34;hostName&#34;, exampleGetGatewayHostNameConfiguration.applyValue(getGatewayHostNameConfigurationResult -&gt; getGatewayHostNameConfigurationResult.hostName()));
      *     }
      * }
      * ```

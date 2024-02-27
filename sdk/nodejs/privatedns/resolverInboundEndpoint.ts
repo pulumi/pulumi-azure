@@ -15,19 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleResolver = new azure.privatedns.Resolver("exampleResolver", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleResolver = new azure.privatedns.Resolver("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualNetworkId: exampleVirtualNetwork.id,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "inbounddns",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.0.0/28"],
  *     delegations: [{
@@ -38,7 +44,8 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleResolverInboundEndpoint = new azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint", {
+ * const exampleResolverInboundEndpoint = new azure.privatedns.ResolverInboundEndpoint("example", {
+ *     name: "example-drie",
  *     privateDnsResolverId: exampleResolver.id,
  *     location: exampleResolver.location,
  *     ipConfigurations: [{

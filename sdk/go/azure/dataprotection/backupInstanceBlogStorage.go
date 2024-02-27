@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Name:              pulumi.String("example-backup-vault"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
 //				Identity: &dataprotection.BackupVaultIdentityArgs{
@@ -58,7 +61,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Backup Contributor"),
 //				PrincipalId: exampleBackupVault.Identity.ApplyT(func(identity dataprotection.BackupVaultIdentity) (*string, error) {
@@ -68,21 +71,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackupPolicyBlobStorage, err := dataprotection.NewBackupPolicyBlobStorage(ctx, "exampleBackupPolicyBlobStorage", &dataprotection.BackupPolicyBlobStorageArgs{
+//			exampleBackupPolicyBlobStorage, err := dataprotection.NewBackupPolicyBlobStorage(ctx, "example", &dataprotection.BackupPolicyBlobStorageArgs{
+//				Name:              pulumi.String("example-backup-policy"),
 //				VaultId:           exampleBackupVault.ID(),
 //				RetentionDuration: pulumi.String("P30D"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dataprotection.NewBackupInstanceBlogStorage(ctx, "exampleBackupInstanceBlogStorage", &dataprotection.BackupInstanceBlogStorageArgs{
+//			_, err = dataprotection.NewBackupInstanceBlogStorage(ctx, "example", &dataprotection.BackupInstanceBlogStorageArgs{
+//				Name:             pulumi.String("example-backup-instance"),
 //				VaultId:          exampleBackupVault.ID(),
-//				Location:         exampleResourceGroup.Location,
+//				Location:         example.Location,
 //				StorageAccountId: exampleAccount.ID(),
 //				BackupPolicyId:   exampleBackupPolicyBlobStorage.ID(),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

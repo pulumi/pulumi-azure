@@ -602,22 +602,28 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            resource_group_name=example.name,
+            location=example.location,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
-            location=example_resource_group.location)
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_site = azure.mobile.NetworkSite("example",
+            name="example-mns",
+            mobile_network_id=test["id"],
+            location=example.location)
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="EdgeP_Base-Standard")
-        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("example",
+            name="example-mnpccp",
+            resource_group_name=example.name,
+            location=example.location,
             sku="G0",
             control_plane_access_name="default-interface",
             control_plane_access_ipv4_address="192.168.1.199",
@@ -683,22 +689,28 @@ class NetworkPacketCoreControlPlane(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network = azure.mobile.Network("exampleNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network = azure.mobile.Network("example",
+            name="example-mn",
+            resource_group_name=example.name,
+            location=example.location,
             mobile_country_code="001",
             mobile_network_code="01")
-        example_network_site = azure.mobile.NetworkSite("exampleNetworkSite",
-            mobile_network_id=azurerm_mobile_network["test"]["id"],
-            location=example_resource_group.location)
-        example_device = azure.databoxedge.Device("exampleDevice",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_site = azure.mobile.NetworkSite("example",
+            name="example-mns",
+            mobile_network_id=test["id"],
+            location=example.location)
+        example_device = azure.databoxedge.Device("example",
+            name="example-device",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="EdgeP_Base-Standard")
-        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_network_packet_core_control_plane = azure.mobile.NetworkPacketCoreControlPlane("example",
+            name="example-mnpccp",
+            resource_group_name=example.name,
+            location=example.location,
             sku="G0",
             control_plane_access_name="default-interface",
             control_plane_access_ipv4_address="192.168.1.199",

@@ -52,31 +52,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .osType(&#34;Windows&#34;)
  *             .skuName(&#34;S1&#34;)
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-relay&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleHybridConnection = new HybridConnection(&#34;exampleHybridConnection&#34;, HybridConnectionArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplerhc1&#34;)
+ *             .resourceGroupName(example.name())
  *             .relayNamespaceName(exampleNamespace.name())
  *             .build());
  * 
  *         var exampleWindowsWebApp = new WindowsWebApp(&#34;exampleWindowsWebApp&#34;, WindowsWebAppArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-web-app&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .servicePlanId(exampleServicePlan.id())
  *             .siteConfig()
  *             .build());

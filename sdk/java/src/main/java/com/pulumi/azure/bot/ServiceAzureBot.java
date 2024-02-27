@@ -49,17 +49,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var exampleApiKey = new ApiKey(&#34;exampleApiKey&#34;, ApiKeyArgs.builder()        
+ *             .name(&#34;example-appinsightsapikey&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
  *                 &#34;aggregate&#34;,
@@ -72,7 +75,8 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleServiceAzureBot = new ServiceAzureBot(&#34;exampleServiceAzureBot&#34;, ServiceAzureBotArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleazurebot&#34;)
+ *             .resourceGroupName(example.name())
  *             .location(&#34;global&#34;)
  *             .microsoftAppId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.clientId()))
  *             .sku(&#34;F0&#34;)

@@ -34,7 +34,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.core.CoreFunctions;
  * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministrator;
  * import com.pulumi.azure.sql.ManagedInstanceActiveDirectoryAdministratorArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -48,31 +47,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;managedsqlinstance&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
  *             .licenseType(&#34;BasePrice&#34;)
- *             .subnetId(azurerm_subnet.example().id())
+ *             .subnetId(exampleAzurermSubnet.id())
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .vcores(4)
  *             .storageSizeInGb(32)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     azurerm_subnet_network_security_group_association.example(),
- *                     azurerm_subnet_route_table_association.example())
- *                 .build());
+ *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleManagedInstanceActiveDirectoryAdministrator = new ManagedInstanceActiveDirectoryAdministrator(&#34;exampleManagedInstanceActiveDirectoryAdministrator&#34;, ManagedInstanceActiveDirectoryAdministratorArgs.builder()        
  *             .managedInstanceName(exampleManagedInstance.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .login(&#34;sqladmin&#34;)
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))

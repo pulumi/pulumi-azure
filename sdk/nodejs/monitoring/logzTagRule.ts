@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLogzMonitor = new azure.monitoring.LogzMonitor("exampleLogzMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-logz",
+ *     location: "West Europe",
+ * });
+ * const exampleLogzMonitor = new azure.monitoring.LogzMonitor("example", {
+ *     name: "example-monitor",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     plan: {
  *         billingCycle: "MONTHLY",
  *         effectiveDate: "2022-06-06T00:00:00Z",
@@ -31,7 +35,7 @@ import * as utilities from "../utilities";
  *         phoneNumber: "+12313803556",
  *     },
  * });
- * const exampleLogzTagRule = new azure.monitoring.LogzTagRule("exampleLogzTagRule", {
+ * const exampleLogzTagRule = new azure.monitoring.LogzTagRule("example", {
  *     logzMonitorId: exampleLogzMonitor.id,
  *     tagFilters: [
  *         {

@@ -13,43 +13,52 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     osType: "Windows",
  *     skuName: "S1",
  * });
- * const exampleNamespace = new azure.relay.Namespace("exampleNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNamespace = new azure.relay.Namespace("example", {
+ *     name: "example-relay",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleHybridConnection = new azure.relay.HybridConnection("exampleHybridConnection", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleHybridConnection = new azure.relay.HybridConnection("example", {
+ *     name: "examplerhc1",
+ *     resourceGroupName: example.name,
  *     relayNamespaceName: exampleNamespace.name,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "storageaccountname",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("exampleWindowsWebApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWindowsWebApp = new azure.appservice.WindowsWebApp("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("exampleWindowsFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWindowsFunctionApp = new azure.appservice.WindowsFunctionApp("example", {
+ *     name: "example-function-app",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  *     siteConfig: {},
  * });
- * const exampleFunctionAppHybridConnection = new azure.appservice.FunctionAppHybridConnection("exampleFunctionAppHybridConnection", {
+ * const exampleFunctionAppHybridConnection = new azure.appservice.FunctionAppHybridConnection("example", {
  *     functionAppId: exampleWindowsWebApp.id,
  *     relayId: exampleHybridConnection.id,
  *     hostname: "myhostname.example",

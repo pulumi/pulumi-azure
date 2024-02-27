@@ -17,7 +17,6 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -52,7 +51,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.netapp.VolumeGroupSapHana;
  * import com.pulumi.azure.netapp.VolumeGroupSapHanaArgs;
  * import com.pulumi.azure.netapp.inputs.VolumeGroupSapHanaVolumeArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -66,26 +64,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleRandomString = new RandomString(&#34;exampleRandomString&#34;, RandomStringArgs.builder()        
+ *         var example = new RandomString(&#34;example&#34;, RandomStringArgs.builder()        
  *             .length(12)
  *             .special(true)
  *             .build());
  * 
  *         final var adminUsername = &#34;exampleadmin&#34;;
  * 
- *         final var adminPassword = exampleRandomString.result();
+ *         final var adminPassword = example.result();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
- *             .location(var_.location())
+ *             .name(String.format(&#34;%s-resources&#34;, prefix))
+ *             .location(location)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(String.format(&#34;%s-vnet&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .addressSpaces(&#34;10.6.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(String.format(&#34;%s-delegated-subnet&#34;, prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.2.0/24&#34;)
@@ -101,23 +102,27 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1 = new Subnet(&#34;example1&#34;, SubnetArgs.builder()        
+ *             .name(String.format(&#34;%s-hosts-subnet&#34;, prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.6.1.0/24&#34;)
  *             .build());
  * 
  *         var examplePlacementGroup = new PlacementGroup(&#34;examplePlacementGroup&#34;, PlacementGroupArgs.builder()        
+ *             .name(String.format(&#34;%s-ppg&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleAvailabilitySet = new AvailabilitySet(&#34;exampleAvailabilitySet&#34;, AvailabilitySetArgs.builder()        
+ *             .name(String.format(&#34;%s-avset&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .proximityPlacementGroupId(examplePlacementGroup.id())
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
+ *             .name(String.format(&#34;%s-nic&#34;, prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
@@ -128,6 +133,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
+ *             .name(String.format(&#34;%s-vm&#34;, prefix))
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .size(&#34;Standard_M8ms&#34;)
@@ -150,15 +156,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(String.format(&#34;%s-netapp-account&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnet,
- *                     example1)
- *                 .build());
+ *             .build());
  * 
  *         var examplePool = new Pool(&#34;examplePool&#34;, PoolArgs.builder()        
+ *             .name(String.format(&#34;%s-netapp-pool&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
@@ -168,6 +172,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVolumeGroupSapHana = new VolumeGroupSapHana(&#34;exampleVolumeGroupSapHana&#34;, VolumeGroupSapHanaArgs.builder()        
+ *             .name(String.format(&#34;%s-netapp-volumegroup&#34;, prefix))
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .accountName(exampleAccount.name())
@@ -175,7 +180,7 @@ import javax.annotation.Nullable;
  *             .applicationIdentifier(&#34;TST&#34;)
  *             .volumes(            
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-1&#34;, var_.prefix()))
+ *                     .name(String.format(&#34;%s-netapp-volume-1&#34;, prefix))
  *                     .volumePath(&#34;my-unique-file-path-1&#34;)
  *                     .serviceLevel(&#34;Standard&#34;)
  *                     .capacityPoolId(examplePool.id())
@@ -199,7 +204,7 @@ import javax.annotation.Nullable;
  *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *                     .build(),
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-2&#34;, var_.prefix()))
+ *                     .name(String.format(&#34;%s-netapp-volume-2&#34;, prefix))
  *                     .volumePath(&#34;my-unique-file-path-2&#34;)
  *                     .serviceLevel(&#34;Standard&#34;)
  *                     .capacityPoolId(examplePool.id())
@@ -223,7 +228,7 @@ import javax.annotation.Nullable;
  *                     .tags(Map.of(&#34;foo&#34;, &#34;bar&#34;))
  *                     .build(),
  *                 VolumeGroupSapHanaVolumeArgs.builder()
- *                     .name(String.format(&#34;%s-netapp-volume-3&#34;, var_.prefix()))
+ *                     .name(String.format(&#34;%s-netapp-volume-3&#34;, prefix))
  *                     .volumePath(&#34;my-unique-file-path-3&#34;)
  *                     .serviceLevel(&#34;Standard&#34;)
  *                     .capacityPoolId(examplePool.id())
@@ -245,11 +250,7 @@ import javax.annotation.Nullable;
  *                         .rootAccessEnabled(false)
  *                         .build())
  *                     .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleLinuxVirtualMachine,
- *                     examplePlacementGroup)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

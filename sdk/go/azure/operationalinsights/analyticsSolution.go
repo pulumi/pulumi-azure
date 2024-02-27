@@ -21,6 +21,8 @@ import (
 //
 // import (
 //
+//	"fmt"
+//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/operationalinsights"
 //	"github.com/pulumi/pulumi-random/sdk/v4/go/random"
@@ -30,33 +32,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("k8s-log-analytics-test"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
-//				Keepers: pulumi.Map{
-//					"group_name": exampleResourceGroup.Name,
+//			workspace, err := random.NewRandomId(ctx, "workspace", &random.RandomIdArgs{
+//				Keepers: pulumi.StringMap{
+//					"group_name": example.Name,
 //				},
 //				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name: workspace.Hex.ApplyT(func(hex string) (string, error) {
+//					return fmt.Sprintf("k8s-workspace-%v", hex), nil
+//				}).(pulumi.StringOutput),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "exampleAnalyticsSolution", &operationalinsights.AnalyticsSolutionArgs{
+//			_, err = operationalinsights.NewAnalyticsSolution(ctx, "example", &operationalinsights.AnalyticsSolutionArgs{
 //				SolutionName:        pulumi.String("ContainerInsights"),
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
 //				WorkspaceResourceId: exampleAnalyticsWorkspace.ID(),
 //				WorkspaceName:       exampleAnalyticsWorkspace.Name,
 //				Plan: &operationalinsights.AnalyticsSolutionPlanArgs{

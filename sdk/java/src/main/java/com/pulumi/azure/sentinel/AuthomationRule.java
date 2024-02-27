@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-workspace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;PerGB2018&#34;)
  *             .build());
  * 
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAutomationRule = new AutomationRule(&#34;exampleAutomationRule&#34;, AutomationRuleArgs.builder()        
+ *             .name(&#34;56094f72-ac3f-40e7-a0c0-47bd95f70336&#34;)
  *             .logAnalyticsWorkspaceId(exampleLogAnalyticsWorkspaceOnboarding.workspaceId())
  *             .displayName(&#34;automation_rule1&#34;)
  *             .order(1)

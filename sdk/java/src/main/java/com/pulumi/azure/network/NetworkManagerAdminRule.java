@@ -58,15 +58,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var exampleNetworkManager = new NetworkManager(&#34;exampleNetworkManager&#34;, NetworkManagerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-network-manager&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .scope(NetworkManagerScopeArgs.builder()
  *                 .subscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *                 .build())
@@ -77,19 +79,23 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkManagerNetworkGroup = new NetworkManagerNetworkGroup(&#34;exampleNetworkManagerNetworkGroup&#34;, NetworkManagerNetworkGroupArgs.builder()        
+ *             .name(&#34;example-network-group&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
  *         var exampleNetworkManagerSecurityAdminConfiguration = new NetworkManagerSecurityAdminConfiguration(&#34;exampleNetworkManagerSecurityAdminConfiguration&#34;, NetworkManagerSecurityAdminConfigurationArgs.builder()        
+ *             .name(&#34;example-admin-conf&#34;)
  *             .networkManagerId(exampleNetworkManager.id())
  *             .build());
  * 
  *         var exampleNetworkManagerAdminRuleCollection = new NetworkManagerAdminRuleCollection(&#34;exampleNetworkManagerAdminRuleCollection&#34;, NetworkManagerAdminRuleCollectionArgs.builder()        
+ *             .name(&#34;example-admin-rule-collection&#34;)
  *             .securityAdminConfigurationId(exampleNetworkManagerSecurityAdminConfiguration.id())
  *             .networkGroupIds(exampleNetworkManagerNetworkGroup.id())
  *             .build());
  * 
  *         var exampleNetworkManagerAdminRule = new NetworkManagerAdminRule(&#34;exampleNetworkManagerAdminRule&#34;, NetworkManagerAdminRuleArgs.builder()        
+ *             .name(&#34;example-admin-rule&#34;)
  *             .adminRuleCollectionId(exampleNetworkManagerAdminRuleCollection.id())
  *             .action(&#34;Deny&#34;)
  *             .direction(&#34;Outbound&#34;)

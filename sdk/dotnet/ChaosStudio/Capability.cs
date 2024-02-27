@@ -22,13 +22,15 @@ namespace Pulumi.Azure.ChaosStudio
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesCluster = new Azure.ContainerService.KubernetesCluster("exampleKubernetesCluster", new()
+    ///     var example = new Azure.ContainerService.KubernetesCluster("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         DnsPrefix = "acctestaksexample",
@@ -44,14 +46,14 @@ namespace Pulumi.Azure.ChaosStudio
     ///         },
     ///     });
     /// 
-    ///     var exampleTarget = new Azure.ChaosStudio.Target("exampleTarget", new()
+    ///     var exampleTarget = new Azure.ChaosStudio.Target("example", new()
     ///     {
     ///         Location = exampleResourceGroup.Location,
-    ///         TargetResourceId = exampleKubernetesCluster.Id,
+    ///         TargetResourceId = example.Id,
     ///         TargetType = "example-value",
     ///     });
     /// 
-    ///     var exampleCapability = new Azure.ChaosStudio.Capability("exampleCapability", new()
+    ///     var exampleCapability = new Azure.ChaosStudio.Capability("example", new()
     ///     {
     ///         CapabilityType = "example-value",
     ///         ChaosStudioTargetId = exampleTarget.Id,

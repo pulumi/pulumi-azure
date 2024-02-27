@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const test = new azure.core.ResourceGroup("test", {location: "West Europe"});
- * const examplePostgresqlCluster = new azure.cosmosdb.PostgresqlCluster("examplePostgresqlCluster", {
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     location: azurerm_resource_group.example.location,
+ * const test = new azure.core.ResourceGroup("test", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = new azure.cosmosdb.PostgresqlCluster("example", {
+ *     name: "examplecluster",
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     location: exampleAzurermResourceGroup.location,
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     coordinatorStorageQuotaInMb: 131072,
  *     coordinatorVcoreCount: 2,
@@ -24,8 +28,9 @@ import * as utilities from "../utilities";
  *     nodeStorageQuotaInMb: 131072,
  *     nodeVcores: 2,
  * });
- * const examplePostgresqlCoordinatorConfiguration = new azure.cosmosdb.PostgresqlCoordinatorConfiguration("examplePostgresqlCoordinatorConfiguration", {
- *     clusterId: examplePostgresqlCluster.id,
+ * const examplePostgresqlCoordinatorConfiguration = new azure.cosmosdb.PostgresqlCoordinatorConfiguration("example", {
+ *     name: "array_nulls",
+ *     clusterId: example.id,
  *     value: "on",
  * });
  * ```

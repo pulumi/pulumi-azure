@@ -17,27 +17,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const primary = new azure.sql.SqlServer("primary", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     name: "sql-primary",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: "pa$$w0rd",
  * });
  * const secondary = new azure.sql.SqlServer("secondary", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     name: "sql-secondary",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "sqladmin",
  *     administratorLoginPassword: "pa$$w0rd",
  * });
  * const db1 = new azure.sql.Database("db1", {
+ *     name: "db1",
  *     resourceGroupName: primary.resourceGroupName,
  *     location: primary.location,
  *     serverName: primary.name,
  * });
- * const exampleFailoverGroup = new azure.sql.FailoverGroup("exampleFailoverGroup", {
+ * const exampleFailoverGroup = new azure.sql.FailoverGroup("example", {
+ *     name: "example-failover-group",
  *     resourceGroupName: primary.resourceGroupName,
  *     serverName: primary.name,
  *     databases: [db1.id],

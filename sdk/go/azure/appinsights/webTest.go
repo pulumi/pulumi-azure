@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tf-test"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("tf-test-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWebTest, err := appinsights.NewWebTest(ctx, "exampleWebTest", &appinsights.WebTestArgs{
+//			exampleWebTest, err := appinsights.NewWebTest(ctx, "example", &appinsights.WebTestArgs{
+//				Name:                  pulumi.String("tf-test-appinsights-webtest"),
 //				Location:              exampleInsights.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				Kind:                  pulumi.String("ping"),
 //				Frequency:             pulumi.Int(300),

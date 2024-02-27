@@ -20,19 +20,21 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Subnets = new[]
     ///         {
     ///             new Azure.Network.Inputs.VirtualNetworkSubnetArgs
@@ -43,7 +45,7 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("exampleVirtualNetworkDnsServers", new()
+    ///     var exampleVirtualNetworkDnsServers = new Azure.Network.VirtualNetworkDnsServers("example", new()
     ///     {
     ///         VirtualNetworkId = exampleVirtualNetwork.Id,
     ///         DnsServers = new[]

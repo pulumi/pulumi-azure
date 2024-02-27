@@ -14,17 +14,22 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServer = new azure.mysql.Server("example", {
+ *     name: "example-mysql-server",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "GP_Gen5_2",
  *     administratorLogin: "acctestun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
@@ -69,7 +74,8 @@ import * as utilities from "../utilities";
  *     ],
  *     secretPermissions: ["Get"],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "tfex-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -81,13 +87,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         client,
- *         server,
- *     ],
  * });
- * const exampleServerKey = new azure.mysql.ServerKey("exampleServerKey", {
+ * const exampleServerKey = new azure.mysql.ServerKey("example", {
  *     serverId: exampleServer.id,
  *     keyVaultKeyId: exampleKey.id,
  * });

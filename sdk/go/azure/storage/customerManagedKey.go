@@ -36,15 +36,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("examplekv"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -52,9 +54,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestor"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //				Identity: &storage.AccountIdentityArgs{
@@ -64,7 +67,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			storage, err := keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "storage", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId: exampleAccount.Identity.ApplyT(func(identity storage.AccountIdentity) (*string, error) {
@@ -82,7 +85,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -110,7 +113,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("tfex-key"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -122,14 +126,11 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				client,
-//				storage,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewCustomerManagedKey(ctx, "exampleCustomerManagedKey", &storage.CustomerManagedKeyArgs{
+//			_, err = storage.NewCustomerManagedKey(ctx, "example", &storage.CustomerManagedKeyArgs{
 //				StorageAccountId: exampleAccount.ID(),
 //				KeyVaultId:       exampleKeyVault.ID(),
 //				KeyName:          exampleKey.Name,

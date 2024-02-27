@@ -30,17 +30,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedApi := connections.GetManagedApiOutput(ctx, connections.GetManagedApiOutputArgs{
+//			example := connections.GetManagedApiOutput(ctx, connections.GetManagedApiOutputArgs{
 //				Name:     pulumi.String("servicebus"),
 //				Location: exampleResourceGroup.Location,
 //			}, nil)
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("acctestsbn-conn-example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("Basic"),
@@ -48,10 +50,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = connections.NewApiConnection(ctx, "exampleApiConnection", &connections.ApiConnectionArgs{
+//			_, err = connections.NewApiConnection(ctx, "example", &connections.ApiConnectionArgs{
+//				Name:              pulumi.String("example-connection"),
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ManagedApiId: exampleManagedApi.ApplyT(func(exampleManagedApi connections.GetManagedApiResult) (*string, error) {
-//					return &exampleManagedApi.Id, nil
+//				ManagedApiId: example.ApplyT(func(example connections.GetManagedApiResult) (*string, error) {
+//					return &example.Id, nil
 //				}).(pulumi.StringPtrOutput),
 //				DisplayName: pulumi.String("Example 1"),
 //				ParameterValues: pulumi.StringMap{

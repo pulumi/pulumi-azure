@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example-virtualdesktop",
+ *     location: "West Europe",
+ * });
  * const pooledbreadthfirst = new azure.desktopvirtualization.HostPool("pooledbreadthfirst", {
+ *     name: "pooledbreadthfirst",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "Pooled",
  *     loadBalancerType: "BreadthFirst",
  * });
  * const personalautomatic = new azure.desktopvirtualization.HostPool("personalautomatic", {
+ *     name: "personalautomatic",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "Personal",
@@ -28,6 +33,7 @@ import * as utilities from "../utilities";
  *     loadBalancerType: "BreadthFirst",
  * });
  * const remoteapp = new azure.desktopvirtualization.ApplicationGroup("remoteapp", {
+ *     name: "acctag",
  *     location: example.location,
  *     resourceGroupName: example.name,
  *     type: "RemoteApp",
@@ -36,6 +42,7 @@ import * as utilities from "../utilities";
  *     description: "Acceptance Test: An application group",
  * });
  * const chrome = new azure.desktopvirtualization.Application("chrome", {
+ *     name: "googlechrome",
  *     applicationGroupId: remoteapp.id,
  *     friendlyName: "Google Chrome",
  *     description: "Chromium based web browser",

@@ -22,15 +22,17 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resourcegroup-01",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "automation-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///         Tags = 
     ///         {
@@ -38,17 +40,18 @@ namespace Pulumi.Azure.LogAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspace-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleLinkedService = new Azure.LogAnalytics.LinkedService("exampleLinkedService", new()
+    ///     var exampleLinkedService = new Azure.LogAnalytics.LinkedService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         ReadAccessId = exampleAccount.Id,
     ///     });

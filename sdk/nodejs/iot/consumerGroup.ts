@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "test",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
@@ -25,10 +29,11 @@ import * as utilities from "../utilities";
  *         purpose: "testing",
  *     },
  * });
- * const exampleConsumerGroup = new azure.iot.ConsumerGroup("exampleConsumerGroup", {
+ * const exampleConsumerGroup = new azure.iot.ConsumerGroup("example", {
+ *     name: "group",
  *     iothubName: exampleIoTHub.name,
  *     eventhubEndpointName: "events",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

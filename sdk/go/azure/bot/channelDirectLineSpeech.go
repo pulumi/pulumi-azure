@@ -34,34 +34,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cognitive.NewAccount(ctx, "exampleAccount", &cognitive.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cognitive.NewAccount(ctx, "example", &cognitive.AccountArgs{
+//				Name:              pulumi.String("example-cogacct"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.String("SpeechServices"),
 //				SkuName:           pulumi.String("S0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
+//				Name:              pulumi.String("example-bcr"),
 //				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
 //				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewChannelDirectLineSpeech(ctx, "exampleChannelDirectLineSpeech", &bot.ChannelDirectLineSpeechArgs{
+//			_, err = bot.NewChannelDirectLineSpeech(ctx, "example", &bot.ChannelDirectLineSpeechArgs{
 //				BotName:                   exampleChannelsRegistration.Name,
 //				Location:                  exampleChannelsRegistration.Location,
-//				ResourceGroupName:         exampleResourceGroup.Name,
+//				ResourceGroupName:         example.Name,
 //				CognitiveServiceLocation:  exampleAccount.Location,
 //				CognitiveServiceAccessKey: exampleAccount.PrimaryAccessKey,
 //			})

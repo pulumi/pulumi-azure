@@ -42,13 +42,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tf-test&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup(&#34;exampleApplicationSecurityGroup&#34;, ApplicationSecurityGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tf-appsecuritygroup&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tags(Map.of(&#34;Hello&#34;, &#34;World&#34;))
  *             .build());
  * 

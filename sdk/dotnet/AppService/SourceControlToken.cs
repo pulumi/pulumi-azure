@@ -22,8 +22,8 @@ namespace Pulumi.Azure.AppService
     /// {
     ///     var example = new Azure.AppService.SourceControlToken("example", new()
     ///     {
-    ///         Token = "ghp_sometokenvaluesecretsauce",
     ///         Type = "GitHub",
+    ///         Token = "ghp_sometokenvaluesecretsauce",
     ///     });
     /// 
     /// });

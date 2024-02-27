@@ -16,17 +16,21 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
+ *     name: "example-bcr",
  *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sku: "F0",
  *     microsoftAppId: current.then(current => current.clientId),
  * });
- * const exampleChannelAlexa = new azure.bot.ChannelAlexa("exampleChannelAlexa", {
+ * const exampleChannelAlexa = new azure.bot.ChannelAlexa("example", {
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     skillId: "amzn1.ask.skill.00000000-0000-0000-0000-000000000000",
  * });
  * ```

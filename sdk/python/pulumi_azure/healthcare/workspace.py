@@ -188,8 +188,9 @@ class Workspace(pulumi.CustomResource):
         import pulumi_azure as azure
 
         test = azure.healthcare.Workspace("test",
-            location="east us",
-            resource_group_name="tfex-resource_group")
+            name="tfexworkspace",
+            resource_group_name="tfex-resource_group",
+            location="east us")
         ```
 
         ## Import
@@ -223,8 +224,9 @@ class Workspace(pulumi.CustomResource):
         import pulumi_azure as azure
 
         test = azure.healthcare.Workspace("test",
-            location="east us",
-            resource_group_name="tfex-resource_group")
+            name="tfexworkspace",
+            resource_group_name="tfex-resource_group",
+            location="east us")
         ```
 
         ## Import

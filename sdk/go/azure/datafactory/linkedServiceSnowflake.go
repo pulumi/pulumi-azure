@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
+//			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //			})
@@ -74,36 +77,41 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "exampleLinkedServiceKeyVault", &datafactory.LinkedServiceKeyVaultArgs{
+//			exampleLinkedServiceKeyVault, err := datafactory.NewLinkedServiceKeyVault(ctx, "example", &datafactory.LinkedServiceKeyVaultArgs{
+//				Name:          pulumi.String("kvlink"),
 //				DataFactoryId: exampleFactory.ID(),
 //				KeyVaultId:    exampleKeyVault.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "exampleLinkedServiceSnowflake", &datafactory.LinkedServiceSnowflakeArgs{
+//			_, err = datafactory.NewLinkedServiceSnowflake(ctx, "example", &datafactory.LinkedServiceSnowflakeArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				ConnectionString: pulumi.String("jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh"),
 //				KeyVaultPassword: &datafactory.LinkedServiceSnowflakeKeyVaultPasswordArgs{

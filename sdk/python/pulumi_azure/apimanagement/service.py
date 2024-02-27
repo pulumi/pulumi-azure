@@ -1105,10 +1105,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")
@@ -1177,10 +1180,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="My Company",
             publisher_email="company@exmaple.com",
             sku_name="Developer_1")

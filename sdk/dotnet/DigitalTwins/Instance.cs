@@ -22,15 +22,17 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Tags = 
     ///         {
     ///             { "foo", "bar" },

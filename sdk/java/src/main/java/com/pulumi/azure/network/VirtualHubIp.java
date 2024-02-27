@@ -51,36 +51,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-pip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.5.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;RouteServerSubnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleVirtualHubIp = new VirtualHubIp(&#34;exampleVirtualHubIp&#34;, VirtualHubIpArgs.builder()        
+ *             .name(&#34;example-vhubipconfig&#34;)
  *             .virtualHubId(exampleVirtualHub.id())
  *             .privateIpAddress(&#34;10.5.1.18&#34;)
  *             .privateIpAllocationMethod(&#34;Static&#34;)

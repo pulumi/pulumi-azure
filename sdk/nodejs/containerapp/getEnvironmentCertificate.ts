@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleEnvironment = azure.containerapp.getEnvironment({
+ * const example = azure.containerapp.getEnvironment({
  *     name: "example-environment",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleEnvironmentCertificate = exampleEnvironment.then(exampleEnvironment => azure.containerapp.getEnvironmentCertificate({
+ * const exampleGetEnvironmentCertificate = example.then(example => azure.containerapp.getEnvironmentCertificate({
  *     name: "mycertificate",
- *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     containerAppEnvironmentId: example.id,
  * }));
  * ```
  */
@@ -90,13 +90,13 @@ export interface GetEnvironmentCertificateResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleEnvironment = azure.containerapp.getEnvironment({
+ * const example = azure.containerapp.getEnvironment({
  *     name: "example-environment",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleEnvironmentCertificate = exampleEnvironment.then(exampleEnvironment => azure.containerapp.getEnvironmentCertificate({
+ * const exampleGetEnvironmentCertificate = example.then(example => azure.containerapp.getEnvironmentCertificate({
  *     name: "mycertificate",
- *     containerAppEnvironmentId: exampleEnvironment.id,
+ *     containerAppEnvironmentId: example.id,
  * }));
  * ```
  */

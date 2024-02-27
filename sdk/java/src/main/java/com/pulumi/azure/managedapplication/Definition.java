@@ -49,13 +49,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleDefinition = new Definition(&#34;exampleDefinition&#34;, DefinitionArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemanagedapplicationdefinition&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .lockLevel(&#34;ReadOnly&#34;)
  *             .packageFileUri(&#34;https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip&#34;)
  *             .displayName(&#34;TestManagedApplicationDefinition&#34;)

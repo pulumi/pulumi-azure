@@ -30,31 +30,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLicationLoadBalancer, err := appconfiguration.NewLicationLoadBalancer(ctx, "exampleLicationLoadBalancer", &appconfiguration.LicationLoadBalancerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleLicationLoadBalancer, err := appconfiguration.NewLicationLoadBalancer(ctx, "example", &appconfiguration.LicationLoadBalancerArgs{
+//				Name:              pulumi.String("example-alb"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -74,7 +78,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appconfiguration.NewLicationLoadBalancerSubnetAssociation(ctx, "exampleLicationLoadBalancerSubnetAssociation", &appconfiguration.LicationLoadBalancerSubnetAssociationArgs{
+//			_, err = appconfiguration.NewLicationLoadBalancerSubnetAssociation(ctx, "example", &appconfiguration.LicationLoadBalancerSubnetAssociationArgs{
+//				Name:                      pulumi.String("example"),
 //				ApplicationLoadBalancerId: exampleLicationLoadBalancer.ID(),
 //				SubnetId:                  exampleSubnet.ID(),
 //			})

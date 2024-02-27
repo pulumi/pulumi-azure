@@ -465,13 +465,17 @@ class AutomationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.AutomationRule("example",
+            name="56094f72-ac3f-40e7-a0c0-47bd95f70336",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="automation_rule1",
             order=1,
@@ -523,13 +527,17 @@ class AutomationRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="west europe")
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="west europe")
+        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("example",
+            name="example-workspace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="PerGB2018")
-        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", workspace_id=example_analytics_workspace.id)
-        example_automation_rule = azure.sentinel.AutomationRule("exampleAutomationRule",
+        example_log_analytics_workspace_onboarding = azure.sentinel.LogAnalyticsWorkspaceOnboarding("example", workspace_id=example_analytics_workspace.id)
+        example_automation_rule = azure.sentinel.AutomationRule("example",
+            name="56094f72-ac3f-40e7-a0c0-47bd95f70336",
             log_analytics_workspace_id=example_log_analytics_workspace_onboarding.workspace_id,
             display_name="automation_rule1",
             order=1,

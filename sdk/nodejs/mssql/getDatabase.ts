@@ -15,19 +15,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = azure.mssql.getDatabaseOutput({
+ * const example = azure.mssql.getDatabaseOutput({
  *     name: "example-mssql-db",
  *     serverId: exampleServer.id,
  * });
- * export const databaseId = exampleDatabase.apply(exampleDatabase => exampleDatabase.id);
+ * export const databaseId = example.apply(example => example.id);
  * ```
  */
 export function getDatabase(args: GetDatabaseArgs, opts?: pulumi.InvokeOptions): Promise<GetDatabaseResult> {
@@ -133,19 +137,23 @@ export interface GetDatabaseResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleDatabase = azure.mssql.getDatabaseOutput({
+ * const example = azure.mssql.getDatabaseOutput({
  *     name: "example-mssql-db",
  *     serverId: exampleServer.id,
  * });
- * export const databaseId = exampleDatabase.apply(exampleDatabase => exampleDatabase.id);
+ * export const databaseId = example.apply(example => example.id);
  * ```
  */
 export function getDatabaseOutput(args: GetDatabaseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDatabaseResult> {

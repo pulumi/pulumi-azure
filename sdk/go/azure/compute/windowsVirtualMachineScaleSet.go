@@ -40,15 +40,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -57,7 +59,8 @@ import (
 //				return err
 //			}
 //			internal, err := network.NewSubnet(ctx, "internal", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -66,9 +69,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "exampleWindowsVirtualMachineScaleSet", &compute.WindowsVirtualMachineScaleSetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				Location:           exampleResourceGroup.Location,
+//			_, err = compute.NewWindowsVirtualMachineScaleSet(ctx, "example", &compute.WindowsVirtualMachineScaleSetArgs{
+//				Name:               pulumi.String("example-vmss"),
+//				ResourceGroupName:  example.Name,
+//				Location:           example.Location,
 //				Sku:                pulumi.String("Standard_F2"),
 //				Instances:          pulumi.Int(1),
 //				AdminPassword:      pulumi.String("P@55w0rd1234!"),

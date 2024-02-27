@@ -19,20 +19,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.keyvault.getKeyVault({
  *     name: "mykeyvault",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleService = new azure.apimanagement.Service("exampleService", {
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Developer_1",
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
- *     keyVaultId: exampleKeyVault.then(exampleKeyVault => exampleKeyVault.id),
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "example-certificate",
+ *     keyVaultId: example.then(example => example.id),
  *     certificatePolicy: {
  *         issuerParameters: {
  *             name: "Self",
@@ -74,7 +79,7 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleCustomDomain = new azure.apimanagement.CustomDomain("exampleCustomDomain", {
+ * const exampleCustomDomain = new azure.apimanagement.CustomDomain("example", {
  *     apiManagementId: exampleService.id,
  *     gateways: [{
  *         hostName: "api.example.com",

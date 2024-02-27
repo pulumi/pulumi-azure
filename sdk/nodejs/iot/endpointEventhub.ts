@@ -15,29 +15,36 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("exampleEventHubNamespace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleEventHubNamespace = new azure.eventhub.EventHubNamespace("example", {
+ *     name: "exampleEventHubNamespace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Basic",
  * });
- * const exampleEventHub = new azure.eventhub.EventHub("exampleEventHub", {
+ * const exampleEventHub = new azure.eventhub.EventHub("example", {
+ *     name: "exampleEventHub",
  *     namespaceName: exampleEventHubNamespace.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     partitionCount: 2,
  *     messageRetention: 1,
  * });
- * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("exampleAuthorizationRule", {
+ * const exampleAuthorizationRule = new azure.eventhub.AuthorizationRule("example", {
+ *     name: "exampleRule",
  *     namespaceName: exampleEventHubNamespace.name,
  *     eventhubName: exampleEventHub.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     listen: false,
  *     send: true,
  *     manage: false,
  * });
- * const exampleIoTHub = new azure.iot.IoTHub("exampleIoTHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleIoTHub = new azure.iot.IoTHub("example", {
+ *     name: "exampleIothub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "B1",
  *         capacity: 1,
@@ -46,9 +53,10 @@ import * as utilities from "../utilities";
  *         purpose: "example",
  *     },
  * });
- * const exampleEndpointEventhub = new azure.iot.EndpointEventhub("exampleEndpointEventhub", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEndpointEventhub = new azure.iot.EndpointEventhub("example", {
+ *     resourceGroupName: example.name,
  *     iothubId: exampleIoTHub.id,
+ *     name: "example",
  *     connectionString: exampleAuthorizationRule.primaryConnectionString,
  * });
  * ```

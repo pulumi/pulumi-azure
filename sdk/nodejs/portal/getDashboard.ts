@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
- * export const id = data.azurerm_dashboard.example.id;
+ * export const id = exampleAzurermDashboard.id;
  * ```
  */
 export function getDashboard(args: GetDashboardArgs, opts?: pulumi.InvokeOptions): Promise<GetDashboardResult> {
@@ -90,7 +90,7 @@ export interface GetDashboardResult {
  *     name: "existing-dashboard",
  *     resourceGroupName: "dashboard-rg",
  * });
- * export const id = data.azurerm_dashboard.example.id;
+ * export const id = exampleAzurermDashboard.id;
  * ```
  */
 export function getDashboardOutput(args: GetDashboardOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDashboardResult> {

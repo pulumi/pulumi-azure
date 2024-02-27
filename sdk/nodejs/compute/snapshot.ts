@@ -15,17 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "snapshot-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
+ *     name: "managed-disk",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccountType: "Standard_LRS",
  *     createOption: "Empty",
  *     diskSizeGb: 10,
  * });
- * const exampleSnapshot = new azure.compute.Snapshot("exampleSnapshot", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSnapshot = new azure.compute.Snapshot("example", {
+ *     name: "snapshot",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     createOption: "Copy",
  *     sourceUri: exampleManagedDisk.id,
  * });

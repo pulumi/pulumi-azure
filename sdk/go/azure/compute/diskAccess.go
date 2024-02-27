@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := compute.NewDiskAccess(ctx, "example", &compute.DiskAccessArgs{
-//				Location:          pulumi.String("West Europe"),
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example"),
+//				Location:          pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err

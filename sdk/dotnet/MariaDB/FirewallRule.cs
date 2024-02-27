@@ -25,10 +25,11 @@ namespace Pulumi.Azure.MariaDB
     /// {
     ///     var example = new Azure.MariaDB.FirewallRule("example", new()
     ///     {
-    ///         EndIpAddress = "40.112.8.12",
+    ///         Name = "test-rule",
     ///         ResourceGroupName = "test-rg",
     ///         ServerName = "test-server",
     ///         StartIpAddress = "40.112.8.12",
+    ///         EndIpAddress = "40.112.8.12",
     ///     });
     /// 
     /// });
@@ -45,10 +46,11 @@ namespace Pulumi.Azure.MariaDB
     /// {
     ///     var example = new Azure.MariaDB.FirewallRule("example", new()
     ///     {
-    ///         EndIpAddress = "40.112.255.255",
+    ///         Name = "test-rule",
     ///         ResourceGroupName = "test-rg",
     ///         ServerName = "test-server",
     ///         StartIpAddress = "40.112.0.0",
+    ///         EndIpAddress = "40.112.255.255",
     ///     });
     /// 
     /// });

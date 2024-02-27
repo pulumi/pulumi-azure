@@ -15,16 +15,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleLB = azure.lb.getLB({
+ * const example = azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleBackendAddressPool = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
+ * const exampleGetBackendAddressPool = example.then(example => azure.lb.getBackendAddressPool({
  *     name: "first",
- *     loadbalancerId: exampleLB.id,
+ *     loadbalancerId: example.id,
  * }));
- * export const backendAddressPoolId = exampleBackendAddressPool.then(exampleBackendAddressPool => exampleBackendAddressPool.id);
- * export const backendIpConfigurationIds = data.azurerm_lb_backend_address_pool.beap.backend_ip_configurations.map(__item => __item.id);
+ * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
+ * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
  * ```
  */
 export function getBackendAddressPool(args: GetBackendAddressPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetBackendAddressPoolResult> {
@@ -93,16 +93,16 @@ export interface GetBackendAddressPoolResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleLB = azure.lb.getLB({
+ * const example = azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleBackendAddressPool = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
+ * const exampleGetBackendAddressPool = example.then(example => azure.lb.getBackendAddressPool({
  *     name: "first",
- *     loadbalancerId: exampleLB.id,
+ *     loadbalancerId: example.id,
  * }));
- * export const backendAddressPoolId = exampleBackendAddressPool.then(exampleBackendAddressPool => exampleBackendAddressPool.id);
- * export const backendIpConfigurationIds = data.azurerm_lb_backend_address_pool.beap.backend_ip_configurations.map(__item => __item.id);
+ * export const backendAddressPoolId = exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id);
+ * export const backendIpConfigurationIds = beap.backendIpConfigurations.map(__item => __item.id);
  * ```
  */
 export function getBackendAddressPoolOutput(args: GetBackendAddressPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBackendAddressPoolResult> {

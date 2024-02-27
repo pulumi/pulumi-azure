@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "KustoRG",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "kustocluster",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Standard_D13_v2",
@@ -40,18 +42,20 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "KustoDatabase",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = exampleCluster.Name,
     ///         HotCachePeriod = "P7D",
     ///         SoftDeletePeriod = "P31D",
     ///     });
     /// 
-    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new()
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "KustoPrincipalAssignment",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         DatabaseName = exampleDatabase.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),

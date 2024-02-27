@@ -20,31 +20,33 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
+    ///         Name = "example-law",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         CustomerManagedKeyEnabled = false,
     ///     });
     /// 
-    ///     var exampleAlertRuleAnomaly = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
+    ///     var example = Azure.Sentinel.GetAlertRuleAnomaly.Invoke(new()
     ///     {
     ///         LogAnalyticsWorkspaceId = exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
     ///         DisplayName = "Potential data staging",
     ///     });
     /// 
-    ///     var exampleAlertRuleAnomalyBuiltIn = new Azure.Sentinel.AlertRuleAnomalyBuiltIn("exampleAlertRuleAnomalyBuiltIn", new()
+    ///     var exampleAlertRuleAnomalyBuiltIn = new Azure.Sentinel.AlertRuleAnomalyBuiltIn("example", new()
     ///     {
     ///         DisplayName = "Potential data staging",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,

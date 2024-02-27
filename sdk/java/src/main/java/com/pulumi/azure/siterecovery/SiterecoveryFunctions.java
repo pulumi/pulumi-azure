@@ -206,9 +206,9 @@ public final class SiterecoveryFunctions {
      *     public static void stack(Context ctx) {
      *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
-     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .build());
      * 
      *     }
@@ -246,9 +246,9 @@ public final class SiterecoveryFunctions {
      *     public static void stack(Context ctx) {
      *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
-     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .build());
      * 
      *     }
@@ -286,9 +286,9 @@ public final class SiterecoveryFunctions {
      *     public static void stack(Context ctx) {
      *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
-     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .build());
      * 
      *     }
@@ -326,9 +326,9 @@ public final class SiterecoveryFunctions {
      *     public static void stack(Context ctx) {
      *         final var container = SiterecoveryFunctions.getProtectionContainer(GetProtectionContainerArgs.builder()
      *             .name(&#34;primary-container&#34;)
-     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .recoveryVaultName(&#34;tfex-recovery_vault&#34;)
      *             .resourceGroupName(&#34;tfex-resource_group&#34;)
+     *             .recoveryFabricName(&#34;primary-fabric&#34;)
      *             .build());
      * 
      *     }

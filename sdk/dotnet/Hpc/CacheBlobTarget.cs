@@ -25,13 +25,15 @@ namespace Pulumi.Azure.Hpc
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "examplevn",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -40,8 +42,9 @@ namespace Pulumi.Azure.Hpc
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
+    ///         Name = "examplesubnet",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
@@ -50,8 +53,9 @@ namespace Pulumi.Azure.Hpc
     ///         },
     ///     });
     /// 
-    ///     var exampleCache = new Azure.Hpc.Cache("exampleCache", new()
+    ///     var exampleCache = new Azure.Hpc.Cache("example", new()
     ///     {
+    ///         Name = "examplehpccache",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         CacheSizeInGb = 3072,
@@ -59,40 +63,43 @@ namespace Pulumi.Azure.Hpc
     ///         SkuName = "Standard_2G",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "examplestorgaccount",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "examplestoragecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "HPC Cache Resource Provider",
     ///     });
     /// 
-    ///     var exampleStorageAccountContrib = new Azure.Authorization.Assignment("exampleStorageAccountContrib", new()
+    ///     var exampleStorageAccountContrib = new Azure.Authorization.Assignment("example_storage_account_contrib", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Account Contributor",
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleStorageBlobDataContrib = new Azure.Authorization.Assignment("exampleStorageBlobDataContrib", new()
+    ///     var exampleStorageBlobDataContrib = new Azure.Authorization.Assignment("example_storage_blob_data_contrib", new()
     ///     {
     ///         Scope = exampleAccount.Id,
     ///         RoleDefinitionName = "Storage Blob Data Contributor",
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleCacheBlobTarget = new Azure.Hpc.CacheBlobTarget("exampleCacheBlobTarget", new()
+    ///     var exampleCacheBlobTarget = new Azure.Hpc.CacheBlobTarget("example", new()
     ///     {
+    ///         Name = "examplehpccblobtarget",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         CacheName = exampleCache.Name,
     ///         StorageContainerId = exampleContainer.ResourceManagerId,

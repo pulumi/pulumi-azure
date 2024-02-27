@@ -61,41 +61,47 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getSubscription();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-PEASGAsso&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplevnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.5.0.0/16&#34;)
  *             .build());
  * 
  *         var service = new Subnet(&#34;service&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplenetservice&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.5.1.0/24&#34;)
  *             .enforcePrivateLinkServiceNetworkPolicies(true)
  *             .build());
  * 
  *         var endpoint = new Subnet(&#34;endpoint&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplenetendpoint&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.5.2.0/24&#34;)
  *             .enforcePrivateLinkEndpointNetworkPolicies(true)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;examplepip&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;examplelb&#34;)
  *             .sku(&#34;Standard&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(examplePublicIp.name())
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -103,8 +109,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinkService = new LinkService(&#34;exampleLinkService&#34;, LinkServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplePLS&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .autoApprovalSubscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
  *             .visibilitySubscriptionIds(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.subscriptionId()))
  *             .natIpConfigurations(LinkServiceNatIpConfigurationArgs.builder()
@@ -116,8 +123,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEndpoint = new Endpoint(&#34;exampleEndpoint&#34;, EndpointArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-privatelink&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .subnetId(endpoint.id())
  *             .privateServiceConnection(EndpointPrivateServiceConnectionArgs.builder()
  *                 .name(exampleLinkService.name())
@@ -127,8 +135,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleApplicationSecurityGroup = new ApplicationSecurityGroup(&#34;exampleApplicationSecurityGroup&#34;, ApplicationSecurityGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleApplicationSecurityGroupAssociation = new ApplicationSecurityGroupAssociation(&#34;exampleApplicationSecurityGroupAssociation&#34;, ApplicationSecurityGroupAssociationArgs.builder()        

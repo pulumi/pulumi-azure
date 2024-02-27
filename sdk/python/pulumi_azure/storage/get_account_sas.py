@@ -163,8 +163,11 @@ def get_account_sas(connection_string: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_account = azure.storage.Account("exampleAccount",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="resourceGroupName",
+        location="West Europe")
+    example_account = azure.storage.Account("example",
+        name="storageaccountname",
         resource_group_name=example_resource_group.name,
         location=example_resource_group.location,
         account_tier="Standard",
@@ -172,7 +175,7 @@ def get_account_sas(connection_string: Optional[str] = None,
         tags={
             "environment": "staging",
         })
-    example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
+    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
         resource_types=azure.storage.GetAccountSASResourceTypesArgs(
@@ -200,7 +203,7 @@ def get_account_sas(connection_string: Optional[str] = None,
             tag=False,
             filter=False,
         ))
-    pulumi.export("sasUrlQueryString", example_account_sas.sas)
+    pulumi.export("sasUrlQueryString", example.sas)
     ```
 
 
@@ -268,8 +271,11 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
     import pulumi
     import pulumi_azure as azure
 
-    example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-    example_account = azure.storage.Account("exampleAccount",
+    example_resource_group = azure.core.ResourceGroup("example",
+        name="resourceGroupName",
+        location="West Europe")
+    example_account = azure.storage.Account("example",
+        name="storageaccountname",
         resource_group_name=example_resource_group.name,
         location=example_resource_group.location,
         account_tier="Standard",
@@ -277,7 +283,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
         tags={
             "environment": "staging",
         })
-    example_account_sas = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
+    example = azure.storage.get_account_sas_output(connection_string=example_account.primary_connection_string,
         https_only=True,
         signed_version="2017-07-29",
         resource_types=azure.storage.GetAccountSASResourceTypesArgs(
@@ -305,7 +311,7 @@ def get_account_sas_output(connection_string: Optional[pulumi.Input[str]] = None
             tag=False,
             filter=False,
         ))
-    pulumi.export("sasUrlQueryString", example_account_sas.sas)
+    pulumi.export("sasUrlQueryString", example.sas)
     ```
 
 

@@ -126,11 +126,11 @@ def get_share(account_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_account = azure.datashare.get_account(name="example-account",
+    example = azure.datashare.get_account(name="example-account",
         resource_group_name="example-resource-group")
-    example_share = azure.datashare.get_share(name="existing",
-        account_id=example_account.id)
-    pulumi.export("id", example_share.id)
+    example_get_share = azure.datashare.get_share(name="existing",
+        account_id=example.id)
+    pulumi.export("id", example_get_share.id)
     ```
 
 
@@ -166,11 +166,11 @@ def get_share_output(account_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_account = azure.datashare.get_account(name="example-account",
+    example = azure.datashare.get_account(name="example-account",
         resource_group_name="example-resource-group")
-    example_share = azure.datashare.get_share(name="existing",
-        account_id=example_account.id)
-    pulumi.export("id", example_share.id)
+    example_get_share = azure.datashare.get_share(name="existing",
+        account_id=example.id)
+    pulumi.export("id", example_get_share.id)
     ```
 
 

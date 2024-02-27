@@ -29,21 +29,24 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tf-test"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("tf-test-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appinsights.NewAnalyticsItem(ctx, "exampleAnalyticsItem", &appinsights.AnalyticsItemArgs{
+//			_, err = appinsights.NewAnalyticsItem(ctx, "example", &appinsights.AnalyticsItemArgs{
+//				Name:                  pulumi.String("testquery"),
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				Content:               pulumi.String("requests //simple example query"),
 //				Scope:                 pulumi.String("shared"),

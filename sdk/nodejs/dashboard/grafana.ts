@@ -15,9 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleGrafana = new azure.dashboard.Grafana("exampleGrafana", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleGrafana = new azure.dashboard.Grafana("example", {
+ *     name: "example-dg",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     apiKeyEnabled: true,
  *     deterministicOutboundIpEnabled: true,

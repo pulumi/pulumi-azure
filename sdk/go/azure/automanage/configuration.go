@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-automanage"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automanage.NewConfiguration(ctx, "exampleConfiguration", &automanage.ConfigurationArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = automanage.NewConfiguration(ctx, "example", &automanage.ConfigurationArgs{
+//				Name:              pulumi.String("example-acmp"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Antimalware: &automanage.ConfigurationAntimalwareArgs{
 //					Exclusions: &automanage.ConfigurationAntimalwareExclusionsArgs{
 //						Extensions: pulumi.String("exe;dll"),

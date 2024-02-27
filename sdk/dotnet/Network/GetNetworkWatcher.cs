@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkWatcher.Invoke(new()
         ///     {
-        ///         Name = azurerm_network_watcher.Example.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         Name = exampleAzurermNetworkWatcher.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkWatcher.Invoke(new()
         ///     {
-        ///         Name = azurerm_network_watcher.Example.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         Name = exampleAzurermNetworkWatcher.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

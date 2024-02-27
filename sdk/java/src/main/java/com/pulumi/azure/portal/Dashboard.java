@@ -54,10 +54,12 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;mygroup&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var my_board = new Dashboard(&#34;my-board&#34;, DashboardArgs.builder()        
+ *             .name(&#34;my-cool-dashboard&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .tags(Map.of(&#34;source&#34;, &#34;managed&#34;))

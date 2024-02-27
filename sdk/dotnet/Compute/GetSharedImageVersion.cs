@@ -28,9 +28,9 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetSharedImageVersion.Invoke(new()
         ///     {
-        ///         GalleryName = "my-image-gallery",
-        ///         ImageName = "my-image",
         ///         Name = "1.0.0",
+        ///         ImageName = "my-image",
+        ///         GalleryName = "my-image-gallery",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
@@ -59,9 +59,9 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetSharedImageVersion.Invoke(new()
         ///     {
-        ///         GalleryName = "my-image-gallery",
-        ///         ImageName = "my-image",
         ///         Name = "1.0.0",
+        ///         ImageName = "my-image",
+        ///         GalleryName = "my-image-gallery",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 

@@ -13,12 +13,78 @@ namespace Pulumi.Azure.Core
     {
         /// <summary>
         /// Use this data source to access information about an existing Subscription Template Deployment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetSubscriptionTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSubscriptionTemplateDeploymentResult =&gt; getSubscriptionTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = NotImplemented("jsondecode(data.azurerm_subscription_template_deployment.example.output_content)").ExampleOutput.Value,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Task<GetSubscriptionTemplateDeploymentResult> InvokeAsync(GetSubscriptionTemplateDeploymentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentArgs(), options.WithDefaults());
 
         /// <summary>
         /// Use this data source to access information about an existing Subscription Template Deployment.
+        /// 
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azure = Pulumi.Azure;
+        /// 
+        /// 	
+        /// object NotImplemented(string errorMessage) 
+        /// {
+        ///     throw new System.NotImplementedException(errorMessage);
+        /// }
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = Azure.Core.GetSubscriptionTemplateDeployment.Invoke(new()
+        ///     {
+        ///         Name = "existing",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["id"] = example.Apply(getSubscriptionTemplateDeploymentResult =&gt; getSubscriptionTemplateDeploymentResult.Id),
+        ///         ["exampleOutput"] = NotImplemented("jsondecode(data.azurerm_subscription_template_deployment.example.output_content)").ExampleOutput.Value,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
         /// </summary>
         public static Output<GetSubscriptionTemplateDeploymentResult> Invoke(GetSubscriptionTemplateDeploymentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubscriptionTemplateDeploymentResult>("azure:core/getSubscriptionTemplateDeployment:getSubscriptionTemplateDeployment", args ?? new GetSubscriptionTemplateDeploymentInvokeArgs(), options.WithDefaults());

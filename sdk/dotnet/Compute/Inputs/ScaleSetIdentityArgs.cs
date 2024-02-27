@@ -28,13 +28,14 @@ namespace Pulumi.Azure.Compute.Inputs
         /// {
         ///     var example = new Azure.Compute.ScaleSet("example", new()
         ///     {
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         Location = azurerm_resource_group.Example.Location,
+        ///         Name = "vm-scaleset",
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         Location = exampleAzurermResourceGroup.Location,
         ///         Sku = new Azure.Compute.Inputs.ScaleSetSkuArgs
         ///         {
-        ///             Name = @var.Vm_sku,
+        ///             Name = vmSku,
         ///             Tier = "Standard",
-        ///             Capacity = @var.Instance_count,
+        ///             Capacity = instanceCount,
         ///         },
         ///         Identity = new Azure.Compute.Inputs.ScaleSetIdentityArgs
         ///         {
@@ -53,7 +54,6 @@ namespace Pulumi.Azure.Compute.Inputs
         ///         },
         ///     });
         /// 
-        ///     // ...
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
         ///         ["principalId"] = example.Identity.Apply(identity =&gt; identity.PrincipalId),

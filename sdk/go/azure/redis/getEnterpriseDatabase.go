@@ -29,8 +29,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := redis.LookupEnterpriseDatabase(ctx, &redis.LookupEnterpriseDatabaseArgs{
 //				Name:              "default",
-//				ResourceGroupName: pulumi.StringRef(azurerm_resource_group.Example.Name),
-//				ClusterId:         azurerm_redis_enterprise_cluster.Example.Id,
+//				ResourceGroupName: pulumi.StringRef(exampleAzurermResourceGroup.Name),
+//				ClusterId:         exampleAzurermRedisEnterpriseCluster.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

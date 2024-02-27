@@ -175,20 +175,25 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
             ))
-        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_security_solution = azure.iot.SecuritySolution("example",
+            name="example-Iot-Security-Solution",
+            resource_group_name=example.name,
+            location=example.location,
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
-        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
+        example_security_device_group = azure.iot.SecurityDeviceGroup("example",
+            name="example-device-security-group",
             iothub_id=example_io_t_hub.id,
             allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
                 connection_to_ips_not_alloweds=["10.0.0.0/24"],
@@ -198,8 +203,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 min=0,
                 max=30,
                 duration="PT5M",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+            )])
         ```
 
         ## Import
@@ -232,20 +236,25 @@ class SecurityDeviceGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="example-IoTHub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
             ))
-        example_security_solution = azure.iot.SecuritySolution("exampleSecuritySolution",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_security_solution = azure.iot.SecuritySolution("example",
+            name="example-Iot-Security-Solution",
+            resource_group_name=example.name,
+            location=example.location,
             display_name="Iot Security Solution",
             iothub_ids=[example_io_t_hub.id])
-        example_security_device_group = azure.iot.SecurityDeviceGroup("exampleSecurityDeviceGroup",
+        example_security_device_group = azure.iot.SecurityDeviceGroup("example",
+            name="example-device-security-group",
             iothub_id=example_io_t_hub.id,
             allow_rule=azure.iot.SecurityDeviceGroupAllowRuleArgs(
                 connection_to_ips_not_alloweds=["10.0.0.0/24"],
@@ -255,8 +264,7 @@ class SecurityDeviceGroup(pulumi.CustomResource):
                 min=0,
                 max=30,
                 duration="PT5M",
-            )],
-            opts=pulumi.ResourceOptions(depends_on=[example_security_solution]))
+            )])
         ```
 
         ## Import

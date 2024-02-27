@@ -16,17 +16,22 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestor",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  *     identity: {
@@ -67,7 +72,8 @@ import * as utilities from "../utilities";
  *         "SetRotationPolicy",
  *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "tfex-key",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -79,13 +85,8 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         client,
- *         storage,
- *     ],
  * });
- * const exampleCustomerManagedKey = new azure.storage.CustomerManagedKey("exampleCustomerManagedKey", {
+ * const exampleCustomerManagedKey = new azure.storage.CustomerManagedKey("example", {
  *     storageAccountId: exampleAccount.id,
  *     keyVaultId: exampleKeyVault.id,
  *     keyName: exampleKey.name,

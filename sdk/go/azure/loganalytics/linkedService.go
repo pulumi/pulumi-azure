@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourcegroup-01"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("automation-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("development"),
@@ -48,17 +50,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("workspace-01"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //				RetentionInDays:   pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = loganalytics.NewLinkedService(ctx, "exampleLinkedService", &loganalytics.LinkedServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = loganalytics.NewLinkedService(ctx, "example", &loganalytics.LinkedServiceArgs{
+//				ResourceGroupName: example.Name,
 //				WorkspaceId:       exampleAnalyticsWorkspace.ID(),
 //				ReadAccessId:      exampleAccount.ID(),
 //			})

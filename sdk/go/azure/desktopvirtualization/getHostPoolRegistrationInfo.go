@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-hostpool"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "exampleHostPool", &desktopvirtualization.HostPoolArgs{
-//				Location:            exampleResourceGroup.Location,
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//			exampleHostPool, err := desktopvirtualization.NewHostPool(ctx, "example", &desktopvirtualization.HostPoolArgs{
+//				Name:                pulumi.String("example-HP"),
+//				Location:            example.Location,
+//				ResourceGroupName:   example.Name,
 //				Type:                pulumi.String("Pooled"),
 //				ValidateEnvironment: pulumi.Bool(true),
 //				LoadBalancerType:    pulumi.String("BreadthFirst"),
@@ -45,7 +47,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "examplegetHostPoolRegistrationInfo", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
+//			_, err = desktopvirtualization.NewgetHostPoolRegistrationInfo(ctx, "example", &desktopvirtualization.getHostPoolRegistrationInfoArgs{
 //				HostpoolId:     exampleHostPool.ID(),
 //				ExpirationDate: pulumi.String("2022-01-01T23:40:52Z"),
 //			})

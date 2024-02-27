@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetwork, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
+//			example, err := mobile.LookupNetwork(ctx, &mobile.LookupNetworkArgs{
 //				Name:              "example-mn",
 //				ResourceGroupName: "example-rg",
 //			}, nil)
@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = mobile.LookupNetworkSite(ctx, &mobile.LookupNetworkSiteArgs{
 //				Name:            "example-mns",
-//				MobileNetworkId: exampleNetwork.Id,
+//				MobileNetworkId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

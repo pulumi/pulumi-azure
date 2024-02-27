@@ -22,16 +22,17 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
     ///         Name = "search-api",
     ///         ResourceGroupName = "search-service",
     ///     });
     /// 
-    ///     var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("exampleAuthorizationServer", new()
+    ///     var exampleAuthorizationServer = new Azure.ApiManagement.AuthorizationServer("example", new()
     ///     {
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
-    ///         ResourceGroupName = exampleService.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
+    ///         Name = "test-server",
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ResourceGroupName = example.Apply(getServiceResult =&gt; getServiceResult.ResourceGroupName),
     ///         DisplayName = "Test Server",
     ///         AuthorizationEndpoint = "https://example.mydomain.com/client/authorize",
     ///         ClientId = "42424242-4242-4242-4242-424242424242",

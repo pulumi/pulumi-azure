@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Orbital
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("exampleSpacecraft", new()
+    ///     var exampleSpacecraft = new Azure.Orbital.Spacecraft("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-spacecraft",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "westeurope",
     ///         NoradId = "12345",
     ///         Links = new[]
@@ -55,19 +57,21 @@ namespace Pulumi.Azure.Orbital
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -93,10 +97,11 @@ namespace Pulumi.Azure.Orbital
     ///         },
     ///     });
     /// 
-    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("exampleContactProfile", new()
+    ///     var exampleContactProfile = new Azure.Orbital.ContactProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-contactprofile",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         MinimumVariableContactDuration = "PT1M",
     ///         AutoTracking = "disabled",
     ///         Links = new[]
@@ -130,8 +135,9 @@ namespace Pulumi.Azure.Orbital
     ///         NetworkConfigurationSubnetId = exampleSubnet.Id,
     ///     });
     /// 
-    ///     var exampleContact = new Azure.Orbital.Contact("exampleContact", new()
+    ///     var exampleContact = new Azure.Orbital.Contact("example", new()
     ///     {
+    ///         Name = "example-contact",
     ///         SpacecraftId = exampleSpacecraft.Id,
     ///         ReservationStartTime = "2020-07-16T20:35:00.00Z",
     ///         ReservationEndTime = "2020-07-16T20:55:00.00Z",

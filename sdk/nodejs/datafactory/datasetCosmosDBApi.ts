@@ -15,21 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = azure.cosmosdb.getAccount({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.cosmosdb.getAccount({
  *     name: "tfex-cosmosdb-account",
  *     resourceGroupName: "tfex-cosmosdb-account-rg",
  * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleLinkedServiceCosmosDb = new azure.datafactory.LinkedServiceCosmosDb("exampleLinkedServiceCosmosDb", {
+ * const exampleLinkedServiceCosmosDb = new azure.datafactory.LinkedServiceCosmosDb("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
- *     accountEndpoint: exampleAccount.then(exampleAccount => exampleAccount.endpoint),
+ *     accountEndpoint: example.then(example => example.endpoint),
  *     database: "foo",
  * });
- * const exampleDatasetCosmosDBApi = new azure.datafactory.DatasetCosmosDBApi("exampleDatasetCosmosDBApi", {
+ * const exampleDatasetCosmosDBApi = new azure.datafactory.DatasetCosmosDBApi("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     linkedServiceName: exampleLinkedServiceCosmosDb.name,
  *     collectionName: "bar",

@@ -51,27 +51,32 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSync = new Sync(&#34;exampleSync&#34;, SyncArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-ss&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSyncGroup = new SyncGroup(&#34;exampleSyncGroup&#34;, SyncGroupArgs.builder()        
+ *             .name(&#34;example-ss-group&#34;)
  *             .storageSyncId(exampleSync.id())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
+ *             .name(&#34;example-share&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .quota(50)
  *             .acls(ShareAclArgs.builder()
@@ -83,6 +88,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSyncCloudEndpoint = new SyncCloudEndpoint(&#34;exampleSyncCloudEndpoint&#34;, SyncCloudEndpointArgs.builder()        
+ *             .name(&#34;example-ss-ce&#34;)
  *             .storageSyncGroupId(exampleSyncGroup.id())
  *             .fileShareName(exampleShare.name())
  *             .storageAccountId(exampleAccount.id())

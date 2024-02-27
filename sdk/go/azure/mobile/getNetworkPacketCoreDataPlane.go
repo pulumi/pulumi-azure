@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleNetworkPacketCoreControlPlane, err := mobile.LookupNetworkPacketCoreControlPlane(ctx, &mobile.LookupNetworkPacketCoreControlPlaneArgs{
+//			example, err := mobile.LookupNetworkPacketCoreControlPlane(ctx, &mobile.LookupNetworkPacketCoreControlPlaneArgs{
 //				Name:              "example-mnpccp",
 //				ResourceGroupName: "example-rg",
 //			}, nil)
@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = mobile.LookupNetworkPacketCoreDataPlane(ctx, &mobile.LookupNetworkPacketCoreDataPlaneArgs{
 //				Name:                                  "example-mnpcdp",
-//				MobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.Id,
+//				MobileNetworkPacketCoreControlPlaneId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

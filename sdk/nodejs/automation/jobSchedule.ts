@@ -16,14 +16,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.automation.JobSchedule("example", {
+ *     resourceGroupName: "tf-rgr-automation",
  *     automationAccountName: "tf-automation-account",
+ *     scheduleName: "hour",
+ *     runbookName: "Get-VirtualMachine",
  *     parameters: {
  *         resourcegroup: "tf-rgr-vm",
  *         vmname: "TF-VM-01",
  *     },
- *     resourceGroupName: "tf-rgr-automation",
- *     runbookName: "Get-VirtualMachine",
- *     scheduleName: "hour",
  * });
  * ```
  *

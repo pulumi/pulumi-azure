@@ -15,8 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKubernetesCluster = new azure.containerservice.KubernetesCluster("exampleKubernetesCluster", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = new azure.containerservice.KubernetesCluster("example", {
+ *     name: "example",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     dnsPrefix: "acctestaksexample",
@@ -29,9 +33,9 @@ import * as utilities from "../utilities";
  *         type: "example-value",
  *     },
  * });
- * const exampleTarget = new azure.chaosstudio.Target("exampleTarget", {
+ * const exampleTarget = new azure.chaosstudio.Target("example", {
  *     location: exampleResourceGroup.location,
- *     targetResourceId: exampleKubernetesCluster.id,
+ *     targetResourceId: example.id,
  *     targetType: "example-value",
  * });
  * ```

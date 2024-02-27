@@ -15,17 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleSubscription = azure.core.getSubscription({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const example = azure.core.getSubscription({});
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {storageAccountName: exampleAccount.name});
- * const exampleSubscriptionCostManagementExport = new azure.core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "examplecontainer",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleSubscriptionCostManagementExport = new azure.core.SubscriptionCostManagementExport("example", {
+ *     name: "example",
+ *     subscriptionId: example.then(example => example.id),
  *     recurrenceType: "Monthly",
  *     recurrencePeriodStartDate: "2020-08-18T00:00:00Z",
  *     recurrencePeriodEndDate: "2020-09-18T00:00:00Z",

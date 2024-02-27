@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-gca"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-vnet"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -49,8 +51,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -59,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("example-nic"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -73,9 +77,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "exampleWindowsVirtualMachine", &compute.WindowsVirtualMachineArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleWindowsVirtualMachine, err := compute.NewWindowsVirtualMachine(ctx, "example", &compute.WindowsVirtualMachineArgs{
+//				Name:              pulumi.String("examplevm"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Size:              pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				AdminPassword:     pulumi.String("P@$$w0rd1234!"),
@@ -99,7 +104,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
+//				Name:                    pulumi.String("AzurePolicyforWindows"),
 //				VirtualMachineId:        exampleWindowsVirtualMachine.ID(),
 //				Publisher:               pulumi.String("Microsoft.GuestConfiguration"),
 //				Type:                    pulumi.String("ConfigurationforWindows"),
@@ -109,7 +115,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "exampleVirtualMachineConfigurationAssignment", &policy.VirtualMachineConfigurationAssignmentArgs{
+//			_, err = policy.NewVirtualMachineConfigurationAssignment(ctx, "example", &policy.VirtualMachineConfigurationAssignmentArgs{
+//				Name:             pulumi.String("AzureWindowsBaseline"),
 //				Location:         exampleWindowsVirtualMachine.Location,
 //				VirtualMachineId: exampleWindowsVirtualMachine.ID(),
 //				Configuration: &policy.VirtualMachineConfigurationAssignmentConfigurationArgs{

@@ -44,13 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-psqlflexibleserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12&#34;)
  *             .administratorLogin(&#34;psqladmin&#34;)
  *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
@@ -59,6 +61,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration(&#34;exampleFlexibleServerConfiguration&#34;, FlexibleServerConfigurationArgs.builder()        
+ *             .name(&#34;backslash_quote&#34;)
  *             .serverId(exampleFlexibleServer.id())
  *             .value(&#34;on&#34;)
  *             .build());
@@ -92,13 +95,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-psqlflexibleserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12&#34;)
  *             .administratorLogin(&#34;psqladmin&#34;)
  *             .administratorPassword(&#34;H@Sh1CoR3!&#34;)
@@ -107,6 +112,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFlexibleServerConfiguration = new FlexibleServerConfiguration(&#34;exampleFlexibleServerConfiguration&#34;, FlexibleServerConfigurationArgs.builder()        
+ *             .name(&#34;azure.extensions&#34;)
  *             .serverId(exampleFlexibleServer.id())
  *             .value(&#34;CUBE,CITEXT,BTREE_GIST&#34;)
  *             .build());

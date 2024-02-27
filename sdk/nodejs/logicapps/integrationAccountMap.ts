@@ -12,19 +12,26 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("exampleIntegrationAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIntegrationAccount = new azure.logicapps.IntegrationAccount("example", {
+ *     name: "example-ia",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Standard",
  * });
- * const exampleIntegrationAccountMap = new azure.logicapps.IntegrationAccountMap("exampleIntegrationAccountMap", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIntegrationAccountMap = new azure.logicapps.IntegrationAccountMap("example", {
+ *     name: "example-iamap",
+ *     resourceGroupName: example.name,
  *     integrationAccountName: exampleIntegrationAccount.name,
  *     mapType: "Xslt",
- *     content: fs.readFileSync("testdata/integration_account_map_content.xsd", "utf8"),
+ *     content: std.file({
+ *         input: "testdata/integration_account_map_content.xsd",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.appservice.getFunctionApp({
  *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -130,7 +130,7 @@ export interface GetFunctionAppResult {
  *
  * const example = azure.appservice.getFunctionApp({
  *     name: "test-azure-functions",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * ```
  */

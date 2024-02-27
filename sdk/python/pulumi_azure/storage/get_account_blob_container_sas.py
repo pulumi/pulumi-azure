@@ -190,13 +190,17 @@ def get_account_blob_container_sas(cache_control: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    rg = azure.core.ResourceGroup("rg", location="West Europe")
+    rg = azure.core.ResourceGroup("rg",
+        name="resourceGroupName",
+        location="West Europe")
     storage = azure.storage.Account("storage",
+        name="storageaccountname",
         resource_group_name=rg.name,
         location=rg.location,
         account_tier="Standard",
         account_replication_type="LRS")
     container = azure.storage.Container("container",
+        name="mycontainer",
         storage_account_name=storage.name,
         container_access_type="private")
     example = azure.storage.get_account_blob_container_sas_output(connection_string=storage.primary_connection_string,
@@ -295,13 +299,17 @@ def get_account_blob_container_sas_output(cache_control: Optional[pulumi.Input[O
     import pulumi
     import pulumi_azure as azure
 
-    rg = azure.core.ResourceGroup("rg", location="West Europe")
+    rg = azure.core.ResourceGroup("rg",
+        name="resourceGroupName",
+        location="West Europe")
     storage = azure.storage.Account("storage",
+        name="storageaccountname",
         resource_group_name=rg.name,
         location=rg.location,
         account_tier="Standard",
         account_replication_type="LRS")
     container = azure.storage.Container("container",
+        name="mycontainer",
         storage_account_name=storage.name,
         container_access_type="private")
     example = azure.storage.get_account_blob_container_sas_output(connection_string=storage.primary_connection_string,

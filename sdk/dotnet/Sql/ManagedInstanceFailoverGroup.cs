@@ -26,43 +26,39 @@ namespace Pulumi.Azure.Sql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var primary = new Azure.Sql.ManagedInstance("primary", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Primary.Name,
-    ///         Location = azurerm_resource_group.Primary.Location,
+    ///         Name = "example-primary",
+    ///         ResourceGroupName = primaryAzurermResourceGroup.Name,
+    ///         Location = primaryAzurermResourceGroup.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
-    ///         SubnetId = azurerm_subnet.Primary.Id,
+    ///         SubnetId = primaryAzurermSubnet.Id,
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
     ///         Tags = 
     ///         {
     ///             { "environment", "prod" },
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_subnet_network_security_group_association.Primary,
-    ///             azurerm_subnet_route_table_association.Primary,
     ///         },
     ///     });
     /// 
     ///     var secondary = new Azure.Sql.ManagedInstance("secondary", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Secondary.Name,
-    ///         Location = azurerm_resource_group.Secondary.Location,
+    ///         Name = "example-secondary",
+    ///         ResourceGroupName = secondaryAzurermResourceGroup.Name,
+    ///         Location = secondaryAzurermResourceGroup.Location,
     ///         AdministratorLogin = "mradministrator",
     ///         AdministratorLoginPassword = "thisIsDog11",
     ///         LicenseType = "BasePrice",
-    ///         SubnetId = azurerm_subnet.Secondary.Id,
+    ///         SubnetId = secondaryAzurermSubnet.Id,
     ///         SkuName = "GP_Gen5",
     ///         Vcores = 4,
     ///         StorageSizeInGb = 32,
@@ -70,18 +66,12 @@ namespace Pulumi.Azure.Sql
     ///         {
     ///             { "environment", "prod" },
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_subnet_network_security_group_association.Secondary,
-    ///             azurerm_subnet_route_table_association.Secondary,
-    ///         },
     ///     });
     /// 
-    ///     var exampleManagedInstanceFailoverGroup = new Azure.Sql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup", new()
+    ///     var exampleManagedInstanceFailoverGroup = new Azure.Sql.ManagedInstanceFailoverGroup("example", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resource_group.Primary.Name,
+    ///         Name = "example-failover-group",
+    ///         ResourceGroupName = primaryAzurermResourceGroup.Name,
     ///         Location = primary.Location,
     ///         ManagedInstanceName = primary.Name,
     ///         PartnerManagedInstanceId = secondary.Id,

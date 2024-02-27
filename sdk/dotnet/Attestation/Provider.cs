@@ -16,23 +16,28 @@ namespace Pulumi.Azure.Attestation
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleProvider = new Azure.Attestation.Provider("exampleProvider", new()
+    ///     var exampleProvider = new Azure.Attestation.Provider("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         PolicySigningCertificateData = File.ReadAllText("./example/cert.pem"),
+    ///         Name = "exampleprovider",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         PolicySigningCertificateData = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "./example/cert.pem",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

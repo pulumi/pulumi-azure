@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.core.SubscriptionTemplateDeployment("example", {
+ *     name: "example-deployment",
  *     location: "West Europe",
  *     templateContent: ` {
  *    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
@@ -30,7 +31,6 @@ import * as utilities from "../utilities";
  *      }
  *    ]
  *  }
- *  
  * `,
  * });
  * ```

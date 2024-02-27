@@ -24,9 +24,9 @@ namespace Pulumi.Azure.Marketplace
     /// {
     ///     var barracuda = new Azure.Marketplace.Agreement("barracuda", new()
     ///     {
+    ///         Publisher = "barracudanetworks",
     ///         Offer = "waf",
     ///         Plan = "hourly",
-    ///         Publisher = "barracudanetworks",
     ///     });
     /// 
     /// });

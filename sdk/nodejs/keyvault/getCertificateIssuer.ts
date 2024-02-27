@@ -15,15 +15,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "mykeyvault",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificateIssuer = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateIssuer({
+ * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
  *     name: "existing",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const id = exampleCertificateIssuer.then(exampleCertificateIssuer => exampleCertificateIssuer.id);
+ * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
  * ```
  */
 export function getCertificateIssuer(args: GetCertificateIssuerArgs, opts?: pulumi.InvokeOptions): Promise<GetCertificateIssuerResult> {
@@ -85,15 +85,15 @@ export interface GetCertificateIssuerResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
+ * const example = azure.keyvault.getKeyVault({
  *     name: "mykeyvault",
  *     resourceGroupName: "some-resource-group",
  * });
- * const exampleCertificateIssuer = exampleKeyVault.then(exampleKeyVault => azure.keyvault.getCertificateIssuer({
+ * const exampleGetCertificateIssuer = example.then(example => azure.keyvault.getCertificateIssuer({
  *     name: "existing",
- *     keyVaultId: exampleKeyVault.id,
+ *     keyVaultId: example.id,
  * }));
- * export const id = exampleCertificateIssuer.then(exampleCertificateIssuer => exampleCertificateIssuer.id);
+ * export const id = exampleGetCertificateIssuer.then(exampleGetCertificateIssuer => exampleGetCertificateIssuer.id);
  * ```
  */
 export function getCertificateIssuerOutput(args: GetCertificateIssuerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCertificateIssuerResult> {

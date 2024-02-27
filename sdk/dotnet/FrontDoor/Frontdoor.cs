@@ -32,14 +32,16 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "FrontDoorExampleResourceGroup",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new()
+    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-FrontDoor",
+    ///         ResourceGroupName = example.Name,
     ///         RoutingRules = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs

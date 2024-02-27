@@ -40,10 +40,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallRule(&#34;example&#34;, FirewallRuleArgs.builder()        
- *             .endIpAddress(&#34;40.112.8.12&#34;)
+ *             .name(&#34;test-rule&#34;)
  *             .resourceGroupName(&#34;test-rg&#34;)
  *             .serverName(&#34;test-server&#34;)
  *             .startIpAddress(&#34;40.112.8.12&#34;)
+ *             .endIpAddress(&#34;40.112.8.12&#34;)
  *             .build());
  * 
  *     }
@@ -72,10 +73,11 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FirewallRule(&#34;example&#34;, FirewallRuleArgs.builder()        
- *             .endIpAddress(&#34;40.112.255.255&#34;)
+ *             .name(&#34;test-rule&#34;)
  *             .resourceGroupName(&#34;test-rg&#34;)
  *             .serverName(&#34;test-server&#34;)
  *             .startIpAddress(&#34;40.112.0.0&#34;)
+ *             .endIpAddress(&#34;40.112.255.255&#34;)
  *             .build());
  * 
  *     }

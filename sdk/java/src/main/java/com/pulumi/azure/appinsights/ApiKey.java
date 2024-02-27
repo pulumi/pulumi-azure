@@ -44,17 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tf-test&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tf-test-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var readTelemetry = new ApiKey(&#34;readTelemetry&#34;, ApiKeyArgs.builder()        
+ *             .name(&#34;tf-test-appinsights-read-telemetry-api-key&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
  *                 &#34;aggregate&#34;,
@@ -65,16 +68,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var writeAnnotations = new ApiKey(&#34;writeAnnotations&#34;, ApiKeyArgs.builder()        
+ *             .name(&#34;tf-test-appinsights-write-annotations-api-key&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .writePermissions(&#34;annotations&#34;)
  *             .build());
  * 
- *         var authenticateSdkControlChannelApiKey = new ApiKey(&#34;authenticateSdkControlChannelApiKey&#34;, ApiKeyArgs.builder()        
+ *         var authenticateSdkControlChannel = new ApiKey(&#34;authenticateSdkControlChannel&#34;, ApiKeyArgs.builder()        
+ *             .name(&#34;tf-test-appinsights-authenticate-sdk-control-channel-api-key&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(&#34;agentconfig&#34;)
  *             .build());
  * 
  *         var fullPermissions = new ApiKey(&#34;fullPermissions&#34;, ApiKeyArgs.builder()        
+ *             .name(&#34;tf-test-appinsights-full-permissions-api-key&#34;)
  *             .applicationInsightsId(exampleInsights.id())
  *             .readPermissions(            
  *                 &#34;agentconfig&#34;,
@@ -88,7 +94,7 @@ import javax.annotation.Nullable;
  * 
  *         ctx.export(&#34;readTelemetryApiKey&#34;, readTelemetry.apiKey());
  *         ctx.export(&#34;writeAnnotationsApiKey&#34;, writeAnnotations.apiKey());
- *         ctx.export(&#34;authenticateSdkControlChannel&#34;, authenticateSdkControlChannelApiKey.apiKey());
+ *         ctx.export(&#34;authenticateSdkControlChannel&#34;, authenticateSdkControlChannel.apiKey());
  *         ctx.export(&#34;fullPermissionsApiKey&#34;, fullPermissions.apiKey());
  *     }
  * }

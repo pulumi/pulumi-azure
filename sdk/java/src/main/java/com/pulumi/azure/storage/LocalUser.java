@@ -52,13 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;WestEurope&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-account&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountKind(&#34;StorageV2&#34;)
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
@@ -66,10 +68,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;example-container&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleLocalUser = new LocalUser(&#34;exampleLocalUser&#34;, LocalUserArgs.builder()        
+ *             .name(&#34;user1&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .sshKeyEnabled(true)
  *             .sshPasswordEnabled(true)
@@ -77,11 +81,11 @@ import javax.annotation.Nullable;
  *             .sshAuthorizedKeys(            
  *                 LocalUserSshAuthorizedKeyArgs.builder()
  *                     .description(&#34;key1&#34;)
- *                     .key(local.first_public_key())
+ *                     .key(firstPublicKey)
  *                     .build(),
  *                 LocalUserSshAuthorizedKeyArgs.builder()
  *                     .description(&#34;key2&#34;)
- *                     .key(local.second_public_key())
+ *                     .key(secondPublicKey)
  *                     .build())
  *             .permissionScopes(LocalUserPermissionScopeArgs.builder()
  *                 .permissions(LocalUserPermissionScopePermissionsArgs.builder()

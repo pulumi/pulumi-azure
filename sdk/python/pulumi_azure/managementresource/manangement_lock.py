@@ -188,6 +188,7 @@ class ManangementLock(pulumi.CustomResource):
 
         current = azure.core.get_subscription()
         subscription_level = azure.management.Lock("subscription-level",
+            name="subscription-level",
             scope=current.id,
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
@@ -198,8 +199,11 @@ class ManangementLock(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="locked-resource-group",
+            location="West Europe")
         resource_group_level = azure.management.Lock("resource-group-level",
+            name="resource-group-level",
             scope=example.id,
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
@@ -210,13 +214,17 @@ class ManangementLock(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="locked-resource-group",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="locked-publicip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             idle_timeout_in_minutes=30)
         public_ip = azure.management.Lock("public-ip",
+            name="resource-ip",
             scope=example_public_ip.id,
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")
@@ -257,6 +265,7 @@ class ManangementLock(pulumi.CustomResource):
 
         current = azure.core.get_subscription()
         subscription_level = azure.management.Lock("subscription-level",
+            name="subscription-level",
             scope=current.id,
             lock_level="CanNotDelete",
             notes="Items can't be deleted in this subscription!")
@@ -267,8 +276,11 @@ class ManangementLock(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="locked-resource-group",
+            location="West Europe")
         resource_group_level = azure.management.Lock("resource-group-level",
+            name="resource-group-level",
             scope=example.id,
             lock_level="ReadOnly",
             notes="This Resource Group is Read-Only")
@@ -279,13 +291,17 @@ class ManangementLock(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="locked-resource-group",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="locked-publicip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             idle_timeout_in_minutes=30)
         public_ip = azure.management.Lock("public-ip",
+            name="resource-ip",
             scope=example_public_ip.id,
             lock_level="CanNotDelete",
             notes="Locked because it's needed by a third-party")

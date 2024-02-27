@@ -31,27 +31,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("E0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "exampleSpringCloudGateway", &appplatform.SpringCloudGatewayArgs{
+//			exampleSpringCloudGateway, err := appplatform.NewSpringCloudGateway(ctx, "example", &appplatform.SpringCloudGatewayArgs{
+//				Name:                 pulumi.String("default"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudApiPortal(ctx, "exampleSpringCloudApiPortal", &appplatform.SpringCloudApiPortalArgs{
+//			_, err = appplatform.NewSpringCloudApiPortal(ctx, "example", &appplatform.SpringCloudApiPortalArgs{
+//				Name:                 pulumi.String("default"),
 //				SpringCloudServiceId: exampleSpringCloudService.ID(),
 //				GatewayIds: pulumi.StringArray{
 //					exampleSpringCloudGateway.ID(),

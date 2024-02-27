@@ -19,9 +19,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("exampleFirewallPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleFirewallPolicy = new azure.frontdoor.FirewallPolicy("example", {
+ *     name: "examplefdwafpolicy",
+ *     resourceGroupName: example.name,
  *     enabled: true,
  *     mode: "Prevention",
  *     redirectUrl: "https://www.contoso.com",

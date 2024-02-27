@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = powerbi.NewEmbedded(ctx, "exampleEmbedded", &powerbi.EmbeddedArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = powerbi.NewEmbedded(ctx, "example", &powerbi.EmbeddedArgs{
+//				Name:              pulumi.String("examplepowerbi"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("A1"),
 //				Administrators: pulumi.StringArray{
 //					pulumi.String("azsdktest@microsoft.com"),

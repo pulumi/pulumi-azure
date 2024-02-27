@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//			exampleTrafficManagerProfile, err := network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
+//				Name:                 pulumi.String("example-profile"),
+//				ResourceGroupName:    example.Name,
 //				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("example-profile"),
@@ -57,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewTrafficManagerExternalEndpoint(ctx, "exampleTrafficManagerExternalEndpoint", &network.TrafficManagerExternalEndpointArgs{
+//			_, err = network.NewTrafficManagerExternalEndpoint(ctx, "example", &network.TrafficManagerExternalEndpointArgs{
+//				Name:               pulumi.String("example-endpoint"),
 //				ProfileId:          exampleTrafficManagerProfile.ID(),
 //				AlwaysServeEnabled: pulumi.Bool(true),
 //				Weight:             pulumi.Int(100),

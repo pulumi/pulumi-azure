@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSharedImage({
- *     galleryName: "my-image-gallery",
  *     name: "my-image",
+ *     galleryName: "my-image-gallery",
  *     resourceGroupName: "example-resources",
  * });
  * ```
@@ -120,8 +120,8 @@ export interface GetSharedImageResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.compute.getSharedImage({
- *     galleryName: "my-image-gallery",
  *     name: "my-image",
+ *     galleryName: "my-image-gallery",
  *     resourceGroupName: "example-resources",
  * });
  * ```

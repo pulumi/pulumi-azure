@@ -15,23 +15,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const existingImage = azure.compute.getImage({
+ * const existing = azure.compute.getImage({
  *     name: "search-api",
  *     resourceGroupName: "packerimages",
  * });
- * const existingSharedImage = azure.compute.getSharedImage({
+ * const existingGetSharedImage = azure.compute.getSharedImage({
  *     name: "existing-image",
  *     galleryName: "existing_gallery",
  *     resourceGroupName: "existing-resources",
  * });
  * const example = new azure.compute.SharedImageVersion("example", {
- *     galleryName: existingSharedImage.then(existingSharedImage => existingSharedImage.galleryName),
- *     imageName: existingSharedImage.then(existingSharedImage => existingSharedImage.name),
- *     resourceGroupName: existingSharedImage.then(existingSharedImage => existingSharedImage.resourceGroupName),
- *     location: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
- *     managedImageId: existingImage.then(existingImage => existingImage.id),
+ *     name: "0.0.1",
+ *     galleryName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.galleryName),
+ *     imageName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.name),
+ *     resourceGroupName: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.resourceGroupName),
+ *     location: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.location),
+ *     managedImageId: existing.then(existing => existing.id),
  *     targetRegions: [{
- *         name: existingSharedImage.then(existingSharedImage => existingSharedImage.location),
+ *         name: existingGetSharedImage.then(existingGetSharedImage => existingGetSharedImage.location),
  *         regionalReplicaCount: 5,
  *         storageAccountType: "Standard_LRS",
  *     }],

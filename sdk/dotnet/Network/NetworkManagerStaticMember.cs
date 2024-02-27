@@ -22,17 +22,19 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("exampleNetworkManager", new()
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
     ///         {
     ///             SubscriptionIds = new[]
@@ -48,24 +50,27 @@ namespace Pulumi.Azure.Network
     ///         Description = "example network manager",
     ///     });
     /// 
-    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup", new()
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("example", new()
     ///     {
+    ///         Name = "example-group",
     ///         NetworkManagerId = exampleNetworkManager.Id,
     ///         Description = "example network group",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.1.0/24",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleNetworkManagerStaticMember = new Azure.Network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember", new()
+    ///     var exampleNetworkManagerStaticMember = new Azure.Network.NetworkManagerStaticMember("example", new()
     ///     {
+    ///         Name = "example-nmsm",
     ///         NetworkGroupId = exampleNetworkManagerNetworkGroup.Id,
     ///         TargetVirtualNetworkId = exampleVirtualNetwork.Id,
     ///     });

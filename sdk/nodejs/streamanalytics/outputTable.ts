@@ -13,21 +13,29 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleTable = new azure.storage.Table("exampleTable", {storageAccountName: exampleAccount.name});
- * const exampleOutputTable = new azure.streamanalytics.OutputTable("exampleOutputTable", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleTable = new azure.storage.Table("example", {
+ *     name: "exampletable",
+ *     storageAccountName: exampleAccount.name,
+ * });
+ * const exampleOutputTable = new azure.streamanalytics.OutputTable("example", {
+ *     name: "output-to-storage-table",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     storageAccountName: exampleAccount.name,
  *     storageAccountKey: exampleAccount.primaryAccessKey,
  *     table: exampleTable.name,

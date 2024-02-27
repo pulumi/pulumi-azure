@@ -209,13 +209,14 @@ class RouteFilter(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.network.RouteFilter("example",
-            location="East US",
+            name="example",
             resource_group_name="example",
+            location="East US",
             rule=azure.network.RouteFilterRuleArgs(
-                access="Allow",
-                communities=["12076:52004"],
                 name="rule",
+                access="Allow",
                 rule_type="Community",
+                communities=["12076:52004"],
             ))
         ```
 
@@ -251,13 +252,14 @@ class RouteFilter(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.network.RouteFilter("example",
-            location="East US",
+            name="example",
             resource_group_name="example",
+            location="East US",
             rule=azure.network.RouteFilterRuleArgs(
-                access="Allow",
-                communities=["12076:52004"],
                 name="rule",
+                access="Allow",
                 rule_type="Community",
+                communities=["12076:52004"],
             ))
         ```
 

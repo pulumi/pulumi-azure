@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("media-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestoracc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "exampleServiceAccount", &media.ServiceAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServiceAccount, err := media.NewServiceAccount(ctx, "example", &media.ServiceAccountArgs{
+//				Name:              pulumi.String("examplemediaacc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				StorageAccounts: media.ServiceAccountStorageAccountArray{
 //					&media.ServiceAccountStorageAccountArgs{
 //						Id:        exampleAccount.ID(),
@@ -58,8 +61,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTransform, err := media.NewTransform(ctx, "exampleTransform", &media.TransformArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			exampleTransform, err := media.NewTransform(ctx, "example", &media.TransformArgs{
+//				Name:                     pulumi.String("transform1"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				Description:              pulumi.String("My transform description"),
 //				Outputs: media.TransformOutputTypeArray{
@@ -76,7 +80,8 @@ import (
 //				return err
 //			}
 //			input, err := media.NewAsset(ctx, "input", &media.AssetArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Name:                     pulumi.String("input"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				Description:              pulumi.String("Input Asset description"),
 //			})
@@ -84,15 +89,17 @@ import (
 //				return err
 //			}
 //			output, err := media.NewAsset(ctx, "output", &media.AssetArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//				Name:                     pulumi.String("output"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				Description:              pulumi.String("Output Asset description"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = media.NewJob(ctx, "exampleJob", &media.JobArgs{
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			_, err = media.NewJob(ctx, "example", &media.JobArgs{
+//				Name:                     pulumi.String("job1"),
+//				ResourceGroupName:        example.Name,
 //				MediaServicesAccountName: exampleServiceAccount.Name,
 //				TransformName:            exampleTransform.Name,
 //				Description:              pulumi.String("My Job description"),

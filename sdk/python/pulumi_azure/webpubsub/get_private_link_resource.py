@@ -77,13 +77,16 @@ def get_private_link_resource(web_pubsub_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-    test_service = azure.webpubsub.Service("testService",
+    test_resource_group = azure.core.ResourceGroup("test",
+        name="terraform-webpubsub",
+        location="east us")
+    test_service = azure.webpubsub.Service("test",
+        name="tfex-webpubsub",
         location=test_resource_group.location,
         resource_group_name=test_resource_group.name,
         sku="Standard_S1",
         capacity=1)
-    test_private_link_resource = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
+    test = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
     ```
 
 
@@ -112,13 +115,16 @@ def get_private_link_resource_output(web_pubsub_id: Optional[pulumi.Input[str]] 
     import pulumi
     import pulumi_azure as azure
 
-    test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-    test_service = azure.webpubsub.Service("testService",
+    test_resource_group = azure.core.ResourceGroup("test",
+        name="terraform-webpubsub",
+        location="east us")
+    test_service = azure.webpubsub.Service("test",
+        name="tfex-webpubsub",
         location=test_resource_group.location,
         resource_group_name=test_resource_group.name,
         sku="Standard_S1",
         capacity=1)
-    test_private_link_resource = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
+    test = azure.webpubsub.get_private_link_resource_output(web_pubsub_id=test_service.id)
     ```
 
 

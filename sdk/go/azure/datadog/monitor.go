@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-datadog"),
 //				Location: pulumi.String("West US 2"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datadog.NewMonitor(ctx, "exampleMonitor", &datadog.MonitorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = datadog.NewMonitor(ctx, "example", &datadog.MonitorArgs{
+//				Name:              pulumi.String("example-monitor"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				DatadogOrganization: &datadog.MonitorDatadogOrganizationArgs{
 //					ApiKey:         pulumi.String("XXXX"),
 //					ApplicationKey: pulumi.String("XXXX"),
@@ -92,7 +94,7 @@ import (
 //			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:            *pulumi.String(primary.Id),
 //				RoleDefinitionId: *pulumi.String(monitoringReader.RoleDefinitionId),
-//				PrincipalId:      pulumi.Any(azurerm_datadog_monitor.Example.Identity[0].Principal_id),
+//				PrincipalId:      pulumi.Any(exampleAzurermDatadogMonitor.Identity[0].PrincipalId),
 //			})
 //			if err != nil {
 //				return err

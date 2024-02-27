@@ -24,25 +24,29 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var anonymous = new Azure.DataFactory.LinkedServiceOdata("anonymous", new()
     ///     {
+    ///         Name = "anonymous",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///     });
     /// 
-    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basicAuth", new()
+    ///     var basicAuth = new Azure.DataFactory.LinkedServiceOdata("basic_auth", new()
     ///     {
+    ///         Name = "basic_auth",
     ///         DataFactoryId = exampleFactory.Id,
     ///         Url = "https://services.odata.org/v4/TripPinServiceRW/People",
     ///         BasicAuthentication = new Azure.DataFactory.Inputs.LinkedServiceOdataBasicAuthenticationArgs

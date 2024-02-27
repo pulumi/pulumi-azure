@@ -30,13 +30,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesCluster, err := containerservice.NewKubernetesCluster(ctx, "exampleKubernetesCluster", &containerservice.KubernetesClusterArgs{
+//			example, err := containerservice.NewKubernetesCluster(ctx, "example", &containerservice.KubernetesClusterArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				DnsPrefix:         pulumi.String("acctestaksexample"),
@@ -52,15 +54,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTarget, err := chaosstudio.NewTarget(ctx, "exampleTarget", &chaosstudio.TargetArgs{
+//			exampleTarget, err := chaosstudio.NewTarget(ctx, "example", &chaosstudio.TargetArgs{
 //				Location:         exampleResourceGroup.Location,
-//				TargetResourceId: exampleKubernetesCluster.ID(),
+//				TargetResourceId: example.ID(),
 //				TargetType:       pulumi.String("example-value"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = chaosstudio.NewCapability(ctx, "exampleCapability", &chaosstudio.CapabilityArgs{
+//			_, err = chaosstudio.NewCapability(ctx, "example", &chaosstudio.CapabilityArgs{
 //				CapabilityType:      pulumi.String("example-value"),
 //				ChaosStudioTargetId: exampleTarget.ID(),
 //			})

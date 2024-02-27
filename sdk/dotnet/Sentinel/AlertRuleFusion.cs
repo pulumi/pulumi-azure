@@ -22,23 +22,25 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "SecurityInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs
@@ -48,8 +50,9 @@ namespace Pulumi.Azure.Sentinel
     ///         },
     ///     });
     /// 
-    ///     var exampleAlertRuleFusion = new Azure.Sentinel.AlertRuleFusion("exampleAlertRuleFusion", new()
+    ///     var exampleAlertRuleFusion = new Azure.Sentinel.AlertRuleFusion("example", new()
     ///     {
+    ///         Name = "example-fusion-alert-rule",
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsSolution.WorkspaceResourceId,
     ///         AlertRuleTemplateGuid = "f71aba3d-28fb-450b-b192-4e76a83015c8",
     ///     });

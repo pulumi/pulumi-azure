@@ -29,7 +29,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("resourceGroup-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -39,7 +40,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("account-example"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				SkuName:           pulumi.String("Basic"),
@@ -47,7 +49,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewConnectionType(ctx, "exampleConnectionType", &automation.ConnectionTypeArgs{
+//			_, err = automation.NewConnectionType(ctx, "example", &automation.ConnectionTypeArgs{
+//				Name:                  pulumi.String("example"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				Fields: automation.ConnectionTypeFieldArray{

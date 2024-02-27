@@ -13,35 +13,43 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "my-kusto-database",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleLinkedServiceKusto = new azure.datafactory.LinkedServiceKusto("exampleLinkedServiceKusto", {
+ * const exampleLinkedServiceKusto = new azure.datafactory.LinkedServiceKusto("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     kustoEndpoint: exampleCluster.uri,
  *     kustoDatabaseName: exampleDatabase.name,
  *     useManagedIdentity: true,
  * });
- * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDatabasePrincipalAssignment = new azure.kusto.DatabasePrincipalAssignment("example", {
+ *     name: "KustoPrincipalAssignment",
+ *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     databaseName: exampleDatabase.name,
  *     tenantId: exampleFactory.identity.apply(identity => identity?.tenantId),

@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "exampleBackupVault", &dataprotection.BackupVaultArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleBackupVault, err := dataprotection.NewBackupVault(ctx, "example", &dataprotection.BackupVaultArgs{
+//				Name:              pulumi.String("example-backup-vault"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				DatastoreType:     pulumi.String("VaultStore"),
 //				Redundancy:        pulumi.String("LocallyRedundant"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "exampleBackupPolicyBlobStorage", &dataprotection.BackupPolicyBlobStorageArgs{
+//			_, err = dataprotection.NewBackupPolicyBlobStorage(ctx, "example", &dataprotection.BackupPolicyBlobStorageArgs{
+//				Name:              pulumi.String("example-backup-policy"),
 //				VaultId:           exampleBackupVault.ID(),
 //				RetentionDuration: pulumi.String("P30D"),
 //			})

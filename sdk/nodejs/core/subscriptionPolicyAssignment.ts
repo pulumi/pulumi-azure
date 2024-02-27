@@ -16,7 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getSubscription({});
- * const exampleDefinition = new azure.policy.Definition("exampleDefinition", {
+ * const example = new azure.policy.Definition("example", {
+ *     name: "only-deploy-in-westeurope",
  *     policyType: "Custom",
  *     mode: "All",
  *     displayName: "Allowed resource types",
@@ -33,8 +34,9 @@ import * as utilities from "../utilities";
  *   }
  * `,
  * });
- * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
- *     policyDefinitionId: exampleDefinition.id,
+ * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("example", {
+ *     name: "example",
+ *     policyDefinitionId: example.id,
  *     subscriptionId: current.then(current => current.id),
  * });
  * ```

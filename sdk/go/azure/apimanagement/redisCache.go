@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("pub1"),
 //				PublisherEmail:    pulumi.String("pub1@email.com"),
 //				SkuName:           pulumi.String("Consumption_0"),
@@ -46,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCache, err := redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleCache, err := redis.NewCache(ctx, "example", &redis.CacheArgs{
+//				Name:               pulumi.String("example-cache"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				Capacity:           pulumi.Int(1),
 //				Family:             pulumi.String("C"),
 //				SkuName:            pulumi.String("Basic"),
@@ -59,7 +62,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewRedisCache(ctx, "exampleRedisCache", &apimanagement.RedisCacheArgs{
+//			_, err = apimanagement.NewRedisCache(ctx, "example", &apimanagement.RedisCacheArgs{
+//				Name:             pulumi.String("example-Redis-Cache"),
 //				ApiManagementId:  exampleService.ID(),
 //				ConnectionString: exampleCache.PrimaryConnectionString,
 //				Description:      pulumi.String("Redis cache instances"),

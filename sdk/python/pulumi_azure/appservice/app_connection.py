@@ -280,10 +280,13 @@ class AppConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
@@ -292,37 +295,43 @@ class AppConnection(pulumi.CustomResource):
                 max_staleness_prefix=200,
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="/definition")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            location=example.location,
+            name="example-serviceplan",
+            resource_group_name=example.name,
             sku_name="P1v2",
             os_type="Linux")
         test = azure.appservice.FunctionApp("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            app_service_plan_id=azurerm_app_service_plan["test"]["id"],
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"])
-        example_app_connection = azure.appservice.AppConnection("exampleAppConnection",
-            function_app_id=azurerm_function_app["example"]["id"],
-            target_resource_id=azurerm_cosmosdb_account["test"]["id"],
+            name="example-function-app",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
+            app_service_plan_id=test_azurerm_app_service_plan["id"],
+            storage_account_name=test_azurerm_storage_account["name"],
+            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+        example_app_connection = azure.appservice.AppConnection("example",
+            name="example-serviceconnector",
+            function_app_id=example_azurerm_function_app["id"],
+            target_resource_id=test_azurerm_cosmosdb_account["id"],
             authentication=azure.appservice.AppConnectionAuthenticationArgs(
                 type="systemAssignedIdentity",
             ))
@@ -363,10 +372,13 @@ class AppConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="example-cosmosdb-account",
+            location=example.location,
+            resource_group_name=example.name,
             offer_type="Standard",
             kind="GlobalDocumentDB",
             consistency_policy=azure.cosmosdb.AccountConsistencyPolicyArgs(
@@ -375,37 +387,43 @@ class AppConnection(pulumi.CustomResource):
                 max_staleness_prefix=200,
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_sql_database = azure.cosmosdb.SqlDatabase("exampleSqlDatabase",
+        example_sql_database = azure.cosmosdb.SqlDatabase("example",
+            name="cosmos-sql-db",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_sql_container = azure.cosmosdb.SqlContainer("exampleSqlContainer",
+        example_sql_container = azure.cosmosdb.SqlContainer("example",
+            name="example-container",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             database_name=example_sql_database.name,
             partition_key_path="/definition")
-        example_storage_account_account = azure.storage.Account("exampleStorage/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_service_plan = azure.appservice.ServicePlan("exampleServicePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_service_plan = azure.appservice.ServicePlan("example",
+            location=example.location,
+            name="example-serviceplan",
+            resource_group_name=example.name,
             sku_name="P1v2",
             os_type="Linux")
         test = azure.appservice.FunctionApp("test",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
-            app_service_plan_id=azurerm_app_service_plan["test"]["id"],
-            storage_account_name=azurerm_storage_account["test"]["name"],
-            storage_account_access_key=azurerm_storage_account["test"]["primary_access_key"])
-        example_app_connection = azure.appservice.AppConnection("exampleAppConnection",
-            function_app_id=azurerm_function_app["example"]["id"],
-            target_resource_id=azurerm_cosmosdb_account["test"]["id"],
+            name="example-function-app",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
+            app_service_plan_id=test_azurerm_app_service_plan["id"],
+            storage_account_name=test_azurerm_storage_account["name"],
+            storage_account_access_key=test_azurerm_storage_account["primaryAccessKey"])
+        example_app_connection = azure.appservice.AppConnection("example",
+            name="example-serviceconnector",
+            function_app_id=example_azurerm_function_app["id"],
+            target_resource_id=test_azurerm_cosmosdb_account["id"],
             authentication=azure.appservice.AppConnectionAuthenticationArgs(
                 type="systemAssignedIdentity",
             ))

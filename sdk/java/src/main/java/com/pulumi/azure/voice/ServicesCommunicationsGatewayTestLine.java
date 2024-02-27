@@ -44,15 +44,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Central US&#34;)
  *             .build());
  * 
  *         var exampleServicesCommunicationsGateway = new ServicesCommunicationsGateway(&#34;exampleServicesCommunicationsGateway&#34;, ServicesCommunicationsGatewayArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vcg&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleServicesCommunicationsGatewayTestLine = new ServicesCommunicationsGatewayTestLine(&#34;exampleServicesCommunicationsGatewayTestLine&#34;, ServicesCommunicationsGatewayTestLineArgs.builder()        
+ *             .name(&#34;example-vtl&#34;)
  *             .location(&#34;West Central US&#34;)
  *             .voiceServicesCommunicationsGatewayId(exampleServicesCommunicationsGateway.id())
  *             .phoneNumber(&#34;123456789&#34;)

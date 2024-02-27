@@ -44,23 +44,27 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var targetResourceGroup = new ResourceGroup(&#34;targetResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var target = new ResourceGroup(&#34;target&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .location(targetResourceGroup.location())
- *             .resourceGroupName(targetResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(target.location())
+ *             .resourceGroupName(target.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var targetVirtualNetwork = new VirtualNetwork(&#34;targetVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(targetResourceGroup.name())
+ *             .name(&#34;network&#34;)
+ *             .resourceGroupName(target.name())
  *             .addressSpaces(&#34;192.168.2.0/24&#34;)
- *             .location(targetResourceGroup.location())
+ *             .location(target.location())
  *             .build());
  * 
  *         var recovery_mapping = new HypervNetworkMapping(&#34;recovery-mapping&#34;, HypervNetworkMappingArgs.builder()        
+ *             .name(&#34;recovery-network-mapping&#34;)
  *             .recoveryVaultId(vault.id())
  *             .sourceSystemCenterVirtualMachineManagerName(&#34;my-vmm-server&#34;)
  *             .sourceNetworkName(&#34;my-vmm-network&#34;)

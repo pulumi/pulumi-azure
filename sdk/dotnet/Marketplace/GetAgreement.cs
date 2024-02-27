@@ -35,7 +35,7 @@ namespace Pulumi.Azure.Marketplace
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["azurermMarketplaceAgreementId"] = data.Azurerm_marketplace_agreement.Id,
+        ///         ["azurermMarketplaceAgreementId"] = id,
         ///     };
         /// });
         /// ```
@@ -69,7 +69,7 @@ namespace Pulumi.Azure.Marketplace
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["azurermMarketplaceAgreementId"] = data.Azurerm_marketplace_agreement.Id,
+        ///         ["azurermMarketplaceAgreementId"] = id,
         ///     };
         /// });
         /// ```

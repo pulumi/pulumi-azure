@@ -301,11 +301,12 @@ class OutputPowerbi(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("exampleOutputPowerbi",
-            stream_analytics_job_id=example_job.id,
+        example = azure.core.get_resource_group(name="example-resources")
+        example_get_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example.name)
+        example_output_powerbi = azure.streamanalytics.OutputPowerbi("example",
+            name="output-to-powerbi",
+            stream_analytics_job_id=example_get_job.id,
             dataset="example-dataset",
             table="example-table",
             group_id="00000000-0000-0000-0000-000000000000",
@@ -346,11 +347,12 @@ class OutputPowerbi(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_output_powerbi = azure.streamanalytics.OutputPowerbi("exampleOutputPowerbi",
-            stream_analytics_job_id=example_job.id,
+        example = azure.core.get_resource_group(name="example-resources")
+        example_get_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example.name)
+        example_output_powerbi = azure.streamanalytics.OutputPowerbi("example",
+            name="output-to-powerbi",
+            stream_analytics_job_id=example_get_job.id,
             dataset="example-dataset",
             table="example-table",
             group_id="00000000-0000-0000-0000-000000000000",

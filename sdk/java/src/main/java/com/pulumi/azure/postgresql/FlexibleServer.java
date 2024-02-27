@@ -47,7 +47,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.privatedns.ZoneVirtualNetworkLinkArgs;
  * import com.pulumi.azure.postgresql.FlexibleServer;
  * import com.pulumi.azure.postgresql.FlexibleServerArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -61,18 +60,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-sn&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .serviceEndpoints(&#34;Microsoft.Storage&#34;)
@@ -86,20 +88,21 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example.postgres.database.azure.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
+ *             .name(&#34;exampleVnetZone.com&#34;)
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleSubnet)
- *                 .build());
+ *             .resourceGroupName(example.name())
+ *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-psqlflexibleserver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .version(&#34;12&#34;)
  *             .delegatedSubnetId(exampleSubnet.id())
  *             .privateDnsZoneId(exampleZone.id())
@@ -108,9 +111,7 @@ import javax.annotation.Nullable;
  *             .zone(&#34;1&#34;)
  *             .storageMb(32768)
  *             .skuName(&#34;GP_Standard_D4s_v3&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleZoneVirtualNetworkLink)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

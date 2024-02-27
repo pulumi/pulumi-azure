@@ -24,26 +24,30 @@ namespace Pulumi.Azure.AppPlatform
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("exampleSpringCloudService", new()
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "E0",
     ///     });
     /// 
-    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("exampleSpringCloudApp", new()
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleSpringCloudService.ResourceGroupName,
     ///         ServiceName = exampleSpringCloudService.Name,
     ///     });
     /// 
-    ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("exampleSpringCloudBuildDeployment", new()
+    ///     var exampleSpringCloudBuildDeployment = new Azure.AppPlatform.SpringCloudBuildDeployment("example", new()
     ///     {
+    ///         Name = "example",
     ///         SpringCloudAppId = exampleSpringCloudApp.Id,
     ///         BuildResultId = "&lt;default&gt;",
     ///         InstanceCount = 2,

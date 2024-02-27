@@ -22,23 +22,26 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleappserviceplan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "FunctionApp",
     ///         Reserved = true,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
@@ -48,10 +51,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("exampleFunctionApp", new()
+    ///     var exampleFunctionApp = new Azure.AppService.FunctionApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplefunctionapp",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountAccessKey = exampleAccount.PrimaryAccessKey,
@@ -59,10 +63,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         Version = "~3",
     ///     });
     /// 
-    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestreamanalyticsjob",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         StreamingUnits = 3,
     ///         TransformationQuery = @"    SELECT *
     ///     INTO [YourOutputAlias]
@@ -70,8 +75,9 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ",
     ///     });
     /// 
-    ///     var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("exampleOutputFunction", new()
+    ///     var exampleOutputFunction = new Azure.StreamAnalytics.OutputFunction("example", new()
     ///     {
+    ///         Name = "exampleoutput",
     ///         ResourceGroupName = exampleJob.ResourceGroupName,
     ///         StreamAnalyticsJobName = exampleJob.Name,
     ///         FunctionApp = exampleFunctionApp.Name,

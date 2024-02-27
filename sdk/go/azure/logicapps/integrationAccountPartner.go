@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "exampleIntegrationAccount", &logicapps.IntegrationAccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "example", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountPartner(ctx, "exampleIntegrationAccountPartner", &logicapps.IntegrationAccountPartnerArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			_, err = logicapps.NewIntegrationAccountPartner(ctx, "example", &logicapps.IntegrationAccountPartnerArgs{
+//				Name:                   pulumi.String("example-iap"),
+//				ResourceGroupName:      example.Name,
 //				IntegrationAccountName: exampleIntegrationAccount.Name,
 //				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 //					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{

@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-cosmosdb-account",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
@@ -27,34 +31,39 @@ import * as utilities from "../utilities";
  *         maxStalenessPrefix: 200,
  *     },
  *     geoLocations: [{
- *         location: exampleResourceGroup.location,
+ *         location: example.location,
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("exampleSqlDatabase", {
+ * const exampleSqlDatabase = new azure.cosmosdb.SqlDatabase("example", {
+ *     name: "cosmos-sql-db",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     throughput: 400,
  * });
- * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("exampleSqlContainer", {
+ * const exampleSqlContainer = new azure.cosmosdb.SqlContainer("example", {
+ *     name: "example-container",
  *     resourceGroupName: exampleAccount.resourceGroupName,
  *     accountName: exampleAccount.name,
  *     databaseName: exampleSqlDatabase.name,
  *     partitionKeyPath: "/definition",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     location: example.location,
+ *     name: "example-serviceplan",
+ *     resourceGroupName: example.name,
  *     skuName: "P1v2",
  *     osType: "Linux",
  * });
- * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("exampleLinuxWebApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxWebApp = new azure.appservice.LinuxWebApp("example", {
+ *     location: example.location,
+ *     name: "example-linuxwebapp",
+ *     resourceGroupName: example.name,
  *     servicePlanId: exampleServicePlan.id,
  *     siteConfig: {},
  * });
- * const exampleConnection = new azure.appservice.Connection("exampleConnection", {
+ * const exampleConnection = new azure.appservice.Connection("example", {
+ *     name: "example-serviceconnector",
  *     appServiceId: exampleLinuxWebApp.id,
  *     targetResourceId: exampleSqlDatabase.id,
  *     authentication: {

@@ -9,6 +9,80 @@ import * as utilities from "../utilities";
 /**
  * Manages a Front Door (standard/premium) Security Policy.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-cdn-frontdoor",
+ *     location: "West Europe",
+ * });
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
+ *     skuName: "Standard_AzureFrontDoor",
+ * });
+ * const exampleFrontdoorFirewallPolicy = new azure.cdn.FrontdoorFirewallPolicy("example", {
+ *     name: "exampleWAF",
+ *     resourceGroupName: example.name,
+ *     skuName: exampleFrontdoorProfile.skuName,
+ *     enabled: true,
+ *     mode: "Prevention",
+ *     redirectUrl: "https://www.contoso.com",
+ *     customBlockResponseStatusCode: 403,
+ *     customBlockResponseBody: "PGh0bWw+CjxoZWFkZXI+PHRpdGxlPkhlbGxvPC90aXRsZT48L2hlYWRlcj4KPGJvZHk+CkhlbGxvIHdvcmxkCjwvYm9keT4KPC9odG1sPg==",
+ *     customRules: [{
+ *         name: "Rule1",
+ *         enabled: true,
+ *         priority: 1,
+ *         rateLimitDurationInMinutes: 1,
+ *         rateLimitThreshold: 10,
+ *         type: "MatchRule",
+ *         action: "Block",
+ *         matchConditions: [{
+ *             matchVariable: "RemoteAddr",
+ *             operator: "IPMatch",
+ *             negationCondition: false,
+ *             matchValues: [
+ *                 "192.168.1.0/24",
+ *                 "10.0.1.0/24",
+ *             ],
+ *         }],
+ *     }],
+ * });
+ * const exampleZone = new azure.dns.Zone("example", {
+ *     name: "sub-domain.domain.com",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleFrontdoorCustomDomain = new azure.cdn.FrontdoorCustomDomain("example", {
+ *     name: "example-customDomain",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     dnsZoneId: exampleZone.id,
+ *     hostName: "contoso.fabrikam.com",
+ *     tls: {
+ *         certificateType: "ManagedCertificate",
+ *         minimumTlsVersion: "TLS12",
+ *     },
+ * });
+ * const exampleFrontdoorSecurityPolicy = new azure.cdn.FrontdoorSecurityPolicy("example", {
+ *     name: "Example-Security-Policy",
+ *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
+ *     securityPolicies: {
+ *         firewall: {
+ *             cdnFrontdoorFirewallPolicyId: exampleFrontdoorFirewallPolicy.id,
+ *             association: {
+ *                 domains: [{
+ *                     cdnFrontdoorDomainId: exampleFrontdoorCustomDomain.id,
+ *                 }],
+ *                 patternsToMatch: "/*",
+ *             },
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Front Door Security Policies can be imported using the `resource id`, e.g.

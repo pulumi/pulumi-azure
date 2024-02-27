@@ -213,10 +213,11 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.mariadb.FirewallRule("example",
-            end_ip_address="40.112.8.12",
+            name="test-rule",
             resource_group_name="test-rg",
             server_name="test-server",
-            start_ip_address="40.112.8.12")
+            start_ip_address="40.112.8.12",
+            end_ip_address="40.112.8.12")
         ```
         ### IP Range)
 
@@ -225,10 +226,11 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.mariadb.FirewallRule("example",
-            end_ip_address="40.112.255.255",
+            name="test-rule",
             resource_group_name="test-rg",
             server_name="test-server",
-            start_ip_address="40.112.0.0")
+            start_ip_address="40.112.0.0",
+            end_ip_address="40.112.255.255")
         ```
 
         ## Import
@@ -266,10 +268,11 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.mariadb.FirewallRule("example",
-            end_ip_address="40.112.8.12",
+            name="test-rule",
             resource_group_name="test-rg",
             server_name="test-server",
-            start_ip_address="40.112.8.12")
+            start_ip_address="40.112.8.12",
+            end_ip_address="40.112.8.12")
         ```
         ### IP Range)
 
@@ -278,10 +281,11 @@ class FirewallRule(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.mariadb.FirewallRule("example",
-            end_ip_address="40.112.255.255",
+            name="test-rule",
             resource_group_name="test-rg",
             server_name="test-server",
-            start_ip_address="40.112.0.0")
+            start_ip_address="40.112.0.0",
+            end_ip_address="40.112.255.255")
         ```
 
         ## Import

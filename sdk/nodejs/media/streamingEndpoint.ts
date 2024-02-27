@@ -15,24 +15,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "media-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestoracc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ *     name: "examplemediaacc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccounts: [{
  *         id: exampleAccount.id,
  *         isPrimary: true,
  *     }],
  * });
- * const exampleStreamingEndpoint = new azure.media.StreamingEndpoint("exampleStreamingEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleStreamingEndpoint = new azure.media.StreamingEndpoint("example", {
+ *     name: "endpoint1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     mediaServicesAccountName: exampleServiceAccount.name,
  *     scaleUnits: 2,
  * });
@@ -43,24 +49,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "media-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestoracc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ *     name: "examplemediaacc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccounts: [{
  *         id: exampleAccount.id,
  *         isPrimary: true,
  *     }],
  * });
- * const exampleStreamingEndpoint = new azure.media.StreamingEndpoint("exampleStreamingEndpoint", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleStreamingEndpoint = new azure.media.StreamingEndpoint("example", {
+ *     name: "endpoint1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     mediaServicesAccountName: exampleServiceAccount.name,
  *     scaleUnits: 2,
  *     accessControl: {

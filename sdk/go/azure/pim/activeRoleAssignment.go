@@ -38,24 +38,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleRoleDefinition, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//			exampleGetRoleDefinition, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
 //				Name: pulumi.StringRef("Reader"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleStatic, err := time.NewStatic(ctx, "exampleStatic", nil)
+//			exampleStatic, err := time.NewStatic(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pim.NewActiveRoleAssignment(ctx, "exampleActiveRoleAssignment", &pim.ActiveRoleAssignmentArgs{
+//			_, err = pim.NewActiveRoleAssignment(ctx, "example", &pim.ActiveRoleAssignmentArgs{
 //				Scope:            *pulumi.String(primary.Id),
-//				RoleDefinitionId: pulumi.String(fmt.Sprintf("%v%v", primary.Id, exampleRoleDefinition.Id)),
-//				PrincipalId:      *pulumi.String(exampleClientConfig.ObjectId),
+//				RoleDefinitionId: pulumi.String(fmt.Sprintf("%v%v", primary.Id, exampleGetRoleDefinition.Id)),
+//				PrincipalId:      *pulumi.String(example.ObjectId),
 //				Schedule: &pim.ActiveRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.ActiveRoleAssignmentScheduleExpirationArgs{
@@ -94,28 +94,30 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleClientConfig, err := core.GetClientConfig(ctx, nil, nil)
+//			example, err := core.GetClientConfig(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleRoleDefinition, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
+//			exampleGetRoleDefinition, err := authorization.LookupRoleDefinition(ctx, &authorization.LookupRoleDefinitionArgs{
 //				Name: pulumi.StringRef("Reader"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleGroup, err := management.NewGroup(ctx, "exampleGroup", nil)
+//			exampleGroup, err := management.NewGroup(ctx, "example", &management.GroupArgs{
+//				Name: pulumi.String("Example-Management-Group"),
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleStatic, err := time.NewStatic(ctx, "exampleStatic", nil)
+//			exampleStatic, err := time.NewStatic(ctx, "example", nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = pim.NewActiveRoleAssignment(ctx, "exampleActiveRoleAssignment", &pim.ActiveRoleAssignmentArgs{
+//			_, err = pim.NewActiveRoleAssignment(ctx, "example", &pim.ActiveRoleAssignmentArgs{
 //				Scope:            exampleGroup.ID(),
-//				RoleDefinitionId: *pulumi.String(exampleRoleDefinition.Id),
-//				PrincipalId:      *pulumi.String(exampleClientConfig.ObjectId),
+//				RoleDefinitionId: *pulumi.String(exampleGetRoleDefinition.Id),
+//				PrincipalId:      *pulumi.String(example.ObjectId),
 //				Schedule: &pim.ActiveRoleAssignmentScheduleArgs{
 //					StartDateTime: exampleStatic.Rfc3339,
 //					Expiration: &pim.ActiveRoleAssignmentScheduleExpirationArgs{

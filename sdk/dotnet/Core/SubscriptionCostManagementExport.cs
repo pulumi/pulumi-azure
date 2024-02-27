@@ -22,29 +22,33 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleSubscription = Azure.Core.GetSubscription.Invoke();
+    ///     var example = Azure.Core.GetSubscription.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "examplecontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("exampleSubscriptionCostManagementExport", new()
+    ///     var exampleSubscriptionCostManagementExport = new Azure.Core.SubscriptionCostManagementExport("example", new()
     ///     {
-    ///         SubscriptionId = exampleSubscription.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///         Name = "example",
+    ///         SubscriptionId = example.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         RecurrenceType = "Monthly",
     ///         RecurrencePeriodStartDate = "2020-08-18T00:00:00Z",
     ///         RecurrencePeriodEndDate = "2020-09-18T00:00:00Z",

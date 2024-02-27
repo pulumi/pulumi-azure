@@ -13,28 +13,35 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "media-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestoracc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServiceAccount = new azure.media.ServiceAccount("exampleServiceAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServiceAccount = new azure.media.ServiceAccount("example", {
+ *     name: "examplemediaacc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageAccounts: [{
  *         id: exampleAccount.id,
  *         isPrimary: true,
  *     }],
  * });
- * const exampleAsset = new azure.media.Asset("exampleAsset", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAsset = new azure.media.Asset("example", {
+ *     name: "inputAsset",
+ *     resourceGroupName: example.name,
  *     mediaServicesAccountName: exampleServiceAccount.name,
  * });
- * const exampleLiveEvent = new azure.media.LiveEvent("exampleLiveEvent", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLiveEvent = new azure.media.LiveEvent("example", {
+ *     name: "exampleevent",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     mediaServicesAccountName: exampleServiceAccount.name,
  *     description: "My Event Description",
  *     input: {
@@ -47,7 +54,8 @@ import * as utilities from "../utilities";
  *         }],
  *     },
  * });
- * const exampleLiveEventOutput = new azure.media.LiveEventOutput("exampleLiveEventOutput", {
+ * const exampleLiveEventOutput = new azure.media.LiveEventOutput("example", {
+ *     name: "exampleoutput",
  *     liveEventId: exampleLiveEvent.id,
  *     archiveWindowDuration: "PT5M",
  *     assetName: exampleAsset.name,

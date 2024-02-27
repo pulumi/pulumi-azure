@@ -51,28 +51,31 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cosmosdb&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
  *                 .consistencyLevel(&#34;Strong&#34;)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleSqlRoleDefinition = new SqlRoleDefinition(&#34;exampleSqlRoleDefinition&#34;, SqlRoleDefinitionArgs.builder()        
  *             .roleDefinitionId(&#34;84cf3a8b-4122-4448-bce2-fa423cfe0a15&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .accountName(exampleAccount.name())
+ *             .name(&#34;acctestsqlrole&#34;)
  *             .assignableScopes(exampleAccount.id().applyValue(id -&gt; String.format(&#34;%s/dbs/sales&#34;, id)))
  *             .permissions(SqlRoleDefinitionPermissionArgs.builder()
  *                 .dataActions(&#34;Microsoft.DocumentDB/databaseAccounts/sqlDatabases/containers/items/read&#34;)

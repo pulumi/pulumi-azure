@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("example-IoTHub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("S1"),
 //					Capacity: pulumi.Int(1),
@@ -46,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSecuritySolution, err := iot.NewSecuritySolution(ctx, "exampleSecuritySolution", &iot.SecuritySolutionArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = iot.NewSecuritySolution(ctx, "example", &iot.SecuritySolutionArgs{
+//				Name:              pulumi.String("example-Iot-Security-Solution"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				DisplayName:       pulumi.String("Iot Security Solution"),
 //				IothubIds: pulumi.StringArray{
 //					exampleIoTHub.ID(),
@@ -57,7 +60,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewSecurityDeviceGroup(ctx, "exampleSecurityDeviceGroup", &iot.SecurityDeviceGroupArgs{
+//			_, err = iot.NewSecurityDeviceGroup(ctx, "example", &iot.SecurityDeviceGroupArgs{
+//				Name:     pulumi.String("example-device-security-group"),
 //				IothubId: exampleIoTHub.ID(),
 //				AllowRule: &iot.SecurityDeviceGroupAllowRuleArgs{
 //					ConnectionToIpsNotAlloweds: pulumi.StringArray{
@@ -72,9 +76,7 @@ import (
 //						Duration: pulumi.String("PT5M"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleSecuritySolution,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

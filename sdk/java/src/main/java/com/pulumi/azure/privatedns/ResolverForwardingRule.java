@@ -58,18 +58,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vnet&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;outbounddns&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.64/28&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -82,12 +85,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResolver = new Resolver(&#34;exampleResolver&#34;, ResolverArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-resolver&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());
  * 
  *         var exampleResolverOutboundEndpoint = new ResolverOutboundEndpoint(&#34;exampleResolverOutboundEndpoint&#34;, ResolverOutboundEndpointArgs.builder()        
+ *             .name(&#34;example-endpoint&#34;)
  *             .privateDnsResolverId(exampleResolver.id())
  *             .location(exampleResolver.location())
  *             .subnetId(exampleSubnet.id())
@@ -95,12 +100,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleResolverDnsForwardingRuleset = new ResolverDnsForwardingRuleset(&#34;exampleResolverDnsForwardingRuleset&#34;, ResolverDnsForwardingRulesetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-drdfr&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .privateDnsResolverOutboundEndpointIds(exampleResolverOutboundEndpoint.id())
  *             .build());
  * 
  *         var exampleResolverForwardingRule = new ResolverForwardingRule(&#34;exampleResolverForwardingRule&#34;, ResolverForwardingRuleArgs.builder()        
+ *             .name(&#34;example-rule&#34;)
  *             .dnsForwardingRulesetId(exampleResolverDnsForwardingRuleset.id())
  *             .domainName(&#34;onprem.local.&#34;)
  *             .enabled(true)

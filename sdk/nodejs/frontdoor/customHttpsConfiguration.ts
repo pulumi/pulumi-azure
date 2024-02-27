@@ -23,13 +23,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "FrontDoorExampleResourceGroup",
+ *     location: "West Europe",
+ * });
  * const vault = azure.keyvault.getKeyVault({
  *     name: "example-vault",
  *     resourceGroupName: "example-vault-rg",
  * });
- * const exampleFrontdoor = new azure.frontdoor.Frontdoor("exampleFrontdoor", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFrontdoor = new azure.frontdoor.Frontdoor("example", {
+ *     name: "example-FrontDoor",
+ *     resourceGroupName: example.name,
  *     routingRules: [{
  *         name: "exampleRoutingRule1",
  *         acceptedProtocols: [
@@ -71,11 +75,11 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCustomHttps0 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps0", {
+ * const exampleCustomHttps0 = new azure.frontdoor.CustomHttpsConfiguration("example_custom_https_0", {
  *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint1,
  *     customHttpsProvisioningEnabled: false,
  * });
- * const exampleCustomHttps1 = new azure.frontdoor.CustomHttpsConfiguration("exampleCustomHttps1", {
+ * const exampleCustomHttps1 = new azure.frontdoor.CustomHttpsConfiguration("example_custom_https_1", {
  *     frontendEndpointId: exampleFrontdoor.frontendEndpointsMap.exampleFrontendEndpoint2,
  *     customHttpsProvisioningEnabled: true,
  *     customHttpsConfiguration: {

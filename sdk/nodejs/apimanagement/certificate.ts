@@ -13,20 +13,27 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@exmaple.com",
  *     skuName: "Developer_1",
  * });
- * const exampleCertificate = new azure.apimanagement.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.apimanagement.Certificate("example", {
+ *     name: "example-cert",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     data: fs.readFileSync("example.pfx", { encoding: "base64" }),
+ *     resourceGroupName: example.name,
+ *     data: std.filebase64({
+ *         input: "example.pfx",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  * ### With Key Vault Certificate)
@@ -34,13 +41,17 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
@@ -48,23 +59,27 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: exampleService.identity.apply(identity => identity?.tenantId),
  *     objectId: exampleService.identity.apply(identity => identity?.principalId),
  *     secretPermissions: ["Get"],
  *     certificatePermissions: ["Get"],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "example-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("example_cert.pfx", { encoding: "base64" }),
+ *         contents: std.filebase64({
+ *             input: "example_cert.pfx",
+ *         }).then(invoke => invoke.result),
  *         password: "terraform",
  *     },
  *     certificatePolicy: {
@@ -82,9 +97,10 @@ import * as utilities from "../utilities";
  *         },
  *     },
  * });
- * const exampleApimanagement_certificateCertificate = new azure.apimanagement.Certificate("exampleApimanagement/certificateCertificate", {
+ * const exampleCertificate2 = new azure.apimanagement.Certificate("example", {
+ *     name: "example-cert",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     keyVaultSecretId: exampleCertificate.secretId,
  * });
  * ```

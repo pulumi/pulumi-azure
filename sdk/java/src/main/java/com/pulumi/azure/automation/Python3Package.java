@@ -44,18 +44,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;%[2]s&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;accexample&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var examplePython3Package = new Python3Package(&#34;examplePython3Package&#34;, Python3PackageArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .contentUri(&#34;https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz&#34;)
  *             .contentVersion(&#34;2.31.0&#34;)

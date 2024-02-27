@@ -13,16 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInstance = new azure.digitaltwins.Instance("exampleInstance", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example_resources",
+ *     location: "West Europe",
  * });
- * const exampleTopic = new azure.eventgrid.Topic("exampleTopic", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleInstance = new azure.digitaltwins.Instance("example", {
+ *     name: "example-DT",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleEndpointEventGrid = new azure.digitaltwins.EndpointEventGrid("exampleEndpointEventGrid", {
+ * const exampleTopic = new azure.eventgrid.Topic("example", {
+ *     name: "example-topic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleEndpointEventGrid = new azure.digitaltwins.EndpointEventGrid("example", {
+ *     name: "example-EG",
  *     digitalTwinsId: exampleInstance.id,
  *     eventgridTopicEndpoint: exampleTopic.endpoint,
  *     eventgridTopicPrimaryAccessKey: exampleTopic.primaryAccessKey,

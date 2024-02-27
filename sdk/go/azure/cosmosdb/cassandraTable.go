@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tflex-cosmosdb-account-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("tfex-cosmosdb-account"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				OfferType:         pulumi.String("Standard"),
 //				Capabilities: cosmosdb.AccountCapabilityArray{
 //					&cosmosdb.AccountCapabilityArgs{
@@ -49,7 +51,7 @@ import (
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         exampleResourceGroup.Location,
+//						Location:         example.Location,
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
@@ -57,7 +59,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCassandraKeyspace, err := cosmosdb.NewCassandraKeyspace(ctx, "exampleCassandraKeyspace", &cosmosdb.CassandraKeyspaceArgs{
+//			exampleCassandraKeyspace, err := cosmosdb.NewCassandraKeyspace(ctx, "example", &cosmosdb.CassandraKeyspaceArgs{
+//				Name:              pulumi.String("tfex-cosmos-cassandra-keyspace"),
 //				ResourceGroupName: exampleAccount.ResourceGroupName,
 //				AccountName:       exampleAccount.Name,
 //				Throughput:        pulumi.Int(400),
@@ -65,7 +68,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewCassandraTable(ctx, "exampleCassandraTable", &cosmosdb.CassandraTableArgs{
+//			_, err = cosmosdb.NewCassandraTable(ctx, "example", &cosmosdb.CassandraTableArgs{
+//				Name:                pulumi.String("testtable"),
 //				CassandraKeyspaceId: exampleCassandraKeyspace.ID(),
 //				Schema: &cosmosdb.CassandraTableSchemaArgs{
 //					Columns: cosmosdb.CassandraTableSchemaColumnArray{

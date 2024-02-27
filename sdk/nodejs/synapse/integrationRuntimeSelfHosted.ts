@@ -13,21 +13,30 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleContainer = new azure.storage.Container("exampleContainer", {
+ * const exampleContainer = new azure.storage.Container("example", {
+ *     name: "content",
  *     storageAccountName: exampleAccount.name,
  *     containerAccessType: "private",
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
  *     sqlAdministratorLogin: "sqladminuser",
  *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
@@ -36,12 +45,16 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleFirewallRule = new azure.synapse.FirewallRule("exampleFirewallRule", {
+ * const exampleFirewallRule = new azure.synapse.FirewallRule("example", {
+ *     name: "AllowAll",
  *     synapseWorkspaceId: exampleWorkspace.id,
  *     startIpAddress: "0.0.0.0",
  *     endIpAddress: "255.255.255.255",
  * });
- * const exampleIntegrationRuntimeSelfHosted = new azure.synapse.IntegrationRuntimeSelfHosted("exampleIntegrationRuntimeSelfHosted", {synapseWorkspaceId: exampleWorkspace.id});
+ * const exampleIntegrationRuntimeSelfHosted = new azure.synapse.IntegrationRuntimeSelfHosted("example", {
+ *     name: "example",
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ * });
  * ```
  *
  * ## Import

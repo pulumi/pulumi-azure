@@ -14,6 +14,104 @@ import (
 
 // Manages a Network Function Collector Policy.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/networkfunction"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West US 2"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example", &network.ExpressRoutePortArgs{
+//				Name:              pulumi.String("example-erp"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				PeeringLocation:   pulumi.String("Equinix-Seattle-SE2"),
+//				BandwidthInGbps:   pulumi.Int(10),
+//				Encapsulation:     pulumi.String("Dot1Q"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Name:               pulumi.String("example-erc"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				ExpressRoutePortId: exampleExpressRoutePort.ID(),
+//				BandwidthInGbps:    pulumi.Float64(1),
+//				Sku: &network.ExpressRouteCircuitSkuArgs{
+//					Tier:   pulumi.String("Standard"),
+//					Family: pulumi.String("MeteredData"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
+//				PeeringType:                pulumi.String("MicrosoftPeering"),
+//				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
+//				ResourceGroupName:          example.Name,
+//				PeerAsn:                    pulumi.Int(100),
+//				PrimaryPeerAddressPrefix:   pulumi.String("192.168.199.0/30"),
+//				SecondaryPeerAddressPrefix: pulumi.String("192.168.200.0/30"),
+//				VlanId:                     pulumi.Int(300),
+//				MicrosoftPeeringConfig: &network.ExpressRouteCircuitPeeringMicrosoftPeeringConfigArgs{
+//					AdvertisedPublicPrefixes: pulumi.StringArray{
+//						pulumi.String("123.6.0.0/24"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAzureTrafficCollector, err := networkfunction.NewAzureTrafficCollector(ctx, "example", &networkfunction.AzureTrafficCollectorArgs{
+//				Name:              pulumi.String("example-nfatc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = networkfunction.NewCollectorPolicy(ctx, "example", &networkfunction.CollectorPolicyArgs{
+//				Name:               pulumi.String("example-nfcp"),
+//				TrafficCollectorId: exampleAzureTrafficCollector.ID(),
+//				Location:           example.Location,
+//				IpfxEmission: &networkfunction.CollectorPolicyIpfxEmissionArgs{
+//					DestinationTypes: pulumi.String("AzureMonitor"),
+//				},
+//				IpfxIngestion: &networkfunction.CollectorPolicyIpfxIngestionArgs{
+//					SourceResourceIds: pulumi.StringArray{
+//						exampleExpressRouteCircuit.ID(),
+//					},
+//				},
+//				Tags: pulumi.StringMap{
+//					"key": pulumi.String("value"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Network Function Collector Policy can be imported using the `resource id`, e.g.

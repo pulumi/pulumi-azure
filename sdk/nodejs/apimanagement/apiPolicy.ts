@@ -13,16 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleApi = azure.apimanagement.getApi({
+ * const example = azure.apimanagement.getApi({
  *     name: "my-api",
  *     apiManagementName: "example-apim",
  *     resourceGroupName: "search-service",
  *     revision: "2",
  * });
- * const exampleApiPolicy = new azure.apimanagement.ApiPolicy("exampleApiPolicy", {
- *     apiName: exampleApi.then(exampleApi => exampleApi.name),
- *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
- *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
+ * const exampleApiPolicy = new azure.apimanagement.ApiPolicy("example", {
+ *     apiName: example.then(example => example.name),
+ *     apiManagementName: example.then(example => example.apiManagementName),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     xmlContent: `<policies>
  *   <inbound>
  *     <find-and-replace from="xyz" to="abc" />

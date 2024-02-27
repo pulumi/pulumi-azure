@@ -272,6 +272,7 @@ class Definition(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example = azure.authorization.RoleDefinition("example",
+            name="my-custom-role",
             scope=primary.id,
             description="This is a custom role created",
             permissions=[azure.authorization.RoleDefinitionPermissionArgs(
@@ -317,6 +318,7 @@ class Definition(pulumi.CustomResource):
 
         primary = azure.core.get_subscription()
         example = azure.authorization.RoleDefinition("example",
+            name="my-custom-role",
             scope=primary.id,
             description="This is a custom role created",
             permissions=[azure.authorization.RoleDefinitionPermissionArgs(

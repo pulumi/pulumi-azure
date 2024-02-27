@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.monitoring.getDataCollectionEndpoint({
  *     name: "example-mdce",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const endpointId = example.then(example => example.id);
  * ```
@@ -93,7 +93,7 @@ export interface GetDataCollectionEndpointResult {
  *
  * const example = azure.monitoring.getDataCollectionEndpoint({
  *     name: "example-mdce",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const endpointId = example.then(example => example.id);
  * ```

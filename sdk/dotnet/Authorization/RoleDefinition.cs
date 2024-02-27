@@ -26,6 +26,7 @@ namespace Pulumi.Azure.Authorization
     /// 
     ///     var example = new Azure.Authorization.RoleDefinition("example", new()
     ///     {
+    ///         Name = "my-custom-role",
     ///         Scope = primary.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
     ///         Description = "This is a custom role created",
     ///         Permissions = new[]

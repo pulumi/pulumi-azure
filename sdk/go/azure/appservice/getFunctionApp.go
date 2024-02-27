@@ -31,7 +31,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := appservice.LookupFunctionApp(ctx, &appservice.LookupFunctionAppArgs{
 //				Name:              "test-azure-functions",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

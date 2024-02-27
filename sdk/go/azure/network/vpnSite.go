@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "exampleVirtualWan", &network.VirtualWanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualWan, err := network.NewVirtualWan(ctx, "example", &network.VirtualWanArgs{
+//				Name:              pulumi.String("example-vwan"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVpnSite(ctx, "exampleVpnSite", &network.VpnSiteArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = network.NewVpnSite(ctx, "example", &network.VpnSiteArgs{
+//				Name:              pulumi.String("site1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				VirtualWanId:      exampleVirtualWan.ID(),
 //				AddressCidrs: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/24"),

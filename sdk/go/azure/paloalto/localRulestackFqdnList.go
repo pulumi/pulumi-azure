@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "exampleLocalRulestack", &paloalto.LocalRulestackArgs{
-//				ResourceGroupName: pulumi.Any(azurerm_resrouce_group.Example.Name),
-//				Location:          exampleResourceGroup.Location,
+//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: pulumi.Any(exampleAzurermResrouceGroup.Name),
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = paloalto.NewLocalRulestackFqdnList(ctx, "exampleLocalRulestackFqdnList", &paloalto.LocalRulestackFqdnListArgs{
+//			_, err = paloalto.NewLocalRulestackFqdnList(ctx, "example", &paloalto.LocalRulestackFqdnListArgs{
+//				Name:        pulumi.String("example"),
 //				RulestackId: exampleLocalRulestack.ID(),
 //				FullyQualifiedDomainNames: pulumi.StringArray{
 //					pulumi.String("contoso.com"),

@@ -44,25 +44,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleAccount = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;tfex-cosmosdb-account&#34;)
  *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
- *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *             .name(&#34;tfex-cosmos-db&#34;)
+ *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .throughput(400)
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
- *             .resourceGroupName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
- *             .accountName(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.name()))
+ *             .name(&#34;example-container&#34;)
+ *             .resourceGroupName(example.applyValue(getAccountResult -&gt; getAccountResult.resourceGroupName()))
+ *             .accountName(example.applyValue(getAccountResult -&gt; getAccountResult.name()))
  *             .databaseName(exampleSqlDatabase.name())
  *             .partitionKeyPath(&#34;/id&#34;)
  *             .build());
  * 
  *         var exampleSqlTrigger = new SqlTrigger(&#34;exampleSqlTrigger&#34;, SqlTriggerArgs.builder()        
+ *             .name(&#34;test-trigger&#34;)
  *             .containerId(exampleSqlContainer.id())
  *             .body(&#34;function trigger(){}&#34;)
  *             .operation(&#34;Delete&#34;)

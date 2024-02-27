@@ -32,8 +32,8 @@ class PrivateLinkAssociationArgs:
                import pulumi_azure as azure
                
                example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=azurerm_management_group["example"]["id"],
-                   resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+                   management_group_id=example_azurerm_management_group["id"],
+                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
                    public_network_access_enabled=True)
                ```
         """
@@ -92,8 +92,8 @@ class PrivateLinkAssociationArgs:
         import pulumi_azure as azure
 
         example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=azurerm_management_group["example"]["id"],
-            resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+            management_group_id=example_azurerm_management_group["id"],
+            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
             public_network_access_enabled=True)
         ```
         """
@@ -124,8 +124,8 @@ class _PrivateLinkAssociationState:
                import pulumi_azure as azure
                
                example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=azurerm_management_group["example"]["id"],
-                   resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+                   management_group_id=example_azurerm_management_group["id"],
+                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
                    public_network_access_enabled=True)
                ```
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
@@ -168,8 +168,8 @@ class _PrivateLinkAssociationState:
         import pulumi_azure as azure
 
         example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=azurerm_management_group["example"]["id"],
-            resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+            management_group_id=example_azurerm_management_group["id"],
+            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
             public_network_access_enabled=True)
         ```
         """
@@ -236,15 +236,19 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example_client_config = azure.core.get_client_config()
-        example_group = azure.management.get_group(name=example_client_config.tenant_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_link = azure.management.PrivateLink("examplePrivateLink",
+        example = azure.core.get_client_config()
+        example_get_group = azure.management.get_group(name=example.tenant_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_private_link = azure.management.PrivateLink("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_private_link_association = azure.management.PrivateLinkAssociation("examplePrivateLinkAssociation",
-            management_group_id=azurerm_management_group["example"]["id"],
+        example_random_uuid = random.RandomUuid("example")
+        example_private_link_association = azure.management.PrivateLinkAssociation("example",
+            name=example_random_uuid.result,
+            management_group_id=example_azurerm_management_group["id"],
             resource_management_private_link_id=example_private_link.id,
             public_network_access_enabled=True)
         ```
@@ -269,8 +273,8 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                import pulumi_azure as azure
                
                example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=azurerm_management_group["example"]["id"],
-                   resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+                   management_group_id=example_azurerm_management_group["id"],
+                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
                    public_network_access_enabled=True)
                ```
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
@@ -292,15 +296,19 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
         import pulumi_random as random
 
-        example_client_config = azure.core.get_client_config()
-        example_group = azure.management.get_group(name=example_client_config.tenant_id)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_link = azure.management.PrivateLink("examplePrivateLink",
+        example = azure.core.get_client_config()
+        example_get_group = azure.management.get_group(name=example.tenant_id)
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_private_link = azure.management.PrivateLink("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location)
-        example_random_uuid = random.RandomUuid("exampleRandomUuid")
-        example_private_link_association = azure.management.PrivateLinkAssociation("examplePrivateLinkAssociation",
-            management_group_id=azurerm_management_group["example"]["id"],
+        example_random_uuid = random.RandomUuid("example")
+        example_private_link_association = azure.management.PrivateLinkAssociation("example",
+            name=example_random_uuid.result,
+            management_group_id=example_azurerm_management_group["id"],
             resource_management_private_link_id=example_private_link.id,
             public_network_access_enabled=True)
         ```
@@ -384,8 +392,8 @@ class PrivateLinkAssociation(pulumi.CustomResource):
                import pulumi_azure as azure
                
                example = azure.management.PrivateLinkAssociation("example",
-                   management_group_id=azurerm_management_group["example"]["id"],
-                   resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+                   management_group_id=example_azurerm_management_group["id"],
+                   resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
                    public_network_access_enabled=True)
                ```
         :param pulumi.Input[bool] public_network_access_enabled: Whether public network access is allowed. Changing this forces a new Private Link Association to be created.
@@ -424,8 +432,8 @@ class PrivateLinkAssociation(pulumi.CustomResource):
         import pulumi_azure as azure
 
         example = azure.management.PrivateLinkAssociation("example",
-            management_group_id=azurerm_management_group["example"]["id"],
-            resource_management_private_link_id=azurerm_resource_management_private_link["example"]["id"],
+            management_group_id=example_azurerm_management_group["id"],
+            resource_management_private_link_id=example_azurerm_resource_management_private_link["id"],
             public_network_access_enabled=True)
         ```
         """

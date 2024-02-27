@@ -132,9 +132,10 @@ def get_txt_record(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.privatedns.TxtRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("privateDnsTxtRecordId", example.id)
+    pulumi.export("privateDnsTxtRecordId", example_azurerm_private_dns_txt_record["id"])
     ```
 
 
@@ -173,9 +174,10 @@ def get_txt_record_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.privatedns.TxtRecord("example",
+        name="test",
         zone_name="test-zone",
         resource_group_name="test-rg")
-    pulumi.export("privateDnsTxtRecordId", example.id)
+    pulumi.export("privateDnsTxtRecordId", example_azurerm_private_dns_txt_record["id"])
     ```
 
 

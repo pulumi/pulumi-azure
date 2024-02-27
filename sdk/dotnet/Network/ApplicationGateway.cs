@@ -20,24 +20,27 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-network",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.254.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -45,10 +48,11 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-pip",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AllocationMethod = "Dynamic",
     ///     });
     /// 
@@ -68,8 +72,9 @@ namespace Pulumi.Azure.Network
     /// 
     ///     var network = new Azure.Network.ApplicationGateway("network", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-appgateway",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = new Azure.Network.Inputs.ApplicationGatewaySkuArgs
     ///         {
     ///             Name = "Standard_v2",

@@ -371,14 +371,16 @@ class MongoCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_collection = azure.cosmosdb.MongoCollection("exampleMongoCollection",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
+            name="tfex-cosmos-mongo-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name)
+        example_mongo_collection = azure.cosmosdb.MongoCollection("example",
+            name="tfex-cosmos-mongo-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",
@@ -423,14 +425,16 @@ class MongoCollection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_account = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
+        example = azure.cosmosdb.get_account(name="tfex-cosmosdb-account",
             resource_group_name="tfex-cosmosdb-account-rg")
-        example_mongo_database = azure.cosmosdb.MongoDatabase("exampleMongoDatabase",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name)
-        example_mongo_collection = azure.cosmosdb.MongoCollection("exampleMongoCollection",
-            resource_group_name=example_account.resource_group_name,
-            account_name=example_account.name,
+        example_mongo_database = azure.cosmosdb.MongoDatabase("example",
+            name="tfex-cosmos-mongo-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name)
+        example_mongo_collection = azure.cosmosdb.MongoCollection("example",
+            name="tfex-cosmos-mongo-db",
+            resource_group_name=example.resource_group_name,
+            account_name=example.name,
             database_name=example_mongo_database.name,
             default_ttl_seconds=777,
             shard_key="uniqueKey",

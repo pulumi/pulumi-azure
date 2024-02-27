@@ -22,24 +22,27 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-sql-server-vnet-rule",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.7.29.0/29",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -51,17 +54,19 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "uniqueazuresqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "4dm1n157r470r",
     ///         AdministratorLoginPassword = "4-v3ry-53cr37-p455w0rd",
     ///     });
     /// 
-    ///     var exampleVirtualNetworkRule = new Azure.MSSql.VirtualNetworkRule("exampleVirtualNetworkRule", new()
+    ///     var exampleVirtualNetworkRule = new Azure.MSSql.VirtualNetworkRule("example", new()
     ///     {
+    ///         Name = "sql-vnet-rule",
     ///         ServerId = exampleServer.Id,
     ///         SubnetId = exampleSubnet.Id,
     ///     });

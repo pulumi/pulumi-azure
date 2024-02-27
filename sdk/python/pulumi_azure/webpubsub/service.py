@@ -578,10 +578,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1,
             public_network_access_enabled=False,
@@ -633,10 +636,13 @@ class Service(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="east us")
-        example_service = azure.webpubsub.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="terraform-webpubsub",
+            location="east us")
+        example_service = azure.webpubsub.Service("example",
+            name="tfex-webpubsub",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard_S1",
             capacity=1,
             public_network_access_enabled=False,

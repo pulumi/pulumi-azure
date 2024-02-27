@@ -49,10 +49,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleDevCenter = new DevCenter(&#34;exampleDevCenter&#34;, DevCenterArgs.builder()        
+ *         var example = new DevCenter(&#34;example&#34;, DevCenterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .identity(DevCenterIdentityArgs.builder()
@@ -61,8 +63,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
- *             .devCenterId(exampleDevCenter.id())
+ *             .devCenterId(example.id())
  *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 

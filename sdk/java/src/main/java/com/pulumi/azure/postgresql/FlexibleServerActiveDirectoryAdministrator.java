@@ -48,15 +48,17 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
  *             .build());
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFlexibleServer = new FlexibleServer(&#34;exampleFlexibleServer&#34;, FlexibleServerArgs.builder()        
+ *             .name(&#34;example-fs&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .administratorLogin(&#34;adminTerraform&#34;)
@@ -75,8 +77,8 @@ import javax.annotation.Nullable;
  *             .serverName(exampleFlexibleServer.name())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
- *             .principalName(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.displayName()))
+ *             .objectId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .principalName(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.displayName()))
  *             .principalType(&#34;ServicePrincipal&#34;)
  *             .build());
  * 

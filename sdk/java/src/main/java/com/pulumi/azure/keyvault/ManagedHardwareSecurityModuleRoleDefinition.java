@@ -45,18 +45,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleManagedHardwareSecurityModule = new ManagedHardwareSecurityModule(&#34;exampleManagedHardwareSecurityModule&#34;, ManagedHardwareSecurityModuleArgs.builder()        
- *             .resourceGroupName(azurerm_resource_group.example().name())
- *             .location(azurerm_resource_group.example().location())
+ *         var example = new ManagedHardwareSecurityModule(&#34;example&#34;, ManagedHardwareSecurityModuleArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
  *             .skuName(&#34;Standard_B1&#34;)
- *             .tenantId(data.azurerm_client_config().current().tenant_id())
- *             .adminObjectIds(data.azurerm_client_config().current().object_id())
+ *             .tenantId(current.tenantId())
+ *             .adminObjectIds(current.objectId())
  *             .purgeProtectionEnabled(false)
  *             .activeConfig(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
  *             .build());
  * 
  *         var exampleManagedHardwareSecurityModuleRoleDefinition = new ManagedHardwareSecurityModuleRoleDefinition(&#34;exampleManagedHardwareSecurityModuleRoleDefinition&#34;, ManagedHardwareSecurityModuleRoleDefinitionArgs.builder()        
- *             .vaultBaseUrl(exampleManagedHardwareSecurityModule.hsmUri())
+ *             .name(&#34;7d206142-bf01-11ed-80bc-00155d61ee9e&#34;)
+ *             .vaultBaseUrl(example.hsmUri())
  *             .description(&#34;desc foo&#34;)
  *             .permissions(ManagedHardwareSecurityModuleRoleDefinitionPermissionArgs.builder()
  *                 .dataActions(&#34;Microsoft.KeyVault/managedHsm/keys/read/action&#34;)

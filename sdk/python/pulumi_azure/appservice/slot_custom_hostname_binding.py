@@ -204,24 +204,29 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="some-resource-group",
+            location="West Europe")
+        example_plan = azure.appservice.Plan("example",
+            name="some-app-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.appservice.PlanSkuArgs(
                 tier="Standard",
                 size="S1",
             ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_app_service = azure.appservice.AppService("example",
+            name="some-app-service",
+            location=example.location,
+            resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("exampleSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_slot = azure.appservice.Slot("example",
+            name="staging",
+            location=example.location,
+            resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding",
+        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
             app_service_slot_id=example_slot.id,
             hostname="www.mywebsite.com")
         ```
@@ -260,24 +265,29 @@ class SlotCustomHostnameBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_plan = azure.appservice.Plan("examplePlan",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="some-resource-group",
+            location="West Europe")
+        example_plan = azure.appservice.Plan("example",
+            name="some-app-service-plan",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.appservice.PlanSkuArgs(
                 tier="Standard",
                 size="S1",
             ))
-        example_app_service = azure.appservice.AppService("exampleAppService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_app_service = azure.appservice.AppService("example",
+            name="some-app-service",
+            location=example.location,
+            resource_group_name=example.name,
             app_service_plan_id=example_plan.id)
-        example_slot = azure.appservice.Slot("exampleSlot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_slot = azure.appservice.Slot("example",
+            name="staging",
+            location=example.location,
+            resource_group_name=example.name,
             app_service_name=example_app_service.name,
             app_service_plan_id=example_plan.id)
-        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("exampleSlotCustomHostnameBinding",
+        example_slot_custom_hostname_binding = azure.appservice.SlotCustomHostnameBinding("example",
             app_service_slot_id=example_slot.id,
             hostname="www.mywebsite.com")
         ```

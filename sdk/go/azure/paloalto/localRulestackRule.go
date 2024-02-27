@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "exampleLocalRulestack", &paloalto.LocalRulestackArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLocalRulestack, err := paloalto.NewLocalRulestack(ctx, "example", &paloalto.LocalRulestackArgs{
+//				Name:              pulumi.String("lrs-example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = paloalto.NewLocalRulestackRule(ctx, "exampleLocalRulestackRule", &paloalto.LocalRulestackRuleArgs{
+//			_, err = paloalto.NewLocalRulestackRule(ctx, "example", &paloalto.LocalRulestackRuleArgs{
+//				Name:        pulumi.String("example-rule"),
 //				RulestackId: exampleLocalRulestack.ID(),
 //				Priority:    pulumi.Int(1000),
 //				Action:      pulumi.String("Allow"),

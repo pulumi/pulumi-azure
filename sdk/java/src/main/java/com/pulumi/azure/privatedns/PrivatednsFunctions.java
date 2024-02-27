@@ -83,11 +83,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
      * ```
@@ -120,11 +121,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
      * ```
@@ -157,11 +159,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
      * ```
@@ -194,11 +197,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new AAAARecord(&#34;example&#34;, AAAARecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsAaaaRecordId&#34;, exampleAzurermPrivateDnsAaaaRecord.id());
      *     }
      * }
      * ```
@@ -383,11 +387,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
      * ```
@@ -420,11 +425,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
      * ```
@@ -457,11 +463,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
      * ```
@@ -494,11 +501,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new CnameRecord(&#34;example&#34;, CnameRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsCnameRecordId&#34;, exampleAzurermPrivateDnsCnameRecord.id());
      *     }
      * }
      * ```
@@ -687,11 +695,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
      * ```
@@ -724,11 +733,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
      * ```
@@ -761,11 +771,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
      * ```
@@ -798,11 +809,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new MxRecord(&#34;example&#34;, MxRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsMxRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsMxRecordId&#34;, exampleAzurermPrivateDnsMxRecord.id());
      *     }
      * }
      * ```
@@ -835,11 +847,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
      * ```
@@ -872,11 +885,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
      * ```
@@ -909,11 +923,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
      * ```
@@ -946,11 +961,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new PTRRecord(&#34;example&#34;, PTRRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsPtrRecordId&#34;, exampleAzurermPrivateDnsPtrRecord.id());
      *     }
      * }
      * ```
@@ -1289,8 +1305,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .name(&#34;example-rule&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1327,8 +1343,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .name(&#34;example-rule&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1365,8 +1381,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .name(&#34;example-rule&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1403,8 +1419,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverForwardingRule(GetResolverForwardingRuleArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .name(&#34;example-rule&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-forwarding-rulset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1745,8 +1761,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .name(&#34;example-link&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1783,8 +1799,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .name(&#34;example-link&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1821,8 +1837,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .name(&#34;example-link&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1859,8 +1875,8 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = PrivatednsFunctions.getResolverVirtualNetworkLink(GetResolverVirtualNetworkLinkArgs.builder()
-     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .name(&#34;example-link&#34;)
+     *             .dnsForwardingRulesetId(&#34;example-dns-forwarding-ruleset-id&#34;)
      *             .build());
      * 
      *     }
@@ -1871,15 +1887,151 @@ public final class PrivatednsFunctions {
     public static CompletableFuture<GetResolverVirtualNetworkLinkResult> getResolverVirtualNetworkLinkPlain(GetResolverVirtualNetworkLinkPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getResolverVirtualNetworkLink:getResolverVirtualNetworkLink", TypeShape.of(GetResolverVirtualNetworkLinkResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.privateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args) {
         return getSoaRecord(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.privateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args) {
         return getSoaRecordPlain(args, InvokeOptions.Empty);
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.privateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static Output<GetSoaRecordResult> getSoaRecord(GetSoaRecordArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:privatedns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
     }
+    /**
+     * ## Example Usage
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.azurerm.privateDnsSoaRecord;
+     * import com.pulumi.azurerm.PrivateDnsSoaRecordArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         var example = new PrivateDnsSoaRecord(&#34;example&#34;, PrivateDnsSoaRecordArgs.builder()        
+     *             .zoneName(&#34;test-zone&#34;)
+     *             .resourceGroupName(&#34;test-rg&#34;)
+     *             .build());
+     * 
+     *         ctx.export(&#34;privateDnsSoaRecordId&#34;, exampleAzurermPrivateDnsSoaRecord.id());
+     *     }
+     * }
+     * ```
+     * 
+     */
     public static CompletableFuture<GetSoaRecordResult> getSoaRecordPlain(GetSoaRecordPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("azure:privatedns/getSoaRecord:getSoaRecord", TypeShape.of(GetSoaRecordResult.class), args, Utilities.withVersion(options));
     }
@@ -1907,11 +2059,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
      * ```
@@ -1944,11 +2097,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
      * ```
@@ -1981,11 +2135,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
      * ```
@@ -2018,11 +2173,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new SRVRecord(&#34;example&#34;, SRVRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsSrvRecordId&#34;, exampleAzurermPrivateDnsSrvRecord.id());
      *     }
      * }
      * ```
@@ -2055,11 +2211,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
      * ```
@@ -2092,11 +2249,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
      * ```
@@ -2129,11 +2287,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
      * ```
@@ -2166,11 +2325,12 @@ public final class PrivatednsFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var example = new TxtRecord(&#34;example&#34;, TxtRecordArgs.builder()        
+     *             .name(&#34;test&#34;)
      *             .zoneName(&#34;test-zone&#34;)
      *             .resourceGroupName(&#34;test-rg&#34;)
      *             .build());
      * 
-     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, example.id());
+     *         ctx.export(&#34;privateDnsTxtRecordId&#34;, exampleAzurermPrivateDnsTxtRecord.id());
      *     }
      * }
      * ```

@@ -13,26 +13,33 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-sql-server-vnet-rule",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.7.29.0/29"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "uniqueazuresqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleVirtualNetworkRule = new azure.mssql.VirtualNetworkRule("exampleVirtualNetworkRule", {
+ * const exampleVirtualNetworkRule = new azure.mssql.VirtualNetworkRule("example", {
+ *     name: "sql-vnet-rule",
  *     serverId: exampleServer.id,
  *     subnetId: exampleSubnet.id,
  * });

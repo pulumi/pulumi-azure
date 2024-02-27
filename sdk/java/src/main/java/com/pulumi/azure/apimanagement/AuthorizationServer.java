@@ -44,14 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;search-api&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
  *             .build());
  * 
  *         var exampleAuthorizationServer = new AuthorizationServer(&#34;exampleAuthorizationServer&#34;, AuthorizationServerArgs.builder()        
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .name(&#34;test-server&#34;)
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .displayName(&#34;Test Server&#34;)
  *             .authorizationEndpoint(&#34;https://example.mydomain.com/client/authorize&#34;)
  *             .clientId(&#34;42424242-4242-4242-4242-424242424242&#34;)

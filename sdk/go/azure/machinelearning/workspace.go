@@ -34,41 +34,46 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("workspace-example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("workspaceexamplekeyvault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("premium"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("workspacestorageaccount"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                  pulumi.String("example-workspace"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				KeyVaultId:            exampleKeyVault.ID(),
 //				StorageAccountId:      exampleAccount.ID(),
@@ -108,23 +113,26 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("workspace-example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("workspaceexamplekeyvault"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -132,7 +140,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccessPolicy, err := keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -147,16 +155,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("workspacestorageaccount"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("workspaceexamplekeyvaultkey"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -168,16 +178,14 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeyVault,
-//				exampleAccessPolicy,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                  pulumi.String("example-workspace"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				KeyVaultId:            exampleKeyVault.ID(),
 //				StorageAccountId:      exampleAccount.ID(),
@@ -223,32 +231,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("example-keyvalut"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("premium"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -256,9 +268,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-identity"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -318,14 +331,12 @@ import (
 //					pulumi.String("UnwrapKey"),
 //					pulumi.String("WrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				test,
-//				current,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("example-keyvaultkey"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -337,10 +348,7 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleKeyVault,
-//				example_sp,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
@@ -376,9 +384,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-//				Location:                    exampleResourceGroup.Location,
-//				ResourceGroupName:           exampleResourceGroup.Name,
+//			_, err = machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                        pulumi.String("example-workspace"),
+//				Location:                    example.Location,
+//				ResourceGroupName:           example.Name,
 //				ApplicationInsightsId:       exampleInsights.ID(),
 //				KeyVaultId:                  exampleKeyVault.ID(),
 //				StorageAccountId:            exampleAccount.ID(),
@@ -395,13 +404,7 @@ import (
 //					KeyVaultId:             exampleKeyVault.ID(),
 //					KeyId:                  exampleKey.ID(),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				example_role1,
-//				example_role2,
-//				example_role3,
-//				example_role4,
-//				example_cosmosdb,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

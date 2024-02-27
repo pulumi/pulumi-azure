@@ -139,10 +139,13 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_private_cloud = azure.avs.PrivateCloud("example",
+            name="example-vmware-private-cloud",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="av36",
             management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
                 size=3,
@@ -151,7 +154,9 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",
             vcenter_password="WsxEdc23$Rfv")
-        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", private_cloud_id=example_private_cloud.id)
+        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("example",
+            name="example-authorization",
+            private_cloud_id=example_private_cloud.id)
         ```
 
         ## Import
@@ -182,10 +187,13 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_private_cloud = azure.avs.PrivateCloud("examplePrivateCloud",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_private_cloud = azure.avs.PrivateCloud("example",
+            name="example-vmware-private-cloud",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="av36",
             management_cluster=azure.avs.PrivateCloudManagementClusterArgs(
                 size=3,
@@ -194,7 +202,9 @@ class ExpressRouteAuthorization(pulumi.CustomResource):
             internet_connection_enabled=False,
             nsxt_password="QazWsx13$Edc",
             vcenter_password="WsxEdc23$Rfv")
-        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("exampleExpressRouteAuthorization", private_cloud_id=example_private_cloud.id)
+        example_express_route_authorization = azure.avs.ExpressRouteAuthorization("example",
+            name="example-authorization",
+            private_cloud_id=example_private_cloud.id)
         ```
 
         ## Import

@@ -52,18 +52,21 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var testIntegrationAccount = new IntegrationAccount(&#34;testIntegrationAccount&#34;, IntegrationAccountArgs.builder()        
+ *         var test = new IntegrationAccount(&#34;test&#34;, IntegrationAccountArgs.builder()        
+ *             .name(&#34;example-ia&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard&#34;)
  *             .build());
  * 
  *         var host = new IntegrationAccountPartner(&#34;host&#34;, IntegrationAccountPartnerArgs.builder()        
+ *             .name(&#34;example-hostpartner&#34;)
  *             .resourceGroupName(example.name())
- *             .integrationAccountName(testIntegrationAccount.name())
+ *             .integrationAccountName(test.name())
  *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
  *                 .qualifier(&#34;AS2Identity&#34;)
  *                 .value(&#34;FabrikamNY&#34;)
@@ -71,8 +74,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var guest = new IntegrationAccountPartner(&#34;guest&#34;, IntegrationAccountPartnerArgs.builder()        
+ *             .name(&#34;example-guestpartner&#34;)
  *             .resourceGroupName(example.name())
- *             .integrationAccountName(testIntegrationAccount.name())
+ *             .integrationAccountName(test.name())
  *             .businessIdentities(IntegrationAccountPartnerBusinessIdentityArgs.builder()
  *                 .qualifier(&#34;AS2Identity&#34;)
  *                 .value(&#34;FabrikamDC&#34;)
@@ -80,12 +84,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var testIntegrationAccountAgreement = new IntegrationAccountAgreement(&#34;testIntegrationAccountAgreement&#34;, IntegrationAccountAgreementArgs.builder()        
+ *             .name(&#34;example-agreement&#34;)
  *             .resourceGroupName(example.name())
- *             .integrationAccountName(testIntegrationAccount.name())
+ *             .integrationAccountName(test.name())
  *             .agreementType(&#34;AS2&#34;)
  *             .hostPartnerName(host.name())
  *             .guestPartnerName(guest.name())
- *             .content(Files.readString(Paths.get(&#34;testdata/integration_account_agreement_content_as2.json&#34;)))
+ *             .content(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;testdata/integration_account_agreement_content_as2.json&#34;)
+ *                 .build()).result())
  *             .hostIdentity(IntegrationAccountAgreementHostIdentityArgs.builder()
  *                 .qualifier(&#34;AS2Identity&#34;)
  *                 .value(&#34;FabrikamNY&#34;)

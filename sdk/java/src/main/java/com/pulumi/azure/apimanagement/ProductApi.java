@@ -42,29 +42,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-api&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
  *             .build());
  * 
- *         final var exampleApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
+ *         final var exampleGetApi = ApimanagementFunctions.getApi(GetApiArgs.builder()
  *             .name(&#34;search-api&#34;)
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .revision(&#34;2&#34;)
  *             .build());
  * 
- *         final var exampleProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
+ *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId(&#34;my-product&#34;)
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *         var exampleProductApi = new ProductApi(&#34;exampleProductApi&#34;, ProductApiArgs.builder()        
- *             .apiName(exampleApi.applyValue(getApiResult -&gt; getApiResult.name()))
- *             .productId(exampleProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiName(exampleGetApi.applyValue(getApiResult -&gt; getApiResult.name()))
+ *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.productId()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *     }

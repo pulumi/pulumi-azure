@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-virtual-network",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
@@ -31,26 +36,29 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "example-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
- * const exampleAppService = new azure.appservice.AppService("exampleAppService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     name: "example-app-service",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  * });
  * const example_staging = new azure.appservice.Slot("example-staging", {
+ *     name: "staging",
  *     appServiceName: exampleAppService.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  * });
- * const exampleSlotVirtualNetworkSwiftConnection = new azure.appservice.SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", {
+ * const exampleSlotVirtualNetworkSwiftConnection = new azure.appservice.SlotVirtualNetworkSwiftConnection("example", {
  *     slotName: example_staging.name,
  *     appServiceId: exampleAppService.id,
  *     subnetId: exampleSubnet.id,

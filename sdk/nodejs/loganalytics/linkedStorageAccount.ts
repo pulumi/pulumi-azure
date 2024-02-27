@@ -13,21 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplesa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "exampleworkspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleLinkedStorageAccount = new azure.loganalytics.LinkedStorageAccount("exampleLinkedStorageAccount", {
+ * const exampleLinkedStorageAccount = new azure.loganalytics.LinkedStorageAccount("example", {
  *     dataSourceType: "CustomLogs",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     storageAccountIds: [exampleAccount.id],
  * });

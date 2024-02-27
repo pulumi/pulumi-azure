@@ -28,16 +28,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleEnrollmentAccountScope, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
+//			example, err := billing.GetEnrollmentAccountScope(ctx, &billing.GetEnrollmentAccountScopeArgs{
 //				BillingAccountName:    "1234567890",
 //				EnrollmentAccountName: "0123456",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example EA Subscription"),
-//				BillingScopeId:   *pulumi.String(exampleEnrollmentAccountScope.Id),
+//				BillingScopeId:   *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -62,7 +62,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleMcaAccountScope, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
+//			example, err := billing.GetMcaAccountScope(ctx, &billing.GetMcaAccountScopeArgs{
 //				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
 //				BillingProfileName: "PE2Q-NOIT-BG7-TGB",
 //				InvoiceSectionName: "MTT4-OBS7-PJA-TGB",
@@ -70,9 +70,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example MCA Subscription"),
-//				BillingScopeId:   *pulumi.String(exampleMcaAccountScope.Id),
+//				BillingScopeId:   *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -97,16 +97,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleMpaAccountScope, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
+//			example, err := billing.GetMpaAccountScope(ctx, &billing.GetMpaAccountScopeArgs{
 //				BillingAccountName: "e879cf0f-2b4d-5431-109a-f72fc9868693:024cabf4-7321-4cf9-be59-df0c77ca51de_2019-05-31",
 //				CustomerName:       "2281f543-7321-4cf9-1e23-edb4Oc31a31c",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscription(ctx, "exampleSubscription", &core.SubscriptionArgs{
+//			_, err = core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				SubscriptionName: pulumi.String("My Example MPA Subscription"),
-//				BillingScopeId:   *pulumi.String(exampleMpaAccountScope.Id),
+//				BillingScopeId:   *pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err
@@ -132,8 +132,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewSubscription(ctx, "example", &core.SubscriptionArgs{
 //				Alias:            pulumi.String("examplesub"),
-//				SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
 //				SubscriptionName: pulumi.String("My Example Subscription"),
+//				SubscriptionId:   pulumi.String("12345678-12234-5678-9012-123456789012"),
 //			})
 //			if err != nil {
 //				return err

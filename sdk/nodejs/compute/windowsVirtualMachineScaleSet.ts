@@ -25,20 +25,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("exampleWindowsVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWindowsVirtualMachineScaleSet = new azure.compute.WindowsVirtualMachineScaleSet("example", {
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Standard_F2",
  *     instances: 1,
  *     adminPassword: "P@55w0rd1234!",

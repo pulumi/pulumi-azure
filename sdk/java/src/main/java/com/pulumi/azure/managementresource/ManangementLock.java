@@ -45,6 +45,7 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getSubscription();
  * 
  *         var subscription_level = new Lock(&#34;subscription-level&#34;, LockArgs.builder()        
+ *             .name(&#34;subscription-level&#34;)
  *             .scope(current.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .lockLevel(&#34;CanNotDelete&#34;)
  *             .notes(&#34;Items can&#39;t be deleted in this subscription!&#34;)
@@ -78,10 +79,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;locked-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var resource_group_level = new Lock(&#34;resource-group-level&#34;, LockArgs.builder()        
+ *             .name(&#34;resource-group-level&#34;)
  *             .scope(example.id())
  *             .lockLevel(&#34;ReadOnly&#34;)
  *             .notes(&#34;This Resource Group is Read-Only&#34;)
@@ -116,18 +119,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;locked-resource-group&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;locked-publicip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .idleTimeoutInMinutes(30)
  *             .build());
  * 
  *         var public_ip = new Lock(&#34;public-ip&#34;, LockArgs.builder()        
+ *             .name(&#34;resource-ip&#34;)
  *             .scope(examplePublicIp.id())
  *             .lockLevel(&#34;CanNotDelete&#34;)
  *             .notes(&#34;Locked because it&#39;s needed by a third-party&#34;)

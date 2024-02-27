@@ -58,10 +58,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(ClusterSkuArgs.builder()
@@ -71,12 +73,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -84,18 +88,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
+ *             .name(&#34;setup-files&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .containerAccessType(&#34;private&#34;)
  *             .build());
  * 
  *         var exampleBlob = new Blob(&#34;exampleBlob&#34;, BlobArgs.builder()        
+ *             .name(&#34;script.txt&#34;)
  *             .storageAccountName(exampleAccount.name())
  *             .storageContainerName(exampleContainer.name())
  *             .type(&#34;Block&#34;)
  *             .sourceContent(&#34;.create table MyTable (Level:string, Timestamp:datetime, UserId:string, TraceId:string, Message:string, ProcessId:int32)&#34;)
  *             .build());
  * 
- *         final var exampleAccountBlobContainerSAS = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
+ *         final var example = StorageFunctions.getAccountBlobContainerSAS(GetAccountBlobContainerSASArgs.builder()
  *             .connectionString(exampleAccount.primaryConnectionString())
  *             .containerName(exampleContainer.name())
  *             .httpsOnly(true)
@@ -112,9 +118,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScript = new Script(&#34;exampleScript&#34;, ScriptArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .databaseId(exampleDatabase.id())
  *             .url(exampleBlob.id())
- *             .sasToken(exampleAccountBlobContainerSAS.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(exampleAccountBlobContainerSAS -&gt; exampleAccountBlobContainerSAS.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())))
+ *             .sasToken(example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult).applyValue(example -&gt; example.applyValue(getAccountBlobContainerSASResult -&gt; getAccountBlobContainerSASResult.sas())))
  *             .continueOnErrorsEnabled(true)
  *             .forceAnUpdateWhenValueChanged(&#34;first&#34;)
  *             .build());

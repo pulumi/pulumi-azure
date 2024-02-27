@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("snapshot-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "exampleManagedDisk", &compute.ManagedDiskArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleManagedDisk, err := compute.NewManagedDisk(ctx, "example", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String("managed-disk"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
 //				CreateOption:       pulumi.String("Empty"),
 //				DiskSizeGb:         pulumi.Int(10),
@@ -45,9 +47,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewSnapshot(ctx, "exampleSnapshot", &compute.SnapshotArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = compute.NewSnapshot(ctx, "example", &compute.SnapshotArgs{
+//				Name:              pulumi.String("snapshot"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				CreateOption:      pulumi.String("Copy"),
 //				SourceUri:         exampleManagedDisk.ID(),
 //			})

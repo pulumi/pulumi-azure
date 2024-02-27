@@ -213,18 +213,23 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             managed_virtual_network_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("example",
+            name="example",
             data_factory_id=example_factory.id,
             target_resource_id=example_account.id,
             subresource_name="blob")
@@ -263,18 +268,23 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             managed_virtual_network_enabled=True)
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+        example_managed_private_endpoint = azure.datafactory.ManagedPrivateEndpoint("example",
+            name="example",
             data_factory_id=example_factory.id,
             target_resource_id=example_account.id,
             subresource_name="blob")

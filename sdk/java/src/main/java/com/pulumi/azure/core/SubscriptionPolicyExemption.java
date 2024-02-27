@@ -47,15 +47,16 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleSubscription = CoreFunctions.getSubscription();
+ *         final var example = CoreFunctions.getSubscription();
  * 
- *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var exampleGetPolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
  *             .build());
  * 
  *         var exampleSubscriptionPolicyAssignment = new SubscriptionPolicyAssignment(&#34;exampleSubscriptionPolicyAssignment&#34;, SubscriptionPolicyAssignmentArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
- *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .name(&#34;exampleAssignment&#34;)
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .policyDefinitionId(exampleGetPolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(&#34;westus&#34;)
  *             .identity(SubscriptionPolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
@@ -63,7 +64,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSubscriptionPolicyExemption = new SubscriptionPolicyExemption(&#34;exampleSubscriptionPolicyExemption&#34;, SubscriptionPolicyExemptionArgs.builder()        
- *             .subscriptionId(exampleSubscription.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
+ *             .name(&#34;exampleExemption&#34;)
+ *             .subscriptionId(example.applyValue(getSubscriptionResult -&gt; getSubscriptionResult.id()))
  *             .policyAssignmentId(exampleSubscriptionPolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)
  *             .build());

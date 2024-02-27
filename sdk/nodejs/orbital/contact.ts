@@ -13,9 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSpacecraft = new azure.orbital.Spacecraft("exampleSpacecraft", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const exampleSpacecraft = new azure.orbital.Spacecraft("example", {
+ *     name: "example-spacecraft",
+ *     resourceGroupName: example.name,
  *     location: "westeurope",
  *     noradId: "12345",
  *     links: [{
@@ -34,13 +38,15 @@ import * as utilities from "../utilities";
  *         "aks-managed-cluster-name": "9a57225d-a405-4d40-aa46-f13d2342abef",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  *     delegations: [{
@@ -56,9 +62,10 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleContactProfile = new azure.orbital.ContactProfile("exampleContactProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleContactProfile = new azure.orbital.ContactProfile("example", {
+ *     name: "example-contactprofile",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     minimumVariableContactDuration: "PT1M",
  *     autoTracking: "disabled",
  *     links: [{
@@ -79,7 +86,8 @@ import * as utilities from "../utilities";
  *     }],
  *     networkConfigurationSubnetId: exampleSubnet.id,
  * });
- * const exampleContact = new azure.orbital.Contact("exampleContact", {
+ * const exampleContact = new azure.orbital.Contact("example", {
+ *     name: "example-contact",
  *     spacecraftId: exampleSpacecraft.id,
  *     reservationStartTime: "2020-07-16T20:35:00.00Z",
  *     reservationEndTime: "2020-07-16T20:55:00.00Z",

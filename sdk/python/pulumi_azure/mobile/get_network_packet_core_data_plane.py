@@ -146,10 +146,10 @@ def get_network_packet_core_data_plane(mobile_network_packet_core_control_plane_
     import pulumi
     import pulumi_azure as azure
 
-    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
+    example = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
         resource_group_name="example-rg")
-    example_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
-        mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id)
+    example_get_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
+        mobile_network_packet_core_control_plane_id=example.id)
     ```
 
 
@@ -187,10 +187,10 @@ def get_network_packet_core_data_plane_output(mobile_network_packet_core_control
     import pulumi
     import pulumi_azure as azure
 
-    example_network_packet_core_control_plane = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
+    example = azure.mobile.get_network_packet_core_control_plane(name="example-mnpccp",
         resource_group_name="example-rg")
-    example_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
-        mobile_network_packet_core_control_plane_id=example_network_packet_core_control_plane.id)
+    example_get_network_packet_core_data_plane = azure.mobile.get_network_packet_core_data_plane(name="example-mnpcdp",
+        mobile_network_packet_core_control_plane_id=example.id)
     ```
 
 

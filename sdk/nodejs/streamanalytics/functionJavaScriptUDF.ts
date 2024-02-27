@@ -15,16 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = azure.core.getResourceGroup({
+ * const example = azure.core.getResourceGroup({
  *     name: "example-resources",
  * });
- * const exampleJob = exampleResourceGroup.then(exampleResourceGroup => azure.streamanalytics.getJob({
+ * const exampleGetJob = example.then(example => azure.streamanalytics.getJob({
  *     name: "example-job",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  * }));
- * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("exampleFunctionJavaScriptUDF", {
- *     streamAnalyticsJobName: exampleJob.then(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.then(exampleJob => exampleJob.resourceGroupName),
+ * const exampleFunctionJavaScriptUDF = new azure.streamanalytics.FunctionJavaScriptUDF("example", {
+ *     name: "example-javascript-function",
+ *     streamAnalyticsJobName: exampleGetJob.then(exampleGetJob => exampleGetJob.name),
+ *     resourceGroupName: exampleGetJob.then(exampleGetJob => exampleGetJob.resourceGroupName),
  *     script: `function getRandomNumber(in) {
  *   return in;
  * }

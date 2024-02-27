@@ -51,7 +51,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.network.SubnetRouteTableAssociationArgs;
  * import com.pulumi.azure.mssql.ManagedInstance;
  * import com.pulumi.azure.mssql.ManagedInstanceArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -65,16 +64,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;database-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNetworkSecurityGroup = new NetworkSecurityGroup(&#34;exampleNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mi-security-group&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var allowManagementInbound = new NetworkSecurityRule(&#34;allowManagementInbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_management_inbound&#34;)
  *             .priority(106)
  *             .direction(&#34;Inbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -88,11 +90,12 @@ import javax.annotation.Nullable;
  *                 &#34;1452&#34;)
  *             .sourceAddressPrefix(&#34;*&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var allowMisubnetInbound = new NetworkSecurityRule(&#34;allowMisubnetInbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_misubnet_inbound&#34;)
  *             .priority(200)
  *             .direction(&#34;Inbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -101,11 +104,12 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;10.0.0.0/24&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var allowHealthProbeInbound = new NetworkSecurityRule(&#34;allowHealthProbeInbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_health_probe_inbound&#34;)
  *             .priority(300)
  *             .direction(&#34;Inbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -114,11 +118,12 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;AzureLoadBalancer&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var allowTdsInbound = new NetworkSecurityRule(&#34;allowTdsInbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_tds_inbound&#34;)
  *             .priority(1000)
  *             .direction(&#34;Inbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -127,11 +132,12 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;1433&#34;)
  *             .sourceAddressPrefix(&#34;VirtualNetwork&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var denyAllInbound = new NetworkSecurityRule(&#34;denyAllInbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;deny_all_inbound&#34;)
  *             .priority(4096)
  *             .direction(&#34;Inbound&#34;)
  *             .access(&#34;Deny&#34;)
@@ -140,11 +146,12 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;*&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var allowManagementOutbound = new NetworkSecurityRule(&#34;allowManagementOutbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_management_outbound&#34;)
  *             .priority(102)
  *             .direction(&#34;Outbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -156,11 +163,12 @@ import javax.annotation.Nullable;
  *                 &#34;12000&#34;)
  *             .sourceAddressPrefix(&#34;*&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var allowMisubnetOutbound = new NetworkSecurityRule(&#34;allowMisubnetOutbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;allow_misubnet_outbound&#34;)
  *             .priority(200)
  *             .direction(&#34;Outbound&#34;)
  *             .access(&#34;Allow&#34;)
@@ -169,11 +177,12 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;10.0.0.0/24&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var denyAllOutbound = new NetworkSecurityRule(&#34;denyAllOutbound&#34;, NetworkSecurityRuleArgs.builder()        
+ *             .name(&#34;deny_all_outbound&#34;)
  *             .priority(4096)
  *             .direction(&#34;Outbound&#34;)
  *             .access(&#34;Deny&#34;)
@@ -182,18 +191,20 @@ import javax.annotation.Nullable;
  *             .destinationPortRange(&#34;*&#34;)
  *             .sourceAddressPrefix(&#34;*&#34;)
  *             .destinationAddressPrefix(&#34;*&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .networkSecurityGroupName(exampleNetworkSecurityGroup.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;vnet-mi&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;subnet-mi&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.0.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -214,12 +225,11 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleRouteTable = new RouteTable(&#34;exampleRouteTable&#34;, RouteTableArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;routetable-mi&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .disableBgpRoutePropagation(false)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleSubnet)
- *                 .build());
+ *             .build());
  * 
  *         var exampleSubnetRouteTableAssociation = new SubnetRouteTableAssociation(&#34;exampleSubnetRouteTableAssociation&#34;, SubnetRouteTableAssociationArgs.builder()        
  *             .subnetId(exampleSubnet.id())
@@ -227,8 +237,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleManagedInstance = new ManagedInstance(&#34;exampleManagedInstance&#34;, ManagedInstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;managedsqlinstance&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .licenseType(&#34;BasePrice&#34;)
  *             .skuName(&#34;GP_Gen5&#34;)
  *             .storageSizeInGb(32)
@@ -236,11 +247,7 @@ import javax.annotation.Nullable;
  *             .vcores(4)
  *             .administratorLogin(&#34;mradministrator&#34;)
  *             .administratorLoginPassword(&#34;thisIsDog11&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleSubnetNetworkSecurityGroupAssociation,
- *                     exampleSubnetRouteTableAssociation)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

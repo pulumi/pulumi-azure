@@ -45,7 +45,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.eventgrid.inputs.EventSubscriptionRetryPolicyArgs;
  * import com.pulumi.azure.kusto.EventGridDataConnection;
  * import com.pulumi.azure.kusto.EventGridDataConnectionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -59,13 +58,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekustocluster&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name(&#34;Standard_D13_v2&#34;)
  *                 .capacity(2)
@@ -73,40 +74,46 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-kusto-database&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .hotCachePeriod(&#34;P7D&#34;)
  *             .softDeletePeriod(&#34;P31D&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;storageaccountname&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;eventhubnamespace-example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;eventhub-example&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(1)
  *             .messageRetention(1)
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;consumergroup-example&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleEventSubscription = new EventSubscription(&#34;exampleEventSubscription&#34;, EventSubscriptionArgs.builder()        
+ *             .name(&#34;eventgrid-example&#34;)
  *             .scope(exampleAccount.id())
  *             .eventhubEndpointId(exampleEventHub.id())
  *             .eventDeliverySchema(&#34;EventGridSchema&#34;)
@@ -120,8 +127,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleEventGridDataConnection = new EventGridDataConnection(&#34;exampleEventGridDataConnection&#34;, EventGridDataConnectionArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;my-kusto-eventgrid-data-connection&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
  *             .storageAccountId(exampleAccount.id())
@@ -130,9 +138,7 @@ import javax.annotation.Nullable;
  *             .tableName(&#34;my-table&#34;)
  *             .mappingRuleName(&#34;my-table-mapping&#34;)
  *             .dataFormat(&#34;JSON&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleEventSubscription)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

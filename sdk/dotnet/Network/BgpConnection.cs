@@ -22,39 +22,44 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-pip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.5.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "RouteServerSubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -62,8 +67,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("exampleVirtualHubIp", new()
+    ///     var exampleVirtualHubIp = new Azure.Network.VirtualHubIp("example", new()
     ///     {
+    ///         Name = "example-vhubip",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         PrivateIpAddress = "10.5.1.18",
     ///         PrivateIpAllocationMethod = "Static",
@@ -71,17 +77,12 @@ namespace Pulumi.Azure.Network
     ///         SubnetId = exampleSubnet.Id,
     ///     });
     /// 
-    ///     var exampleBgpConnection = new Azure.Network.BgpConnection("exampleBgpConnection", new()
+    ///     var exampleBgpConnection = new Azure.Network.BgpConnection("example", new()
     ///     {
+    ///         Name = "example-vhub-bgpconnection",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         PeerAsn = 65514,
     ///         PeerIp = "169.254.21.5",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleVirtualHubIp,
-    ///         },
     ///     });
     /// 
     /// });

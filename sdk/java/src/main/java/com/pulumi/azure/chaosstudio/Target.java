@@ -47,10 +47,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
+ *         var example = new KubernetesCluster(&#34;example&#34;, KubernetesClusterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .dnsPrefix(&#34;acctestaksexample&#34;)
@@ -66,7 +68,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleTarget = new Target(&#34;exampleTarget&#34;, TargetArgs.builder()        
  *             .location(exampleResourceGroup.location())
- *             .targetResourceId(exampleKubernetesCluster.id())
+ *             .targetResourceId(example.id())
  *             .targetType(&#34;example-value&#34;)
  *             .build());
  * 

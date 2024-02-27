@@ -51,13 +51,14 @@ import javax.annotation.Nullable;
  *             .displayName(&#34;Example MgmtGroup&#34;)
  *             .build());
  * 
- *         final var examplePolicySetDefinition = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
+ *         final var example = PolicyFunctions.getPolicySetDefinition(GetPolicySetDefinitionArgs.builder()
  *             .displayName(&#34;Audit machines with insecure password security settings&#34;)
  *             .build());
  * 
  *         var exampleGroupPolicyAssignment = new GroupPolicyAssignment(&#34;exampleGroupPolicyAssignment&#34;, GroupPolicyAssignmentArgs.builder()        
+ *             .name(&#34;assignment1&#34;)
  *             .managementGroupId(exampleGroup.id())
- *             .policyDefinitionId(examplePolicySetDefinition.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
+ *             .policyDefinitionId(example.applyValue(getPolicySetDefinitionResult -&gt; getPolicySetDefinitionResult.id()))
  *             .location(&#34;westus&#34;)
  *             .identity(GroupPolicyAssignmentIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
@@ -65,6 +66,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleGroupPolicyExemption = new GroupPolicyExemption(&#34;exampleGroupPolicyExemption&#34;, GroupPolicyExemptionArgs.builder()        
+ *             .name(&#34;exemption1&#34;)
  *             .managementGroupId(exampleGroup.id())
  *             .policyAssignmentId(exampleGroupPolicyAssignment.id())
  *             .exemptionCategory(&#34;Mitigated&#34;)

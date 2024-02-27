@@ -12,6 +12,69 @@ namespace Pulumi.Azure.AppPlatform
     /// <summary>
     /// Manages an Azure Spring Cloud Custom Domain.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "rg-example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example = Azure.Dns.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "mydomain.com",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudService = new Azure.AppPlatform.SpringCloudService("example", new()
+    ///     {
+    ///         Name = "example-springcloud",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = exampleResourceGroup.Location,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudApp = new Azure.AppPlatform.SpringCloudApp("example", new()
+    ///     {
+    ///         Name = "example-springcloudapp",
+    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ServiceName = exampleSpringCloudService.Name,
+    ///     });
+    /// 
+    ///     var exampleCNameRecord = new Azure.Dns.CNameRecord("example", new()
+    ///     {
+    ///         Name = "record1",
+    ///         ZoneName = example.Apply(getZoneResult =&gt; getZoneResult.Name),
+    ///         ResourceGroupName = example.Apply(getZoneResult =&gt; getZoneResult.ResourceGroupName),
+    ///         Ttl = 300,
+    ///         Record = exampleSpringCloudApp.Fqdn,
+    ///     });
+    /// 
+    ///     var exampleSpringCloudCustomDomain = new Azure.AppPlatform.SpringCloudCustomDomain("example", new()
+    ///     {
+    ///         Name = Std.Join.Invoke(new()
+    ///         {
+    ///             Separator = ".",
+    ///             Input = new[]
+    ///             {
+    ///                 exampleCNameRecord.Name,
+    ///                 exampleCNameRecord.ZoneName,
+    ///             },
+    ///         }).Apply(invoke =&gt; invoke.Result),
+    ///         SpringCloudAppId = exampleSpringCloudApp.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Spring Cloud Custom Domain can be imported using the `resource id`, e.g.

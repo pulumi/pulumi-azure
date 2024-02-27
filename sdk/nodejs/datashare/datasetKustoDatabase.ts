@@ -13,41 +13,47 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.datashare.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.datashare.Account("example", {
+ *     name: "example-dsa",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleShare = new azure.datashare.Share("exampleShare", {
+ * const exampleShare = new azure.datashare.Share("example", {
+ *     name: "example_ds",
  *     accountId: exampleAccount.id,
  *     kind: "InPlace",
  * });
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "examplekc",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "examplekd",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: exampleCluster.name,
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleCluster.id,
  *     roleDefinitionName: "Contributor",
  *     principalId: exampleAccount.identity.apply(identity => identity.principalId),
  * });
- * const exampleDatasetKustoDatabase = new azure.datashare.DatasetKustoDatabase("exampleDatasetKustoDatabase", {
+ * const exampleDatasetKustoDatabase = new azure.datashare.DatasetKustoDatabase("example", {
+ *     name: "example-dskd",
  *     shareId: exampleShare.id,
  *     kustoDatabaseId: exampleDatabase.id,
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
  * ```
  *

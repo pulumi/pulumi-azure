@@ -33,15 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := cosmosdb.NewAccount(ctx, "exampleAccount", &cosmosdb.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := cosmosdb.NewAccount(ctx, "example", &cosmosdb.AccountArgs{
+//				Name:              pulumi.String("example-cosmosdb"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				OfferType:         pulumi.String("Standard"),
 //				Kind:              pulumi.String("GlobalDocumentDB"),
 //				ConsistencyPolicy: &cosmosdb.AccountConsistencyPolicyArgs{
@@ -49,7 +51,7 @@ import (
 //				},
 //				GeoLocations: cosmosdb.AccountGeoLocationArray{
 //					&cosmosdb.AccountGeoLocationArgs{
-//						Location:         exampleResourceGroup.Location,
+//						Location:         example.Location,
 //						FailoverPriority: pulumi.Int(0),
 //					},
 //				},
@@ -57,8 +59,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "exampleSqlRoleDefinition", &cosmosdb.SqlRoleDefinitionArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSqlRoleDefinition, err := cosmosdb.NewSqlRoleDefinition(ctx, "example", &cosmosdb.SqlRoleDefinitionArgs{
+//				Name:              pulumi.String("examplesqlroledef"),
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				Type:              pulumi.String("CustomRole"),
 //				AssignableScopes: pulumi.StringArray{
@@ -75,8 +78,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "exampleSqlRoleAssignment", &cosmosdb.SqlRoleAssignmentArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = cosmosdb.NewSqlRoleAssignment(ctx, "example", &cosmosdb.SqlRoleAssignmentArgs{
+//				Name:              pulumi.String("736180af-7fbc-4c7f-9004-22735173c1c3"),
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				RoleDefinitionId:  exampleSqlRoleDefinition.ID(),
 //				PrincipalId:       *pulumi.String(current.ObjectId),

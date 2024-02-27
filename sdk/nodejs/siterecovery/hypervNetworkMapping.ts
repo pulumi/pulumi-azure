@@ -13,18 +13,24 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const targetResourceGroup = new azure.core.ResourceGroup("targetResourceGroup", {location: "East US"});
+ * const target = new azure.core.ResourceGroup("target", {
+ *     name: "tfex-network-mapping",
+ *     location: "East US",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: targetResourceGroup.location,
- *     resourceGroupName: targetResourceGroup.name,
+ *     name: "example-recovery-vault",
+ *     location: target.location,
+ *     resourceGroupName: target.name,
  *     sku: "Standard",
  * });
- * const targetVirtualNetwork = new azure.network.VirtualNetwork("targetVirtualNetwork", {
- *     resourceGroupName: targetResourceGroup.name,
+ * const targetVirtualNetwork = new azure.network.VirtualNetwork("target", {
+ *     name: "network",
+ *     resourceGroupName: target.name,
  *     addressSpaces: ["192.168.2.0/24"],
- *     location: targetResourceGroup.location,
+ *     location: target.location,
  * });
  * const recovery_mapping = new azure.siterecovery.HypervNetworkMapping("recovery-mapping", {
+ *     name: "recovery-network-mapping",
  *     recoveryVaultId: vault.id,
  *     sourceSystemCenterVirtualMachineManagerName: "my-vmm-server",
  *     sourceNetworkName: "my-vmm-network",

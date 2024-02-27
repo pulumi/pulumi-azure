@@ -385,21 +385,25 @@ class ClusterExtension(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.arckubernetes.Cluster("example",
+            name="example-akcc",
+            resource_group_name=example.name,
             location="West Europe",
-            agent_public_key_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/public.cer"),
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity=azure.arckubernetes.ClusterIdentityArgs(
                 type="SystemAssigned",
             ),
             tags={
                 "ENV": "Test",
             })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("exampleClusterExtension",
+        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
+            name="example-ext",
             cluster_id=example_cluster.id,
             extension_type="microsoft.flux")
         ```
@@ -438,21 +442,25 @@ class ClusterExtension(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.arckubernetes.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.arckubernetes.Cluster("example",
+            name="example-akcc",
+            resource_group_name=example.name,
             location="West Europe",
-            agent_public_key_certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("testdata/public.cer"),
+            agent_public_key_certificate=std.filebase64(input="testdata/public.cer").result,
             identity=azure.arckubernetes.ClusterIdentityArgs(
                 type="SystemAssigned",
             ),
             tags={
                 "ENV": "Test",
             })
-        example_cluster_extension = azure.arckubernetes.ClusterExtension("exampleClusterExtension",
+        example_cluster_extension = azure.arckubernetes.ClusterExtension("example",
+            name="example-ext",
             cluster_id=example_cluster.id,
             extension_type="microsoft.flux")
         ```

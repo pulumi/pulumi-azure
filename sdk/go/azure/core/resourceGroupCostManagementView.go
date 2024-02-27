@@ -28,17 +28,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewResourceGroupCostManagementView(ctx, "exampleResourceGroupCostManagementView", &core.ResourceGroupCostManagementViewArgs{
+//			_, err = core.NewResourceGroupCostManagementView(ctx, "example", &core.ResourceGroupCostManagementViewArgs{
+//				Name:            pulumi.String("example"),
 //				DisplayName:     pulumi.String("Cost View per Month"),
 //				ChartType:       pulumi.String("StackedColumn"),
 //				Accumulated:     pulumi.Bool(false),
-//				ResourceGroupId: exampleResourceGroup.ID(),
+//				ResourceGroupId: example.ID(),
 //				ReportType:      pulumi.String("Usage"),
 //				Timeframe:       pulumi.String("MonthToDate"),
 //				Dataset: &core.ResourceGroupCostManagementViewDatasetArgs{

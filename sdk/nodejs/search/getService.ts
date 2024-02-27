@@ -15,8 +15,11 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = azure.search.getServiceOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.search.getServiceOutput({
  *     name: "example-search-service",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
@@ -96,8 +99,11 @@ export interface GetServiceResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = azure.search.getServiceOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.search.getServiceOutput({
  *     name: "example-search-service",
  *     resourceGroupName: exampleResourceGroup.name,
  * });

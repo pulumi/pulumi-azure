@@ -30,7 +30,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := appconfiguration.LookupConfigurationKey(ctx, &appconfiguration.LookupConfigurationKeyArgs{
-//				ConfigurationStoreId: azurerm_app_configuration.Appconf.Id,
+//				ConfigurationStoreId: appconf.Id,
 //				Key:                  "appConfKey1",
 //				Label:                pulumi.StringRef("somelabel"),
 //			}, nil)

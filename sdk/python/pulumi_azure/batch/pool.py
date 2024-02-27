@@ -1010,34 +1010,39 @@ class Pool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="testaccbatch",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="testaccsa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.batch.Account("example",
+            name="testaccbatch",
+            resource_group_name=example.name,
+            location=example.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
             storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.cer"),
+        example_certificate = azure.batch.Certificate("example",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            certificate=std.filebase64(input="certificate.cer").result,
             format="Cer",
             thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
             thumbprint_algorithm="SHA1")
-        example_pool = azure.batch.Pool("examplePool",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
+        example_pool = azure.batch.Pool("example",
+            name="testaccpool",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
             display_name="Test Acc Pool Auto",
             vm_size="Standard_A1",
             node_agent_sku_id="batch.node.ubuntu 20.04",
@@ -1142,34 +1147,39 @@ class Pool(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="testaccbatch",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="testaccsa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_batch_account_account = azure.batch.Account("exampleBatch/accountAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account2 = azure.batch.Account("example",
+            name="testaccbatch",
+            resource_group_name=example.name,
+            location=example.location,
             pool_allocation_mode="BatchService",
             storage_account_id=example_account.id,
             storage_account_authentication_mode="StorageKeys",
             tags={
                 "env": "test",
             })
-        example_certificate = azure.batch.Certificate("exampleCertificate",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
-            certificate=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.cer"),
+        example_certificate = azure.batch.Certificate("example",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
+            certificate=std.filebase64(input="certificate.cer").result,
             format="Cer",
             thumbprint="312d31a79fa0cef49c00f769afc2b73e9f4edf34",
             thumbprint_algorithm="SHA1")
-        example_pool = azure.batch.Pool("examplePool",
-            resource_group_name=example_resource_group.name,
-            account_name=example_batch / account_account["name"],
+        example_pool = azure.batch.Pool("example",
+            name="testaccpool",
+            resource_group_name=example.name,
+            account_name=example_account2.name,
             display_name="Test Acc Pool Auto",
             vm_size="Standard_A1",
             node_agent_sku_id="batch.node.ubuntu 20.04",

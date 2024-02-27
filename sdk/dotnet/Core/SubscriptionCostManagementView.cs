@@ -24,24 +24,25 @@ namespace Pulumi.Azure.Core
     /// {
     ///     var example = new Azure.Core.SubscriptionCostManagementView("example", new()
     ///     {
-    ///         Accumulated = false,
+    ///         Name = "example",
+    ///         DisplayName = "Cost View per Month",
     ///         ChartType = "StackedColumn",
+    ///         Accumulated = false,
+    ///         SubscriptionId = "/subscription/00000000-0000-0000-0000-000000000000",
+    ///         ReportType = "Usage",
+    ///         Timeframe = "MonthToDate",
     ///         Dataset = new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetArgs
     ///         {
+    ///             Granularity = "Monthly",
     ///             Aggregations = new[]
     ///             {
     ///                 new Azure.Core.Inputs.SubscriptionCostManagementViewDatasetAggregationArgs
     ///                 {
-    ///                     ColumnName = "Cost",
     ///                     Name = "totalCost",
+    ///                     ColumnName = "Cost",
     ///                 },
     ///             },
-    ///             Granularity = "Monthly",
     ///         },
-    ///         DisplayName = "Cost View per Month",
-    ///         ReportType = "Usage",
-    ///         SubscriptionId = "/subscription/00000000-0000-0000-0000-000000000000",
-    ///         Timeframe = "MonthToDate",
     ///     });
     /// 
     /// });

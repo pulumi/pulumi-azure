@@ -22,25 +22,29 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example_resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleTopic = new Azure.EventGrid.Topic("exampleTopic", new()
+    ///     var exampleTopic = new Azure.EventGrid.Topic("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-topic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("exampleEndpointEventGrid", new()
+    ///     var exampleEndpointEventGrid = new Azure.DigitalTwins.EndpointEventGrid("example", new()
     ///     {
+    ///         Name = "example-EG",
     ///         DigitalTwinsId = exampleInstance.Id,
     ///         EventgridTopicEndpoint = exampleTopic.Endpoint,
     ///         EventgridTopicPrimaryAccessKey = exampleTopic.PrimaryAccessKey,

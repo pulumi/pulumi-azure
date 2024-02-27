@@ -363,24 +363,13 @@ class Definition(pulumi.CustomResource):
         import pulumi_azure as azure
 
         policy = azure.policy.Definition("policy",
+            name="accTestPolicy",
+            policy_type="Custom",
+            mode="Indexed",
             display_name="acceptance test policy definition",
             metadata=\"\"\"    {
             "category": "General"
             }
-
-
-        \"\"\",
-            mode="Indexed",
-            parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
-              }
-            }
-          }
 
         \"\"\",
             policy_rule=\"\"\" {
@@ -394,9 +383,18 @@ class Definition(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-
         \"\"\",
-            policy_type="Custom")
+            parameters=\"\"\" {
+            "allowedLocations": {
+              "type": "Array",
+              "metadata": {
+                "description": "The list of allowed locations for resources.",
+                "displayName": "Allowed locations",
+                "strongType": "location"
+              }
+            }
+          }
+        \"\"\")
         ```
 
         ## Import
@@ -445,24 +443,13 @@ class Definition(pulumi.CustomResource):
         import pulumi_azure as azure
 
         policy = azure.policy.Definition("policy",
+            name="accTestPolicy",
+            policy_type="Custom",
+            mode="Indexed",
             display_name="acceptance test policy definition",
             metadata=\"\"\"    {
             "category": "General"
             }
-
-
-        \"\"\",
-            mode="Indexed",
-            parameters=\"\"\" {
-            "allowedLocations": {
-              "type": "Array",
-              "metadata": {
-                "description": "The list of allowed locations for resources.",
-                "displayName": "Allowed locations",
-                "strongType": "location"
-              }
-            }
-          }
 
         \"\"\",
             policy_rule=\"\"\" {
@@ -476,9 +463,18 @@ class Definition(pulumi.CustomResource):
               "effect": "audit"
             }
           }
-
         \"\"\",
-            policy_type="Custom")
+            parameters=\"\"\" {
+            "allowedLocations": {
+              "type": "Array",
+              "metadata": {
+                "description": "The list of allowed locations for resources.",
+                "displayName": "Allowed locations",
+                "strongType": "location"
+              }
+            }
+          }
+        \"\"\")
         ```
 
         ## Import

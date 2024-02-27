@@ -48,26 +48,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.7.29.0/29&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.7.29.0/29&#34;)
  *             .serviceEndpoints(&#34;Microsoft.Sql&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mysqlserver&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .administratorLogin(&#34;mysqladminun&#34;)
  *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
  *             .skuName(&#34;GP_Gen5_2&#34;)
@@ -79,7 +83,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleVirtualNetworkRule = new VirtualNetworkRule(&#34;exampleVirtualNetworkRule&#34;, VirtualNetworkRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mysql-vnet-rule&#34;)
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .subnetId(internal.id())
  *             .build());

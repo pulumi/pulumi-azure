@@ -35,43 +35,37 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-network"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -80,9 +74,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("example-nic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("internal"),
@@ -94,9 +89,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:              pulumi.String("example-machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Size:              pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -105,7 +107,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//						PublicKey: invokeFile.Result,
 //					},
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{

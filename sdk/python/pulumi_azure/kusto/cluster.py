@@ -820,10 +820,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-cluster-rg",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,
@@ -884,10 +887,13 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-cluster-rg",
+            location="West Europe")
+        example_cluster = azure.kusto.Cluster("example",
+            name="kustocluster",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Standard_D13_v2",
                 capacity=2,

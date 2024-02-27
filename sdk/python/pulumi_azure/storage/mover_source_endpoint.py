@@ -238,11 +238,15 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
             location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
+        example_mover = azure.storage.Mover("example",
+            name="example-ssm",
+            resource_group_name=example.name,
+            location="West Europe")
+        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("example",
+            name="example-se",
             storage_mover_id=example_mover.id,
             export="/",
             host="192.168.0.1",
@@ -281,11 +285,15 @@ class MoverSourceEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_mover = azure.storage.Mover("exampleMover",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
             location="West Europe")
-        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("exampleMoverSourceEndpoint",
+        example_mover = azure.storage.Mover("example",
+            name="example-ssm",
+            resource_group_name=example.name,
+            location="West Europe")
+        example_mover_source_endpoint = azure.storage.MoverSourceEndpoint("example",
+            name="example-se",
             storage_mover_id=example_mover.id,
             export="/",
             host="192.168.0.1",

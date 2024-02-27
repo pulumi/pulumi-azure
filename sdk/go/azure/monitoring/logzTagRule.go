@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-logz"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "exampleLogzMonitor", &monitoring.LogzMonitorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLogzMonitor, err := monitoring.NewLogzMonitor(ctx, "example", &monitoring.LogzMonitorArgs{
+//				Name:              pulumi.String("example-monitor"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Plan: &monitoring.LogzMonitorPlanArgs{
 //					BillingCycle:  pulumi.String("MONTHLY"),
 //					EffectiveDate: pulumi.String("2022-06-06T00:00:00Z"),
@@ -53,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewLogzTagRule(ctx, "exampleLogzTagRule", &monitoring.LogzTagRuleArgs{
+//			_, err = monitoring.NewLogzTagRule(ctx, "example", &monitoring.LogzTagRuleArgs{
 //				LogzMonitorId: exampleLogzMonitor.ID(),
 //				TagFilters: monitoring.LogzTagRuleTagFilterArray{
 //					&monitoring.LogzTagRuleTagFilterArgs{

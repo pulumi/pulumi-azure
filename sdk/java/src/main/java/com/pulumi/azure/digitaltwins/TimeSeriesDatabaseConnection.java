@@ -46,7 +46,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.kusto.DatabasePrincipalAssignmentArgs;
  * import com.pulumi.azure.digitaltwins.TimeSeriesDatabaseConnection;
  * import com.pulumi.azure.digitaltwins.TimeSeriesDatabaseConnectionArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -60,40 +59,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-DT&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .identity(InstanceIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;exampleEventHubNamespace&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;exampleEventHub&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(7)
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;example-consumergroup&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name(&#34;Dev(No SLA)_Standard_D11_v2&#34;)
  *                 .capacity(1)
@@ -101,8 +106,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-kusto-database&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .build());
  * 
@@ -119,7 +125,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;dataadmin&#34;)
+ *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
  *             .tenantId(exampleInstance.identity().applyValue(identity -&gt; identity.tenantId()))
@@ -129,6 +136,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTimeSeriesDatabaseConnection = new TimeSeriesDatabaseConnection(&#34;exampleTimeSeriesDatabaseConnection&#34;, TimeSeriesDatabaseConnectionArgs.builder()        
+ *             .name(&#34;example-connection&#34;)
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventhubName(exampleEventHub.name())
  *             .eventhubNamespaceId(exampleEventHubNamespace.id())
@@ -138,12 +146,7 @@ import javax.annotation.Nullable;
  *             .kustoClusterUri(exampleCluster.uri())
  *             .kustoDatabaseName(exampleDatabase.name())
  *             .kustoTableName(&#34;exampleTable&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     databaseContributor,
- *                     eventhubDataOwner,
- *                     exampleDatabasePrincipalAssignment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

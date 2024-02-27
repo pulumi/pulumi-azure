@@ -171,16 +171,20 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_port = azure.network.ExpressRoutePort("example",
+            name="port1",
+            resource_group_name=example.name,
+            location=example.location,
             peering_location="Airtel-Chennai-CLS",
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
-        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
+        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("example",
+            name="exampleERCAuth",
             express_route_port_name=example_express_route_port.name,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -212,16 +216,20 @@ class ExpressRoutePortAuthorization(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_express_route_port = azure.network.ExpressRoutePort("exampleExpressRoutePort",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="exprtTest",
+            location="West Europe")
+        example_express_route_port = azure.network.ExpressRoutePort("example",
+            name="port1",
+            resource_group_name=example.name,
+            location=example.location,
             peering_location="Airtel-Chennai-CLS",
             bandwidth_in_gbps=10,
             encapsulation="Dot1Q")
-        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("exampleExpressRoutePortAuthorization",
+        example_express_route_port_authorization = azure.network.ExpressRoutePortAuthorization("example",
+            name="exampleERCAuth",
             express_route_port_name=example_express_route_port.name,
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import

@@ -47,18 +47,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ca&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;OpenAI&#34;)
  *             .skuName(&#34;S0&#34;)
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
+ *             .name(&#34;example-cd&#34;)
  *             .cognitiveAccountId(exampleAccount.id())
  *             .model(DeploymentModelArgs.builder()
  *                 .format(&#34;OpenAI&#34;)

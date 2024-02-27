@@ -12,21 +12,28 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleIotHubDps = new azure.iot.IotHubDps("exampleIotHubDps", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleIotHubDps = new azure.iot.IotHubDps("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: {
  *         name: "S1",
  *         capacity: 1,
  *     },
  * });
- * const exampleIotHubCertificate = new azure.iot.IotHubCertificate("exampleIotHubCertificate", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleIotHubCertificate = new azure.iot.IotHubCertificate("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     iotDpsName: exampleIotHubDps.name,
- *     certificateContent: fs.readFileSync("example.cer", { encoding: "base64" }),
+ *     certificateContent: std.filebase64({
+ *         input: "example.cer",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

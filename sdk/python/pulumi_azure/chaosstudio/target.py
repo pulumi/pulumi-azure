@@ -141,8 +141,11 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.containerservice.KubernetesCluster("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
@@ -154,9 +157,9 @@ class Target(pulumi.CustomResource):
             identity=azure.containerservice.KubernetesClusterIdentityArgs(
                 type="example-value",
             ))
-        example_target = azure.chaosstudio.Target("exampleTarget",
+        example_target = azure.chaosstudio.Target("example",
             location=example_resource_group.location,
-            target_resource_id=example_kubernetes_cluster.id,
+            target_resource_id=example.id,
             target_type="example-value")
         ```
 
@@ -195,8 +198,11 @@ class Target(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_kubernetes_cluster = azure.containerservice.KubernetesCluster("exampleKubernetesCluster",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.containerservice.KubernetesCluster("example",
+            name="example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             dns_prefix="acctestaksexample",
@@ -208,9 +214,9 @@ class Target(pulumi.CustomResource):
             identity=azure.containerservice.KubernetesClusterIdentityArgs(
                 type="example-value",
             ))
-        example_target = azure.chaosstudio.Target("exampleTarget",
+        example_target = azure.chaosstudio.Target("example",
             location=example_resource_group.location,
-            target_resource_id=example_kubernetes_cluster.id,
+            target_resource_id=example.id,
             target_type="example-value")
         ```
 

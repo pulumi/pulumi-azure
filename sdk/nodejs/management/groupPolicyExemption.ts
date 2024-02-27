@@ -13,19 +13,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleGroup = new azure.management.Group("exampleGroup", {displayName: "Example MgmtGroup"});
- * const examplePolicySetDefinition = azure.policy.getPolicySetDefinition({
+ * const exampleGroup = new azure.management.Group("example", {displayName: "Example MgmtGroup"});
+ * const example = azure.policy.getPolicySetDefinition({
  *     displayName: "Audit machines with insecure password security settings",
  * });
- * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("exampleGroupPolicyAssignment", {
+ * const exampleGroupPolicyAssignment = new azure.management.GroupPolicyAssignment("example", {
+ *     name: "assignment1",
  *     managementGroupId: exampleGroup.id,
- *     policyDefinitionId: examplePolicySetDefinition.then(examplePolicySetDefinition => examplePolicySetDefinition.id),
+ *     policyDefinitionId: example.then(example => example.id),
  *     location: "westus",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleGroupPolicyExemption = new azure.management.GroupPolicyExemption("exampleGroupPolicyExemption", {
+ * const exampleGroupPolicyExemption = new azure.management.GroupPolicyExemption("example", {
+ *     name: "exemption1",
  *     managementGroupId: exampleGroup.id,
  *     policyAssignmentId: exampleGroupPolicyAssignment.id,
  *     exemptionCategory: "Mitigated",

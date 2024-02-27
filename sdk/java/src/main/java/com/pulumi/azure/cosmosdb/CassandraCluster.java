@@ -23,28 +23,6 @@ import javax.annotation.Nullable;
  * Manages a Cassandra Cluster.
  * 
  * &gt; **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
- * ```java
- * package generated_program;
- * 
- * import com.pulumi.Context;
- * import com.pulumi.Pulumi;
- * import com.pulumi.core.Output;
- * import java.util.List;
- * import java.util.ArrayList;
- * import java.util.Map;
- * import java.io.File;
- * import java.nio.file.Files;
- * import java.nio.file.Paths;
- * 
- * public class App {
- *     public static void main(String[] args) {
- *         Pulumi.run(App::stack);
- *     }
- * 
- *     public static void stack(Context ctx) {
- *     }
- * }
- * ```
  * 
  * ## Example Usage
  * ```java
@@ -65,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.authorization.AssignmentArgs;
  * import com.pulumi.azure.cosmosdb.CassandraCluster;
  * import com.pulumi.azure.cosmosdb.CassandraClusterArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -80,39 +57,41 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;accexample-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
+ *             .name(&#34;example-subnet&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;Azure Cosmos DB&#34;)
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
  *             .scope(exampleVirtualNetwork.id())
  *             .roleDefinitionName(&#34;Network Contributor&#34;)
- *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
  *             .build());
  * 
  *         var exampleCassandraCluster = new CassandraCluster(&#34;exampleCassandraCluster&#34;, CassandraClusterArgs.builder()        
+ *             .name(&#34;example-cluster&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .delegatedManagementSubnetId(exampleSubnet.id())
  *             .defaultAdminPassword(&#34;Password1234&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

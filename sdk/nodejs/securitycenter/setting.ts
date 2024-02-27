@@ -18,8 +18,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.securitycenter.Setting("example", {
- *     enabled: true,
  *     settingName: "MCAS",
+ *     enabled: true,
  * });
  * ```
  *

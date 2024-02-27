@@ -35,15 +35,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("mysqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -51,9 +53,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sql.NewActiveDirectoryAdministrator(ctx, "exampleActiveDirectoryAdministrator", &sql.ActiveDirectoryAdministratorArgs{
+//			_, err = sql.NewActiveDirectoryAdministrator(ctx, "example", &sql.ActiveDirectoryAdministratorArgs{
 //				ServerName:        exampleSqlServer.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Login:             pulumi.String("sqladmin"),
 //				TenantId:          *pulumi.String(current.TenantId),
 //				ObjectId:          *pulumi.String(current.ObjectId),

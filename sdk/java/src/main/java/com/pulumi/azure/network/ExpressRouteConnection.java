@@ -59,40 +59,46 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vwan&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualWanId(exampleVirtualWan.id())
  *             .addressPrefix(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteGateway = new ExpressRouteGateway(&#34;exampleExpressRouteGateway&#34;, ExpressRouteGatewayArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-expressroutegateway&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .scaleUnits(1)
  *             .build());
  * 
  *         var exampleExpressRoutePort = new ExpressRoutePort(&#34;exampleExpressRoutePort&#34;, ExpressRoutePortArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-erp&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .peeringLocation(&#34;Equinix-Seattle-SE2&#34;)
  *             .bandwidthInGbps(10)
  *             .encapsulation(&#34;Dot1Q&#34;)
  *             .build());
  * 
  *         var exampleExpressRouteCircuit = new ExpressRouteCircuit(&#34;exampleExpressRouteCircuit&#34;, ExpressRouteCircuitArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-erc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .expressRoutePortId(exampleExpressRoutePort.id())
  *             .bandwidthInGbps(5)
  *             .sku(ExpressRouteCircuitSkuArgs.builder()
@@ -104,7 +110,7 @@ import javax.annotation.Nullable;
  *         var exampleExpressRouteCircuitPeering = new ExpressRouteCircuitPeering(&#34;exampleExpressRouteCircuitPeering&#34;, ExpressRouteCircuitPeeringArgs.builder()        
  *             .peeringType(&#34;AzurePrivatePeering&#34;)
  *             .expressRouteCircuitName(exampleExpressRouteCircuit.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .sharedKey(&#34;ItsASecret&#34;)
  *             .peerAsn(100)
  *             .primaryPeerAddressPrefix(&#34;192.168.1.0/30&#34;)
@@ -113,6 +119,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleExpressRouteConnection = new ExpressRouteConnection(&#34;exampleExpressRouteConnection&#34;, ExpressRouteConnectionArgs.builder()        
+ *             .name(&#34;example-expressrouteconn&#34;)
  *             .expressRouteGatewayId(exampleExpressRouteGateway.id())
  *             .expressRouteCircuitPeeringId(exampleExpressRouteCircuitPeering.id())
  *             .build());

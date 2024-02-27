@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewServer(ctx, "exampleServer", &postgresql.ServerArgs{
-//				Location:                     exampleResourceGroup.Location,
-//				ResourceGroupName:            exampleResourceGroup.Name,
+//			_, err = postgresql.NewServer(ctx, "example", &postgresql.ServerArgs{
+//				Name:                         pulumi.String("example-psqlserver"),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
 //				AdministratorLogin:           pulumi.String("psqladmin"),
 //				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                      pulumi.String("GP_Gen5_4"),

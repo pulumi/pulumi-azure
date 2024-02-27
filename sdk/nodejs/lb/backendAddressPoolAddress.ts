@@ -17,34 +17,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleVirtualNetwork = azure.network.getVirtualNetwork({
+ * const example = azure.network.getVirtualNetwork({
  *     name: "example-network",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleLB = azure.lb.getLB({
+ * const exampleGetLB = azure.lb.getLB({
  *     name: "example-lb",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleBackendAddressPool = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
+ * const exampleGetBackendAddressPool = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
  *     name: "first",
- *     loadbalancerId: exampleLB.id,
+ *     loadbalancerId: exampleGetLB.id,
  * }));
- * const exampleBackendAddressPoolAddress = new azure.lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress", {
- *     backendAddressPoolId: exampleBackendAddressPool.then(exampleBackendAddressPool => exampleBackendAddressPool.id),
- *     virtualNetworkId: exampleVirtualNetwork.then(exampleVirtualNetwork => exampleVirtualNetwork.id),
+ * const exampleBackendAddressPoolAddress = new azure.lb.BackendAddressPoolAddress("example", {
+ *     name: "example",
+ *     backendAddressPoolId: exampleGetBackendAddressPool.then(exampleGetBackendAddressPool => exampleGetBackendAddressPool.id),
+ *     virtualNetworkId: example.then(example => example.id),
  *     ipAddress: "10.0.0.1",
  * });
- * const backend-pool-cr = exampleLB.then(exampleLB => azure.lb.getBackendAddressPool({
+ * const backend-pool-cr = exampleGetLB.then(exampleGetLB => azure.lb.getBackendAddressPool({
  *     name: "globalLBBackendPool",
- *     loadbalancerId: exampleLB.id,
+ *     loadbalancerId: exampleGetLB.id,
  * }));
  * const example_1 = new azure.lb.BackendAddressPoolAddress("example-1", {
+ *     name: "address1",
  *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
- *     backendAddressIpConfigurationId: azurerm_lb["backend-lb-R1"].frontend_ip_configuration[0].id,
+ *     backendAddressIpConfigurationId: backend_lb_R1.frontendIpConfiguration[0].id,
  * });
  * const example_2 = new azure.lb.BackendAddressPoolAddress("example-2", {
+ *     name: "address2",
  *     backendAddressPoolId: backend_pool_cr.then(backend_pool_cr => backend_pool_cr.id),
- *     backendAddressIpConfigurationId: azurerm_lb["backend-lb-R2"].frontend_ip_configuration[0].id,
+ *     backendAddressIpConfigurationId: backend_lb_R2.frontendIpConfiguration[0].id,
  * });
  * ```
  *

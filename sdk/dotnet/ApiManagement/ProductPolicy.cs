@@ -22,18 +22,18 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleProduct = Azure.ApiManagement.GetProduct.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetProduct.Invoke(new()
     ///     {
     ///         ProductId = "my-product",
     ///         ApiManagementName = "example-apim",
     ///         ResourceGroupName = "search-service",
     ///     });
     /// 
-    ///     var exampleProductPolicy = new Azure.ApiManagement.ProductPolicy("exampleProductPolicy", new()
+    ///     var exampleProductPolicy = new Azure.ApiManagement.ProductPolicy("example", new()
     ///     {
-    ///         ProductId = exampleProduct.Apply(getProductResult =&gt; getProductResult.ProductId),
-    ///         ApiManagementName = exampleProduct.Apply(getProductResult =&gt; getProductResult.ApiManagementName),
-    ///         ResourceGroupName = exampleProduct.Apply(getProductResult =&gt; getProductResult.ResourceGroupName),
+    ///         ProductId = example.Apply(getProductResult =&gt; getProductResult.ProductId),
+    ///         ApiManagementName = example.Apply(getProductResult =&gt; getProductResult.ApiManagementName),
+    ///         ResourceGroupName = example.Apply(getProductResult =&gt; getProductResult.ResourceGroupName),
     ///         XmlContent = @"&lt;policies&gt;
     ///   &lt;inbound&gt;
     ///     &lt;find-and-replace from=""xyz"" to=""abc"" /&gt;

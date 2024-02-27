@@ -26,15 +26,17 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleGroup = new Azure.ContainerService.Group("exampleGroup", new()
+    ///     var exampleGroup = new Azure.ContainerService.Group("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-continst",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpAddressType = "Public",
     ///         DnsNameLabel = "aci-label",
     ///         OsType = "Linux",

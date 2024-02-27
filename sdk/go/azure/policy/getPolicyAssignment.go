@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := policy.GetPolicyAssignment(ctx, &policy.GetPolicyAssignmentArgs{
 //				Name:    "existing",
-//				ScopeId: data.Azurerm_resource_group.Example.Id,
+//				ScopeId: exampleAzurermResourceGroup.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

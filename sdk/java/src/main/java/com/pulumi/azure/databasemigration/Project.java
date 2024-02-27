@@ -50,33 +50,38 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-dbms&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .subnetId(exampleSubnet.id())
  *             .skuName(&#34;Standard_1vCores&#34;)
  *             .build());
  * 
  *         var exampleProject = new Project(&#34;exampleProject&#34;, ProjectArgs.builder()        
+ *             .name(&#34;example-dbms-project&#34;)
  *             .serviceName(exampleService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sourcePlatform(&#34;SQL&#34;)
  *             .targetPlatform(&#34;SQLDB&#34;)
  *             .build());

@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *
  * const current = azure.core.getClientConfig({});
  * const example = new azure.healthcare.Service("example", {
+ *     name: "uniquefhirname",
  *     resourceGroupName: "sample-resource-group",
  *     location: "westus2",
  *     kind: "fhir-R4",

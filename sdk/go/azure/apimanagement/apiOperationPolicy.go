@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,19 +47,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
+//				Name:              pulumi.String("example-api"),
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				Revision:          pulumi.String("1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "exampleApiOperation", &apimanagement.ApiOperationArgs{
+//			exampleApiOperation, err := apimanagement.NewApiOperation(ctx, "example", &apimanagement.ApiOperationArgs{
 //				OperationId:       pulumi.String("acctest-operation"),
 //				ApiName:           exampleApi.Name,
 //				ApiManagementName: exampleService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				DisplayName:       pulumi.String("DELETE Resource"),
 //				Method:            pulumi.String("DELETE"),
 //				UrlTemplate:       pulumi.String("/resource"),
@@ -65,7 +68,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiOperationPolicy(ctx, "exampleApiOperationPolicy", &apimanagement.ApiOperationPolicyArgs{
+//			_, err = apimanagement.NewApiOperationPolicy(ctx, "example", &apimanagement.ApiOperationPolicyArgs{
 //				ApiName:           exampleApiOperation.ApiName,
 //				ApiManagementName: exampleApiOperation.ApiManagementName,
 //				ResourceGroupName: exampleApiOperation.ResourceGroupName,

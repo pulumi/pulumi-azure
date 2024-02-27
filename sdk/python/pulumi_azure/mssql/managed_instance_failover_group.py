@@ -273,30 +273,37 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+        example_route_table = azure.network.RouteTable("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
         primary = azure.mssql.ManagedInstance("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-primary",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
@@ -306,14 +313,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
+            })
         secondary = azure.mssql.ManagedInstance("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-secondary",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
@@ -323,12 +327,9 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            })
+        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
+            name="example-failover-group",
             location=primary.location,
             managed_instance_id=primary.id,
             partner_managed_instance_id=secondary.id,
@@ -372,30 +373,37 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"])
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="example",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("exampleSubnetNetworkSecurityGroupAssociation",
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet_network_security_group_association = azure.network.SubnetNetworkSecurityGroupAssociation("example",
             subnet_id=example_subnet.id,
             network_security_group_id=example_network_security_group.id)
-        example_route_table = azure.network.RouteTable("exampleRouteTable",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("exampleSubnetRouteTableAssociation",
+        example_route_table = azure.network.RouteTable("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet_route_table_association = azure.network.SubnetRouteTableAssociation("example",
             subnet_id=example_subnet.id,
             route_table_id=example_route_table.id)
         primary = azure.mssql.ManagedInstance("primary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-primary",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
@@ -405,14 +413,11 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
+            })
         secondary = azure.mssql.ManagedInstance("secondary",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+            name="example-secondary",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
@@ -422,12 +427,9 @@ class ManagedInstanceFailoverGroup(pulumi.CustomResource):
             storage_size_in_gb=32,
             tags={
                 "environment": "prod",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_subnet_network_security_group_association,
-                    example_subnet_route_table_association,
-                ]))
-        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("exampleManagedInstanceFailoverGroup",
+            })
+        example_managed_instance_failover_group = azure.mssql.ManagedInstanceFailoverGroup("example",
+            name="example-failover-group",
             location=primary.location,
             managed_instance_id=primary.id,
             partner_managed_instance_id=secondary.id,

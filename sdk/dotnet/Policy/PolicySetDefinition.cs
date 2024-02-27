@@ -26,6 +26,8 @@ namespace Pulumi.Azure.Policy
     /// {
     ///     var example = new Azure.Policy.PolicySetDefinition("example", new()
     ///     {
+    ///         Name = "testPolicySet",
+    ///         PolicyType = "Custom",
     ///         DisplayName = "Test Policy Set",
     ///         Parameters = @"    {
     ///         ""allowedLocations"": {
@@ -37,21 +39,18 @@ namespace Pulumi.Azure.Policy
     ///             }
     ///         }
     ///     }
-    /// 
     /// ",
     ///         PolicyDefinitionReferences = new[]
     ///         {
     ///             new Azure.Policy.Inputs.PolicySetDefinitionPolicyDefinitionReferenceArgs
     ///             {
+    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     ///                 ParameterValues = @"    {
     ///       ""listOfAllowedLocations"": {""value"": ""[parameters('allowedLocations')]""}
     ///     }
-    ///     
     /// ",
-    ///                 PolicyDefinitionId = "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
     ///             },
     ///         },
-    ///         PolicyType = "Custom",
     ///     });
     /// 
     /// });

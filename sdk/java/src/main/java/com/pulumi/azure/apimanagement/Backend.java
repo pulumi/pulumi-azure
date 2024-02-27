@@ -47,20 +47,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;My Company&#34;)
  *             .publisherEmail(&#34;company@exmaple.com&#34;)
  *             .skuName(&#34;Developer_1&#34;)
  *             .build());
  * 
  *         var exampleBackend = new Backend(&#34;exampleBackend&#34;, BackendArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-backend&#34;)
+ *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .protocol(&#34;http&#34;)
  *             .url(&#34;https://backend&#34;)

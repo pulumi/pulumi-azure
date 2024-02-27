@@ -372,14 +372,18 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-public-ip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
                 relative_name="example-profile",
@@ -396,7 +400,8 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
+        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("example",
+            name="example-endpoint",
             profile_id=example_traffic_manager_profile.id,
             always_serve_enabled=True,
             weight=100,
@@ -439,14 +444,18 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-public-ip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             domain_name_label="example-public-ip")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
+            name="example-profile",
+            resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
                 relative_name="example-profile",
@@ -463,7 +472,8 @@ class TrafficManagerAzureEndpoint(pulumi.CustomResource):
             tags={
                 "environment": "Production",
             })
-        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint",
+        example_traffic_manager_azure_endpoint = azure.network.TrafficManagerAzureEndpoint("example",
+            name="example-endpoint",
             profile_id=example_traffic_manager_profile.id,
             always_serve_enabled=True,
             weight=100,

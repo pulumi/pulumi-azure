@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = eventgrid.NewDomain(ctx, "exampleDomain", &eventgrid.DomainArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = eventgrid.NewDomain(ctx, "example", &eventgrid.DomainArgs{
+//				Name:              pulumi.String("my-eventgrid-domain"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

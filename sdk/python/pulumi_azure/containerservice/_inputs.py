@@ -2696,8 +2696,8 @@ class KubernetesClusterAciConnectorLinuxArgs:
                virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
                    name="aciDelegation",
                    service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                       actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                        name="Microsoft.ContainerInstance/containerGroups",
+                       actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                    ),
                )])
                ```
@@ -2724,8 +2724,8 @@ class KubernetesClusterAciConnectorLinuxArgs:
         virtual = azure.network.Subnet("virtual", delegations=[azure.network.SubnetDelegationArgs(
             name="aciDelegation",
             service_delegation=azure.network.SubnetDelegationServiceDelegationArgs(
-                actions=["Microsoft.Network/virtualNetworks/subnets/action"],
                 name="Microsoft.ContainerInstance/containerGroups",
+                actions=["Microsoft.Network/virtualNetworks/subnets/action"],
             ),
         )])
         ```

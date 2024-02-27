@@ -417,10 +417,13 @@ class Elasticsearch(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("testElasticsearch",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test = azure.core.ResourceGroup("test",
+            name="example-resources",
+            location="West Europe")
+        test_elasticsearch = azure.elasticcloud.Elasticsearch("test",
+            name="example-elasticsearch",
+            resource_group_name=test.name,
+            location=test.location,
             sku_name="ess-consumption-2024_Monthly",
             elastic_cloud_email_address="user@example.com")
         ```
@@ -463,10 +466,13 @@ class Elasticsearch(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="West Europe")
-        test_elasticsearch = azure.elasticcloud.Elasticsearch("testElasticsearch",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test = azure.core.ResourceGroup("test",
+            name="example-resources",
+            location="West Europe")
+        test_elasticsearch = azure.elasticcloud.Elasticsearch("test",
+            name="example-elasticsearch",
+            resource_group_name=test.name,
+            location=test.location,
             sku_name="ess-consumption-2024_Monthly",
             elastic_cloud_email_address="user@example.com")
         ```

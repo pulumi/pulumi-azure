@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleRunBook = new azure.automation.RunBook("example", {
+ *     name: "Get-AzureVMTutorial",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     logVerbose: true,
  *     logProgress: true,
@@ -41,16 +46,25 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as local from "@pulumi/local";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     skuName: "Basic",
  * });
- * const exampleFile = local.getFile({
- *     filename: `${path.module}/example.ps1`,
+ * const example = local.getFile({
+ *     filename: `${notImplemented("path.module")}/example.ps1`,
  * });
- * const exampleRunBook = new azure.automation.RunBook("exampleRunBook", {
+ * const exampleRunBook = new azure.automation.RunBook("example", {
+ *     name: "Get-AzureVMTutorial",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     automationAccountName: exampleAccount.name,
@@ -58,7 +72,7 @@ import * as utilities from "../utilities";
  *     logProgress: true,
  *     description: "This is an example runbook",
  *     runbookType: "PowerShell",
- *     content: exampleFile.then(exampleFile => exampleFile.content),
+ *     content: example.then(example => example.content),
  * });
  * ```
  *

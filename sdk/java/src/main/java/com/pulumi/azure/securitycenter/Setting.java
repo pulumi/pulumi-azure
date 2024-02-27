@@ -44,8 +44,8 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new Setting(&#34;example&#34;, SettingArgs.builder()        
- *             .enabled(true)
  *             .settingName(&#34;MCAS&#34;)
+ *             .enabled(true)
  *             .build());
  * 
  *     }

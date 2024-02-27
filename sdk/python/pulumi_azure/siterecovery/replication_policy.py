@@ -211,12 +211,16 @@ class ReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.siterecovery.ReplicationPolicy("policy",
+            name="policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             recovery_point_retention_in_minutes=24 * 60,
@@ -256,12 +260,16 @@ class ReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.siterecovery.ReplicationPolicy("policy",
+            name="policy",
             resource_group_name=example.name,
             recovery_vault_name=vault.name,
             recovery_point_retention_in_minutes=24 * 60,

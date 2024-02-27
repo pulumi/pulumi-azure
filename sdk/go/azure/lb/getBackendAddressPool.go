@@ -27,23 +27,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleLB, err := lb.GetLB(ctx, &lb.GetLBArgs{
+//			example, err := lb.GetLB(ctx, &lb.GetLBArgs{
 //				Name:              "example-lb",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
+//			exampleGetBackendAddressPool, err := lb.LookupBackendAddressPool(ctx, &lb.LookupBackendAddressPoolArgs{
 //				Name:           "first",
-//				LoadbalancerId: exampleLB.Id,
+//				LoadbalancerId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("backendAddressPoolId", exampleBackendAddressPool.Id)
+//			ctx.Export("backendAddressPoolId", exampleGetBackendAddressPool.Id)
 //			var splat0 []interface{}
-//			for _, val0 := range data.Azurerm_lb_backend_address_pool.Beap.Backend_ip_configurations {
+//			for _, val0 := range beap.BackendIpConfigurations {
 //				splat0 = append(splat0, val0.Id)
 //			}
 //			ctx.Export("backendIpConfigurationIds", splat0)

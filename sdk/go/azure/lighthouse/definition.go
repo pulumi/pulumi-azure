@@ -36,6 +36,7 @@ import (
 //				return err
 //			}
 //			_, err = lighthouse.NewDefinition(ctx, "example", &lighthouse.DefinitionArgs{
+//				Name:             pulumi.String("Sample definition"),
 //				Description:      pulumi.String("This is a lighthouse definition created IaC"),
 //				ManagingTenantId: pulumi.String("00000000-0000-0000-0000-000000000000"),
 //				Scope:            pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),

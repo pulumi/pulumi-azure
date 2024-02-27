@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
         ///     {
-        ///         Name = azurerm_network_ddos_protection_plan.Example.Name,
-        ///         ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///         Name = exampleAzurermNetworkDdosProtectionPlan.Name,
+        ///         ResourceGroupName = exampleAzurermNetworkDdosProtectionPlan.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetNetworkDdosProtectionPlan.Invoke(new()
         ///     {
-        ///         Name = azurerm_network_ddos_protection_plan.Example.Name,
-        ///         ResourceGroupName = azurerm_network_ddos_protection_plan.Example.Resource_group_name,
+        ///         Name = exampleAzurermNetworkDdosProtectionPlan.Name,
+        ///         ResourceGroupName = exampleAzurermNetworkDdosProtectionPlan.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

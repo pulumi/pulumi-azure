@@ -336,17 +336,19 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_subscription = azure.core.get_subscription()
-        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
-            subscription_id=example_subscription.id,
-            policy_definition_id=example_policy_set_definition.id,
+        example = azure.core.get_subscription()
+        example_get_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            name="exampleAssignment",
+            subscription_id=example.id,
+            policy_definition_id=example_get_policy_set_definition.id,
             location="westus",
             identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
-            subscription_id=example_subscription.id,
+        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
+            name="exampleExemption",
+            subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id,
             exemption_category="Mitigated")
         ```
@@ -386,17 +388,19 @@ class SubscriptionPolicyExemption(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_subscription = azure.core.get_subscription()
-        example_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
-        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment",
-            subscription_id=example_subscription.id,
-            policy_definition_id=example_policy_set_definition.id,
+        example = azure.core.get_subscription()
+        example_get_policy_set_definition = azure.policy.get_policy_set_definition(display_name="Audit machines with insecure password security settings")
+        example_subscription_policy_assignment = azure.core.SubscriptionPolicyAssignment("example",
+            name="exampleAssignment",
+            subscription_id=example.id,
+            policy_definition_id=example_get_policy_set_definition.id,
             location="westus",
             identity=azure.core.SubscriptionPolicyAssignmentIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption",
-            subscription_id=example_subscription.id,
+        example_subscription_policy_exemption = azure.core.SubscriptionPolicyExemption("example",
+            name="exampleExemption",
+            subscription_id=example.id,
             policy_assignment_id=example_subscription_policy_assignment.id,
             exemption_category="Mitigated")
         ```

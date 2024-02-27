@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("examplevn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("examplesubnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -56,9 +59,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCache, err := hpc.NewCache(ctx, "exampleCache", &hpc.CacheArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleCache, err := hpc.NewCache(ctx, "example", &hpc.CacheArgs{
+//				Name:              pulumi.String("examplehpccache"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				CacheSizeInGb:     pulumi.Int(3072),
 //				SubnetId:          exampleSubnet.ID(),
 //				SkuName:           pulumi.String("Standard_2G"),
@@ -66,7 +70,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = hpc.NewCacheAccessPolicy(ctx, "exampleCacheAccessPolicy", &hpc.CacheAccessPolicyArgs{
+//			_, err = hpc.NewCacheAccessPolicy(ctx, "example", &hpc.CacheAccessPolicyArgs{
+//				Name:       pulumi.String("example"),
 //				HpcCacheId: exampleCache.ID(),
 //				AccessRules: hpc.CacheAccessPolicyAccessRuleArray{
 //					&hpc.CacheAccessPolicyAccessRuleArgs{

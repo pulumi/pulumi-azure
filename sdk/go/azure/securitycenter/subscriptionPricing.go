@@ -32,8 +32,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewSubscriptionPricing(ctx, "example", &securitycenter.SubscriptionPricingArgs{
-//				ResourceType: pulumi.String("VirtualMachines"),
 //				Tier:         pulumi.String("Standard"),
+//				ResourceType: pulumi.String("VirtualMachines"),
 //			})
 //			if err != nil {
 //				return err
@@ -58,15 +58,17 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := securitycenter.NewSubscriptionPricing(ctx, "example1", &securitycenter.SubscriptionPricingArgs{
+//				Tier:         pulumi.String("Standard"),
+//				ResourceType: pulumi.String("CloudPosture"),
 //				Extensions: securitycenter.SubscriptionPricingExtensionArray{
 //					&securitycenter.SubscriptionPricingExtensionArgs{
 //						Name: pulumi.String("ContainerRegistriesVulnerabilityAssessments"),
 //					},
 //					&securitycenter.SubscriptionPricingExtensionArgs{
+//						Name: pulumi.String("AgentlessVmScanning"),
 //						AdditionalExtensionProperties: pulumi.StringMap{
 //							"ExclusionTags": pulumi.String("[]"),
 //						},
-//						Name: pulumi.String("AgentlessVmScanning"),
 //					},
 //					&securitycenter.SubscriptionPricingExtensionArgs{
 //						Name: pulumi.String("AgentlessDiscoveryForKubernetes"),
@@ -75,8 +77,6 @@ import (
 //						Name: pulumi.String("SensitiveDataDiscovery"),
 //					},
 //				},
-//				ResourceType: pulumi.String("CloudPosture"),
-//				Tier:         pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err

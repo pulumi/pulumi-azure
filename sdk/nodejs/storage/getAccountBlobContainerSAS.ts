@@ -17,14 +17,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const rg = new azure.core.ResourceGroup("rg", {
+ *     name: "resourceGroupName",
+ *     location: "West Europe",
+ * });
  * const storage = new azure.storage.Account("storage", {
+ *     name: "storageaccountname",
  *     resourceGroupName: rg.name,
  *     location: rg.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const container = new azure.storage.Container("container", {
+ *     name: "mycontainer",
  *     storageAccountName: storage.name,
  *     containerAccessType: "private",
  * });
@@ -163,14 +168,19 @@ export interface GetAccountBlobContainerSASResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const rg = new azure.core.ResourceGroup("rg", {location: "West Europe"});
+ * const rg = new azure.core.ResourceGroup("rg", {
+ *     name: "resourceGroupName",
+ *     location: "West Europe",
+ * });
  * const storage = new azure.storage.Account("storage", {
+ *     name: "storageaccountname",
  *     resourceGroupName: rg.name,
  *     location: rg.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
  * const container = new azure.storage.Container("container", {
+ *     name: "mycontainer",
  *     storageAccountName: storage.name,
  *     containerAccessType: "private",
  * });

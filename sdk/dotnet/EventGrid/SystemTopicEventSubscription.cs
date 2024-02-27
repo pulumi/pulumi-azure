@@ -22,15 +22,17 @@ namespace Pulumi.Azure.EventGrid
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorageaccount",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         Tags = 
@@ -39,23 +41,26 @@ namespace Pulumi.Azure.EventGrid
     ///         },
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.Storage.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Azure.Storage.Queue("example", new()
     ///     {
+    ///         Name = "examplestoragequeue",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("exampleSystemTopic", new()
+    ///     var exampleSystemTopic = new Azure.EventGrid.SystemTopic("example", new()
     ///     {
+    ///         Name = "example-system-topic",
     ///         Location = "Global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         SourceArmResourceId = exampleResourceGroup.Id,
+    ///         ResourceGroupName = example.Name,
+    ///         SourceArmResourceId = example.Id,
     ///         TopicType = "Microsoft.Resources.ResourceGroups",
     ///     });
     /// 
-    ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription", new()
+    ///     var exampleSystemTopicEventSubscription = new Azure.EventGrid.SystemTopicEventSubscription("example", new()
     ///     {
+    ///         Name = "example-event-subscription",
     ///         SystemTopic = exampleSystemTopic.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         StorageQueueEndpoint = new Azure.EventGrid.Inputs.SystemTopicEventSubscriptionStorageQueueEndpointArgs
     ///         {
     ///             StorageAccountId = exampleAccount.Id,

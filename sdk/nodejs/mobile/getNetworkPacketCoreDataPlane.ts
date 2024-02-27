@@ -13,13 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetworkPacketCoreControlPlane = azure.mobile.getNetworkPacketCoreControlPlane({
+ * const example = azure.mobile.getNetworkPacketCoreControlPlane({
  *     name: "example-mnpccp",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkPacketCoreDataPlane = exampleNetworkPacketCoreControlPlane.then(exampleNetworkPacketCoreControlPlane => azure.mobile.getNetworkPacketCoreDataPlane({
+ * const exampleGetNetworkPacketCoreDataPlane = example.then(example => azure.mobile.getNetworkPacketCoreDataPlane({
  *     name: "example-mnpcdp",
- *     mobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.id,
+ *     mobileNetworkPacketCoreControlPlaneId: example.id,
  * }));
  * ```
  */
@@ -90,13 +90,13 @@ export interface GetNetworkPacketCoreDataPlaneResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleNetworkPacketCoreControlPlane = azure.mobile.getNetworkPacketCoreControlPlane({
+ * const example = azure.mobile.getNetworkPacketCoreControlPlane({
  *     name: "example-mnpccp",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleNetworkPacketCoreDataPlane = exampleNetworkPacketCoreControlPlane.then(exampleNetworkPacketCoreControlPlane => azure.mobile.getNetworkPacketCoreDataPlane({
+ * const exampleGetNetworkPacketCoreDataPlane = example.then(example => azure.mobile.getNetworkPacketCoreDataPlane({
  *     name: "example-mnpcdp",
- *     mobileNetworkPacketCoreControlPlaneId: exampleNetworkPacketCoreControlPlane.id,
+ *     mobileNetworkPacketCoreControlPlaneId: example.id,
  * }));
  * ```
  */

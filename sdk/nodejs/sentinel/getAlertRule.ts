@@ -13,15 +13,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAnalyticsWorkspace = azure.operationalinsights.getAnalyticsWorkspace({
+ * const example = azure.operationalinsights.getAnalyticsWorkspace({
  *     name: "example",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleAlertRule = exampleAnalyticsWorkspace.then(exampleAnalyticsWorkspace => azure.sentinel.getAlertRule({
+ * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
  *     name: "existing",
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: example.id,
  * }));
- * export const id = exampleAlertRule.then(exampleAlertRule => exampleAlertRule.id);
+ * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
  */
 export function getAlertRule(args: GetAlertRuleArgs, opts?: pulumi.InvokeOptions): Promise<GetAlertRuleResult> {
@@ -67,15 +67,15 @@ export interface GetAlertRuleResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAnalyticsWorkspace = azure.operationalinsights.getAnalyticsWorkspace({
+ * const example = azure.operationalinsights.getAnalyticsWorkspace({
  *     name: "example",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleAlertRule = exampleAnalyticsWorkspace.then(exampleAnalyticsWorkspace => azure.sentinel.getAlertRule({
+ * const exampleGetAlertRule = example.then(example => azure.sentinel.getAlertRule({
  *     name: "existing",
- *     logAnalyticsWorkspaceId: exampleAnalyticsWorkspace.id,
+ *     logAnalyticsWorkspaceId: example.id,
  * }));
- * export const id = exampleAlertRule.then(exampleAlertRule => exampleAlertRule.id);
+ * export const id = exampleGetAlertRule.then(exampleGetAlertRule => exampleGetAlertRule.id);
  * ```
  */
 export function getAlertRuleOutput(args: GetAlertRuleOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAlertRuleResult> {

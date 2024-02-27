@@ -29,12 +29,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := mariadb.GetMariaDbServer(ctx, &mariadb.GetMariaDbServerArgs{
 //				Name:              "mariadb-server",
-//				ResourceGroupName: azurerm_mariadb_server.Example.Resource_group_name,
+//				ResourceGroupName: example.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("mariadbServerId", data.Azurerm_mariadb_server.Example.Id)
+//			ctx.Export("mariadbServerId", exampleAzurermMariadbServer.Id)
 //			return nil
 //		})
 //	}

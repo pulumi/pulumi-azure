@@ -46,27 +46,31 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;notificationhub-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleNamespace = new Namespace(&#34;exampleNamespace&#34;, NamespaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;myappnamespace&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .namespaceType(&#34;NotificationHub&#34;)
  *             .skuName(&#34;Free&#34;)
  *             .build());
  * 
  *         var exampleHub = new Hub(&#34;exampleHub&#34;, HubArgs.builder()        
+ *             .name(&#34;mynotificationhub&#34;)
  *             .namespaceName(exampleNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
+ *             .name(&#34;management-auth-rule&#34;)
  *             .notificationHubName(exampleHub.name())
  *             .namespaceName(exampleNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .manage(true)
  *             .send(true)
  *             .listen(true)

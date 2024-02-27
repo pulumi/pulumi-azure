@@ -30,29 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example-springcloud"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
+//				Name:              pulumi.String("example-springcloudapp"),
+//				ResourceGroupName: example.Name,
 //				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-//				Location:                     exampleResourceGroup.Location,
-//				ResourceGroupName:            exampleResourceGroup.Name,
+//			exampleServer, err := mysql.NewServer(ctx, "example", &mysql.ServerArgs{
+//				Name:                         pulumi.String("example-mysqlserver"),
+//				Location:                     example.Location,
+//				ResourceGroupName:            example.Name,
 //				AdministratorLogin:           pulumi.String("mysqladminun"),
 //				AdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                      pulumi.String("B_Gen5_2"),
@@ -64,8 +68,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mysql.NewDatabase(ctx, "exampleDatabase", &mysql.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleDatabase, err := mysql.NewDatabase(ctx, "example", &mysql.DatabaseArgs{
+//				Name:              pulumi.String("exampledb"),
+//				ResourceGroupName: example.Name,
 //				ServerName:        exampleServer.Name,
 //				Charset:           pulumi.String("utf8"),
 //				Collation:         pulumi.String("utf8_unicode_ci"),
@@ -73,7 +78,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "exampleSpringCloudAppMysqlAssociation", &appplatform.SpringCloudAppMysqlAssociationArgs{
+//			_, err = appplatform.NewSpringCloudAppMysqlAssociation(ctx, "example", &appplatform.SpringCloudAppMysqlAssociationArgs{
+//				Name:             pulumi.String("example-bind"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID(),
 //				MysqlServerId:    exampleServer.ID(),
 //				DatabaseName:     exampleDatabase.Name,

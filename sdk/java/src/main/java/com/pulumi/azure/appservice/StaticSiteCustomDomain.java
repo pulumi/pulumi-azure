@@ -45,18 +45,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleCNameRecord = new CNameRecord(&#34;exampleCNameRecord&#34;, CNameRecordArgs.builder()        
+ *             .name(&#34;my-domain&#34;)
  *             .zoneName(&#34;contoso.com&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .record(exampleStaticSite.defaultHostName())
  *             .build());
@@ -103,13 +106,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleStaticSite = new StaticSite(&#34;exampleStaticSite&#34;, StaticSiteArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleStaticSiteCustomDomain = new StaticSiteCustomDomain(&#34;exampleStaticSiteCustomDomain&#34;, StaticSiteCustomDomainArgs.builder()        
@@ -119,8 +124,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTxtRecord = new TxtRecord(&#34;exampleTxtRecord&#34;, TxtRecordArgs.builder()        
+ *             .name(&#34;_dnsauth.my-domain&#34;)
  *             .zoneName(&#34;contoso.com&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(TxtRecordRecordArgs.builder()
  *                 .value(exampleStaticSiteCustomDomain.validationToken())

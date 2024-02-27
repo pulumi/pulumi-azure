@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.LinkedService;
  * import com.pulumi.azure.synapse.LinkedServiceArgs;
  * import com.pulumi.azure.synapse.inputs.LinkedServiceIntegrationRuntimeArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -57,25 +56,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountKind(&#34;BlobStorage&#34;)
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
@@ -86,17 +89,20 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleFirewallRule = new FirewallRule(&#34;exampleFirewallRule&#34;, FirewallRuleArgs.builder()        
+ *             .name(&#34;allowAll&#34;)
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .startIpAddress(&#34;0.0.0.0&#34;)
  *             .endIpAddress(&#34;255.255.255.255&#34;)
  *             .build());
  * 
  *         var exampleIntegrationRuntimeAzure = new IntegrationRuntimeAzure(&#34;exampleIntegrationRuntimeAzure&#34;, IntegrationRuntimeAzureArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .synapseWorkspaceId(exampleWorkspace.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleLinkedService = new LinkedService(&#34;exampleLinkedService&#34;, LinkedServiceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .synapseWorkspaceId(exampleWorkspace.id())
  *             .type(&#34;AzureBlobStorage&#34;)
  *             .typePropertiesJson(exampleAccount.primaryConnectionString().applyValue(primaryConnectionString -&gt; &#34;&#34;&#34;
@@ -107,9 +113,7 @@ import javax.annotation.Nullable;
  *             .integrationRuntime(LinkedServiceIntegrationRuntimeArgs.builder()
  *                 .name(exampleIntegrationRuntimeAzure.name())
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleFirewallRule)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

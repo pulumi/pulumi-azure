@@ -52,20 +52,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;media-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestoracc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *         var exampleServiceAccount = new ServiceAccount(&#34;exampleServiceAccount&#34;, ServiceAccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplemediaacc&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccounts(ServiceAccountStorageAccountArgs.builder()
  *                 .id(exampleAccount.id())
  *                 .isPrimary(true)
@@ -73,13 +76,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAsset = new Asset(&#34;exampleAsset&#34;, AssetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;inputAsset&#34;)
+ *             .resourceGroupName(example.name())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .build());
  * 
  *         var exampleLiveEvent = new LiveEvent(&#34;exampleLiveEvent&#34;, LiveEventArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;exampleevent&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .mediaServicesAccountName(exampleServiceAccount.name())
  *             .description(&#34;My Event Description&#34;)
  *             .input(LiveEventInputArgs.builder()
@@ -94,6 +99,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLiveEventOutput = new LiveEventOutput(&#34;exampleLiveEventOutput&#34;, LiveEventOutputArgs.builder()        
+ *             .name(&#34;exampleoutput&#34;)
  *             .liveEventId(exampleLiveEvent.id())
  *             .archiveWindowDuration(&#34;PT5M&#34;)
  *             .assetName(exampleAsset.name())

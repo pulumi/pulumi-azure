@@ -51,15 +51,17 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;rg-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleJob = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
+ *         final var example = StreamanalyticsFunctions.getJob(GetJobArgs.builder()
  *             .name(&#34;example-job&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplestorageacc&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -69,10 +71,12 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
@@ -84,8 +88,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleOutputSynapse = new OutputSynapse(&#34;exampleOutputSynapse&#34;, OutputSynapseArgs.builder()        
- *             .streamAnalyticsJobName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.name())))
- *             .resourceGroupName(exampleJob.applyValue(getJobResult -&gt; getJobResult).applyValue(exampleJob -&gt; exampleJob.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
+ *             .name(&#34;example-output-synapse&#34;)
+ *             .streamAnalyticsJobName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.name())))
+ *             .resourceGroupName(example.applyValue(getJobResult -&gt; getJobResult).applyValue(example -&gt; example.applyValue(getJobResult -&gt; getJobResult.resourceGroupName())))
  *             .server(exampleWorkspace.connectivityEndpoints().applyValue(connectivityEndpoints -&gt; connectivityEndpoints.sqlOnDemand()))
  *             .user(exampleWorkspace.sqlAdministratorLogin())
  *             .password(exampleWorkspace.sqlAdministratorLoginPassword())

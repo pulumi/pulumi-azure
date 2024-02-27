@@ -34,24 +34,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("keyvaultname"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -78,7 +81,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
+//			_, err = keyvault.NewManagedStorageAccount(ctx, "example", &keyvault.ManagedStorageAccountArgs{
+//				Name:                       pulumi.String("examplemanagedstorage"),
 //				KeyVaultId:                 exampleKeyVault.ID(),
 //				StorageAccountId:           exampleAccount.ID(),
 //				StorageAccountKey:          pulumi.String("key1"),
@@ -121,24 +125,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("storageaccountname"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("keyvaultname"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
 //				SkuName:           pulumi.String("standard"),
 //				AccessPolicies: keyvault.KeyVaultAccessPolicyArray{
@@ -165,7 +172,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAssignment, err := authorization.NewAssignment(ctx, "exampleAssignment", &authorization.AssignmentArgs{
+//			_, err = authorization.NewAssignment(ctx, "example", &authorization.AssignmentArgs{
 //				Scope:              exampleAccount.ID(),
 //				RoleDefinitionName: pulumi.String("Storage Account Key Operator Service Role"),
 //				PrincipalId:        *pulumi.String(test.Id),
@@ -173,15 +180,14 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewManagedStorageAccount(ctx, "exampleManagedStorageAccount", &keyvault.ManagedStorageAccountArgs{
+//			_, err = keyvault.NewManagedStorageAccount(ctx, "example", &keyvault.ManagedStorageAccountArgs{
+//				Name:                       pulumi.String("examplemanagedstorage"),
 //				KeyVaultId:                 exampleKeyVault.ID(),
 //				StorageAccountId:           exampleAccount.ID(),
 //				StorageAccountKey:          pulumi.String("key1"),
 //				RegenerateKeyAutomatically: pulumi.Bool(true),
 //				RegenerationPeriod:         pulumi.String("P1D"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleAssignment,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

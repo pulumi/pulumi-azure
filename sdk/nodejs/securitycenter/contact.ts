@@ -16,10 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.securitycenter.Contact("example", {
- *     alertNotifications: true,
- *     alertsToAdmins: true,
+ *     name: "contact",
  *     email: "contact@example.com",
  *     phone: "+1-555-555-5555",
+ *     alertNotifications: true,
+ *     alertsToAdmins: true,
  * });
  * ```
  *

@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemediaacc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
     ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
@@ -49,9 +52,10 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleTransform = new Azure.Media.Transform("exampleTransform", new()
+    ///     var exampleTransform = new Azure.Media.Transform("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "transform1",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "My transform description",
     ///         Outputs = new[]
@@ -70,21 +74,24 @@ namespace Pulumi.Azure.Media
     /// 
     ///     var input = new Azure.Media.Asset("input", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "input",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "Input Asset description",
     ///     });
     /// 
     ///     var output = new Azure.Media.Asset("output", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "output",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "Output Asset description",
     ///     });
     /// 
-    ///     var exampleJob = new Azure.Media.Job("exampleJob", new()
+    ///     var exampleJob = new Azure.Media.Job("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "job1",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         TransformName = exampleTransform.Name,
     ///         Description = "My Job description",

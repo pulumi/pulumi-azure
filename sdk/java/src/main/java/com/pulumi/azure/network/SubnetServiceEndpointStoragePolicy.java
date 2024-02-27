@@ -20,7 +20,6 @@ import javax.annotation.Nullable;
  * Manages a Subnet Service Endpoint Storage Policy.
  * 
  * ## Example Usage
- * 
  * ```java
  * package generated_program;
  * 
@@ -29,10 +28,11 @@ import javax.annotation.Nullable;
  * import com.pulumi.core.Output;
  * import com.pulumi.azure.core.ResourceGroup;
  * import com.pulumi.azure.core.ResourceGroupArgs;
- * import com.pulumi.azure.storage.Account;
- * import com.pulumi.azure.storage.AccountArgs;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicy;
  * import com.pulumi.azure.network.SubnetServiceEndpointStoragePolicyArgs;
+ * import com.pulumi.azure.network.inputs.SubnetServiceEndpointStoragePolicyDefinitionArgs;
+ * import com.pulumi.azure.storage.Account;
+ * import com.pulumi.azure.storage.AccountArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -46,41 +46,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .accountTier(&#34;Standard&#34;)
- *             .accountReplicationType(&#34;GRS&#34;)
+ *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy(&#34;exampleSubnetServiceEndpointStoragePolicy&#34;, SubnetServiceEndpointStoragePolicyArgs.builder()        
+ *             .name(&#34;example-policy&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .definition(SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
+ *                 .name(&#34;name2&#34;)
+ *                 .description(&#34;definition2&#34;)
+ *                 .service(&#34;Global&#34;)
+ *                 .serviceResources(                
+ *                     &#34;/services/Azure&#34;,
+ *                     &#34;/services/Azure/Batch&#34;,
+ *                     &#34;/services/Azure/DataFactory&#34;,
+ *                     &#34;/services/Azure/MachineLearning&#34;,
+ *                     &#34;/services/Azure/ManagedInstance&#34;,
+ *                     &#34;/services/Azure/WebPI&#34;)
+ *                 .build())
  *             .build());
  * 
- *         var exampleSubnetServiceEndpointStoragePolicy = new SubnetServiceEndpointStoragePolicy(&#34;exampleSubnetServiceEndpointStoragePolicy&#34;, SubnetServiceEndpointStoragePolicyArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
- *             .definition(            
- *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                     .name(&#34;name1&#34;)
- *                     .description(&#34;definition1&#34;)
- *                     .service(&#34;Microsoft.Storage&#34;)
- *                     .serviceResources(                    
- *                         exampleResourceGroup.id(),
- *                         exampleAccount.id())
- *                     .build(),
- *                 SubnetServiceEndpointStoragePolicyDefinitionArgs.builder()
- *                     .name(&#34;name2&#34;)
- *                     .description(&#34;definition2&#34;)
- *                     .service(&#34;Global&#34;)
- *                     .serviceResources(                    
- *                         &#34;/services/Azure&#34;,
- *                         &#34;/services/Azure/Batch&#34;,
- *                         &#34;/services/Azure/DataFactory&#34;,
- *                         &#34;/services/Azure/MachineLearning&#34;,
- *                         &#34;/services/Azure/ManagedInstance&#34;,
- *                         &#34;/services/Azure/WebPI&#34;)
- *                     .build())
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplestorageacct&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .accountTier(&#34;Standard&#34;)
+ *             .accountReplicationType(&#34;GRS&#34;)
  *             .build());
  * 
  *     }

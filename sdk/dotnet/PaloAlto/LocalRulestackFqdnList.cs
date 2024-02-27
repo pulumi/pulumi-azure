@@ -22,19 +22,22 @@ namespace Pulumi.Azure.PaloAlto
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("exampleLocalRulestack", new()
+    ///     var exampleLocalRulestack = new Azure.PaloAlto.LocalRulestack("example", new()
     ///     {
-    ///         ResourceGroupName = azurerm_resrouce_group.Example.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = exampleAzurermResrouceGroup.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleLocalRulestackFqdnList = new Azure.PaloAlto.LocalRulestackFqdnList("exampleLocalRulestackFqdnList", new()
+    ///     var exampleLocalRulestackFqdnList = new Azure.PaloAlto.LocalRulestackFqdnList("example", new()
     ///     {
+    ///         Name = "example",
     ///         RulestackId = exampleLocalRulestack.Id,
     ///         FullyQualifiedDomainNames = new[]
     ///         {

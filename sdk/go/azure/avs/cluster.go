@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "examplePrivateCloud", &avs.PrivateCloudArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			examplePrivateCloud, err := avs.NewPrivateCloud(ctx, "example", &avs.PrivateCloudArgs{
+//				Name:              pulumi.String("example-vmware-private-cloud"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("av36"),
 //				ManagementCluster: &avs.PrivateCloudManagementClusterArgs{
 //					Size: pulumi.Int(3),
@@ -50,7 +52,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = avs.NewCluster(ctx, "exampleCluster", &avs.ClusterArgs{
+//			_, err = avs.NewCluster(ctx, "example", &avs.ClusterArgs{
+//				Name:             pulumi.String("example-Cluster"),
 //				VmwareCloudId:    examplePrivateCloud.ID(),
 //				ClusterNodeCount: pulumi.Int(3),
 //				SkuName:          pulumi.String("av36"),

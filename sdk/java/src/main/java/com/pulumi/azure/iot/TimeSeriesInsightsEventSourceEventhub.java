@@ -56,48 +56,55 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleEventHubNamespace = new EventHubNamespace(&#34;exampleEventHubNamespace&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventHub = new EventHub(&#34;exampleEventHub&#34;, EventHubArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .partitionCount(2)
  *             .messageRetention(7)
  *             .build());
  * 
  *         var exampleConsumerGroup = new ConsumerGroup(&#34;exampleConsumerGroup&#34;, ConsumerGroupArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAuthorizationRule = new AuthorizationRule(&#34;exampleAuthorizationRule&#34;, AuthorizationRuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .namespaceName(exampleEventHubNamespace.name())
  *             .eventhubName(exampleEventHub.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .listen(true)
  *             .send(false)
  *             .manage(false)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsGen2Environment = new TimeSeriesInsightsGen2Environment(&#34;exampleTimeSeriesInsightsGen2Environment&#34;, TimeSeriesInsightsGen2EnvironmentArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;L1&#34;)
  *             .idProperties(&#34;id&#34;)
  *             .storage(TimeSeriesInsightsGen2EnvironmentStorageArgs.builder()
@@ -107,7 +114,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleTimeSeriesInsightsEventSourceEventhub = new TimeSeriesInsightsEventSourceEventhub(&#34;exampleTimeSeriesInsightsEventSourceEventhub&#34;, TimeSeriesInsightsEventSourceEventhubArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
  *             .environmentId(exampleTimeSeriesInsightsGen2Environment.id())
  *             .eventhubName(exampleEventHub.name())
  *             .namespaceName(exampleEventHubNamespace.name())

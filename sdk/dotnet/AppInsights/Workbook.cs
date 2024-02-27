@@ -23,15 +23,17 @@ namespace Pulumi.Azure.AppInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkbook = new Azure.AppInsights.Workbook("exampleWorkbook", new()
+    ///     var exampleWorkbook = new Azure.AppInsights.Workbook("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "85b3e8bb-fc93-40be-83f2-98f6bec18ba0",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DisplayName = "workbook1",
     ///         DataJson = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
     ///         {

@@ -11,9 +11,65 @@ namespace Pulumi.Azure.PrivateDns
 {
     public static class GetSoaRecord
     {
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azurerm = Pulumi.Azurerm;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Azurerm.Index.PrivateDnsSoaRecord("example", new()
+        ///     {
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsSoaRecordId"] = exampleAzurermPrivateDnsSoaRecord.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Task<GetSoaRecordResult> InvokeAsync(GetSoaRecordArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordArgs(), options.WithDefaults());
 
+        /// <summary>
+        /// {{% examples %}}
+        /// ## Example Usage
+        /// {{% example %}}
+        /// 
+        /// ```csharp
+        /// using System.Collections.Generic;
+        /// using System.Linq;
+        /// using Pulumi;
+        /// using Azurerm = Pulumi.Azurerm;
+        /// 
+        /// return await Deployment.RunAsync(() =&gt; 
+        /// {
+        ///     var example = new Azurerm.Index.PrivateDnsSoaRecord("example", new()
+        ///     {
+        ///         ZoneName = "test-zone",
+        ///         ResourceGroupName = "test-rg",
+        ///     });
+        /// 
+        ///     return new Dictionary&lt;string, object?&gt;
+        ///     {
+        ///         ["privateDnsSoaRecordId"] = exampleAzurermPrivateDnsSoaRecord.Id,
+        ///     };
+        /// });
+        /// ```
+        /// {{% /example %}}
+        /// {{% /examples %}}
+        /// </summary>
         public static Output<GetSoaRecordResult> Invoke(GetSoaRecordInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSoaRecordResult>("azure:privatedns/getSoaRecord:getSoaRecord", args ?? new GetSoaRecordInvokeArgs(), options.WithDefaults());
     }

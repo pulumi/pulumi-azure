@@ -28,7 +28,10 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var example = new Azure.Core.ResourceProviderRegistration("example");
+    ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
+    ///     {
+    ///         Name = "Microsoft.PolicyInsights",
+    ///     });
     /// 
     /// });
     /// ```
@@ -44,6 +47,7 @@ namespace Pulumi.Azure.Core
     /// {
     ///     var example = new Azure.Core.ResourceProviderRegistration("example", new()
     ///     {
+    ///         Name = "Microsoft.ContainerService",
     ///         Features = new[]
     ///         {
     ///             new Azure.Core.Inputs.ResourceProviderRegistrationFeatureArgs

@@ -30,28 +30,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "examplePrivateLinkScope", &monitoring.PrivateLinkScopeArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePrivateLinkScope, err := monitoring.NewPrivateLinkScope(ctx, "example", &monitoring.PrivateLinkScopeArgs{
+//				Name:              pulumi.String("example-ampls"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewPrivateLinkScopedService(ctx, "examplePrivateLinkScopedService", &monitoring.PrivateLinkScopedServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewPrivateLinkScopedService(ctx, "example", &monitoring.PrivateLinkScopedServiceArgs{
+//				Name:              pulumi.String("example-amplsservice"),
+//				ResourceGroupName: example.Name,
 //				ScopeName:         examplePrivateLinkScope.Name,
 //				LinkedResourceId:  exampleInsights.ID(),
 //			})

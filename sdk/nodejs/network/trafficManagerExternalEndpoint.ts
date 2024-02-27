@@ -15,9 +15,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("exampleTrafficManagerProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleTrafficManagerProfile = new azure.network.TrafficManagerProfile("example", {
+ *     name: "example-profile",
+ *     resourceGroupName: example.name,
  *     trafficRoutingMethod: "Weighted",
  *     dnsConfig: {
  *         relativeName: "example-profile",
@@ -35,7 +39,8 @@ import * as utilities from "../utilities";
  *         environment: "Production",
  *     },
  * });
- * const exampleTrafficManagerExternalEndpoint = new azure.network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", {
+ * const exampleTrafficManagerExternalEndpoint = new azure.network.TrafficManagerExternalEndpoint("example", {
+ *     name: "example-endpoint",
  *     profileId: exampleTrafficManagerProfile.id,
  *     alwaysServeEnabled: true,
  *     weight: 100,

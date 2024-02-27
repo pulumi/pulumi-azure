@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Automanage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-automanage",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleConfiguration = new Azure.Automanage.Configuration("exampleConfiguration", new()
+    ///     var exampleConfiguration = new Azure.Automanage.Configuration("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-acmp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Antimalware = new Azure.Automanage.Inputs.ConfigurationAntimalwareArgs
     ///         {
     ///             Exclusions = new Azure.Automanage.Inputs.ConfigurationAntimalwareExclusionsArgs

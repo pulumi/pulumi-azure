@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "my-kusto-cluster-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,

@@ -38,13 +38,15 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:              pulumi.String("examplekeyvault"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
@@ -53,7 +55,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewAccessPolicy(ctx, "exampleAccessPolicy", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "example", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -67,7 +69,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				DisplayName: pulumi.StringRef("example-app"),
 //			}, nil)
 //			if err != nil {
@@ -76,7 +78,7 @@ import (
 //			_, err = keyvault.NewAccessPolicy(ctx, "example-principal", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
-//				ObjectId:   *pulumi.String(exampleServicePrincipal.ObjectId),
+//				ObjectId:   *pulumi.String(example.ObjectId),
 //				KeyPermissions: pulumi.StringArray{
 //					pulumi.String("Get"),
 //					pulumi.String("List"),

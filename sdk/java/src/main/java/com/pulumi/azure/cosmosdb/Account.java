@@ -60,6 +60,7 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;sample-rg&#34;)
  *             .location(&#34;westus&#34;)
  *             .build());
  * 
@@ -69,8 +70,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var db = new Account(&#34;db&#34;, AccountArgs.builder()        
- *             .location(azurerm_resource_group.example().location())
- *             .resourceGroupName(azurerm_resource_group.example().name())
+ *             .name(ri.result().applyValue(result -&gt; String.format(&#34;tfex-cosmos-db-%s&#34;, result)))
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;MongoDB&#34;)
  *             .enableAutomaticFailover(true)
@@ -101,6 +103,66 @@ import javax.annotation.Nullable;
  *                     .location(&#34;westus&#34;)
  *                     .failoverPriority(0)
  *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * ## User Assigned Identity Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.authorization.UserAssignedIdentity;
+ * import com.pulumi.azure.authorization.UserAssignedIdentityArgs;
+ * import com.pulumi.azure.cosmosdb.Account;
+ * import com.pulumi.azure.cosmosdb.AccountArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountCapabilityArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountConsistencyPolicyArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountGeoLocationArgs;
+ * import com.pulumi.azure.cosmosdb.inputs.AccountIdentityArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new UserAssignedIdentity(&#34;example&#34;, UserAssignedIdentityArgs.builder()        
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .name(&#34;example-resource&#34;)
+ *             .build());
+ * 
+ *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example-resource&#34;)
+ *             .location(exampleAzurermResourceGroup.location())
+ *             .resourceGroupName(exampleAzurermResourceGroup.name())
+ *             .defaultIdentityType(StdFunctions.join().applyValue(invoke -&gt; invoke.result()))
+ *             .offerType(&#34;Standard&#34;)
+ *             .kind(&#34;MongoDB&#34;)
+ *             .capabilities(AccountCapabilityArgs.builder()
+ *                 .name(&#34;EnableMongo&#34;)
+ *                 .build())
+ *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
+ *                 .consistencyLevel(&#34;Strong&#34;)
+ *                 .build())
+ *             .geoLocations(AccountGeoLocationArgs.builder()
+ *                 .location(&#34;westus&#34;)
+ *                 .failoverPriority(0)
+ *                 .build())
+ *             .identity(AccountIdentityArgs.builder()
+ *                 .type(&#34;UserAssigned&#34;)
+ *                 .identityIds(example.id())
+ *                 .build())
  *             .build());
  * 
  *     }

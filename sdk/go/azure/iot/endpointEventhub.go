@@ -32,33 +32,37 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "exampleEventHubNamespace", &eventhub.EventHubNamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleEventHubNamespace, err := eventhub.NewEventHubNamespace(ctx, "example", &eventhub.EventHubNamespaceArgs{
+//				Name:              pulumi.String("exampleEventHubNamespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleEventHub, err := eventhub.NewEventHub(ctx, "exampleEventHub", &eventhub.EventHubArgs{
+//			exampleEventHub, err := eventhub.NewEventHub(ctx, "example", &eventhub.EventHubArgs{
+//				Name:              pulumi.String("exampleEventHub"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				PartitionCount:    pulumi.Int(2),
 //				MessageRetention:  pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "exampleAuthorizationRule", &eventhub.AuthorizationRuleArgs{
+//			exampleAuthorizationRule, err := eventhub.NewAuthorizationRule(ctx, "example", &eventhub.AuthorizationRuleArgs{
+//				Name:              pulumi.String("exampleRule"),
 //				NamespaceName:     exampleEventHubNamespace.Name,
 //				EventhubName:      exampleEventHub.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Listen:            pulumi.Bool(false),
 //				Send:              pulumi.Bool(true),
 //				Manage:            pulumi.Bool(false),
@@ -66,9 +70,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleIoTHub, err := iot.NewIoTHub(ctx, "exampleIoTHub", &iot.IoTHubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleIoTHub, err := iot.NewIoTHub(ctx, "example", &iot.IoTHubArgs{
+//				Name:              pulumi.String("exampleIothub"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku: &iot.IoTHubSkuArgs{
 //					Name:     pulumi.String("B1"),
 //					Capacity: pulumi.Int(1),
@@ -80,9 +85,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = iot.NewEndpointEventhub(ctx, "exampleEndpointEventhub", &iot.EndpointEventhubArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = iot.NewEndpointEventhub(ctx, "example", &iot.EndpointEventhubArgs{
+//				ResourceGroupName: example.Name,
 //				IothubId:          exampleIoTHub.ID(),
+//				Name:              pulumi.String("example"),
 //				ConnectionString:  exampleAuthorizationRule.PrimaryConnectionString,
 //			})
 //			if err != nil {

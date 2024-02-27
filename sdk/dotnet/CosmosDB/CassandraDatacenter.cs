@@ -14,16 +14,6 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// &gt; **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
     /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    /// });
-    /// ```
-    /// 
     /// ## Example Usage
     /// 
     /// ```csharp
@@ -35,13 +25,15 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "accexample-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-vnet",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         AddressSpaces = new[]
@@ -50,8 +42,9 @@ namespace Pulumi.Azure.CosmosDB
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
+    ///         Name = "example-subnet",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
@@ -60,34 +53,30 @@ namespace Pulumi.Azure.CosmosDB
     ///         },
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = "Azure Cosmos DB",
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Scope = exampleVirtualNetwork.Id,
     ///         RoleDefinitionName = "Network Contributor",
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("exampleCassandraCluster", new()
+    ///     var exampleCassandraCluster = new Azure.CosmosDB.CassandraCluster("example", new()
     ///     {
+    ///         Name = "example-cluster",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         DelegatedManagementSubnetId = exampleSubnet.Id,
     ///         DefaultAdminPassword = "Password1234",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///         },
     ///     });
     /// 
-    ///     var exampleCassandraDatacenter = new Azure.CosmosDB.CassandraDatacenter("exampleCassandraDatacenter", new()
+    ///     var exampleCassandraDatacenter = new Azure.CosmosDB.CassandraDatacenter("example", new()
     ///     {
+    ///         Name = "example-datacenter",
     ///         Location = exampleCassandraCluster.Location,
     ///         CassandraClusterId = exampleCassandraCluster.Id,
     ///         DelegatedManagementSubnetId = exampleSubnet.Id,

@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Batch
         /// {
         ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         AccountName = "testbatchaccount",
         ///         Name = "testbatchpool",
+        ///         AccountName = "testbatchaccount",
         ///         ResourceGroupName = "test",
         ///     });
         /// 
@@ -58,8 +58,8 @@ namespace Pulumi.Azure.Batch
         /// {
         ///     var example = Azure.Batch.GetPool.Invoke(new()
         ///     {
-        ///         AccountName = "testbatchaccount",
         ///         Name = "testbatchpool",
+        ///         AccountName = "testbatchaccount",
         ///         ResourceGroupName = "test",
         ///     });
         /// 

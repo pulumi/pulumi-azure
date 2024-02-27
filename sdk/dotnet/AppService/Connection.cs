@@ -22,15 +22,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cosmosdb-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
@@ -43,45 +45,50 @@ namespace Pulumi.Azure.AppService
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = exampleResourceGroup.Location,
+    ///                 Location = example.Location,
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
     ///     {
+    ///         Name = "cosmos-sql-db",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
+    ///         Name = "example-container",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         DatabaseName = exampleSqlDatabase.Name,
     ///         PartitionKeyPath = "/definition",
     ///     });
     /// 
-    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("exampleServicePlan", new()
+    ///     var exampleServicePlan = new Azure.AppService.ServicePlan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         Name = "example-serviceplan",
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "P1v2",
     ///         OsType = "Linux",
     ///     });
     /// 
-    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("exampleLinuxWebApp", new()
+    ///     var exampleLinuxWebApp = new Azure.AppService.LinuxWebApp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         Name = "example-linuxwebapp",
+    ///         ResourceGroupName = example.Name,
     ///         ServicePlanId = exampleServicePlan.Id,
     ///         SiteConfig = null,
     ///     });
     /// 
-    ///     var exampleConnection = new Azure.AppService.Connection("exampleConnection", new()
+    ///     var exampleConnection = new Azure.AppService.Connection("example", new()
     ///     {
+    ///         Name = "example-serviceconnector",
     ///         AppServiceId = exampleLinuxWebApp.Id,
     ///         TargetResourceId = exampleSqlDatabase.Id,
     ///         Authentication = new Azure.AppService.Inputs.ConnectionAuthenticationArgs

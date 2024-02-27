@@ -28,6 +28,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := core.NewSubscriptionTemplateDeployment(ctx, "example", &core.SubscriptionTemplateDeploymentArgs{
+//				Name:     pulumi.String("example-deployment"),
 //				Location: pulumi.String("West Europe"),
 //				TemplateContent: pulumi.String(` {
 //	   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",

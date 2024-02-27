@@ -15,12 +15,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.storage.getAccount({
+ * const example = azure.storage.getAccount({
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const examplePolicy = exampleAccount.then(exampleAccount => azure.storage.getPolicy({
- *     storageAccountId: exampleAccount.id,
+ * const exampleGetPolicy = example.then(example => azure.storage.getPolicy({
+ *     storageAccountId: example.id,
  * }));
  * ```
  */
@@ -65,12 +65,12 @@ export interface GetPolicyResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleAccount = azure.storage.getAccount({
+ * const example = azure.storage.getAccount({
  *     name: "storageaccountname",
  *     resourceGroupName: "resourcegroupname",
  * });
- * const examplePolicy = exampleAccount.then(exampleAccount => azure.storage.getPolicy({
- *     storageAccountId: exampleAccount.id,
+ * const exampleGetPolicy = example.then(example => azure.storage.getPolicy({
+ *     storageAccountId: example.id,
  * }));
  * ```
  */

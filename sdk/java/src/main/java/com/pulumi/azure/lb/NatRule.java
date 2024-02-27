@@ -55,19 +55,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;LoadBalancerRG&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
+ *             .name(&#34;PublicIPForLB&#34;)
  *             .location(&#34;West US&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
+ *             .name(&#34;TestLoadBalancer&#34;)
  *             .location(&#34;West US&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(&#34;PublicIPAddress&#34;)
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -75,13 +78,15 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name(&#34;be&#34;)
  *             .build());
  * 
  *         var exampleNatRule = new NatRule(&#34;exampleNatRule&#34;, NatRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name(&#34;RDPAccess&#34;)
  *             .protocol(&#34;Tcp&#34;)
  *             .frontendPort(3389)
  *             .backendPort(3389)
@@ -89,8 +94,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var example1 = new NatRule(&#34;example1&#34;, NatRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .loadbalancerId(exampleLoadBalancer.id())
+ *             .name(&#34;RDPAccess&#34;)
  *             .protocol(&#34;Tcp&#34;)
  *             .frontendPortStart(3000)
  *             .frontendPortEnd(3389)

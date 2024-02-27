@@ -15,8 +15,8 @@ import * as utilities from "../utilities";
  *
  * const example = azure.iot.getDpsSharedAccessPolicy({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     iothubDpsName: azurerm_iothub_dps.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     iothubDpsName: exampleAzurermIothubDps.name,
  * });
  * ```
  */
@@ -87,8 +87,8 @@ export interface GetDpsSharedAccessPolicyResult {
  *
  * const example = azure.iot.getDpsSharedAccessPolicy({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     iothubDpsName: azurerm_iothub_dps.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     iothubDpsName: exampleAzurermIothubDps.name,
  * });
  * ```
  */

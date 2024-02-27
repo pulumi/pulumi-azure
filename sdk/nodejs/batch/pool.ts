@@ -14,18 +14,23 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "testaccbatch",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "testaccsa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleBatch_accountAccount = new azure.batch.Account("exampleBatch/accountAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount2 = new azure.batch.Account("example", {
+ *     name: "testaccbatch",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     poolAllocationMode: "BatchService",
  *     storageAccountId: exampleAccount.id,
  *     storageAccountAuthenticationMode: "StorageKeys",
@@ -33,17 +38,20 @@ import * as utilities from "../utilities";
  *         env: "test",
  *     },
  * });
- * const exampleCertificate = new azure.batch.Certificate("exampleCertificate", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleBatch / accountAccount.name,
- *     certificate: fs.readFileSync("certificate.cer", { encoding: "base64" }),
+ * const exampleCertificate = new azure.batch.Certificate("example", {
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount2.name,
+ *     certificate: std.filebase64({
+ *         input: "certificate.cer",
+ *     }).then(invoke => invoke.result),
  *     format: "Cer",
  *     thumbprint: "312d31a79fa0cef49c00f769afc2b73e9f4edf34",
  *     thumbprintAlgorithm: "SHA1",
  * });
- * const examplePool = new azure.batch.Pool("examplePool", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     accountName: exampleBatch / accountAccount.name,
+ * const examplePool = new azure.batch.Pool("example", {
+ *     name: "testaccpool",
+ *     resourceGroupName: example.name,
+ *     accountName: exampleAccount2.name,
  *     displayName: "Test Acc Pool Auto",
  *     vmSize: "Standard_A1",
  *     nodeAgentSkuId: "batch.node.ubuntu 20.04",

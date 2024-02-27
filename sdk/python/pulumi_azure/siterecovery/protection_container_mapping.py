@@ -302,35 +302,46 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary = azure.core.ResourceGroup("primary",
+            name="tfex-network-mapping-primary",
+            location="West US")
+        secondary = azure.core.ResourceGroup("secondary",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
+            name="example-recovery-vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
             sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
+        primary_fabric = azure.siterecovery.Fabric("primary",
+            name="primary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondary",
+            name="secondary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
+            location=secondary.location)
+        primary_protection_container = azure.siterecovery.ProtectionContainer("primary",
+            name="primary-protection-container",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
+        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondary",
+            name="secondary-protection-container",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=secondary_fabric.name)
         policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
+            name="policy",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
+            name="container-mapping",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=primary_fabric.name,
             recovery_source_protection_container_name=primary_protection_container.name,
@@ -372,35 +383,46 @@ class ProtectionContainerMapping(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        primary_resource_group = azure.core.ResourceGroup("primaryResourceGroup", location="West US")
-        secondary_resource_group = azure.core.ResourceGroup("secondaryResourceGroup", location="East US")
+        primary = azure.core.ResourceGroup("primary",
+            name="tfex-network-mapping-primary",
+            location="West US")
+        secondary = azure.core.ResourceGroup("secondary",
+            name="tfex-network-mapping-secondary",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
-            location=secondary_resource_group.location,
-            resource_group_name=secondary_resource_group.name,
+            name="example-recovery-vault",
+            location=secondary.location,
+            resource_group_name=secondary.name,
             sku="Standard")
-        primary_fabric = azure.siterecovery.Fabric("primaryFabric",
-            resource_group_name=secondary_resource_group.name,
+        primary_fabric = azure.siterecovery.Fabric("primary",
+            name="primary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=primary_resource_group.location)
-        secondary_fabric = azure.siterecovery.Fabric("secondaryFabric",
-            resource_group_name=secondary_resource_group.name,
+            location=primary.location)
+        secondary_fabric = azure.siterecovery.Fabric("secondary",
+            name="secondary-fabric",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
-            location=secondary_resource_group.location)
-        primary_protection_container = azure.siterecovery.ProtectionContainer("primaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
+            location=secondary.location)
+        primary_protection_container = azure.siterecovery.ProtectionContainer("primary",
+            name="primary-protection-container",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=primary_fabric.name)
-        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondaryProtectionContainer",
-            resource_group_name=secondary_resource_group.name,
+        secondary_protection_container = azure.siterecovery.ProtectionContainer("secondary",
+            name="secondary-protection-container",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=secondary_fabric.name)
         policy = azure.siterecovery.ReplicationPolicy("policy",
-            resource_group_name=secondary_resource_group.name,
+            name="policy",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_point_retention_in_minutes=24 * 60,
             application_consistent_snapshot_frequency_in_minutes=4 * 60)
         container_mapping = azure.siterecovery.ProtectionContainerMapping("container-mapping",
-            resource_group_name=secondary_resource_group.name,
+            name="container-mapping",
+            resource_group_name=secondary.name,
             recovery_vault_name=vault.name,
             recovery_fabric_name=primary_fabric.name,
             recovery_source_protection_container_name=primary_protection_container.name,

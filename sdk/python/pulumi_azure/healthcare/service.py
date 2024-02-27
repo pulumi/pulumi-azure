@@ -416,6 +416,7 @@ class Service(pulumi.CustomResource):
 
         current = azure.core.get_client_config()
         example = azure.healthcare.Service("example",
+            name="uniquefhirname",
             resource_group_name="sample-resource-group",
             location="westus2",
             kind="fhir-R4",
@@ -490,6 +491,7 @@ class Service(pulumi.CustomResource):
 
         current = azure.core.get_client_config()
         example = azure.healthcare.Service("example",
+            name="uniquefhirname",
             resource_group_name="sample-resource-group",
             location="westus2",
             kind="fhir-R4",

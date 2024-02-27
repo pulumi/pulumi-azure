@@ -8,6 +8,33 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Role Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "CustomRoleDef",
+ *     scope: primary.then(primary => primary.id),
+ * });
+ * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
+ *     roleDefinitionId: roleDefinitionId,
+ *     scope: primary.id,
+ * }));
+ * const custom-byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
+ *     name: name,
+ *     scope: primary.id,
+ * }));
+ * const builtin = azure.authorization.getRoleDefinition({
+ *     name: "Contributor",
+ * });
+ * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
+ * ```
  */
 export function getRoleDefinition(args?: GetRoleDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetRoleDefinitionResult> {
     args = args || {};
@@ -72,6 +99,33 @@ export interface GetRoleDefinitionResult {
 }
 /**
  * Use this data source to access information about an existing Role Definition.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const primary = azure.core.getSubscription({});
+ * const customRoleDefinition = new azure.authorization.RoleDefinition("custom", {
+ *     roleDefinitionId: "00000000-0000-0000-0000-000000000000",
+ *     name: "CustomRoleDef",
+ *     scope: primary.then(primary => primary.id),
+ * });
+ * const custom = pulumi.all([customRoleDefinition.roleDefinitionId, primary]).apply(([roleDefinitionId, primary]) => azure.authorization.getRoleDefinitionOutput({
+ *     roleDefinitionId: roleDefinitionId,
+ *     scope: primary.id,
+ * }));
+ * const custom-byname = pulumi.all([customRoleDefinition.name, primary]).apply(([name, primary]) => azure.authorization.getRoleDefinitionOutput({
+ *     name: name,
+ *     scope: primary.id,
+ * }));
+ * const builtin = azure.authorization.getRoleDefinition({
+ *     name: "Contributor",
+ * });
+ * export const customRoleDefinitionId = custom.apply(custom => custom.id);
+ * export const contributorRoleDefinitionId = builtin.then(builtin => builtin.id);
+ * ```
  */
 export function getRoleDefinitionOutput(args?: GetRoleDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRoleDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getRoleDefinition(a, opts))

@@ -229,8 +229,8 @@ def get_shared_image(gallery_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_shared_image(gallery_name="my-image-gallery",
-        name="my-image",
+    example = azure.compute.get_shared_image(name="my-image",
+        gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
 
@@ -279,8 +279,8 @@ def get_shared_image_output(gallery_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.compute.get_shared_image(gallery_name="my-image-gallery",
-        name="my-image",
+    example = azure.compute.get_shared_image(name="my-image",
+        gallery_name="my-image-gallery",
         resource_group_name="example-resources")
     ```
 

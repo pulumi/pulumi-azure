@@ -596,6 +596,90 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = azure.core.ResourceGroup("example",
+            name="monitoring-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="appinsights",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example2 = azure.appinsights.Insights("example2",
+            name="appinsights2",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        # Example: Alerting Action with result count trigger
+        example_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            action=azure.monitoring.ScheduledQueryRulesAlertActionArgs(
+                action_groups=[],
+                email_subject="Email Header",
+                custom_webhook_payload="{}",
+            ),
+            data_source_id=example_insights.id,
+            description="Alert when total results cross threshold",
+            enabled=True,
+            query=\"\"\"requests
+          | where tolong(resultCode) >= 500
+          | summarize count() by bin(timestamp, 5m)
+        \"\"\",
+            severity=1,
+            frequency=5,
+            time_window=30,
+            trigger=azure.monitoring.ScheduledQueryRulesAlertTriggerArgs(
+                operator="GreaterThan",
+                threshold=3,
+            ),
+            tags={
+                "foo": "bar",
+            })
+        # Example: Alerting Action Cross-Resource
+        example2_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example2",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            authorized_resource_ids=[example2.id],
+            action=azure.monitoring.ScheduledQueryRulesAlertActionArgs(
+                action_groups=[],
+                email_subject="Email Header",
+                custom_webhook_payload="{}",
+            ),
+            data_source_id=example_insights.id,
+            description="Query may access data within multiple resources",
+            enabled=True,
+            query=not_implemented(\"\"\"format(<<-QUERY
+          let a=requests
+            | where toint(resultCode) >= 500
+            | extend fail=1; let b=app('%s').requests
+            | where toint(resultCode) >= 500 | extend fail=1; a
+            | join b on fail
+        QUERY
+        ,azurerm_application_insights.example2.id)\"\"\"),
+            severity=1,
+            frequency=5,
+            time_window=30,
+            trigger=azure.monitoring.ScheduledQueryRulesAlertTriggerArgs(
+                operator="GreaterThan",
+                threshold=3,
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
+
         ## Import
 
         Scheduled Query Rule Alerts can be imported using the `resource id`, e.g.
@@ -633,6 +717,90 @@ class ScheduledQueryRulesAlert(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages an AlertingAction Scheduled Query Rules resource within Azure Monitor.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+
+        def not_implemented(msg):
+            raise NotImplementedError(msg)
+
+        example = azure.core.ResourceGroup("example",
+            name="monitoring-resources",
+            location="West Europe")
+        example_insights = azure.appinsights.Insights("example",
+            name="appinsights",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        example2 = azure.appinsights.Insights("example2",
+            name="appinsights2",
+            location=example.location,
+            resource_group_name=example.name,
+            application_type="web")
+        # Example: Alerting Action with result count trigger
+        example_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            action=azure.monitoring.ScheduledQueryRulesAlertActionArgs(
+                action_groups=[],
+                email_subject="Email Header",
+                custom_webhook_payload="{}",
+            ),
+            data_source_id=example_insights.id,
+            description="Alert when total results cross threshold",
+            enabled=True,
+            query=\"\"\"requests
+          | where tolong(resultCode) >= 500
+          | summarize count() by bin(timestamp, 5m)
+        \"\"\",
+            severity=1,
+            frequency=5,
+            time_window=30,
+            trigger=azure.monitoring.ScheduledQueryRulesAlertTriggerArgs(
+                operator="GreaterThan",
+                threshold=3,
+            ),
+            tags={
+                "foo": "bar",
+            })
+        # Example: Alerting Action Cross-Resource
+        example2_scheduled_query_rules_alert = azure.monitoring.ScheduledQueryRulesAlert("example2",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
+            authorized_resource_ids=[example2.id],
+            action=azure.monitoring.ScheduledQueryRulesAlertActionArgs(
+                action_groups=[],
+                email_subject="Email Header",
+                custom_webhook_payload="{}",
+            ),
+            data_source_id=example_insights.id,
+            description="Query may access data within multiple resources",
+            enabled=True,
+            query=not_implemented(\"\"\"format(<<-QUERY
+          let a=requests
+            | where toint(resultCode) >= 500
+            | extend fail=1; let b=app('%s').requests
+            | where toint(resultCode) >= 500 | extend fail=1; a
+            | join b on fail
+        QUERY
+        ,azurerm_application_insights.example2.id)\"\"\"),
+            severity=1,
+            frequency=5,
+            time_window=30,
+            trigger=azure.monitoring.ScheduledQueryRulesAlertTriggerArgs(
+                operator="GreaterThan",
+                threshold=3,
+            ),
+            tags={
+                "foo": "bar",
+            })
+        ```
 
         ## Import
 

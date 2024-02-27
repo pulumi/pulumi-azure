@@ -26,24 +26,26 @@ namespace Pulumi.Azure.Bot
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("exampleChannelsRegistration", new()
+    ///     var exampleChannelsRegistration = new Azure.Bot.ChannelsRegistration("example", new()
     ///     {
+    ///         Name = "example-bcr",
     ///         Location = "global",
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "F0",
     ///         MicrosoftAppId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ClientId),
     ///     });
     /// 
-    ///     var exampleChannelLine = new Azure.Bot.ChannelLine("exampleChannelLine", new()
+    ///     var exampleChannelLine = new Azure.Bot.ChannelLine("example", new()
     ///     {
     ///         BotName = exampleChannelsRegistration.Name,
     ///         Location = exampleChannelsRegistration.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         LineChannels = new[]
     ///         {
     ///             new Azure.Bot.Inputs.ChannelLineLineChannelArgs

@@ -22,21 +22,24 @@ namespace Pulumi.Azure.NetApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "resource-group-01",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.NetApp.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.NetApp.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "netappaccount-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("exampleSnapshotPolicy", new()
+    ///     var exampleSnapshotPolicy = new Azure.NetApp.SnapshotPolicy("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "snapshotpolicy-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountName = exampleAccount.Name,
     ///         Enabled = true,
     ///         HourlySchedule = new Azure.NetApp.Inputs.SnapshotPolicyHourlyScheduleArgs

@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
-//				ResourceGroupName:                  exampleResourceGroup.Name,
-//				Location:                           exampleResourceGroup.Location,
+//			_, err = streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
+//				Name:                               pulumi.String("example-job"),
+//				ResourceGroupName:                  example.Name,
+//				Location:                           example.Location,
 //				CompatibilityLevel:                 pulumi.String("1.2"),
 //				DataLocale:                         pulumi.String("en-GB"),
 //				EventsLateArrivalMaxDelayInSeconds: pulumi.Int(60),

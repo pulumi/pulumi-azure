@@ -16,10 +16,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.cdn.FrontdoorRouteDisableLinkToDefaultDomain("example", {
- *     cdnFrontdoorRouteId: azurerm_cdn_frontdoor_route.example.id,
+ *     cdnFrontdoorRouteId: exampleAzurermCdnFrontdoorRoute.id,
  *     cdnFrontdoorCustomDomainIds: [
- *         azurerm_cdn_frontdoor_custom_domain.contoso.id,
- *         azurerm_cdn_frontdoor_custom_domain.fabrikam.id,
+ *         contoso.id,
+ *         fabrikam.id,
  *     ],
  * });
  * ```

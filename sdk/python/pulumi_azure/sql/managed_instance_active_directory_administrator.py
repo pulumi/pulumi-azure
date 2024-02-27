@@ -237,25 +237,24 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_managed_instance = azure.sql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
-            subnet_id=azurerm_subnet["example"]["id"],
+            subnet_id=example_azurerm_subnet["id"],
             sku_name="GP_Gen5",
             vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_subnet_network_security_group_association["example"],
-                    azurerm_subnet_route_table_association["example"],
-                ]))
+            storage_size_in_gb=32)
         current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
+        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_name=example_managed_instance.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             login="sqladmin",
             tenant_id=current.tenant_id,
             object_id=current.object_id)
@@ -295,25 +294,24 @@ class ManagedInstanceActiveDirectoryAdministrator(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_instance = azure.sql.ManagedInstance("exampleManagedInstance",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="rg-example",
+            location="West Europe")
+        example_managed_instance = azure.sql.ManagedInstance("example",
+            name="managedsqlinstance",
+            resource_group_name=example.name,
+            location=example.location,
             administrator_login="mradministrator",
             administrator_login_password="thisIsDog11",
             license_type="BasePrice",
-            subnet_id=azurerm_subnet["example"]["id"],
+            subnet_id=example_azurerm_subnet["id"],
             sku_name="GP_Gen5",
             vcores=4,
-            storage_size_in_gb=32,
-            opts=pulumi.ResourceOptions(depends_on=[
-                    azurerm_subnet_network_security_group_association["example"],
-                    azurerm_subnet_route_table_association["example"],
-                ]))
+            storage_size_in_gb=32)
         current = azure.core.get_client_config()
-        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("exampleManagedInstanceActiveDirectoryAdministrator",
+        example_managed_instance_active_directory_administrator = azure.sql.ManagedInstanceActiveDirectoryAdministrator("example",
             managed_instance_name=example_managed_instance.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             login="sqladmin",
             tenant_id=current.tenant_id,
             object_id=current.object_id)

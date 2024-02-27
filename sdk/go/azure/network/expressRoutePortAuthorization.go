@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exprtTest"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "exampleExpressRoutePort", &network.ExpressRoutePortArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example", &network.ExpressRoutePortArgs{
+//				Name:              pulumi.String("port1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				PeeringLocation:   pulumi.String("Airtel-Chennai-CLS"),
 //				BandwidthInGbps:   pulumi.Int(10),
 //				Encapsulation:     pulumi.String("Dot1Q"),
@@ -45,9 +47,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewExpressRoutePortAuthorization(ctx, "exampleExpressRoutePortAuthorization", &network.ExpressRoutePortAuthorizationArgs{
+//			_, err = network.NewExpressRoutePortAuthorization(ctx, "example", &network.ExpressRoutePortAuthorizationArgs{
+//				Name:                 pulumi.String("exampleERCAuth"),
 //				ExpressRoutePortName: exampleExpressRoutePort.Name,
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//				ResourceGroupName:    example.Name,
 //			})
 //			if err != nil {
 //				return err

@@ -21,31 +21,24 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/logicapps"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testIntegrationAccount, err := logicapps.NewIntegrationAccount(ctx, "testIntegrationAccount", &logicapps.IntegrationAccountArgs{
+//			test, err := logicapps.NewIntegrationAccount(ctx, "test", &logicapps.IntegrationAccountArgs{
+//				Name:              pulumi.String("example-ia"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
@@ -54,8 +47,9 @@ import (
 //				return err
 //			}
 //			host, err := logicapps.NewIntegrationAccountPartner(ctx, "host", &logicapps.IntegrationAccountPartnerArgs{
+//				Name:                   pulumi.String("example-hostpartner"),
 //				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: testIntegrationAccount.Name,
+//				IntegrationAccountName: test.Name,
 //				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 //					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
 //						Qualifier: pulumi.String("AS2Identity"),
@@ -67,8 +61,9 @@ import (
 //				return err
 //			}
 //			guest, err := logicapps.NewIntegrationAccountPartner(ctx, "guest", &logicapps.IntegrationAccountPartnerArgs{
+//				Name:                   pulumi.String("example-guestpartner"),
 //				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: testIntegrationAccount.Name,
+//				IntegrationAccountName: test.Name,
 //				BusinessIdentities: logicapps.IntegrationAccountPartnerBusinessIdentityArray{
 //					&logicapps.IntegrationAccountPartnerBusinessIdentityArgs{
 //						Qualifier: pulumi.String("AS2Identity"),
@@ -79,13 +74,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = logicapps.NewIntegrationAccountAgreement(ctx, "testIntegrationAccountAgreement", &logicapps.IntegrationAccountAgreementArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "testdata/integration_account_agreement_content_as2.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = logicapps.NewIntegrationAccountAgreement(ctx, "test", &logicapps.IntegrationAccountAgreementArgs{
+//				Name:                   pulumi.String("example-agreement"),
 //				ResourceGroupName:      example.Name,
-//				IntegrationAccountName: testIntegrationAccount.Name,
+//				IntegrationAccountName: test.Name,
 //				AgreementType:          pulumi.String("AS2"),
 //				HostPartnerName:        host.Name,
 //				GuestPartnerName:       guest.Name,
-//				Content:                readFileOrPanic("testdata/integration_account_agreement_content_as2.json"),
+//				Content:                invokeFile.Result,
 //				HostIdentity: &logicapps.IntegrationAccountAgreementHostIdentityArgs{
 //					Qualifier: pulumi.String("AS2Identity"),
 //					Value:     pulumi.String("FabrikamNY"),

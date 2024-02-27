@@ -14,10 +14,10 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const test = azure.eventhub.getConsumeGroup({
- *     name: azurerm_eventhub_consumer_group.test.name,
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     name: testAzurermEventhubConsumerGroup.name,
+ *     namespaceName: testAzurermEventhubNamespace.name,
+ *     eventhubName: testAzurermEventhub.name,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -81,10 +81,10 @@ export interface GetConsumeGroupResult {
  * import * as azure from "@pulumi/azure";
  *
  * const test = azure.eventhub.getConsumeGroup({
- *     name: azurerm_eventhub_consumer_group.test.name,
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     name: testAzurermEventhubConsumerGroup.name,
+ *     namespaceName: testAzurermEventhubNamespace.name,
+ *     eventhubName: testAzurermEventhub.name,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
  */

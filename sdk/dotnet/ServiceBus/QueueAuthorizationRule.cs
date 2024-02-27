@@ -22,15 +22,17 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "my-servicebus",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("exampleNamespace", new()
+    ///     var exampleNamespace = new Azure.ServiceBus.Namespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-servicebus-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Tags = 
     ///         {
@@ -38,14 +40,16 @@ namespace Pulumi.Azure.ServiceBus
     ///         },
     ///     });
     /// 
-    ///     var exampleQueue = new Azure.ServiceBus.Queue("exampleQueue", new()
+    ///     var exampleQueue = new Azure.ServiceBus.Queue("example", new()
     ///     {
+    ///         Name = "tfex_servicebus_queue",
     ///         NamespaceId = exampleNamespace.Id,
     ///         EnablePartitioning = true,
     ///     });
     /// 
-    ///     var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("exampleQueueAuthorizationRule", new()
+    ///     var exampleQueueAuthorizationRule = new Azure.ServiceBus.QueueAuthorizationRule("example", new()
     ///     {
+    ///         Name = "examplerule",
     ///         QueueId = exampleQueue.Id,
     ///         Listen = true,
     ///         Send = true,

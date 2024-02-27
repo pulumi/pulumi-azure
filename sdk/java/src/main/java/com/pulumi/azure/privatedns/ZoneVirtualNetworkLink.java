@@ -47,22 +47,26 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mydomain.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;test-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleZoneVirtualNetworkLink = new ZoneVirtualNetworkLink(&#34;exampleZoneVirtualNetworkLink&#34;, ZoneVirtualNetworkLinkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;test&#34;)
+ *             .resourceGroupName(example.name())
  *             .privateDnsZoneName(exampleZone.name())
  *             .virtualNetworkId(exampleVirtualNetwork.id())
  *             .build());

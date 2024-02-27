@@ -207,17 +207,22 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_resolver = azure.privatedns.Resolver("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="inbounddns",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -227,7 +232,8 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
                     name="Microsoft.Network/dnsResolvers",
                 ),
             )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
+        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
+            name="example-drie",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
             ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(
@@ -270,17 +276,22 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             address_spaces=["10.0.0.0/16"])
-        example_resolver = azure.privatedns.Resolver("exampleResolver",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_resolver = azure.privatedns.Resolver("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             virtual_network_id=example_virtual_network.id)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+        example_subnet = azure.network.Subnet("example",
+            name="inbounddns",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.0.0/28"],
             delegations=[azure.network.SubnetDelegationArgs(
@@ -290,7 +301,8 @@ class ResolverInboundEndpoint(pulumi.CustomResource):
                     name="Microsoft.Network/dnsResolvers",
                 ),
             )])
-        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("exampleResolverInboundEndpoint",
+        example_resolver_inbound_endpoint = azure.privatedns.ResolverInboundEndpoint("example",
+            name="example-drie",
             private_dns_resolver_id=example_resolver.id,
             location=example_resolver.location,
             ip_configurations=[azure.privatedns.ResolverInboundEndpointIpConfigurationArgs(

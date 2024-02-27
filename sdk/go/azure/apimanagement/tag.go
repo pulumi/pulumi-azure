@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Consumption_0"),
@@ -45,8 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
+//			_, err = apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
 //				ApiManagementId: exampleService.ID(),
+//				Name:            pulumi.String("example-Tag"),
 //			})
 //			if err != nil {
 //				return err

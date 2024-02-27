@@ -26,16 +26,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkDataNetwork = Azure.Mobile.GetNetworkDataNetwork.Invoke(new()
+        ///     var exampleGetNetworkDataNetwork = Azure.Mobile.GetNetworkDataNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mndn",
-        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
         ///     });
         /// 
         /// });
@@ -61,16 +61,16 @@ namespace Pulumi.Azure.Mobile
         /// 
         /// return await Deployment.RunAsync(() =&gt; 
         /// {
-        ///     var exampleNetwork = Azure.Mobile.GetNetwork.Invoke(new()
+        ///     var example = Azure.Mobile.GetNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mn",
         ///         ResourceGroupName = "example-rg",
         ///     });
         /// 
-        ///     var exampleNetworkDataNetwork = Azure.Mobile.GetNetworkDataNetwork.Invoke(new()
+        ///     var exampleGetNetworkDataNetwork = Azure.Mobile.GetNetworkDataNetwork.Invoke(new()
         ///     {
         ///         Name = "example-mndn",
-        ///         MobileNetworkId = exampleNetwork.Apply(getNetworkResult =&gt; getNetworkResult.Id),
+        ///         MobileNetworkId = example.Apply(getNetworkResult =&gt; getNetworkResult.Id),
         ///     });
         /// 
         /// });

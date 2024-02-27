@@ -43,10 +43,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var test = new Cluster(&#34;test&#34;, ClusterArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .skuName(&#34;Dedicated_1&#34;)

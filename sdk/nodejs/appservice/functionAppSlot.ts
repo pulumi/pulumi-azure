@@ -18,31 +18,38 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "azure-functions-test-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "functionsapptestsa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const examplePlan = new azure.appservice.Plan("examplePlan", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "azure-functions-test-service-plan",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         tier: "Standard",
  *         size: "S1",
  *     },
  * });
- * const exampleFunctionApp = new azure.appservice.FunctionApp("exampleFunctionApp", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFunctionApp = new azure.appservice.FunctionApp("example", {
+ *     name: "test-azure-functions",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     storageAccountAccessKey: exampleAccount.primaryAccessKey,
  * });
- * const exampleFunctionAppSlot = new azure.appservice.FunctionAppSlot("exampleFunctionAppSlot", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFunctionAppSlot = new azure.appservice.FunctionAppSlot("example", {
+ *     name: "test-azure-functions_slot",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     appServicePlanId: examplePlan.id,
  *     functionAppName: exampleFunctionApp.name,
  *     storageAccountName: exampleAccount.name,

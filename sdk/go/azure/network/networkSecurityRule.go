@@ -33,20 +33,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "exampleNetworkSecurityGroup", &network.NetworkSecurityGroupArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkSecurityGroup, err := network.NewNetworkSecurityGroup(ctx, "example", &network.NetworkSecurityGroupArgs{
+//				Name:              pulumi.String("acceptanceTestSecurityGroup1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkSecurityRule(ctx, "exampleNetworkSecurityRule", &network.NetworkSecurityRuleArgs{
+//			_, err = network.NewNetworkSecurityRule(ctx, "example", &network.NetworkSecurityRuleArgs{
+//				Name:                     pulumi.String("test123"),
 //				Priority:                 pulumi.Int(100),
 //				Direction:                pulumi.String("Outbound"),
 //				Access:                   pulumi.String("Allow"),
@@ -55,7 +58,7 @@ import (
 //				DestinationPortRange:     pulumi.String("*"),
 //				SourceAddressPrefix:      pulumi.String("*"),
 //				DestinationAddressPrefix: pulumi.String("*"),
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//				ResourceGroupName:        example.Name,
 //				NetworkSecurityGroupName: exampleNetworkSecurityGroup.Name,
 //			})
 //			if err != nil {

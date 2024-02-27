@@ -15,25 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkSite = new azure.mobile.NetworkSite("exampleNetworkSite", {
- *     mobileNetworkId: azurerm_mobile_network.test.id,
- *     location: exampleResourceGroup.location,
+ * const exampleNetworkSite = new azure.mobile.NetworkSite("example", {
+ *     name: "example-mns",
+ *     mobileNetworkId: test.id,
+ *     location: example.location,
  * });
- * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDevice = new azure.databoxedge.Device("example", {
+ *     name: "example-device",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "EdgeP_Base-Standard",
  * });
- * const exampleNetworkPacketCoreControlPlane = new azure.mobile.NetworkPacketCoreControlPlane("exampleNetworkPacketCoreControlPlane", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleNetworkPacketCoreControlPlane = new azure.mobile.NetworkPacketCoreControlPlane("example", {
+ *     name: "example-mnpccp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "G0",
  *     controlPlaneAccessName: "default-interface",
  *     controlPlaneAccessIpv4Address: "192.168.1.199",

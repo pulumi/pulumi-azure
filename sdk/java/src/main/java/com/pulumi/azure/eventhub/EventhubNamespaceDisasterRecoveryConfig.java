@@ -42,24 +42,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;eventhub-replication&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var primary = new EventHubNamespace(&#34;primary&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;eventhub-primary&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var secondary = new EventHubNamespace(&#34;secondary&#34;, EventHubNamespaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;eventhub-secondary&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var exampleEventhubNamespaceDisasterRecoveryConfig = new EventhubNamespaceDisasterRecoveryConfig(&#34;exampleEventhubNamespaceDisasterRecoveryConfig&#34;, EventhubNamespaceDisasterRecoveryConfigArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;replicate-eventhub&#34;)
+ *             .resourceGroupName(example.name())
  *             .namespaceName(primary.name())
  *             .partnerNamespaceId(secondary.id())
  *             .build());

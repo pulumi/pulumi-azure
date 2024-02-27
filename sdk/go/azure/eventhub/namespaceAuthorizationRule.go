@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-servicebus"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("example"),
@@ -46,7 +48,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewNamespaceAuthorizationRule(ctx, "exampleNamespaceAuthorizationRule", &servicebus.NamespaceAuthorizationRuleArgs{
+//			_, err = servicebus.NewNamespaceAuthorizationRule(ctx, "example", &servicebus.NamespaceAuthorizationRuleArgs{
+//				Name:        pulumi.String("examplerule"),
 //				NamespaceId: exampleNamespace.ID(),
 //				Listen:      pulumi.Bool(true),
 //				Send:        pulumi.Bool(true),

@@ -30,27 +30,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example_resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
+//				Name:              pulumi.String("example-DT"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := eventgrid.NewTopic(ctx, "exampleTopic", &eventgrid.TopicArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleTopic, err := eventgrid.NewTopic(ctx, "example", &eventgrid.TopicArgs{
+//				Name:              pulumi.String("example-topic"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = digitaltwins.NewEndpointEventGrid(ctx, "exampleEndpointEventGrid", &digitaltwins.EndpointEventGridArgs{
+//			_, err = digitaltwins.NewEndpointEventGrid(ctx, "example", &digitaltwins.EndpointEventGridArgs{
+//				Name:                             pulumi.String("example-EG"),
 //				DigitalTwinsId:                   exampleInstance.ID(),
 //				EventgridTopicEndpoint:           exampleTopic.Endpoint,
 //				EventgridTopicPrimaryAccessKey:   exampleTopic.PrimaryAccessKey,

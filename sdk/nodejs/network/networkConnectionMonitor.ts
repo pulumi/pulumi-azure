@@ -17,33 +17,41 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetworkWatcher = new azure.network.NetworkWatcher("exampleNetworkWatcher", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-Watcher-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleNetworkWatcher = new azure.network.NetworkWatcher("example", {
+ *     name: "example-Watcher",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-Vnet",
  *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-Subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleNetworkInterface = new azure.network.NetworkInterface("exampleNetworkInterface", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleNetworkInterface = new azure.network.NetworkInterface("example", {
+ *     name: "example-Nic",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     ipConfigurations: [{
  *         name: "testconfiguration1",
  *         subnetId: exampleSubnet.id,
  *         privateIpAddressAllocation: "Dynamic",
  *     }],
  * });
- * const exampleVirtualMachine = new azure.compute.VirtualMachine("exampleVirtualMachine", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualMachine = new azure.compute.VirtualMachine("example", {
+ *     name: "example-VM",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     networkInterfaceIds: [exampleNetworkInterface.id],
  *     vmSize: "Standard_D2s_v3",
  *     storageImageReference: {
@@ -67,19 +75,22 @@ import * as utilities from "../utilities";
  *         disablePasswordAuthentication: false,
  *     },
  * });
- * const exampleExtension = new azure.compute.Extension("exampleExtension", {
+ * const exampleExtension = new azure.compute.Extension("example", {
+ *     name: "example-VMExtension",
  *     virtualMachineId: exampleVirtualMachine.id,
  *     publisher: "Microsoft.Azure.NetworkWatcher",
  *     type: "NetworkWatcherAgentLinux",
  *     typeHandlerVersion: "1.4",
  *     autoUpgradeMinorVersion: true,
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "example-Workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("exampleNetworkConnectionMonitor", {
+ * const exampleNetworkConnectionMonitor = new azure.network.NetworkConnectionMonitor("example", {
+ *     name: "example-Monitor",
  *     networkWatcherId: exampleNetworkWatcher.id,
  *     location: exampleNetworkWatcher.location,
  *     endpoints: [
@@ -115,8 +126,6 @@ import * as utilities from "../utilities";
  *     }],
  *     notes: "examplenote",
  *     outputWorkspaceResourceIds: [exampleAnalyticsWorkspace.id],
- * }, {
- *     dependsOn: [exampleExtension],
  * });
  * ```
  *

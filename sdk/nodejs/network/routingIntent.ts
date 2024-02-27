@@ -15,20 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-vhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
- * const exampleFirewall = new azure.network.Firewall("exampleFirewall", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFirewall = new azure.network.Firewall("example", {
+ *     name: "example-fw",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "AZFW_Hub",
  *     skuTier: "Standard",
  *     virtualHub: {
@@ -36,7 +42,8 @@ import * as utilities from "../utilities";
  *         publicIpCount: 1,
  *     },
  * });
- * const exampleRoutingIntent = new azure.network.RoutingIntent("exampleRoutingIntent", {
+ * const exampleRoutingIntent = new azure.network.RoutingIntent("example", {
+ *     name: "example-routingintent",
  *     virtualHubId: exampleVirtualHub.id,
  *     routingPolicies: [{
  *         name: "InternetTrafficPolicy",

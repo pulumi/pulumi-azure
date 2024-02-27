@@ -313,19 +313,23 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             server_id=example_server.id,
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
@@ -339,13 +343,17 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
@@ -354,7 +362,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 "Microsoft.Storage",
             ],
             enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
@@ -364,20 +373,23 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             identity=azure.mssql.ServerIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
             principal_id=example_server.identity.principal_id)
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.sql.FirewallRule("example",
+            name="FirewallRule1",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             start_ip_address="0.0.0.0",
             end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
+        example_account = azure.storage.Account("example",
+            name="examplesa",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
@@ -393,77 +405,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             retention_in_days=6,
             log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
-        ```
-        ### With Log Analytics Workspace And EventHub
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
-            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=True,
-            manage=True)
-        example_mssql_server_extended_auditing_policy_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            log_monitoring_enabled=True)
-        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
-            target_resource_id=example_server.id.apply(lambda id: f"{id}/databases/master"),
-            eventhub_authorization_rule_id=example_event_hub_namespace_authorization_rule.id,
-            eventhub_name=example_event_hub.name,
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            logs=[azure.monitoring.DiagnosticSettingLogArgs(
-                category="SQLSecurityAuditEvents",
-                enabled=True,
-                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )],
-            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
-                category="AllMetrics",
-                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )])
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
 
         ## Import
@@ -502,19 +449,23 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
+            resource_group_name=example.name,
+            location=example.location,
             version="12.0",
             administrator_login="missadministrator",
             administrator_login_password="AdminPassword123!")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_account = azure.storage.Account("example",
+            name="examplesa",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             server_id=example_server.id,
             storage_endpoint=example_account.primary_blob_endpoint,
             storage_account_access_key=example_account.primary_access_key,
@@ -528,13 +479,17 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
         import pulumi_azure as azure
 
         primary = azure.core.get_subscription()
-        example_client_config = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.get_client_config()
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname-1",
             address_spaces=["10.0.0.0/16"],
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname-1",
             resource_group_name=example_resource_group.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
@@ -543,7 +498,8 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
                 "Microsoft.Storage",
             ],
             enforce_private_link_endpoint_network_policies=True)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
@@ -553,20 +509,23 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             identity=azure.mssql.ServerIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=primary.id,
             role_definition_name="Storage Blob Data Contributor",
             principal_id=example_server.identity.principal_id)
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             subnet_id=example_subnet.id)
-        example_firewall_rule = azure.sql.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.sql.FirewallRule("example",
+            name="FirewallRule1",
             resource_group_name=example_resource_group.name,
             server_name=example_server.name,
             start_ip_address="0.0.0.0",
             end_ip_address="0.0.0.0")
-        example_account = azure.storage.Account("exampleAccount",
+        example_account = azure.storage.Account("example",
+            name="examplesa",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             account_tier="Standard",
@@ -582,77 +541,12 @@ class ServerExtendedAuditingPolicy(pulumi.CustomResource):
             identity=azure.storage.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
+        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("example",
             storage_endpoint=example_account.primary_blob_endpoint,
             server_id=example_server.id,
             retention_in_days=6,
             log_monitoring_enabled=False,
-            storage_account_subscription_id=azurerm_subscription["primary"]["subscription_id"],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_assignment,
-                    example_account,
-                ]))
-        ```
-        ### With Log Analytics Workspace And EventHub
-
-        ```python
-        import pulumi
-        import pulumi_azure as azure
-
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_server = azure.mssql.Server("exampleServer",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
-            version="12.0",
-            administrator_login="missadministrator",
-            administrator_login_password="AdminPassword123!")
-        example_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            storage_endpoint=azurerm_storage_account["example"]["primary_blob_endpoint"],
-            storage_account_access_key=azurerm_storage_account["example"]["primary_access_key"],
-            storage_account_access_key_is_secondary=False,
-            retention_in_days=6)
-        example_analytics_workspace = azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="PerGB2018",
-            retention_in_days=30)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
-            sku="Standard")
-        example_event_hub = azure.eventhub.EventHub("exampleEventHub",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            partition_count=2,
-            message_retention=1)
-        example_event_hub_namespace_authorization_rule = azure.eventhub.EventHubNamespaceAuthorizationRule("exampleEventHubNamespaceAuthorizationRule",
-            namespace_name=example_event_hub_namespace.name,
-            resource_group_name=example_resource_group.name,
-            listen=True,
-            send=True,
-            manage=True)
-        example_mssql_server_extended_auditing_policy_server_extended_auditing_policy = azure.mssql.ServerExtendedAuditingPolicy("exampleMssql/serverExtendedAuditingPolicyServerExtendedAuditingPolicy",
-            server_id=example_server.id,
-            log_monitoring_enabled=True)
-        example_diagnostic_setting = azure.monitoring.DiagnosticSetting("exampleDiagnosticSetting",
-            target_resource_id=example_server.id.apply(lambda id: f"{id}/databases/master"),
-            eventhub_authorization_rule_id=example_event_hub_namespace_authorization_rule.id,
-            eventhub_name=example_event_hub.name,
-            log_analytics_workspace_id=example_analytics_workspace.id,
-            logs=[azure.monitoring.DiagnosticSettingLogArgs(
-                category="SQLSecurityAuditEvents",
-                enabled=True,
-                retention_policy=azure.monitoring.DiagnosticSettingLogRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )],
-            metrics=[azure.monitoring.DiagnosticSettingMetricArgs(
-                category="AllMetrics",
-                retention_policy=azure.monitoring.DiagnosticSettingMetricRetentionPolicyArgs(
-                    enabled=False,
-                ),
-            )])
+            storage_account_subscription_id=primary_azurerm_subscription["subscriptionId"])
         ```
 
         ## Import

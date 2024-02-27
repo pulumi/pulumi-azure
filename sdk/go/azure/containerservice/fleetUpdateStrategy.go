@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("westeurope"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKubernetesFleetManager, err := containerservice.NewKubernetesFleetManager(ctx, "exampleKubernetesFleetManager", &containerservice.KubernetesFleetManagerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleKubernetesFleetManager, err := containerservice.NewKubernetesFleetManager(ctx, "example", &containerservice.KubernetesFleetManagerArgs{
+//				Location:          example.Location,
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				HubProfile: &containerservice.KubernetesFleetManagerHubProfileArgs{
 //					DnsPrefix: pulumi.String("example-dns-prefix"),
 //				},
@@ -45,7 +47,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewFleetUpdateStrategy(ctx, "exampleFleetUpdateStrategy", &containerservice.FleetUpdateStrategyArgs{
+//			_, err = containerservice.NewFleetUpdateStrategy(ctx, "example", &containerservice.FleetUpdateStrategyArgs{
+//				Name:                     pulumi.String("example"),
 //				KubernetesFleetManagerId: exampleKubernetesFleetManager.ID(),
 //				Stages: containerservice.FleetUpdateStrategyStageArray{
 //					&containerservice.FleetUpdateStrategyStageArgs{

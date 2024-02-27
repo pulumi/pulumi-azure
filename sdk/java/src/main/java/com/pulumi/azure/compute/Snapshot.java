@@ -47,21 +47,24 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;snapshot-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleManagedDisk = new ManagedDisk(&#34;exampleManagedDisk&#34;, ManagedDiskArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;managed-disk&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .storageAccountType(&#34;Standard_LRS&#34;)
  *             .createOption(&#34;Empty&#34;)
  *             .diskSizeGb(&#34;10&#34;)
  *             .build());
  * 
  *         var exampleSnapshot = new Snapshot(&#34;exampleSnapshot&#34;, SnapshotArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;snapshot&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .createOption(&#34;Copy&#34;)
  *             .sourceUri(exampleManagedDisk.id())
  *             .build());

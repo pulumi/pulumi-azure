@@ -81,25 +81,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-network&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.254.0.0/16&#34;)
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.254.0.0/24&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-pip&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .allocationMethod(&#34;Dynamic&#34;)
  *             .build());
  * 
@@ -118,8 +122,9 @@ import javax.annotation.Nullable;
  *         final var redirectConfigurationName = exampleVirtualNetwork.name().applyValue(name -&gt; String.format(&#34;%s-rdrcfg&#34;, name));
  * 
  *         var network = new ApplicationGateway(&#34;network&#34;, ApplicationGatewayArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-appgateway&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(ApplicationGatewaySkuArgs.builder()
  *                 .name(&#34;Standard_v2&#34;)
  *                 .tier(&#34;Standard_v2&#34;)

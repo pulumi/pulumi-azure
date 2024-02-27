@@ -485,13 +485,17 @@ class VirtualNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             dns_servers=[
                 "10.0.0.4",
@@ -564,13 +568,17 @@ class VirtualNetwork(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="example-security-group",
+            location=example.location,
+            resource_group_name=example.name)
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
+            location=example.location,
+            resource_group_name=example.name,
             address_spaces=["10.0.0.0/16"],
             dns_servers=[
                 "10.0.0.4",

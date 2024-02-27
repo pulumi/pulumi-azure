@@ -24,11 +24,13 @@ namespace Pulumi.Azure.Dns
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var example_public = new Azure.Dns.Zone("example-public", new()
     ///     {
+    ///         Name = "mydomain.com",
     ///         ResourceGroupName = example.Name,
     ///     });
     /// 

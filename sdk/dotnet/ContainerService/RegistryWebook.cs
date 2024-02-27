@@ -24,11 +24,13 @@ namespace Pulumi.Azure.ContainerService
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var acr = new Azure.ContainerService.Registry("acr", new()
     ///     {
+    ///         Name = "containerRegistry1",
     ///         ResourceGroupName = example.Name,
     ///         Location = example.Location,
     ///         Sku = "Standard",
@@ -37,6 +39,7 @@ namespace Pulumi.Azure.ContainerService
     /// 
     ///     var webhook = new Azure.ContainerService.RegistryWebhook("webhook", new()
     ///     {
+    ///         Name = "mywebhook",
     ///         ResourceGroupName = example.Name,
     ///         RegistryName = acr.Name,
     ///         Location = example.Location,

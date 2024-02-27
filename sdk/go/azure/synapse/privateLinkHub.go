@@ -29,8 +29,9 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := synapse.NewPrivateLinkHub(ctx, "example", &synapse.PrivateLinkHubArgs{
-//				Location:          pulumi.String("West Europe"),
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: pulumi.String("example-rg"),
+//				Location:          pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err

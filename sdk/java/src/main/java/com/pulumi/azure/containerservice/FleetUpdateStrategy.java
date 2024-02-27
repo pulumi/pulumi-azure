@@ -46,19 +46,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var exampleKubernetesFleetManager = new KubernetesFleetManager(&#34;exampleKubernetesFleetManager&#34;, KubernetesFleetManagerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .hubProfile(KubernetesFleetManagerHubProfileArgs.builder()
  *                 .dnsPrefix(&#34;example-dns-prefix&#34;)
  *                 .build())
  *             .build());
  * 
  *         var exampleFleetUpdateStrategy = new FleetUpdateStrategy(&#34;exampleFleetUpdateStrategy&#34;, FleetUpdateStrategyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .kubernetesFleetManagerId(exampleKubernetesFleetManager.id())
  *             .stages(FleetUpdateStrategyStageArgs.builder()
  *                 .name(&#34;example-stage-1&#34;)

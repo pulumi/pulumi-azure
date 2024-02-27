@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg-compute",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("exampleDedicatedHostGroup", new()
+    ///     var exampleDedicatedHostGroup = new Azure.Compute.DedicatedHostGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-dedicated-host-group",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         PlatformFaultDomainCount = 1,
     ///     });
     /// 

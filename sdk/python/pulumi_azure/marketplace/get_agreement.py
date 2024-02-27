@@ -105,7 +105,7 @@ def get_agreement(offer: Optional[str] = None,
     barracuda = azure.marketplace.get_agreement(publisher="barracudanetworks",
         offer="waf",
         plan="hourly")
-    pulumi.export("azurermMarketplaceAgreementId", data["azurerm_marketplace_agreement"]["id"])
+    pulumi.export("azurermMarketplaceAgreementId", id)
     ```
 
 
@@ -146,7 +146,7 @@ def get_agreement_output(offer: Optional[pulumi.Input[str]] = None,
     barracuda = azure.marketplace.get_agreement(publisher="barracudanetworks",
         offer="waf",
         plan="hourly")
-    pulumi.export("azurermMarketplaceAgreementId", data["azurerm_marketplace_agreement"]["id"])
+    pulumi.export("azurermMarketplaceAgreementId", id)
     ```
 
 

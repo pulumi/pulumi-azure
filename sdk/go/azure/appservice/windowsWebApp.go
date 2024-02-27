@@ -29,23 +29,26 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "exampleServicePlan", &appservice.ServicePlanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleServicePlan, err := appservice.NewServicePlan(ctx, "example", &appservice.ServicePlanArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("P1v2"),
 //				OsType:            pulumi.String("Windows"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewWindowsWebApp(ctx, "exampleWindowsWebApp", &appservice.WindowsWebAppArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = appservice.NewWindowsWebApp(ctx, "example", &appservice.WindowsWebAppArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				Location:          exampleServicePlan.Location,
 //				ServicePlanId:     exampleServicePlan.ID(),
 //				SiteConfig:        nil,

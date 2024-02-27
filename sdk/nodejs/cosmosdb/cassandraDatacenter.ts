@@ -9,10 +9,6 @@ import * as utilities from "../utilities";
  *
  * > **NOTE:** In order for the `Azure Managed Instances for Apache Cassandra` to work properly the product requires the `Azure Cosmos DB` Application ID to be present and working in your tenant. If the `Azure Cosmos DB` Application ID is missing in your environment you will need to have an administrator of your tenant run the following command to add the `Azure Cosmos DB` Application ID to your tenant:
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * ```
- *
  * ## Example Usage
  *
  * ```typescript
@@ -20,34 +16,39 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "accexample-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const example = azuread.getServicePrincipal({
  *     displayName: "Azure Cosmos DB",
  * });
- * const exampleAssignment = new azure.authorization.Assignment("exampleAssignment", {
+ * const exampleAssignment = new azure.authorization.Assignment("example", {
  *     scope: exampleVirtualNetwork.id,
  *     roleDefinitionName: "Network Contributor",
- *     principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.objectId),
+ *     principalId: example.then(example => example.objectId),
  * });
- * const exampleCassandraCluster = new azure.cosmosdb.CassandraCluster("exampleCassandraCluster", {
+ * const exampleCassandraCluster = new azure.cosmosdb.CassandraCluster("example", {
+ *     name: "example-cluster",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     delegatedManagementSubnetId: exampleSubnet.id,
  *     defaultAdminPassword: "Password1234",
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
- * const exampleCassandraDatacenter = new azure.cosmosdb.CassandraDatacenter("exampleCassandraDatacenter", {
+ * const exampleCassandraDatacenter = new azure.cosmosdb.CassandraDatacenter("example", {
+ *     name: "example-datacenter",
  *     location: exampleCassandraCluster.location,
  *     cassandraClusterId: exampleCassandraCluster.id,
  *     delegatedManagementSubnetId: exampleSubnet.id,

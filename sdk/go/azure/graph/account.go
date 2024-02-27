@@ -32,21 +32,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleApplication, err := azuread.NewApplication(ctx, "exampleApplication", &azuread.ApplicationArgs{
+//			example, err := azuread.NewApplication(ctx, "example", &azuread.ApplicationArgs{
 //				DisplayName: pulumi.String("example-app"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = graph.NewAccount(ctx, "exampleAccount", &graph.AccountArgs{
+//			_, err = graph.NewAccount(ctx, "example", &graph.AccountArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ApplicationId:     exampleApplication.ApplicationId,
+//				ApplicationId:     example.ApplicationId,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},

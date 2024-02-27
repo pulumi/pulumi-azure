@@ -46,14 +46,18 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-akcc&#34;)
+ *             .resourceGroupName(example.name())
  *             .location(&#34;West Europe&#34;)
- *             .agentPublicKeyCertificate(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;testdata/public.cer&#34;))))
+ *             .agentPublicKeyCertificate(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;testdata/public.cer&#34;)
+ *                 .build()).result())
  *             .identity(ClusterIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)
  *                 .build())
@@ -61,6 +65,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleClusterExtension = new ClusterExtension(&#34;exampleClusterExtension&#34;, ClusterExtensionArgs.builder()        
+ *             .name(&#34;example-ext&#34;)
  *             .clusterId(exampleCluster.id())
  *             .extensionType(&#34;microsoft.flux&#34;)
  *             .build());

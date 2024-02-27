@@ -24,37 +24,42 @@ namespace Pulumi.Azure.ServiceBus
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "servicebus-replication",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var primary = new Azure.ServiceBus.Namespace("primary", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "servicebus-primary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
     ///         Capacity = 1,
     ///     });
     /// 
     ///     var secondary = new Azure.ServiceBus.Namespace("secondary", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "servicebus-secondary",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Premium",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("exampleNamespaceAuthorizationRule", new()
+    ///     var exampleNamespaceAuthorizationRule = new Azure.ServiceBus.NamespaceAuthorizationRule("example", new()
     ///     {
-    ///         NamespaceId = azurerm_servicebus_namespace.Example.Id,
+    ///         Name = "examplerule",
+    ///         NamespaceId = exampleAzurermServicebusNamespace.Id,
     ///         Listen = true,
     ///         Send = true,
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("exampleNamespaceDisasterRecoveryConfig", new()
+    ///     var exampleNamespaceDisasterRecoveryConfig = new Azure.ServiceBus.NamespaceDisasterRecoveryConfig("example", new()
     ///     {
+    ///         Name = "servicebus-alias-name",
     ///         PrimaryNamespaceId = primary.Id,
     ///         PartnerNamespaceId = secondary.Id,
     ///         AliasAuthorizationRuleId = exampleNamespaceAuthorizationRule.Id,

@@ -29,36 +29,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
+//			example := apimanagement.LookupServiceOutput(ctx, apimanagement.GetServiceOutputArgs{
 //				Name:              pulumi.String("example-apim"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleApi, err := apimanagement.NewApi(ctx, "exampleApi", &apimanagement.ApiArgs{
+//			exampleApi, err := apimanagement.NewApi(ctx, "example", &apimanagement.ApiArgs{
+//				Name:              pulumi.String("example-api"),
 //				ResourceGroupName: exampleResourceGroup.Name,
-//				ApiManagementName: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (*string, error) {
-//					return &exampleService.Name, nil
+//				ApiManagementName: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
+//					return &example.Name, nil
 //				}).(pulumi.StringPtrOutput),
 //				Revision: pulumi.String("1"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewTag(ctx, "exampleTag", &apimanagement.TagArgs{
-//				ApiManagementId: exampleService.ApplyT(func(exampleService apimanagement.GetServiceResult) (*string, error) {
-//					return &exampleService.Id, nil
+//			exampleTag, err := apimanagement.NewTag(ctx, "example", &apimanagement.TagArgs{
+//				ApiManagementId: example.ApplyT(func(example apimanagement.GetServiceResult) (*string, error) {
+//					return &example.Id, nil
 //				}).(pulumi.StringPtrOutput),
+//				Name: pulumi.String("example-tag"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewApiTag(ctx, "exampleApiTag", &apimanagement.ApiTagArgs{
+//			_, err = apimanagement.NewApiTag(ctx, "example", &apimanagement.ApiTagArgs{
 //				ApiId: exampleApi.ID(),
+//				Name:  exampleTag.Name,
 //			})
 //			if err != nil {
 //				return err

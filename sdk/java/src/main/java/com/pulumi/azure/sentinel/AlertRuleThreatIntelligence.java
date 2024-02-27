@@ -50,10 +50,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAnalyticsWorkspace = new AnalyticsWorkspace(&#34;exampleAnalyticsWorkspace&#34;, AnalyticsWorkspaceArgs.builder()        
+ *             .name(&#34;example-workspace&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .sku(&#34;pergb2018&#34;)
@@ -71,14 +73,15 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
- *         final var exampleAlertRuleTemplate = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
+ *         final var example = SentinelFunctions.getAlertRuleTemplate(GetAlertRuleTemplateArgs.builder()
  *             .displayName(&#34;(Preview) Microsoft Defender Threat Intelligence Analytics&#34;)
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
  *             .build());
  * 
  *         var exampleAlertRuleThreatIntelligence = new AlertRuleThreatIntelligence(&#34;exampleAlertRuleThreatIntelligence&#34;, AlertRuleThreatIntelligenceArgs.builder()        
+ *             .name(&#34;example-rule&#34;)
  *             .logAnalyticsWorkspaceId(exampleAnalyticsSolution.workspaceResourceId())
- *             .alertRuleTemplateGuid(exampleAlertRuleTemplate.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult).applyValue(exampleAlertRuleTemplate -&gt; exampleAlertRuleTemplate.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.name())))
+ *             .alertRuleTemplateGuid(example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult).applyValue(example -&gt; example.applyValue(getAlertRuleTemplateResult -&gt; getAlertRuleTemplateResult.name())))
  *             .build());
  * 
  *     }

@@ -52,30 +52,35 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualWan = new VirtualWan(&#34;exampleVirtualWan&#34;, VirtualWanArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vwan&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleVirtualHub = new VirtualHub(&#34;exampleVirtualHub&#34;, VirtualHubArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vhub&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressPrefix(&#34;10.0.1.0/24&#34;)
  *             .virtualWanId(exampleVirtualWan.id())
  *             .build());
  * 
  *         var exampleVpnGateway = new VpnGateway(&#34;exampleVpnGateway&#34;, VpnGatewayArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vpngateway&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .virtualHubId(exampleVirtualHub.id())
  *             .build());
  * 
  *         var exampleVnpGatewayNatRule = new VnpGatewayNatRule(&#34;exampleVnpGatewayNatRule&#34;, VnpGatewayNatRuleArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vpngatewaynatrule&#34;)
+ *             .resourceGroupName(example.name())
  *             .vpnGatewayId(exampleVpnGateway.id())
  *             .externalMappings(VnpGatewayNatRuleExternalMappingArgs.builder()
  *                 .addressSpace(&#34;192.168.21.0/26&#34;)

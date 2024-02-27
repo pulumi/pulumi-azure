@@ -55,20 +55,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;anf-user-assigned-identity&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;anfcmkakv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .enabledForDiskEncryption(true)
  *             .enabledForDeployment(true)
  *             .enabledForTemplateDeployment(true)
@@ -99,6 +102,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;anfencryptionkey&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -112,8 +116,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;netappaccount&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .identity(AccountIdentityArgs.builder()
  *                 .type(&#34;UserAssigned&#34;)
  *                 .identityIds(exampleUserAssignedIdentity.id())

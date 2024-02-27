@@ -34,15 +34,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("terraform-webpubsub"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("examplekeyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("standard"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -65,16 +67,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := webpubsub.NewService(ctx, "exampleService", &webpubsub.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := webpubsub.NewService(ctx, "example", &webpubsub.ServiceArgs{
+//				Name:              pulumi.String("tfex-webpubsub"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard_S1"),
 //				Capacity:          pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = webpubsub.NewSharedPrivateLinkResource(ctx, "exampleSharedPrivateLinkResource", &webpubsub.SharedPrivateLinkResourceArgs{
+//			_, err = webpubsub.NewSharedPrivateLinkResource(ctx, "example", &webpubsub.SharedPrivateLinkResourceArgs{
+//				Name:             pulumi.String("tfex-webpubsub-splr"),
 //				WebPubsubId:      exampleService.ID(),
 //				SubresourceName:  pulumi.String("vault"),
 //				TargetResourceId: exampleKeyVault.ID(),

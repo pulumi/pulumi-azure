@@ -203,12 +203,16 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.siterecovery.HyperVReplicationPolicy("policy",
+            name="policy",
             recovery_vault_id=vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,
@@ -246,12 +250,16 @@ class HyperVReplicationPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
         vault = azure.recoveryservices.Vault("vault",
+            name="example-recovery-vault",
             location=example.location,
             resource_group_name=example.name,
             sku="Standard")
         policy = azure.siterecovery.HyperVReplicationPolicy("policy",
+            name="policy",
             recovery_vault_id=vault.id,
             recovery_point_retention_in_hours=2,
             application_consistent_snapshot_frequency_in_hours=1,

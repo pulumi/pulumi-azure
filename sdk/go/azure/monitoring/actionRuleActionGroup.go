@@ -31,26 +31,29 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-action-group"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewActionRuleActionGroup(ctx, "exampleActionRuleActionGroup", &monitoring.ActionRuleActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewActionRuleActionGroup(ctx, "example", &monitoring.ActionRuleActionGroupArgs{
+//				Name:              pulumi.String("example-amar"),
+//				ResourceGroupName: example.Name,
 //				ActionGroupId:     exampleActionGroup.ID(),
 //				Scope: &monitoring.ActionRuleActionGroupScopeArgs{
 //					Type: pulumi.String("ResourceGroup"),
 //					ResourceIds: pulumi.StringArray{
-//						exampleResourceGroup.ID(),
+//						example.ID(),
 //					},
 //				},
 //				Tags: pulumi.StringMap{

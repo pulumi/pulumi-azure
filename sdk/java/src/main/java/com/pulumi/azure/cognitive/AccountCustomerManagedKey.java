@@ -56,18 +56,21 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
+ *             .name(&#34;example-identity&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .kind(&#34;Face&#34;)
  *             .skuName(&#34;E0&#34;)
  *             .customSubdomainName(&#34;example-account&#34;)
@@ -78,8 +81,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
@@ -144,6 +148,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;example-key&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)

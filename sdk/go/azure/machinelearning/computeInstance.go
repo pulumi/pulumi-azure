@@ -38,7 +38,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("west europe"),
 //				Tags: pulumi.StringMap{
 //					"stage": pulumi.String("example"),
@@ -47,17 +48,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-ai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                   pulumi.String("example-kv"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				TenantId:               *pulumi.String(current.TenantId),
 //				SkuName:                pulumi.String("standard"),
 //				PurgeProtectionEnabled: pulumi.Bool(true),
@@ -65,18 +68,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				Location:               exampleResourceGroup.Location,
-//				ResourceGroupName:      exampleResourceGroup.Name,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				Location:               example.Location,
+//				ResourceGroupName:      example.Name,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "exampleWorkspace", &machinelearning.WorkspaceArgs{
-//				Location:              exampleResourceGroup.Location,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			exampleWorkspace, err := machinelearning.NewWorkspace(ctx, "example", &machinelearning.WorkspaceArgs{
+//				Name:                  pulumi.String("example-mlw"),
+//				Location:              example.Location,
+//				ResourceGroupName:     example.Name,
 //				ApplicationInsightsId: exampleInsights.ID(),
 //				KeyVaultId:            exampleKeyVault.ID(),
 //				StorageAccountId:      exampleAccount.ID(),
@@ -87,18 +92,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.1.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.1.0.0/24"),
@@ -112,8 +119,9 @@ import (
 //			if param := cfg.Get("sshKey"); param != "" {
 //				sshKey = param
 //			}
-//			_, err = machinelearning.NewComputeInstance(ctx, "exampleComputeInstance", &machinelearning.ComputeInstanceArgs{
-//				Location:                   exampleResourceGroup.Location,
+//			_, err = machinelearning.NewComputeInstance(ctx, "example", &machinelearning.ComputeInstanceArgs{
+//				Name:                       pulumi.String("example"),
+//				Location:                   example.Location,
 //				MachineLearningWorkspaceId: exampleWorkspace.ID(),
 //				VirtualMachineSize:         pulumi.String("STANDARD_DS2_V2"),
 //				AuthorizationType:          pulumi.String("personal"),

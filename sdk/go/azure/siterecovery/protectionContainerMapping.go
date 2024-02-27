@@ -30,52 +30,59 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			primaryResourceGroup, err := core.NewResourceGroup(ctx, "primaryResourceGroup", &core.ResourceGroupArgs{
+//			primary, err := core.NewResourceGroup(ctx, "primary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-primary"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryResourceGroup, err := core.NewResourceGroup(ctx, "secondaryResourceGroup", &core.ResourceGroupArgs{
+//			secondary, err := core.NewResourceGroup(ctx, "secondary", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-network-mapping-secondary"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			vault, err := recoveryservices.NewVault(ctx, "vault", &recoveryservices.VaultArgs{
-//				Location:          secondaryResourceGroup.Location,
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          secondary.Location,
+//				ResourceGroupName: secondary.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryFabric, err := siterecovery.NewFabric(ctx, "primaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			primaryFabric, err := siterecovery.NewFabric(ctx, "primary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("primary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          primaryResourceGroup.Location,
+//				Location:          primary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryFabric, err := siterecovery.NewFabric(ctx, "secondaryFabric", &siterecovery.FabricArgs{
-//				ResourceGroupName: secondaryResourceGroup.Name,
+//			secondaryFabric, err := siterecovery.NewFabric(ctx, "secondary", &siterecovery.FabricArgs{
+//				Name:              pulumi.String("secondary-fabric"),
+//				ResourceGroupName: secondary.Name,
 //				RecoveryVaultName: vault.Name,
-//				Location:          secondaryResourceGroup.Location,
+//				Location:          secondary.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			primaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "primaryProtectionContainer", &siterecovery.ProtectionContainerArgs{
-//				ResourceGroupName:  secondaryResourceGroup.Name,
+//			primaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "primary", &siterecovery.ProtectionContainerArgs{
+//				Name:               pulumi.String("primary-protection-container"),
+//				ResourceGroupName:  secondary.Name,
 //				RecoveryVaultName:  vault.Name,
 //				RecoveryFabricName: primaryFabric.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			secondaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "secondaryProtectionContainer", &siterecovery.ProtectionContainerArgs{
-//				ResourceGroupName:  secondaryResourceGroup.Name,
+//			secondaryProtectionContainer, err := siterecovery.NewProtectionContainer(ctx, "secondary", &siterecovery.ProtectionContainerArgs{
+//				Name:               pulumi.String("secondary-protection-container"),
+//				ResourceGroupName:  secondary.Name,
 //				RecoveryVaultName:  vault.Name,
 //				RecoveryFabricName: secondaryFabric.Name,
 //			})
@@ -83,16 +90,18 @@ import (
 //				return err
 //			}
 //			policy, err := siterecovery.NewReplicationPolicy(ctx, "policy", &siterecovery.ReplicationPolicyArgs{
-//				ResourceGroupName:                               secondaryResourceGroup.Name,
-//				RecoveryVaultName:                               vault.Name,
-//				RecoveryPointRetentionInMinutes:                 24 * 60,
+//				Name:                            pulumi.String("policy"),
+//				ResourceGroupName:               secondary.Name,
+//				RecoveryVaultName:               vault.Name,
+//				RecoveryPointRetentionInMinutes: 24 * 60,
 //				ApplicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = siterecovery.NewProtectionContainerMapping(ctx, "container-mapping", &siterecovery.ProtectionContainerMappingArgs{
-//				ResourceGroupName:                     secondaryResourceGroup.Name,
+//				Name:                                  pulumi.String("container-mapping"),
+//				ResourceGroupName:                     secondary.Name,
 //				RecoveryVaultName:                     vault.Name,
 //				RecoveryFabricName:                    primaryFabric.Name,
 //				RecoverySourceProtectionContainerName: primaryProtectionContainer.Name,

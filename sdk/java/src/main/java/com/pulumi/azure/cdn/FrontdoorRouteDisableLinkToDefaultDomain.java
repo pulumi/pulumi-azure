@@ -42,10 +42,10 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new FrontdoorRouteDisableLinkToDefaultDomain(&#34;example&#34;, FrontdoorRouteDisableLinkToDefaultDomainArgs.builder()        
- *             .cdnFrontdoorRouteId(azurerm_cdn_frontdoor_route.example().id())
+ *             .cdnFrontdoorRouteId(exampleAzurermCdnFrontdoorRoute.id())
  *             .cdnFrontdoorCustomDomainIds(            
- *                 azurerm_cdn_frontdoor_custom_domain.contoso().id(),
- *                 azurerm_cdn_frontdoor_custom_domain.fabrikam().id())
+ *                 contoso.id(),
+ *                 fabrikam.id())
  *             .build());
  * 
  *     }

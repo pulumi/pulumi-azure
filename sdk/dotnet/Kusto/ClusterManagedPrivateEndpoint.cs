@@ -24,15 +24,17 @@ namespace Pulumi.Azure.Kusto
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
@@ -40,17 +42,19 @@ namespace Pulumi.Azure.Kusto
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleClusterManagedPrivateEndpoint = new Azure.Kusto.ClusterManagedPrivateEndpoint("exampleClusterManagedPrivateEndpoint", new()
+    ///     var exampleClusterManagedPrivateEndpoint = new Azure.Kusto.ClusterManagedPrivateEndpoint("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplempe",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         PrivateLinkResourceId = exampleAccount.Id,
     ///         PrivateLinkResourceRegion = exampleAccount.Location,

@@ -22,21 +22,24 @@ namespace Pulumi.Azure.Cognitive
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "OpenAI",
     ///         SkuName = "S0",
     ///     });
     /// 
-    ///     var exampleDeployment = new Azure.Cognitive.Deployment("exampleDeployment", new()
+    ///     var exampleDeployment = new Azure.Cognitive.Deployment("example", new()
     ///     {
+    ///         Name = "example-cd",
     ///         CognitiveAccountId = exampleAccount.Id,
     ///         Model = new Azure.Cognitive.Inputs.DeploymentModelArgs
     ///         {

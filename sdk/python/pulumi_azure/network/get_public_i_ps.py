@@ -107,8 +107,8 @@ def get_public_i_ps(allocation_type: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_public_i_ps(attachment_status="Attached",
-        resource_group_name="pip-test")
+    example = azure.network.get_public_i_ps(resource_group_name="pip-test",
+        attachment_status="Attached")
     ```
 
 
@@ -149,8 +149,8 @@ def get_public_i_ps_output(allocation_type: Optional[pulumi.Input[Optional[str]]
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.network.get_public_i_ps(attachment_status="Attached",
-        resource_group_name="pip-test")
+    example = azure.network.get_public_i_ps(resource_group_name="pip-test",
+        attachment_status="Attached")
     ```
 
 

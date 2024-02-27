@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleService, err := apimanagement.NewService(ctx, "exampleService", &apimanagement.ServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleService, err := apimanagement.NewService(ctx, "example", &apimanagement.ServiceArgs{
+//				Name:              pulumi.String("example-apim"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				PublisherName:     pulumi.String("My Company"),
 //				PublisherEmail:    pulumi.String("company@terraform.io"),
 //				SkuName:           pulumi.String("Developer_1"),
@@ -45,9 +47,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = apimanagement.NewEmailTemplate(ctx, "exampleEmailTemplate", &apimanagement.EmailTemplateArgs{
+//			_, err = apimanagement.NewEmailTemplate(ctx, "example", &apimanagement.EmailTemplateArgs{
 //				TemplateName:      pulumi.String("ConfirmSignUpIdentityDefault"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				ApiManagementName: exampleService.Name,
 //				Subject:           pulumi.String("Customized confirmation email for your new $OrganizationName API account"),
 //				Body: pulumi.String(`<!DOCTYPE html >

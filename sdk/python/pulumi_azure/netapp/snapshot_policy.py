@@ -371,13 +371,17 @@ class SnapshotPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="resource-group-01",
+            location="East US")
+        example_account = azure.netapp.Account("example",
+            name="netappaccount-01",
+            location=example.location,
+            resource_group_name=example.name)
+        example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
+            name="snapshotpolicy-01",
+            location=example.location,
+            resource_group_name=example.name,
             account_name=example_account.name,
             enabled=True,
             hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(
@@ -447,13 +451,17 @@ class SnapshotPolicy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_snapshot_policy = azure.netapp.SnapshotPolicy("exampleSnapshotPolicy",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="resource-group-01",
+            location="East US")
+        example_account = azure.netapp.Account("example",
+            name="netappaccount-01",
+            location=example.location,
+            resource_group_name=example.name)
+        example_snapshot_policy = azure.netapp.SnapshotPolicy("example",
+            name="snapshotpolicy-01",
+            location=example.location,
+            resource_group_name=example.name,
             account_name=example_account.name,
             enabled=True,
             hourly_schedule=azure.netapp.SnapshotPolicyHourlyScheduleArgs(

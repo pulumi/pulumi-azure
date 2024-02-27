@@ -53,18 +53,21 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-virtual-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -77,8 +80,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var examplePlan = new Plan(&#34;examplePlan&#34;, PlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-service-plan&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(PlanSkuArgs.builder()
  *                 .tier(&#34;Standard&#34;)
  *                 .size(&#34;S1&#34;)
@@ -86,15 +90,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleAppService = new AppService(&#34;exampleAppService&#34;, AppServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-app-service&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 
  *         var example_staging = new Slot(&#34;example-staging&#34;, SlotArgs.builder()        
+ *             .name(&#34;staging&#34;)
  *             .appServiceName(exampleAppService.name())
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .appServicePlanId(examplePlan.id())
  *             .build());
  * 

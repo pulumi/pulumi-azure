@@ -142,13 +142,20 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", spring_cloud_gateway_id=example_spring_cloud_gateway.id)
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("example",
+            name="example.com",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id)
         ```
 
         ## Import
@@ -182,13 +189,20 @@ class SpringCloudGatewayCustomDomain(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="E0")
-        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("exampleSpringCloudGateway", spring_cloud_service_id=example_spring_cloud_service.id)
-        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("exampleSpringCloudGatewayCustomDomain", spring_cloud_gateway_id=example_spring_cloud_gateway.id)
+        example_spring_cloud_gateway = azure.appplatform.SpringCloudGateway("example",
+            name="default",
+            spring_cloud_service_id=example_spring_cloud_service.id)
+        example_spring_cloud_gateway_custom_domain = azure.appplatform.SpringCloudGatewayCustomDomain("example",
+            name="example.com",
+            spring_cloud_gateway_id=example_spring_cloud_gateway.id)
         ```
 
         ## Import

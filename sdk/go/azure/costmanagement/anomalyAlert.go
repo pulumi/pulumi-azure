@@ -31,12 +31,13 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := costmanagement.NewAnomalyAlert(ctx, "example", &costmanagement.AnomalyAlertArgs{
-//				DisplayName: pulumi.String("Alert DisplayName"),
+//				Name:           pulumi.String("alertname"),
+//				DisplayName:    pulumi.String("Alert DisplayName"),
+//				SubscriptionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
+//				EmailSubject:   pulumi.String("My Test Anomaly Alert"),
 //				EmailAddresses: pulumi.StringArray{
 //					pulumi.String("example@test.net"),
 //				},
-//				EmailSubject:   pulumi.String("My Test Anomaly Alert"),
-//				SubscriptionId: pulumi.String("/subscriptions/00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {
 //				return err

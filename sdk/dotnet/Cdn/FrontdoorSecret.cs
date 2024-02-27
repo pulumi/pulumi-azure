@@ -15,19 +15,12 @@ namespace Pulumi.Azure.Cdn
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
     /// using AzureAD = Pulumi.AzureAD;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -38,15 +31,17 @@ namespace Pulumi.Azure.Cdn
     ///         DisplayName = "Microsoft.Azure.Cdn",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-keyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         SoftDeleteRetentionDays = 7,
@@ -89,23 +84,29 @@ namespace Pulumi.Azure.Cdn
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "example-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = ReadFileBase64("my-certificate.pfx"),
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "my-certificate.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///         },
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-cdn-profile",
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorSecret = new Azure.Cdn.FrontdoorSecret("exampleFrontdoorSecret", new()
+    ///     var exampleFrontdoorSecret = new Azure.Cdn.FrontdoorSecret("example", new()
     ///     {
+    ///         Name = "example-customer-managed-secret",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///         Secret = new Azure.Cdn.Inputs.FrontdoorSecretSecretArgs
     ///         {

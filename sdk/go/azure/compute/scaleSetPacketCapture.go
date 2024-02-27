@@ -30,31 +30,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "exampleNetworkWatcher", &network.NetworkWatcherArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkWatcher, err := network.NewNetworkWatcher(ctx, "example", &network.NetworkWatcherArgs{
+//				Name:              pulumi.String("example-nw"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("internal"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -63,9 +67,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "exampleLinuxVirtualMachineScaleSet", &compute.LinuxVirtualMachineScaleSetArgs{
-//				ResourceGroupName:             exampleResourceGroup.Name,
-//				Location:                      exampleResourceGroup.Location,
+//			exampleLinuxVirtualMachineScaleSet, err := compute.NewLinuxVirtualMachineScaleSet(ctx, "example", &compute.LinuxVirtualMachineScaleSetArgs{
+//				Name:                          pulumi.String("example-vmss"),
+//				ResourceGroupName:             example.Name,
+//				Location:                      example.Location,
 //				Sku:                           pulumi.String("Standard_F2"),
 //				Instances:                     pulumi.Int(4),
 //				AdminUsername:                 pulumi.String("adminuser"),
@@ -100,7 +105,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualMachineScaleSetExtension, err := compute.NewVirtualMachineScaleSetExtension(ctx, "exampleVirtualMachineScaleSetExtension", &compute.VirtualMachineScaleSetExtensionArgs{
+//			_, err = compute.NewVirtualMachineScaleSetExtension(ctx, "example", &compute.VirtualMachineScaleSetExtensionArgs{
+//				Name:                     pulumi.String("network-watcher"),
 //				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
 //				Publisher:                pulumi.String("Microsoft.Azure.NetworkWatcher"),
 //				Type:                     pulumi.String("NetworkWatcherAgentLinux"),
@@ -111,7 +117,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewScaleSetPacketCapture(ctx, "exampleScaleSetPacketCapture", &compute.ScaleSetPacketCaptureArgs{
+//			_, err = compute.NewScaleSetPacketCapture(ctx, "example", &compute.ScaleSetPacketCaptureArgs{
+//				Name:                     pulumi.String("example-pc"),
 //				NetworkWatcherId:         exampleNetworkWatcher.ID(),
 //				VirtualMachineScaleSetId: exampleLinuxVirtualMachineScaleSet.ID(),
 //				StorageLocation: &compute.ScaleSetPacketCaptureStorageLocationArgs{
@@ -125,9 +132,7 @@ import (
 //						pulumi.String("1"),
 //					},
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleVirtualMachineScaleSetExtension,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

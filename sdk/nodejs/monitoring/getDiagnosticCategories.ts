@@ -13,12 +13,12 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
- *     name: azurerm_key_vault.example.name,
- *     resourceGroupName: azurerm_key_vault.example.resource_group_name,
+ * const example = azure.keyvault.getKeyVault({
+ *     name: exampleAzurermKeyVault.name,
+ *     resourceGroupName: exampleAzurermKeyVault.resourceGroupName,
  * });
- * const exampleDiagnosticCategories = exampleKeyVault.then(exampleKeyVault => azure.monitoring.getDiagnosticCategories({
- *     resourceId: exampleKeyVault.id,
+ * const exampleGetDiagnosticCategories = example.then(example => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: example.id,
  * }));
  * ```
  */
@@ -77,12 +77,12 @@ export interface GetDiagnosticCategoriesResult {
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleKeyVault = azure.keyvault.getKeyVault({
- *     name: azurerm_key_vault.example.name,
- *     resourceGroupName: azurerm_key_vault.example.resource_group_name,
+ * const example = azure.keyvault.getKeyVault({
+ *     name: exampleAzurermKeyVault.name,
+ *     resourceGroupName: exampleAzurermKeyVault.resourceGroupName,
  * });
- * const exampleDiagnosticCategories = exampleKeyVault.then(exampleKeyVault => azure.monitoring.getDiagnosticCategories({
- *     resourceId: exampleKeyVault.id,
+ * const exampleGetDiagnosticCategories = example.then(example => azure.monitoring.getDiagnosticCategories({
+ *     resourceId: example.id,
  * }));
  * ```
  */

@@ -22,15 +22,17 @@ namespace Pulumi.Azure.PostgreSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-psqlserver",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AdministratorLogin = "psqladmin",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
     ///         SkuName = "GP_Gen5_4",

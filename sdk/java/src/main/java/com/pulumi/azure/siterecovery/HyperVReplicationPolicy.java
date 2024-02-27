@@ -44,16 +44,19 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
+ *             .name(&#34;example-recovery-vault&#34;)
  *             .location(example.location())
  *             .resourceGroupName(example.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var policy = new HyperVReplicationPolicy(&#34;policy&#34;, HyperVReplicationPolicyArgs.builder()        
+ *             .name(&#34;policy&#34;)
  *             .recoveryVaultId(vault.id())
  *             .recoveryPointRetentionInHours(2)
  *             .applicationConsistentSnapshotFrequencyInHours(1)

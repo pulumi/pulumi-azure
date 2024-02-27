@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("testbatch"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("teststorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = batch.NewAccount(ctx, "exampleBatch/accountAccount", &batch.AccountArgs{
-//				ResourceGroupName:                exampleResourceGroup.Name,
-//				Location:                         exampleResourceGroup.Location,
+//			_, err = batch.NewAccount(ctx, "example", &batch.AccountArgs{
+//				Name:                             pulumi.String("testbatchaccount"),
+//				ResourceGroupName:                example.Name,
+//				Location:                         example.Location,
 //				PoolAllocationMode:               pulumi.String("BatchService"),
 //				StorageAccountId:                 exampleAccount.ID(),
 //				StorageAccountAuthenticationMode: pulumi.String("StorageKeys"),

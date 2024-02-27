@@ -46,25 +46,28 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;resourceGroup-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;account-example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleConnection = new Connection(&#34;exampleConnection&#34;, ConnectionArgs.builder()        
+ *             .name(&#34;connection-example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
  *             .type(&#34;AzureServicePrincipal&#34;)
  *             .values(Map.ofEntries(
  *                 Map.entry(&#34;ApplicationId&#34;, &#34;00000000-0000-0000-0000-000000000000&#34;),
- *                 Map.entry(&#34;TenantId&#34;, exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId())),
- *                 Map.entry(&#34;SubscriptionId&#34;, exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId())),
+ *                 Map.entry(&#34;TenantId&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId())),
+ *                 Map.entry(&#34;SubscriptionId&#34;, example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId())),
  *                 Map.entry(&#34;CertificateThumbprint&#34;, &#34;sample-certificate-thumbprint&#34;)
  *             ))
  *             .build());

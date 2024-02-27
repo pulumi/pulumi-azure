@@ -437,16 +437,20 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="snapshot-rg",
+            location="West Europe")
+        example_managed_disk = azure.compute.ManagedDisk("example",
+            name="managed-disk",
+            location=example.location,
+            resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
             disk_size_gb=10)
-        example_snapshot = azure.compute.Snapshot("exampleSnapshot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_snapshot = azure.compute.Snapshot("example",
+            name="snapshot",
+            location=example.location,
+            resource_group_name=example.name,
             create_option="Copy",
             source_uri=example_managed_disk.id)
         ```
@@ -492,16 +496,20 @@ class Snapshot(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_managed_disk = azure.compute.ManagedDisk("exampleManagedDisk",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="snapshot-rg",
+            location="West Europe")
+        example_managed_disk = azure.compute.ManagedDisk("example",
+            name="managed-disk",
+            location=example.location,
+            resource_group_name=example.name,
             storage_account_type="Standard_LRS",
             create_option="Empty",
             disk_size_gb=10)
-        example_snapshot = azure.compute.Snapshot("exampleSnapshot",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_snapshot = azure.compute.Snapshot("example",
+            name="snapshot",
+            location=example.location,
+            resource_group_name=example.name,
             create_option="Copy",
             source_uri=example_managed_disk.id)
         ```

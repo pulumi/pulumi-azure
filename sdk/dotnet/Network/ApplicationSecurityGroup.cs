@@ -22,15 +22,17 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tf-test",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("exampleApplicationSecurityGroup", new()
+    ///     var exampleApplicationSecurityGroup = new Azure.Network.ApplicationSecurityGroup("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tf-appsecuritygroup",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Tags = 
     ///         {
     ///             { "Hello", "World" },

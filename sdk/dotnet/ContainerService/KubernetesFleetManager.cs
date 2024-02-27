@@ -24,15 +24,17 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("exampleKubernetesFleetManager", new()
+    ///     var exampleKubernetesFleetManager = new Azure.ContainerService.KubernetesFleetManager("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

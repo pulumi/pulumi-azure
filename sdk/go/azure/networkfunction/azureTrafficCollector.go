@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = networkfunction.NewAzureTrafficCollector(ctx, "exampleAzureTrafficCollector", &networkfunction.AzureTrafficCollectorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = networkfunction.NewAzureTrafficCollector(ctx, "example", &networkfunction.AzureTrafficCollectorArgs{
+//				Name:              pulumi.String("example-nfatc"),
+//				ResourceGroupName: example.Name,
 //				Location:          pulumi.String("West US"),
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),

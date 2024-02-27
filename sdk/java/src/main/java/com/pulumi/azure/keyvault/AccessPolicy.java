@@ -54,10 +54,12 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .name(&#34;examplekeyvault&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
@@ -72,14 +74,14 @@ import javax.annotation.Nullable;
  *             .secretPermissions(&#34;Get&#34;)
  *             .build());
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;example-app&#34;)
  *             .build());
  * 
  *         var example_principal = new AccessPolicy(&#34;example-principal&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .objectId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
+ *             .objectId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId()))
  *             .keyPermissions(            
  *                 &#34;Get&#34;,
  *                 &#34;List&#34;,

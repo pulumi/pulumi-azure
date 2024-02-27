@@ -21,24 +21,14 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/keyvault"
 //	"github.com/pulumi/pulumi-azuread/sdk/v5/go/azuread"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
-//
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
@@ -52,15 +42,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-cdn-frontdoor"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                    pulumi.String("example-keyvault"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				TenantId:                *pulumi.String(current.TenantId),
 //				SkuName:                 pulumi.String("premium"),
 //				SoftDeleteRetentionDays: pulumi.Int(7),
@@ -97,23 +89,32 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCertificate, err := keyvault.NewCertificate(ctx, "exampleCertificate", &keyvault.CertificateArgs{
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "my-certificate.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleCertificate, err := keyvault.NewCertificate(ctx, "example", &keyvault.CertificateArgs{
+//				Name:       pulumi.String("example-cert"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				Certificate: &keyvault.CertificateCertificateArgs{
-//					Contents: filebase64OrPanic("my-certificate.pfx"),
+//					Contents: invokeFilebase64.Result,
 //				},
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-cdn-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorSecret(ctx, "exampleFrontdoorSecret", &cdn.FrontdoorSecretArgs{
+//			_, err = cdn.NewFrontdoorSecret(ctx, "example", &cdn.FrontdoorSecretArgs{
+//				Name:                  pulumi.String("example-customer-managed-secret"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				Secret: &cdn.FrontdoorSecretSecretArgs{
 //					CustomerCertificates: cdn.FrontdoorSecretSecretCustomerCertificateArray{

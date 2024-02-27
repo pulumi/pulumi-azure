@@ -49,31 +49,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;examplevn&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplesubnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleCache = new Cache(&#34;exampleCache&#34;, CacheArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplehpccache&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .cacheSizeInGb(3072)
  *             .subnetId(exampleSubnet.id())
  *             .skuName(&#34;Standard_2G&#34;)
  *             .build());
  * 
  *         var exampleCacheAccessPolicy = new CacheAccessPolicy(&#34;exampleCacheAccessPolicy&#34;, CacheAccessPolicyArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .hpcCacheId(exampleCache.id())
  *             .accessRules(CacheAccessPolicyAccessRuleArgs.builder()
  *                 .scope(&#34;default&#34;)

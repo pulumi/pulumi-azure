@@ -39,7 +39,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.kusto.ClusterCustomerManagedKey;
  * import com.pulumi.azure.kusto.ClusterCustomerManagedKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,21 +54,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;kustocluster&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name(&#34;Standard_D13_v2&#34;)
  *                 .capacity(2)
@@ -103,6 +105,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;tfex-key&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -113,11 +116,7 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     client,
- *                     cluster)
- *                 .build());
+ *             .build());
  * 
  *         var exampleClusterCustomerManagedKey = new ClusterCustomerManagedKey(&#34;exampleClusterCustomerManagedKey&#34;, ClusterCustomerManagedKeyArgs.builder()        
  *             .clusterId(exampleCluster.id())

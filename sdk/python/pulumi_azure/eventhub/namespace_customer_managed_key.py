@@ -191,27 +191,32 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.eventhub.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.eventhub.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Dedicated_1")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
             identity=azure.eventhub.EventHubNamespaceIdentityArgs(
                 type="SystemAssigned",
             ))
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=example_event_hub_namespace.identity.tenant_id,
             object_id=example_event_hub_namespace.identity.principal_id,
@@ -233,7 +238,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="examplekvkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -244,12 +250,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_access_policy,
-                    example2,
-                ]))
-        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey",
+            ])
+        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
@@ -259,17 +261,22 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.eventhub.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.eventhub.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Dedicated_1")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
             identity=azure.eventhub.EventHubNamespaceIdentityArgs(
@@ -277,16 +284,17 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 identity_ids=[example_user_assigned_identity.id],
             ))
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
-            tenant_id=azurerm_user_assigned_identity["test"]["tenant_id"],
-            object_id=azurerm_user_assigned_identity["test"]["principal_id"],
+            tenant_id=test["tenantId"],
+            object_id=test["principalId"],
             key_permissions=[
                 "Get",
                 "UnwrapKey",
@@ -305,7 +313,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="examplekvkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -316,12 +325,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_access_policy,
-                    example2,
-                ]))
-        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey",
+            ])
+        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)
@@ -364,27 +369,32 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.eventhub.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.eventhub.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Dedicated_1")
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
             identity=azure.eventhub.EventHubNamespaceIdentityArgs(
                 type="SystemAssigned",
             ))
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
             tenant_id=example_event_hub_namespace.identity.tenant_id,
             object_id=example_event_hub_namespace.identity.principal_id,
@@ -406,7 +416,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="examplekvkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -417,12 +428,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_access_policy,
-                    example2,
-                ]))
-        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey",
+            ])
+        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id])
         ```
@@ -432,17 +439,22 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_cluster = azure.eventhub.Cluster("exampleCluster",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_cluster = azure.eventhub.Cluster("example",
+            name="example-cluster",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="Dedicated_1")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_event_hub_namespace = azure.eventhub.EventHubNamespace("exampleEventHubNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            location=example.location,
+            name="example",
+            resource_group_name=example.name)
+        example_event_hub_namespace = azure.eventhub.EventHubNamespace("example",
+            name="example-namespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard",
             dedicated_cluster_id=example_cluster.id,
             identity=azure.eventhub.EventHubNamespaceIdentityArgs(
@@ -450,16 +462,17 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 identity_ids=[example_user_assigned_identity.id],
             ))
         current = azure.core.get_client_config()
-        example_key_vault = azure.keyvault.KeyVault("exampleKeyVault",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_key_vault = azure.keyvault.KeyVault("example",
+            name="examplekv",
+            location=example.location,
+            resource_group_name=example.name,
             tenant_id=current.tenant_id,
             sku_name="standard",
             purge_protection_enabled=True)
-        example_access_policy = azure.keyvault.AccessPolicy("exampleAccessPolicy",
+        example_access_policy = azure.keyvault.AccessPolicy("example",
             key_vault_id=example_key_vault.id,
-            tenant_id=azurerm_user_assigned_identity["test"]["tenant_id"],
-            object_id=azurerm_user_assigned_identity["test"]["principal_id"],
+            tenant_id=test["tenantId"],
+            object_id=test["principalId"],
             key_permissions=[
                 "Get",
                 "UnwrapKey",
@@ -478,7 +491,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "Recover",
                 "GetRotationPolicy",
             ])
-        example_key = azure.keyvault.Key("exampleKey",
+        example_key = azure.keyvault.Key("example",
+            name="examplekvkey",
             key_vault_id=example_key_vault.id,
             key_type="RSA",
             key_size=2048,
@@ -489,12 +503,8 @@ class NamespaceCustomerManagedKey(pulumi.CustomResource):
                 "unwrapKey",
                 "verify",
                 "wrapKey",
-            ],
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_access_policy,
-                    example2,
-                ]))
-        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("exampleNamespaceCustomerManagedKey",
+            ])
+        example_namespace_customer_managed_key = azure.eventhub.NamespaceCustomerManagedKey("example",
             eventhub_namespace_id=example_event_hub_namespace.id,
             key_vault_key_ids=[example_key.id],
             user_assigned_identity_id=example_user_assigned_identity.id)

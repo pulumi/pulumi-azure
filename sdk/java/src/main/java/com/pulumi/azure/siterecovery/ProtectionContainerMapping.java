@@ -49,53 +49,62 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var primaryResourceGroup = new ResourceGroup(&#34;primaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var primary = new ResourceGroup(&#34;primary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-primary&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
- *         var secondaryResourceGroup = new ResourceGroup(&#34;secondaryResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var secondary = new ResourceGroup(&#34;secondary&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;tfex-network-mapping-secondary&#34;)
  *             .location(&#34;East US&#34;)
  *             .build());
  * 
  *         var vault = new Vault(&#34;vault&#34;, VaultArgs.builder()        
- *             .location(secondaryResourceGroup.location())
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;example-recovery-vault&#34;)
+ *             .location(secondary.location())
+ *             .resourceGroupName(secondary.name())
  *             .sku(&#34;Standard&#34;)
  *             .build());
  * 
  *         var primaryFabric = new Fabric(&#34;primaryFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;primary-fabric&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
- *             .location(primaryResourceGroup.location())
+ *             .location(primary.location())
  *             .build());
  * 
  *         var secondaryFabric = new Fabric(&#34;secondaryFabric&#34;, FabricArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;secondary-fabric&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
- *             .location(secondaryResourceGroup.location())
+ *             .location(secondary.location())
  *             .build());
  * 
  *         var primaryProtectionContainer = new ProtectionContainer(&#34;primaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;primary-protection-container&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(primaryFabric.name())
  *             .build());
  * 
  *         var secondaryProtectionContainer = new ProtectionContainer(&#34;secondaryProtectionContainer&#34;, ProtectionContainerArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;secondary-protection-container&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(secondaryFabric.name())
  *             .build());
  * 
  *         var policy = new ReplicationPolicy(&#34;policy&#34;, ReplicationPolicyArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;policy&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryPointRetentionInMinutes(24 * 60)
  *             .applicationConsistentSnapshotFrequencyInMinutes(4 * 60)
  *             .build());
  * 
  *         var container_mapping = new ProtectionContainerMapping(&#34;container-mapping&#34;, ProtectionContainerMappingArgs.builder()        
- *             .resourceGroupName(secondaryResourceGroup.name())
+ *             .name(&#34;container-mapping&#34;)
+ *             .resourceGroupName(secondary.name())
  *             .recoveryVaultName(vault.name())
  *             .recoveryFabricName(primaryFabric.name())
  *             .recoverySourceProtectionContainerName(primaryProtectionContainer.name())

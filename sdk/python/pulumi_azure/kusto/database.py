@@ -252,8 +252,11 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-rg",
+            location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
+            name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
@@ -261,6 +264,7 @@ class Database(pulumi.CustomResource):
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
+            name="my-kusto-database",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,
@@ -298,8 +302,11 @@ class Database(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="my-kusto-rg",
+            location="West Europe")
         cluster = azure.kusto.Cluster("cluster",
+            name="kustocluster",
             location=example.location,
             resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
@@ -307,6 +314,7 @@ class Database(pulumi.CustomResource):
                 capacity=2,
             ))
         database = azure.kusto.Database("database",
+            name="my-kusto-database",
             resource_group_name=example.name,
             location=example.location,
             cluster_name=cluster.name,

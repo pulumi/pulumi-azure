@@ -22,15 +22,17 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-webpubsub",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard_S1",
     ///         Capacity = 1,
     ///         PublicNetworkAccessEnabled = false,

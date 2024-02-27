@@ -12,21 +12,23 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleApi = azure.apimanagement.getApi({
+ * const example = azure.apimanagement.getApi({
  *     name: "search-api",
  *     apiManagementName: "search-api-management",
  *     resourceGroupName: "search-service",
  *     revision: "2",
  * });
- * const exampleApiSchema = new azure.apimanagement.ApiSchema("exampleApiSchema", {
- *     apiName: exampleApi.then(exampleApi => exampleApi.name),
- *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
- *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
+ * const exampleApiSchema = new azure.apimanagement.ApiSchema("example", {
+ *     apiName: example.then(example => example.name),
+ *     apiManagementName: example.then(example => example.apiManagementName),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     schemaId: "example-schema",
  *     contentType: "application/vnd.ms-azure-apim.xsd+xml",
- *     value: fs.readFileSync("api_management_api_schema.xml", "utf8"),
+ *     value: std.file({
+ *         input: "api_management_api_schema.xml",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

@@ -35,15 +35,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			testResourceGroup, err := core.NewResourceGroup(ctx, "testResourceGroup", &core.ResourceGroupArgs{
+//			test, err := core.NewResourceGroup(ctx, "test", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("testrg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			testManagedDisk, err := compute.NewManagedDisk(ctx, "testManagedDisk", &compute.ManagedDiskArgs{
-//				Location:           testResourceGroup.Location,
-//				ResourceGroupName:  testResourceGroup.Name,
+//			testManagedDisk, err := compute.NewManagedDisk(ctx, "test", &compute.ManagedDiskArgs{
+//				Name:               pulumi.String("tst-disk-export"),
+//				Location:           test.Location,
+//				ResourceGroupName:  test.Name,
 //				StorageAccountType: pulumi.String("Standard_LRS"),
 //				CreateOption:       pulumi.String("Empty"),
 //				DiskSizeGb:         pulumi.Int(1),
@@ -51,7 +53,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewManagedDiskSasToken(ctx, "testManagedDiskSasToken", &compute.ManagedDiskSasTokenArgs{
+//			_, err = compute.NewManagedDiskSasToken(ctx, "test", &compute.ManagedDiskSasTokenArgs{
 //				ManagedDiskId:     testManagedDisk.ID(),
 //				DurationInSeconds: pulumi.Int(300),
 //				AccessLevel:       pulumi.String("Read"),

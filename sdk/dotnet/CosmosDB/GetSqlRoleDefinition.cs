@@ -28,8 +28,8 @@ namespace Pulumi.Azure.CosmosDB
         /// {
         ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
         ///     {
-        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
         ///         ResourceGroupName = "tfex-cosmosdb-sql-role-definition-rg",
+        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
         ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
         ///     });
         /// 
@@ -58,8 +58,8 @@ namespace Pulumi.Azure.CosmosDB
         /// {
         ///     var example = Azure.CosmosDB.GetSqlRoleDefinition.Invoke(new()
         ///     {
-        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
         ///         ResourceGroupName = "tfex-cosmosdb-sql-role-definition-rg",
+        ///         AccountName = "tfex-cosmosdb-sql-role-definition-account-name",
         ///         RoleDefinitionId = "00000000-0000-0000-0000-000000000000",
         ///     });
         /// 

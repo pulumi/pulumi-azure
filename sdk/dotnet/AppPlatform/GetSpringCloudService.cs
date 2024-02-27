@@ -28,8 +28,8 @@ namespace Pulumi.Azure.AppPlatform
         /// {
         ///     var example = Azure.AppPlatform.GetSpringCloudService.Invoke(new()
         ///     {
-        ///         Name = azurerm_spring_cloud_service.Example.Name,
-        ///         ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
+        ///         Name = exampleAzurermSpringCloudService.Name,
+        ///         ResourceGroupName = exampleAzurermSpringCloudService.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.AppPlatform
         /// {
         ///     var example = Azure.AppPlatform.GetSpringCloudService.Invoke(new()
         ///     {
-        ///         Name = azurerm_spring_cloud_service.Example.Name,
-        ///         ResourceGroupName = azurerm_spring_cloud_service.Example.Resource_group_name,
+        ///         Name = exampleAzurermSpringCloudService.Name,
+        ///         ResourceGroupName = exampleAzurermSpringCloudService.ResourceGroupName,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

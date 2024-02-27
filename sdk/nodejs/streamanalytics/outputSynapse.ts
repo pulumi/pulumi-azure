@@ -13,12 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleJob = azure.streamanalytics.getJobOutput({
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "rg-example",
+ *     location: "West Europe",
+ * });
+ * const example = azure.streamanalytics.getJobOutput({
  *     name: "example-job",
  *     resourceGroupName: exampleResourceGroup.name,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageacc",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
@@ -26,8 +30,12 @@ import * as utilities from "../utilities";
  *     accountKind: "StorageV2",
  *     isHnsEnabled: true,
  * });
- * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", {storageAccountId: exampleAccount.id});
- * const exampleWorkspace = new azure.synapse.Workspace("exampleWorkspace", {
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
@@ -37,9 +45,10 @@ import * as utilities from "../utilities";
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleOutputSynapse = new azure.streamanalytics.OutputSynapse("exampleOutputSynapse", {
- *     streamAnalyticsJobName: exampleJob.apply(exampleJob => exampleJob.name),
- *     resourceGroupName: exampleJob.apply(exampleJob => exampleJob.resourceGroupName),
+ * const exampleOutputSynapse = new azure.streamanalytics.OutputSynapse("example", {
+ *     name: "example-output-synapse",
+ *     streamAnalyticsJobName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
  *     server: exampleWorkspace.connectivityEndpoints.sqlOnDemand,
  *     user: exampleWorkspace.sqlAdministratorLogin,
  *     password: exampleWorkspace.sqlAdministratorLoginPassword,

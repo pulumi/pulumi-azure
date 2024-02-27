@@ -23,23 +23,26 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MySql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Version = "5.7",
     ///         SkuName = "GP_Gen5_2",
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         StartIpAddress = "40.112.8.12",
     ///         EndIpAddress = "40.112.8.12",
@@ -57,17 +60,18 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer");
+    ///     var exampleServer = new Azure.MySql.Server("example");
     /// 
-    ///     // ...
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         StartIpAddress = "40.112.0.0",
     ///         EndIpAddress = "40.112.255.255",
@@ -85,17 +89,18 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer");
+    ///     var exampleServer = new Azure.MySql.Server("example");
     /// 
-    ///     // ...
-    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.MySql.FirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         StartIpAddress = "0.0.0.0",
     ///         EndIpAddress = "0.0.0.0",

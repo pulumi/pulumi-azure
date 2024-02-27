@@ -23,32 +23,27 @@ namespace Pulumi.Azure.KeyVault
     /// &gt; **Note:** this example assumed the PFX file is located in the same directory at `certificate-to-import.pfx`.
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         AccessPolicies = new[]
@@ -106,12 +101,16 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "imported-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "certificate-to-import.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "",
     ///         },
     ///     });
@@ -130,15 +129,17 @@ namespace Pulumi.Azure.KeyVault
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         SoftDeleteRetentionDays = 7,
@@ -198,8 +199,9 @@ namespace Pulumi.Azure.KeyVault
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "generated-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         CertificatePolicy = new Azure.KeyVault.Inputs.CertificateCertificatePolicyArgs
     ///         {

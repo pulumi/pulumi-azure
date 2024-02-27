@@ -33,15 +33,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("KustoRG"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Standard_D13_v2"),
 //					Capacity: pulumi.Int(2),
@@ -50,9 +52,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("KustoDatabase"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ClusterName:       exampleCluster.Name,
 //				HotCachePeriod:    pulumi.String("P7D"),
 //				SoftDeletePeriod:  pulumi.String("P31D"),
@@ -60,8 +63,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
+//				Name:              pulumi.String("KustoPrincipalAssignment"),
+//				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
 //				TenantId:          *pulumi.String(current.TenantId),

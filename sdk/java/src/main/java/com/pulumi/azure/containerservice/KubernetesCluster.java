@@ -77,13 +77,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-aks1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;exampleaks1&#34;)
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name(&#34;default&#34;)
@@ -889,7 +891,6 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * import com.pulumi.azure.authorization.AssignmentArgs;
      * import com.pulumi.azure.containerservice.KubernetesCluster;
      * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -903,17 +904,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+     *             .resourceGroupName(example.name())
      *             .build());
      * 
      *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
+     *             .name(&#34;aks-example-identity&#34;)
+     *             .resourceGroupName(example.name())
+     *             .location(example.location())
      *             .build());
      * 
      *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
@@ -923,14 +927,13 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *             .build());
      * 
      *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+     *             .location(example.location())
+     *             .resourceGroupName(example.name())
      *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
-     *             .build(), CustomResourceOptions.builder()
-     *                 .dependsOn(exampleAssignment)
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }
@@ -960,7 +963,6 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      * import com.pulumi.azure.authorization.AssignmentArgs;
      * import com.pulumi.azure.containerservice.KubernetesCluster;
      * import com.pulumi.azure.containerservice.KubernetesClusterArgs;
-     * import com.pulumi.resources.CustomResourceOptions;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -974,17 +976,20 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
-     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .name(&#34;privatelink.eastus2.azmk8s.io&#34;)
+     *             .resourceGroupName(example.name())
      *             .build());
      * 
      *         var exampleUserAssignedIdentity = new UserAssignedIdentity(&#34;exampleUserAssignedIdentity&#34;, UserAssignedIdentityArgs.builder()        
-     *             .resourceGroupName(exampleResourceGroup.name())
-     *             .location(exampleResourceGroup.location())
+     *             .name(&#34;aks-example-identity&#34;)
+     *             .resourceGroupName(example.name())
+     *             .location(example.location())
      *             .build());
      * 
      *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
@@ -994,14 +999,13 @@ public class KubernetesCluster extends com.pulumi.resources.CustomResource {
      *             .build());
      * 
      *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
-     *             .location(exampleResourceGroup.location())
-     *             .resourceGroupName(exampleResourceGroup.name())
+     *             .name(&#34;aksexamplewithprivatednszone1&#34;)
+     *             .location(example.location())
+     *             .resourceGroupName(example.name())
      *             .dnsPrefix(&#34;aksexamplednsprefix1&#34;)
      *             .privateClusterEnabled(true)
      *             .privateDnsZoneId(exampleZone.id())
-     *             .build(), CustomResourceOptions.builder()
-     *                 .dependsOn(exampleAssignment)
-     *                 .build());
+     *             .build());
      * 
      *     }
      * }

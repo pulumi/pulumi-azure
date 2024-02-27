@@ -296,10 +296,13 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="nat-gateway-example-rg",
+            location="West Europe")
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="nat-Gateway",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard",
             idle_timeout_in_minutes=10,
             zones=["1"])
@@ -342,10 +345,13 @@ class NatGateway(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="nat-gateway-example-rg",
+            location="West Europe")
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="nat-Gateway",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard",
             idle_timeout_in_minutes=10,
             zones=["1"])

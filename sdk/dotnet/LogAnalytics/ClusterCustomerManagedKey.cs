@@ -22,27 +22,30 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "keyvaultkeyexample",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         AccessPolicies = new[]
@@ -80,8 +83,9 @@ namespace Pulumi.Azure.LogAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "generated-certificate",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -96,7 +100,7 @@ namespace Pulumi.Azure.LogAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleClusterCustomerManagedKey = new Azure.LogAnalytics.ClusterCustomerManagedKey("exampleClusterCustomerManagedKey", new()
+    ///     var exampleClusterCustomerManagedKey = new Azure.LogAnalytics.ClusterCustomerManagedKey("example", new()
     ///     {
     ///         LogAnalyticsClusterId = exampleCluster.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

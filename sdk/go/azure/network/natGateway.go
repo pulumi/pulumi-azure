@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("nat-gateway-example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNatGateway(ctx, "exampleNatGateway", &network.NatGatewayArgs{
-//				Location:             exampleResourceGroup.Location,
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//			_, err = network.NewNatGateway(ctx, "example", &network.NatGatewayArgs{
+//				Name:                 pulumi.String("nat-Gateway"),
+//				Location:             example.Location,
+//				ResourceGroupName:    example.Name,
 //				SkuName:              pulumi.String("Standard"),
 //				IdleTimeoutInMinutes: pulumi.Int(10),
 //				Zones: pulumi.StringArray{

@@ -13,12 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleService = azure.domainservices.getService({
+ * const example = azure.domainservices.getService({
  *     name: "example-ds",
  *     resourceGroupName: "example-rg",
  * });
- * const exampleServiceTrust = new azure.domainservices.ServiceTrust("exampleServiceTrust", {
- *     domainServiceId: exampleService.then(exampleService => exampleService.id),
+ * const exampleServiceTrust = new azure.domainservices.ServiceTrust("example", {
+ *     name: "example-trust",
+ *     domainServiceId: example.then(example => example.id),
  *     trustedDomainFqdn: "example.com",
  *     trustedDomainDnsIps: [
  *         "10.1.0.3",

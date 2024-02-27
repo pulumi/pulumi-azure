@@ -31,14 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := automation.NewJobSchedule(ctx, "example", &automation.JobScheduleArgs{
+//				ResourceGroupName:     pulumi.String("tf-rgr-automation"),
 //				AutomationAccountName: pulumi.String("tf-automation-account"),
+//				ScheduleName:          pulumi.String("hour"),
+//				RunbookName:           pulumi.String("Get-VirtualMachine"),
 //				Parameters: pulumi.StringMap{
 //					"resourcegroup": pulumi.String("tf-rgr-vm"),
 //					"vmname":        pulumi.String("TF-VM-01"),
 //				},
-//				ResourceGroupName: pulumi.String("tf-rgr-automation"),
-//				RunbookName:       pulumi.String("Get-VirtualMachine"),
-//				ScheduleName:      pulumi.String("hour"),
 //			})
 //			if err != nil {
 //				return err

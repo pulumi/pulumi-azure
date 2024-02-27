@@ -30,24 +30,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-sql-server-vnet-rule"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.7.29.0/29"),
@@ -59,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("uniqueazuresqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -69,7 +73,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewVirtualNetworkRule(ctx, "exampleVirtualNetworkRule", &mssql.VirtualNetworkRuleArgs{
+//			_, err = mssql.NewVirtualNetworkRule(ctx, "example", &mssql.VirtualNetworkRuleArgs{
+//				Name:     pulumi.String("sql-vnet-rule"),
 //				ServerId: exampleServer.ID(),
 //				SubnetId: exampleSubnet.ID(),
 //			})

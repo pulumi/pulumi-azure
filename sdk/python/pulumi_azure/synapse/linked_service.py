@@ -370,17 +370,23 @@ class LinkedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -388,14 +394,17 @@ class LinkedService(pulumi.CustomResource):
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.synapse.FirewallRule("example",
+            name="allowAll",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
+        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
-            location=example_resource_group.location)
-        example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
+            location=example.location)
+        example_linked_service = azure.synapse.LinkedService("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
@@ -404,8 +413,7 @@ class LinkedService(pulumi.CustomResource):
         \"\"\"),
             integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
                 name=example_integration_runtime_azure.name,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            ))
         ```
 
         ## Import
@@ -451,17 +459,23 @@ class LinkedService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             account_kind="BlobStorage",
             account_tier="Standard",
             account_replication_type="LRS")
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -469,14 +483,17 @@ class LinkedService(pulumi.CustomResource):
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.synapse.FirewallRule("example",
+            name="allowAll",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
-        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("exampleIntegrationRuntimeAzure",
+        example_integration_runtime_azure = azure.synapse.IntegrationRuntimeAzure("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
-            location=example_resource_group.location)
-        example_linked_service = azure.synapse.LinkedService("exampleLinkedService",
+            location=example.location)
+        example_linked_service = azure.synapse.LinkedService("example",
+            name="example",
             synapse_workspace_id=example_workspace.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
@@ -485,8 +502,7 @@ class LinkedService(pulumi.CustomResource):
         \"\"\"),
             integration_runtime=azure.synapse.LinkedServiceIntegrationRuntimeArgs(
                 name=example_integration_runtime_azure.name,
-            ),
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            ))
         ```
 
         ## Import

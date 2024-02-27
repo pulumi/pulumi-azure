@@ -19,8 +19,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.securitycenter.SubscriptionPricing("example", {
- *     resourceType: "VirtualMachines",
  *     tier: "Standard",
+ *     resourceType: "VirtualMachines",
  * });
  * ```
  * ### Using Extensions with Defender CSPM
@@ -30,15 +30,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example1 = new azure.securitycenter.SubscriptionPricing("example1", {
+ *     tier: "Standard",
+ *     resourceType: "CloudPosture",
  *     extensions: [
  *         {
  *             name: "ContainerRegistriesVulnerabilityAssessments",
  *         },
  *         {
+ *             name: "AgentlessVmScanning",
  *             additionalExtensionProperties: {
  *                 ExclusionTags: "[]",
  *             },
- *             name: "AgentlessVmScanning",
  *         },
  *         {
  *             name: "AgentlessDiscoveryForKubernetes",
@@ -47,8 +49,6 @@ import * as utilities from "../utilities";
  *             name: "SensitiveDataDiscovery",
  *         },
  *     ],
- *     resourceType: "CloudPosture",
- *     tier: "Standard",
  * });
  * ```
  *

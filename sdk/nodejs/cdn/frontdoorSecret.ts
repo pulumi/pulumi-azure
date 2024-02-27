@@ -15,16 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
  * const current = azure.core.getClientConfig({});
  * const frontdoor = azuread.getServicePrincipal({
  *     displayName: "Microsoft.Azure.Cdn",
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-cdn-frontdoor",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,
@@ -52,17 +56,22 @@ import * as utilities from "../utilities";
  *         },
  *     ],
  * });
- * const exampleCertificate = new azure.keyvault.Certificate("exampleCertificate", {
+ * const exampleCertificate = new azure.keyvault.Certificate("example", {
+ *     name: "example-cert",
  *     keyVaultId: exampleKeyVault.id,
  *     certificate: {
- *         contents: fs.readFileSync("my-certificate.pfx", { encoding: "base64" }),
+ *         contents: std.filebase64({
+ *             input: "my-certificate.pfx",
+ *         }).then(invoke => invoke.result),
  *     },
  * });
- * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("exampleFrontdoorProfile", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFrontdoorProfile = new azure.cdn.FrontdoorProfile("example", {
+ *     name: "example-cdn-profile",
+ *     resourceGroupName: example.name,
  *     skuName: "Standard_AzureFrontDoor",
  * });
- * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("exampleFrontdoorSecret", {
+ * const exampleFrontdoorSecret = new azure.cdn.FrontdoorSecret("example", {
+ *     name: "example-customer-managed-secret",
  *     cdnFrontdoorProfileId: exampleFrontdoorProfile.id,
  *     secret: {
  *         customerCertificates: [{

@@ -16,11 +16,17 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const config = new pulumi.Config();
+ * // Content for the MD tile
  * const mdContent = config.get("mdContent") || "# Hello all :)";
+ * // Link to a video
  * const videoLink = config.get("videoLink") || "https://www.youtube.com/watch?v=......";
  * const current = azure.core.getSubscription({});
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "mygroup",
+ *     location: "West Europe",
+ * });
  * const my_board = new azure.portal.Dashboard("my-board", {
+ *     name: "my-cool-dashboard",
  *     resourceGroupName: example.name,
  *     location: example.location,
  *     tags: {

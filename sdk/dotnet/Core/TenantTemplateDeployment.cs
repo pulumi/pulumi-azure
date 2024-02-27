@@ -20,17 +20,18 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleTemplateSpecVersion = Azure.Core.GetTemplateSpecVersion.Invoke(new()
+    ///     var example = Azure.Core.GetTemplateSpecVersion.Invoke(new()
     ///     {
     ///         Name = "myTemplateForTenant",
     ///         ResourceGroupName = "myResourceGroup",
     ///         Version = "v0.1",
     ///     });
     /// 
-    ///     var exampleTenantTemplateDeployment = new Azure.Core.TenantTemplateDeployment("exampleTenantTemplateDeployment", new()
+    ///     var exampleTenantTemplateDeployment = new Azure.Core.TenantTemplateDeployment("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
-    ///         TemplateSpecVersionId = exampleTemplateSpecVersion.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
+    ///         TemplateSpecVersionId = example.Apply(getTemplateSpecVersionResult =&gt; getTemplateSpecVersionResult.Id),
     ///     });
     /// 
     /// });

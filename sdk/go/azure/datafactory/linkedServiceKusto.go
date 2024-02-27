@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -46,9 +48,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("kustocluster"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Standard_D13_v2"),
 //					Capacity: pulumi.Int(2),
@@ -57,15 +60,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := kusto.NewDatabase(ctx, "exampleDatabase", &kusto.DatabaseArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleDatabase, err := kusto.NewDatabase(ctx, "example", &kusto.DatabaseArgs{
+//				Name:              pulumi.String("my-kusto-database"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				ClusterName:       exampleCluster.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewLinkedServiceKusto(ctx, "exampleLinkedServiceKusto", &datafactory.LinkedServiceKustoArgs{
+//			_, err = datafactory.NewLinkedServiceKusto(ctx, "example", &datafactory.LinkedServiceKustoArgs{
+//				Name:               pulumi.String("example"),
 //				DataFactoryId:      exampleFactory.ID(),
 //				KustoEndpoint:      exampleCluster.Uri,
 //				KustoDatabaseName:  exampleDatabase.Name,
@@ -74,8 +79,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "exampleDatabasePrincipalAssignment", &kusto.DatabasePrincipalAssignmentArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = kusto.NewDatabasePrincipalAssignment(ctx, "example", &kusto.DatabasePrincipalAssignmentArgs{
+//				Name:              pulumi.String("KustoPrincipalAssignment"),
+//				ResourceGroupName: example.Name,
 //				ClusterName:       exampleCluster.Name,
 //				DatabaseName:      exampleDatabase.Name,
 //				TenantId: exampleFactory.Identity.ApplyT(func(identity datafactory.FactoryIdentity) (*string, error) {

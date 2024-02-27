@@ -59,26 +59,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .allocationMethod(&#34;Static&#34;)
  *             .sku(&#34;Standard&#34;)
  *             .tags(Map.of(&#34;environment&#34;, &#34;Production&#34;))
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-vnet&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .delegations(SubnetDelegationArgs.builder()
@@ -91,9 +95,10 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDeployment = new Deployment(&#34;exampleDeployment&#34;, DeploymentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-nginx&#34;)
+ *             .resourceGroupName(example.name())
  *             .sku(&#34;publicpreview_Monthly_gmz7xq9ge3py&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .managedResourceGroup(&#34;example&#34;)
  *             .diagnoseSupportEnabled(true)
  *             .frontendPublic(DeploymentFrontendPublicArgs.builder()
@@ -107,8 +112,9 @@ import javax.annotation.Nullable;
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekeyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .accessPolicies(KeyVaultAccessPolicyArgs.builder()
@@ -131,14 +137,18 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;imported-cert&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .certificate(CertificateCertificateArgs.builder()
- *                 .contents(Base64.getEncoder().encodeToString(Files.readAllBytes(Paths.get(&#34;certificate-to-import.pfx&#34;))))
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .build()).result())
  *                 .password(&#34;&#34;)
  *                 .build())
  *             .build());
  * 
- *         var exampleNginx_certificateCertificate = new Certificate(&#34;exampleNginx/certificateCertificate&#34;, CertificateArgs.builder()        
+ *         var exampleCertificate2 = new Certificate(&#34;exampleCertificate2&#34;, CertificateArgs.builder()        
+ *             .name(&#34;examplecert&#34;)
  *             .nginxDeploymentId(exampleDeployment.id())
  *             .keyVirtualPath(&#34;/src/cert/soservermekey.key&#34;)
  *             .certificateVirtualPath(&#34;/src/cert/server.cert&#34;)

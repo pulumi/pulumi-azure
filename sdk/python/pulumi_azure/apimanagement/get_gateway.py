@@ -102,10 +102,10 @@ def get_gateway(api_management_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_service = azure.apimanagement.get_service(name="example-apim",
+    example = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-rg")
-    example_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
-        api_management_id=example_service.id)
+    example_get_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
+        api_management_id=example.id)
     ```
 
 
@@ -139,10 +139,10 @@ def get_gateway_output(api_management_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_service = azure.apimanagement.get_service(name="example-apim",
+    example = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-rg")
-    example_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
-        api_management_id=example_service.id)
+    example_get_gateway = azure.apimanagement.get_gateway(name="example-api-gateway",
+        api_management_id=example.id)
     ```
 
 

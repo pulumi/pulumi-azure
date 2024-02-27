@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := privatedns.LookupResolverForwardingRule(ctx, &privatedns.LookupResolverForwardingRuleArgs{
-//				DnsForwardingRulesetId: "example-forwarding-rulset-id",
 //				Name:                   "example-rule",
+//				DnsForwardingRulesetId: "example-forwarding-rulset-id",
 //			}, nil)
 //			if err != nil {
 //				return err

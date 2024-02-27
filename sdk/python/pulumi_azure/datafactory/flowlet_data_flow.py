@@ -373,23 +373,29 @@ class FlowletDataFlow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
+            name="linked_service",
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"))
-        example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
+        example1 = azure.datafactory.DatasetJson("example1",
+            name="dataset1",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -398,7 +404,8 @@ class FlowletDataFlow(pulumi.CustomResource):
                 filename="foo.txt",
             ),
             encoding="UTF-8")
-        example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
+        example2 = azure.datafactory.DatasetJson("example2",
+            name="dataset2",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -407,7 +414,8 @@ class FlowletDataFlow(pulumi.CustomResource):
                 filename="bar.txt",
             ),
             encoding="UTF-8")
-        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
+        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
@@ -433,7 +441,8 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
-        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
+        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
@@ -459,7 +468,8 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
-        example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("exampleFlowletDataFlow",
+        example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
@@ -529,23 +539,29 @@ class FlowletDataFlow(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_linked_custom_service = azure.datafactory.LinkedCustomService("exampleLinkedCustomService",
+        example_factory = azure.datafactory.Factory("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name)
+        example_linked_custom_service = azure.datafactory.LinkedCustomService("example",
+            name="linked_service",
             data_factory_id=example_factory.id,
             type="AzureBlobStorage",
             type_properties_json=example_account.primary_connection_string.apply(lambda primary_connection_string: f\"\"\"{{
           "connectionString": "{primary_connection_string}"
         }}
         \"\"\"))
-        example1_dataset_json = azure.datafactory.DatasetJson("example1DatasetJson",
+        example1 = azure.datafactory.DatasetJson("example1",
+            name="dataset1",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -554,7 +570,8 @@ class FlowletDataFlow(pulumi.CustomResource):
                 filename="foo.txt",
             ),
             encoding="UTF-8")
-        example2_dataset_json = azure.datafactory.DatasetJson("example2DatasetJson",
+        example2 = azure.datafactory.DatasetJson("example2",
+            name="dataset2",
             data_factory_id=example_factory.id,
             linked_service_name=example_linked_custom_service.name,
             azure_blob_storage_location=azure.datafactory.DatasetJsonAzureBlobStorageLocationArgs(
@@ -563,7 +580,8 @@ class FlowletDataFlow(pulumi.CustomResource):
                 filename="bar.txt",
             ),
             encoding="UTF-8")
-        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1FlowletDataFlow",
+        example1_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example1",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
@@ -589,7 +607,8 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
-        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2FlowletDataFlow",
+        example2_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example2",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",
@@ -615,7 +634,8 @@ class FlowletDataFlow(pulumi.CustomResource):
           skipDuplicateMapInputs: true, 
           skipDuplicateMapOutputs: true) ~> sink1
         \"\"\")
-        example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("exampleFlowletDataFlow",
+        example_flowlet_data_flow = azure.datafactory.FlowletDataFlow("example",
+            name="example",
             data_factory_id=example_factory.id,
             sources=[azure.datafactory.FlowletDataFlowSourceArgs(
                 name="source1",

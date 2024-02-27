@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example-publicip"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //				DomainNameLabel:   pulumi.String("example-pip"),
 //			})
@@ -45,7 +47,8 @@ import (
 //				return err
 //			}
 //			parent, err := network.NewTrafficManagerProfile(ctx, "parent", &network.TrafficManagerProfileArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//				Name:                 pulumi.String("parent-profile"),
+//				ResourceGroupName:    example.Name,
 //				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("parent-profile"),
@@ -67,7 +70,8 @@ import (
 //				return err
 //			}
 //			nested, err := network.NewTrafficManagerProfile(ctx, "nested", &network.TrafficManagerProfileArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//				Name:                 pulumi.String("nested-profile"),
+//				ResourceGroupName:    example.Name,
 //				TrafficRoutingMethod: pulumi.String("Priority"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: pulumi.String("nested-profile"),
@@ -82,7 +86,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewTrafficManagerNestedEndpoint(ctx, "exampleTrafficManagerNestedEndpoint", &network.TrafficManagerNestedEndpointArgs{
+//			_, err = network.NewTrafficManagerNestedEndpoint(ctx, "example", &network.TrafficManagerNestedEndpointArgs{
+//				Name:                  pulumi.String("example-endpoint"),
 //				TargetResourceId:      nested.ID(),
 //				Priority:              pulumi.Int(1),
 //				ProfileId:             parent.ID(),

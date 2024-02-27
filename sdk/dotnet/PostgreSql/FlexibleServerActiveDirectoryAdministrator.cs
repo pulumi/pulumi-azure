@@ -25,18 +25,20 @@ namespace Pulumi.Azure.PostgreSql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("exampleFlexibleServer", new()
+    ///     var exampleFlexibleServer = new Azure.PostgreSql.FlexibleServer("example", new()
     ///     {
+    ///         Name = "example-fs",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AdministratorLogin = "adminTerraform",
@@ -52,13 +54,13 @@ namespace Pulumi.Azure.PostgreSql
     ///         },
     ///     });
     /// 
-    ///     var exampleFlexibleServerActiveDirectoryAdministrator = new Azure.PostgreSql.FlexibleServerActiveDirectoryAdministrator("exampleFlexibleServerActiveDirectoryAdministrator", new()
+    ///     var exampleFlexibleServerActiveDirectoryAdministrator = new Azure.PostgreSql.FlexibleServerActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ServerName = exampleFlexibleServer.Name,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///         ObjectId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
-    ///         PrincipalName = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.DisplayName),
+    ///         ObjectId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalName = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.DisplayName),
     ///         PrincipalType = "ServicePrincipal",
     ///     });
     /// 

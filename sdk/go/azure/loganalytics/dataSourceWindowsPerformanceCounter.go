@@ -30,22 +30,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-law"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "exampleDataSourceWindowsPerformanceCounter", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = loganalytics.NewDataSourceWindowsPerformanceCounter(ctx, "example", &loganalytics.DataSourceWindowsPerformanceCounterArgs{
+//				Name:              pulumi.String("example-lad-wpc"),
+//				ResourceGroupName: example.Name,
 //				WorkspaceName:     exampleAnalyticsWorkspace.Name,
 //				ObjectName:        pulumi.String("CPU"),
 //				InstanceName:      pulumi.String("*"),

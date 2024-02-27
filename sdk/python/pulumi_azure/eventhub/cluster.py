@@ -205,8 +205,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         test = azure.eventhub.Cluster("test",
+            name="example",
             resource_group_name=example.name,
             location=example.location,
             sku_name="Dedicated_1")
@@ -243,8 +246,11 @@ class Cluster(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         test = azure.eventhub.Cluster("test",
+            name="example",
             resource_group_name=example.name,
             location=example.location,
             sku_name="Dedicated_1")

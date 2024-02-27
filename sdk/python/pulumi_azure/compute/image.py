@@ -350,12 +350,13 @@ class Image(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_machine = azure.compute.get_virtual_machine(name="examplevm",
+        example = azure.compute.get_virtual_machine(name="examplevm",
             resource_group_name="example-resources")
-        example_image = azure.compute.Image("exampleImage",
-            location=example_virtual_machine.location,
-            resource_group_name=example_virtual_machine.name,
-            source_virtual_machine_id=example_virtual_machine.id)
+        example_image = azure.compute.Image("example",
+            name="exampleimage",
+            location=example.location,
+            resource_group_name=example.name,
+            source_virtual_machine_id=example.id)
         ```
 
         ## Import
@@ -397,12 +398,13 @@ class Image(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_machine = azure.compute.get_virtual_machine(name="examplevm",
+        example = azure.compute.get_virtual_machine(name="examplevm",
             resource_group_name="example-resources")
-        example_image = azure.compute.Image("exampleImage",
-            location=example_virtual_machine.location,
-            resource_group_name=example_virtual_machine.name,
-            source_virtual_machine_id=example_virtual_machine.id)
+        example_image = azure.compute.Image("example",
+            name="exampleimage",
+            location=example.location,
+            resource_group_name=example.name,
+            source_virtual_machine_id=example.id)
         ```
 
         ## Import

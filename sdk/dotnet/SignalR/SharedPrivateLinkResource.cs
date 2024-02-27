@@ -24,15 +24,17 @@ namespace Pulumi.Azure.SignalR
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "terraform-signalr",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         SoftDeleteRetentionDays = 7,
@@ -60,8 +62,9 @@ namespace Pulumi.Azure.SignalR
     /// 
     ///     var test = new Azure.SignalR.Service("test", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Name = "tfex-signalr",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Standard_S1",
@@ -69,9 +72,10 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleSharedPrivateLinkResource = new Azure.SignalR.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", new()
+    ///     var exampleSharedPrivateLinkResource = new Azure.SignalR.SharedPrivateLinkResource("example", new()
     ///     {
-    ///         SignalrServiceId = azurerm_signalr_service.Example.Id,
+    ///         Name = "tfex-signalr-splr",
+    ///         SignalrServiceId = exampleAzurermSignalrService.Id,
     ///         SubResourceName = "vault",
     ///         TargetResourceId = exampleKeyVault.Id,
     ///     });

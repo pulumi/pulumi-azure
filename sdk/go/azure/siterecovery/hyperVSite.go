@@ -30,22 +30,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("eastus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-vault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				SoftDeleteEnabled: pulumi.Bool(false),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewHyperVSite(ctx, "exampleHyperVSite", &siterecovery.HyperVSiteArgs{
+//			_, err = siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
+//				Name:            pulumi.String("example-site"),
 //				RecoveryVaultId: exampleVault.ID(),
 //			})
 //			if err != nil {

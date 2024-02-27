@@ -304,10 +304,13 @@ class BudgetManagementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
-            management_group_id=example_group.id,
+        example = azure.management.Group("example", display_name="example")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
+            name="example",
+            management_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(
@@ -384,10 +387,13 @@ class BudgetManagementGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_group = azure.management.Group("exampleGroup", display_name="example")
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_budget_management_group = azure.consumption.BudgetManagementGroup("exampleBudgetManagementGroup",
-            management_group_id=example_group.id,
+        example = azure.management.Group("example", display_name="example")
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_budget_management_group = azure.consumption.BudgetManagementGroup("example",
+            name="example",
+            management_group_id=example.id,
             amount=1000,
             time_grain="Monthly",
             time_period=azure.consumption.BudgetManagementGroupTimePeriodArgs(

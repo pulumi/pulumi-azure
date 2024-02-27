@@ -61,26 +61,30 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-appinsights&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-apim&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .publisherName(&#34;My Company&#34;)
  *             .publisherEmail(&#34;company@mycompany.io&#34;)
  *             .skuName(&#34;Developer_1&#34;)
  *             .build());
  * 
  *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-api&#34;)
+ *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .revision(&#34;1&#34;)
  *             .displayName(&#34;Example API&#34;)
@@ -93,8 +97,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLogger = new Logger(&#34;exampleLogger&#34;, LoggerArgs.builder()        
+ *             .name(&#34;example-apimlogger&#34;)
  *             .apiManagementName(exampleService.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .applicationInsights(LoggerApplicationInsightsArgs.builder()
  *                 .instrumentationKey(exampleInsights.instrumentationKey())
  *                 .build())
@@ -102,7 +107,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleApiDiagnostic = new ApiDiagnostic(&#34;exampleApiDiagnostic&#34;, ApiDiagnosticArgs.builder()        
  *             .identifier(&#34;applicationinsights&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .apiManagementName(exampleService.name())
  *             .apiName(exampleApi.name())
  *             .apiManagementLoggerId(exampleLogger.id())

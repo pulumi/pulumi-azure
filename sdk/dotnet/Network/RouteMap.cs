@@ -22,27 +22,31 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("exampleVirtualWan", new()
+    ///     var exampleVirtualWan = new Azure.Network.VirtualWan("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vwan",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("exampleVirtualHub", new()
+    ///     var exampleVirtualHub = new Azure.Network.VirtualHub("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-vhub",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         VirtualWanId = exampleVirtualWan.Id,
     ///         AddressPrefix = "10.0.1.0/24",
     ///     });
     /// 
-    ///     var exampleRouteMap = new Azure.Network.RouteMap("exampleRouteMap", new()
+    ///     var exampleRouteMap = new Azure.Network.RouteMap("example", new()
     ///     {
+    ///         Name = "example-rm",
     ///         VirtualHubId = exampleVirtualHub.Id,
     ///         Rules = new[]
     ///         {

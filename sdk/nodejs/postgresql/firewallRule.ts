@@ -14,16 +14,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "api-rg-pro",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.postgresql.Server("example", {
+ *     name: "example-postgre-server",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "GP_Gen5_2",
  *     version: "11",
  *     sslEnforcementEnabled: true,
  * });
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
+ *     name: "office",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     startIpAddress: "40.112.8.12",
  *     endIpAddress: "40.112.8.12",
@@ -35,11 +40,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.postgresql.Server("exampleServer", {});
- * // ...
- * const exampleFirewallRule = new azure.postgresql.FirewallRule("exampleFirewallRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "api-rg-pro",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.postgresql.Server("example", {});
+ * const exampleFirewallRule = new azure.postgresql.FirewallRule("example", {
+ *     name: "office",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     startIpAddress: "40.112.0.0",
  *     endIpAddress: "40.112.255.255",

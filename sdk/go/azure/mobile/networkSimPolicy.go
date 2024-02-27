@@ -29,31 +29,35 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
+//				Name:              pulumi.String("example-mn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				MobileCountryCode: pulumi.String("001"),
 //				MobileNetworkCode: pulumi.String("01"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkDataNetwork, err := mobile.NewNetworkDataNetwork(ctx, "exampleNetworkDataNetwork", &mobile.NetworkDataNetworkArgs{
+//			exampleNetworkDataNetwork, err := mobile.NewNetworkDataNetwork(ctx, "example", &mobile.NetworkDataNetworkArgs{
+//				Name:            pulumi.String("example-mndn"),
 //				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkService, err := mobile.NewNetworkService(ctx, "exampleNetworkService", &mobile.NetworkServiceArgs{
+//			exampleNetworkService, err := mobile.NewNetworkService(ctx, "example", &mobile.NetworkServiceArgs{
+//				Name:              pulumi.String("example-mns"),
 //				MobileNetworkId:   exampleNetwork.ID(),
-//				Location:          exampleResourceGroup.Location,
+//				Location:          example.Location,
 //				ServicePrecedence: pulumi.Int(0),
 //				PccRules: mobile.NetworkServicePccRuleArray{
 //					&mobile.NetworkServicePccRuleArgs{
@@ -79,9 +83,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkSlice, err := mobile.NewNetworkSlice(ctx, "exampleNetworkSlice", &mobile.NetworkSliceArgs{
+//			exampleNetworkSlice, err := mobile.NewNetworkSlice(ctx, "example", &mobile.NetworkSliceArgs{
+//				Name:            pulumi.String("example-mns"),
 //				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //				SingleNetworkSliceSelectionAssistanceInformation: &mobile.NetworkSliceSingleNetworkSliceSelectionAssistanceInformationArgs{
 //					SliceServiceType: pulumi.Int(1),
 //				},
@@ -89,9 +94,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetworkSimPolicy(ctx, "exampleNetworkSimPolicy", &mobile.NetworkSimPolicyArgs{
+//			_, err = mobile.NewNetworkSimPolicy(ctx, "example", &mobile.NetworkSimPolicyArgs{
+//				Name:                       pulumi.String("example-mnsp"),
 //				MobileNetworkId:            exampleNetwork.ID(),
-//				Location:                   exampleResourceGroup.Location,
+//				Location:                   example.Location,
 //				RegistrationTimerInSeconds: pulumi.Int(3240),
 //				DefaultSliceId:             exampleNetworkSlice.ID(),
 //				Slices: mobile.NetworkSimPolicySliceArray{

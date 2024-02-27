@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlServer, err := sql.NewSqlServer(ctx, "exampleSqlServer", &sql.SqlServerArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleSqlServer, err := sql.NewSqlServer(ctx, "example", &sql.SqlServerArgs{
+//				Name:                       pulumi.String("mysqlserver"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				Version:                    pulumi.String("12.0"),
 //				AdministratorLogin:         pulumi.String("4dm1n157r470r"),
 //				AdministratorLoginPassword: pulumi.String("4-v3ry-53cr37-p455w0rd"),
@@ -49,17 +51,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("accteststorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("GRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mssql.NewServerSecurityAlertPolicy(ctx, "exampleServerSecurityAlertPolicy", &mssql.ServerSecurityAlertPolicyArgs{
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			_, err = mssql.NewServerSecurityAlertPolicy(ctx, "example", &mssql.ServerSecurityAlertPolicyArgs{
+//				ResourceGroupName:       example.Name,
 //				ServerName:              exampleSqlServer.Name,
 //				State:                   pulumi.String("Enabled"),
 //				StorageEndpoint:         exampleAccount.PrimaryBlobEndpoint,

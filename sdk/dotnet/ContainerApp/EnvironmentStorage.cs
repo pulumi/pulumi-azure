@@ -22,42 +22,48 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctest-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "myEnvironment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "azureteststorage",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleShare = new Azure.Storage.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.Storage.Share("example", new()
     ///     {
+    ///         Name = "sharename",
     ///         StorageAccountName = exampleAccount.Name,
     ///         Quota = 5,
     ///     });
     /// 
-    ///     var exampleEnvironmentStorage = new Azure.ContainerApp.EnvironmentStorage("exampleEnvironmentStorage", new()
+    ///     var exampleEnvironmentStorage = new Azure.ContainerApp.EnvironmentStorage("example", new()
     ///     {
+    ///         Name = "mycontainerappstorage",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
     ///         AccountName = exampleAccount.Name,
     ///         ShareName = exampleShare.Name,

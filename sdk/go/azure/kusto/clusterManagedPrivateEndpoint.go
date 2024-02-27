@@ -34,15 +34,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCluster, err := kusto.NewCluster(ctx, "exampleCluster", &kusto.ClusterArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleCluster, err := kusto.NewCluster(ctx, "example", &kusto.ClusterArgs{
+//				Name:              pulumi.String("examplekc"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &kusto.ClusterSkuArgs{
 //					Name:     pulumi.String("Dev(No SLA)_Standard_D11_v2"),
 //					Capacity: pulumi.Int(1),
@@ -51,17 +53,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = kusto.NewClusterManagedPrivateEndpoint(ctx, "exampleClusterManagedPrivateEndpoint", &kusto.ClusterManagedPrivateEndpointArgs{
-//				ResourceGroupName:         exampleResourceGroup.Name,
+//			_, err = kusto.NewClusterManagedPrivateEndpoint(ctx, "example", &kusto.ClusterManagedPrivateEndpointArgs{
+//				Name:                      pulumi.String("examplempe"),
+//				ResourceGroupName:         example.Name,
 //				ClusterName:               exampleCluster.Name,
 //				PrivateLinkResourceId:     exampleAccount.ID(),
 //				PrivateLinkResourceRegion: exampleAccount.Location,

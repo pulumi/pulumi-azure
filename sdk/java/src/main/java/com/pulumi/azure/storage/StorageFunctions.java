@@ -238,10 +238,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -249,6 +251,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
+     *             .name(&#34;mycontainer&#34;)
      *             .storageAccountName(storage.name())
      *             .containerAccessType(&#34;private&#34;)
      *             .build());
@@ -319,10 +322,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -330,6 +335,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
+     *             .name(&#34;mycontainer&#34;)
      *             .storageAccountName(storage.name())
      *             .containerAccessType(&#34;private&#34;)
      *             .build());
@@ -400,10 +406,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -411,6 +419,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
+     *             .name(&#34;mycontainer&#34;)
      *             .storageAccountName(storage.name())
      *             .containerAccessType(&#34;private&#34;)
      *             .build());
@@ -481,10 +490,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var rg = new ResourceGroup(&#34;rg&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var storage = new Account(&#34;storage&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(rg.name())
      *             .location(rg.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -492,6 +503,7 @@ public final class StorageFunctions {
      *             .build());
      * 
      *         var container = new Container(&#34;container&#34;, ContainerArgs.builder()        
+     *             .name(&#34;mycontainer&#34;)
      *             .storageAccountName(storage.name())
      *             .containerAccessType(&#34;private&#34;)
      *             .build());
@@ -565,10 +577,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -576,7 +590,7 @@ public final class StorageFunctions {
      *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
      *             .build());
      * 
-     *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+     *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
      *             .signedVersion(&#34;2017-07-29&#34;)
@@ -607,7 +621,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -654,10 +668,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -665,7 +681,7 @@ public final class StorageFunctions {
      *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
      *             .build());
      * 
-     *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+     *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
      *             .signedVersion(&#34;2017-07-29&#34;)
@@ -696,7 +712,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -743,10 +759,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -754,7 +772,7 @@ public final class StorageFunctions {
      *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
      *             .build());
      * 
-     *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+     *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
      *             .signedVersion(&#34;2017-07-29&#34;)
@@ -785,7 +803,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -832,10 +850,12 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;resourceGroupName&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
      *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+     *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .location(exampleResourceGroup.location())
      *             .accountTier(&#34;Standard&#34;)
@@ -843,7 +863,7 @@ public final class StorageFunctions {
      *             .tags(Map.of(&#34;environment&#34;, &#34;staging&#34;))
      *             .build());
      * 
-     *         final var exampleAccountSAS = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
+     *         final var example = StorageFunctions.getAccountSAS(GetAccountSASArgs.builder()
      *             .connectionString(exampleAccount.primaryConnectionString())
      *             .httpsOnly(true)
      *             .signedVersion(&#34;2017-07-29&#34;)
@@ -874,7 +894,7 @@ public final class StorageFunctions {
      *                 .build())
      *             .build());
      * 
-     *         ctx.export(&#34;sasUrlQueryString&#34;, exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(exampleAccountSAS -&gt; exampleAccountSAS.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
+     *         ctx.export(&#34;sasUrlQueryString&#34;, example.applyValue(getAccountSASResult -&gt; getAccountSASResult).applyValue(example -&gt; example.applyValue(getAccountSASResult -&gt; getAccountSASResult.sas())));
      *     }
      * }
      * ```
@@ -1217,17 +1237,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -1262,17 +1282,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -1307,17 +1327,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -1352,17 +1372,17 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var exampleEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
+     *         final var exampleGetEncryptionScope = StorageFunctions.getEncryptionScope(GetEncryptionScopeArgs.builder()
      *             .name(&#34;existingStorageES&#34;)
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetEncryptionScope.applyValue(getEncryptionScopeResult -&gt; getEncryptionScopeResult.id()));
      *     }
      * }
      * ```
@@ -1397,13 +1417,13 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *     }
@@ -1440,13 +1460,13 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *     }
@@ -1483,13 +1503,13 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *     }
@@ -1526,13 +1546,13 @@ public final class StorageFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = StorageFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = StorageFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;storageaccountname&#34;)
      *             .resourceGroupName(&#34;resourcegroupname&#34;)
      *             .build());
      * 
-     *         final var examplePolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
-     *             .storageAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetPolicy = StorageFunctions.getPolicy(GetPolicyArgs.builder()
+     *             .storageAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
      *     }
@@ -2189,10 +2209,10 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .tableName(&#34;example-table-name&#34;)
      *             .build());
      * 
      *     }
@@ -2229,10 +2249,10 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .tableName(&#34;example-table-name&#34;)
      *             .build());
      * 
      *     }
@@ -2269,10 +2289,10 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .tableName(&#34;example-table-name&#34;)
      *             .build());
      * 
      *     }
@@ -2309,10 +2329,10 @@ public final class StorageFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = StorageFunctions.getTableEntity(GetTableEntityArgs.builder()
+     *             .tableName(&#34;example-table-name&#34;)
+     *             .storageAccountName(&#34;example-storage-account-name&#34;)
      *             .partitionKey(&#34;example-partition-key&#34;)
      *             .rowKey(&#34;example-row-key&#34;)
-     *             .storageAccountName(&#34;example-storage-account-name&#34;)
-     *             .tableName(&#34;example-table-name&#34;)
      *             .build());
      * 
      *     }

@@ -58,13 +58,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("test-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("test-network"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -74,7 +76,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
 //				ResourceGroupName:  exampleResourceGroup.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -84,7 +87,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:                 pulumi.String("test-pip"),
 //				Location:             exampleResourceGroup.Location,
 //				ResourceGroupName:    exampleResourceGroup.Name,
 //				AllocationMethod:     pulumi.String("Dynamic"),
@@ -96,7 +100,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("test-nic"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
@@ -112,7 +117,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "exampleVirtualMachine", &compute.VirtualMachineArgs{
+//			exampleVirtualMachine, err := compute.NewVirtualMachine(ctx, "example", &compute.VirtualMachineArgs{
+//				Name:              pulumi.String("test-vm"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -122,11 +128,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_ = network.GetPublicIPOutput(ctx, network.GetPublicIPOutputArgs{
+//			example := network.GetPublicIPOutput(ctx, network.GetPublicIPOutputArgs{
 //				Name:              examplePublicIp.Name,
 //				ResourceGroupName: exampleVirtualMachine.ResourceGroupName,
 //			}, nil)
-//			ctx.Export("publicIpAddress", examplePublicIp.IpAddress)
+//			ctx.Export("publicIpAddress", example.ApplyT(func(example network.GetPublicIPResult) (*string, error) {
+//				return &example.IpAddress, nil
+//			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})
 //	}

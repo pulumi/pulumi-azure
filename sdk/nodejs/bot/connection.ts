@@ -14,17 +14,22 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("exampleChannelsRegistration", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleChannelsRegistration = new azure.bot.ChannelsRegistration("example", {
+ *     name: "example",
  *     location: "global",
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     sku: "F0",
  *     microsoftAppId: current.then(current => current.clientId),
  * });
- * const exampleConnection = new azure.bot.Connection("exampleConnection", {
+ * const exampleConnection = new azure.bot.Connection("example", {
+ *     name: "example",
  *     botName: exampleChannelsRegistration.name,
  *     location: exampleChannelsRegistration.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     serviceProviderName: "box",
  *     clientId: "exampleId",
  *     clientSecret: "exampleSecret",

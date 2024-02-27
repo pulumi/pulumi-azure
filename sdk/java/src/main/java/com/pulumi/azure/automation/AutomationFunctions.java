@@ -831,12 +831,16 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args) {
         return getVariableObject(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args) {
@@ -845,12 +849,16 @@ public final class AutomationFunctions {
     /**
      * Use this data source to access information about an existing Automation Object Variable.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetVariableObjectResult> getVariableObject(GetVariableObjectArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:automation/getVariableObject:getVariableObject", TypeShape.of(GetVariableObjectResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to access information about an existing Automation Object Variable.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetVariableObjectResult> getVariableObjectPlain(GetVariableObjectPlainArgs args, InvokeOptions options) {
@@ -882,16 +890,16 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
      *     }
      * }
      * ```
@@ -926,16 +934,16 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
      *     }
      * }
      * ```
@@ -970,16 +978,16 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
      *     }
      * }
      * ```
@@ -1014,16 +1022,16 @@ public final class AutomationFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleAccount = AutomationFunctions.getAccount(GetAccountArgs.builder()
+     *         final var example = AutomationFunctions.getAccount(GetAccountArgs.builder()
      *             .name(&#34;example-account&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
-     *             .automationAccountId(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.id()))
+     *         final var exampleGetVariables = AutomationFunctions.getVariables(GetVariablesArgs.builder()
+     *             .automationAccountId(example.applyValue(getAccountResult -&gt; getAccountResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;stringVars&#34;, data.azurerm_automation_variable_string().example().string());
+     *         ctx.export(&#34;stringVars&#34;, exampleAzurermAutomationVariableString.string());
      *     }
      * }
      * ```

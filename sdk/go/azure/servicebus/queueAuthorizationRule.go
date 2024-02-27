@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("my-servicebus"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("example"),
@@ -46,14 +48,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleQueue, err := servicebus.NewQueue(ctx, "exampleQueue", &servicebus.QueueArgs{
+//			exampleQueue, err := servicebus.NewQueue(ctx, "example", &servicebus.QueueArgs{
+//				Name:               pulumi.String("tfex_servicebus_queue"),
 //				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewQueueAuthorizationRule(ctx, "exampleQueueAuthorizationRule", &servicebus.QueueAuthorizationRuleArgs{
+//			_, err = servicebus.NewQueueAuthorizationRule(ctx, "example", &servicebus.QueueAuthorizationRuleArgs{
+//				Name:    pulumi.String("examplerule"),
 //				QueueId: exampleQueue.ID(),
 //				Listen:  pulumi.Bool(true),
 //				Send:    pulumi.Bool(true),

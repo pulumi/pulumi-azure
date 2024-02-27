@@ -28,10 +28,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := storage.LookupTableEntity(ctx, &storage.LookupTableEntityArgs{
+//				TableName:          "example-table-name",
+//				StorageAccountName: "example-storage-account-name",
 //				PartitionKey:       "example-partition-key",
 //				RowKey:             "example-row-key",
-//				StorageAccountName: "example-storage-account-name",
-//				TableName:          "example-table-name",
 //			}, nil)
 //			if err != nil {
 //				return err

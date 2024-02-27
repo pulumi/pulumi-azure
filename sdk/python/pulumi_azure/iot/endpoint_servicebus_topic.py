@@ -314,20 +314,27 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="exampleNamespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+        example_topic = azure.servicebus.Topic("example",
+            name="exampleTopic",
+            namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("example",
+            name="exampleRule",
             topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
@@ -335,9 +342,10 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             tags={
                 "purpose": "example",
             })
-        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
-            resource_group_name=example_resource_group.name,
+        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("example",
+            resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
+            name="example",
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
 
@@ -379,20 +387,27 @@ class EndpointServicebusTopic(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_namespace = azure.servicebus.Namespace("exampleNamespace",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_namespace = azure.servicebus.Namespace("example",
+            name="exampleNamespace",
+            location=example.location,
+            resource_group_name=example.name,
             sku="Standard")
-        example_topic = azure.servicebus.Topic("exampleTopic", namespace_id=example_namespace.id)
-        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("exampleTopicAuthorizationRule",
+        example_topic = azure.servicebus.Topic("example",
+            name="exampleTopic",
+            namespace_id=example_namespace.id)
+        example_topic_authorization_rule = azure.servicebus.TopicAuthorizationRule("example",
+            name="exampleRule",
             topic_id=example_topic.id,
             listen=False,
             send=True,
             manage=False)
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="exampleIothub",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="B1",
                 capacity=1,
@@ -400,9 +415,10 @@ class EndpointServicebusTopic(pulumi.CustomResource):
             tags={
                 "purpose": "example",
             })
-        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("exampleEndpointServicebusTopic",
-            resource_group_name=example_resource_group.name,
+        example_endpoint_servicebus_topic = azure.iot.EndpointServicebusTopic("example",
+            resource_group_name=example.name,
             iothub_id=example_io_t_hub.id,
+            name="example",
             connection_string=example_topic_authorization_rule.primary_connection_string)
         ```
 

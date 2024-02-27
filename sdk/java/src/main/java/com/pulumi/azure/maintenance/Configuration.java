@@ -44,13 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-mc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scope(&#34;SQLDB&#34;)
  *             .tags(Map.of(&#34;Env&#34;, &#34;prod&#34;))
  *             .build());

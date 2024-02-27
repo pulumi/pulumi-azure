@@ -22,15 +22,17 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tflex-cosmosdb-account-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "tfex-cosmosdb-account",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         OfferType = "Standard",
     ///         Capabilities = new[]
     ///         {
@@ -47,14 +49,15 @@ namespace Pulumi.Azure.CosmosDB
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = exampleResourceGroup.Location,
+    ///                 Location = example.Location,
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("exampleCassandraKeyspace", new()
+    ///     var exampleCassandraKeyspace = new Azure.CosmosDB.CassandraKeyspace("example", new()
     ///     {
+    ///         Name = "tfex-cosmos-cassandra-keyspace",
     ///         ResourceGroupName = exampleAccount.ResourceGroupName,
     ///         AccountName = exampleAccount.Name,
     ///         Throughput = 400,

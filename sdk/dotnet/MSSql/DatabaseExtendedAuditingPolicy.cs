@@ -22,34 +22,38 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-sqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "AdminPassword123!",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
     ///     {
+    ///         Name = "example-db",
     ///         ServerId = exampleServer.Id,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("exampleDatabaseExtendedAuditingPolicy", new()
+    ///     var exampleDatabaseExtendedAuditingPolicy = new Azure.MSSql.DatabaseExtendedAuditingPolicy("example", new()
     ///     {
     ///         DatabaseId = exampleDatabase.Id,
     ///         StorageEndpoint = exampleAccount.PrimaryBlobEndpoint,

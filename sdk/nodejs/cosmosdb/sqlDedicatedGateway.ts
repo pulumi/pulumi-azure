@@ -13,21 +13,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.cosmosdb.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.cosmosdb.Account("example", {
+ *     name: "example-ca",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     offerType: "Standard",
  *     kind: "GlobalDocumentDB",
  *     consistencyPolicy: {
  *         consistencyLevel: "BoundedStaleness",
  *     },
  *     geoLocations: [{
- *         location: exampleResourceGroup.location,
+ *         location: example.location,
  *         failoverPriority: 0,
  *     }],
  * });
- * const exampleSqlDedicatedGateway = new azure.cosmosdb.SqlDedicatedGateway("exampleSqlDedicatedGateway", {
+ * const exampleSqlDedicatedGateway = new azure.cosmosdb.SqlDedicatedGateway("example", {
  *     cosmosdbAccountId: exampleAccount.id,
  *     instanceCount: 1,
  *     instanceSize: "Cosmos.D4s",

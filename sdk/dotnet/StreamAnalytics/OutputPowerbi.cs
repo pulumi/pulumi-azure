@@ -22,20 +22,21 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = Azure.Core.GetResourceGroup.Invoke(new()
+    ///     var example = Azure.Core.GetResourceGroup.Invoke(new()
     ///     {
     ///         Name = "example-resources",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var exampleGetJob = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
-    ///         ResourceGroupName = exampleResourceGroup.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
+    ///         ResourceGroupName = example.Apply(getResourceGroupResult =&gt; getResourceGroupResult.Name),
     ///     });
     /// 
-    ///     var exampleOutputPowerbi = new Azure.StreamAnalytics.OutputPowerbi("exampleOutputPowerbi", new()
+    ///     var exampleOutputPowerbi = new Azure.StreamAnalytics.OutputPowerbi("example", new()
     ///     {
-    ///         StreamAnalyticsJobId = exampleJob.Apply(getJobResult =&gt; getJobResult.Id),
+    ///         Name = "output-to-powerbi",
+    ///         StreamAnalyticsJobId = exampleGetJob.Apply(getJobResult =&gt; getJobResult.Id),
     ///         Dataset = "example-dataset",
     ///         Table = "example-table",
     ///         GroupId = "00000000-0000-0000-0000-000000000000",

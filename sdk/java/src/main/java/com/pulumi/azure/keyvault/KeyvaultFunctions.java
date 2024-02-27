@@ -225,17 +225,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -270,17 +270,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -315,17 +315,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -360,17 +360,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
+     *         final var exampleGetCertificate = KeyvaultFunctions.getCertificate(GetCertificateArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;certificateThumbprint&#34;, exampleCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
+     *         ctx.export(&#34;certificateThumbprint&#34;, exampleGetCertificate.applyValue(getCertificateResult -&gt; getCertificateResult.thumbprint()));
      *     }
      * }
      * ```
@@ -407,17 +407,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -454,17 +454,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -501,17 +501,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -548,17 +548,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;examplekv&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
+     *         final var exampleGetCertificateData = KeyvaultFunctions.getCertificateData(GetCertificateDataArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;examplePem&#34;, exampleCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
+     *         ctx.export(&#34;examplePem&#34;, exampleGetCertificateData.applyValue(getCertificateDataResult -&gt; getCertificateDataResult.pem()));
      *     }
      * }
      * ```
@@ -593,17 +593,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -638,17 +638,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -683,17 +683,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -728,17 +728,17 @@ public final class KeyvaultFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleKeyVault = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
+     *         final var example = KeyvaultFunctions.getKeyVault(GetKeyVaultArgs.builder()
      *             .name(&#34;mykeyvault&#34;)
      *             .resourceGroupName(&#34;some-resource-group&#34;)
      *             .build());
      * 
-     *         final var exampleCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
+     *         final var exampleGetCertificateIssuer = KeyvaultFunctions.getCertificateIssuer(GetCertificateIssuerArgs.builder()
      *             .name(&#34;existing&#34;)
-     *             .keyVaultId(exampleKeyVault.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
+     *             .keyVaultId(example.applyValue(getKeyVaultResult -&gt; getKeyVaultResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;id&#34;, exampleCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
+     *         ctx.export(&#34;id&#34;, exampleGetCertificateIssuer.applyValue(getCertificateIssuerResult -&gt; getCertificateIssuerResult.id()));
      *     }
      * }
      * ```
@@ -750,12 +750,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args) {
         return getCertificates(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args) {
@@ -764,12 +768,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetCertificatesResult> getCertificates(GetCertificatesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getCertificates:getCertificates", TypeShape.of(GetCertificatesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of certificate names from an existing Key Vault.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetCertificatesResult> getCertificatesPlain(GetCertificatesPlainArgs args, InvokeOptions options) {
@@ -778,12 +786,16 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args) {
         return getEncryptedValue(args, InvokeOptions.Empty);
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args) {
@@ -792,12 +804,16 @@ public final class KeyvaultFunctions {
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetEncryptedValueResult> getEncryptedValue(GetEncryptedValueArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getEncryptedValue:getEncryptedValue", TypeShape.of(GetEncryptedValueResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Encrypts or Decrypts a value using a Key Vault Key.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetEncryptedValueResult> getEncryptedValuePlain(GetEncryptedValuePlainArgs args, InvokeOptions options) {
@@ -830,7 +846,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
@@ -869,7 +885,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
@@ -908,7 +924,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
@@ -947,7 +963,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getKey(GetKeyArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;keyType&#34;, example.applyValue(getKeyResult -&gt; getKeyResult.keyType()));
@@ -1298,7 +1314,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
      *             .scope(&#34;/&#34;)
      *             .build());
@@ -1339,7 +1355,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
      *             .scope(&#34;/&#34;)
      *             .build());
@@ -1380,7 +1396,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
      *             .scope(&#34;/&#34;)
      *             .build());
@@ -1421,7 +1437,7 @@ public final class KeyvaultFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getManagedHardwareSecurityModuleRoleDefinition(GetManagedHardwareSecurityModuleRoleDefinitionArgs.builder()
-     *             .vaultBaseUrl(azurerm_key_vault_managed_hardware_security_module.test().hsm_uri())
+     *             .vaultBaseUrl(test.hsmUri())
      *             .name(&#34;21dbd100-6940-42c2-9190-5d6cb909625b&#34;)
      *             .scope(&#34;/&#34;)
      *             .build());
@@ -1462,7 +1478,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
@@ -1501,7 +1517,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
@@ -1540,7 +1556,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
@@ -1579,7 +1595,7 @@ public final class KeyvaultFunctions {
      *     public static void stack(Context ctx) {
      *         final var example = KeyvaultFunctions.getSecret(GetSecretArgs.builder()
      *             .name(&#34;secret-sauce&#34;)
-     *             .keyVaultId(data.azurerm_key_vault().existing().id())
+     *             .keyVaultId(existing.id())
      *             .build());
      * 
      *         ctx.export(&#34;secretValue&#34;, example.applyValue(getSecretResult -&gt; getSecretResult.value()));
@@ -1594,12 +1610,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -1608,12 +1628,16 @@ public final class KeyvaultFunctions {
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
      * 
+     * ## Example Usage
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("azure:keyvault/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to retrieve a list of secret names from an existing Key Vault Secret.
+     * 
+     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

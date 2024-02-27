@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-servicebus-subscription-rule-sql"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("example"),
@@ -47,21 +49,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:               pulumi.String("tfex_servicebus_topic"),
 //				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
+//				Name:             pulumi.String("tfex_servicebus_subscription"),
 //				TopicId:          exampleTopic.ID(),
 //				MaxDeliveryCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
+//			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
+//				Name:           pulumi.String("tfex_servicebus_rule"),
 //				SubscriptionId: exampleSubscription.ID(),
 //				FilterType:     pulumi.String("SqlFilter"),
 //				SqlFilter:      pulumi.String("colour = 'red'"),
@@ -89,15 +94,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-servicebus-subscription-rule-cor"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("tfex-servicebus-namespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //				Tags: pulumi.StringMap{
 //					"source": pulumi.String("example"),
@@ -106,21 +113,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:               pulumi.String("tfex_servicebus_topic"),
 //				NamespaceId:        exampleNamespace.ID(),
 //				EnablePartitioning: pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubscription, err := servicebus.NewSubscription(ctx, "exampleSubscription", &servicebus.SubscriptionArgs{
+//			exampleSubscription, err := servicebus.NewSubscription(ctx, "example", &servicebus.SubscriptionArgs{
+//				Name:             pulumi.String("tfex_servicebus_subscription"),
 //				TopicId:          exampleTopic.ID(),
 //				MaxDeliveryCount: pulumi.Int(1),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = servicebus.NewSubscriptionRule(ctx, "exampleSubscriptionRule", &servicebus.SubscriptionRuleArgs{
+//			_, err = servicebus.NewSubscriptionRule(ctx, "example", &servicebus.SubscriptionRuleArgs{
+//				Name:           pulumi.String("tfex_servicebus_rule"),
 //				SubscriptionId: exampleSubscription.ID(),
 //				FilterType:     pulumi.String("CorrelationFilter"),
 //				CorrelationFilter: &servicebus.SubscriptionRuleCorrelationFilterArgs{

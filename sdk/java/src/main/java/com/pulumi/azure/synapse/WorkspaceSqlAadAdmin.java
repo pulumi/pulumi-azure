@@ -41,7 +41,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.synapse.inputs.WorkspaceIdentityArgs;
  * import com.pulumi.azure.synapse.WorkspaceSqlAadAdmin;
  * import com.pulumi.azure.synapse.WorkspaceSqlAadAdminArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -55,13 +54,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestorageacc&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .accountKind(&#34;StorageV2&#34;)
@@ -69,14 +70,16 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
@@ -95,19 +98,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;workspace-encryption-key&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
  *             .keyOpts(            
  *                 &#34;unwrapKey&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(deployer)
- *                 .build());
+ *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)

@@ -22,15 +22,17 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "database-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var primary = new Azure.MSSql.Server("primary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mssqlserver-primary",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
@@ -38,23 +40,26 @@ namespace Pulumi.Azure.MSSql
     /// 
     ///     var secondary = new Azure.MSSql.Server("secondary", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mssqlserver-secondary",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "North Europe",
     ///         Version = "12.0",
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat12",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.MSSql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.MSSql.Database("example", new()
     ///     {
+    ///         Name = "exampledb",
     ///         ServerId = primary.Id,
     ///         SkuName = "S1",
     ///         Collation = "SQL_Latin1_General_CP1_CI_AS",
     ///         MaxSizeGb = 200,
     ///     });
     /// 
-    ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("exampleFailoverGroup", new()
+    ///     var exampleFailoverGroup = new Azure.MSSql.FailoverGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         ServerId = primary.Id,
     ///         Databases = new[]
     ///         {

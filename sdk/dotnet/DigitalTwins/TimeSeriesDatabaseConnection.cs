@@ -22,47 +22,53 @@ namespace Pulumi.Azure.DigitalTwins
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInstance = new Azure.DigitalTwins.Instance("exampleInstance", new()
+    ///     var exampleInstance = new Azure.DigitalTwins.Instance("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-DT",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Identity = new Azure.DigitalTwins.Inputs.InstanceIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
     ///         },
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleEventHubNamespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "exampleEventHub",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 7,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("example", new()
     ///     {
+    ///         Name = "example-consumergroup",
     ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.Kusto.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.Kusto.Cluster("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplekc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.Kusto.Inputs.ClusterSkuArgs
     ///         {
     ///             Name = "Dev(No SLA)_Standard_D11_v2",
@@ -70,30 +76,32 @@ namespace Pulumi.Azure.DigitalTwins
     ///         },
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Kusto.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Kusto.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-kusto-database",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ClusterName = exampleCluster.Name,
     ///     });
     /// 
-    ///     var databaseContributor = new Azure.Authorization.Assignment("databaseContributor", new()
+    ///     var databaseContributor = new Azure.Authorization.Assignment("database_contributor", new()
     ///     {
     ///         Scope = exampleDatabase.Id,
     ///         PrincipalId = exampleInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         RoleDefinitionName = "Contributor",
     ///     });
     /// 
-    ///     var eventhubDataOwner = new Azure.Authorization.Assignment("eventhubDataOwner", new()
+    ///     var eventhubDataOwner = new Azure.Authorization.Assignment("eventhub_data_owner", new()
     ///     {
     ///         Scope = exampleEventHub.Id,
     ///         PrincipalId = exampleInstance.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///         RoleDefinitionName = "Azure Event Hubs Data Owner",
     ///     });
     /// 
-    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("exampleDatabasePrincipalAssignment", new()
+    ///     var exampleDatabasePrincipalAssignment = new Azure.Kusto.DatabasePrincipalAssignment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "dataadmin",
+    ///         ResourceGroupName = example.Name,
     ///         ClusterName = exampleCluster.Name,
     ///         DatabaseName = exampleDatabase.Name,
     ///         TenantId = exampleInstance.Identity.Apply(identity =&gt; identity?.TenantId),
@@ -102,8 +110,9 @@ namespace Pulumi.Azure.DigitalTwins
     ///         Role = "Admin",
     ///     });
     /// 
-    ///     var exampleTimeSeriesDatabaseConnection = new Azure.DigitalTwins.TimeSeriesDatabaseConnection("exampleTimeSeriesDatabaseConnection", new()
+    ///     var exampleTimeSeriesDatabaseConnection = new Azure.DigitalTwins.TimeSeriesDatabaseConnection("example", new()
     ///     {
+    ///         Name = "example-connection",
     ///         DigitalTwinsId = exampleInstance.Id,
     ///         EventhubName = exampleEventHub.Name,
     ///         EventhubNamespaceId = exampleEventHubNamespace.Id,
@@ -113,14 +122,6 @@ namespace Pulumi.Azure.DigitalTwins
     ///         KustoClusterUri = exampleCluster.Uri,
     ///         KustoDatabaseName = exampleDatabase.Name,
     ///         KustoTableName = "exampleTable",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             databaseContributor,
-    ///             eventhubDataOwner,
-    ///             exampleDatabasePrincipalAssignment,
-    ///         },
     ///     });
     /// 
     /// });

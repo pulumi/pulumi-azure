@@ -14,8 +14,9 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.compute.DiskAccess("example", {
- *     location: "West Europe",
+ *     name: "example",
  *     resourceGroupName: "example",
+ *     location: "West Europe",
  * });
  * ```
  *

@@ -31,12 +31,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			mainActionGroup, err := monitoring.NewActionGroup(ctx, "mainActionGroup", &monitoring.ActionGroupArgs{
+//			main, err := monitoring.NewActionGroup(ctx, "main", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-actiongroup"),
 //				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("p0action"),
 //				WebhookReceivers: monitoring.ActionGroupWebhookReceiverArray{
@@ -49,7 +51,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			toMonitor, err := storage.NewAccount(ctx, "toMonitor", &storage.AccountArgs{
+//			toMonitor, err := storage.NewAccount(ctx, "to_monitor", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplesa"),
 //				ResourceGroupName:      example.Name,
 //				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -58,7 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewActivityLogAlert(ctx, "mainActivityLogAlert", &monitoring.ActivityLogAlertArgs{
+//			_, err = monitoring.NewActivityLogAlert(ctx, "main", &monitoring.ActivityLogAlertArgs{
+//				Name:              pulumi.String("example-activitylogalert"),
 //				ResourceGroupName: example.Name,
 //				Scopes: pulumi.StringArray{
 //					example.ID(),
@@ -71,7 +75,7 @@ import (
 //				},
 //				Actions: monitoring.ActivityLogAlertActionArray{
 //					&monitoring.ActivityLogAlertActionArgs{
-//						ActionGroupId: mainActionGroup.ID(),
+//						ActionGroupId: main.ID(),
 //						WebhookProperties: pulumi.StringMap{
 //							"from": pulumi.String("source"),
 //						},

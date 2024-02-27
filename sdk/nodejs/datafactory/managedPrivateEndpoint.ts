@@ -13,20 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     managedVirtualNetworkEnabled: true,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountKind: "BlobStorage",
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleManagedPrivateEndpoint = new azure.datafactory.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint", {
+ * const exampleManagedPrivateEndpoint = new azure.datafactory.ManagedPrivateEndpoint("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     targetResourceId: exampleAccount.id,
  *     subresourceName: "blob",

@@ -171,35 +171,41 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.datashare.Account("example",
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             identity=azure.datashare.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_share = azure.datashare.Share("exampleShare",
+        example_share = azure.datashare.Share("example",
+            name="example_ds",
             account_id=example_account.id,
             kind="InPlace")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cluster = azure.kusto.Cluster("example",
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.kusto.Database("example",
+            name="examplekd",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=example_cluster.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",
             principal_id=example_account.identity.principal_id)
-        example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("exampleDatasetKustoDatabase",
+        example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("example",
+            name="example-dskd",
             share_id=example_share.id,
-            kusto_database_id=example_database.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            kusto_database_id=example_database.id)
         ```
 
         ## Import
@@ -231,35 +237,41 @@ class DatasetKustoDatabase(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.datashare.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.datashare.Account("example",
+            name="example-dsa",
+            location=example.location,
+            resource_group_name=example.name,
             identity=azure.datashare.AccountIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_share = azure.datashare.Share("exampleShare",
+        example_share = azure.datashare.Share("example",
+            name="example_ds",
             account_id=example_account.id,
             kind="InPlace")
-        example_cluster = azure.kusto.Cluster("exampleCluster",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cluster = azure.kusto.Cluster("example",
+            name="examplekc",
+            location=example.location,
+            resource_group_name=example.name,
             sku=azure.kusto.ClusterSkuArgs(
                 name="Dev(No SLA)_Standard_D11_v2",
                 capacity=1,
             ))
-        example_database = azure.kusto.Database("exampleDatabase",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_database = azure.kusto.Database("example",
+            name="examplekd",
+            resource_group_name=example.name,
+            location=example.location,
             cluster_name=example_cluster.name)
-        example_assignment = azure.authorization.Assignment("exampleAssignment",
+        example_assignment = azure.authorization.Assignment("example",
             scope=example_cluster.id,
             role_definition_name="Contributor",
             principal_id=example_account.identity.principal_id)
-        example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("exampleDatasetKustoDatabase",
+        example_dataset_kusto_database = azure.datashare.DatasetKustoDatabase("example",
+            name="example-dskd",
             share_id=example_share.id,
-            kusto_database_id=example_database.id,
-            opts=pulumi.ResourceOptions(depends_on=[example_assignment]))
+            kusto_database_id=example_database.id)
         ```
 
         ## Import

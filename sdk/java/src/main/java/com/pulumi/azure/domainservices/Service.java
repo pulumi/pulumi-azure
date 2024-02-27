@@ -53,7 +53,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.domainservices.inputs.ServiceInitialReplicaSetArgs;
  * import com.pulumi.azure.domainservices.inputs.ServiceNotificationsArgs;
  * import com.pulumi.azure.domainservices.inputs.ServiceSecurityArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -67,25 +66,29 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var deployResourceGroup = new ResourceGroup(&#34;deployResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var deploy = new ResourceGroup(&#34;deploy&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var deployVirtualNetwork = new VirtualNetwork(&#34;deployVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .location(deployResourceGroup.location())
- *             .resourceGroupName(deployResourceGroup.name())
+ *             .name(&#34;deploy-vnet&#34;)
+ *             .location(deploy.location())
+ *             .resourceGroupName(deploy.name())
  *             .addressSpaces(&#34;10.0.1.0/16&#34;)
  *             .build());
  * 
  *         var deploySubnet = new Subnet(&#34;deploySubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(deployResourceGroup.name())
+ *             .name(&#34;deploy-subnet&#34;)
+ *             .resourceGroupName(deploy.name())
  *             .virtualNetworkName(deployVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.1.0/24&#34;)
  *             .build());
  * 
  *         var deployNetworkSecurityGroup = new NetworkSecurityGroup(&#34;deployNetworkSecurityGroup&#34;, NetworkSecurityGroupArgs.builder()        
- *             .location(deployResourceGroup.location())
- *             .resourceGroupName(deployResourceGroup.name())
+ *             .name(&#34;deploy-nsg&#34;)
+ *             .location(deploy.location())
+ *             .resourceGroupName(deploy.name())
  *             .securityRules(            
  *                 NetworkSecurityGroupSecurityRuleArgs.builder()
  *                     .name(&#34;AllowSyncWithAzureAD&#34;)
@@ -143,7 +146,7 @@ import javax.annotation.Nullable;
  *             .securityEnabled(true)
  *             .build());
  * 
- *         var adminUser = new User(&#34;adminUser&#34;, UserArgs.builder()        
+ *         var admin = new User(&#34;admin&#34;, UserArgs.builder()        
  *             .userPrincipalName(&#34;dc-admin@hashicorp-example.com&#34;)
  *             .displayName(&#34;DC Administrator&#34;)
  *             .password(&#34;Pa55w0Rd!!1&#34;)
@@ -151,18 +154,20 @@ import javax.annotation.Nullable;
  * 
  *         var adminGroupMember = new GroupMember(&#34;adminGroupMember&#34;, GroupMemberArgs.builder()        
  *             .groupObjectId(dcAdmins.objectId())
- *             .memberObjectId(adminUser.objectId())
+ *             .memberObjectId(admin.objectId())
  *             .build());
  * 
- *         var exampleServicePrincipal = new ServicePrincipal(&#34;exampleServicePrincipal&#34;, ServicePrincipalArgs.builder()        
+ *         var example = new ServicePrincipal(&#34;example&#34;, ServicePrincipalArgs.builder()        
  *             .applicationId(&#34;2565bd9d-da50-47d4-8b85-4c97f669dc36&#34;)
  *             .build());
  * 
  *         var aadds = new ResourceGroup(&#34;aadds&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;aadds-rg&#34;)
  *             .location(&#34;westeurope&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
+ *             .name(&#34;example-aadds&#34;)
  *             .location(aadds.location())
  *             .resourceGroupName(aadds.name())
  *             .domainName(&#34;widgetslogin.net&#34;)
@@ -184,11 +189,7 @@ import javax.annotation.Nullable;
  *                 .syncOnPremPasswords(true)
  *                 .build())
  *             .tags(Map.of(&#34;Environment&#34;, &#34;prod&#34;))
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     exampleServicePrincipal,
- *                     deploySubnetNetworkSecurityGroupAssociation)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

@@ -16,22 +16,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "East US",
+ * });
  * //Create a Linked Service using managed identity and new cluster config
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "TestDtaFactory92783401247",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
  * //Create a databricks instance
- * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ *     name: "databricks-test",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  * });
- * const msiLinked = new azure.datafactory.LinkedServiceAzureDatabricks("msiLinked", {
+ * const msiLinked = new azure.datafactory.LinkedServiceAzureDatabricks("msi_linked", {
+ *     name: "ADBLinkedServiceViaMSI",
  *     dataFactoryId: exampleFactory.id,
  *     description: "ADB Linked Service via MSI",
  *     adbDomain: pulumi.interpolate`https://${exampleWorkspace.workspaceUrl}`,
@@ -68,19 +74,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "East US",
+ * });
  * //Link to an existing cluster via access token
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "TestDtaFactory92783401247",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * //Create a databricks instance
- * const exampleWorkspace = new azure.databricks.Workspace("exampleWorkspace", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleWorkspace = new azure.databricks.Workspace("example", {
+ *     name: "databricks-test",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  * });
- * const atLinked = new azure.datafactory.LinkedServiceAzureDatabricks("atLinked", {
+ * const atLinked = new azure.datafactory.LinkedServiceAzureDatabricks("at_linked", {
+ *     name: "ADBLinkedServiceViaAccessToken",
  *     dataFactoryId: exampleFactory.id,
  *     description: "ADB Linked Service via Access Token",
  *     existingClusterId: "0308-201146-sly615",

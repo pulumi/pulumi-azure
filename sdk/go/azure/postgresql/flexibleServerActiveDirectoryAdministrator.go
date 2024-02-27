@@ -34,19 +34,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicePrincipal, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
+//			example, err := azuread.LookupServicePrincipal(ctx, &azuread.LookupServicePrincipalArgs{
 //				ObjectId: pulumi.StringRef(current.ObjectId),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "exampleFlexibleServer", &postgresql.FlexibleServerArgs{
+//			exampleFlexibleServer, err := postgresql.NewFlexibleServer(ctx, "example", &postgresql.FlexibleServerArgs{
+//				Name:                  pulumi.String("example-fs"),
 //				ResourceGroupName:     exampleResourceGroup.Name,
 //				Location:              exampleResourceGroup.Location,
 //				AdministratorLogin:    pulumi.String("adminTerraform"),
@@ -63,12 +65,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = postgresql.NewFlexibleServerActiveDirectoryAdministrator(ctx, "exampleFlexibleServerActiveDirectoryAdministrator", &postgresql.FlexibleServerActiveDirectoryAdministratorArgs{
+//			_, err = postgresql.NewFlexibleServerActiveDirectoryAdministrator(ctx, "example", &postgresql.FlexibleServerActiveDirectoryAdministratorArgs{
 //				ServerName:        exampleFlexibleServer.Name,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				TenantId:          *pulumi.String(current.TenantId),
-//				ObjectId:          *pulumi.String(exampleServicePrincipal.ObjectId),
-//				PrincipalName:     *pulumi.String(exampleServicePrincipal.DisplayName),
+//				ObjectId:          *pulumi.String(example.ObjectId),
+//				PrincipalName:     *pulumi.String(example.DisplayName),
 //				PrincipalType:     pulumi.String("ServicePrincipal"),
 //			})
 //			if err != nil {

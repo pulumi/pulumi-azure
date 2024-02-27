@@ -22,15 +22,17 @@ namespace Pulumi.Azure.ServiceFabric
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.ServiceFabric.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.ServiceFabric.Cluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-servicefabric",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         ReliabilityLevel = "Bronze",
     ///         UpgradeMode = "Manual",
     ///         ClusterCodeVersion = "7.1.456.959",

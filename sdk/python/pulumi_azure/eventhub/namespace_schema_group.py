@@ -169,13 +169,17 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
-        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG-ehn-schemaGroup",
+            location="East US")
+        test = azure.eventhub.EventHubNamespace("test",
+            name="example-ehn-schemaGroup",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             sku="Standard")
-        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
-            namespace_id=test_event_hub_namespace.id,
+        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("test",
+            name="example-schemaGroup",
+            namespace_id=test.id,
             schema_compatibility="Forward",
             schema_type="Avro")
         ```
@@ -208,13 +212,17 @@ class NamespaceSchemaGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="East US")
-        test_event_hub_namespace = azure.eventhub.EventHubNamespace("testEventHubNamespace",
-            location=azurerm_resource_group["test"]["location"],
-            resource_group_name=azurerm_resource_group["test"]["name"],
+        example = azure.core.ResourceGroup("example",
+            name="exampleRG-ehn-schemaGroup",
+            location="East US")
+        test = azure.eventhub.EventHubNamespace("test",
+            name="example-ehn-schemaGroup",
+            location=test_azurerm_resource_group["location"],
+            resource_group_name=test_azurerm_resource_group["name"],
             sku="Standard")
-        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("testNamespaceSchemaGroup",
-            namespace_id=test_event_hub_namespace.id,
+        test_namespace_schema_group = azure.eventhub.NamespaceSchemaGroup("test",
+            name="example-schemaGroup",
+            namespace_id=test.id,
             schema_compatibility="Forward",
             schema_type="Avro")
         ```

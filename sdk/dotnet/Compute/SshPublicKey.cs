@@ -16,18 +16,22 @@ namespace Pulumi.Azure.Compute
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Azure.Compute.SshPublicKey("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = "example",
     ///         Location = "West Europe",
-    ///         PublicKey = File.ReadAllText("~/.ssh/id_rsa.pub"),
+    ///         PublicKey = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "~/.ssh/id_rsa.pub",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
     /// });

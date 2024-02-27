@@ -9,6 +9,73 @@ import * as utilities from "../utilities";
  *
  * > NOTE: A certificate is valid for six months, and about a month before the certificate’s expiration date, App Services renews/rotates the certificate. This is managed by Azure and doesn't require this resource to be changed or reprovisioned. It will change the `thumbprint` computed attribute the next time the resource is refreshed after rotation occurs, so keep that in mind if you have any dependencies on this attribute directly.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
+ *
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const example = azure.dns.getZoneOutput({
+ *     name: "mydomain.com",
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const examplePlan = new azure.appservice.Plan("example", {
+ *     name: "example-plan",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     kind: "Linux",
+ *     reserved: true,
+ *     sku: {
+ *         tier: "Basic",
+ *         size: "B1",
+ *     },
+ * });
+ * const exampleAppService = new azure.appservice.AppService("example", {
+ *     name: "example-app",
+ *     location: exampleResourceGroup.location,
+ *     resourceGroupName: exampleResourceGroup.name,
+ *     appServicePlanId: examplePlan.id,
+ * });
+ * const exampleTxtRecord = new azure.dns.TxtRecord("example", {
+ *     name: "asuid.mycustomhost.contoso.com",
+ *     zoneName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     ttl: 300,
+ *     records: [{
+ *         value: exampleAppService.customDomainVerificationId,
+ *     }],
+ * });
+ * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ *     name: "example-adcr",
+ *     zoneName: example.apply(example => example.name),
+ *     resourceGroupName: example.apply(example => example.resourceGroupName),
+ *     ttl: 300,
+ *     record: exampleAppService.defaultSiteHostname,
+ * });
+ * const exampleCustomHostnameBinding = new azure.appservice.CustomHostnameBinding("example", {
+ *     hostname: std.joinOutput({
+ *         separator: ".",
+ *         input: [
+ *             exampleCNameRecord.name,
+ *             exampleCNameRecord.zoneName,
+ *         ],
+ *     }).apply(invoke => invoke.result),
+ *     appServiceName: exampleAppService.name,
+ *     resourceGroupName: exampleResourceGroup.name,
+ * });
+ * const exampleManagedCertificate = new azure.appservice.ManagedCertificate("example", {customHostnameBindingId: exampleCustomHostnameBinding.id});
+ * const exampleCertificateBinding = new azure.appservice.CertificateBinding("example", {
+ *     hostnameBindingId: exampleCustomHostnameBinding.id,
+ *     certificateId: exampleManagedCertificate.id,
+ *     sslState: "SniEnabled",
+ * });
+ * ```
+ *
  * ## Import
  *
  * App Service Managed Certificates can be imported using the `resource id`, e.g.

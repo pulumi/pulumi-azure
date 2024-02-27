@@ -22,29 +22,32 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleAccount = Azure.CosmosDB.GetAccount.Invoke(new()
+    ///     var example = Azure.CosmosDB.GetAccount.Invoke(new()
     ///     {
     ///         Name = "tfex-cosmosdb-account",
     ///         ResourceGroupName = "tfex-cosmosdb-account-rg",
     ///     });
     /// 
-    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("exampleSqlDatabase", new()
+    ///     var exampleSqlDatabase = new Azure.CosmosDB.SqlDatabase("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "tfex-cosmos-db",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         Throughput = 400,
     ///     });
     /// 
-    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("exampleSqlContainer", new()
+    ///     var exampleSqlContainer = new Azure.CosmosDB.SqlContainer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
-    ///         AccountName = exampleAccount.Apply(getAccountResult =&gt; getAccountResult.Name),
+    ///         Name = "example-container",
+    ///         ResourceGroupName = example.Apply(getAccountResult =&gt; getAccountResult.ResourceGroupName),
+    ///         AccountName = example.Apply(getAccountResult =&gt; getAccountResult.Name),
     ///         DatabaseName = exampleSqlDatabase.Name,
     ///         PartitionKeyPath = "/id",
     ///     });
     /// 
-    ///     var exampleSqlTrigger = new Azure.CosmosDB.SqlTrigger("exampleSqlTrigger", new()
+    ///     var exampleSqlTrigger = new Azure.CosmosDB.SqlTrigger("example", new()
     ///     {
+    ///         Name = "test-trigger",
     ///         ContainerId = exampleSqlContainer.Id,
     ///         Body = "function trigger(){}",
     ///         Operation = "Delete",

@@ -618,12 +618,16 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
+            name="example-rdsac",
+            resource_group_name=example.name,
             location="West Europe",
             version="2.40.0",
             retention_interval="P1D",
@@ -684,12 +688,16 @@ class ResourceDeploymentScriptAzureCli(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("exampleResourceDeploymentScriptAzureCli",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="example-uai",
+            location=example.location,
+            resource_group_name=example.name)
+        example_resource_deployment_script_azure_cli = azure.core.ResourceDeploymentScriptAzureCli("example",
+            name="example-rdsac",
+            resource_group_name=example.name,
             location="West Europe",
             version="2.40.0",
             retention_interval="P1D",

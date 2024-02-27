@@ -358,8 +358,8 @@ def get_pool(account_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.batch.get_pool(account_name="testbatchaccount",
-        name="testbatchpool",
+    example = azure.batch.get_pool(name="testbatchpool",
+        account_name="testbatchaccount",
         resource_group_name="test")
     ```
 
@@ -418,8 +418,8 @@ def get_pool_output(account_name: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.batch.get_pool(account_name="testbatchaccount",
-        name="testbatchpool",
+    example = azure.batch.get_pool(name="testbatchpool",
+        account_name="testbatchaccount",
         resource_group_name="test")
     ```
 

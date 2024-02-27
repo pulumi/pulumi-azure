@@ -133,8 +133,8 @@ def get_sql_role_definition(account_name: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cosmosdb.get_sql_role_definition(account_name="tfex-cosmosdb-sql-role-definition-account-name",
-        resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
+    example = azure.cosmosdb.get_sql_role_definition(resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
+        account_name="tfex-cosmosdb-sql-role-definition-account-name",
         role_definition_id="00000000-0000-0000-0000-000000000000")
     ```
 
@@ -175,8 +175,8 @@ def get_sql_role_definition_output(account_name: Optional[pulumi.Input[str]] = N
     import pulumi
     import pulumi_azure as azure
 
-    example = azure.cosmosdb.get_sql_role_definition(account_name="tfex-cosmosdb-sql-role-definition-account-name",
-        resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
+    example = azure.cosmosdb.get_sql_role_definition(resource_group_name="tfex-cosmosdb-sql-role-definition-rg",
+        account_name="tfex-cosmosdb-sql-role-definition-account-name",
         role_definition_id="00000000-0000-0000-0000-000000000000")
     ```
 

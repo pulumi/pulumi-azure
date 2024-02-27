@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetExpressRouteCircuit.Invoke(new()
         ///     {
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         Name = azurerm_express_route_circuit.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         Name = exampleAzurermExpressRouteCircuit.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -62,8 +62,8 @@ namespace Pulumi.Azure.Network
         /// {
         ///     var example = Azure.Network.GetExpressRouteCircuit.Invoke(new()
         ///     {
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
-        ///         Name = azurerm_express_route_circuit.Example.Name,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
+        ///         Name = exampleAzurermExpressRouteCircuit.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

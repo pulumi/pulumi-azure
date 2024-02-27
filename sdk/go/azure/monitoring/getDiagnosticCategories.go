@@ -28,15 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleKeyVault, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
-//				Name:              azurerm_key_vault.Example.Name,
-//				ResourceGroupName: azurerm_key_vault.Example.Resource_group_name,
+//			example, err := keyvault.LookupKeyVault(ctx, &keyvault.LookupKeyVaultArgs{
+//				Name:              exampleAzurermKeyVault.Name,
+//				ResourceGroupName: exampleAzurermKeyVault.ResourceGroupName,
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
 //			_, err = monitoring.GetDiagnosticCategories(ctx, &monitoring.GetDiagnosticCategoriesArgs{
-//				ResourceId: exampleKeyVault.Id,
+//				ResourceId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

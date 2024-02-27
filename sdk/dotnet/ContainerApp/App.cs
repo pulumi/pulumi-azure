@@ -22,30 +22,34 @@ namespace Pulumi.Azure.ContainerApp
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "acctest-01",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("exampleEnvironment", new()
+    ///     var exampleEnvironment = new Azure.ContainerApp.Environment("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Example-Environment",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LogAnalyticsWorkspaceId = exampleAnalyticsWorkspace.Id,
     ///     });
     /// 
-    ///     var exampleApp = new Azure.ContainerApp.App("exampleApp", new()
+    ///     var exampleApp = new Azure.ContainerApp.App("example", new()
     ///     {
+    ///         Name = "example-app",
     ///         ContainerAppEnvironmentId = exampleEnvironment.Id,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         RevisionMode = "Single",
     ///         Template = new Azure.ContainerApp.Inputs.AppTemplateArgs
     ///         {

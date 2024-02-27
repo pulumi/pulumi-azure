@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-public-ip",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///         DomainNameLabel = "example-public-ip",
     ///     });
     /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-profile",
+    ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
@@ -59,8 +62,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleTrafficManagerAzureEndpoint = new Azure.Network.TrafficManagerAzureEndpoint("exampleTrafficManagerAzureEndpoint", new()
+    ///     var exampleTrafficManagerAzureEndpoint = new Azure.Network.TrafficManagerAzureEndpoint("example", new()
     ///     {
+    ///         Name = "example-endpoint",
     ///         ProfileId = exampleTrafficManagerProfile.Id,
     ///         AlwaysServeEnabled = true,
     ///         Weight = 100,

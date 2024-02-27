@@ -488,20 +488,25 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
             location="West US",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
             location="West US",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_rule = azure.lb.Rule("exampleRule",
+        example_rule = azure.lb.Rule("example",
             loadbalancer_id=example_load_balancer.id,
+            name="LBRule",
             protocol="Tcp",
             frontend_port=3389,
             backend_port=3389,
@@ -551,20 +556,25 @@ class Rule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example = azure.core.ResourceGroup("example",
+            name="LoadBalancerRG",
+            location="West Europe")
+        example_public_ip = azure.network.PublicIp("example",
+            name="PublicIPForLB",
             location="West US",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="TestLoadBalancer",
             location="West US",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name="PublicIPAddress",
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_rule = azure.lb.Rule("exampleRule",
+        example_rule = azure.lb.Rule("example",
             loadbalancer_id=example_load_balancer.id,
+            name="LBRule",
             protocol="Tcp",
             frontend_port=3389,
             backend_port=3389,

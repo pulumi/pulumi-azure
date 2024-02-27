@@ -45,10 +45,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;localNetworkGWTest&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var home = new LocalNetworkGateway(&#34;home&#34;, LocalNetworkGatewayArgs.builder()        
+ *             .name(&#34;backHome&#34;)
  *             .resourceGroupName(example.name())
  *             .location(example.location())
  *             .gatewayAddress(&#34;12.13.14.15&#34;)

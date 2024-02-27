@@ -22,32 +22,36 @@ namespace Pulumi.Azure.Batch
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleBatch_accountAccount = new Azure.Batch.Account("exampleBatch/accountAccount", new()
+    ///     var exampleAccount2 = new Azure.Batch.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleba",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         PoolAllocationMode = "BatchService",
     ///         StorageAccountId = exampleAccount.Id,
     ///         StorageAccountAuthenticationMode = "StorageKeys",
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.Batch.Application("exampleApplication", new()
+    ///     var exampleApplication = new Azure.Batch.Application("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         AccountName = exampleBatch / accountAccount.Name,
+    ///         Name = "example-batch-application",
+    ///         ResourceGroupName = example.Name,
+    ///         AccountName = exampleAccount2.Name,
     ///     });
     /// 
     /// });

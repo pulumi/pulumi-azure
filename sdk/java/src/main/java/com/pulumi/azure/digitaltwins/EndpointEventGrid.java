@@ -45,21 +45,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example_resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleInstance = new Instance(&#34;exampleInstance&#34;, InstanceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-DT&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleTopic = new Topic(&#34;exampleTopic&#34;, TopicArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-topic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleEndpointEventGrid = new EndpointEventGrid(&#34;exampleEndpointEventGrid&#34;, EndpointEventGridArgs.builder()        
+ *             .name(&#34;example-EG&#34;)
  *             .digitalTwinsId(exampleInstance.id())
  *             .eventgridTopicEndpoint(exampleTopic.endpoint())
  *             .eventgridTopicPrimaryAccessKey(exampleTopic.primaryAccessKey())

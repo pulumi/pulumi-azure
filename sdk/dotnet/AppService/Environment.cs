@@ -22,15 +22,17 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleRG1",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet1",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
@@ -39,7 +41,8 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var ase = new Azure.Network.Subnet("ase", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "asesubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -49,7 +52,8 @@ namespace Pulumi.Azure.AppService
     /// 
     ///     var gateway = new Azure.Network.Subnet("gateway", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "gatewaysubnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -57,9 +61,10 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleEnvironment = new Azure.AppService.Environment("exampleEnvironment", new()
+    ///     var exampleEnvironment = new Azure.AppService.Environment("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ase",
+    ///         ResourceGroupName = example.Name,
     ///         SubnetId = ase.Id,
     ///         PricingTier = "I2",
     ///         FrontEndScaleFactor = 10,

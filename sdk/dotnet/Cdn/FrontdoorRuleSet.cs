@@ -22,19 +22,22 @@ namespace Pulumi.Azure.Cdn
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-cdn-frontdoor",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("exampleFrontdoorProfile", new()
+    ///     var exampleFrontdoorProfile = new Azure.Cdn.FrontdoorProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-profile",
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard_AzureFrontDoor",
     ///     });
     /// 
-    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("exampleFrontdoorRuleSet", new()
+    ///     var exampleFrontdoorRuleSet = new Azure.Cdn.FrontdoorRuleSet("example", new()
     ///     {
+    ///         Name = "ExampleRuleSet",
     ///         CdnFrontdoorProfileId = exampleFrontdoorProfile.Id,
     ///     });
     /// 

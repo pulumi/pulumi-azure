@@ -31,35 +31,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSync, err := storage.NewSync(ctx, "exampleSync", &storage.SyncArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSync, err := storage.NewSync(ctx, "example", &storage.SyncArgs{
+//				Name:              pulumi.String("example-ss"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSyncGroup, err := storage.NewSyncGroup(ctx, "exampleSyncGroup", &storage.SyncGroupArgs{
+//			exampleSyncGroup, err := storage.NewSyncGroup(ctx, "example", &storage.SyncGroupArgs{
+//				Name:          pulumi.String("example-ss-group"),
 //				StorageSyncId: exampleSync.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleShare, err := storage.NewShare(ctx, "exampleShare", &storage.ShareArgs{
+//			exampleShare, err := storage.NewShare(ctx, "example", &storage.ShareArgs{
+//				Name:               pulumi.String("example-share"),
 //				StorageAccountName: exampleAccount.Name,
 //				Quota:              pulumi.Int(50),
 //				Acls: storage.ShareAclArray{
@@ -76,7 +81,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = storage.NewSyncCloudEndpoint(ctx, "exampleSyncCloudEndpoint", &storage.SyncCloudEndpointArgs{
+//			_, err = storage.NewSyncCloudEndpoint(ctx, "example", &storage.SyncCloudEndpointArgs{
+//				Name:               pulumi.String("example-ss-ce"),
 //				StorageSyncGroupId: exampleSyncGroup.ID(),
 //				FileShareName:      exampleShare.Name,
 //				StorageAccountId:   exampleAccount.ID(),

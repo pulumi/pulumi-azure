@@ -31,10 +31,10 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := cdn.NewFrontdoorRouteDisableLinkToDefaultDomain(ctx, "example", &cdn.FrontdoorRouteDisableLinkToDefaultDomainArgs{
-//				CdnFrontdoorRouteId: pulumi.Any(azurerm_cdn_frontdoor_route.Example.Id),
+//				CdnFrontdoorRouteId: pulumi.Any(exampleAzurermCdnFrontdoorRoute.Id),
 //				CdnFrontdoorCustomDomainIds: pulumi.StringArray{
-//					azurerm_cdn_frontdoor_custom_domain.Contoso.Id,
-//					azurerm_cdn_frontdoor_custom_domain.Fabrikam.Id,
+//					contoso.Id,
+//					fabrikam.Id,
 //				},
 //			})
 //			if err != nil {

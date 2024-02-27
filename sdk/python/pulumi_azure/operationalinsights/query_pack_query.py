@@ -369,11 +369,15 @@ class QueryPackQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_query_pack_query = azure.operationalinsights.QueryPackQuery("exampleQueryPackQuery",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("example",
+            name="example-laqp",
+            resource_group_name=example.name,
+            location=example.location)
+        example_query_pack_query = azure.operationalinsights.QueryPackQuery("example",
+            name="19952bc3-0bf9-49eb-b713-6b80e7a41847",
             query_pack_id=example_query_pack.id,
             body=\"\"\"let newExceptionsTimeRange = 1d;
         let timeRangeToCheckBefore = 7d;
@@ -427,11 +431,15 @@ class QueryPackQuery(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_query_pack = azure.loganalytics.QueryPack("exampleQueryPack",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_query_pack_query = azure.operationalinsights.QueryPackQuery("exampleQueryPackQuery",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_query_pack = azure.loganalytics.QueryPack("example",
+            name="example-laqp",
+            resource_group_name=example.name,
+            location=example.location)
+        example_query_pack_query = azure.operationalinsights.QueryPackQuery("example",
+            name="19952bc3-0bf9-49eb-b713-6b80e7a41847",
             query_pack_id=example_query_pack.id,
             body=\"\"\"let newExceptionsTimeRange = 1d;
         let timeRangeToCheckBefore = 7d;

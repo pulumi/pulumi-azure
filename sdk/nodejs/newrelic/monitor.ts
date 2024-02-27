@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "East US"});
- * const exampleMonitor = new azure.newrelic.Monitor("exampleMonitor", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "East US",
+ * });
+ * const exampleMonitor = new azure.newrelic.Monitor("example", {
+ *     name: "example-nrm",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     plan: {
  *         effectiveDate: "2023-06-06T00:00:00Z",
  *     },

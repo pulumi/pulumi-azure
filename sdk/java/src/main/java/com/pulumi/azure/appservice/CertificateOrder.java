@@ -46,12 +46,14 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCertificateOrder = new CertificateOrder(&#34;exampleCertificateOrder&#34;, CertificateOrderArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cert-order&#34;)
+ *             .resourceGroupName(example.name())
  *             .location(&#34;global&#34;)
  *             .distinguishedName(&#34;CN=example.com&#34;)
  *             .productType(&#34;Standard&#34;)

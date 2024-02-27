@@ -28,10 +28,10 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
         ///     {
+        ///         TableName = "example-table-name",
+        ///         StorageAccountName = "example-storage-account-name",
         ///         PartitionKey = "example-partition-key",
         ///         RowKey = "example-row-key",
-        ///         StorageAccountName = "example-storage-account-name",
-        ///         TableName = "example-table-name",
         ///     });
         /// 
         /// });
@@ -59,10 +59,10 @@ namespace Pulumi.Azure.Storage
         /// {
         ///     var example = Azure.Storage.GetTableEntity.Invoke(new()
         ///     {
+        ///         TableName = "example-table-name",
+        ///         StorageAccountName = "example-storage-account-name",
         ///         PartitionKey = "example-partition-key",
         ///         RowKey = "example-row-key",
-        ///         StorageAccountName = "example-storage-account-name",
-        ///         TableName = "example-table-name",
         ///     });
         /// 
         /// });

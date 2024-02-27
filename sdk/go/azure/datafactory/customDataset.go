@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Identity: &datafactory.FactoryIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},
@@ -48,9 +50,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountKind:            pulumi.String("BlobStorage"),
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
@@ -58,7 +61,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "exampleLinkedCustomService", &datafactory.LinkedCustomServiceArgs{
+//			exampleLinkedCustomService, err := datafactory.NewLinkedCustomService(ctx, "example", &datafactory.LinkedCustomServiceArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Type:          pulumi.String("AzureBlobStorage"),
 //				TypePropertiesJson: exampleAccount.PrimaryConnectionString.ApplyT(func(primaryConnectionString string) (string, error) {
@@ -68,14 +72,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:                pulumi.String("content"),
 //				StorageAccountName:  exampleAccount.Name,
 //				ContainerAccessType: pulumi.String("private"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewCustomDataset(ctx, "exampleCustomDataset", &datafactory.CustomDatasetArgs{
+//			_, err = datafactory.NewCustomDataset(ctx, "example", &datafactory.CustomDatasetArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //				Type:          pulumi.String("Json"),
 //				LinkedService: &datafactory.CustomDatasetLinkedServiceArgs{

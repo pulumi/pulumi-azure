@@ -16,13 +16,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
+ *     name: "appConf1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
  * const current = azure.core.getClientConfig({});
- * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
+ * const appconfDataowner = new azure.authorization.Assignment("appconf_dataowner", {
  *     scope: appconf.id,
  *     roleDefinitionName: "App Configuration Data Owner",
  *     principalId: current.then(current => current.objectId),
@@ -32,8 +36,6 @@ import * as utilities from "../utilities";
  *     key: "appConfKey1",
  *     label: "somelabel",
  *     value: "a test",
- * }, {
- *     dependsOn: [appconfDataowner],
  * });
  * ```
  * ### `Vault` Type
@@ -42,15 +44,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const example = new azure.core.ResourceGroup("example", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
  * const appconf = new azure.appconfiguration.ConfigurationStore("appconf", {
+ *     name: "appConf1",
  *     resourceGroupName: example.name,
  *     location: example.location,
  * });
  * const current = azure.core.getClientConfig({});
  * const kv = new azure.keyvault.KeyVault("kv", {
- *     location: azurerm_resource_group.test.location,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     name: "kv",
+ *     location: testAzurermResourceGroup.location,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     softDeleteRetentionDays: 7,
@@ -71,22 +78,21 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * const kvs = new azure.keyvault.Secret("kvs", {
+ *     name: "kvs",
  *     value: "szechuan",
  *     keyVaultId: kv.id,
  * });
- * const appconfDataowner = new azure.authorization.Assignment("appconfDataowner", {
+ * const appconfDataowner = new azure.authorization.Assignment("appconf_dataowner", {
  *     scope: appconf.id,
  *     roleDefinitionName: "App Configuration Data Owner",
  *     principalId: current.then(current => current.objectId),
  * });
  * const test = new azure.appconfiguration.ConfigurationKey("test", {
- *     configurationStoreId: azurerm_app_configuration.test.id,
+ *     configurationStoreId: testAzurermAppConfiguration.id,
  *     key: "key1",
  *     type: "vault",
  *     label: "label1",
  *     vaultKeyReference: kvs.versionlessId,
- * }, {
- *     dependsOn: [appconfDataowner],
  * });
  * ```
  *

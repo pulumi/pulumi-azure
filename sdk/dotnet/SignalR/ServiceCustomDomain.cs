@@ -15,32 +15,27 @@ namespace Pulumi.Azure.SignalR
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.SignalR.Service("exampleService", new()
+    ///     var exampleService = new Azure.SignalR.Service("example", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Name = "example-signalr",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Sku = new Azure.SignalR.Inputs.ServiceSkuArgs
     ///         {
     ///             Name = "Premium_P1",
@@ -52,10 +47,11 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-keyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         AccessPolicies = new[]
@@ -79,7 +75,7 @@ namespace Pulumi.Azure.SignalR
     ///             new Azure.KeyVault.Inputs.KeyVaultAccessPolicyArgs
     ///             {
     ///                 TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
-    ///                 ObjectId = azurerm_signalr_service.Test.Identity[0].Principal_id,
+    ///                 ObjectId = testAzurermSignalrService.Identity[0].PrincipalId,
     ///                 CertificatePermissions = new[]
     ///                 {
     ///                     "Create",
@@ -95,33 +91,33 @@ namespace Pulumi.Azure.SignalR
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.KeyVault.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.KeyVault.Certificate("example", new()
     ///     {
+    ///         Name = "imported-cert",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyVaultCertificate = new Azure.KeyVault.Inputs.CertificateCertificateArgs
     ///         {
-    ///             Contents = ReadFileBase64("certificate-to-import.pfx"),
+    ///             Contents = Std.Filebase64.Invoke(new()
+    ///             {
+    ///                 Input = "certificate-to-import.pfx",
+    ///             }).Apply(invoke =&gt; invoke.Result),
     ///             Password = "",
     ///         },
     ///     });
     /// 
-    ///     var testServiceCustomCertificate = new Azure.SignalR.ServiceCustomCertificate("testServiceCustomCertificate", new()
+    ///     var test = new Azure.SignalR.ServiceCustomCertificate("test", new()
     ///     {
+    ///         Name = "example-cert",
     ///         SignalrServiceId = exampleService.Id,
     ///         CustomCertificateId = exampleCertificate.Id,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_key_vault_access_policy.Example,
-    ///         },
     ///     });
     /// 
-    ///     var testServiceCustomDomain = new Azure.SignalR.ServiceCustomDomain("testServiceCustomDomain", new()
+    ///     var testServiceCustomDomain = new Azure.SignalR.ServiceCustomDomain("test", new()
     ///     {
-    ///         SignalrServiceId = azurerm_signalr_service.Test.Id,
+    ///         Name = "example-domain",
+    ///         SignalrServiceId = testAzurermSignalrService.Id,
     ///         DomainName = "tftest.com",
-    ///         SignalrCustomCertificateId = testServiceCustomCertificate.Id,
+    ///         SignalrCustomCertificateId = test.Id,
     ///     });
     /// 
     /// });

@@ -15,10 +15,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDevice = new azure.databoxedge.Device("exampleDevice", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-databoxedge",
+ *     location: "West Europe",
+ * });
+ * const exampleDevice = new azure.databoxedge.Device("example", {
+ *     name: "example-device",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "EdgeP_Base-Standard",
  * });
  * ```

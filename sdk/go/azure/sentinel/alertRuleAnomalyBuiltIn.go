@@ -28,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-law"),
 //				Location:          exampleResourceGroup.Location,
 //				ResourceGroupName: exampleResourceGroup.Name,
 //				Sku:               pulumi.String("PerGB2018"),
@@ -42,7 +44,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//			exampleLogAnalyticsWorkspaceOnboarding, err := sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
 //				WorkspaceId:               exampleAnalyticsWorkspace.ID(),
 //				CustomerManagedKeyEnabled: pulumi.Bool(false),
 //			})
@@ -53,7 +55,7 @@ import (
 //				LogAnalyticsWorkspaceId: exampleLogAnalyticsWorkspaceOnboarding.WorkspaceId,
 //				DisplayName:             pulumi.String("Potential data staging"),
 //			}, nil)
-//			_, err = sentinel.NewAlertRuleAnomalyBuiltIn(ctx, "exampleAlertRuleAnomalyBuiltIn", &sentinel.AlertRuleAnomalyBuiltInArgs{
+//			_, err = sentinel.NewAlertRuleAnomalyBuiltIn(ctx, "example", &sentinel.AlertRuleAnomalyBuiltInArgs{
 //				DisplayName:             pulumi.String("Potential data staging"),
 //				LogAnalyticsWorkspaceId: exampleAnalyticsWorkspace.ID(),
 //				Mode:                    pulumi.String("Production"),

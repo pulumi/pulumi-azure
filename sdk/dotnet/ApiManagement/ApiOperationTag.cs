@@ -22,7 +22,7 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleApi = Azure.ApiManagement.GetApi.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetApi.Invoke(new()
     ///     {
     ///         Name = "search-api",
     ///         ApiManagementName = "search-api-management",
@@ -30,12 +30,12 @@ namespace Pulumi.Azure.ApiManagement
     ///         Revision = "2",
     ///     });
     /// 
-    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("exampleApiOperation", new()
+    ///     var exampleApiOperation = new Azure.ApiManagement.ApiOperation("example", new()
     ///     {
     ///         OperationId = "user-delete",
-    ///         ApiName = exampleApi.Apply(getApiResult =&gt; getApiResult.Name),
-    ///         ApiManagementName = exampleApi.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
-    ///         ResourceGroupName = exampleApi.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
+    ///         ApiName = example.Apply(getApiResult =&gt; getApiResult.Name),
+    ///         ApiManagementName = example.Apply(getApiResult =&gt; getApiResult.ApiManagementName),
+    ///         ResourceGroupName = example.Apply(getApiResult =&gt; getApiResult.ResourceGroupName),
     ///         DisplayName = "Delete User Operation",
     ///         Method = "DELETE",
     ///         UrlTemplate = "/users/{id}/delete",
@@ -58,8 +58,9 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("exampleApiOperationTag", new()
+    ///     var exampleApiOperationTag = new Azure.ApiManagement.ApiOperationTag("example", new()
     ///     {
+    ///         Name = "example-Tag",
     ///         ApiOperationId = exampleApiOperation.Id,
     ///         DisplayName = "example-Tag",
     ///     });

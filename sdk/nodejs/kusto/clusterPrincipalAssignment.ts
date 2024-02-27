@@ -14,17 +14,22 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleCluster = new azure.kusto.Cluster("exampleCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "KustoRG",
+ *     location: "West Europe",
+ * });
+ * const exampleCluster = new azure.kusto.Cluster("example", {
+ *     name: "kustocluster",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Standard_D13_v2",
  *         capacity: 2,
  *     },
  * });
- * const exampleClusterPrincipalAssignment = new azure.kusto.ClusterPrincipalAssignment("exampleClusterPrincipalAssignment", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleClusterPrincipalAssignment = new azure.kusto.ClusterPrincipalAssignment("example", {
+ *     name: "KustoPrincipalAssignment",
+ *     resourceGroupName: example.name,
  *     clusterName: exampleCluster.name,
  *     tenantId: current.then(current => current.tenantId),
  *     principalId: current.then(current => current.clientId),

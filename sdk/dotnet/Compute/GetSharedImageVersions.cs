@@ -28,8 +28,8 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetSharedImageVersions.Invoke(new()
         ///     {
-        ///         GalleryName = "my-image-gallery",
         ///         ImageName = "my-image",
+        ///         GalleryName = "my-image-gallery",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 
@@ -58,8 +58,8 @@ namespace Pulumi.Azure.Compute
         /// {
         ///     var example = Azure.Compute.GetSharedImageVersions.Invoke(new()
         ///     {
-        ///         GalleryName = "my-image-gallery",
         ///         ImageName = "my-image",
+        ///         GalleryName = "my-image-gallery",
         ///         ResourceGroupName = "example-resources",
         ///     });
         /// 

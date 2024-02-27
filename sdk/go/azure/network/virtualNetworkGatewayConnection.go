@@ -33,15 +33,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("test"),
 //				Location: pulumi.String("West US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -49,8 +51,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("GatewaySubnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -59,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			onpremiseLocalNetworkGateway, err := network.NewLocalNetworkGateway(ctx, "onpremiseLocalNetworkGateway", &network.LocalNetworkGatewayArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			onpremise, err := network.NewLocalNetworkGateway(ctx, "onpremise", &network.LocalNetworkGatewayArgs{
+//				Name:              pulumi.String("onpremise"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				GatewayAddress:    pulumi.String("168.62.225.23"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.1.1.0/24"),
@@ -70,17 +74,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Dynamic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "exampleVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "example", &network.VirtualNetworkGatewayArgs{
+//				Name:              pulumi.String("test"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Type:              pulumi.String("Vpn"),
 //				VpnType:           pulumi.String("RouteBased"),
 //				ActiveActive:      pulumi.Bool(false),
@@ -97,12 +103,13 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "onpremiseVirtualNetworkGatewayConnection", &network.VirtualNetworkGatewayConnectionArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "onpremise", &network.VirtualNetworkGatewayConnectionArgs{
+//				Name:                    pulumi.String("onpremise"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				Type:                    pulumi.String("IPsec"),
 //				VirtualNetworkGatewayId: exampleVirtualNetworkGateway.ID(),
-//				LocalNetworkGatewayId:   onpremiseLocalNetworkGateway.ID(),
+//				LocalNetworkGatewayId:   onpremise.ID(),
 //				SharedKey:               pulumi.String("4-v3ry-53cr37-1p53c-5h4r3d-k3y"),
 //			})
 //			if err != nil {
@@ -131,15 +138,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			usResourceGroup, err := core.NewResourceGroup(ctx, "usResourceGroup", &core.ResourceGroupArgs{
+//			us, err := core.NewResourceGroup(ctx, "us", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("us"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			usVirtualNetwork, err := network.NewVirtualNetwork(ctx, "usVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          usResourceGroup.Location,
-//				ResourceGroupName: usResourceGroup.Name,
+//			usVirtualNetwork, err := network.NewVirtualNetwork(ctx, "us", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("us"),
+//				Location:          us.Location,
+//				ResourceGroupName: us.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -147,8 +156,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			usGateway, err := network.NewSubnet(ctx, "usGateway", &network.SubnetArgs{
-//				ResourceGroupName:  usResourceGroup.Name,
+//			usGateway, err := network.NewSubnet(ctx, "us_gateway", &network.SubnetArgs{
+//				Name:               pulumi.String("GatewaySubnet"),
+//				ResourceGroupName:  us.Name,
 //				VirtualNetworkName: usVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -157,17 +167,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			usPublicIp, err := network.NewPublicIp(ctx, "usPublicIp", &network.PublicIpArgs{
-//				Location:          usResourceGroup.Location,
-//				ResourceGroupName: usResourceGroup.Name,
+//			usPublicIp, err := network.NewPublicIp(ctx, "us", &network.PublicIpArgs{
+//				Name:              pulumi.String("us"),
+//				Location:          us.Location,
+//				ResourceGroupName: us.Name,
 //				AllocationMethod:  pulumi.String("Dynamic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			usVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "usVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
-//				Location:          usResourceGroup.Location,
-//				ResourceGroupName: usResourceGroup.Name,
+//			usVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "us", &network.VirtualNetworkGatewayArgs{
+//				Name:              pulumi.String("us-gateway"),
+//				Location:          us.Location,
+//				ResourceGroupName: us.Name,
 //				Type:              pulumi.String("Vpn"),
 //				VpnType:           pulumi.String("RouteBased"),
 //				Sku:               pulumi.String("Basic"),
@@ -182,15 +194,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			europeResourceGroup, err := core.NewResourceGroup(ctx, "europeResourceGroup", &core.ResourceGroupArgs{
+//			europe, err := core.NewResourceGroup(ctx, "europe", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("europe"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			europeVirtualNetwork, err := network.NewVirtualNetwork(ctx, "europeVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          europeResourceGroup.Location,
-//				ResourceGroupName: europeResourceGroup.Name,
+//			europeVirtualNetwork, err := network.NewVirtualNetwork(ctx, "europe", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("europe"),
+//				Location:          europe.Location,
+//				ResourceGroupName: europe.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.1.0.0/16"),
 //				},
@@ -198,8 +212,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			europeGateway, err := network.NewSubnet(ctx, "europeGateway", &network.SubnetArgs{
-//				ResourceGroupName:  europeResourceGroup.Name,
+//			europeGateway, err := network.NewSubnet(ctx, "europe_gateway", &network.SubnetArgs{
+//				Name:               pulumi.String("GatewaySubnet"),
+//				ResourceGroupName:  europe.Name,
 //				VirtualNetworkName: europeVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.1.1.0/24"),
@@ -208,17 +223,19 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			europePublicIp, err := network.NewPublicIp(ctx, "europePublicIp", &network.PublicIpArgs{
-//				Location:          europeResourceGroup.Location,
-//				ResourceGroupName: europeResourceGroup.Name,
+//			europePublicIp, err := network.NewPublicIp(ctx, "europe", &network.PublicIpArgs{
+//				Name:              pulumi.String("europe"),
+//				Location:          europe.Location,
+//				ResourceGroupName: europe.Name,
 //				AllocationMethod:  pulumi.String("Dynamic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			europeVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "europeVirtualNetworkGateway", &network.VirtualNetworkGatewayArgs{
-//				Location:          europeResourceGroup.Location,
-//				ResourceGroupName: europeResourceGroup.Name,
+//			europeVirtualNetworkGateway, err := network.NewVirtualNetworkGateway(ctx, "europe", &network.VirtualNetworkGatewayArgs{
+//				Name:              pulumi.String("europe-gateway"),
+//				Location:          europe.Location,
+//				ResourceGroupName: europe.Name,
 //				Type:              pulumi.String("Vpn"),
 //				VpnType:           pulumi.String("RouteBased"),
 //				Sku:               pulumi.String("Basic"),
@@ -233,9 +250,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "usToEurope", &network.VirtualNetworkGatewayConnectionArgs{
-//				Location:                    usResourceGroup.Location,
-//				ResourceGroupName:           usResourceGroup.Name,
+//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "us_to_europe", &network.VirtualNetworkGatewayConnectionArgs{
+//				Name:                        pulumi.String("us-to-europe"),
+//				Location:                    us.Location,
+//				ResourceGroupName:           us.Name,
 //				Type:                        pulumi.String("Vnet2Vnet"),
 //				VirtualNetworkGatewayId:     usVirtualNetworkGateway.ID(),
 //				PeerVirtualNetworkGatewayId: europeVirtualNetworkGateway.ID(),
@@ -244,9 +262,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "europeToUs", &network.VirtualNetworkGatewayConnectionArgs{
-//				Location:                    europeResourceGroup.Location,
-//				ResourceGroupName:           europeResourceGroup.Name,
+//			_, err = network.NewVirtualNetworkGatewayConnection(ctx, "europe_to_us", &network.VirtualNetworkGatewayConnectionArgs{
+//				Name:                        pulumi.String("europe-to-us"),
+//				Location:                    europe.Location,
+//				ResourceGroupName:           europe.Name,
 //				Type:                        pulumi.String("Vnet2Vnet"),
 //				VirtualNetworkGatewayId:     europeVirtualNetworkGateway.ID(),
 //				PeerVirtualNetworkGatewayId: usVirtualNetworkGateway.ID(),

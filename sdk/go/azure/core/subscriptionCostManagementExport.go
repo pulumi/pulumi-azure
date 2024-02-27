@@ -29,17 +29,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleSubscription, err := core.LookupSubscription(ctx, nil, nil)
+//			example, err := core.LookupSubscription(ctx, nil, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
 //				ResourceGroupName:      exampleResourceGroup.Name,
 //				Location:               exampleResourceGroup.Location,
 //				AccountTier:            pulumi.String("Standard"),
@@ -48,14 +50,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:               pulumi.String("examplecontainer"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewSubscriptionCostManagementExport(ctx, "exampleSubscriptionCostManagementExport", &core.SubscriptionCostManagementExportArgs{
-//				SubscriptionId:            *pulumi.String(exampleSubscription.Id),
+//			_, err = core.NewSubscriptionCostManagementExport(ctx, "example", &core.SubscriptionCostManagementExportArgs{
+//				Name:                      pulumi.String("example"),
+//				SubscriptionId:            *pulumi.String(example.Id),
 //				RecurrenceType:            pulumi.String("Monthly"),
 //				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),
 //				RecurrencePeriodEndDate:   pulumi.String("2020-09-18T00:00:00Z"),

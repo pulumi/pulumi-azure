@@ -29,14 +29,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-cdn-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard_AzureFrontDoor"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),

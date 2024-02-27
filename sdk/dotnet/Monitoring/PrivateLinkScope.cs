@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("examplePrivateLinkScope", new()
+    ///     var examplePrivateLinkScope = new Azure.Monitoring.PrivateLinkScope("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ampls",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     /// });

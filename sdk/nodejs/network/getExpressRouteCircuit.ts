@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getExpressRouteCircuit({
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     name: azurerm_express_route_circuit.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     name: exampleAzurermExpressRouteCircuit.name,
  * });
  * export const expressRouteCircuitId = example.then(example => example.id);
  * export const serviceKey = example.then(example => example.serviceKey);
@@ -91,8 +91,8 @@ export interface GetExpressRouteCircuitResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.network.getExpressRouteCircuit({
- *     resourceGroupName: azurerm_resource_group.example.name,
- *     name: azurerm_express_route_circuit.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
+ *     name: exampleAzurermExpressRouteCircuit.name,
  * });
  * export const expressRouteCircuitId = example.then(example => example.id);
  * export const serviceKey = example.then(example => example.serviceKey);

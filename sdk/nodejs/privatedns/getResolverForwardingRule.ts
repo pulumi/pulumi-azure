@@ -16,8 +16,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatedns.getResolverForwardingRule({
- *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  *     name: "example-rule",
+ *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
  */
@@ -81,8 +81,8 @@ export interface GetResolverForwardingRuleResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.privatedns.getResolverForwardingRule({
- *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  *     name: "example-rule",
+ *     dnsForwardingRulesetId: "example-forwarding-rulset-id",
  * });
  * ```
  */

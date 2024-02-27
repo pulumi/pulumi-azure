@@ -22,14 +22,15 @@ namespace Pulumi.Azure.Core
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleVirtualNetwork = Azure.Network.GetVirtualNetwork.Invoke(new()
+    ///     var example = Azure.Network.GetVirtualNetwork.Invoke(new()
     ///     {
     ///         Name = "production",
     ///         ResourceGroupName = "networking",
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.Policy.Definition("exampleDefinition", new()
+    ///     var exampleDefinition = new Azure.Policy.Definition("example", new()
     ///     {
+    ///         Name = "only-deploy-in-westeurope",
     ///         PolicyType = "Custom",
     ///         Mode = "All",
     ///         DisplayName = "my-policy-definition",
@@ -47,9 +48,10 @@ namespace Pulumi.Azure.Core
     /// ",
     ///     });
     /// 
-    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("exampleResourcePolicyAssignment", new()
+    ///     var exampleResourcePolicyAssignment = new Azure.Core.ResourcePolicyAssignment("example", new()
     ///     {
-    ///         ResourceId = exampleVirtualNetwork.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
+    ///         Name = "example-policy-assignment",
+    ///         ResourceId = example.Apply(getVirtualNetworkResult =&gt; getVirtualNetworkResult.Id),
     ///         PolicyDefinitionId = exampleDefinition.Id,
     ///     });
     /// 

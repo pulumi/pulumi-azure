@@ -238,23 +238,28 @@ class RedisCache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
             capacity=1,
             family="C",
             sku_name="Basic",
             enable_non_ssl_port=False,
             minimum_tls_version="1.2",
             redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        example_redis_cache = azure.apimanagement.RedisCache("exampleRedisCache",
+        example_redis_cache = azure.apimanagement.RedisCache("example",
+            name="example-Redis-Cache",
             api_management_id=example_service.id,
             connection_string=example_cache.primary_connection_string,
             description="Redis cache instances",
@@ -294,23 +299,28 @@ class RedisCache(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_service = azure.apimanagement.Service("exampleService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_service = azure.apimanagement.Service("example",
+            name="example-apim",
+            location=example.location,
+            resource_group_name=example.name,
             publisher_name="pub1",
             publisher_email="pub1@email.com",
             sku_name="Consumption_0")
-        example_cache = azure.redis.Cache("exampleCache",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_cache = azure.redis.Cache("example",
+            name="example-cache",
+            location=example.location,
+            resource_group_name=example.name,
             capacity=1,
             family="C",
             sku_name="Basic",
             enable_non_ssl_port=False,
             minimum_tls_version="1.2",
             redis_configuration=azure.redis.CacheRedisConfigurationArgs())
-        example_redis_cache = azure.apimanagement.RedisCache("exampleRedisCache",
+        example_redis_cache = azure.apimanagement.RedisCache("example",
+            name="example-Redis-Cache",
             api_management_id=example_service.id,
             connection_string=example_cache.primary_connection_string,
             description="Redis cache instances",

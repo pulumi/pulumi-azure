@@ -15,14 +15,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "west europe",
+ * });
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "E0",
  * });
- * const exampleSpringCloudAccelerator = new azure.appplatform.SpringCloudAccelerator("exampleSpringCloudAccelerator", {springCloudServiceId: exampleSpringCloudService.id});
- * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform.SpringCloudCustomizedAccelerator("exampleSpringCloudCustomizedAccelerator", {
+ * const exampleSpringCloudAccelerator = new azure.appplatform.SpringCloudAccelerator("example", {
+ *     name: "default",
+ *     springCloudServiceId: exampleSpringCloudService.id,
+ * });
+ * const exampleSpringCloudCustomizedAccelerator = new azure.appplatform.SpringCloudCustomizedAccelerator("example", {
+ *     name: "example",
  *     springCloudAcceleratorId: exampleSpringCloudAccelerator.id,
  *     gitRepository: {
  *         url: "https://github.com/Azure-Samples/piggymetrics",

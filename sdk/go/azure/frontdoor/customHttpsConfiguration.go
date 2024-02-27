@@ -38,7 +38,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("FrontDoorExampleResourceGroup"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -51,8 +52,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "exampleFrontdoor", &frontdoor.FrontdoorArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoor, err := frontdoor.NewFrontdoor(ctx, "example", &frontdoor.FrontdoorArgs{
+//				Name:              pulumi.String("example-FrontDoor"),
+//				ResourceGroupName: example.Name,
 //				RoutingRules: frontdoor.FrontdoorRoutingRuleArray{
 //					&frontdoor.FrontdoorRoutingRuleArgs{
 //						Name: pulumi.String("exampleRoutingRule1"),
@@ -111,7 +113,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps0", &frontdoor.CustomHttpsConfigurationArgs{
+//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "example_custom_https_0", &frontdoor.CustomHttpsConfigurationArgs{
 //				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
 //					return frontendEndpointsMap.ExampleFrontendEndpoint1, nil
 //				}).(pulumi.StringOutput),
@@ -120,7 +122,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "exampleCustomHttps1", &frontdoor.CustomHttpsConfigurationArgs{
+//			_, err = frontdoor.NewCustomHttpsConfiguration(ctx, "example_custom_https_1", &frontdoor.CustomHttpsConfigurationArgs{
 //				FrontendEndpointId: exampleFrontdoor.FrontendEndpointsMap.ApplyT(func(frontendEndpointsMap map[string]string) (string, error) {
 //					return frontendEndpointsMap.ExampleFrontendEndpoint2, nil
 //				}).(pulumi.StringOutput),

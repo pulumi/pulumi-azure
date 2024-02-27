@@ -15,22 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleSqlServer = new azure.sql.SqlServer("exampleSqlServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleSqlServer = new azure.sql.SqlServer("example", {
+ *     name: "mysqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "accteststorageaccount",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleServerSecurityAlertPolicy = new azure.mssql.ServerSecurityAlertPolicy("exampleServerSecurityAlertPolicy", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServerSecurityAlertPolicy = new azure.mssql.ServerSecurityAlertPolicy("example", {
+ *     resourceGroupName: example.name,
  *     serverName: exampleSqlServer.name,
  *     state: "Enabled",
  *     storageEndpoint: exampleAccount.primaryBlobEndpoint,

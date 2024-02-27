@@ -14,27 +14,34 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "workspace-example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "workspaceexamplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "workspacestorageaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
@@ -52,20 +59,25 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "workspace-example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "workspaceexamplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
@@ -77,13 +89,15 @@ import * as utilities from "../utilities";
  *         "GetRotationPolicy",
  *     ],
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "workspacestorageaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "workspaceexamplekeyvaultkey",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -95,15 +109,11 @@ import * as utilities from "../utilities";
  *         "verify",
  *         "wrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         exampleKeyVault,
- *         exampleAccessPolicy,
- *     ],
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
@@ -126,28 +136,35 @@ import * as utilities from "../utilities";
  * import * as azuread from "@pulumi/azuread";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "example-ai",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example-keyvalut",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  *     purgeProtectionEnabled: true,
  * });
- * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleUserAssignedIdentity = new azure.authorization.UserAssignedIdentity("example", {
+ *     name: "example-identity",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const example_identity = new azure.keyvault.AccessPolicy("example-identity", {
  *     keyVaultId: exampleKeyVault.id,
@@ -195,13 +212,9 @@ import * as utilities from "../utilities";
  *         "UnwrapKey",
  *         "WrapKey",
  *     ],
- * }, {
- *     dependsOn: [
- *         test,
- *         current,
- *     ],
  * });
- * const exampleKey = new azure.keyvault.Key("exampleKey", {
+ * const exampleKey = new azure.keyvault.Key("example", {
+ *     name: "example-keyvaultkey",
  *     keyVaultId: exampleKeyVault.id,
  *     keyType: "RSA",
  *     keySize: 2048,
@@ -212,11 +225,6 @@ import * as utilities from "../utilities";
  *         "unwrapKey",
  *         "verify",
  *         "wrapKey",
- *     ],
- * }, {
- *     dependsOn: [
- *         exampleKeyVault,
- *         example_sp,
  *     ],
  * });
  * const example_role1 = new azure.authorization.Assignment("example-role1", {
@@ -239,9 +247,10 @@ import * as utilities from "../utilities";
  *     roleDefinitionName: "Contributor",
  *     principalId: exampleUserAssignedIdentity.principalId,
  * });
- * const exampleWorkspace = new azure.machinelearning.Workspace("exampleWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleWorkspace = new azure.machinelearning.Workspace("example", {
+ *     name: "example-workspace",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationInsightsId: exampleInsights.id,
  *     keyVaultId: exampleKeyVault.id,
  *     storageAccountId: exampleAccount.id,
@@ -256,14 +265,6 @@ import * as utilities from "../utilities";
  *         keyVaultId: exampleKeyVault.id,
  *         keyId: exampleKey.id,
  *     },
- * }, {
- *     dependsOn: [
- *         example_role1,
- *         example_role2,
- *         example_role3,
- *         example_role4,
- *         example_cosmosdb,
- *     ],
  * });
  * ```
  *

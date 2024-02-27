@@ -22,37 +22,42 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", new()
+    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vnet",
+    ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
     ///             "192.168.1.0/24",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -60,10 +65,11 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("exampleNetworkInterface", new()
+    ///     var exampleNetworkInterface = new Azure.Network.NetworkInterface("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-nic",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         IpConfigurations = new[]
     ///         {
     ///             new Azure.Network.Inputs.NetworkInterfaceIpConfigurationArgs
@@ -75,10 +81,11 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("exampleLinuxVirtualMachine", new()
+    ///     var exampleLinuxVirtualMachine = new Azure.Compute.LinuxVirtualMachine("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vm",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Size = "Standard_B1s",
     ///         AdminUsername = "testadmin",
     ///         AdminPassword = "Password1234!",
@@ -101,16 +108,15 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleHybridRunbookWorker = new Azure.Automation.HybridRunbookWorker("exampleHybridRunbookWorker", new()
+    ///     var exampleHybridRunbookWorker = new Azure.Automation.HybridRunbookWorker("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         WorkerGroupName = exampleHybridRunbookWorkerGroup.Name,
     ///         VmResourceId = exampleLinuxVirtualMachine.Id,
     ///         WorkerId = "00000000-0000-0000-0000-000000000000",
     ///     });
     /// 
-    ///     //unique uuid
     /// });
     /// ```
     /// 

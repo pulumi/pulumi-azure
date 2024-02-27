@@ -40,7 +40,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.storage.CustomerManagedKey;
  * import com.pulumi.azure.storage.CustomerManagedKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,21 +55,24 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;examplestor&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;GRS&#34;)
  *             .identity(AccountIdentityArgs.builder()
@@ -113,6 +115,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;tfex-key&#34;)
  *             .keyVaultId(exampleKeyVault.id())
  *             .keyType(&#34;RSA&#34;)
  *             .keySize(2048)
@@ -123,11 +126,7 @@ import javax.annotation.Nullable;
  *                 &#34;unwrapKey&#34;,
  *                 &#34;verify&#34;,
  *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(                
- *                     client,
- *                     storage)
- *                 .build());
+ *             .build());
  * 
  *         var exampleCustomerManagedKey = new CustomerManagedKey(&#34;exampleCustomerManagedKey&#34;, CustomerManagedKeyArgs.builder()        
  *             .storageAccountId(exampleAccount.id())

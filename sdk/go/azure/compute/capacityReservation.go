@@ -29,20 +29,23 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleCapacityReservationGroup, err := compute.NewCapacityReservationGroup(ctx, "exampleCapacityReservationGroup", &compute.CapacityReservationGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleCapacityReservationGroup, err := compute.NewCapacityReservationGroup(ctx, "example", &compute.CapacityReservationGroupArgs{
+//				Name:              pulumi.String("example-capacity-reservation-group"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewCapacityReservation(ctx, "exampleCapacityReservation", &compute.CapacityReservationArgs{
+//			_, err = compute.NewCapacityReservation(ctx, "example", &compute.CapacityReservationArgs{
+//				Name:                       pulumi.String("example-capacity-reservation"),
 //				CapacityReservationGroupId: exampleCapacityReservationGroup.ID(),
 //				Sku: &compute.CapacityReservationSkuArgs{
 //					Name:     pulumi.String("Standard_D2s_v3"),

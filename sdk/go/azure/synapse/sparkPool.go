@@ -14,6 +14,96 @@ import (
 
 // Manages a Synapse Spark Pool.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/storage"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/synapse"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageacc"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
+//				AccountTier:            pulumi.String("Standard"),
+//				AccountReplicationType: pulumi.String("LRS"),
+//				AccountKind:            pulumi.String("StorageV2"),
+//				IsHnsEnabled:           pulumi.Bool(true),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleDataLakeGen2Filesystem, err := storage.NewDataLakeGen2Filesystem(ctx, "example", &storage.DataLakeGen2FilesystemArgs{
+//				Name:             pulumi.String("example"),
+//				StorageAccountId: exampleAccount.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleWorkspace, err := synapse.NewWorkspace(ctx, "example", &synapse.WorkspaceArgs{
+//				Name:                            pulumi.String("example"),
+//				ResourceGroupName:               example.Name,
+//				Location:                        example.Location,
+//				StorageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.ID(),
+//				SqlAdministratorLogin:           pulumi.String("sqladminuser"),
+//				SqlAdministratorLoginPassword:   pulumi.String("H@Sh1CoR3!"),
+//				Identity: &synapse.WorkspaceIdentityArgs{
+//					Type: pulumi.String("SystemAssigned"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = synapse.NewSparkPool(ctx, "example", &synapse.SparkPoolArgs{
+//				Name:               pulumi.String("example"),
+//				SynapseWorkspaceId: exampleWorkspace.ID(),
+//				NodeSizeFamily:     pulumi.String("MemoryOptimized"),
+//				NodeSize:           pulumi.String("Small"),
+//				CacheSize:          pulumi.Int(100),
+//				AutoScale: &synapse.SparkPoolAutoScaleArgs{
+//					MaxNodeCount: pulumi.Int(50),
+//					MinNodeCount: pulumi.Int(3),
+//				},
+//				AutoPause: &synapse.SparkPoolAutoPauseArgs{
+//					DelayInMinutes: pulumi.Int(15),
+//				},
+//				LibraryRequirement: &synapse.SparkPoolLibraryRequirementArgs{
+//					Content:  pulumi.String("appnope==0.1.0\nbeautifulsoup4==4.6.3\n"),
+//					Filename: pulumi.String("requirements.txt"),
+//				},
+//				SparkConfig: &synapse.SparkPoolSparkConfigArgs{
+//					Content:  pulumi.String("spark.shuffle.spill                true\n"),
+//					Filename: pulumi.String("config.txt"),
+//				},
+//				Tags: pulumi.StringMap{
+//					"ENV": pulumi.String("Production"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Synapse Spark Pool can be imported using the `resource id`, e.g.

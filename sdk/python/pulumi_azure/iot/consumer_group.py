@@ -171,10 +171,13 @@ class ConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="test",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
@@ -182,10 +185,11 @@ class ConsumerGroup(pulumi.CustomResource):
             tags={
                 "purpose": "testing",
             })
-        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+        example_consumer_group = azure.iot.ConsumerGroup("example",
+            name="group",
             iothub_name=example_io_t_hub.name,
             eventhub_endpoint_name="events",
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import
@@ -218,10 +222,13 @@ class ConsumerGroup(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_io_t_hub = azure.iot.IoTHub("exampleIoTHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_io_t_hub = azure.iot.IoTHub("example",
+            name="test",
+            resource_group_name=example.name,
+            location=example.location,
             sku=azure.iot.IoTHubSkuArgs(
                 name="S1",
                 capacity=1,
@@ -229,10 +236,11 @@ class ConsumerGroup(pulumi.CustomResource):
             tags={
                 "purpose": "testing",
             })
-        example_consumer_group = azure.iot.ConsumerGroup("exampleConsumerGroup",
+        example_consumer_group = azure.iot.ConsumerGroup("example",
+            name="group",
             iothub_name=example_io_t_hub.name,
             eventhub_endpoint_name="events",
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         ```
 
         ## Import

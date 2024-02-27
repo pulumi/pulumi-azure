@@ -22,21 +22,24 @@ namespace Pulumi.Azure.DataProtection
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-backup-vault",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
     ///     });
     /// 
-    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("exampleBackupPolicyDisk", new()
+    ///     var exampleBackupPolicyDisk = new Azure.DataProtection.BackupPolicyDisk("example", new()
     ///     {
+    ///         Name = "example-backup-policy",
     ///         VaultId = exampleBackupVault.Id,
     ///         BackupRepeatingTimeIntervals = new[]
     ///         {

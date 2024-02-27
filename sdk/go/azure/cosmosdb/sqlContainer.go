@@ -28,23 +28,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleAccount, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
+//			example, err := cosmosdb.LookupAccount(ctx, &cosmosdb.LookupAccountArgs{
 //				Name:              "tfex-cosmosdb-account",
 //				ResourceGroupName: "tfex-cosmosdb-account-rg",
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "exampleSqlDatabase", &cosmosdb.SqlDatabaseArgs{
-//				ResourceGroupName: *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:       *pulumi.String(exampleAccount.Name),
+//			exampleSqlDatabase, err := cosmosdb.NewSqlDatabase(ctx, "example", &cosmosdb.SqlDatabaseArgs{
+//				Name:              pulumi.String("example-acsd"),
+//				ResourceGroupName: *pulumi.String(example.ResourceGroupName),
+//				AccountName:       *pulumi.String(example.Name),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cosmosdb.NewSqlContainer(ctx, "exampleSqlContainer", &cosmosdb.SqlContainerArgs{
-//				ResourceGroupName:   *pulumi.String(exampleAccount.ResourceGroupName),
-//				AccountName:         *pulumi.String(exampleAccount.Name),
+//			_, err = cosmosdb.NewSqlContainer(ctx, "example", &cosmosdb.SqlContainerArgs{
+//				Name:                pulumi.String("example-container"),
+//				ResourceGroupName:   *pulumi.String(example.ResourceGroupName),
+//				AccountName:         *pulumi.String(example.Name),
 //				DatabaseName:        exampleSqlDatabase.Name,
 //				PartitionKeyPath:    pulumi.String("/definition/id"),
 //				PartitionKeyVersion: pulumi.Int(1),

@@ -46,19 +46,20 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new SubscriptionCostManagementView(&#34;example&#34;, SubscriptionCostManagementViewArgs.builder()        
- *             .accumulated(false)
- *             .chartType(&#34;StackedColumn&#34;)
- *             .dataset(SubscriptionCostManagementViewDatasetArgs.builder()
- *                 .aggregations(SubscriptionCostManagementViewDatasetAggregationArgs.builder()
- *                     .columnName(&#34;Cost&#34;)
- *                     .name(&#34;totalCost&#34;)
- *                     .build())
- *                 .granularity(&#34;Monthly&#34;)
- *                 .build())
+ *             .name(&#34;example&#34;)
  *             .displayName(&#34;Cost View per Month&#34;)
- *             .reportType(&#34;Usage&#34;)
+ *             .chartType(&#34;StackedColumn&#34;)
+ *             .accumulated(false)
  *             .subscriptionId(&#34;/subscription/00000000-0000-0000-0000-000000000000&#34;)
+ *             .reportType(&#34;Usage&#34;)
  *             .timeframe(&#34;MonthToDate&#34;)
+ *             .dataset(SubscriptionCostManagementViewDatasetArgs.builder()
+ *                 .granularity(&#34;Monthly&#34;)
+ *                 .aggregations(SubscriptionCostManagementViewDatasetAggregationArgs.builder()
+ *                     .name(&#34;totalCost&#34;)
+ *                     .columnName(&#34;Cost&#34;)
+ *                     .build())
+ *                 .build())
  *             .build());
  * 
  *     }

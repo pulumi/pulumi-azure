@@ -177,12 +177,16 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
+            name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
                 name="mix",
@@ -192,7 +196,8 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                 id="io.Build Packs.stacks.bionic",
                 version="base",
             ))
-        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding",
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
+            name="example",
             spring_cloud_builder_id=example_spring_cloud_builder.id,
             binding_type="ApplicationInsights",
             launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(
@@ -239,12 +244,16 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location,
             sku_name="E0")
-        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("exampleSpringCloudBuilder",
+        example_spring_cloud_builder = azure.appplatform.SpringCloudBuilder("example",
+            name="example",
             spring_cloud_service_id=example_spring_cloud_service.id,
             build_pack_groups=[azure.appplatform.SpringCloudBuilderBuildPackGroupArgs(
                 name="mix",
@@ -254,7 +263,8 @@ class SpringCloudBuildPackBinding(pulumi.CustomResource):
                 id="io.Build Packs.stacks.bionic",
                 version="base",
             ))
-        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("exampleSpringCloudBuildPackBinding",
+        example_spring_cloud_build_pack_binding = azure.appplatform.SpringCloudBuildPackBinding("example",
+            name="example",
             spring_cloud_builder_id=example_spring_cloud_builder.id,
             binding_type="ApplicationInsights",
             launch=azure.appplatform.SpringCloudBuildPackBindingLaunchArgs(

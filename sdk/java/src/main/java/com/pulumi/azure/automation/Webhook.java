@@ -49,19 +49,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;account1&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleRunBook = new RunBook(&#34;exampleRunBook&#34;, RunBookArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;Get-AzureVMTutorial&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .logVerbose(&#34;true&#34;)
  *             .logProgress(&#34;true&#34;)
@@ -73,7 +76,8 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleWebhook = new Webhook(&#34;exampleWebhook&#34;, WebhookArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;TestRunbook_webhook&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .expiryTime(&#34;2021-12-31T00:00:00Z&#34;)
  *             .enabled(true)

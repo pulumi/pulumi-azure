@@ -28,13 +28,15 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example"),
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
@@ -44,12 +46,12 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase := mssql.LookupDatabaseOutput(ctx, mssql.GetDatabaseOutputArgs{
+//			example := mssql.LookupDatabaseOutput(ctx, mssql.GetDatabaseOutputArgs{
 //				Name:     pulumi.String("example-mssql-db"),
 //				ServerId: exampleServer.ID(),
 //			}, nil)
-//			ctx.Export("databaseId", exampleDatabase.ApplyT(func(exampleDatabase mssql.GetDatabaseResult) (*string, error) {
-//				return &exampleDatabase.Id, nil
+//			ctx.Export("databaseId", example.ApplyT(func(example mssql.GetDatabaseResult) (*string, error) {
+//				return &example.Id, nil
 //			}).(pulumi.StringPtrOutput))
 //			return nil
 //		})

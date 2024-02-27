@@ -634,11 +634,15 @@ class NetworkSecurityRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("exampleNetworkSecurityRule",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="acceptanceTestSecurityGroup1",
+            location=example.location,
+            resource_group_name=example.name)
+        example_network_security_rule = azure.network.NetworkSecurityRule("example",
+            name="test123",
             priority=100,
             direction="Outbound",
             access="Allow",
@@ -647,7 +651,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
         ```
 
@@ -699,11 +703,15 @@ class NetworkSecurityRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_network_security_group = azure.network.NetworkSecurityGroup("exampleNetworkSecurityGroup",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_network_security_rule = azure.network.NetworkSecurityRule("exampleNetworkSecurityRule",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_network_security_group = azure.network.NetworkSecurityGroup("example",
+            name="acceptanceTestSecurityGroup1",
+            location=example.location,
+            resource_group_name=example.name)
+        example_network_security_rule = azure.network.NetworkSecurityRule("example",
+            name="test123",
             priority=100,
             direction="Outbound",
             access="Allow",
@@ -712,7 +720,7 @@ class NetworkSecurityRule(pulumi.CustomResource):
             destination_port_range="*",
             source_address_prefix="*",
             destination_address_prefix="*",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             network_security_group_name=example_network_security_group.name)
         ```
 

@@ -22,48 +22,55 @@ namespace Pulumi.Azure.Compute
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("exampleSharedImageGallery", new()
+    ///     var exampleSharedImageGallery = new Azure.Compute.SharedImageGallery("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplegallery",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleGalleryApplication = new Azure.Compute.GalleryApplication("exampleGalleryApplication", new()
+    ///     var exampleGalleryApplication = new Azure.Compute.GalleryApplication("example", new()
     ///     {
+    ///         Name = "example-app",
     ///         GalleryId = exampleSharedImageGallery.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         SupportedOsType = "Linux",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestorage",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "example-container",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "blob",
     ///     });
     /// 
-    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     var exampleBlob = new Azure.Storage.Blob("example", new()
     ///     {
+    ///         Name = "scripts",
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageContainerName = exampleContainer.Name,
     ///         Type = "Block",
     ///         SourceContent = "[scripts file content]",
     ///     });
     /// 
-    ///     var exampleGalleryApplicationVersion = new Azure.Compute.GalleryApplicationVersion("exampleGalleryApplicationVersion", new()
+    ///     var exampleGalleryApplicationVersion = new Azure.Compute.GalleryApplicationVersion("example", new()
     ///     {
+    ///         Name = "0.0.1",
     ///         GalleryApplicationId = exampleGalleryApplication.Id,
     ///         Location = exampleGalleryApplication.Location,
     ///         ManageAction = new Azure.Compute.Inputs.GalleryApplicationVersionManageActionArgs

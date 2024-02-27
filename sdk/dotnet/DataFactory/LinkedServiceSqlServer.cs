@@ -22,19 +22,22 @@ namespace Pulumi.Azure.DataFactory
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new()
+    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;Password=test",
     ///     });
@@ -53,33 +56,38 @@ namespace Pulumi.Azure.DataFactory
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///     });
     /// 
-    ///     var exampleFactory = new Azure.DataFactory.Factory("exampleFactory", new()
+    ///     var exampleFactory = new Azure.DataFactory.Factory("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", new()
+    ///     var exampleLinkedServiceKeyVault = new Azure.DataFactory.LinkedServiceKeyVault("example", new()
     ///     {
+    ///         Name = "kvlink",
     ///         DataFactoryId = exampleFactory.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
-    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("exampleLinkedServiceSqlServer", new()
+    ///     var exampleLinkedServiceSqlServer = new Azure.DataFactory.LinkedServiceSqlServer("example", new()
     ///     {
+    ///         Name = "example",
     ///         DataFactoryId = exampleFactory.Id,
     ///         ConnectionString = "Integrated Security=False;Data Source=test;Initial Catalog=test;User ID=test;",
     ///         KeyVaultPassword = new Azure.DataFactory.Inputs.LinkedServiceSqlServerKeyVaultPasswordArgs

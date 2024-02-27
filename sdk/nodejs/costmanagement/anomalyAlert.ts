@@ -16,10 +16,11 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.costmanagement.AnomalyAlert("example", {
+ *     name: "alertname",
  *     displayName: "Alert DisplayName",
- *     emailAddresses: ["example@test.net"],
- *     emailSubject: "My Test Anomaly Alert",
  *     subscriptionId: "/subscriptions/00000000-0000-0000-0000-000000000000",
+ *     emailSubject: "My Test Anomaly Alert",
+ *     emailAddresses: ["example@test.net"],
  * });
  * ```
  *

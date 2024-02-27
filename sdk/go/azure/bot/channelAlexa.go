@@ -35,25 +35,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
+//				Name:              pulumi.String("example-bcr"),
 //				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
 //				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewChannelAlexa(ctx, "exampleChannelAlexa", &bot.ChannelAlexaArgs{
+//			_, err = bot.NewChannelAlexa(ctx, "example", &bot.ChannelAlexaArgs{
 //				BotName:           exampleChannelsRegistration.Name,
 //				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				SkillId:           pulumi.String("amzn1.ask.skill.00000000-0000-0000-0000-000000000000"),
 //			})
 //			if err != nil {

@@ -24,15 +24,17 @@ namespace Pulumi.Azure.LogAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("exampleCluster", new()
+    ///     var exampleCluster = new Azure.LogAnalytics.Cluster("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-cluster",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Identity = new Azure.LogAnalytics.Inputs.ClusterIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",

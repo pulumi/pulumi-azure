@@ -500,14 +500,18 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_account = azure.automation.Account("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
+            location=example.location,
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             log_verbose=True,
             log_progress=True,
@@ -519,7 +523,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             tags={
                 "ENV": "runbook_test",
             })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
+        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
+            name="example",
             automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(
@@ -576,14 +581,18 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="East US")
+        example_account = azure.automation.Account("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_run_book = azure.automation.RunBook("exampleRunBook",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_run_book = azure.automation.RunBook("example",
+            name="Get-AzureVMTutorial",
+            location=example.location,
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             log_verbose=True,
             log_progress=True,
@@ -595,7 +604,8 @@ class SoftwareUpdateConfiguration(pulumi.CustomResource):
             tags={
                 "ENV": "runbook_test",
             })
-        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("exampleSoftwareUpdateConfiguration",
+        example_software_update_configuration = azure.automation.SoftwareUpdateConfiguration("example",
+            name="example",
             automation_account_id=example_account.id,
             operating_system="Linux",
             linuxes=[azure.automation.SoftwareUpdateConfigurationLinuxArgs(

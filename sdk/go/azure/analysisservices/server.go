@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("analysis-services-server-test"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = analysisservices.NewServer(ctx, "server", &analysisservices.ServerArgs{
+//				Name:              pulumi.String("analysisservicesserver"),
 //				Location:          example.Location,
 //				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("S0"),

@@ -9,6 +9,69 @@ import * as utilities from "../utilities";
 /**
  * Manages a Synapse Spark Pool.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageacc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     accountTier: "Standard",
+ *     accountReplicationType: "LRS",
+ *     accountKind: "StorageV2",
+ *     isHnsEnabled: true,
+ * });
+ * const exampleDataLakeGen2Filesystem = new azure.storage.DataLakeGen2Filesystem("example", {
+ *     name: "example",
+ *     storageAccountId: exampleAccount.id,
+ * });
+ * const exampleWorkspace = new azure.synapse.Workspace("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     storageDataLakeGen2FilesystemId: exampleDataLakeGen2Filesystem.id,
+ *     sqlAdministratorLogin: "sqladminuser",
+ *     sqlAdministratorLoginPassword: "H@Sh1CoR3!",
+ *     identity: {
+ *         type: "SystemAssigned",
+ *     },
+ * });
+ * const exampleSparkPool = new azure.synapse.SparkPool("example", {
+ *     name: "example",
+ *     synapseWorkspaceId: exampleWorkspace.id,
+ *     nodeSizeFamily: "MemoryOptimized",
+ *     nodeSize: "Small",
+ *     cacheSize: 100,
+ *     autoScale: {
+ *         maxNodeCount: 50,
+ *         minNodeCount: 3,
+ *     },
+ *     autoPause: {
+ *         delayInMinutes: 15,
+ *     },
+ *     libraryRequirement: {
+ *         content: `appnope==0.1.0
+ * beautifulsoup4==4.6.3
+ * `,
+ *         filename: "requirements.txt",
+ *     },
+ *     sparkConfig: {
+ *         content: "spark.shuffle.spill                true\n",
+ *         filename: "config.txt",
+ *     },
+ *     tags: {
+ *         ENV: "Production",
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Synapse Spark Pool can be imported using the `resource id`, e.g.

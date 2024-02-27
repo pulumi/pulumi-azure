@@ -31,7 +31,8 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
@@ -41,9 +42,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "exampleNetworkManager", &network.NetworkManagerArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkManager, err := network.NewNetworkManager(ctx, "example", &network.NetworkManagerArgs{
+//				Name:              pulumi.String("example-network-manager"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Scope: &network.NetworkManagerScopeArgs{
 //					SubscriptionIds: pulumi.StringArray{
 //						*pulumi.String(current.Id),
@@ -58,15 +60,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "exampleNetworkManagerNetworkGroup", &network.NetworkManagerNetworkGroupArgs{
+//			exampleNetworkManagerNetworkGroup, err := network.NewNetworkManagerNetworkGroup(ctx, "example", &network.NetworkManagerNetworkGroupArgs{
+//				Name:             pulumi.String("example-group"),
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-net"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -76,12 +80,14 @@ import (
 //				return err
 //			}
 //			example2, err := network.NewNetworkManagerNetworkGroup(ctx, "example2", &network.NetworkManagerNetworkGroupArgs{
+//				Name:             pulumi.String("example-group2"),
 //				NetworkManagerId: exampleNetworkManager.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewNetworkManagerConnectivityConfiguration(ctx, "exampleNetworkManagerConnectivityConfiguration", &network.NetworkManagerConnectivityConfigurationArgs{
+//			_, err = network.NewNetworkManagerConnectivityConfiguration(ctx, "example", &network.NetworkManagerConnectivityConfigurationArgs{
+//				Name:                 pulumi.String("example-connectivity-conf"),
 //				NetworkManagerId:     exampleNetworkManager.ID(),
 //				ConnectivityTopology: pulumi.String("HubAndSpoke"),
 //				AppliesToGroups: network.NetworkManagerConnectivityConfigurationAppliesToGroupArray{

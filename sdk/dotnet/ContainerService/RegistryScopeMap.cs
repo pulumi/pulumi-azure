@@ -20,15 +20,17 @@ namespace Pulumi.Azure.ContainerService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleRegistry = new Azure.ContainerService.Registry("exampleRegistry", new()
+    ///     var exampleRegistry = new Azure.ContainerService.Registry("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "exampleregistry",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Sku = "Premium",
     ///         AdminEnabled = false,
     ///         Georeplications = new[]
@@ -44,10 +46,11 @@ namespace Pulumi.Azure.ContainerService
     ///         },
     ///     });
     /// 
-    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("exampleRegistryScopeMap", new()
+    ///     var exampleRegistryScopeMap = new Azure.ContainerService.RegistryScopeMap("example", new()
     ///     {
+    ///         Name = "example-scope-map",
     ///         ContainerRegistryName = exampleRegistry.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Actions = new[]
     ///         {
     ///             "repositories/repo1/content/read",

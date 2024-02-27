@@ -14,28 +14,36 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ *     name: "example-vmss",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Standard_F2",
  *     instances: 1,
  *     adminUsername: "adminuser",
  *     adminSshKeys: [{
  *         username: "adminuser",
- *         publicKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
+ *         publicKey: std.file({
+ *             input: "~/.ssh/id_rsa.pub",
+ *         }).then(invoke => invoke.result),
  *     }],
  *     sourceImageReference: {
  *         publisher: "Canonical",
@@ -57,12 +65,12 @@ import * as utilities from "../utilities";
  *         }],
  *     }],
  * });
- * const exampleAssessmentPolicy = new azure.securitycenter.AssessmentPolicy("exampleAssessmentPolicy", {
+ * const exampleAssessmentPolicy = new azure.securitycenter.AssessmentPolicy("example", {
  *     displayName: "Test Display Name",
  *     severity: "Medium",
  *     description: "Test Description",
  * });
- * const exampleAssessment = new azure.securitycenter.Assessment("exampleAssessment", {
+ * const exampleAssessment = new azure.securitycenter.Assessment("example", {
  *     assessmentPolicyId: exampleAssessmentPolicy.id,
  *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  *     status: {

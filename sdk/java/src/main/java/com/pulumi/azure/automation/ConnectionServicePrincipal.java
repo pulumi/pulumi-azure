@@ -45,24 +45,29 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;resourceGroup-example&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleClientConfig = CoreFunctions.getClientConfig();
+ *         final var example = CoreFunctions.getClientConfig();
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;account-example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleConnectionServicePrincipal = new ConnectionServicePrincipal(&#34;exampleConnectionServicePrincipal&#34;, ConnectionServicePrincipalArgs.builder()        
+ *             .name(&#34;connection-example&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .automationAccountName(exampleAccount.name())
  *             .applicationId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .tenantId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
- *             .subscriptionId(exampleClientConfig.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
- *             .certificateThumbprint(Files.readString(Paths.get(&#34;automation_certificate_test.thumb&#34;)))
+ *             .tenantId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .subscriptionId(example.applyValue(getClientConfigResult -&gt; getClientConfigResult.subscriptionId()))
+ *             .certificateThumbprint(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;automation_certificate_test.thumb&#34;)
+ *                 .build()).result())
  *             .build());
  * 
  *     }

@@ -6,6 +6,24 @@ import * as utilities from "../utilities";
 
 /**
  * Use this data source to access information about an existing Management Group Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = azure.management.getGroupTemplateDeployment({
+ *     name: "existing",
+ *     managementGroupId: "00000000-0000-0000-000000000000",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = notImplemented("jsondecode(data.azurerm_management_group_template_deployment.example.output_content)").exampleOutput.value;
+ * ```
  */
 export function getGroupTemplateDeployment(args: GetGroupTemplateDeploymentArgs, opts?: pulumi.InvokeOptions): Promise<GetGroupTemplateDeploymentResult> {
 
@@ -47,6 +65,24 @@ export interface GetGroupTemplateDeploymentResult {
 }
 /**
  * Use this data source to access information about an existing Management Group Template Deployment.
+ *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * function notImplemented(message: string) {
+ *     throw new Error(message);
+ * }
+ *
+ * const example = azure.management.getGroupTemplateDeployment({
+ *     name: "existing",
+ *     managementGroupId: "00000000-0000-0000-000000000000",
+ * });
+ * export const id = example.then(example => example.id);
+ * export const exampleOutput = notImplemented("jsondecode(data.azurerm_management_group_template_deployment.example.output_content)").exampleOutput.value;
+ * ```
  */
 export function getGroupTemplateDeploymentOutput(args: GetGroupTemplateDeploymentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetGroupTemplateDeploymentResult> {
     return pulumi.output(args).apply((a: any) => getGroupTemplateDeployment(a, opts))

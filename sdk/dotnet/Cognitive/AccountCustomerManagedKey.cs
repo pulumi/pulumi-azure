@@ -26,21 +26,24 @@ namespace Pulumi.Azure.Cognitive
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West US",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
+    ///         Name = "example-identity",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Cognitive.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Cognitive.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "Face",
     ///         SkuName = "E0",
     ///         CustomSubdomainName = "example-account",
@@ -54,10 +57,11 @@ namespace Pulumi.Azure.Cognitive
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-vault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "standard",
     ///         PurgeProtectionEnabled = true,
@@ -141,8 +145,9 @@ namespace Pulumi.Azure.Cognitive
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "example-key",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -157,7 +162,7 @@ namespace Pulumi.Azure.Cognitive
     ///         },
     ///     });
     /// 
-    ///     var exampleAccountCustomerManagedKey = new Azure.Cognitive.AccountCustomerManagedKey("exampleAccountCustomerManagedKey", new()
+    ///     var exampleAccountCustomerManagedKey = new Azure.Cognitive.AccountCustomerManagedKey("example", new()
     ///     {
     ///         CognitiveAccountId = exampleAccount.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

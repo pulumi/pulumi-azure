@@ -22,15 +22,17 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-dsa",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
     ///         {
     ///             Type = "SystemAssigned",
@@ -41,8 +43,9 @@ namespace Pulumi.Azure.DataShare
     ///         },
     ///     });
     /// 
-    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.DataShare.Share("example", new()
     ///     {
+    ///         Name = "example_dss",
     ///         AccountId = exampleAccount.Id,
     ///         Kind = "CopyBased",
     ///         Description = "example desc",

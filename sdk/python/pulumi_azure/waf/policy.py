@@ -305,10 +305,13 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_policy = azure.waf.Policy("examplePolicy",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_policy = azure.waf.Policy("example",
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location,
             custom_rules=[
                 azure.waf.PolicyCustomRuleArgs(
                     name="Rule1",
@@ -428,10 +431,13 @@ class Policy(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_policy = azure.waf.Policy("examplePolicy",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_policy = azure.waf.Policy("example",
+            name="example-wafpolicy",
+            resource_group_name=example.name,
+            location=example.location,
             custom_rules=[
                 azure.waf.PolicyCustomRuleArgs(
                     name="Rule1",

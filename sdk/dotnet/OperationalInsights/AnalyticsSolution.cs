@@ -23,8 +23,9 @@ namespace Pulumi.Azure.OperationalInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "k8s-log-analytics-test",
     ///         Location = "West Europe",
     ///     });
     /// 
@@ -32,23 +33,24 @@ namespace Pulumi.Azure.OperationalInsights
     ///     {
     ///         Keepers = 
     ///         {
-    ///             { "group_name", exampleResourceGroup.Name },
+    ///             { "group_name", example.Name },
     ///         },
     ///         ByteLength = 8,
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = workspace.Hex.Apply(hex =&gt; $"k8s-workspace-{hex}"),
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///     });
     /// 
-    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("exampleAnalyticsSolution", new()
+    ///     var exampleAnalyticsSolution = new Azure.OperationalInsights.AnalyticsSolution("example", new()
     ///     {
     ///         SolutionName = "ContainerInsights",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceResourceId = exampleAnalyticsWorkspace.Id,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///         Plan = new Azure.OperationalInsights.Inputs.AnalyticsSolutionPlanArgs

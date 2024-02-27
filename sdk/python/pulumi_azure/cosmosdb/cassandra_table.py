@@ -265,10 +265,13 @@ class CassandraTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="tflex-cosmosdb-account-rg",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
             offer_type="Standard",
             capabilities=[azure.cosmosdb.AccountCapabilityArgs(
                 name="EnableCassandra",
@@ -277,14 +280,16 @@ class CassandraTable(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
+            name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("exampleCassandraTable",
+        example_cassandra_table = azure.cosmosdb.CassandraTable("example",
+            name="testtable",
             cassandra_keyspace_id=example_cassandra_keyspace.id,
             schema=azure.cosmosdb.CassandraTableSchemaArgs(
                 columns=[
@@ -336,10 +341,13 @@ class CassandraTable(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cosmosdb.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="tflex-cosmosdb-account-rg",
+            location="West Europe")
+        example_account = azure.cosmosdb.Account("example",
+            name="tfex-cosmosdb-account",
+            resource_group_name=example.name,
+            location=example.location,
             offer_type="Standard",
             capabilities=[azure.cosmosdb.AccountCapabilityArgs(
                 name="EnableCassandra",
@@ -348,14 +356,16 @@ class CassandraTable(pulumi.CustomResource):
                 consistency_level="Strong",
             ),
             geo_locations=[azure.cosmosdb.AccountGeoLocationArgs(
-                location=example_resource_group.location,
+                location=example.location,
                 failover_priority=0,
             )])
-        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("exampleCassandraKeyspace",
+        example_cassandra_keyspace = azure.cosmosdb.CassandraKeyspace("example",
+            name="tfex-cosmos-cassandra-keyspace",
             resource_group_name=example_account.resource_group_name,
             account_name=example_account.name,
             throughput=400)
-        example_cassandra_table = azure.cosmosdb.CassandraTable("exampleCassandraTable",
+        example_cassandra_table = azure.cosmosdb.CassandraTable("example",
+            name="testtable",
             cassandra_keyspace_id=example_cassandra_keyspace.id,
             schema=azure.cosmosdb.CassandraTableSchemaArgs(
                 columns=[

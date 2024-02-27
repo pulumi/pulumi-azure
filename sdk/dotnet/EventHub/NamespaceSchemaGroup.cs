@@ -22,19 +22,22 @@ namespace Pulumi.Azure.EventHub
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "exampleRG-ehn-schemaGroup",
     ///         Location = "East US",
     ///     });
     /// 
-    ///     var testEventHubNamespace = new Azure.EventHub.EventHubNamespace("testEventHubNamespace", new()
+    ///     var test = new Azure.EventHub.EventHubNamespace("test", new()
     ///     {
-    ///         Location = azurerm_resource_group.Test.Location,
-    ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+    ///         Name = "example-ehn-schemaGroup",
+    ///         Location = testAzurermResourceGroup.Location,
+    ///         ResourceGroupName = testAzurermResourceGroup.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var testNamespaceSchemaGroup = new Azure.EventHub.NamespaceSchemaGroup("testNamespaceSchemaGroup", new()
+    ///     var testNamespaceSchemaGroup = new Azure.EventHub.NamespaceSchemaGroup("test", new()
     ///     {
-    ///         NamespaceId = testEventHubNamespace.Id,
+    ///         Name = "example-schemaGroup",
+    ///         NamespaceId = test.Id,
     ///         SchemaCompatibility = "Forward",
     ///         SchemaType = "Avro",
     ///     });

@@ -437,13 +437,17 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-automation-account",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="tfex-automation-account",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_schedule = azure.automation.Schedule("exampleSchedule",
-            resource_group_name=example_resource_group.name,
+        example_schedule = azure.automation.Schedule("example",
+            name="tfex-automation-schedule",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             frequency="Week",
             interval=1,
@@ -491,13 +495,17 @@ class Schedule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-automation-account",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="tfex-automation-account",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_schedule = azure.automation.Schedule("exampleSchedule",
-            resource_group_name=example_resource_group.name,
+        example_schedule = azure.automation.Schedule("example",
+            name="tfex-automation-schedule",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             frequency="Week",
             interval=1,

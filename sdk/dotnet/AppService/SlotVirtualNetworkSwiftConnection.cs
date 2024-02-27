@@ -22,24 +22,27 @@ namespace Pulumi.Azure.AppService
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
+    ///         Name = "example-virtual-network",
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.0.0.0/16",
     ///         },
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -62,10 +65,11 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var examplePlan = new Azure.AppService.Plan("examplePlan", new()
+    ///     var examplePlan = new Azure.AppService.Plan("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-service-plan",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = new Azure.AppService.Inputs.PlanSkuArgs
     ///         {
     ///             Tier = "Standard",
@@ -73,22 +77,24 @@ namespace Pulumi.Azure.AppService
     ///         },
     ///     });
     /// 
-    ///     var exampleAppService = new Azure.AppService.AppService("exampleAppService", new()
+    ///     var exampleAppService = new Azure.AppService.AppService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-app-service",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
     ///     var example_staging = new Azure.AppService.Slot("example-staging", new()
     ///     {
+    ///         Name = "staging",
     ///         AppServiceName = exampleAppService.Name,
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AppServicePlanId = examplePlan.Id,
     ///     });
     /// 
-    ///     var exampleSlotVirtualNetworkSwiftConnection = new Azure.AppService.SlotVirtualNetworkSwiftConnection("exampleSlotVirtualNetworkSwiftConnection", new()
+    ///     var exampleSlotVirtualNetworkSwiftConnection = new Azure.AppService.SlotVirtualNetworkSwiftConnection("example", new()
     ///     {
     ///         SlotName = example_staging.Name,
     ///         AppServiceId = exampleAppService.Id,

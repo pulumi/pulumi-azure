@@ -44,13 +44,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleWorkbook = new Workbook(&#34;exampleWorkbook&#34;, WorkbookArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;85b3e8bb-fc93-40be-83f2-98f6bec18ba0&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .displayName(&#34;workbook1&#34;)
  *             .dataJson(serializeJson(
  *                 jsonObject(

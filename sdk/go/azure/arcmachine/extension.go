@@ -14,6 +14,50 @@ import (
 
 // Manages a Hybrid Compute Machine Extension.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/arcmachine"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			example := arcmachine.GetOutput(ctx, arcmachine.GetOutputArgs{
+//				Name:              pulumi.String("existing-hcmachine"),
+//				ResourceGroupName: exampleResourceGroup.Name,
+//			}, nil)
+//			_, err = arcmachine.NewExtension(ctx, "example", &arcmachine.ExtensionArgs{
+//				Name:     pulumi.String("example"),
+//				Location: pulumi.String("West Europe"),
+//				ArcMachineId: example.ApplyT(func(example arcmachine.GetResult) (*string, error) {
+//					return &example.Id, nil
+//				}).(pulumi.StringPtrOutput),
+//				Publisher: pulumi.String("Microsoft.Azure.Monitor"),
+//				Type:      pulumi.String("AzureMonitorLinuxAgent"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
 // ## Import
 //
 // Hybrid Compute Machine Extensions can be imported using the `resource id`, e.g.

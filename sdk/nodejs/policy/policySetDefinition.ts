@@ -18,6 +18,8 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = new azure.policy.PolicySetDefinition("example", {
+ *     name: "testPolicySet",
+ *     policyType: "Custom",
  *     displayName: "Test Policy Set",
  *     parameters: `    {
  *         "allowedLocations": {
@@ -29,17 +31,14 @@ import * as utilities from "../utilities";
  *             }
  *         }
  *     }
- *
  * `,
  *     policyDefinitionReferences: [{
+ *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
  *         parameterValues: `    {
  *       "listOfAllowedLocations": {"value": "[parameters('allowedLocations')]"}
  *     }
- *     
  * `,
- *         policyDefinitionId: "/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988",
  *     }],
- *     policyType: "Custom",
  * });
  * ```
  *

@@ -16,10 +16,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.search.Service("example", {
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  * });
  * ```
@@ -29,10 +33,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.search.Service("example", {
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  *     localAuthenticationEnabled: true,
  *     authenticationFailureMode: "http403",
@@ -44,10 +52,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.search.Service("exampleService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.search.Service("example", {
+ *     name: "example-resource",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "standard",
  *     localAuthenticationEnabled: false,
  * });

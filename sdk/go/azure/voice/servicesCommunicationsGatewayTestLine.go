@@ -29,19 +29,22 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Central US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleServicesCommunicationsGateway, err := voice.NewServicesCommunicationsGateway(ctx, "exampleServicesCommunicationsGateway", &voice.ServicesCommunicationsGatewayArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleServicesCommunicationsGateway, err := voice.NewServicesCommunicationsGateway(ctx, "example", &voice.ServicesCommunicationsGatewayArgs{
+//				Name:              pulumi.String("example-vcg"),
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = voice.NewServicesCommunicationsGatewayTestLine(ctx, "exampleServicesCommunicationsGatewayTestLine", &voice.ServicesCommunicationsGatewayTestLineArgs{
+//			_, err = voice.NewServicesCommunicationsGatewayTestLine(ctx, "example", &voice.ServicesCommunicationsGatewayTestLineArgs{
+//				Name:                                 pulumi.String("example-vtl"),
 //				Location:                             pulumi.String("West Central US"),
 //				VoiceServicesCommunicationsGatewayId: exampleServicesCommunicationsGateway.ID(),
 //				PhoneNumber:                          pulumi.String("123456789"),

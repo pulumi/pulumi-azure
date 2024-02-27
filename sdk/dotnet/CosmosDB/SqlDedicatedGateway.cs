@@ -22,15 +22,17 @@ namespace Pulumi.Azure.CosmosDB
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resource-group",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.CosmosDB.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.CosmosDB.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ca",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         OfferType = "Standard",
     ///         Kind = "GlobalDocumentDB",
     ///         ConsistencyPolicy = new Azure.CosmosDB.Inputs.AccountConsistencyPolicyArgs
@@ -41,13 +43,13 @@ namespace Pulumi.Azure.CosmosDB
     ///         {
     ///             new Azure.CosmosDB.Inputs.AccountGeoLocationArgs
     ///             {
-    ///                 Location = exampleResourceGroup.Location,
+    ///                 Location = example.Location,
     ///                 FailoverPriority = 0,
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleSqlDedicatedGateway = new Azure.CosmosDB.SqlDedicatedGateway("exampleSqlDedicatedGateway", new()
+    ///     var exampleSqlDedicatedGateway = new Azure.CosmosDB.SqlDedicatedGateway("example", new()
     ///     {
     ///         CosmosdbAccountId = exampleAccount.Id,
     ///         InstanceCount = 1,

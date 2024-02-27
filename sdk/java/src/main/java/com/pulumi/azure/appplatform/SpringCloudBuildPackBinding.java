@@ -51,17 +51,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-springcloud&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .skuName(&#34;E0&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudBuilder = new SpringCloudBuilder(&#34;exampleSpringCloudBuilder&#34;, SpringCloudBuilderArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .buildPackGroups(SpringCloudBuilderBuildPackGroupArgs.builder()
  *                 .name(&#34;mix&#34;)
@@ -74,6 +77,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSpringCloudBuildPackBinding = new SpringCloudBuildPackBinding(&#34;exampleSpringCloudBuildPackBinding&#34;, SpringCloudBuildPackBindingArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .springCloudBuilderId(exampleSpringCloudBuilder.id())
  *             .bindingType(&#34;ApplicationInsights&#34;)
  *             .launch(SpringCloudBuildPackBindingLaunchArgs.builder()

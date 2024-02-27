@@ -505,20 +505,25 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="East US")
         #Create a Linked Service using managed identity and new cluster config
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_factory = azure.datafactory.Factory("example",
+            name="TestDtaFactory92783401247",
+            location=example.location,
+            resource_group_name=example.name,
             identity=azure.datafactory.FactoryIdentityArgs(
                 type="SystemAssigned",
             ))
         #Create a databricks instance
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_workspace = azure.databricks.Workspace("example",
+            name="databricks-test",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msiLinked",
+        msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msi_linked",
+            name="ADBLinkedServiceViaMSI",
             data_factory_id=example_factory.id,
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
@@ -554,17 +559,22 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="East US")
         #Link to an existing cluster via access token
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("example",
+            name="TestDtaFactory92783401247",
+            location=example.location,
+            resource_group_name=example.name)
         #Create a databricks instance
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_workspace = azure.databricks.Workspace("example",
+            name="databricks-test",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        at_linked = azure.datafactory.LinkedServiceAzureDatabricks("atLinked",
+        at_linked = azure.datafactory.LinkedServiceAzureDatabricks("at_linked",
+            name="ADBLinkedServiceViaAccessToken",
             data_factory_id=example_factory.id,
             description="ADB Linked Service via Access Token",
             existing_cluster_id="0308-201146-sly615",
@@ -613,20 +623,25 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="East US")
         #Create a Linked Service using managed identity and new cluster config
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_factory = azure.datafactory.Factory("example",
+            name="TestDtaFactory92783401247",
+            location=example.location,
+            resource_group_name=example.name,
             identity=azure.datafactory.FactoryIdentityArgs(
                 type="SystemAssigned",
             ))
         #Create a databricks instance
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_workspace = azure.databricks.Workspace("example",
+            name="databricks-test",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msiLinked",
+        msi_linked = azure.datafactory.LinkedServiceAzureDatabricks("msi_linked",
+            name="ADBLinkedServiceViaMSI",
             data_factory_id=example_factory.id,
             description="ADB Linked Service via MSI",
             adb_domain=example_workspace.workspace_url.apply(lambda workspace_url: f"https://{workspace_url}"),
@@ -662,17 +677,22 @@ class LinkedServiceAzureDatabricks(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="East US")
         #Link to an existing cluster via access token
-        example_factory = azure.datafactory.Factory("exampleFactory",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+        example_factory = azure.datafactory.Factory("example",
+            name="TestDtaFactory92783401247",
+            location=example.location,
+            resource_group_name=example.name)
         #Create a databricks instance
-        example_workspace = azure.databricks.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_workspace = azure.databricks.Workspace("example",
+            name="databricks-test",
+            resource_group_name=example.name,
+            location=example.location,
             sku="standard")
-        at_linked = azure.datafactory.LinkedServiceAzureDatabricks("atLinked",
+        at_linked = azure.datafactory.LinkedServiceAzureDatabricks("at_linked",
+            name="ADBLinkedServiceViaAccessToken",
             data_factory_id=example_factory.id,
             description="ADB Linked Service via Access Token",
             existing_cluster_id="0308-201146-sly615",

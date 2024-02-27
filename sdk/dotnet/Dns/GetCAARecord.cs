@@ -26,13 +26,14 @@ namespace Pulumi.Azure.Dns
         /// {
         ///     var example = new Azure.Dns.CaaRecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCaaRecordId"] = example.Id,
+        ///         ["dnsCaaRecordId"] = exampleAzurermDnsCaaRecord.Id,
         ///     };
         /// });
         /// ```
@@ -57,13 +58,14 @@ namespace Pulumi.Azure.Dns
         /// {
         ///     var example = new Azure.Dns.CaaRecord("example", new()
         ///     {
+        ///         Name = "test",
         ///         ZoneName = "test-zone",
         ///         ResourceGroupName = "test-rg",
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["dnsCaaRecordId"] = example.Id,
+        ///         ["dnsCaaRecordId"] = exampleAzurermDnsCaaRecord.Id,
         ///     };
         /// });
         /// ```

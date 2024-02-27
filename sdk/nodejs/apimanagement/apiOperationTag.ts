@@ -13,17 +13,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleApi = azure.apimanagement.getApi({
+ * const example = azure.apimanagement.getApi({
  *     name: "search-api",
  *     apiManagementName: "search-api-management",
  *     resourceGroupName: "search-service",
  *     revision: "2",
  * });
- * const exampleApiOperation = new azure.apimanagement.ApiOperation("exampleApiOperation", {
+ * const exampleApiOperation = new azure.apimanagement.ApiOperation("example", {
  *     operationId: "user-delete",
- *     apiName: exampleApi.then(exampleApi => exampleApi.name),
- *     apiManagementName: exampleApi.then(exampleApi => exampleApi.apiManagementName),
- *     resourceGroupName: exampleApi.then(exampleApi => exampleApi.resourceGroupName),
+ *     apiName: example.then(example => example.name),
+ *     apiManagementName: example.then(example => example.apiManagementName),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     displayName: "Delete User Operation",
  *     method: "DELETE",
  *     urlTemplate: "/users/{id}/delete",
@@ -37,7 +37,8 @@ import * as utilities from "../utilities";
  *         statusCode: 200,
  *     }],
  * });
- * const exampleApiOperationTag = new azure.apimanagement.ApiOperationTag("exampleApiOperationTag", {
+ * const exampleApiOperationTag = new azure.apimanagement.ApiOperationTag("example", {
+ *     name: "example-Tag",
  *     apiOperationId: exampleApiOperation.id,
  *     displayName: "example-Tag",
  * });

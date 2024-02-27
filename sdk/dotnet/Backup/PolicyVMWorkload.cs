@@ -22,22 +22,25 @@ namespace Pulumi.Azure.Backup
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-bpvmw",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVault = new Azure.RecoveryServices.Vault("exampleVault", new()
+    ///     var exampleVault = new Azure.RecoveryServices.Vault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-rsv",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         SoftDeleteEnabled = false,
     ///     });
     /// 
-    ///     var examplePolicyVMWorkload = new Azure.Backup.PolicyVMWorkload("examplePolicyVMWorkload", new()
+    ///     var examplePolicyVMWorkload = new Azure.Backup.PolicyVMWorkload("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-bpvmw",
+    ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = exampleVault.Name,
     ///         WorkloadType = "SQLDataBase",
     ///         Settings = new Azure.Backup.Inputs.PolicyVMWorkloadSettingsArgs

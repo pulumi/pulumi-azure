@@ -13,46 +13,58 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
- *     applicationType: "web",
- * });
- * const readTelemetry = new azure.appinsights.ApiKey("readTelemetry", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- * });
- * const writeAnnotations = new azure.appinsights.ApiKey("writeAnnotations", {
- *     applicationInsightsId: exampleInsights.id,
- *     writePermissions: ["annotations"],
- * });
- * const authenticateSdkControlChannelApiKey = new azure.appinsights.ApiKey("authenticateSdkControlChannelApiKey", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: ["agentconfig"],
- * });
- * const fullPermissions = new azure.appinsights.ApiKey("fullPermissions", {
- *     applicationInsightsId: exampleInsights.id,
- *     readPermissions: [
- *         "agentconfig",
- *         "aggregate",
- *         "api",
- *         "draft",
- *         "extendqueries",
- *         "search",
- *     ],
- *     writePermissions: ["annotations"],
- * });
- * export const readTelemetryApiKey = readTelemetry.apiKey;
- * export const writeAnnotationsApiKey = writeAnnotations.apiKey;
- * export const authenticateSdkControlChannel = authenticateSdkControlChannelApiKey.apiKey;
- * export const fullPermissionsApiKey = fullPermissions.apiKey;
+ * export = async () => {
+ *     const example = new azure.core.ResourceGroup("example", {
+ *         name: "tf-test",
+ *         location: "West Europe",
+ *     });
+ *     const exampleInsights = new azure.appinsights.Insights("example", {
+ *         name: "tf-test-appinsights",
+ *         location: example.location,
+ *         resourceGroupName: example.name,
+ *         applicationType: "web",
+ *     });
+ *     const readTelemetry = new azure.appinsights.ApiKey("read_telemetry", {
+ *         name: "tf-test-appinsights-read-telemetry-api-key",
+ *         applicationInsightsId: exampleInsights.id,
+ *         readPermissions: [
+ *             "aggregate",
+ *             "api",
+ *             "draft",
+ *             "extendqueries",
+ *             "search",
+ *         ],
+ *     });
+ *     const writeAnnotations = new azure.appinsights.ApiKey("write_annotations", {
+ *         name: "tf-test-appinsights-write-annotations-api-key",
+ *         applicationInsightsId: exampleInsights.id,
+ *         writePermissions: ["annotations"],
+ *     });
+ *     const authenticateSdkControlChannel = new azure.appinsights.ApiKey("authenticate_sdk_control_channel", {
+ *         name: "tf-test-appinsights-authenticate-sdk-control-channel-api-key",
+ *         applicationInsightsId: exampleInsights.id,
+ *         readPermissions: ["agentconfig"],
+ *     });
+ *     const fullPermissions = new azure.appinsights.ApiKey("full_permissions", {
+ *         name: "tf-test-appinsights-full-permissions-api-key",
+ *         applicationInsightsId: exampleInsights.id,
+ *         readPermissions: [
+ *             "agentconfig",
+ *             "aggregate",
+ *             "api",
+ *             "draft",
+ *             "extendqueries",
+ *             "search",
+ *         ],
+ *         writePermissions: ["annotations"],
+ *     });
+ *     return {
+ *         readTelemetryApiKey: readTelemetry.apiKey,
+ *         writeAnnotationsApiKey: writeAnnotations.apiKey,
+ *         authenticateSdkControlChannel: authenticateSdkControlChannel.apiKey,
+ *         fullPermissionsApiKey: fullPermissions.apiKey,
+ *     };
+ * }
  * ```
  *
  * ## Import

@@ -23,13 +23,15 @@ namespace Pulumi.Azure.DataShare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.DataShare.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.DataShare.Account("example", new()
     ///     {
+    ///         Name = "example-dsa",
     ///         Location = exampleResourceGroup.Location,
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Identity = new Azure.DataShare.Inputs.AccountIdentityArgs
@@ -38,55 +40,53 @@ namespace Pulumi.Azure.DataShare
     ///         },
     ///     });
     /// 
-    ///     var exampleShare = new Azure.DataShare.Share("exampleShare", new()
+    ///     var exampleShare = new Azure.DataShare.Share("example", new()
     ///     {
+    ///         Name = "example_ds",
     ///         AccountId = exampleAccount.Id,
     ///         Kind = "CopyBased",
     ///     });
     /// 
-    ///     var exampleStorage_accountAccount = new Azure.Storage.Account("exampleStorage/accountAccount", new()
+    ///     var exampleAccount2 = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "examplestr",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "RAGRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
-    ///         StorageAccountName = exampleStorage / accountAccount.Name,
+    ///         Name = "example-sc",
+    ///         StorageAccountName = exampleAccount2.Name,
     ///         ContainerAccessType = "container",
     ///     });
     /// 
-    ///     var exampleServicePrincipal = AzureAD.GetServicePrincipal.Invoke(new()
+    ///     var example = AzureAD.GetServicePrincipal.Invoke(new()
     ///     {
     ///         DisplayName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
-    ///         Scope = exampleStorage / accountAccount.Id,
+    ///         Scope = exampleAccount2.Id,
     ///         RoleDefinitionName = "Storage Blob Data Reader",
-    ///         PrincipalId = exampleServicePrincipal.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
+    ///         PrincipalId = example.Apply(getServicePrincipalResult =&gt; getServicePrincipalResult.ObjectId),
     ///     });
     /// 
-    ///     var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("exampleDatasetBlobStorage", new()
+    ///     var exampleDatasetBlobStorage = new Azure.DataShare.DatasetBlobStorage("example", new()
     ///     {
+    ///         Name = "example-dsbsds-file",
     ///         DataShareId = exampleShare.Id,
     ///         ContainerName = exampleContainer.Name,
     ///         StorageAccount = new Azure.DataShare.Inputs.DatasetBlobStorageStorageAccountArgs
     ///         {
-    ///             Name = exampleStorage / accountAccount.Name,
-    ///             ResourceGroupName = exampleStorage / accountAccount.ResourceGroupName,
+    ///             Name = exampleAccount2.Name,
+    ///             ResourceGroupName = exampleAccount2.ResourceGroupName,
     ///             SubscriptionId = "00000000-0000-0000-0000-000000000000",
     ///         },
     ///         FilePath = "myfile.txt",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleAssignment,
-    ///         },
     ///     });
     /// 
     /// });

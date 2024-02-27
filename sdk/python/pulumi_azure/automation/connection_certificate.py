@@ -234,24 +234,29 @@ class ConnectionCertificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="resourceGroup-example",
+            location="West Europe")
+        example = azure.core.get_client_config()
+        example_account = azure.automation.Account("example",
+            name="account-example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_certificate = azure.automation.Certificate("exampleCertificate",
+        example_certificate = azure.automation.Certificate("example",
+            name="certificate-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"))
-        example_connection_certificate = azure.automation.ConnectionCertificate("exampleConnectionCertificate",
+            base64=std.filebase64(input="certificate.pfx").result)
+        example_connection_certificate = azure.automation.ConnectionCertificate("example",
+            name="connection-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
             automation_certificate_name=example_certificate.name,
-            subscription_id=example_client_config.subscription_id)
+            subscription_id=example.subscription_id)
         ```
 
         ## Import
@@ -284,24 +289,29 @@ class ConnectionCertificate(pulumi.CustomResource):
 
         ```python
         import pulumi
-        import base64
         import pulumi_azure as azure
+        import pulumi_std as std
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_client_config = azure.core.get_client_config()
-        example_account = azure.automation.Account("exampleAccount",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="resourceGroup-example",
+            location="West Europe")
+        example = azure.core.get_client_config()
+        example_account = azure.automation.Account("example",
+            name="account-example",
             location=example_resource_group.location,
             resource_group_name=example_resource_group.name,
             sku_name="Basic")
-        example_certificate = azure.automation.Certificate("exampleCertificate",
+        example_certificate = azure.automation.Certificate("example",
+            name="certificate-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
-            base64=(lambda path: base64.b64encode(open(path).read().encode()).decode())("certificate.pfx"))
-        example_connection_certificate = azure.automation.ConnectionCertificate("exampleConnectionCertificate",
+            base64=std.filebase64(input="certificate.pfx").result)
+        example_connection_certificate = azure.automation.ConnectionCertificate("example",
+            name="connection-example",
             resource_group_name=example_resource_group.name,
             automation_account_name=example_account.name,
             automation_certificate_name=example_certificate.name,
-            subscription_id=example_client_config.subscription_id)
+            subscription_id=example.subscription_id)
         ```
 
         ## Import

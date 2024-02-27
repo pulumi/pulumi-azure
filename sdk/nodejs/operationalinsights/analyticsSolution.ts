@@ -16,22 +16,26 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as random from "@pulumi/random";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "k8s-log-analytics-test",
+ *     location: "West Europe",
+ * });
  * const workspace = new random.RandomId("workspace", {
  *     keepers: {
- *         group_name: exampleResourceGroup.name,
+ *         group_name: example.name,
  *     },
  *     byteLength: 8,
  * });
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: pulumi.interpolate`k8s-workspace-${workspace.hex}`,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  * });
- * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("exampleAnalyticsSolution", {
+ * const exampleAnalyticsSolution = new azure.operationalinsights.AnalyticsSolution("example", {
  *     solutionName: "ContainerInsights",
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     workspaceResourceId: exampleAnalyticsWorkspace.id,
  *     workspaceName: exampleAnalyticsWorkspace.name,
  *     plan: {

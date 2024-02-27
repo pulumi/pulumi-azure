@@ -42,10 +42,11 @@ public final class SearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
-     *         final var exampleService = SearchFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-search-service&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
@@ -86,10 +87,11 @@ public final class SearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
-     *         final var exampleService = SearchFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-search-service&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
@@ -130,10 +132,11 @@ public final class SearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
-     *         final var exampleService = SearchFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-search-service&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());
@@ -174,10 +177,11 @@ public final class SearchFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+     *             .name(&#34;example-resources&#34;)
      *             .location(&#34;West Europe&#34;)
      *             .build());
      * 
-     *         final var exampleService = SearchFunctions.getService(GetServiceArgs.builder()
+     *         final var example = SearchFunctions.getService(GetServiceArgs.builder()
      *             .name(&#34;example-search-service&#34;)
      *             .resourceGroupName(exampleResourceGroup.name())
      *             .build());

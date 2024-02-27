@@ -43,7 +43,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.datashare.DatasetBlobStorage;
  * import com.pulumi.azure.datashare.DatasetBlobStorageArgs;
  * import com.pulumi.azure.datashare.inputs.DatasetBlobStorageStorageAccountArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -58,10 +57,12 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
+ *             .name(&#34;example-dsa&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .identity(AccountIdentityArgs.builder()
@@ -70,11 +71,13 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleShare = new Share(&#34;exampleShare&#34;, ShareArgs.builder()        
+ *             .name(&#34;example_ds&#34;)
  *             .accountId(exampleAccount.id())
  *             .kind(&#34;CopyBased&#34;)
  *             .build());
  * 
- *         var exampleStorage_accountAccount = new Account(&#34;exampleStorage/accountAccount&#34;, AccountArgs.builder()        
+ *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplestr&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
  *             .accountTier(&#34;Standard&#34;)
@@ -82,32 +85,32 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleContainer = new Container(&#34;exampleContainer&#34;, ContainerArgs.builder()        
- *             .storageAccountName(exampleStorage / accountAccount.name())
+ *             .name(&#34;example-sc&#34;)
+ *             .storageAccountName(exampleAccount2.name())
  *             .containerAccessType(&#34;container&#34;)
  *             .build());
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleAssignment = new Assignment(&#34;exampleAssignment&#34;, AssignmentArgs.builder()        
- *             .scope(exampleStorage / accountAccount.id())
+ *             .scope(exampleAccount2.id())
  *             .roleDefinitionName(&#34;Storage Blob Data Reader&#34;)
- *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult).applyValue(exampleServicePrincipal -&gt; exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId())))
+ *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult).applyValue(example -&gt; example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.objectId())))
  *             .build());
  * 
  *         var exampleDatasetBlobStorage = new DatasetBlobStorage(&#34;exampleDatasetBlobStorage&#34;, DatasetBlobStorageArgs.builder()        
+ *             .name(&#34;example-dsbsds-file&#34;)
  *             .dataShareId(exampleShare.id())
  *             .containerName(exampleContainer.name())
  *             .storageAccount(DatasetBlobStorageStorageAccountArgs.builder()
- *                 .name(exampleStorage / accountAccount.name())
- *                 .resourceGroupName(exampleStorage / accountAccount.resourceGroupName())
+ *                 .name(exampleAccount2.name())
+ *                 .resourceGroupName(exampleAccount2.resourceGroupName())
  *                 .subscriptionId(&#34;00000000-0000-0000-0000-000000000000&#34;)
  *                 .build())
  *             .filePath(&#34;myfile.txt&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleAssignment)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

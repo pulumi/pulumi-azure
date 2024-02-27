@@ -16,6 +16,184 @@ import (
 //
 // !>**IMPORTANT:** The Rules resource **must** include a `dependsOn` meta-argument which references the `cdn.FrontdoorOrigin` and the `cdn.FrontdoorOriginGroup`.
 //
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/cdn"
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-cdn-frontdoor"),
+//				Location: pulumi.String("West Europe"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorEndpoint, err := cdn.NewFrontdoorEndpoint(ctx, "example", &cdn.FrontdoorEndpointArgs{
+//				Name:                  pulumi.String("example-endpoint"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				Tags: pulumi.StringMap{
+//					"endpoint": pulumi.String("contoso.com"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                   pulumi.String("example-originGroup"),
+//				CdnFrontdoorProfileId:  exampleFrontdoorProfile.ID(),
+//				SessionAffinityEnabled: pulumi.Bool(true),
+//				RestoreTrafficTimeToHealedOrNewEndpointInMinutes: pulumi.Int(10),
+//				HealthProbe: &cdn.FrontdoorOriginGroupHealthProbeArgs{
+//					IntervalInSeconds: pulumi.Int(240),
+//					Path:              pulumi.String("/healthProbe"),
+//					Protocol:          pulumi.String("Https"),
+//					RequestType:       pulumi.String("GET"),
+//				},
+//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
+//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
+//					SampleSize:                      pulumi.Int(16),
+//					SuccessfulSamplesRequired:       pulumi.Int(3),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//				Name:                        pulumi.String("example-origin"),
+//				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
+//				Enabled:                     pulumi.Bool(true),
+//				CertificateNameCheckEnabled: pulumi.Bool(false),
+//				HostName:                    exampleFrontdoorEndpoint.HostName,
+//				HttpPort:                    pulumi.Int(80),
+//				HttpsPort:                   pulumi.Int(443),
+//				OriginHostHeader:            pulumi.String("contoso.com"),
+//				Priority:                    pulumi.Int(1),
+//				Weight:                      pulumi.Int(500),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorRuleSet, err := cdn.NewFrontdoorRuleSet(ctx, "example", &cdn.FrontdoorRuleSetArgs{
+//				Name:                  pulumi.String("exampleruleset"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = cdn.NewFrontdoorRule(ctx, "example", &cdn.FrontdoorRuleArgs{
+//				Name:                  pulumi.String("examplerule"),
+//				CdnFrontdoorRuleSetId: exampleFrontdoorRuleSet.ID(),
+//				Order:                 pulumi.Int(1),
+//				BehaviorOnMatch:       pulumi.String("Continue"),
+//				Actions: &cdn.FrontdoorRuleActionsArgs{
+//					RouteConfigurationOverrideAction: &cdn.FrontdoorRuleActionsRouteConfigurationOverrideActionArgs{
+//						CdnFrontdoorOriginGroupId:  exampleFrontdoorOriginGroup.ID(),
+//						ForwardingProtocol:         pulumi.String("HttpsOnly"),
+//						QueryStringCachingBehavior: pulumi.String("IncludeSpecifiedQueryStrings"),
+//						QueryStringParameters: pulumi.StringArray{
+//							pulumi.String("foo"),
+//							pulumi.String("clientIp={client_ip}"),
+//						},
+//						CompressionEnabled: pulumi.Bool(true),
+//						CacheBehavior:      pulumi.String("OverrideIfOriginMissing"),
+//						CacheDuration:      pulumi.String("365.23:59:59"),
+//					},
+//					UrlRedirectAction: &cdn.FrontdoorRuleActionsUrlRedirectActionArgs{
+//						RedirectType:        pulumi.String("PermanentRedirect"),
+//						RedirectProtocol:    pulumi.String("MatchRequest"),
+//						QueryString:         pulumi.String("clientIp={client_ip}"),
+//						DestinationPath:     pulumi.String("/exampleredirection"),
+//						DestinationHostname: pulumi.String("contoso.com"),
+//						DestinationFragment: pulumi.String("UrlRedirect"),
+//					},
+//				},
+//				Conditions: &cdn.FrontdoorRuleConditionsArgs{
+//					HostNameConditions: cdn.FrontdoorRuleConditionsHostNameConditionArray{
+//						&cdn.FrontdoorRuleConditionsHostNameConditionArgs{
+//							Operator:        pulumi.String("Equal"),
+//							NegateCondition: pulumi.Bool(false),
+//							MatchValues: pulumi.StringArray{
+//								pulumi.String("www.contoso.com"),
+//								pulumi.String("images.contoso.com"),
+//								pulumi.String("video.contoso.com"),
+//							},
+//							Transforms: pulumi.StringArray{
+//								pulumi.String("Lowercase"),
+//								pulumi.String("Trim"),
+//							},
+//						},
+//					},
+//					IsDeviceConditions: cdn.FrontdoorRuleConditionsIsDeviceConditionArray{
+//						&cdn.FrontdoorRuleConditionsIsDeviceConditionArgs{
+//							Operator:        pulumi.String("Equal"),
+//							NegateCondition: pulumi.Bool(false),
+//							MatchValues:     pulumi.String("Mobile"),
+//						},
+//					},
+//					PostArgsConditions: cdn.FrontdoorRuleConditionsPostArgsConditionArray{
+//						&cdn.FrontdoorRuleConditionsPostArgsConditionArgs{
+//							PostArgsName: pulumi.String("customerName"),
+//							Operator:     pulumi.String("BeginsWith"),
+//							MatchValues: pulumi.StringArray{
+//								pulumi.String("J"),
+//								pulumi.String("K"),
+//							},
+//							Transforms: pulumi.StringArray{
+//								pulumi.String("Uppercase"),
+//							},
+//						},
+//					},
+//					RequestMethodConditions: cdn.FrontdoorRuleConditionsRequestMethodConditionArray{
+//						&cdn.FrontdoorRuleConditionsRequestMethodConditionArgs{
+//							Operator:        pulumi.String("Equal"),
+//							NegateCondition: pulumi.Bool(false),
+//							MatchValues: pulumi.StringArray{
+//								pulumi.String("DELETE"),
+//							},
+//						},
+//					},
+//					UrlFilenameConditions: cdn.FrontdoorRuleConditionsUrlFilenameConditionArray{
+//						&cdn.FrontdoorRuleConditionsUrlFilenameConditionArgs{
+//							Operator:        pulumi.String("Equal"),
+//							NegateCondition: pulumi.Bool(false),
+//							MatchValues: pulumi.StringArray{
+//								pulumi.String("media.mp4"),
+//							},
+//							Transforms: pulumi.StringArray{
+//								pulumi.String("Lowercase"),
+//								pulumi.String("RemoveNulls"),
+//								pulumi.String("Trim"),
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
 // ## Specifying IP Address Ranges
 //
 // When specifying IP address ranges in the `socketAddressCondition` and the `remoteAddressCondition` `matchValues` use the following format:

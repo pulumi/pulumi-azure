@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *     poolName: "acctestnetapppool",
  *     volumeName: "acctestnetappvolume",
  * });
- * export const netappSnapshotId = data.azurerm_netapp_snapshot.example.id;
+ * export const netappSnapshotId = example.id;
  * ```
  */
 export function getSnapshot(args: GetSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetSnapshotResult> {
@@ -95,7 +95,7 @@ export interface GetSnapshotResult {
  *     poolName: "acctestnetapppool",
  *     volumeName: "acctestnetappvolume",
  * });
- * export const netappSnapshotId = data.azurerm_netapp_snapshot.example.id;
+ * export const netappSnapshotId = example.id;
  * ```
  */
 export function getSnapshotOutput(args: GetSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSnapshotResult> {

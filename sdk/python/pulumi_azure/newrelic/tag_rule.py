@@ -274,10 +274,13 @@ class TagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_monitor = azure.newrelic.Monitor("example",
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location,
             plan=azure.newrelic.MonitorPlanArgs(
                 effective_date="2023-06-06T00:00:00Z",
             ),
@@ -287,7 +290,7 @@ class TagRule(pulumi.CustomResource):
                 last_name="User",
                 phone_number="+12313803556",
             ))
-        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
+        example_tag_rule = azure.newrelic.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,
@@ -338,10 +341,13 @@ class TagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="East US")
-        example_monitor = azure.newrelic.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="East US")
+        example_monitor = azure.newrelic.Monitor("example",
+            name="example-nrm",
+            resource_group_name=example.name,
+            location=example.location,
             plan=azure.newrelic.MonitorPlanArgs(
                 effective_date="2023-06-06T00:00:00Z",
             ),
@@ -351,7 +357,7 @@ class TagRule(pulumi.CustomResource):
                 last_name="User",
                 phone_number="+12313803556",
             ))
-        example_tag_rule = azure.newrelic.TagRule("exampleTagRule",
+        example_tag_rule = azure.newrelic.TagRule("example",
             monitor_id=example_monitor.id,
             azure_active_directory_log_enabled=True,
             activity_log_enabled=True,

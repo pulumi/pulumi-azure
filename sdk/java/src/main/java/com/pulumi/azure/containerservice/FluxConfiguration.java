@@ -42,7 +42,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.containerservice.FluxConfigurationArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationGitRepositoryArgs;
  * import com.pulumi.azure.containerservice.inputs.FluxConfigurationKustomizationArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -56,13 +55,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleKubernetesCluster = new KubernetesCluster(&#34;exampleKubernetesCluster&#34;, KubernetesClusterArgs.builder()        
+ *             .name(&#34;example-aks&#34;)
  *             .location(&#34;West Europe&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .dnsPrefix(&#34;example-aks&#34;)
  *             .defaultNodePool(KubernetesClusterDefaultNodePoolArgs.builder()
  *                 .name(&#34;default&#34;)
@@ -75,12 +76,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleKubernetesClusterExtension = new KubernetesClusterExtension(&#34;exampleKubernetesClusterExtension&#34;, KubernetesClusterExtensionArgs.builder()        
- *             .clusterId(azurerm_kubernetes_cluster.test().id())
+ *             .name(&#34;example-ext&#34;)
+ *             .clusterId(test.id())
  *             .extensionType(&#34;microsoft.flux&#34;)
  *             .build());
  * 
  *         var exampleFluxConfiguration = new FluxConfiguration(&#34;exampleFluxConfiguration&#34;, FluxConfigurationArgs.builder()        
- *             .clusterId(azurerm_kubernetes_cluster.test().id())
+ *             .name(&#34;example-fc&#34;)
+ *             .clusterId(test.id())
  *             .namespace(&#34;flux&#34;)
  *             .gitRepository(FluxConfigurationGitRepositoryArgs.builder()
  *                 .url(&#34;https://github.com/Azure/arc-k8s-demo&#34;)
@@ -90,9 +93,7 @@ import javax.annotation.Nullable;
  *             .kustomizations(FluxConfigurationKustomizationArgs.builder()
  *                 .name(&#34;kustomization-1&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleKubernetesClusterExtension)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

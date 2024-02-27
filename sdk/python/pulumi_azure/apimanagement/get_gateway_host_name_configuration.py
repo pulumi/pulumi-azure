@@ -156,14 +156,14 @@ def get_gateway_host_name_configuration(api_management_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_service = azure.apimanagement.get_service(name="example-apim",
+    example = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-resources")
-    example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
-    example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
-        api_management_id=example_service.id,
-        gateway_name=example_gateway.name)
-    pulumi.export("hostName", example_gateway_host_name_configuration.host_name)
+    example_get_gateway = azure.apimanagement.get_gateway(name="example-gateway",
+        api_management_id=main["id"])
+    example_get_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
+        api_management_id=example.id,
+        gateway_name=example_get_gateway.name)
+    pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
 
 
@@ -206,14 +206,14 @@ def get_gateway_host_name_configuration_output(api_management_id: Optional[pulum
     import pulumi
     import pulumi_azure as azure
 
-    example_service = azure.apimanagement.get_service(name="example-apim",
+    example = azure.apimanagement.get_service(name="example-apim",
         resource_group_name="example-resources")
-    example_gateway = azure.apimanagement.get_gateway(name="example-gateway",
-        api_management_id=data["azurerm_api_management"]["main"]["id"])
-    example_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
-        api_management_id=example_service.id,
-        gateway_name=example_gateway.name)
-    pulumi.export("hostName", example_gateway_host_name_configuration.host_name)
+    example_get_gateway = azure.apimanagement.get_gateway(name="example-gateway",
+        api_management_id=main["id"])
+    example_get_gateway_host_name_configuration = azure.apimanagement.get_gateway_host_name_configuration(name="example-host-configuration",
+        api_management_id=example.id,
+        gateway_name=example_get_gateway.name)
+    pulumi.export("hostName", example_get_gateway_host_name_configuration.host_name)
     ```
 
 

@@ -14,10 +14,14 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "terraform-webpubsub",
+ *     location: "east us",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  *     softDeleteRetentionDays: 7,
@@ -29,13 +33,15 @@ import * as utilities from "../utilities";
  *         secretPermissions: ["set"],
  *     }],
  * });
- * const exampleService = new azure.webpubsub.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleService = new azure.webpubsub.Service("example", {
+ *     name: "tfex-webpubsub",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard_S1",
  *     capacity: 1,
  * });
- * const exampleSharedPrivateLinkResource = new azure.webpubsub.SharedPrivateLinkResource("exampleSharedPrivateLinkResource", {
+ * const exampleSharedPrivateLinkResource = new azure.webpubsub.SharedPrivateLinkResource("example", {
+ *     name: "tfex-webpubsub-splr",
  *     webPubsubId: exampleService.id,
  *     subresourceName: "vault",
  *     targetResourceId: exampleKeyVault.id,

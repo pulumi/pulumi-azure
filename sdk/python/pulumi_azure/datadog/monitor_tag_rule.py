@@ -175,10 +175,13 @@ class MonitorTagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-datadog",
+            location="West US 2")
+        example_monitor = azure.datadog.Monitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
                 api_key="XXXX",
                 application_key="XXXX",
@@ -191,7 +194,7 @@ class MonitorTagRule(pulumi.CustomResource):
             identity=azure.datadog.MonitorIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("exampleMonitorTagRule",
+        example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
             logs=[azure.datadog.MonitorTagRuleLogArgs(
                 subscription_log_enabled=True,
@@ -235,10 +238,13 @@ class MonitorTagRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West US 2")
-        example_monitor = azure.datadog.Monitor("exampleMonitor",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-datadog",
+            location="West US 2")
+        example_monitor = azure.datadog.Monitor("example",
+            name="example-monitor",
+            resource_group_name=example.name,
+            location=example.location,
             datadog_organization=azure.datadog.MonitorDatadogOrganizationArgs(
                 api_key="XXXX",
                 application_key="XXXX",
@@ -251,7 +257,7 @@ class MonitorTagRule(pulumi.CustomResource):
             identity=azure.datadog.MonitorIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_monitor_tag_rule = azure.datadog.MonitorTagRule("exampleMonitorTagRule",
+        example_monitor_tag_rule = azure.datadog.MonitorTagRule("example",
             datadog_monitor_id=example_monitor.id,
             logs=[azure.datadog.MonitorTagRuleLogArgs(
                 subscription_log_enabled=True,

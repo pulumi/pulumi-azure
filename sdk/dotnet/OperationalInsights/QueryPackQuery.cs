@@ -22,19 +22,22 @@ namespace Pulumi.Azure.OperationalInsights
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleQueryPack = new Azure.LogAnalytics.QueryPack("exampleQueryPack", new()
+    ///     var exampleQueryPack = new Azure.LogAnalytics.QueryPack("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-laqp",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleQueryPackQuery = new Azure.OperationalInsights.QueryPackQuery("exampleQueryPackQuery", new()
+    ///     var exampleQueryPackQuery = new Azure.OperationalInsights.QueryPackQuery("example", new()
     ///     {
+    ///         Name = "19952bc3-0bf9-49eb-b713-6b80e7a41847",
     ///         QueryPackId = exampleQueryPack.Id,
     ///         Body = @"let newExceptionsTimeRange = 1d;
     /// let timeRangeToCheckBefore = 7d;

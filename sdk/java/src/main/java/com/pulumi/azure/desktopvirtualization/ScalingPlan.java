@@ -66,10 +66,12 @@ import javax.annotation.Nullable;
  *         var exampleRandomUuid = new RandomUuid(&#34;exampleRandomUuid&#34;);
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleRoleDefinition = new RoleDefinition(&#34;exampleRoleDefinition&#34;, RoleDefinitionArgs.builder()        
+ *             .name(&#34;AVD-AutoScale&#34;)
  *             .scope(exampleResourceGroup.id())
  *             .description(&#34;AVD AutoScale Role&#34;)
  *             .permissions(RoleDefinitionPermissionArgs.builder()
@@ -93,7 +95,7 @@ import javax.annotation.Nullable;
  *             .assignableScopes(exampleResourceGroup.id())
  *             .build());
  * 
- *         final var exampleServicePrincipal = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
+ *         final var example = AzureadFunctions.getServicePrincipal(GetServicePrincipalArgs.builder()
  *             .displayName(&#34;Windows Virtual Desktop&#34;)
  *             .build());
  * 
@@ -101,11 +103,12 @@ import javax.annotation.Nullable;
  *             .name(exampleRandomUuid.result())
  *             .scope(exampleResourceGroup.id())
  *             .roleDefinitionId(exampleRoleDefinition.roleDefinitionResourceId())
- *             .principalId(exampleServicePrincipal.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
+ *             .principalId(example.applyValue(getServicePrincipalResult -&gt; getServicePrincipalResult.id()))
  *             .skipServicePrincipalAadCheck(true)
  *             .build());
  * 
  *         var exampleHostPool = new HostPool(&#34;exampleHostPool&#34;, HostPoolArgs.builder()        
+ *             .name(&#34;example-hostpool&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .type(&#34;Pooled&#34;)
@@ -114,6 +117,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleScalingPlan = new ScalingPlan(&#34;exampleScalingPlan&#34;, ScalingPlanArgs.builder()        
+ *             .name(&#34;example-scaling-plan&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .friendlyName(&#34;Scaling Plan Example&#34;)

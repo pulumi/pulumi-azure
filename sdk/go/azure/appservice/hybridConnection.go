@@ -34,15 +34,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("exampleResourceGroup1"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("exampleAppServicePlan1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -51,33 +53,36 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
+//				Name:              pulumi.String("exampleAppService1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := relay.NewNamespace(ctx, "exampleNamespace", &relay.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := relay.NewNamespace(ctx, "example", &relay.NamespaceArgs{
+//				Name:              pulumi.String("exampleRN1"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "exampleHybridConnection", &relay.HybridConnectionArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleHybridConnection, err := relay.NewHybridConnection(ctx, "example", &relay.HybridConnectionArgs{
+//				Name:               pulumi.String("exampleRHC1"),
+//				ResourceGroupName:  example.Name,
 //				RelayNamespaceName: exampleNamespace.Name,
 //				UserMetadata:       pulumi.String("examplemetadata"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewHybridConnection(ctx, "exampleAppservice/hybridConnectionHybridConnection", &appservice.HybridConnectionArgs{
+//			_, err = appservice.NewHybridConnection(ctx, "example", &appservice.HybridConnectionArgs{
 //				AppServiceName:    exampleAppService.Name,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				RelayId:           exampleHybridConnection.ID(),
 //				Hostname:          pulumi.String("testhostname.example"),
 //				Port:              pulumi.Int(8080),

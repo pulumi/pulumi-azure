@@ -28,15 +28,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = core.NewCustomProvider(ctx, "exampleCustomProvider", &core.CustomProviderArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = core.NewCustomProvider(ctx, "example", &core.CustomProviderArgs{
+//				Name:              pulumi.String("example_provider"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ResourceTypes: core.CustomProviderResourceTypeArray{
 //					&core.CustomProviderResourceTypeArgs{
 //						Name:     pulumi.String("dEf1"),

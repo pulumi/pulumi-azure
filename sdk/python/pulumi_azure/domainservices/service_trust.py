@@ -203,10 +203,11 @@ class ServiceTrust(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_service = azure.domainservices.get_service(name="example-ds",
+        example = azure.domainservices.get_service(name="example-ds",
             resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("exampleServiceTrust",
-            domain_service_id=example_service.id,
+        example_service_trust = azure.domainservices.ServiceTrust("example",
+            name="example-trust",
+            domain_service_id=example.id,
             trusted_domain_fqdn="example.com",
             trusted_domain_dns_ips=[
                 "10.1.0.3",
@@ -246,10 +247,11 @@ class ServiceTrust(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_service = azure.domainservices.get_service(name="example-ds",
+        example = azure.domainservices.get_service(name="example-ds",
             resource_group_name="example-rg")
-        example_service_trust = azure.domainservices.ServiceTrust("exampleServiceTrust",
-            domain_service_id=example_service.id,
+        example_service_trust = azure.domainservices.ServiceTrust("example",
+            name="example-trust",
+            domain_service_id=example.id,
             trusted_domain_fqdn="example.com",
             trusted_domain_dns_ips=[
                 "10.1.0.3",

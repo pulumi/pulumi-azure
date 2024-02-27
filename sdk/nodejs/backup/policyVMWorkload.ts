@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-bpvmw",
+ *     location: "West Europe",
+ * });
+ * const exampleVault = new azure.recoveryservices.Vault("example", {
+ *     name: "example-rsv",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     softDeleteEnabled: false,
  * });
- * const examplePolicyVMWorkload = new azure.backup.PolicyVMWorkload("examplePolicyVMWorkload", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const examplePolicyVMWorkload = new azure.backup.PolicyVMWorkload("example", {
+ *     name: "example-bpvmw",
+ *     resourceGroupName: example.name,
  *     recoveryVaultName: exampleVault.name,
  *     workloadType: "SQLDataBase",
  *     settings: {

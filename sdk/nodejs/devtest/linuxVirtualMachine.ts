@@ -14,31 +14,39 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleLab = new azure.devtest.Lab("exampleLab", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleLab = new azure.devtest.Lab("example", {
+ *     name: "example-devtestlab",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tags: {
  *         Sydney: "Australia",
  *     },
  * });
- * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleVirtualNetwork = new azure.devtest.VirtualNetwork("example", {
+ *     name: "example-network",
  *     labName: exampleLab.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     subnet: {
  *         usePublicIpAddress: "Allow",
  *         useInVirtualMachineCreation: "Allow",
  *     },
  * });
- * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("exampleLinuxVirtualMachine", {
+ * const exampleLinuxVirtualMachine = new azure.devtest.LinuxVirtualMachine("example", {
+ *     name: "example-vm03",
  *     labName: exampleLab.name,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     size: "Standard_DS2",
  *     username: "exampleuser99",
- *     sshKey: fs.readFileSync("~/.ssh/id_rsa.pub", "utf8"),
+ *     sshKey: std.file({
+ *         input: "~/.ssh/id_rsa.pub",
+ *     }).then(invoke => invoke.result),
  *     labVirtualNetworkId: exampleVirtualNetwork.id,
  *     labSubnetName: exampleVirtualNetwork.subnet.apply(subnet => subnet.name),
  *     storageType: "Premium",

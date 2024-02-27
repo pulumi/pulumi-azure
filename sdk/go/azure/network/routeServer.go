@@ -29,18 +29,20 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),
 //				},
@@ -48,9 +50,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("RouteServerSubnet"),
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//				ResourceGroupName:  example.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
 //				},
@@ -58,18 +61,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("example-pip"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AllocationMethod:  pulumi.String("Static"),
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewRouteServer(ctx, "exampleRouteServer", &network.RouteServerArgs{
-//				ResourceGroupName:            exampleResourceGroup.Name,
-//				Location:                     exampleResourceGroup.Location,
+//			_, err = network.NewRouteServer(ctx, "example", &network.RouteServerArgs{
+//				Name:                         pulumi.String("example-routerserver"),
+//				ResourceGroupName:            example.Name,
+//				Location:                     example.Location,
 //				Sku:                          pulumi.String("Standard"),
 //				PublicIpAddressId:            examplePublicIp.ID(),
 //				SubnetId:                     exampleSubnet.ID(),

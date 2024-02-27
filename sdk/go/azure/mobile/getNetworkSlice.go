@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = mobile.LookupNetworkSlice(ctx, &mobile.LookupNetworkSliceArgs{
 //				Name:            "example-mns",
-//				MobileNetworkId: data.Azurerm_mobile_network.Test.Id,
+//				MobileNetworkId: test.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

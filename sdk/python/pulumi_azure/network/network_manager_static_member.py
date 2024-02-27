@@ -155,11 +155,14 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -168,14 +171,17 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
             network_manager_id=example_network_manager.id,
             description="example network group")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
             address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location)
-        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            location=example.location)
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("example",
+            name="example-nmsm",
             network_group_id=example_network_manager_network_group.id,
             target_virtual_network_id=example_virtual_network.id)
         ```
@@ -209,11 +215,14 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_subscription()
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-network-manager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
                 subscription_ids=[current.id],
             ),
@@ -222,14 +231,17 @@ class NetworkManagerStaticMember(pulumi.CustomResource):
                 "SecurityAdmin",
             ],
             description="example network manager")
-        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("exampleNetworkManagerNetworkGroup",
+        example_network_manager_network_group = azure.network.NetworkManagerNetworkGroup("example",
+            name="example-group",
             network_manager_id=example_network_manager.id,
             description="example network group")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
-            resource_group_name=example_resource_group.name,
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
+            resource_group_name=example.name,
             address_spaces=["192.168.1.0/24"],
-            location=example_resource_group.location)
-        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("exampleNetworkManagerStaticMember",
+            location=example.location)
+        example_network_manager_static_member = azure.network.NetworkManagerStaticMember("example",
+            name="example-nmsm",
             network_group_id=example_network_manager_network_group.id,
             target_virtual_network_id=example_virtual_network.id)
         ```

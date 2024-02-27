@@ -27,7 +27,7 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleService, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
+//			example, err := apimanagement.LookupService(ctx, &apimanagement.LookupServiceArgs{
 //				Name:              "example-apim",
 //				ResourceGroupName: "example-rg",
 //			}, nil)
@@ -36,7 +36,7 @@ import (
 //			}
 //			_, err = apimanagement.LookupGateway(ctx, &apimanagement.LookupGatewayArgs{
 //				Name:            "example-api-gateway",
-//				ApiManagementId: exampleService.Id,
+//				ApiManagementId: example.Id,
 //			}, nil)
 //			if err != nil {
 //				return err

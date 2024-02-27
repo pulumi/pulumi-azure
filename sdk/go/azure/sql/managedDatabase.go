@@ -28,24 +28,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("test-network"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -54,9 +57,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "exampleManagedInstance", &sql.ManagedInstanceArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleManagedInstance, err := sql.NewManagedInstance(ctx, "example", &sql.ManagedInstanceArgs{
+//				Name:                       pulumi.String("example"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				AdministratorLogin:         pulumi.String("mradministrator"),
 //				AdministratorLoginPassword: pulumi.String("thisIsDog11"),
 //				LicenseType:                pulumi.String("BasePrice"),
@@ -68,9 +72,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sql.NewManagedDatabase(ctx, "exampleManagedDatabase", &sql.ManagedDatabaseArgs{
+//			_, err = sql.NewManagedDatabase(ctx, "example", &sql.ManagedDatabaseArgs{
 //				SqlManagedInstanceId: exampleManagedInstance.ID(),
-//				Location:             exampleResourceGroup.Location,
+//				Name:                 pulumi.String("exampledatabase"),
+//				Location:             example.Location,
 //			})
 //			if err != nil {
 //				return err

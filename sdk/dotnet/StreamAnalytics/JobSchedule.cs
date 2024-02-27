@@ -22,37 +22,42 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "example",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     var exampleBlob = new Azure.Storage.Blob("example", new()
     ///     {
+    ///         Name = "example",
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageContainerName = exampleContainer.Name,
     ///         Type = "Block",
     ///         Source = new FileAsset("example.csv"),
     ///     });
     /// 
-    ///     var exampleJob = new Azure.StreamAnalytics.Job("exampleJob", new()
+    ///     var exampleJob = new Azure.StreamAnalytics.Job("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-job",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         CompatibilityLevel = "1.2",
     ///         DataLocale = "en-GB",
     ///         EventsLateArrivalMaxDelayInSeconds = 60,
@@ -70,8 +75,9 @@ namespace Pulumi.Azure.StreamAnalytics
     /// ",
     ///     });
     /// 
-    ///     var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("exampleStreamInputBlob", new()
+    ///     var exampleStreamInputBlob = new Azure.StreamAnalytics.StreamInputBlob("example", new()
     ///     {
+    ///         Name = "exampleinput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
     ///         ResourceGroupName = exampleJob.ResourceGroupName,
     ///         StorageAccountName = exampleAccount.Name,
@@ -88,8 +94,9 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("exampleOutputBlob", new()
+    ///     var exampleOutputBlob = new Azure.StreamAnalytics.OutputBlob("example", new()
     ///     {
+    ///         Name = "exampleoutput",
     ///         StreamAnalyticsJobName = exampleJob.Name,
     ///         ResourceGroupName = exampleJob.ResourceGroupName,
     ///         StorageAccountName = exampleAccount.Name,
@@ -104,19 +111,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         },
     ///     });
     /// 
-    ///     var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("exampleJobSchedule", new()
+    ///     var exampleJobSchedule = new Azure.StreamAnalytics.JobSchedule("example", new()
     ///     {
     ///         StreamAnalyticsJobId = exampleJob.Id,
     ///         StartMode = "CustomTime",
     ///         StartTime = "2022-09-21T00:00:00Z",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleJob,
-    ///             exampleStreamInputBlob,
-    ///             exampleOutputBlob,
-    ///         },
     ///     });
     /// 
     /// });

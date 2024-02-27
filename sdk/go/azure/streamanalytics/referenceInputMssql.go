@@ -30,17 +30,19 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
+//			example := streamanalytics.LookupJobOutput(ctx, streamanalytics.GetJobOutputArgs{
 //				Name:              pulumi.String("example-job"),
 //				ResourceGroupName: exampleResourceGroup.Name,
 //			}, nil)
-//			exampleServer, err := mssql.NewServer(ctx, "exampleServer", &mssql.ServerArgs{
+//			exampleServer, err := mssql.NewServer(ctx, "example", &mssql.ServerArgs{
+//				Name:                       pulumi.String("example-sqlserver"),
 //				ResourceGroupName:          exampleResourceGroup.Name,
 //				Location:                   exampleResourceGroup.Location,
 //				Version:                    pulumi.String("12.0"),
@@ -50,18 +52,20 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleDatabase, err := mssql.NewDatabase(ctx, "exampleDatabase", &mssql.DatabaseArgs{
+//			exampleDatabase, err := mssql.NewDatabase(ctx, "example", &mssql.DatabaseArgs{
+//				Name:     pulumi.String("example-db"),
 //				ServerId: exampleServer.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewReferenceInputMssql(ctx, "exampleReferenceInputMssql", &streamanalytics.ReferenceInputMssqlArgs{
-//				ResourceGroupName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.ResourceGroupName, nil
+//			_, err = streamanalytics.NewReferenceInputMssql(ctx, "example", &streamanalytics.ReferenceInputMssqlArgs{
+//				Name: pulumi.String("example-reference-input"),
+//				ResourceGroupName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.ResourceGroupName, nil
 //				}).(pulumi.StringPtrOutput),
-//				StreamAnalyticsJobName: exampleJob.ApplyT(func(exampleJob streamanalytics.GetJobResult) (*string, error) {
-//					return &exampleJob.Name, nil
+//				StreamAnalyticsJobName: example.ApplyT(func(example streamanalytics.GetJobResult) (*string, error) {
+//					return &example.Name, nil
 //				}).(pulumi.StringPtrOutput),
 //				Server:                  exampleServer.FullyQualifiedDomainName,
 //				Database:                exampleDatabase.Name,

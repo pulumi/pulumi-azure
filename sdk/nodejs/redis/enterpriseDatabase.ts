@@ -15,19 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("exampleEnterpriseCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-redisenterprise",
+ *     location: "West Europe",
+ * });
+ * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("example", {
+ *     name: "example-redisenterprise",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Enterprise_E20-4",
  * });
  * const example1 = new azure.redis.EnterpriseCluster("example1", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     name: "example-redisenterprise1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "Enterprise_E20-4",
  * });
- * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("exampleEnterpriseDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEnterpriseDatabase = new azure.redis.EnterpriseDatabase("example", {
+ *     name: "default",
+ *     resourceGroupName: example.name,
  *     clusterId: exampleEnterpriseCluster.id,
  *     clientProtocol: "Encrypted",
  *     clusteringPolicy: "EnterpriseCluster",

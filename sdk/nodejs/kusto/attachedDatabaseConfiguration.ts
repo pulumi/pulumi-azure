@@ -15,36 +15,44 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const followerCluster = new azure.kusto.Cluster("followerCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "my-kusto-rg",
+ *     location: "West Europe",
+ * });
+ * const followerCluster = new azure.kusto.Cluster("follower_cluster", {
+ *     name: "cluster1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
  * });
- * const followedCluster = new azure.kusto.Cluster("followedCluster", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const followedCluster = new azure.kusto.Cluster("followed_cluster", {
+ *     name: "cluster2",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: {
  *         name: "Dev(No SLA)_Standard_D11_v2",
  *         capacity: 1,
  *     },
  * });
- * const followedDatabase = new azure.kusto.Database("followedDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const followedDatabase = new azure.kusto.Database("followed_database", {
+ *     name: "my-followed-database",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: followerCluster.name,
  * });
- * const exampleDatabase = new azure.kusto.Database("exampleDatabase", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleDatabase = new azure.kusto.Database("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: followerCluster.name,
  * });
- * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("exampleAttachedDatabaseConfiguration", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAttachedDatabaseConfiguration = new azure.kusto.AttachedDatabaseConfiguration("example", {
+ *     name: "configuration1",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     clusterName: followerCluster.name,
  *     clusterResourceId: followedCluster.id,
  *     databaseName: exampleDatabase.name,

@@ -22,27 +22,31 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "content",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "private",
     ///     });
     /// 
-    ///     var exampleBlob = new Azure.Storage.Blob("exampleBlob", new()
+    ///     var exampleBlob = new Azure.Storage.Blob("example", new()
     ///     {
+    ///         Name = "my-awesome-content.zip",
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageContainerName = exampleContainer.Name,
     ///         Type = "Block",

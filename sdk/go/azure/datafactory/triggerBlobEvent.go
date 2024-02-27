@@ -30,35 +30,40 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFactory, err := datafactory.NewFactory(ctx, "exampleFactory", &datafactory.FactoryArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFactory, err := datafactory.NewFactory(ctx, "example", &datafactory.FactoryArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePipeline, err := datafactory.NewPipeline(ctx, "examplePipeline", &datafactory.PipelineArgs{
+//			examplePipeline, err := datafactory.NewPipeline(ctx, "example", &datafactory.PipelineArgs{
+//				Name:          pulumi.String("example"),
 //				DataFactoryId: exampleFactory.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datafactory.NewTriggerBlobEvent(ctx, "exampleTriggerBlobEvent", &datafactory.TriggerBlobEventArgs{
+//			_, err = datafactory.NewTriggerBlobEvent(ctx, "example", &datafactory.TriggerBlobEventArgs{
+//				Name:             pulumi.String("example"),
 //				DataFactoryId:    exampleFactory.ID(),
 //				StorageAccountId: exampleAccount.ID(),
 //				Events: pulumi.StringArray{

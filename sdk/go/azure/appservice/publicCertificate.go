@@ -21,34 +21,26 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("example-app-service-plan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku: &appservice.PlanSkuArgs{
 //					Tier: pulumi.String("Standard"),
 //					Size: pulumi.String("S1"),
@@ -57,20 +49,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAppService, err := appservice.NewAppService(ctx, "exampleAppService", &appservice.AppServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAppService, err := appservice.NewAppService(ctx, "example", &appservice.AppServiceArgs{
+//				Name:              pulumi.String("example-app-service"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AppServicePlanId:  examplePlan.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewPublicCertificate(ctx, "examplePublicCertificate", &appservice.PublicCertificateArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "app_service_public_certificate.cer",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewPublicCertificate(ctx, "example", &appservice.PublicCertificateArgs{
+//				ResourceGroupName:   example.Name,
 //				AppServiceName:      exampleAppService.Name,
 //				CertificateName:     pulumi.String("example-public-certificate"),
 //				CertificateLocation: pulumi.String("Unknown"),
-//				Blob:                filebase64OrPanic("app_service_public_certificate.cer"),
+//				Blob:                invokeFilebase64.Result,
 //			})
 //			if err != nil {
 //				return err

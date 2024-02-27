@@ -22,19 +22,21 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleSqlServer = new Azure.Sql.SqlServer("exampleSqlServer", new()
+    ///     var exampleSqlServer = new Azure.Sql.SqlServer("example", new()
     ///     {
+    ///         Name = "example-server",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         Version = "12.0",
@@ -42,8 +44,9 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         AdministratorLoginPassword = "example-password",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.Sql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.Sql.Database("example", new()
     ///     {
+    ///         Name = "exampledb",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         ServerName = exampleSqlServer.Name,
@@ -53,10 +56,11 @@ namespace Pulumi.Azure.StreamAnalytics
     ///         CreateMode = "Default",
     ///     });
     /// 
-    ///     var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("exampleOutputMssql", new()
+    ///     var exampleOutputMssql = new Azure.StreamAnalytics.OutputMssql("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "example-output-sql",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         Server = exampleSqlServer.FullyQualifiedDomainName,
     ///         User = exampleSqlServer.AdministratorLogin,
     ///         Password = exampleSqlServer.AdministratorLoginPassword,

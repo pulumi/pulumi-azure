@@ -43,9 +43,9 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
-     *             .name(azurerm_spring_cloud_app.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
-     *             .serviceName(azurerm_spring_cloud_app.example().service_name())
+     *             .name(exampleAzurermSpringCloudApp.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudApp.resourceGroupName())
+     *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
@@ -83,9 +83,9 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
-     *             .name(azurerm_spring_cloud_app.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
-     *             .serviceName(azurerm_spring_cloud_app.example().service_name())
+     *             .name(exampleAzurermSpringCloudApp.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudApp.resourceGroupName())
+     *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
@@ -123,9 +123,9 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
-     *             .name(azurerm_spring_cloud_app.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
-     *             .serviceName(azurerm_spring_cloud_app.example().service_name())
+     *             .name(exampleAzurermSpringCloudApp.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudApp.resourceGroupName())
+     *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
@@ -163,9 +163,9 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudApp(GetSpringCloudAppArgs.builder()
-     *             .name(azurerm_spring_cloud_app.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_app.example().resource_group_name())
-     *             .serviceName(azurerm_spring_cloud_app.example().service_name())
+     *             .name(exampleAzurermSpringCloudApp.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudApp.resourceGroupName())
+     *             .serviceName(exampleAzurermSpringCloudApp.serviceName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudAppId&#34;, example.applyValue(getSpringCloudAppResult -&gt; getSpringCloudAppResult.id()));
@@ -203,8 +203,8 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
-     *             .name(azurerm_spring_cloud_service.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
+     *             .name(exampleAzurermSpringCloudService.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
@@ -242,8 +242,8 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
-     *             .name(azurerm_spring_cloud_service.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
+     *             .name(exampleAzurermSpringCloudService.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
@@ -281,8 +281,8 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
-     *             .name(azurerm_spring_cloud_service.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
+     *             .name(exampleAzurermSpringCloudService.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));
@@ -320,8 +320,8 @@ public final class AppplatformFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = AppplatformFunctions.getSpringCloudService(GetSpringCloudServiceArgs.builder()
-     *             .name(azurerm_spring_cloud_service.example().name())
-     *             .resourceGroupName(azurerm_spring_cloud_service.example().resource_group_name())
+     *             .name(exampleAzurermSpringCloudService.name())
+     *             .resourceGroupName(exampleAzurermSpringCloudService.resourceGroupName())
      *             .build());
      * 
      *         ctx.export(&#34;springCloudServiceId&#34;, example.applyValue(getSpringCloudServiceResult -&gt; getSpringCloudServiceResult.id()));

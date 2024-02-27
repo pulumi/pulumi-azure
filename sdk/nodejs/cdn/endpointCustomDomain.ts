@@ -15,19 +15,25 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "west europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "west europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "example",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "GRS",
  * });
- * const exampleProfile = new azure.cdn.Profile("exampleProfile", {
+ * const exampleProfile = new azure.cdn.Profile("example", {
+ *     name: "example-profile",
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
  *     sku: "Standard_Verizon",
  * });
- * const exampleEndpoint = new azure.cdn.Endpoint("exampleEndpoint", {
+ * const exampleEndpoint = new azure.cdn.Endpoint("example", {
+ *     name: "example-endpoint",
  *     profileName: exampleProfile.name,
  *     location: exampleResourceGroup.location,
  *     resourceGroupName: exampleResourceGroup.name,
@@ -36,19 +42,21 @@ import * as utilities from "../utilities";
  *         hostName: exampleAccount.primaryBlobHost,
  *     }],
  * });
- * const exampleZone = azure.dns.getZone({
+ * const example = azure.dns.getZone({
  *     name: "example-domain.com",
  *     resourceGroupName: "domain-rg",
  * });
- * const exampleCNameRecord = new azure.dns.CNameRecord("exampleCNameRecord", {
- *     zoneName: exampleZone.then(exampleZone => exampleZone.name),
- *     resourceGroupName: exampleZone.then(exampleZone => exampleZone.resourceGroupName),
+ * const exampleCNameRecord = new azure.dns.CNameRecord("example", {
+ *     name: "example",
+ *     zoneName: example.then(example => example.name),
+ *     resourceGroupName: example.then(example => example.resourceGroupName),
  *     ttl: 3600,
  *     targetResourceId: exampleEndpoint.id,
  * });
- * const exampleEndpointCustomDomain = new azure.cdn.EndpointCustomDomain("exampleEndpointCustomDomain", {
+ * const exampleEndpointCustomDomain = new azure.cdn.EndpointCustomDomain("example", {
+ *     name: "example-domain",
  *     cdnEndpointId: exampleEndpoint.id,
- *     hostName: pulumi.all([exampleCNameRecord.name, exampleZone]).apply(([name, exampleZone]) => `${name}.${exampleZone.name}`),
+ *     hostName: pulumi.all([exampleCNameRecord.name, example]).apply(([name, example]) => `${name}.${example.name}`),
  * });
  * ```
  *

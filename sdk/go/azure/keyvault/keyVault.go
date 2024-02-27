@@ -39,15 +39,17 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                 exampleResourceGroup.Location,
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			_, err = keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                     pulumi.String("examplekeyvault"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 *pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),

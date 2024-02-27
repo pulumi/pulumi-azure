@@ -46,13 +46,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleServer = new Server(&#34;exampleServer&#34;, ServerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mysqlserver&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .administratorLogin(&#34;mysqladminun&#34;)
  *             .administratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
  *             .skuName(&#34;B_Gen5_2&#34;)
@@ -69,7 +71,7 @@ import javax.annotation.Nullable;
  * 
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
  *             .name(&#34;interactive_timeout&#34;)
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .serverName(exampleServer.name())
  *             .value(&#34;600&#34;)
  *             .build());

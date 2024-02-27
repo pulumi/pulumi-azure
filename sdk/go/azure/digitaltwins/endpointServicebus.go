@@ -30,34 +30,39 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example_resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInstance, err := digitaltwins.NewInstance(ctx, "exampleInstance", &digitaltwins.InstanceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleInstance, err := digitaltwins.NewInstance(ctx, "example", &digitaltwins.InstanceArgs{
+//				Name:              pulumi.String("example-DT"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNamespace, err := servicebus.NewNamespace(ctx, "exampleNamespace", &servicebus.NamespaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNamespace, err := servicebus.NewNamespace(ctx, "example", &servicebus.NamespaceArgs{
+//				Name:              pulumi.String("exampleservicebusnamespace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopic, err := servicebus.NewTopic(ctx, "exampleTopic", &servicebus.TopicArgs{
+//			exampleTopic, err := servicebus.NewTopic(ctx, "example", &servicebus.TopicArgs{
+//				Name:        pulumi.String("exampleservicebustopic"),
 //				NamespaceId: exampleNamespace.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "exampleTopicAuthorizationRule", &servicebus.TopicAuthorizationRuleArgs{
+//			exampleTopicAuthorizationRule, err := servicebus.NewTopicAuthorizationRule(ctx, "example", &servicebus.TopicAuthorizationRuleArgs{
+//				Name:    pulumi.String("example-rule"),
 //				TopicId: exampleTopic.ID(),
 //				Listen:  pulumi.Bool(false),
 //				Send:    pulumi.Bool(true),
@@ -66,7 +71,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = digitaltwins.NewEndpointServicebus(ctx, "exampleEndpointServicebus", &digitaltwins.EndpointServicebusArgs{
+//			_, err = digitaltwins.NewEndpointServicebus(ctx, "example", &digitaltwins.EndpointServicebusArgs{
+//				Name:                                pulumi.String("example-EndpointSB"),
 //				DigitalTwinsId:                      exampleInstance.ID(),
 //				ServicebusPrimaryConnectionString:   exampleTopicAuthorizationRule.PrimaryConnectionString,
 //				ServicebusSecondaryConnectionString: exampleTopicAuthorizationRule.SecondaryConnectionString,

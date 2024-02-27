@@ -306,10 +306,13 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("example",
+            name="example",
             resource_group_name="example",
-            scopes=[example_resource_group.id],
+            scopes=[example.id],
             condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
                 target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
                     operator="Equals",
@@ -380,10 +383,13 @@ class AlertProcessingRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("exampleAlertProcessingRuleSuppression",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_alert_processing_rule_suppression = azure.monitoring.AlertProcessingRuleSuppression("example",
+            name="example",
             resource_group_name="example",
-            scopes=[example_resource_group.id],
+            scopes=[example.id],
             condition=azure.monitoring.AlertProcessingRuleSuppressionConditionArgs(
                 target_resource_type=azure.monitoring.AlertProcessingRuleSuppressionConditionTargetResourceTypeArgs(
                     operator="Equals",

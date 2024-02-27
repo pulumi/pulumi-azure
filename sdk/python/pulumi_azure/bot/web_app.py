@@ -469,10 +469,13 @@ class WebApp(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_web_app = azure.bot.WebApp("exampleWebApp",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_web_app = azure.bot.WebApp("example",
+            name="example",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
         ```
@@ -517,10 +520,13 @@ class WebApp(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_web_app = azure.bot.WebApp("exampleWebApp",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_web_app = azure.bot.WebApp("example",
+            name="example",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
         ```

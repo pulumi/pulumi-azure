@@ -30,13 +30,12 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.databricks.WorkspaceArgs;
  * import com.pulumi.azure.keyvault.KeyVault;
  * import com.pulumi.azure.keyvault.KeyVaultArgs;
- * import com.pulumi.azure.keyvault.AccessPolicy;
- * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import com.pulumi.azure.keyvault.Key;
  * import com.pulumi.azure.keyvault.KeyArgs;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKey;
  * import com.pulumi.azure.databricks.WorkspaceRootDbfsCustomerManagedKeyArgs;
- * import com.pulumi.resources.CustomResourceOptions;
+ * import com.pulumi.azure.keyvault.AccessPolicy;
+ * import com.pulumi.azure.keyvault.AccessPolicyArgs;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -52,25 +51,47 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;databricks-test&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;premium&#34;)
  *             .customerManagedKeyEnabled(true)
  *             .tags(Map.of(&#34;Environment&#34;, &#34;Production&#34;))
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplekeyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;premium&#34;)
  *             .purgeProtectionEnabled(true)
  *             .softDeleteRetentionDays(7)
+ *             .build());
+ * 
+ *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
+ *             .name(&#34;example-certificate&#34;)
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .keyType(&#34;RSA&#34;)
+ *             .keySize(2048)
+ *             .keyOpts(            
+ *                 &#34;decrypt&#34;,
+ *                 &#34;encrypt&#34;,
+ *                 &#34;sign&#34;,
+ *                 &#34;unwrapKey&#34;,
+ *                 &#34;verify&#34;,
+ *                 &#34;wrapKey&#34;)
+ *             .build());
+ * 
+ *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey(&#34;exampleWorkspaceRootDbfsCustomerManagedKey&#34;, WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
+ *             .workspaceId(exampleWorkspace.id())
+ *             .keyVaultKeyId(exampleKey.id())
  *             .build());
  * 
  *         var terraform = new AccessPolicy(&#34;terraform&#34;, AccessPolicyArgs.builder()        
@@ -90,21 +111,6 @@ import javax.annotation.Nullable;
  *                 &#34;GetRotationPolicy&#34;)
  *             .build());
  * 
- *         var exampleKey = new Key(&#34;exampleKey&#34;, KeyArgs.builder()        
- *             .keyVaultId(exampleKeyVault.id())
- *             .keyType(&#34;RSA&#34;)
- *             .keySize(2048)
- *             .keyOpts(            
- *                 &#34;decrypt&#34;,
- *                 &#34;encrypt&#34;,
- *                 &#34;sign&#34;,
- *                 &#34;unwrapKey&#34;,
- *                 &#34;verify&#34;,
- *                 &#34;wrapKey&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(terraform)
- *                 .build());
- * 
  *         var databricks = new AccessPolicy(&#34;databricks&#34;, AccessPolicyArgs.builder()        
  *             .keyVaultId(exampleKeyVault.id())
  *             .tenantId(exampleWorkspace.storageAccountIdentities().applyValue(storageAccountIdentities -&gt; storageAccountIdentities[0].tenantId()))
@@ -119,16 +125,7 @@ import javax.annotation.Nullable;
  *                 &#34;List&#34;,
  *                 &#34;Decrypt&#34;,
  *                 &#34;Sign&#34;)
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(exampleWorkspace)
- *                 .build());
- * 
- *         var exampleWorkspaceRootDbfsCustomerManagedKey = new WorkspaceRootDbfsCustomerManagedKey(&#34;exampleWorkspaceRootDbfsCustomerManagedKey&#34;, WorkspaceRootDbfsCustomerManagedKeyArgs.builder()        
- *             .workspaceId(exampleWorkspace.id())
- *             .keyVaultKeyId(exampleKey.id())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(databricks)
- *                 .build());
+ *             .build());
  * 
  *     }
  * }

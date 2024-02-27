@@ -16,7 +16,7 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: azurerm_nginx_deployment.example.id,
+ *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -72,7 +72,7 @@ export interface GetConfigurationResult {
  * import * as azure from "@pulumi/azure";
  *
  * const example = azure.nginx.getConfiguration({
- *     nginxDeploymentId: azurerm_nginx_deployment.example.id,
+ *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
  * ```

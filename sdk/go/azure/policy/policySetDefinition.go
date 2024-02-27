@@ -31,6 +31,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := policy.NewPolicySetDefinition(ctx, "example", &policy.PolicySetDefinitionArgs{
+//				Name:        pulumi.String("testPolicySet"),
+//				PolicyType:  pulumi.String("Custom"),
 //				DisplayName: pulumi.String("Test Policy Set"),
 //				Parameters: pulumi.String(`    {
 //	        "allowedLocations": {
@@ -47,11 +49,10 @@ import (
 //
 //				PolicyDefinitionReferences: policy.PolicySetDefinitionPolicyDefinitionReferenceArray{
 //					&policy.PolicySetDefinitionPolicyDefinitionReferenceArgs{
-//						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n    \n"),
 //						PolicyDefinitionId: pulumi.String("/providers/Microsoft.Authorization/policyDefinitions/e765b5de-1225-4ba3-bd56-1ac6695af988"),
+//						ParameterValues:    pulumi.String("    {\n      \"listOfAllowedLocations\": {\"value\": \"[parameters('allowedLocations')]\"}\n    }\n"),
 //					},
 //				},
-//				PolicyType: pulumi.String("Custom"),
 //			})
 //			if err != nil {
 //				return err

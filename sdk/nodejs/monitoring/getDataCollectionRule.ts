@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.monitoring.getDataCollectionRule({
  *     name: "example-rule",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const ruleId = example.then(example => example.id);
  * ```
@@ -111,7 +111,7 @@ export interface GetDataCollectionRuleResult {
  *
  * const example = azure.monitoring.getDataCollectionRule({
  *     name: "example-rule",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
  * export const ruleId = example.then(example => example.id);
  * ```

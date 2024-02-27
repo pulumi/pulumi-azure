@@ -34,7 +34,7 @@ namespace Pulumi.Azure.Consumption
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_consumption_budget.Example.Id,
+        ///         ["id"] = exampleAzurermConsumptionBudget.Id,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.Consumption
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["id"] = data.Azurerm_consumption_budget.Example.Id,
+        ///         ["id"] = exampleAzurermConsumptionBudget.Id,
         ///     };
         /// });
         /// ```

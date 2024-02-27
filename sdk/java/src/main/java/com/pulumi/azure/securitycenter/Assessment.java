@@ -56,31 +56,37 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-network&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
  *             .build());
  * 
  *         var internal = new Subnet(&#34;internal&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-vmss&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(1)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .adminSshKeys(LinuxVirtualMachineScaleSetAdminSshKeyArgs.builder()
  *                 .username(&#34;adminuser&#34;)
- *                 .publicKey(Files.readString(Paths.get(&#34;~/.ssh/id_rsa.pub&#34;)))
+ *                 .publicKey(StdFunctions.file(FileArgs.builder()
+ *                     .input(&#34;~/.ssh/id_rsa.pub&#34;)
+ *                     .build()).result())
  *                 .build())
  *             .sourceImageReference(LinuxVirtualMachineScaleSetSourceImageReferenceArgs.builder()
  *                 .publisher(&#34;Canonical&#34;)

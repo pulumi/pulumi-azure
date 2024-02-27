@@ -49,16 +49,6 @@ namespace Pulumi.Azure.Redis.Inputs
         /// Second Storage Account connection string for AOF persistence.
         /// 
         /// Example usage:
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         public Input<string>? AofStorageConnectionString1
         {
@@ -110,16 +100,6 @@ namespace Pulumi.Azure.Redis.Inputs
 
         /// <summary>
         /// Keyspace notifications allows clients to subscribe to Pub/Sub channels in order to receive events affecting the Redis data set in some way. [Reference](https://redis.io/topics/notifications#configuration)
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        /// });
-        /// ```
         /// </summary>
         [Input("notifyKeyspaceEvents")]
         public Input<string>? NotifyKeyspaceEvents { get; set; }

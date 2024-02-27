@@ -276,17 +276,22 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
+            name="example-springcloudapp",
+            resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
             identity=azure.appplatform.SpringCloudAppIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
+        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
+            name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",
@@ -336,17 +341,22 @@ class SpringCloudJavaDeployment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_spring_cloud_service = azure.appplatform.SpringCloudService("exampleSpringCloudService",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
-        example_spring_cloud_app = azure.appplatform.SpringCloudApp("exampleSpringCloudApp",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_spring_cloud_service = azure.appplatform.SpringCloudService("example",
+            name="example-springcloud",
+            resource_group_name=example.name,
+            location=example.location)
+        example_spring_cloud_app = azure.appplatform.SpringCloudApp("example",
+            name="example-springcloudapp",
+            resource_group_name=example.name,
             service_name=example_spring_cloud_service.name,
             identity=azure.appplatform.SpringCloudAppIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("exampleSpringCloudJavaDeployment",
+        example_spring_cloud_java_deployment = azure.appplatform.SpringCloudJavaDeployment("example",
+            name="deploy1",
             spring_cloud_app_id=example_spring_cloud_app.id,
             instance_count=2,
             jvm_options="-XX:+PrintGC",

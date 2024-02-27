@@ -15,12 +15,17 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  * });
@@ -32,22 +37,29 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "standard",
  * });
- * const exampleFactory = new azure.datafactory.Factory("exampleFactory", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleFactory = new azure.datafactory.Factory("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("exampleLinkedServiceKeyVault", {
+ * const exampleLinkedServiceKeyVault = new azure.datafactory.LinkedServiceKeyVault("example", {
+ *     name: "kvlink",
  *     dataFactoryId: exampleFactory.id,
  *     keyVaultId: exampleKeyVault.id,
  * });
- * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("exampleLinkedServiceSnowflake", {
+ * const exampleLinkedServiceSnowflake = new azure.datafactory.LinkedServiceSnowflake("example", {
+ *     name: "example",
  *     dataFactoryId: exampleFactory.id,
  *     connectionString: "jdbc:snowflake://account.region.snowflakecomputing.com/?user=user&db=db&warehouse=wh",
  *     keyVaultPassword: {

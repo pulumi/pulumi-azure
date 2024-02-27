@@ -36,7 +36,7 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["servicebusAuthorizationRuleId"] = data.Azurem_servicebus_topic_authorization_rule.Example.Id,
+        ///         ["servicebusAuthorizationRuleId"] = exampleAzuremServicebusTopicAuthorizationRule.Id,
         ///     };
         /// });
         /// ```
@@ -71,7 +71,7 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["servicebusAuthorizationRuleId"] = data.Azurem_servicebus_topic_authorization_rule.Example.Id,
+        ///         ["servicebusAuthorizationRuleId"] = exampleAzuremServicebusTopicAuthorizationRule.Id,
         ///     };
         /// });
         /// ```

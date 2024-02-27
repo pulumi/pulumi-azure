@@ -15,7 +15,7 @@ import * as utilities from "../utilities";
  *
  * const example = azure.nginx.getCertificate({
  *     name: "existing",
- *     nginxDeploymentId: azurerm_nginx_deployment.example.id,
+ *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
  * ```
@@ -77,7 +77,7 @@ export interface GetCertificateResult {
  *
  * const example = azure.nginx.getCertificate({
  *     name: "existing",
- *     nginxDeploymentId: azurerm_nginx_deployment.example.id,
+ *     nginxDeploymentId: exampleAzurermNginxDeployment.id,
  * });
  * export const id = example.then(example => example.id);
  * ```

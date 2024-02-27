@@ -25,11 +25,13 @@ namespace Pulumi.Azure.Network
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "peeredvnets-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var example_1VirtualNetwork = new Azure.Network.VirtualNetwork("example-1VirtualNetwork", new()
+    ///     var example_1 = new Azure.Network.VirtualNetwork("example-1", new()
     ///     {
+    ///         Name = "peternetwork1",
     ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
@@ -38,8 +40,9 @@ namespace Pulumi.Azure.Network
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var example_2VirtualNetwork = new Azure.Network.VirtualNetwork("example-2VirtualNetwork", new()
+    ///     var example_2 = new Azure.Network.VirtualNetwork("example-2", new()
     ///     {
+    ///         Name = "peternetwork2",
     ///         ResourceGroupName = example.Name,
     ///         AddressSpaces = new[]
     ///         {
@@ -48,18 +51,93 @@ namespace Pulumi.Azure.Network
     ///         Location = example.Location,
     ///     });
     /// 
-    ///     var example_1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1VirtualNetworkPeering", new()
+    ///     var example_1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1", new()
     ///     {
+    ///         Name = "peer1to2",
     ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = example_1VirtualNetwork.Name,
-    ///         RemoteVirtualNetworkId = example_2VirtualNetwork.Id,
+    ///         VirtualNetworkName = example_1.Name,
+    ///         RemoteVirtualNetworkId = example_2.Id,
     ///     });
     /// 
-    ///     var example_2VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-2VirtualNetworkPeering", new()
+    ///     var example_2VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-2", new()
     ///     {
+    ///         Name = "peer2to1",
     ///         ResourceGroupName = example.Name,
-    ///         VirtualNetworkName = example_2VirtualNetwork.Name,
-    ///         RemoteVirtualNetworkId = example_1VirtualNetwork.Id,
+    ///         VirtualNetworkName = example_2.Name,
+    ///         RemoteVirtualNetworkId = example_1.Id,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// ### Triggers)
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "peeredvnets-rg",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var example_1 = new Azure.Network.VirtualNetwork("example-1", new()
+    ///     {
+    ///         Name = "peternetwork1",
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.1.0/24",
+    ///         },
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var example_2 = new Azure.Network.VirtualNetwork("example-2", new()
+    ///     {
+    ///         Name = "peternetwork2",
+    ///         ResourceGroupName = example.Name,
+    ///         AddressSpaces = new[]
+    ///         {
+    ///             "10.0.2.0/24",
+    ///         },
+    ///         Location = example.Location,
+    ///     });
+    /// 
+    ///     var example_1VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-1", new()
+    ///     {
+    ///         Name = "peer1to2",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = example_1.Name,
+    ///         RemoteVirtualNetworkId = example_2.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "remote_address_space", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = example_2.AddressSpaces,
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
+    ///     });
+    /// 
+    ///     var example_2VirtualNetworkPeering = new Azure.Network.VirtualNetworkPeering("example-2", new()
+    ///     {
+    ///         Name = "peer2to1",
+    ///         ResourceGroupName = example.Name,
+    ///         VirtualNetworkName = example_2.Name,
+    ///         RemoteVirtualNetworkId = example_1.Id,
+    ///         Triggers = 
+    ///         {
+    ///             { "remote_address_space", Std.Join.Invoke(new()
+    ///             {
+    ///                 Separator = ",",
+    ///                 Input = example_1.AddressSpaces,
+    ///             }).Apply(invoke =&gt; invoke.Result) },
+    ///         },
     ///     });
     /// 
     /// });

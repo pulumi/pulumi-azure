@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("acceptanceTestPublicIp1"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AllocationMethod:  pulumi.String("Static"),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("Production"),

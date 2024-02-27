@@ -20,20 +20,23 @@ namespace Pulumi.Azure.Dns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleZone = new Azure.Dns.Zone("exampleZone", new()
+    ///     var exampleZone = new Azure.Dns.Zone("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "mydomain.com",
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("exampleSrvRecord", new()
+    ///     var exampleSrvRecord = new Azure.Dns.SrvRecord("example", new()
     ///     {
+    ///         Name = "test",
     ///         ZoneName = exampleZone.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {

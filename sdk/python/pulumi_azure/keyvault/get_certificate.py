@@ -235,11 +235,11 @@ def get_certificate(key_vault_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
+    example = azure.keyvault.get_key_vault(name="examplekv",
         resource_group_name="some-resource-group")
-    example_certificate = azure.keyvault.get_certificate(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("certificateThumbprint", example_certificate.thumbprint)
+    example_get_certificate = azure.keyvault.get_certificate(name="secret-sauce",
+        key_vault_id=example.id)
+    pulumi.export("certificateThumbprint", example_get_certificate.thumbprint)
     ```
 
 
@@ -289,11 +289,11 @@ def get_certificate_output(key_vault_id: Optional[pulumi.Input[str]] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="examplekv",
+    example = azure.keyvault.get_key_vault(name="examplekv",
         resource_group_name="some-resource-group")
-    example_certificate = azure.keyvault.get_certificate(name="secret-sauce",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("certificateThumbprint", example_certificate.thumbprint)
+    example_get_certificate = azure.keyvault.get_certificate(name="secret-sauce",
+        key_vault_id=example.id)
+    pulumi.export("certificateThumbprint", example_get_certificate.thumbprint)
     ```
 
 

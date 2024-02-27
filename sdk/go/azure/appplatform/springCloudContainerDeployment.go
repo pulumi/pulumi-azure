@@ -29,28 +29,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "exampleSpringCloudService", &appplatform.SpringCloudServiceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleSpringCloudService, err := appplatform.NewSpringCloudService(ctx, "example", &appplatform.SpringCloudServiceArgs{
+//				Name:              pulumi.String("example"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("E0"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "exampleSpringCloudApp", &appplatform.SpringCloudAppArgs{
+//			exampleSpringCloudApp, err := appplatform.NewSpringCloudApp(ctx, "example", &appplatform.SpringCloudAppArgs{
+//				Name:              pulumi.String("example"),
 //				ResourceGroupName: exampleSpringCloudService.ResourceGroupName,
 //				ServiceName:       exampleSpringCloudService.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appplatform.NewSpringCloudContainerDeployment(ctx, "exampleSpringCloudContainerDeployment", &appplatform.SpringCloudContainerDeploymentArgs{
+//			_, err = appplatform.NewSpringCloudContainerDeployment(ctx, "example", &appplatform.SpringCloudContainerDeploymentArgs{
+//				Name:             pulumi.String("example"),
 //				SpringCloudAppId: exampleSpringCloudApp.ID(),
 //				InstanceCount:    pulumi.Int(2),
 //				Arguments: pulumi.StringArray{

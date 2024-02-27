@@ -187,18 +187,24 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -206,21 +212,23 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.synapse.FirewallRule("example",
+            name="AllowAll",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
-        example_connect = azure.storage.Account("exampleConnect",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_connect = azure.storage.Account("example_connect",
+            name="examplestorage2",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="BlobStorage")
-        example_managed_private_endpoint = azure.synapse.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+        example_managed_private_endpoint = azure.synapse.ManagedPrivateEndpoint("example",
+            name="example-endpoint",
             synapse_workspace_id=example_workspace.id,
             target_resource_id=example_connect.id,
-            subresource_name="blob",
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            subresource_name="blob")
         ```
 
         ## Import
@@ -257,18 +265,24 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageacc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="StorageV2",
             is_hns_enabled=True)
-        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("exampleDataLakeGen2Filesystem", storage_account_id=example_account.id)
-        example_workspace = azure.synapse.Workspace("exampleWorkspace",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_data_lake_gen2_filesystem = azure.storage.DataLakeGen2Filesystem("example",
+            name="example",
+            storage_account_id=example_account.id)
+        example_workspace = azure.synapse.Workspace("example",
+            name="example",
+            resource_group_name=example.name,
+            location=example.location,
             storage_data_lake_gen2_filesystem_id=example_data_lake_gen2_filesystem.id,
             sql_administrator_login="sqladminuser",
             sql_administrator_login_password="H@Sh1CoR3!",
@@ -276,21 +290,23 @@ class ManagedPrivateEndpoint(pulumi.CustomResource):
             identity=azure.synapse.WorkspaceIdentityArgs(
                 type="SystemAssigned",
             ))
-        example_firewall_rule = azure.synapse.FirewallRule("exampleFirewallRule",
+        example_firewall_rule = azure.synapse.FirewallRule("example",
+            name="AllowAll",
             synapse_workspace_id=example_workspace.id,
             start_ip_address="0.0.0.0",
             end_ip_address="255.255.255.255")
-        example_connect = azure.storage.Account("exampleConnect",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example_connect = azure.storage.Account("example_connect",
+            name="examplestorage2",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             account_kind="BlobStorage")
-        example_managed_private_endpoint = azure.synapse.ManagedPrivateEndpoint("exampleManagedPrivateEndpoint",
+        example_managed_private_endpoint = azure.synapse.ManagedPrivateEndpoint("example",
+            name="example-endpoint",
             synapse_workspace_id=example_workspace.id,
             target_resource_id=example_connect.id,
-            subresource_name="blob",
-            opts=pulumi.ResourceOptions(depends_on=[example_firewall_rule]))
+            subresource_name="blob")
         ```
 
         ## Import

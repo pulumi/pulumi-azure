@@ -30,29 +30,33 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleInsights, err := appinsights.NewInsights(ctx, "exampleInsights", &appinsights.InsightsArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleInsights, err := appinsights.NewInsights(ctx, "example", &appinsights.InsightsArgs{
+//				Name:              pulumi.String("example-appinsights"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				ApplicationType:   pulumi.String("web"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example-action-group"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = monitoring.NewSmartDetectorAlertRule(ctx, "exampleSmartDetectorAlertRule", &monitoring.SmartDetectorAlertRuleArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = monitoring.NewSmartDetectorAlertRule(ctx, "example", &monitoring.SmartDetectorAlertRuleArgs{
+//				Name:              pulumi.String("example-smart-detector-alert-rule"),
+//				ResourceGroupName: example.Name,
 //				Severity:          pulumi.String("Sev0"),
 //				ScopeResourceIds: pulumi.StringArray{
 //					exampleInsights.ID(),

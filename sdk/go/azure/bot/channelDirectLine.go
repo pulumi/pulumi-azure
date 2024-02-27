@@ -33,25 +33,27 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "exampleChannelsRegistration", &bot.ChannelsRegistrationArgs{
+//			exampleChannelsRegistration, err := bot.NewChannelsRegistration(ctx, "example", &bot.ChannelsRegistrationArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("global"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("F0"),
 //				MicrosoftAppId:    *pulumi.String(current.ClientId),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = bot.NewChannelDirectLine(ctx, "exampleChannelDirectLine", &bot.ChannelDirectLineArgs{
+//			_, err = bot.NewChannelDirectLine(ctx, "example", &bot.ChannelDirectLineArgs{
 //				BotName:           exampleChannelsRegistration.Name,
 //				Location:          exampleChannelsRegistration.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				Sites: bot.ChannelDirectLineSiteArray{
 //					&bot.ChannelDirectLineSiteArgs{
 //						Name:    pulumi.String("default"),

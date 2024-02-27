@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("rg-example"),
 //				Location: pulumi.String("%[2]s"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("accexample"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewPython3Package(ctx, "examplePython3Package", &automation.Python3PackageArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = automation.NewPython3Package(ctx, "example", &automation.Python3PackageArgs{
+//				Name:                  pulumi.String("example"),
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				ContentUri:            pulumi.String("https://pypi.org/packages/source/r/requests/requests-2.31.0.tar.gz"),
 //				ContentVersion:        pulumi.String("2.31.0"),

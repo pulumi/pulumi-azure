@@ -13,16 +13,23 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleServer = new azure.mssql.Server("exampleServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleServer = new azure.mssql.Server("example", {
+ *     name: "mysqlserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     version: "12.0",
  *     administratorLogin: "4dm1n157r470r",
  *     administratorLoginPassword: "4-v3ry-53cr37-p455w0rd",
  *     outboundNetworkRestrictionEnabled: true,
  * });
- * const exampleOutboundFirewallRule = new azure.mssql.OutboundFirewallRule("exampleOutboundFirewallRule", {serverId: exampleServer.id});
+ * const exampleOutboundFirewallRule = new azure.mssql.OutboundFirewallRule("example", {
+ *     name: "sqlexamplefdqn.database.windows.net",
+ *     serverId: exampleServer.id,
+ * });
  * ```
  *
  * ## Import

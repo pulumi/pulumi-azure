@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-virtualnetwork"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -46,8 +48,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -68,16 +71,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := netapp.NewAccount(ctx, "exampleAccount", &netapp.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := netapp.NewAccount(ctx, "example", &netapp.AccountArgs{
+//				Name:              pulumi.String("example-netappaccount"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePool, err := netapp.NewPool(ctx, "examplePool", &netapp.PoolArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePool, err := netapp.NewPool(ctx, "example", &netapp.PoolArgs{
+//				Name:              pulumi.String("example-netapppool"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				ServiceLevel:      pulumi.String("Premium"),
 //				SizeInTb:          pulumi.Int(4),
@@ -85,10 +90,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleVolume, err := netapp.NewVolume(ctx, "exampleVolume", &netapp.VolumeArgs{
-//				Location:          exampleResourceGroup.Location,
+//			exampleVolume, err := netapp.NewVolume(ctx, "example", &netapp.VolumeArgs{
+//				Name:              pulumi.String("example-netappvolume"),
+//				Location:          example.Location,
 //				Zone:              pulumi.String("1"),
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				ResourceGroupName: example.Name,
 //				AccountName:       exampleAccount.Name,
 //				PoolName:          examplePool.Name,
 //				VolumePath:        pulumi.String("my-unique-file-path"),
@@ -106,7 +112,8 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota1", &netapp.VolumeQuotaRuleArgs{
-//				Location:       exampleResourceGroup.Location,
+//				Name:           pulumi.String("example-quota-rule-1"),
+//				Location:       example.Location,
 //				VolumeId:       exampleVolume.ID(),
 //				QuotaTarget:    pulumi.String("3001"),
 //				QuotaSizeInKib: pulumi.Int(1024),
@@ -116,7 +123,8 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota2", &netapp.VolumeQuotaRuleArgs{
-//				Location:       exampleResourceGroup.Location,
+//				Name:           pulumi.String("example-quota-rule-2"),
+//				Location:       example.Location,
 //				VolumeId:       exampleVolume.ID(),
 //				QuotaTarget:    pulumi.String("2001"),
 //				QuotaSizeInKib: pulumi.Int(1024),
@@ -126,7 +134,8 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota3", &netapp.VolumeQuotaRuleArgs{
-//				Location:       exampleResourceGroup.Location,
+//				Name:           pulumi.String("example-quota-rule-3"),
+//				Location:       example.Location,
 //				VolumeId:       exampleVolume.ID(),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("DefaultUserQuota"),
@@ -135,7 +144,8 @@ import (
 //				return err
 //			}
 //			_, err = netapp.NewVolumeQuotaRule(ctx, "quota4", &netapp.VolumeQuotaRuleArgs{
-//				Location:       exampleResourceGroup.Location,
+//				Name:           pulumi.String("example-quota-rule-4"),
+//				Location:       example.Location,
 //				VolumeId:       exampleVolume.ID(),
 //				QuotaSizeInKib: pulumi.Int(1024),
 //				QuotaType:      pulumi.String("DefaultGroupQuota"),

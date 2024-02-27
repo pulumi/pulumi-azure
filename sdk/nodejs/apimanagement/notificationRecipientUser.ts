@@ -13,24 +13,28 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "My Company",
  *     publisherEmail: "company@terraform.io",
  *     skuName: "Developer_1",
  * });
- * const exampleUser = new azure.apimanagement.User("exampleUser", {
+ * const exampleUser = new azure.apimanagement.User("example", {
  *     userId: "123",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     firstName: "Example",
  *     lastName: "User",
  *     email: "foo@bar.com",
  *     state: "active",
  * });
- * const exampleNotificationRecipientUser = new azure.apimanagement.NotificationRecipientUser("exampleNotificationRecipientUser", {
+ * const exampleNotificationRecipientUser = new azure.apimanagement.NotificationRecipientUser("example", {
  *     apiManagementId: exampleService.id,
  *     notificationType: "AccountClosedPublisher",
  *     userId: exampleUser.userId,

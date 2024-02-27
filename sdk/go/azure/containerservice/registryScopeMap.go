@@ -27,15 +27,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resource-group"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleRegistry, err := containerservice.NewRegistry(ctx, "exampleRegistry", &containerservice.RegistryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleRegistry, err := containerservice.NewRegistry(ctx, "example", &containerservice.RegistryArgs{
+//				Name:              pulumi.String("exampleregistry"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Sku:               pulumi.String("Premium"),
 //				AdminEnabled:      pulumi.Bool(false),
 //				Georeplications: containerservice.RegistryGeoreplicationArray{
@@ -50,9 +52,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = containerservice.NewRegistryScopeMap(ctx, "exampleRegistryScopeMap", &containerservice.RegistryScopeMapArgs{
+//			_, err = containerservice.NewRegistryScopeMap(ctx, "example", &containerservice.RegistryScopeMapArgs{
+//				Name:                  pulumi.String("example-scope-map"),
 //				ContainerRegistryName: exampleRegistry.Name,
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//				ResourceGroupName:     example.Name,
 //				Actions: pulumi.StringArray{
 //					pulumi.String("repositories/repo1/content/read"),
 //					pulumi.String("repositories/repo1/content/write"),

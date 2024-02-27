@@ -35,7 +35,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["netappSnapshotId"] = data.Azurerm_netapp_snapshot.Example.Id,
+        ///         ["netappSnapshotId"] = example.Id,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.NetApp
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["netappSnapshotId"] = data.Azurerm_netapp_snapshot.Example.Id,
+        ///         ["netappSnapshotId"] = example.Id,
         ///     };
         /// });
         /// ```

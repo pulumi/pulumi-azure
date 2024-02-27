@@ -204,35 +204,42 @@ class BgpConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-vhub",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             sku="Standard")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="RouteServerSubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"])
-        example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
+        example_virtual_hub_ip = azure.network.VirtualHubIp("example",
+            name="example-vhubip",
             virtual_hub_id=example_virtual_hub.id,
             private_ip_address="10.5.1.18",
             private_ip_allocation_method="Static",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id)
-        example_bgp_connection = azure.network.BgpConnection("exampleBgpConnection",
+        example_bgp_connection = azure.network.BgpConnection("example",
+            name="example-vhub-bgpconnection",
             virtual_hub_id=example_virtual_hub.id,
             peer_asn=65514,
-            peer_ip="169.254.21.5",
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
+            peer_ip="169.254.21.5")
         ```
 
         ## Import
@@ -266,35 +273,42 @@ class BgpConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_hub = azure.network.VirtualHub("exampleVirtualHub",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_hub = azure.network.VirtualHub("example",
+            name="example-vhub",
+            resource_group_name=example.name,
+            location=example.location,
             sku="Standard")
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static",
             sku="Standard")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-vnet",
             address_spaces=["10.5.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="RouteServerSubnet",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.5.1.0/24"])
-        example_virtual_hub_ip = azure.network.VirtualHubIp("exampleVirtualHubIp",
+        example_virtual_hub_ip = azure.network.VirtualHubIp("example",
+            name="example-vhubip",
             virtual_hub_id=example_virtual_hub.id,
             private_ip_address="10.5.1.18",
             private_ip_allocation_method="Static",
             public_ip_address_id=example_public_ip.id,
             subnet_id=example_subnet.id)
-        example_bgp_connection = azure.network.BgpConnection("exampleBgpConnection",
+        example_bgp_connection = azure.network.BgpConnection("example",
+            name="example-vhub-bgpconnection",
             virtual_hub_id=example_virtual_hub.id,
             peer_asn=65514,
-            peer_ip="169.254.21.5",
-            opts=pulumi.ResourceOptions(depends_on=[example_virtual_hub_ip]))
+            peer_ip="169.254.21.5")
         ```
 
         ## Import

@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := network.LookupExpressRouteCircuit(ctx, &network.LookupExpressRouteCircuitArgs{
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
-//				Name:              azurerm_express_route_circuit.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
+//				Name:              exampleAzurermExpressRouteCircuit.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

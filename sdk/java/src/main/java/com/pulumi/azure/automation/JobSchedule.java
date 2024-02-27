@@ -43,14 +43,14 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var example = new JobSchedule(&#34;example&#34;, JobScheduleArgs.builder()        
+ *             .resourceGroupName(&#34;tf-rgr-automation&#34;)
  *             .automationAccountName(&#34;tf-automation-account&#34;)
+ *             .scheduleName(&#34;hour&#34;)
+ *             .runbookName(&#34;Get-VirtualMachine&#34;)
  *             .parameters(Map.ofEntries(
  *                 Map.entry(&#34;resourcegroup&#34;, &#34;tf-rgr-vm&#34;),
  *                 Map.entry(&#34;vmname&#34;, &#34;TF-VM-01&#34;)
  *             ))
- *             .resourceGroupName(&#34;tf-rgr-automation&#34;)
- *             .runbookName(&#34;Get-VirtualMachine&#34;)
- *             .scheduleName(&#34;hour&#34;)
  *             .build());
  * 
  *     }

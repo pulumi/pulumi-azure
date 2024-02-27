@@ -24,41 +24,46 @@ namespace Pulumi.Azure.SecurityCenter
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-namespace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///         Capacity = 2,
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "acceptanceTestEventHub",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PartitionCount = 2,
     ///         MessageRetention = 2,
     ///     });
     /// 
-    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("exampleAuthorizationRule", new()
+    ///     var exampleAuthorizationRule = new Azure.EventHub.AuthorizationRule("example", new()
     ///     {
+    ///         Name = "example-rule",
     ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Listen = true,
     ///         Send = false,
     ///         Manage = false,
     ///     });
     /// 
-    ///     var exampleAutomation = new Azure.SecurityCenter.Automation("exampleAutomation", new()
+    ///     var exampleAutomation = new Azure.SecurityCenter.Automation("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-automation",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Actions = new[]
     ///         {
     ///             new Azure.SecurityCenter.Inputs.AutomationActionArgs

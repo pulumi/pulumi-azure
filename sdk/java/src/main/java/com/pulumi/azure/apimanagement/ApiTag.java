@@ -47,26 +47,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-apim&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleApi = new Api(&#34;exampleApi&#34;, ApiArgs.builder()        
+ *             .name(&#34;example-api&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult).applyValue(exampleService -&gt; exampleService.applyValue(getServiceResult -&gt; getServiceResult.name())))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult).applyValue(example -&gt; example.applyValue(getServiceResult -&gt; getServiceResult.name())))
  *             .revision(&#34;1&#34;)
  *             .build());
  * 
  *         var exampleTag = new Tag(&#34;exampleTag&#34;, TagArgs.builder()        
- *             .apiManagementId(exampleService.applyValue(getServiceResult -&gt; getServiceResult).applyValue(exampleService -&gt; exampleService.applyValue(getServiceResult -&gt; getServiceResult.id())))
+ *             .apiManagementId(example.applyValue(getServiceResult -&gt; getServiceResult).applyValue(example -&gt; example.applyValue(getServiceResult -&gt; getServiceResult.id())))
+ *             .name(&#34;example-tag&#34;)
  *             .build());
  * 
  *         var exampleApiTag = new ApiTag(&#34;exampleApiTag&#34;, ApiTagArgs.builder()        
  *             .apiId(exampleApi.id())
+ *             .name(exampleTag.name())
  *             .build());
  * 
  *     }

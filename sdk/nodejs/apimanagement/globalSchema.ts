@@ -12,22 +12,28 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleService = new azure.apimanagement.Service("exampleService", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West Europe",
+ * });
+ * const exampleService = new azure.apimanagement.Service("example", {
+ *     name: "example-apim",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     publisherName: "pub1",
  *     publisherEmail: "pub1@email.com",
  *     skuName: "Consumption_0",
  * });
- * const exampleGlobalSchema = new azure.apimanagement.GlobalSchema("exampleGlobalSchema", {
+ * const exampleGlobalSchema = new azure.apimanagement.GlobalSchema("example", {
  *     schemaId: "example-schema1",
  *     apiManagementName: exampleService.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     type: "xml",
- *     value: fs.readFileSync("api_management_api_schema.xml", "utf8"),
+ *     value: std.file({
+ *         input: "api_management_api_schema.xml",
+ *     }).then(invoke => invoke.result),
  * });
  * ```
  *

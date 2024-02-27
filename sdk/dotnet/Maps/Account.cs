@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Maps
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Maps.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Maps.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-maps-account",
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "S1",
     ///         LocalAuthenticationEnabled = true,
     ///         Tags = 

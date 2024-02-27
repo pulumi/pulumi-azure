@@ -31,22 +31,24 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			server, err := random.NewRandomId(ctx, "server", &random.RandomIdArgs{
-//				Keepers: pulumi.Map{
-//					"azi_id": pulumi.Any(1),
+//				Keepers: pulumi.StringMap{
+//					"azi_id": pulumi.String("1"),
 //				},
 //				ByteLength: pulumi.Int(8),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("trafficmanagerProfile"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewTrafficManagerProfile(ctx, "exampleTrafficManagerProfile", &network.TrafficManagerProfileArgs{
-//				ResourceGroupName:    exampleResourceGroup.Name,
+//			_, err = network.NewTrafficManagerProfile(ctx, "example", &network.TrafficManagerProfileArgs{
+//				Name:                 server.Hex,
+//				ResourceGroupName:    example.Name,
 //				TrafficRoutingMethod: pulumi.String("Weighted"),
 //				DnsConfig: &network.TrafficManagerProfileDnsConfigArgs{
 //					RelativeName: server.Hex,

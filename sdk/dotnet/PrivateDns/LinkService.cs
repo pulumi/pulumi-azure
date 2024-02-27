@@ -24,24 +24,27 @@ namespace Pulumi.Azure.PrivateDns
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("exampleVirtualNetwork", new()
+    ///     var exampleVirtualNetwork = new Azure.Network.VirtualNetwork("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-network",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AddressSpaces = new[]
     ///         {
     ///             "10.5.0.0/16",
     ///         },
     ///     });
     /// 
-    ///     var exampleSubnet = new Azure.Network.Subnet("exampleSubnet", new()
+    ///     var exampleSubnet = new Azure.Network.Subnet("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-subnet",
+    ///         ResourceGroupName = example.Name,
     ///         VirtualNetworkName = exampleVirtualNetwork.Name,
     ///         AddressPrefixes = new[]
     ///         {
@@ -50,19 +53,21 @@ namespace Pulumi.Azure.PrivateDns
     ///         EnforcePrivateLinkServiceNetworkPolicies = true,
     ///     });
     /// 
-    ///     var examplePublicIp = new Azure.Network.PublicIp("examplePublicIp", new()
+    ///     var examplePublicIp = new Azure.Network.PublicIp("example", new()
     ///     {
+    ///         Name = "example-api",
     ///         Sku = "Standard",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AllocationMethod = "Static",
     ///     });
     /// 
-    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("exampleLoadBalancer", new()
+    ///     var exampleLoadBalancer = new Azure.Lb.LoadBalancer("example", new()
     ///     {
+    ///         Name = "example-lb",
     ///         Sku = "Standard",
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         FrontendIpConfigurations = new[]
     ///         {
     ///             new Azure.Lb.Inputs.LoadBalancerFrontendIpConfigurationArgs
@@ -73,10 +78,11 @@ namespace Pulumi.Azure.PrivateDns
     ///         },
     ///     });
     /// 
-    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("exampleLinkService", new()
+    ///     var exampleLinkService = new Azure.PrivateDns.LinkService("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-privatelink",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AutoApprovalSubscriptionIds = new[]
     ///         {
     ///             "00000000-0000-0000-0000-000000000000",

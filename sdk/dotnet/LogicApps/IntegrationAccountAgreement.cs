@@ -16,20 +16,22 @@ namespace Pulumi.Azure.LogicApps
     /// 
     /// ```csharp
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var testIntegrationAccount = new Azure.LogicApps.IntegrationAccount("testIntegrationAccount", new()
+    ///     var test = new Azure.LogicApps.IntegrationAccount("test", new()
     ///     {
+    ///         Name = "example-ia",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         SkuName = "Standard",
@@ -37,8 +39,9 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var host = new Azure.LogicApps.IntegrationAccountPartner("host", new()
     ///     {
+    ///         Name = "example-hostpartner",
     ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         IntegrationAccountName = test.Name,
     ///         BusinessIdentities = new[]
     ///         {
     ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
@@ -51,8 +54,9 @@ namespace Pulumi.Azure.LogicApps
     /// 
     ///     var guest = new Azure.LogicApps.IntegrationAccountPartner("guest", new()
     ///     {
+    ///         Name = "example-guestpartner",
     ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         IntegrationAccountName = test.Name,
     ///         BusinessIdentities = new[]
     ///         {
     ///             new Azure.LogicApps.Inputs.IntegrationAccountPartnerBusinessIdentityArgs
@@ -63,14 +67,18 @@ namespace Pulumi.Azure.LogicApps
     ///         },
     ///     });
     /// 
-    ///     var testIntegrationAccountAgreement = new Azure.LogicApps.IntegrationAccountAgreement("testIntegrationAccountAgreement", new()
+    ///     var testIntegrationAccountAgreement = new Azure.LogicApps.IntegrationAccountAgreement("test", new()
     ///     {
+    ///         Name = "example-agreement",
     ///         ResourceGroupName = example.Name,
-    ///         IntegrationAccountName = testIntegrationAccount.Name,
+    ///         IntegrationAccountName = test.Name,
     ///         AgreementType = "AS2",
     ///         HostPartnerName = host.Name,
     ///         GuestPartnerName = guest.Name,
-    ///         Content = File.ReadAllText("testdata/integration_account_agreement_content_as2.json"),
+    ///         Content = Std.File.Invoke(new()
+    ///         {
+    ///             Input = "testdata/integration_account_agreement_content_as2.json",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///         HostIdentity = new Azure.LogicApps.Inputs.IntegrationAccountAgreementHostIdentityArgs
     ///         {
     ///             Qualifier = "AS2Identity",

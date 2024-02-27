@@ -51,26 +51,30 @@ import javax.annotation.Nullable;
  * 
  *     public static void stack(Context ctx) {
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
- *         final var exampleAccount = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
+ *         final var example = CosmosdbFunctions.getAccount(GetAccountArgs.builder()
  *             .name(&#34;tfex-cosmosdb-account&#34;)
  *             .resourceGroupName(&#34;tfex-cosmosdb-account-rg&#34;)
  *             .build());
  * 
  *         var exampleFactory = new Factory(&#34;exampleFactory&#34;, FactoryArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .location(exampleResourceGroup.location())
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .build());
  * 
  *         var exampleLinkedServiceCosmosDb = new LinkedServiceCosmosDb(&#34;exampleLinkedServiceCosmosDb&#34;, LinkedServiceCosmosDbArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
- *             .accountEndpoint(exampleAccount.applyValue(getAccountResult -&gt; getAccountResult.endpoint()))
+ *             .accountEndpoint(example.applyValue(getAccountResult -&gt; getAccountResult.endpoint()))
  *             .database(&#34;foo&#34;)
  *             .build());
  * 
  *         var exampleDatasetCosmosDBApi = new DatasetCosmosDBApi(&#34;exampleDatasetCosmosDBApi&#34;, DatasetCosmosDBApiArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .dataFactoryId(exampleFactory.id())
  *             .linkedServiceName(exampleLinkedServiceCosmosDb.name())
  *             .collectionName(&#34;bar&#34;)

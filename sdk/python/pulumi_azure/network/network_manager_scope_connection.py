@@ -220,20 +220,24 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current_client_config = azure.core.get_client_config()
-        current_subscription = azure.core.get_subscription()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_client_config()
+        current_get_subscription = azure.core.get_subscription()
         alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-networkmanager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
+                subscription_ids=[current_get_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection",
+        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",
+            name="example-nsc",
             network_manager_id=example_network_manager.id,
-            tenant_id=current_client_config.tenant_id,
+            tenant_id=current.tenant_id,
             target_scope_id=alt.id,
             description="example")
         ```
@@ -269,20 +273,24 @@ class NetworkManagerScopeConnection(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        current_client_config = azure.core.get_client_config()
-        current_subscription = azure.core.get_subscription()
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        current = azure.core.get_client_config()
+        current_get_subscription = azure.core.get_subscription()
         alt = azure.core.get_subscription(subscription_id="00000000-0000-0000-0000-000000000000")
-        example_network_manager = azure.network.NetworkManager("exampleNetworkManager",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_network_manager = azure.network.NetworkManager("example",
+            name="example-networkmanager",
+            location=example.location,
+            resource_group_name=example.name,
             scope=azure.network.NetworkManagerScopeArgs(
-                subscription_ids=[current_subscription.id],
+                subscription_ids=[current_get_subscription.id],
             ),
             scope_accesses=["SecurityAdmin"])
-        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("exampleNetworkManagerScopeConnection",
+        example_network_manager_scope_connection = azure.network.NetworkManagerScopeConnection("example",
+            name="example-nsc",
             network_manager_id=example_network_manager.id,
-            tenant_id=current_client_config.tenant_id,
+            tenant_id=current.tenant_id,
             target_scope_id=alt.id,
             description="example")
         ```

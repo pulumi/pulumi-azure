@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("example-network"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
@@ -48,7 +50,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
 //				ResourceGroupName:  exampleVirtualNetwork.ResourceGroupName,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
@@ -69,9 +72,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewDiskPool(ctx, "exampleDiskPool", &compute.DiskPoolArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = compute.NewDiskPool(ctx, "example", &compute.DiskPoolArgs{
+//				Name:              pulumi.String("example-disk-pool"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("Basic_B1"),
 //				SubnetId:          exampleSubnet.ID(),
 //				Zones: pulumi.StringArray{

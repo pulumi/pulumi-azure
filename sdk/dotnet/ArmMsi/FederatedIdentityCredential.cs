@@ -12,6 +12,42 @@ namespace Pulumi.Azure.ArmMsi
     /// <summary>
     /// Manages a Federated Identity Credential.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
+    ///     {
+    ///         Location = example.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///     });
+    /// 
+    ///     var exampleFederatedIdentityCredential = new Azure.ArmMsi.FederatedIdentityCredential("example", new()
+    ///     {
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Audience = "foo",
+    ///         Issuer = "https://foo",
+    ///         ParentId = exampleUserAssignedIdentity.Id,
+    ///         Subject = "foo",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// An existing Federated Identity Credential can be imported into Terraform using the `resource id`, e.g.

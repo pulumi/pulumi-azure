@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "exampleExpressRoutePort", &network.ExpressRoutePortArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example", &network.ExpressRoutePortArgs{
+//				Name:              pulumi.String("example-erport"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				PeeringLocation:   pulumi.String("Equinix-Seattle-SE2"),
 //				BandwidthInGbps:   pulumi.Int(10),
 //				Encapsulation:     pulumi.String("Dot1Q"),
@@ -45,9 +47,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "exampleExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example", &network.ExpressRouteCircuitArgs{
+//				Name:               pulumi.String("example-ercircuit"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
 //				ExpressRoutePortId: exampleExpressRoutePort.ID(),
 //				BandwidthInGbps:    pulumi.Float64(5),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
@@ -58,9 +61,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2ExpressRoutePort, err := network.NewExpressRoutePort(ctx, "example2ExpressRoutePort", &network.ExpressRoutePortArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			example2, err := network.NewExpressRoutePort(ctx, "example2", &network.ExpressRoutePortArgs{
+//				Name:              pulumi.String("example-erport2"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				PeeringLocation:   pulumi.String("Allied-Toronto-King-West"),
 //				BandwidthInGbps:   pulumi.Int(10),
 //				Encapsulation:     pulumi.String("Dot1Q"),
@@ -68,10 +72,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2ExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example2ExpressRouteCircuit", &network.ExpressRouteCircuitArgs{
-//				Location:           exampleResourceGroup.Location,
-//				ResourceGroupName:  exampleResourceGroup.Name,
-//				ExpressRoutePortId: example2ExpressRoutePort.ID(),
+//			example2ExpressRouteCircuit, err := network.NewExpressRouteCircuit(ctx, "example2", &network.ExpressRouteCircuitArgs{
+//				Name:               pulumi.String("example-ercircuit2"),
+//				Location:           example.Location,
+//				ResourceGroupName:  example.Name,
+//				ExpressRoutePortId: example2.ID(),
 //				BandwidthInGbps:    pulumi.Float64(5),
 //				Sku: &network.ExpressRouteCircuitSkuArgs{
 //					Tier:   pulumi.String("Standard"),
@@ -81,10 +86,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "exampleExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
+//			exampleExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "example", &network.ExpressRouteCircuitPeeringArgs{
 //				PeeringType:                pulumi.String("AzurePrivatePeering"),
 //				ExpressRouteCircuitName:    exampleExpressRouteCircuit.Name,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//				ResourceGroupName:          example.Name,
 //				SharedKey:                  pulumi.String("ItsASecret"),
 //				PeerAsn:                    pulumi.Int(100),
 //				PrimaryPeerAddressPrefix:   pulumi.String("192.168.1.0/30"),
@@ -94,10 +99,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			example2ExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "example2ExpressRouteCircuitPeering", &network.ExpressRouteCircuitPeeringArgs{
+//			example2ExpressRouteCircuitPeering, err := network.NewExpressRouteCircuitPeering(ctx, "example2", &network.ExpressRouteCircuitPeeringArgs{
 //				PeeringType:                pulumi.String("AzurePrivatePeering"),
 //				ExpressRouteCircuitName:    example2ExpressRouteCircuit.Name,
-//				ResourceGroupName:          exampleResourceGroup.Name,
+//				ResourceGroupName:          example.Name,
 //				SharedKey:                  pulumi.String("ItsASecret"),
 //				PeerAsn:                    pulumi.Int(100),
 //				PrimaryPeerAddressPrefix:   pulumi.String("192.168.1.0/30"),
@@ -107,7 +112,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = network.NewExpressRouteCircuitConnection(ctx, "exampleExpressRouteCircuitConnection", &network.ExpressRouteCircuitConnectionArgs{
+//			_, err = network.NewExpressRouteCircuitConnection(ctx, "example", &network.ExpressRouteCircuitConnectionArgs{
+//				Name:              pulumi.String("example-ercircuitconnection"),
 //				PeeringId:         exampleExpressRouteCircuitPeering.ID(),
 //				PeerPeeringId:     example2ExpressRouteCircuitPeering.ID(),
 //				AddressPrefixIpv4: pulumi.String("192.169.9.0/29"),

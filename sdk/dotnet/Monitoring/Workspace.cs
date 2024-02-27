@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Monitoring
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.Monitoring.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Monitoring.Workspace("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mamw",
+    ///         ResourceGroupName = example.Name,
     ///         Location = "West Europe",
     ///         Tags = 
     ///         {

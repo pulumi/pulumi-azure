@@ -24,11 +24,13 @@ namespace Pulumi.Azure.SiteRecovery
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "tfex-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
+    ///         Name = "example-recovery-vault",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
@@ -36,6 +38,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var policy = new Azure.SiteRecovery.ReplicationPolicy("policy", new()
     ///     {
+    ///         Name = "policy",
     ///         ResourceGroupName = example.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryPointRetentionInMinutes = 24 * 60,

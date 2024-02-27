@@ -12,19 +12,26 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
- * import * as fs from "fs";
+ * import * as std from "@pulumi/std";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleCertificate = new azure.automation.Certificate("exampleCertificate", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleCertificate = new azure.automation.Certificate("example", {
+ *     name: "certificate1",
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     description: "This is an example certificate",
- *     base64: fs.readFileSync("certificate.pfx", { encoding: "base64" }),
+ *     base64: std.filebase64({
+ *         input: "certificate.pfx",
+ *     }).then(invoke => invoke.result),
  *     exportable: true,
  * });
  * ```

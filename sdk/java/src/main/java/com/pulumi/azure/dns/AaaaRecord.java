@@ -44,17 +44,20 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mydomain.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .zoneName(exampleZone.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .records(&#34;2001:db8::1:0:0:1&#34;)
  *             .build());
@@ -90,24 +93,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleZone = new Zone(&#34;exampleZone&#34;, ZoneArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mydomain.com&#34;)
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;mypublicip&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Dynamic&#34;)
  *             .ipVersion(&#34;IPv6&#34;)
  *             .build());
  * 
  *         var exampleAaaaRecord = new AaaaRecord(&#34;exampleAaaaRecord&#34;, AaaaRecordArgs.builder()        
+ *             .name(&#34;test&#34;)
  *             .zoneName(exampleZone.name())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .ttl(300)
  *             .targetResourceId(examplePublicIp.id())
  *             .build());

@@ -15,37 +15,33 @@ namespace Pulumi.Azure.ApiManagement
     /// ## Example Usage
     /// 
     /// ```csharp
-    /// using System;
     /// using System.Collections.Generic;
-    /// using System.IO;
     /// using System.Linq;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
-    /// 
-    /// 	
-    /// string ReadFileBase64(string path) 
-    /// {
-    ///     return Convert.ToBase64String(Encoding.UTF8.GetBytes(File.ReadAllText(path)));
-    /// }
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "pub1",
     ///         PublisherEmail = "pub1@email.com",
     ///         SkuName = "Consumption_0",
     ///     });
     /// 
-    ///     var exampleGateway = new Azure.ApiManagement.Gateway("exampleGateway", new()
+    ///     var exampleGateway = new Azure.ApiManagement.Gateway("example", new()
     ///     {
+    ///         Name = "example-gateway",
     ///         ApiManagementId = exampleService.Id,
     ///         Description = "Example API Management gateway",
     ///         LocationData = new Azure.ApiManagement.Inputs.GatewayLocationDataArgs
@@ -57,14 +53,18 @@ namespace Pulumi.Azure.ApiManagement
     ///         },
     ///     });
     /// 
-    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("exampleCertificate", new()
+    ///     var exampleCertificate = new Azure.ApiManagement.Certificate("example", new()
     ///     {
+    ///         Name = "example-cert",
     ///         ApiManagementName = exampleService.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Data = ReadFileBase64("example.pfx"),
+    ///         ResourceGroupName = example.Name,
+    ///         Data = Std.Filebase64.Invoke(new()
+    ///         {
+    ///             Input = "example.pfx",
+    ///         }).Apply(invoke =&gt; invoke.Result),
     ///     });
     /// 
-    ///     var exampleGatewayCertificateAuthority = new Azure.ApiManagement.GatewayCertificateAuthority("exampleGatewayCertificateAuthority", new()
+    ///     var exampleGatewayCertificateAuthority = new Azure.ApiManagement.GatewayCertificateAuthority("example", new()
     ///     {
     ///         ApiManagementId = exampleService.Id,
     ///         CertificateName = exampleCertificate.Name,

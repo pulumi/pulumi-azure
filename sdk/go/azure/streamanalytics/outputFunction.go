@@ -31,24 +31,27 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorageaccount"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			examplePlan, err := appservice.NewPlan(ctx, "examplePlan", &appservice.PlanArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			examplePlan, err := appservice.NewPlan(ctx, "example", &appservice.PlanArgs{
+//				Name:              pulumi.String("exampleappserviceplan"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Kind:              pulumi.Any("FunctionApp"),
 //				Reserved:          pulumi.Bool(true),
 //				Sku: &appservice.PlanSkuArgs{
@@ -59,9 +62,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "exampleFunctionApp", &appservice.FunctionAppArgs{
-//				Location:                exampleResourceGroup.Location,
-//				ResourceGroupName:       exampleResourceGroup.Name,
+//			exampleFunctionApp, err := appservice.NewFunctionApp(ctx, "example", &appservice.FunctionAppArgs{
+//				Name:                    pulumi.String("examplefunctionapp"),
+//				Location:                example.Location,
+//				ResourceGroupName:       example.Name,
 //				AppServicePlanId:        examplePlan.ID(),
 //				StorageAccountName:      exampleAccount.Name,
 //				StorageAccountAccessKey: exampleAccount.PrimaryAccessKey,
@@ -71,16 +75,18 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleJob, err := streamanalytics.NewJob(ctx, "exampleJob", &streamanalytics.JobArgs{
-//				ResourceGroupName:   exampleResourceGroup.Name,
-//				Location:            exampleResourceGroup.Location,
+//			exampleJob, err := streamanalytics.NewJob(ctx, "example", &streamanalytics.JobArgs{
+//				Name:                pulumi.String("examplestreamanalyticsjob"),
+//				ResourceGroupName:   example.Name,
+//				Location:            example.Location,
 //				StreamingUnits:      pulumi.Int(3),
 //				TransformationQuery: pulumi.String("    SELECT *\n    INTO [YourOutputAlias]\n    FROM [YourInputAlias]\n"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = streamanalytics.NewOutputFunction(ctx, "exampleOutputFunction", &streamanalytics.OutputFunctionArgs{
+//			_, err = streamanalytics.NewOutputFunction(ctx, "example", &streamanalytics.OutputFunctionArgs{
+//				Name:                   pulumi.String("exampleoutput"),
 //				ResourceGroupName:      exampleJob.ResourceGroupName,
 //				StreamAnalyticsJobName: exampleJob.Name,
 //				FunctionApp:            exampleFunctionApp.Name,

@@ -784,24 +784,31 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
+        example_queue = azure.storage.Queue("example",
+            name="examplestoragequeue",
+            storage_account_name=example_account.name)
+        example_system_topic = azure.eventgrid.SystemTopic("example",
+            name="example-system-topic",
             location="Global",
-            resource_group_name=example_resource_group.name,
-            source_arm_resource_id=example_resource_group.id,
+            resource_group_name=example.name,
+            source_arm_resource_id=example.id,
             topic_type="Microsoft.Resources.ResourceGroups")
-        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
+        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("example",
+            name="example-event-subscription",
             system_topic=example_system_topic.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=example_account.id,
                 queue_name=example_queue.name,
@@ -860,24 +867,31 @@ class SystemTopicEventSubscription(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestorageaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS",
             tags={
                 "environment": "staging",
             })
-        example_queue = azure.storage.Queue("exampleQueue", storage_account_name=example_account.name)
-        example_system_topic = azure.eventgrid.SystemTopic("exampleSystemTopic",
+        example_queue = azure.storage.Queue("example",
+            name="examplestoragequeue",
+            storage_account_name=example_account.name)
+        example_system_topic = azure.eventgrid.SystemTopic("example",
+            name="example-system-topic",
             location="Global",
-            resource_group_name=example_resource_group.name,
-            source_arm_resource_id=example_resource_group.id,
+            resource_group_name=example.name,
+            source_arm_resource_id=example.id,
             topic_type="Microsoft.Resources.ResourceGroups")
-        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("exampleSystemTopicEventSubscription",
+        example_system_topic_event_subscription = azure.eventgrid.SystemTopicEventSubscription("example",
+            name="example-event-subscription",
             system_topic=example_system_topic.name,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             storage_queue_endpoint=azure.eventgrid.SystemTopicEventSubscriptionStorageQueueEndpointArgs(
                 storage_account_id=example_account.id,
                 queue_name=example_queue.name,

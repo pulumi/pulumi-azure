@@ -31,15 +31,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "exampleWorkspace", &healthcare.WorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleWorkspace, err := healthcare.NewWorkspace(ctx, "example", &healthcare.WorkspaceArgs{
+//				Name:              pulumi.String("examplewkspace"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
@@ -69,7 +71,8 @@ import (
 //				return err
 //			}
 //			json0 := string(tmpJSON0)
-//			_, err = healthcare.NewMedtechService(ctx, "exampleMedtechService", &healthcare.MedtechServiceArgs{
+//			_, err = healthcare.NewMedtechService(ctx, "example", &healthcare.MedtechServiceArgs{
+//				Name:        pulumi.String("examplemed"),
 //				WorkspaceId: exampleWorkspace.ID(),
 //				Location:    pulumi.String("east us"),
 //				Identity: &healthcare.MedtechServiceIdentityArgs{

@@ -12,6 +12,61 @@ namespace Pulumi.Azure.Network
     /// <summary>
     /// Manages a Network Manager Security Admin Configuration.
     /// 
+    /// ## Example Usage
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Azure = Pulumi.Azure;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
+    ///     {
+    ///         Name = "example-resources",
+    ///         Location = "West Europe",
+    ///     });
+    /// 
+    ///     var current = Azure.Core.GetSubscription.Invoke();
+    /// 
+    ///     var exampleNetworkManager = new Azure.Network.NetworkManager("example", new()
+    ///     {
+    ///         Name = "example-network-manager",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
+    ///         Scope = new Azure.Network.Inputs.NetworkManagerScopeArgs
+    ///         {
+    ///             SubscriptionIds = new[]
+    ///             {
+    ///                 current.Apply(getSubscriptionResult =&gt; getSubscriptionResult.Id),
+    ///             },
+    ///         },
+    ///         ScopeAccesses = new[]
+    ///         {
+    ///             "Connectivity",
+    ///             "SecurityAdmin",
+    ///         },
+    ///         Description = "example network manager",
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerNetworkGroup = new Azure.Network.NetworkManagerNetworkGroup("example", new()
+    ///     {
+    ///         Name = "example-network-group",
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///     });
+    /// 
+    ///     var exampleNetworkManagerSecurityAdminConfiguration = new Azure.Network.NetworkManagerSecurityAdminConfiguration("example", new()
+    ///     {
+    ///         Name = "example-admin-conf",
+    ///         NetworkManagerId = exampleNetworkManager.Id,
+    ///         Description = "example admin conf",
+    ///         ApplyOnNetworkIntentPolicyBasedServices = "None",
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
     /// ## Import
     /// 
     /// Network Manager Security Admin Configuration can be imported using the `resource id`, e.g.

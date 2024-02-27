@@ -430,19 +430,25 @@ class ReferenceInputMssql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
             administrator_login="admin",
             administrator_login_password="password")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
+        example_database = azure.mssql.Database("example",
+            name="example-db",
+            server_id=example_server.id)
+        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("example",
+            name="example-reference-input",
+            resource_group_name=example.resource_group_name,
+            stream_analytics_job_name=example.name,
             server=example_server.fully_qualified_domain_name,
             database=example_database.name,
             username="exampleuser",
@@ -493,19 +499,25 @@ class ReferenceInputMssql(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_job = azure.streamanalytics.get_job_output(name="example-job",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.streamanalytics.get_job_output(name="example-job",
             resource_group_name=example_resource_group.name)
-        example_server = azure.mssql.Server("exampleServer",
+        example_server = azure.mssql.Server("example",
+            name="example-sqlserver",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             version="12.0",
             administrator_login="admin",
             administrator_login_password="password")
-        example_database = azure.mssql.Database("exampleDatabase", server_id=example_server.id)
-        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("exampleReferenceInputMssql",
-            resource_group_name=example_job.resource_group_name,
-            stream_analytics_job_name=example_job.name,
+        example_database = azure.mssql.Database("example",
+            name="example-db",
+            server_id=example_server.id)
+        example_reference_input_mssql = azure.streamanalytics.ReferenceInputMssql("example",
+            name="example-reference-input",
+            resource_group_name=example.resource_group_name,
+            stream_analytics_job_name=example.name,
             server=example_server.fully_qualified_domain_name,
             database=example_database.name,
             username="exampleuser",

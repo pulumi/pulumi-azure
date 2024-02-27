@@ -228,17 +228,22 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-        test_service = azure.search.Service("testService",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test = azure.core.ResourceGroup("test",
+            name="example-resourceGroup",
+            location="east us")
+        test_service = azure.search.Service("test",
+            name="example-search",
+            resource_group_name=test.name,
+            location=test.location,
             sku="standard")
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test_account = azure.storage.Account("test",
+            name="xiaxintestsaforsearchspl",
+            resource_group_name=test.name,
+            location=test.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
+        test_shared_private_link_service = azure.search.SharedPrivateLinkService("test",
+            name="example-spl",
             search_service_id=test_service.id,
             subresource_name="blob",
             target_resource_id=test_account.id,
@@ -278,17 +283,22 @@ class SharedPrivateLinkService(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        test_resource_group = azure.core.ResourceGroup("testResourceGroup", location="east us")
-        test_service = azure.search.Service("testService",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test = azure.core.ResourceGroup("test",
+            name="example-resourceGroup",
+            location="east us")
+        test_service = azure.search.Service("test",
+            name="example-search",
+            resource_group_name=test.name,
+            location=test.location,
             sku="standard")
-        test_account = azure.storage.Account("testAccount",
-            resource_group_name=test_resource_group.name,
-            location=test_resource_group.location,
+        test_account = azure.storage.Account("test",
+            name="xiaxintestsaforsearchspl",
+            resource_group_name=test.name,
+            location=test.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        test_shared_private_link_service = azure.search.SharedPrivateLinkService("testSharedPrivateLinkService",
+        test_shared_private_link_service = azure.search.SharedPrivateLinkService("test",
+            name="example-spl",
             search_service_id=test_service.id,
             subresource_name="blob",
             target_resource_id=test_account.id,

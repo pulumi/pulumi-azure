@@ -13,20 +13,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleResourceGuard = new azure.dataprotection.ResourceGuard("exampleResourceGuard", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleResourceGuard = new azure.dataprotection.ResourceGuard("example", {
+ *     name: "example-resourceguard",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "example-recovery-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  *     softDeleteEnabled: true,
  * });
  * const test = new azure.recoveryservices.VaultResourceGuardAssociation("test", {
- *     vaultId: azurerm_recovery_services_vault.test.id,
- *     resourceGuardId: azurerm_data_protection_resource_guard.test.id,
+ *     name: "VaultProxy",
+ *     vaultId: testAzurermRecoveryServicesVault.id,
+ *     resourceGuardId: testAzurermDataProtectionResourceGuard.id,
  * });
  * ```
  *

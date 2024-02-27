@@ -205,11 +205,12 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
-            stream_analytics_job_id=example_job.id,
+        example = azure.core.get_resource_group(name="example-resources")
+        example_get_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example.name)
+        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("example",
+            name="example-javascript-function",
+            stream_analytics_job_id=example_get_job.id,
             script=\"\"\"function main() {
             this.init = function () {
                 this.state = 0;
@@ -263,11 +264,12 @@ class FunctionJavascriptUda(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
-        example_job = azure.streamanalytics.get_job(name="example-job",
-            resource_group_name=example_resource_group.name)
-        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("exampleFunctionJavascriptUda",
-            stream_analytics_job_id=example_job.id,
+        example = azure.core.get_resource_group(name="example-resources")
+        example_get_job = azure.streamanalytics.get_job(name="example-job",
+            resource_group_name=example.name)
+        example_function_javascript_uda = azure.streamanalytics.FunctionJavascriptUda("example",
+            name="example-javascript-function",
+            stream_analytics_job_id=example_get_job.id,
             script=\"\"\"function main() {
             this.init = function () {
                 this.state = 0;

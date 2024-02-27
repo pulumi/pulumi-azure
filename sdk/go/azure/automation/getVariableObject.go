@@ -12,6 +12,39 @@ import (
 )
 
 // Use this data source to access information about an existing Automation Object Variable.
+//
+// ## Example Usage
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/automation"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func notImplemented(message string) pulumi.AnyOutput {
+//		panic(message)
+//	}
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := automation.LookupVariableObject(ctx, &automation.LookupVariableObjectArgs{
+//				Name:                  "tfex-example-var",
+//				ResourceGroupName:     "tfex-example-rg",
+//				AutomationAccountName: "tfex-example-account",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			ctx.Export("variable", notImplemented("jsondecode(data.azurerm_automation_variable_object.example.value)"))
+//			return nil
+//		})
+//	}
+//
+// ```
 func LookupVariableObject(ctx *pulumi.Context, args *LookupVariableObjectArgs, opts ...pulumi.InvokeOption) (*LookupVariableObjectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVariableObjectResult

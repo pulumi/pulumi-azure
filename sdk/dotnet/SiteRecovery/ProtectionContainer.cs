@@ -24,16 +24,19 @@ namespace Pulumi.Azure.SiteRecovery
     /// {
     ///     var primary = new Azure.Core.ResourceGroup("primary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-primary",
     ///         Location = "West US",
     ///     });
     /// 
     ///     var secondary = new Azure.Core.ResourceGroup("secondary", new()
     ///     {
+    ///         Name = "tfex-network-mapping-secondary",
     ///         Location = "East US",
     ///     });
     /// 
     ///     var vault = new Azure.RecoveryServices.Vault("vault", new()
     ///     {
+    ///         Name = "example-recovery-vault",
     ///         Location = secondary.Location,
     ///         ResourceGroupName = secondary.Name,
     ///         Sku = "Standard",
@@ -41,6 +44,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var fabric = new Azure.SiteRecovery.Fabric("fabric", new()
     ///     {
+    ///         Name = "primary-fabric",
     ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         Location = primary.Location,
@@ -48,6 +52,7 @@ namespace Pulumi.Azure.SiteRecovery
     /// 
     ///     var protection_container = new Azure.SiteRecovery.ProtectionContainer("protection-container", new()
     ///     {
+    ///         Name = "protection-container",
     ///         ResourceGroupName = secondary.Name,
     ///         RecoveryVaultName = vault.Name,
     ///         RecoveryFabricName = fabric.Name,

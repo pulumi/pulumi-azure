@@ -32,15 +32,16 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//			example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
 //				Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+//			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
+//				ManagementGroupId: *pulumi.String(example.Id),
 //				TemplateContent: pulumi.String(`{
 //	  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
 //	  "contentVersion": "1.0.0.0",
@@ -101,34 +102,38 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/management"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//			example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
 //				Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "templates/example-deploy-template.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			invokeFile1, err := std.File(ctx, &std.FileArgs{
+//				Input: "templates/example-deploy-params.json",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
+//				Name:              pulumi.String("example"),
 //				Location:          pulumi.String("West Europe"),
-//				ManagementGroupId: *pulumi.String(exampleGroup.Id),
-//				TemplateContent:   readFileOrPanic("templates/example-deploy-template.json"),
-//				ParametersContent: readFileOrPanic("templates/example-deploy-params.json"),
+//				ManagementGroupId: *pulumi.String(example.Id),
+//				TemplateContent:   invokeFile.Result,
+//				ParametersContent: invokeFile1.Result,
 //			})
 //			if err != nil {
 //				return err
@@ -152,13 +157,13 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleGroup, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
+//			example, err := management.LookupGroup(ctx, &management.LookupGroupArgs{
 //				Name: pulumi.StringRef("00000000-0000-0000-0000-000000000000"),
 //			}, nil)
 //			if err != nil {
 //				return err
 //			}
-//			exampleTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
+//			exampleGetTemplateSpecVersion, err := core.GetTemplateSpecVersion(ctx, &core.GetTemplateSpecVersionArgs{
 //				Name:              "exampleTemplateForManagementGroup",
 //				ResourceGroupName: "exampleResourceGroup",
 //				Version:           "v1.0.9",
@@ -166,10 +171,11 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = management.NewGroupTemplateDeployment(ctx, "exampleGroupTemplateDeployment", &management.GroupTemplateDeploymentArgs{
+//			_, err = management.NewGroupTemplateDeployment(ctx, "example", &management.GroupTemplateDeploymentArgs{
+//				Name:                  pulumi.String("example"),
 //				Location:              pulumi.String("West Europe"),
-//				ManagementGroupId:     *pulumi.String(exampleGroup.Id),
-//				TemplateSpecVersionId: *pulumi.String(exampleTemplateSpecVersion.Id),
+//				ManagementGroupId:     *pulumi.String(example.Id),
+//				TemplateSpecVersionId: *pulumi.String(exampleGetTemplateSpecVersion.Id),
 //			})
 //			if err != nil {
 //				return err

@@ -30,38 +30,38 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("east us"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "exampleAnalyticsWorkspace", &operationalinsights.AnalyticsWorkspaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAnalyticsWorkspace, err := operationalinsights.NewAnalyticsWorkspace(ctx, "example", &operationalinsights.AnalyticsWorkspaceArgs{
+//				Name:              pulumi.String("example-law"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("PerGB2018"),
 //				RetentionInDays:   pulumi.Int(30),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "exampleLogAnalyticsWorkspaceOnboarding", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = sentinel.NewLogAnalyticsWorkspaceOnboarding(ctx, "example", &sentinel.LogAnalyticsWorkspaceOnboardingArgs{
+//				ResourceGroupName: example.Name,
 //				WorkspaceName:     exampleAnalyticsWorkspace.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = sentinel.NewThreatIntelligenceIndicator(ctx, "exampleThreatIntelligenceIndicator", &sentinel.ThreatIntelligenceIndicatorArgs{
+//			_, err = sentinel.NewThreatIntelligenceIndicator(ctx, "example", &sentinel.ThreatIntelligenceIndicatorArgs{
 //				WorkspaceId:     exampleAnalyticsWorkspace.ID(),
 //				PatternType:     pulumi.String("domain-name"),
 //				Pattern:         pulumi.String("http://example.com"),
 //				Source:          pulumi.String("Microsoft Sentinel"),
 //				ValidateFromUtc: pulumi.String("2022-12-14T16:00:00Z"),
 //				DisplayName:     pulumi.String("example-indicator"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				azurerm_sentinel_log_analytics_workspace_onboarding.Test,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}

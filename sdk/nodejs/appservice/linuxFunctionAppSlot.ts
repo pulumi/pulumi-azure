@@ -15,27 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "linuxfunctionappsa",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountReplicationType: "LRS",
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example-app-service-plan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     osType: "Linux",
  *     skuName: "Y1",
  * });
- * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("exampleLinuxFunctionApp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleLinuxFunctionApp = new azure.appservice.LinuxFunctionApp("example", {
+ *     name: "example-linux-function-app",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     servicePlanId: exampleServicePlan.id,
  *     storageAccountName: exampleAccount.name,
  *     siteConfig: {},
  * });
- * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("exampleLinuxFunctionAppSlot", {
+ * const exampleLinuxFunctionAppSlot = new azure.appservice.LinuxFunctionAppSlot("example", {
+ *     name: "example-linux-function-app-slot",
  *     functionAppId: exampleLinuxFunctionApp.id,
  *     storageAccountName: exampleAccount.name,
  *     siteConfig: {},

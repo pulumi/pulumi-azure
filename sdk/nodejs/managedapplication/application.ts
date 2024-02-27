@@ -14,33 +14,45 @@ import * as utilities from "../utilities";
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
+ * import * as std from "@pulumi/std";
  *
  * const current = azure.core.getClientConfig({});
  * const builtin = azure.authorization.getRoleDefinition({
  *     name: "Contributor",
  * });
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleDefinition = new azure.managedapplication.Definition("exampleDefinition", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleDefinition = new azure.managedapplication.Definition("example", {
+ *     name: "examplemanagedapplicationdefinition",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     lockLevel: "ReadOnly",
  *     packageFileUri: "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
  *     displayName: "TestManagedAppDefinition",
  *     description: "Test Managed App Definition",
  *     authorizations: [{
  *         servicePrincipalId: current.then(current => current.objectId),
- *         roleDefinitionId: Promise.all([builtin.then(builtin => builtin.id.split("/")), builtin.then(builtin => builtin.id.split("/")).length]).then(([split, length]) => split[length - 1]),
+ *         roleDefinitionId: Promise.all([builtin.then(builtin => std.split({
+ *             separator: "/",
+ *             text: builtin.id,
+ *         })), builtin.then(builtin => std.split({
+ *             separator: "/",
+ *             text: builtin.id,
+ *         })).then(invoke => invoke.result).length]).then(([invoke, length]) => invoke.result[length - 1]),
  *     }],
  * });
- * const exampleApplication = new azure.managedapplication.Application("exampleApplication", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleApplication = new azure.managedapplication.Application("example", {
+ *     name: "example-managedapplication",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     kind: "ServiceCatalog",
  *     managedResourceGroupName: "infrastructureGroup",
  *     applicationDefinitionId: exampleDefinition.id,
  *     parameterValues: pulumi.jsonStringify({
  *         location: {
- *             value: exampleResourceGroup.location,
+ *             value: example.location,
  *         },
  *         storageAccountNamePrefix: {
  *             value: "storeNamePrefix",

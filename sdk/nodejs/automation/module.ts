@@ -15,14 +15,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAccount = new azure.automation.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAccount = new azure.automation.Account("example", {
+ *     name: "account1",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     skuName: "Basic",
  * });
- * const exampleModule = new azure.automation.Module("exampleModule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleModule = new azure.automation.Module("example", {
+ *     name: "xActiveDirectory",
+ *     resourceGroupName: example.name,
  *     automationAccountName: exampleAccount.name,
  *     moduleLink: {
  *         uri: "https://devopsgallerystorage.blob.core.windows.net/packages/xactivedirectory.2.19.0.nupkg",

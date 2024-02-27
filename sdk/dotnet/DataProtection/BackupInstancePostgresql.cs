@@ -26,15 +26,17 @@ namespace Pulumi.Azure.DataProtection
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.PostgreSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.PostgreSql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "B_Gen5_2",
     ///         StorageMb = 5120,
     ///         BackupRetentionDays = 7,
@@ -46,26 +48,29 @@ namespace Pulumi.Azure.DataProtection
     ///         SslEnforcementEnabled = true,
     ///     });
     /// 
-    ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("exampleFirewallRule", new()
+    ///     var exampleFirewallRule = new Azure.PostgreSql.FirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "AllowAllWindowsAzureIps",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         StartIpAddress = "0.0.0.0",
     ///         EndIpAddress = "0.0.0.0",
     ///     });
     /// 
-    ///     var exampleDatabase = new Azure.PostgreSql.Database("exampleDatabase", new()
+    ///     var exampleDatabase = new Azure.PostgreSql.Database("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleServer.Name,
     ///         Charset = "UTF8",
     ///         Collation = "English_United States.1252",
     ///     });
     /// 
-    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("exampleBackupVault", new()
+    ///     var exampleBackupVault = new Azure.DataProtection.BackupVault("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         DatastoreType = "VaultStore",
     ///         Redundancy = "LocallyRedundant",
     ///         Identity = new Azure.DataProtection.Inputs.BackupVaultIdentityArgs
@@ -74,10 +79,11 @@ namespace Pulumi.Azure.DataProtection
     ///         },
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         SoftDeleteRetentionDays = 7,
@@ -122,8 +128,9 @@ namespace Pulumi.Azure.DataProtection
     ///         },
     ///     });
     /// 
-    ///     var exampleSecret = new Azure.KeyVault.Secret("exampleSecret", new()
+    ///     var exampleSecret = new Azure.KeyVault.Secret("example", new()
     ///     {
+    ///         Name = "example",
     ///         Value = Output.Tuple(exampleServer.Name, exampleDatabase.Name, exampleServer.Name).Apply(values =&gt;
     ///         {
     ///             var exampleServerName = values.Item1;
@@ -134,9 +141,10 @@ namespace Pulumi.Azure.DataProtection
     ///         KeyVaultId = exampleKeyVault.Id,
     ///     });
     /// 
-    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("exampleBackupPolicyPostgresql", new()
+    ///     var exampleBackupPolicyPostgresql = new Azure.DataProtection.BackupPolicyPostgresql("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         VaultName = exampleBackupVault.Name,
     ///         BackupRepeatingTimeIntervals = new[]
     ///         {
@@ -145,16 +153,17 @@ namespace Pulumi.Azure.DataProtection
     ///         DefaultRetentionDuration = "P4M",
     ///     });
     /// 
-    ///     var exampleAssignment = new Azure.Authorization.Assignment("exampleAssignment", new()
+    ///     var exampleAssignment = new Azure.Authorization.Assignment("example", new()
     ///     {
     ///         Scope = exampleServer.Id,
     ///         RoleDefinitionName = "Reader",
     ///         PrincipalId = exampleBackupVault.Identity.Apply(identity =&gt; identity?.PrincipalId),
     ///     });
     /// 
-    ///     var exampleBackupInstancePostgresql = new Azure.DataProtection.BackupInstancePostgresql("exampleBackupInstancePostgresql", new()
+    ///     var exampleBackupInstancePostgresql = new Azure.DataProtection.BackupInstancePostgresql("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         Location = example.Location,
     ///         VaultId = exampleBackupVault.Id,
     ///         DatabaseId = exampleDatabase.Id,
     ///         BackupPolicyId = exampleBackupPolicyPostgresql.Id,

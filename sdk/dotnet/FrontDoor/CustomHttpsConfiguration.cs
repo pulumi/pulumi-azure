@@ -30,8 +30,9 @@ namespace Pulumi.Azure.FrontDoor
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "FrontDoorExampleResourceGroup",
     ///         Location = "West Europe",
     ///     });
     /// 
@@ -41,9 +42,10 @@ namespace Pulumi.Azure.FrontDoor
     ///         ResourceGroupName = "example-vault-rg",
     ///     });
     /// 
-    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("exampleFrontdoor", new()
+    ///     var exampleFrontdoor = new Azure.FrontDoor.Frontdoor("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-FrontDoor",
+    ///         ResourceGroupName = example.Name,
     ///         RoutingRules = new[]
     ///         {
     ///             new Azure.FrontDoor.Inputs.FrontdoorRoutingRuleArgs
@@ -117,13 +119,13 @@ namespace Pulumi.Azure.FrontDoor
     ///         },
     ///     });
     /// 
-    ///     var exampleCustomHttps0 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps0", new()
+    ///     var exampleCustomHttps0 = new Azure.FrontDoor.CustomHttpsConfiguration("example_custom_https_0", new()
     ///     {
     ///         FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint1),
     ///         CustomHttpsProvisioningEnabled = false,
     ///     });
     /// 
-    ///     var exampleCustomHttps1 = new Azure.FrontDoor.CustomHttpsConfiguration("exampleCustomHttps1", new()
+    ///     var exampleCustomHttps1 = new Azure.FrontDoor.CustomHttpsConfiguration("example_custom_https_1", new()
     ///     {
     ///         FrontendEndpointId = exampleFrontdoor.FrontendEndpointsMap.Apply(frontendEndpointsMap =&gt; frontendEndpointsMap.ExampleFrontendEndpoint2),
     ///         CustomHttpsProvisioningEnabled = true,

@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "westeurope"});
- * const exampleKubernetesFleetManager = new azure.containerservice.KubernetesFleetManager("exampleKubernetesFleetManager", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "westeurope",
+ * });
+ * const exampleKubernetesFleetManager = new azure.containerservice.KubernetesFleetManager("example", {
+ *     location: example.location,
+ *     name: "example",
+ *     resourceGroupName: example.name,
  *     hubProfile: {
  *         dnsPrefix: "example-dns-prefix",
  *     },
  * });
- * const exampleFleetUpdateStrategy = new azure.containerservice.FleetUpdateStrategy("exampleFleetUpdateStrategy", {
+ * const exampleFleetUpdateStrategy = new azure.containerservice.FleetUpdateStrategy("example", {
+ *     name: "example",
  *     kubernetesFleetManagerId: exampleKubernetesFleetManager.id,
  *     stages: [{
  *         name: "example-stage-1",

@@ -23,35 +23,33 @@ import (
 //
 // import (
 //
-//	"encoding/base64"
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/appservice"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func filebase64OrPanic(path string) string {
-//		if fileData, err := os.ReadFile(path); err == nil {
-//			return base64.StdEncoding.EncodeToString(fileData[:])
-//		} else {
-//			panic(err.Error())
-//		}
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = appservice.NewCertificate(ctx, "exampleCertificate", &appservice.CertificateArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
-//				PfxBlob:           filebase64OrPanic("certificate.pfx"),
+//			invokeFilebase64, err := std.Filebase64(ctx, &std.Filebase64Args{
+//				Input: "certificate.pfx",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = appservice.NewCertificate(ctx, "example", &appservice.CertificateArgs{
+//				Name:              pulumi.String("example-cert"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
+//				PfxBlob:           invokeFilebase64.Result,
 //				Password:          pulumi.String("password123!"),
 //			})
 //			if err != nil {

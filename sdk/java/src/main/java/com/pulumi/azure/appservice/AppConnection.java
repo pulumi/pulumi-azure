@@ -58,13 +58,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-cosmosdb-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .offerType(&#34;Standard&#34;)
  *             .kind(&#34;GlobalDocumentDB&#34;)
  *             .consistencyPolicy(AccountConsistencyPolicyArgs.builder()
@@ -73,49 +75,55 @@ import javax.annotation.Nullable;
  *                 .maxStalenessPrefix(200)
  *                 .build())
  *             .geoLocations(AccountGeoLocationArgs.builder()
- *                 .location(exampleResourceGroup.location())
+ *                 .location(example.location())
  *                 .failoverPriority(0)
  *                 .build())
  *             .build());
  * 
  *         var exampleSqlDatabase = new SqlDatabase(&#34;exampleSqlDatabase&#34;, SqlDatabaseArgs.builder()        
+ *             .name(&#34;cosmos-sql-db&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .throughput(400)
  *             .build());
  * 
  *         var exampleSqlContainer = new SqlContainer(&#34;exampleSqlContainer&#34;, SqlContainerArgs.builder()        
+ *             .name(&#34;example-container&#34;)
  *             .resourceGroupName(exampleAccount.resourceGroupName())
  *             .accountName(exampleAccount.name())
  *             .databaseName(exampleSqlDatabase.name())
  *             .partitionKeyPath(&#34;/definition&#34;)
  *             .build());
  * 
- *         var exampleStorage_accountAccount = new Account(&#34;exampleStorage/accountAccount&#34;, AccountArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *         var exampleAccount2 = new Account(&#34;exampleAccount2&#34;, AccountArgs.builder()        
+ *             .name(&#34;examplestorageaccount&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleServicePlan = new ServicePlan(&#34;exampleServicePlan&#34;, ServicePlanArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .name(&#34;example-serviceplan&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;P1v2&#34;)
  *             .osType(&#34;Linux&#34;)
  *             .build());
  * 
  *         var test = new FunctionApp(&#34;test&#34;, FunctionAppArgs.builder()        
- *             .location(azurerm_resource_group.test().location())
- *             .resourceGroupName(azurerm_resource_group.test().name())
- *             .appServicePlanId(azurerm_app_service_plan.test().id())
- *             .storageAccountName(azurerm_storage_account.test().name())
- *             .storageAccountAccessKey(azurerm_storage_account.test().primary_access_key())
+ *             .name(&#34;example-function-app&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .appServicePlanId(testAzurermAppServicePlan.id())
+ *             .storageAccountName(testAzurermStorageAccount.name())
+ *             .storageAccountAccessKey(testAzurermStorageAccount.primaryAccessKey())
  *             .build());
  * 
  *         var exampleAppConnection = new AppConnection(&#34;exampleAppConnection&#34;, AppConnectionArgs.builder()        
- *             .functionAppId(azurerm_function_app.example().id())
- *             .targetResourceId(azurerm_cosmosdb_account.test().id())
+ *             .name(&#34;example-serviceconnector&#34;)
+ *             .functionAppId(exampleAzurermFunctionApp.id())
+ *             .targetResourceId(testAzurermCosmosdbAccount.id())
  *             .authentication(AppConnectionAuthenticationArgs.builder()
  *                 .type(&#34;systemAssignedIdentity&#34;)
  *                 .build())

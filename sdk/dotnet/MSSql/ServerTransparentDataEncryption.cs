@@ -29,15 +29,17 @@ namespace Pulumi.Azure.MSSql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "EastUs",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mssqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
@@ -53,7 +55,7 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", new()
+    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///     });
@@ -72,15 +74,17 @@ namespace Pulumi.Azure.MSSql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "EastUs",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MSSql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MSSql.Server("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "mssqlserver",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         Version = "12.0",
     ///         AdministratorLogin = "missadministrator",
     ///         AdministratorLoginPassword = "thisIsKat11",
@@ -101,10 +105,11 @@ namespace Pulumi.Azure.MSSql
     ///     });
     /// 
     ///     // Create a key vault with policies for the deployer to create a key &amp; SQL Server to wrap/unwrap/get key
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         EnabledForDiskEncryption = true,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SoftDeleteRetentionDays = 7,
@@ -142,8 +147,9 @@ namespace Pulumi.Azure.MSSql
     ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "byok",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -152,15 +158,9 @@ namespace Pulumi.Azure.MSSql
     ///             "unwrapKey",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleKeyVault,
-    ///         },
     ///     });
     /// 
-    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("exampleServerTransparentDataEncryption", new()
+    ///     var exampleServerTransparentDataEncryption = new Azure.MSSql.ServerTransparentDataEncryption("example", new()
     ///     {
     ///         ServerId = exampleServer.Id,
     ///         KeyVaultKeyId = exampleKey.Id,

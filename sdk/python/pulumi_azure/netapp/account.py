@@ -243,14 +243,18 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="anf-user-assigned-identity",
+            location=example.location,
+            resource_group_name=example.name)
+        example_account = azure.netapp.Account("example",
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name,
             active_directory=azure.netapp.AccountActiveDirectoryArgs(
                 username="aduser",
                 password="aduserpwd",
@@ -299,14 +303,18 @@ class Account(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
         current = azure.core.get_client_config()
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_account = azure.netapp.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="anf-user-assigned-identity",
+            location=example.location,
+            resource_group_name=example.name)
+        example_account = azure.netapp.Account("example",
+            name="netappaccount",
+            location=example.location,
+            resource_group_name=example.name,
             active_directory=azure.netapp.AccountActiveDirectoryArgs(
                 username="aduser",
                 password="aduserpwd",

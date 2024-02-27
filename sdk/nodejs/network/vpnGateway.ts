@@ -15,25 +15,32 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-hub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.1.0/24",
  * });
- * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVpnGateway = new azure.network.VpnGateway("example", {
+ *     name: "example-vpng",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  * });
  * ```

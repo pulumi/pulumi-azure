@@ -17,14 +17,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "exampleRG1",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
@@ -35,8 +40,9 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("exampleEnvironmentV3", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleEnvironmentV3 = new azure.appservice.EnvironmentV3("example", {
+ *     name: "example-asev3",
+ *     resourceGroupName: example.name,
  *     subnetId: exampleSubnet.id,
  *     internalLoadBalancingMode: "Web, Publishing",
  *     clusterSettings: [
@@ -58,9 +64,10 @@ import * as utilities from "../utilities";
  *         terraformed: "true",
  *     },
  * });
- * const exampleServicePlan = new azure.appservice.ServicePlan("exampleServicePlan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleServicePlan = new azure.appservice.ServicePlan("example", {
+ *     name: "example",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     osType: "Linux",
  *     skuName: "I1v2",
  *     appServiceEnvironmentId: exampleEnvironmentV3.id,

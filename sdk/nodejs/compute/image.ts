@@ -17,14 +17,15 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleVirtualMachine = azure.compute.getVirtualMachine({
+ * const example = azure.compute.getVirtualMachine({
  *     name: "examplevm",
  *     resourceGroupName: "example-resources",
  * });
- * const exampleImage = new azure.compute.Image("exampleImage", {
- *     location: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.location),
- *     resourceGroupName: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.name),
- *     sourceVirtualMachineId: exampleVirtualMachine.then(exampleVirtualMachine => exampleVirtualMachine.id),
+ * const exampleImage = new azure.compute.Image("example", {
+ *     name: "exampleimage",
+ *     location: example.then(example => example.location),
+ *     resourceGroupName: example.then(example => example.name),
+ *     sourceVirtualMachineId: example.then(example => example.id),
  * });
  * ```
  *

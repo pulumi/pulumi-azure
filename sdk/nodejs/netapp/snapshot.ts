@@ -13,14 +13,19 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-virtualnetwork",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  *     delegations: [{
@@ -34,20 +39,23 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleAccount = new azure.netapp.Account("exampleAccount", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleAccount = new azure.netapp.Account("example", {
+ *     name: "example-netappaccount",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
- * const examplePool = new azure.netapp.Pool("examplePool", {
+ * const examplePool = new azure.netapp.Pool("example", {
+ *     name: "example-netapppool",
  *     accountName: exampleAccount.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     serviceLevel: "Premium",
  *     sizeInTb: 4,
  * });
- * const exampleVolume = new azure.netapp.Volume("exampleVolume", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVolume = new azure.netapp.Volume("example", {
+ *     name: "example-netappvolume",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     accountName: exampleAccount.name,
  *     poolName: examplePool.name,
  *     volumePath: "my-unique-file-path",
@@ -55,12 +63,13 @@ import * as utilities from "../utilities";
  *     subnetId: exampleSubnet.id,
  *     storageQuotaInGb: 100,
  * });
- * const exampleSnapshot = new azure.netapp.Snapshot("exampleSnapshot", {
+ * const exampleSnapshot = new azure.netapp.Snapshot("example", {
+ *     name: "example-netappsnapshot",
  *     accountName: exampleAccount.name,
  *     poolName: examplePool.name,
  *     volumeName: exampleVolume.name,
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * ```
  *

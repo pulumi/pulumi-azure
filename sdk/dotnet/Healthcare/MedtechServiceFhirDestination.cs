@@ -21,45 +21,51 @@ namespace Pulumi.Azure.Healthcare
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.Healthcare.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "exampleworkspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("exampleEventHubNamespace", new()
+    ///     var exampleEventHubNamespace = new Azure.EventHub.EventHubNamespace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ehn",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard",
     ///     });
     /// 
-    ///     var exampleEventHub = new Azure.EventHub.EventHub("exampleEventHub", new()
+    ///     var exampleEventHub = new Azure.EventHub.EventHub("example", new()
     ///     {
+    ///         Name = "example-eh",
     ///         NamespaceName = exampleEventHubNamespace.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         PartitionCount = 1,
     ///         MessageRetention = 1,
     ///     });
     /// 
-    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("exampleConsumerGroup", new()
+    ///     var exampleConsumerGroup = new Azure.EventHub.ConsumerGroup("example", new()
     ///     {
+    ///         Name = "$default",
     ///         NamespaceName = exampleEventHubNamespace.Name,
     ///         EventhubName = exampleEventHub.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
-    ///     var exampleFhirService = new Azure.Healthcare.FhirService("exampleFhirService", new()
+    ///     var exampleFhirService = new Azure.Healthcare.FhirService("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplefhir",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceId = exampleWorkspace.Id,
     ///         Kind = "fhir-R4",
     ///         Authentication = new Azure.Healthcare.Inputs.FhirServiceAuthenticationArgs
@@ -69,10 +75,11 @@ namespace Pulumi.Azure.Healthcare
     ///         },
     ///     });
     /// 
-    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("exampleMedtechService", new()
+    ///     var exampleMedtechService = new Azure.Healthcare.MedtechService("example", new()
     ///     {
+    ///         Name = "examplemt",
     ///         WorkspaceId = exampleWorkspace.Id,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Location = example.Location,
     ///         EventhubNamespaceName = exampleEventHubNamespace.Name,
     ///         EventhubName = exampleEventHub.Name,
     ///         EventhubConsumerGroupName = exampleConsumerGroup.Name,
@@ -85,8 +92,9 @@ namespace Pulumi.Azure.Healthcare
     ///         }),
     ///     });
     /// 
-    ///     var exampleMedtechServiceFhirDestination = new Azure.Healthcare.MedtechServiceFhirDestination("exampleMedtechServiceFhirDestination", new()
+    ///     var exampleMedtechServiceFhirDestination = new Azure.Healthcare.MedtechServiceFhirDestination("example", new()
     ///     {
+    ///         Name = "examplemtdes",
     ///         Location = "east us",
     ///         MedtechServiceId = exampleMedtechService.Id,
     ///         DestinationFhirServiceId = exampleFhirService.Id,

@@ -13,20 +13,22 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleSubscription = azure.core.getSubscription({});
- * const examplePolicySetDefinition = azure.policy.getPolicySetDefinition({
+ * const example = azure.core.getSubscription({});
+ * const exampleGetPolicySetDefinition = azure.policy.getPolicySetDefinition({
  *     displayName: "Audit machines with insecure password security settings",
  * });
- * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("exampleSubscriptionPolicyAssignment", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
- *     policyDefinitionId: examplePolicySetDefinition.then(examplePolicySetDefinition => examplePolicySetDefinition.id),
+ * const exampleSubscriptionPolicyAssignment = new azure.core.SubscriptionPolicyAssignment("example", {
+ *     name: "exampleAssignment",
+ *     subscriptionId: example.then(example => example.id),
+ *     policyDefinitionId: exampleGetPolicySetDefinition.then(exampleGetPolicySetDefinition => exampleGetPolicySetDefinition.id),
  *     location: "westus",
  *     identity: {
  *         type: "SystemAssigned",
  *     },
  * });
- * const exampleSubscriptionPolicyExemption = new azure.core.SubscriptionPolicyExemption("exampleSubscriptionPolicyExemption", {
- *     subscriptionId: exampleSubscription.then(exampleSubscription => exampleSubscription.id),
+ * const exampleSubscriptionPolicyExemption = new azure.core.SubscriptionPolicyExemption("example", {
+ *     name: "exampleExemption",
+ *     subscriptionId: example.then(example => example.id),
  *     policyAssignmentId: exampleSubscriptionPolicyAssignment.id,
  *     exemptionCategory: "Mitigated",
  * });

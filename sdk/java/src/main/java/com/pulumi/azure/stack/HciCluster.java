@@ -45,20 +45,22 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleApplication = AzureadFunctions.getApplication(GetApplicationArgs.builder()
+ *         final var example = AzureadFunctions.getApplication(GetApplicationArgs.builder()
  *             .displayName(&#34;Allowed resource types&#34;)
  *             .build());
  * 
  *         final var current = CoreFunctions.getClientConfig();
  * 
  *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleHciCluster = new HciCluster(&#34;exampleHciCluster&#34;, HciClusterArgs.builder()        
+ *             .name(&#34;example-cluster&#34;)
  *             .resourceGroupName(exampleResourceGroup.name())
  *             .location(exampleResourceGroup.location())
- *             .clientId(exampleApplication.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
+ *             .clientId(example.applyValue(getApplicationResult -&gt; getApplicationResult.applicationId()))
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .build());
  * 

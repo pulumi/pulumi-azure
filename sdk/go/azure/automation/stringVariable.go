@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("tfex-example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := automation.NewAccount(ctx, "exampleAccount", &automation.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleAccount, err := automation.NewAccount(ctx, "example", &automation.AccountArgs{
+//				Name:              pulumi.String("tfex-example-account"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Basic"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = automation.NewStringVariable(ctx, "exampleStringVariable", &automation.StringVariableArgs{
-//				ResourceGroupName:     exampleResourceGroup.Name,
+//			_, err = automation.NewStringVariable(ctx, "example", &automation.StringVariableArgs{
+//				Name:                  pulumi.String("tfex-example-var"),
+//				ResourceGroupName:     example.Name,
 //				AutomationAccountName: exampleAccount.Name,
 //				Value:                 pulumi.String("Hello, Basic Test."),
 //			})

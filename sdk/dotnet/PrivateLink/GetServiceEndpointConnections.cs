@@ -28,8 +28,8 @@ namespace Pulumi.Azure.PrivateLink
         /// {
         ///     var example = Azure.PrivateLink.GetServiceEndpointConnections.Invoke(new()
         ///     {
-        ///         ServiceId = azurerm_private_link_service.Example.Id,
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ServiceId = exampleAzurermPrivateLinkService.Id,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
@@ -61,8 +61,8 @@ namespace Pulumi.Azure.PrivateLink
         /// {
         ///     var example = Azure.PrivateLink.GetServiceEndpointConnections.Invoke(new()
         ///     {
-        ///         ServiceId = azurerm_private_link_service.Example.Id,
-        ///         ResourceGroupName = azurerm_resource_group.Example.Name,
+        ///         ServiceId = exampleAzurermPrivateLinkService.Id,
+        ///         ResourceGroupName = exampleAzurermResourceGroup.Name,
         ///     });
         /// 
         ///     return new Dictionary&lt;string, object?&gt;

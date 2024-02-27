@@ -23,20 +23,23 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleFlexibleServer.Name,
     ///         StartIpAddress = "40.112.8.12",
     ///         EndIpAddress = "40.112.8.12",
@@ -54,20 +57,23 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleFlexibleServer.Name,
     ///         StartIpAddress = "40.112.0.0",
     ///         EndIpAddress = "40.112.255.255",
@@ -85,20 +91,23 @@ namespace Pulumi.Azure.MySql
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "api-rg-pro",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("exampleFlexibleServer", new()
+    ///     var exampleFlexibleServer = new Azure.MySql.FlexibleServer("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("exampleFlexibleServerFirewallRule", new()
+    ///     var exampleFlexibleServerFirewallRule = new Azure.MySql.FlexibleServerFirewallRule("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "office",
+    ///         ResourceGroupName = example.Name,
     ///         ServerName = exampleFlexibleServer.Name,
     ///         StartIpAddress = "0.0.0.0",
     ///         EndIpAddress = "0.0.0.0",

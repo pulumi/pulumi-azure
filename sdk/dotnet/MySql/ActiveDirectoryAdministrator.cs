@@ -24,15 +24,17 @@ namespace Pulumi.Azure.MySql
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleServer = new Azure.MySql.Server("exampleServer", new()
+    ///     var exampleServer = new Azure.MySql.Server("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-mysqlserver",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AdministratorLogin = "mysqladminun",
     ///         AdministratorLoginPassword = "H@Sh1CoR3!",
     ///         SslEnforcementEnabled = true,
@@ -41,10 +43,10 @@ namespace Pulumi.Azure.MySql
     ///         Version = "5.7",
     ///     });
     /// 
-    ///     var exampleActiveDirectoryAdministrator = new Azure.MySql.ActiveDirectoryAdministrator("exampleActiveDirectoryAdministrator", new()
+    ///     var exampleActiveDirectoryAdministrator = new Azure.MySql.ActiveDirectoryAdministrator("example", new()
     ///     {
     ///         ServerName = exampleServer.Name,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         Login = "sqladmin",
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         ObjectId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),

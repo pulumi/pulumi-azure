@@ -15,28 +15,34 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("exampleNetworkSimGroup", {
- *     location: exampleResourceGroup.location,
+ * const exampleNetworkSimGroup = new azure.mobile.NetworkSimGroup("example", {
+ *     name: "example-mnsg",
+ *     location: example.location,
  *     mobileNetworkId: exampleNetwork.id,
  * });
- * const exampleNetworkSlice = new azure.mobile.NetworkSlice("exampleNetworkSlice", {
+ * const exampleNetworkSlice = new azure.mobile.NetworkSlice("example", {
+ *     name: "example-slice",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     singleNetworkSliceSelectionAssistanceInformation: {
  *         sliceServiceType: 1,
  *     },
  * });
- * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("exampleNetworkAttachedDataNetwork", {
- *     mobileNetworkDataNetworkName: azurerm_mobile_network_data_network.example.name,
- *     mobileNetworkPacketCoreDataPlaneId: azurerm_mobile_network_packet_core_data_plane.example.id,
- *     location: exampleResourceGroup.location,
+ * const exampleNetworkAttachedDataNetwork = new azure.mobile.NetworkAttachedDataNetwork("example", {
+ *     mobileNetworkDataNetworkName: exampleAzurermMobileNetworkDataNetwork.name,
+ *     mobileNetworkPacketCoreDataPlaneId: exampleAzurermMobileNetworkPacketCoreDataPlane.id,
+ *     location: example.location,
  *     dnsAddresses: ["1.1.1.1"],
  *     userEquipmentAddressPoolPrefixes: ["2.4.0.0/24"],
  *     userEquipmentStaticAddressPoolPrefixes: ["2.4.1.0/24"],
@@ -45,15 +51,16 @@ import * as utilities from "../utilities";
  *     userPlaneAccessIpv4Gateway: "10.204.141.1",
  *     userPlaneAccessIpv4Subnet: "10.204.141.0/24",
  * });
- * const exampleNetworkSim = new azure.mobile.NetworkSim("exampleNetworkSim", {
+ * const exampleNetworkSim = new azure.mobile.NetworkSim("example", {
+ *     name: "example-sim",
  *     mobileNetworkSimGroupId: exampleNetworkSimGroup.id,
  *     authenticationKey: "00000000000000000000000000000000",
  *     integratedCircuitCardIdentifier: "8900000000000000000",
  *     internationalMobileSubscriberIdentity: "000000000000000",
  *     operatorKeyCode: "00000000000000000000000000000000",
  *     staticIpConfigurations: [{
- *         attachedDataNetworkId: data.azurerm_mobile_network_attached_data_network.test.id,
- *         sliceId: azurerm_mobile_network_slice.test.id,
+ *         attachedDataNetworkId: test.id,
+ *         sliceId: testAzurermMobileNetworkSlice.id,
  *         staticIpv4Address: "2.4.0.1",
  *     }],
  * });

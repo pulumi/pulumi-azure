@@ -202,6 +202,40 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
         """
         Manages a Subnet Service Endpoint Storage Policy.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
+            name="example-policy",
+            resource_group_name=example.name,
+            location=example.location,
+            definition=azure.network.SubnetServiceEndpointStoragePolicyDefinitionArgs(
+                name="name2",
+                description="definition2",
+                service="Global",
+                service_resources=[
+                    "/services/Azure",
+                    "/services/Azure/Batch",
+                    "/services/Azure/DataFactory",
+                    "/services/Azure/MachineLearning",
+                    "/services/Azure/ManagedInstance",
+                    "/services/Azure/WebPI",
+                ],
+            ))
+        example_account = azure.storage.Account("example",
+            name="examplestorageacct",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        ```
+
         ## Import
 
         Subnet Service Endpoint Policies can be imported using the `resource id`, e.g.
@@ -226,6 +260,40 @@ class SubnetServiceEndpointStoragePolicy(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Subnet Service Endpoint Storage Policy.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_subnet_service_endpoint_storage_policy = azure.network.SubnetServiceEndpointStoragePolicy("example",
+            name="example-policy",
+            resource_group_name=example.name,
+            location=example.location,
+            definition=azure.network.SubnetServiceEndpointStoragePolicyDefinitionArgs(
+                name="name2",
+                description="definition2",
+                service="Global",
+                service_resources=[
+                    "/services/Azure",
+                    "/services/Azure/Batch",
+                    "/services/Azure/DataFactory",
+                    "/services/Azure/MachineLearning",
+                    "/services/Azure/ManagedInstance",
+                    "/services/Azure/WebPI",
+                ],
+            ))
+        example_account = azure.storage.Account("example",
+            name="examplestorageacct",
+            resource_group_name=example.name,
+            location=example.location,
+            account_tier="Standard",
+            account_replication_type="GRS")
+        ```
 
         ## Import
 

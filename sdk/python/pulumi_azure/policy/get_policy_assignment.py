@@ -196,7 +196,7 @@ def get_policy_assignment(name: Optional[str] = None,
     import pulumi_azure as azure
 
     example = azure.policy.get_policy_assignment(name="existing",
-        scope_id=data["azurerm_resource_group"]["example"]["id"])
+        scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
 
@@ -240,7 +240,7 @@ def get_policy_assignment_output(name: Optional[pulumi.Input[str]] = None,
     import pulumi_azure as azure
 
     example = azure.policy.get_policy_assignment(name="existing",
-        scope_id=data["azurerm_resource_group"]["example"]["id"])
+        scope_id=example_azurerm_resource_group["id"])
     pulumi.export("id", example.id)
     ```
 

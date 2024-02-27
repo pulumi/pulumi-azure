@@ -30,15 +30,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("atp-example"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("examplestorage"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //				Tags: pulumi.StringMap{
@@ -48,7 +50,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = securitycenter.NewAdvancedThreatProtection(ctx, "exampleAdvancedThreatProtection", &securitycenter.AdvancedThreatProtectionArgs{
+//			_, err = securitycenter.NewAdvancedThreatProtection(ctx, "example", &securitycenter.AdvancedThreatProtectionArgs{
 //				TargetResourceId: exampleAccount.ID(),
 //				Enabled:          pulumi.Bool(true),
 //			})

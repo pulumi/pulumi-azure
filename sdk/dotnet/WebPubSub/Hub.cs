@@ -22,27 +22,31 @@ namespace Pulumi.Azure.WebPubSub
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "terraform-webpubsub",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "tfex-uai",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleService = new Azure.WebPubSub.Service("exampleService", new()
+    ///     var exampleService = new Azure.WebPubSub.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "tfex-webpubsub",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "Standard_S1",
     ///         Capacity = 1,
     ///     });
     /// 
-    ///     var exampleHub = new Azure.WebPubSub.Hub("exampleHub", new()
+    ///     var exampleHub = new Azure.WebPubSub.Hub("example", new()
     ///     {
+    ///         Name = "tfex_wpsh",
     ///         WebPubsubId = exampleService.Id,
     ///         EventHandlers = new[]
     ///         {
@@ -83,8 +87,8 @@ namespace Pulumi.Azure.WebPubSub
     ///                     "event1",
     ///                     "event2",
     ///                 },
-    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
-    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///                 EventhubNamespaceName = test.Name,
+    ///                 EventhubName = test1.Name,
     ///             },
     ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
     ///             {
@@ -96,8 +100,8 @@ namespace Pulumi.Azure.WebPubSub
     ///                 {
     ///                     "*",
     ///                 },
-    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
-    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///                 EventhubNamespaceName = test.Name,
+    ///                 EventhubName = test1.Name,
     ///             },
     ///             new Azure.WebPubSub.Inputs.HubEventListenerArgs
     ///             {
@@ -109,17 +113,11 @@ namespace Pulumi.Azure.WebPubSub
     ///                 {
     ///                     "event1",
     ///                 },
-    ///                 EventhubNamespaceName = azurerm_eventhub_namespace.Test.Name,
-    ///                 EventhubName = azurerm_eventhub.Test1.Name,
+    ///                 EventhubNamespaceName = test.Name,
+    ///                 EventhubName = test1.Name,
     ///             },
     ///         },
     ///         AnonymousConnectionsEnabled = true,
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleService,
-    ///         },
     ///     });
     /// 
     /// });

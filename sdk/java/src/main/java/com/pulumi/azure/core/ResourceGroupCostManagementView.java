@@ -47,15 +47,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleResourceGroupCostManagementView = new ResourceGroupCostManagementView(&#34;exampleResourceGroupCostManagementView&#34;, ResourceGroupCostManagementViewArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .displayName(&#34;Cost View per Month&#34;)
  *             .chartType(&#34;StackedColumn&#34;)
  *             .accumulated(false)
- *             .resourceGroupId(exampleResourceGroup.id())
+ *             .resourceGroupId(example.id())
  *             .reportType(&#34;Usage&#34;)
  *             .timeframe(&#34;MonthToDate&#34;)
  *             .dataset(ResourceGroupCostManagementViewDatasetArgs.builder()

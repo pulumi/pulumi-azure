@@ -23,29 +23,32 @@ namespace Pulumi.Azure.Management
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleClientConfig = Azure.Core.GetClientConfig.Invoke();
+    ///     var example = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleGroup = Azure.Management.GetGroup.Invoke(new()
+    ///     var exampleGetGroup = Azure.Management.GetGroup.Invoke(new()
     ///     {
-    ///         Name = exampleClientConfig.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
+    ///         Name = example.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var examplePrivateLink = new Azure.Management.PrivateLink("examplePrivateLink", new()
+    ///     var examplePrivateLink = new Azure.Management.PrivateLink("example", new()
     ///     {
+    ///         Name = "example",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///     });
     /// 
-    ///     var exampleRandomUuid = new Random.RandomUuid("exampleRandomUuid");
+    ///     var exampleRandomUuid = new Random.RandomUuid("example");
     /// 
-    ///     var examplePrivateLinkAssociation = new Azure.Management.PrivateLinkAssociation("examplePrivateLinkAssociation", new()
+    ///     var examplePrivateLinkAssociation = new Azure.Management.PrivateLinkAssociation("example", new()
     ///     {
-    ///         ManagementGroupId = azurerm_management_group.Example.Id,
+    ///         Name = exampleRandomUuid.Result,
+    ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
     ///         ResourceManagementPrivateLinkId = examplePrivateLink.Id,
     ///         PublicNetworkAccessEnabled = true,
     ///     });
@@ -85,8 +88,8 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
         ///     {
-        ///         ManagementGroupId = azurerm_management_group.Example.Id,
-        ///         ResourceManagementPrivateLinkId = azurerm_resource_management_private_link.Example.Id,
+        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
+        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
         ///         PublicNetworkAccessEnabled = true,
         ///     });
         /// 
@@ -181,8 +184,8 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
         ///     {
-        ///         ManagementGroupId = azurerm_management_group.Example.Id,
-        ///         ResourceManagementPrivateLinkId = azurerm_resource_management_private_link.Example.Id,
+        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
+        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
         ///         PublicNetworkAccessEnabled = true,
         ///     });
         /// 
@@ -233,8 +236,8 @@ namespace Pulumi.Azure.Management
         /// {
         ///     var example = new Azure.Management.PrivateLinkAssociation("example", new()
         ///     {
-        ///         ManagementGroupId = azurerm_management_group.Example.Id,
-        ///         ResourceManagementPrivateLinkId = azurerm_resource_management_private_link.Example.Id,
+        ///         ManagementGroupId = exampleAzurermManagementGroup.Id,
+        ///         ResourceManagementPrivateLinkId = exampleAzurermResourceManagementPrivateLink.Id,
         ///         PublicNetworkAccessEnabled = true,
         ///     });
         /// 

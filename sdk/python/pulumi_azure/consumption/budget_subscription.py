@@ -313,11 +313,15 @@ class BudgetSubscription(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example",
+            resource_group_name=example.name,
             short_name="example")
-        example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
+        example_budget_subscription = azure.consumption.BudgetSubscription("example",
+            name="example",
             subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
@@ -328,7 +332,7 @@ class BudgetSubscription(pulumi.CustomResource):
             filter=azure.consumption.BudgetSubscriptionFilterArgs(
                 dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
                     name="ResourceGroupName",
-                    values=[example_resource_group.name],
+                    values=[example.name],
                 )],
                 tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
                     name="foo",
@@ -400,11 +404,15 @@ class BudgetSubscription(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_subscription()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="eastus")
-        example_action_group = azure.monitoring.ActionGroup("exampleActionGroup",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example",
+            location="eastus")
+        example_action_group = azure.monitoring.ActionGroup("example",
+            name="example",
+            resource_group_name=example.name,
             short_name="example")
-        example_budget_subscription = azure.consumption.BudgetSubscription("exampleBudgetSubscription",
+        example_budget_subscription = azure.consumption.BudgetSubscription("example",
+            name="example",
             subscription_id=current.id,
             amount=1000,
             time_grain="Monthly",
@@ -415,7 +423,7 @@ class BudgetSubscription(pulumi.CustomResource):
             filter=azure.consumption.BudgetSubscriptionFilterArgs(
                 dimensions=[azure.consumption.BudgetSubscriptionFilterDimensionArgs(
                     name="ResourceGroupName",
-                    values=[example_resource_group.name],
+                    values=[example.name],
                 )],
                 tags=[azure.consumption.BudgetSubscriptionFilterTagArgs(
                     name="foo",

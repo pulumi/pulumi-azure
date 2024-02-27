@@ -20,14 +20,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  *
  * const current = azure.core.getClientConfig({});
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleKeyVault = new azure.keyvault.KeyVault("exampleKeyVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleKeyVault = new azure.keyvault.KeyVault("example", {
+ *     name: "examplekeyvault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     tenantId: current.then(current => current.tenantId),
  *     skuName: "premium",
  * });
- * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("exampleAccessPolicy", {
+ * const exampleAccessPolicy = new azure.keyvault.AccessPolicy("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     tenantId: current.then(current => current.tenantId),
  *     objectId: current.then(current => current.objectId),
@@ -35,7 +39,7 @@ import * as utilities from "../utilities";
  *     keyPermissions: ["Create"],
  *     secretPermissions: ["Set"],
  * });
- * const exampleCertificateContacts = new azure.keyvault.CertificateContacts("exampleCertificateContacts", {
+ * const exampleCertificateContacts = new azure.keyvault.CertificateContacts("example", {
  *     keyVaultId: exampleKeyVault.id,
  *     contacts: [
  *         {
@@ -47,8 +51,6 @@ import * as utilities from "../utilities";
  *             email: "example2@example.com",
  *         },
  *     ],
- * }, {
- *     dependsOn: [exampleAccessPolicy],
  * });
  * ```
  *

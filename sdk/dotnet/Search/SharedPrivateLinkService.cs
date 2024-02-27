@@ -22,28 +22,32 @@ namespace Pulumi.Azure.Search
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var testResourceGroup = new Azure.Core.ResourceGroup("testResourceGroup", new()
+    ///     var test = new Azure.Core.ResourceGroup("test", new()
     ///     {
+    ///         Name = "example-resourceGroup",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var testService = new Azure.Search.Service("testService", new()
+    ///     var testService = new Azure.Search.Service("test", new()
     ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
+    ///         Name = "example-search",
+    ///         ResourceGroupName = test.Name,
+    ///         Location = test.Location,
     ///         Sku = "standard",
     ///     });
     /// 
-    ///     var testAccount = new Azure.Storage.Account("testAccount", new()
+    ///     var testAccount = new Azure.Storage.Account("test", new()
     ///     {
-    ///         ResourceGroupName = testResourceGroup.Name,
-    ///         Location = testResourceGroup.Location,
+    ///         Name = "xiaxintestsaforsearchspl",
+    ///         ResourceGroupName = test.Name,
+    ///         Location = test.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var testSharedPrivateLinkService = new Azure.Search.SharedPrivateLinkService("testSharedPrivateLinkService", new()
+    ///     var testSharedPrivateLinkService = new Azure.Search.SharedPrivateLinkService("test", new()
     ///     {
+    ///         Name = "example-spl",
     ///         SearchServiceId = testService.Id,
     ///         SubresourceName = "blob",
     ///         TargetResourceId = testAccount.Id,

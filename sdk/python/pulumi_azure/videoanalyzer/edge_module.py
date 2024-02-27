@@ -141,15 +141,19 @@ class EdgeModule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="video-analyzer-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="exampleidentity",
+            resource_group_name=example.name,
+            location=example.location)
         contributor = azure.authorization.Assignment("contributor",
             scope=example_account.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -158,9 +162,10 @@ class EdgeModule(pulumi.CustomResource):
             scope=example_account.id,
             role_definition_name="Reader",
             principal_id=example_user_assigned_identity.principal_id)
-        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analyzer = azure.videoanalyzer.Analyzer("example",
+            name="exampleanalyzer",
+            location=example.location,
+            resource_group_name=example.name,
             storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
@@ -171,14 +176,10 @@ class EdgeModule(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_user_assigned_identity,
-                    contributor,
-                    reader,
-                ]))
-        example_edge_module = azure.videoanalyzer.EdgeModule("exampleEdgeModule",
-            resource_group_name=example_resource_group.name,
+            })
+        example_edge_module = azure.videoanalyzer.EdgeModule("example",
+            name="example-edge-module",
+            resource_group_name=example.name,
             video_analyzer_name=example_analyzer.name)
         ```
 
@@ -213,15 +214,19 @@ class EdgeModule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="video-analyzer-resources",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="examplestoracc",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="GRS")
-        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("exampleUserAssignedIdentity",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location)
+        example_user_assigned_identity = azure.authorization.UserAssignedIdentity("example",
+            name="exampleidentity",
+            resource_group_name=example.name,
+            location=example.location)
         contributor = azure.authorization.Assignment("contributor",
             scope=example_account.id,
             role_definition_name="Storage Blob Data Contributor",
@@ -230,9 +235,10 @@ class EdgeModule(pulumi.CustomResource):
             scope=example_account.id,
             role_definition_name="Reader",
             principal_id=example_user_assigned_identity.principal_id)
-        example_analyzer = azure.videoanalyzer.Analyzer("exampleAnalyzer",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_analyzer = azure.videoanalyzer.Analyzer("example",
+            name="exampleanalyzer",
+            location=example.location,
+            resource_group_name=example.name,
             storage_account=azure.videoanalyzer.AnalyzerStorageAccountArgs(
                 id=example_account.id,
                 user_assigned_identity_id=example_user_assigned_identity.id,
@@ -243,14 +249,10 @@ class EdgeModule(pulumi.CustomResource):
             ),
             tags={
                 "environment": "staging",
-            },
-            opts=pulumi.ResourceOptions(depends_on=[
-                    example_user_assigned_identity,
-                    contributor,
-                    reader,
-                ]))
-        example_edge_module = azure.videoanalyzer.EdgeModule("exampleEdgeModule",
-            resource_group_name=example_resource_group.name,
+            })
+        example_edge_module = azure.videoanalyzer.EdgeModule("example",
+            name="example-edge-module",
+            resource_group_name=example.name,
             video_analyzer_name=example_analyzer.name)
         ```
 

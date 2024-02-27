@@ -55,36 +55,42 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-account&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Basic&#34;)
  *             .build());
  * 
  *         var exampleHybridRunbookWorkerGroup = new HybridRunbookWorkerGroup(&#34;exampleHybridRunbookWorkerGroup&#34;, HybridRunbookWorkerGroupArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .addressSpaces(&#34;192.168.1.0/24&#34;)
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-subnet&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;192.168.1.0/24&#34;)
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;vm-example&#34;)
  *                 .subnetId(exampleSubnet.id())
@@ -93,8 +99,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-vm&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .size(&#34;Standard_B1s&#34;)
  *             .adminUsername(&#34;testadmin&#34;)
  *             .adminPassword(&#34;Password1234!&#34;)
@@ -113,7 +120,7 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleHybridRunbookWorker = new HybridRunbookWorker(&#34;exampleHybridRunbookWorker&#34;, HybridRunbookWorkerArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .resourceGroupName(example.name())
  *             .automationAccountName(exampleAccount.name())
  *             .workerGroupName(exampleHybridRunbookWorkerGroup.name())
  *             .vmResourceId(exampleLinuxVirtualMachine.id())

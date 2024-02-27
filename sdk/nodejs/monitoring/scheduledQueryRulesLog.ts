@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "monitoring-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleAnalyticsWorkspace = new azure.operationalinsights.AnalyticsWorkspace("example", {
+ *     name: "loganalytics",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "PerGB2018",
  *     retentionInDays: 30,
  * });
- * const exampleActionGroup = new azure.monitoring.ActionGroup("exampleActionGroup", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleActionGroup = new azure.monitoring.ActionGroup("example", {
+ *     name: "example-actiongroup",
+ *     resourceGroupName: example.name,
  *     shortName: "exampleact",
  *     webhookReceivers: [{
  *         name: "callmyapi",
@@ -31,8 +36,9 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Example: Creates alert using the new Scheduled Query Rules metric
- * const exampleMetricAlert = new azure.monitoring.MetricAlert("exampleMetricAlert", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleMetricAlert = new azure.monitoring.MetricAlert("example", {
+ *     name: "example-metricalert",
+ *     resourceGroupName: example.name,
  *     scopes: [exampleAnalyticsWorkspace.id],
  *     description: "Action will be triggered when Average_% Idle Time metric is less than 10.",
  *     frequency: "PT1M",
@@ -49,9 +55,10 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * // Example: LogToMetric Action for the named Computer
- * const exampleScheduledQueryRulesLog = new azure.monitoring.ScheduledQueryRulesLog("exampleScheduledQueryRulesLog", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleScheduledQueryRulesLog = new azure.monitoring.ScheduledQueryRulesLog("example", {
+ *     name: "example",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     criteria: {
  *         metricName: "Average_% Idle Time",
  *         dimensions: [{

@@ -15,16 +15,21 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "east us"});
- * const exampleNetwork = new azure.mobile.Network("exampleNetwork", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "east us",
+ * });
+ * const exampleNetwork = new azure.mobile.Network("example", {
+ *     name: "example-mn",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     mobileCountryCode: "001",
  *     mobileNetworkCode: "01",
  * });
- * const exampleNetworkService = new azure.mobile.NetworkService("exampleNetworkService", {
+ * const exampleNetworkService = new azure.mobile.NetworkService("example", {
+ *     name: "example-mns",
  *     mobileNetworkId: exampleNetwork.id,
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  *     servicePrecedence: 0,
  *     pccRules: [{
  *         name: "default-rule",

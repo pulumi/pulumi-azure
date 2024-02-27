@@ -45,28 +45,28 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleService = ApimanagementFunctions.getService(GetServiceArgs.builder()
+ *         final var example = ApimanagementFunctions.getService(GetServiceArgs.builder()
  *             .name(&#34;example-apim&#34;)
  *             .resourceGroupName(&#34;example-resources&#34;)
  *             .build());
  * 
- *         final var exampleProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
+ *         final var exampleGetProduct = ApimanagementFunctions.getProduct(GetProductArgs.builder()
  *             .productId(&#34;00000000-0000-0000-0000-000000000000&#34;)
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .build());
  * 
- *         final var exampleUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
+ *         final var exampleGetUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
  *             .userId(&#34;11111111-1111-1111-1111-111111111111&#34;)
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
  *             .build());
  * 
  *         var exampleSubscription = new Subscription(&#34;exampleSubscription&#34;, SubscriptionArgs.builder()        
- *             .apiManagementName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.name()))
- *             .resourceGroupName(exampleService.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
- *             .userId(exampleUser.applyValue(getUserResult -&gt; getUserResult.id()))
- *             .productId(exampleProduct.applyValue(getProductResult -&gt; getProductResult.id()))
+ *             .apiManagementName(example.applyValue(getServiceResult -&gt; getServiceResult.name()))
+ *             .resourceGroupName(example.applyValue(getServiceResult -&gt; getServiceResult.resourceGroupName()))
+ *             .userId(exampleGetUser.applyValue(getUserResult -&gt; getUserResult.id()))
+ *             .productId(exampleGetProduct.applyValue(getProductResult -&gt; getProductResult.id()))
  *             .displayName(&#34;Parser API&#34;)
  *             .build());
  * 

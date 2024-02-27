@@ -138,12 +138,12 @@ def get_backend_address_pool(loadbalancer_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_lb = azure.lb.get_lb(name="example-lb",
+    example = azure.lb.get_lb(name="example-lb",
         resource_group_name="example-resources")
-    example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
-        loadbalancer_id=example_lb.id)
-    pulumi.export("backendAddressPoolId", example_backend_address_pool.id)
-    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["azurerm_lb_backend_address_pool"]["beap"]["backend_ip_configurations"]])
+    example_get_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+        loadbalancer_id=example.id)
+    pulumi.export("backendAddressPoolId", example_get_backend_address_pool.id)
+    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
 
 
@@ -180,12 +180,12 @@ def get_backend_address_pool_output(loadbalancer_id: Optional[pulumi.Input[str]]
     import pulumi
     import pulumi_azure as azure
 
-    example_lb = azure.lb.get_lb(name="example-lb",
+    example = azure.lb.get_lb(name="example-lb",
         resource_group_name="example-resources")
-    example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
-        loadbalancer_id=example_lb.id)
-    pulumi.export("backendAddressPoolId", example_backend_address_pool.id)
-    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in data["azurerm_lb_backend_address_pool"]["beap"]["backend_ip_configurations"]])
+    example_get_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+        loadbalancer_id=example.id)
+    pulumi.export("backendAddressPoolId", example_get_backend_address_pool.id)
+    pulumi.export("backendIpConfigurationIds", [__item["id"] for __item in beap["backendIpConfigurations"]])
     ```
 
 

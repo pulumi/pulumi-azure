@@ -48,21 +48,25 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;west europe&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudService = new SpringCloudService(&#34;exampleSpringCloudService&#34;, SpringCloudServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;E0&#34;)
  *             .build());
  * 
  *         var exampleSpringCloudAccelerator = new SpringCloudAccelerator(&#34;exampleSpringCloudAccelerator&#34;, SpringCloudAcceleratorArgs.builder()        
+ *             .name(&#34;default&#34;)
  *             .springCloudServiceId(exampleSpringCloudService.id())
  *             .build());
  * 
  *         var exampleSpringCloudCustomizedAccelerator = new SpringCloudCustomizedAccelerator(&#34;exampleSpringCloudCustomizedAccelerator&#34;, SpringCloudCustomizedAcceleratorArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .springCloudAcceleratorId(exampleSpringCloudAccelerator.id())
  *             .gitRepository(SpringCloudCustomizedAcceleratorGitRepositoryArgs.builder()
  *                 .url(&#34;https://github.com/Azure-Samples/piggymetrics&#34;)

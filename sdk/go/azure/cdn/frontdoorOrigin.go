@@ -31,27 +31,31 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "exampleFrontdoorOriginGroup", &cdn.FrontdoorOriginGroupArgs{
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                  pulumi.String("example-origingroup"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				LoadBalancing:         nil,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorOrigin(ctx, "exampleFrontdoorOrigin", &cdn.FrontdoorOriginArgs{
+//			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//				Name:                        pulumi.String("example-origin"),
 //				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
@@ -86,15 +90,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:          exampleResourceGroup.Name,
-//				Location:                   exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                       pulumi.String("examplestoracc"),
+//				ResourceGroupName:          example.Name,
+//				Location:                   example.Location,
 //				AccountTier:                pulumi.String("Premium"),
 //				AccountReplicationType:     pulumi.String("LRS"),
 //				AllowNestedItemsToBePublic: pulumi.Bool(false),
@@ -108,21 +114,24 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("example-profile"),
+//				ResourceGroupName: example.Name,
 //				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "exampleFrontdoorOriginGroup", &cdn.FrontdoorOriginGroupArgs{
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                  pulumi.String("example-origin-group"),
 //				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
 //				LoadBalancing:         nil,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = cdn.NewFrontdoorOrigin(ctx, "exampleFrontdoorOrigin", &cdn.FrontdoorOriginArgs{
+//			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//				Name:                        pulumi.String("example-origin"),
 //				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
 //				Enabled:                     pulumi.Bool(true),
 //				CertificateNameCheckEnabled: pulumi.Bool(true),
@@ -167,15 +176,37 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "example", &cdn.FrontdoorProfileArgs{
+//				Name:              pulumi.String("profile-example"),
+//				ResourceGroupName: example.Name,
+//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "example", &cdn.FrontdoorOriginGroupArgs{
+//				Name:                  pulumi.String("group-example"),
+//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
+//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
+//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
+//					SampleSize:                      pulumi.Int(16),
+//					SuccessfulSamplesRequired:       pulumi.Int(3),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name:              pulumi.String("vn-example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.5.0.0/16"),
 //				},
@@ -183,8 +214,9 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("sn-example"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.5.1.0/24"),
@@ -194,19 +226,21 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			examplePublicIp, err := network.NewPublicIp(ctx, "examplePublicIp", &network.PublicIpArgs{
+//			examplePublicIp, err := network.NewPublicIp(ctx, "example", &network.PublicIpArgs{
+//				Name:              pulumi.String("ip-example"),
 //				Sku:               pulumi.String("Standard"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				AllocationMethod:  pulumi.String("Static"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "exampleLoadBalancer", &lb.LoadBalancerArgs{
+//			exampleLoadBalancer, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				Name:              pulumi.String("lb-example"),
 //				Sku:               pulumi.String("Standard"),
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				FrontendIpConfigurations: lb.LoadBalancerFrontendIpConfigurationArray{
 //					&lb.LoadBalancerFrontendIpConfigurationArgs{
 //						Name:              examplePublicIp.Name,
@@ -217,9 +251,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinkService, err := privatedns.NewLinkService(ctx, "exampleLinkService", &privatedns.LinkServiceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleLinkService, err := privatedns.NewLinkService(ctx, "example", &privatedns.LinkServiceArgs{
+//				Name:              pulumi.String("pls-example"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				VisibilitySubscriptionIds: pulumi.StringArray{
 //					*pulumi.String(current.SubscriptionId),
 //				},
@@ -241,27 +276,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleFrontdoorProfile, err := cdn.NewFrontdoorProfile(ctx, "exampleFrontdoorProfile", &cdn.FrontdoorProfileArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				SkuName:           pulumi.String("Premium_AzureFrontDoor"),
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				exampleLinkService,
-//			}))
-//			if err != nil {
-//				return err
-//			}
-//			exampleFrontdoorOriginGroup, err := cdn.NewFrontdoorOriginGroup(ctx, "exampleFrontdoorOriginGroup", &cdn.FrontdoorOriginGroupArgs{
-//				CdnFrontdoorProfileId: exampleFrontdoorProfile.ID(),
-//				LoadBalancing: &cdn.FrontdoorOriginGroupLoadBalancingArgs{
-//					AdditionalLatencyInMilliseconds: pulumi.Int(0),
-//					SampleSize:                      pulumi.Int(16),
-//					SuccessfulSamplesRequired:       pulumi.Int(3),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cdn.NewFrontdoorOrigin(ctx, "exampleFrontdoorOrigin", &cdn.FrontdoorOriginArgs{
+//			_, err = cdn.NewFrontdoorOrigin(ctx, "example", &cdn.FrontdoorOriginArgs{
+//				Name:                        pulumi.String("origin-example"),
 //				CdnFrontdoorOriginGroupId:   exampleFrontdoorOriginGroup.ID(),
 //				Enabled:                     pulumi.Bool(true),
 //				HostName:                    pulumi.String("example.com"),
@@ -271,7 +287,7 @@ import (
 //				CertificateNameCheckEnabled: pulumi.Bool(false),
 //				PrivateLink: &cdn.FrontdoorOriginPrivateLinkArgs{
 //					RequestMessage:      pulumi.String("Request access for Private Link Origin CDN Frontdoor"),
-//					Location:            exampleResourceGroup.Location,
+//					Location:            example.Location,
 //					PrivateLinkTargetId: exampleLinkService.ID(),
 //				},
 //			})

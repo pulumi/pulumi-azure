@@ -18,13 +18,18 @@ import * as utilities from "../utilities";
  * import * as azure from "@pulumi/azure";
  * import * as azuread from "@pulumi/azuread";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const exampleResourceGroup = new azure.core.ResourceGroup("example", {
+ *     name: "example",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-network",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     addressSpaces: ["10.0.0.0/16"],
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
  *     resourceGroupName: exampleResourceGroup.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.0.0/24"],
@@ -36,14 +41,16 @@ import * as utilities from "../utilities";
  *         },
  *     }],
  * });
- * const exampleDiskPool = new azure.compute.DiskPool("exampleDiskPool", {
+ * const exampleDiskPool = new azure.compute.DiskPool("example", {
+ *     name: "example-pool",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     subnetId: exampleSubnet.id,
  *     zones: ["1"],
  *     skuName: "Basic_B1",
  * });
- * const exampleManagedDisk = new azure.compute.ManagedDisk("exampleManagedDisk", {
+ * const exampleManagedDisk = new azure.compute.ManagedDisk("example", {
+ *     name: "example-disk",
  *     resourceGroupName: exampleResourceGroup.name,
  *     location: exampleResourceGroup.location,
  *     createOption: "Empty",
@@ -52,7 +59,7 @@ import * as utilities from "../utilities";
  *     maxShares: 2,
  *     zone: "1",
  * });
- * const exampleServicePrincipal = azuread.getServicePrincipal({
+ * const example = azuread.getServicePrincipal({
  *     displayName: "StoragePool Resource Provider",
  * });
  * const roles = [
@@ -61,24 +68,21 @@ import * as utilities from "../utilities";
  * ];
  * const exampleAssignment: azure.authorization.Assignment[] = [];
  * for (const range = {value: 0}; range.value < roles.length; range.value++) {
- *     exampleAssignment.push(new azure.authorization.Assignment(`exampleAssignment-${range.value}`, {
- *         principalId: exampleServicePrincipal.then(exampleServicePrincipal => exampleServicePrincipal.id),
+ *     exampleAssignment.push(new azure.authorization.Assignment(`example-${range.value}`, {
+ *         principalId: example.then(example => example.id),
  *         roleDefinitionName: roles[range.value],
  *         scope: exampleManagedDisk.id,
  *     }));
  * }
- * const exampleDiskPoolManagedDiskAttachment = new azure.compute.DiskPoolManagedDiskAttachment("exampleDiskPoolManagedDiskAttachment", {
+ * const exampleDiskPoolManagedDiskAttachment = new azure.compute.DiskPoolManagedDiskAttachment("example", {
  *     diskPoolId: exampleDiskPool.id,
  *     managedDiskId: exampleManagedDisk.id,
- * }, {
- *     dependsOn: [exampleAssignment],
  * });
- * const exampleDiskPoolIscsiTarget = new azure.compute.DiskPoolIscsiTarget("exampleDiskPoolIscsiTarget", {
+ * const exampleDiskPoolIscsiTarget = new azure.compute.DiskPoolIscsiTarget("example", {
+ *     name: "example",
  *     aclMode: "Dynamic",
  *     disksPoolId: exampleDiskPool.id,
  *     targetIqn: "iqn.2021-11.com.microsoft:test",
- * }, {
- *     dependsOn: [exampleDiskPoolManagedDiskAttachment],
  * });
  * ```
  *

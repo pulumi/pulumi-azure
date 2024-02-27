@@ -22,38 +22,43 @@ namespace Pulumi.Azure.MachineLearning
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspace-example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspaceexamplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspacestorageaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -79,28 +84,31 @@ namespace Pulumi.Azure.MachineLearning
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspace-example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspaceexamplekeyvault",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("exampleAccessPolicy", new()
+    ///     var exampleAccessPolicy = new Azure.KeyVault.AccessPolicy("example", new()
     ///     {
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
@@ -115,16 +123,18 @@ namespace Pulumi.Azure.MachineLearning
     ///         },
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "workspacestorageaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "workspaceexamplekeyvaultkey",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -137,19 +147,13 @@ namespace Pulumi.Azure.MachineLearning
     ///             "verify",
     ///             "wrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleKeyVault,
-    ///             exampleAccessPolicy,
-    ///         },
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -181,39 +185,44 @@ namespace Pulumi.Azure.MachineLearning
     /// {
     ///     var current = Azure.Core.GetClientConfig.Invoke();
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleInsights = new Azure.AppInsights.Insights("exampleInsights", new()
+    ///     var exampleInsights = new Azure.AppInsights.Insights("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-ai",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationType = "web",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplestorageaccount",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("exampleKeyVault", new()
+    ///     var exampleKeyVault = new Azure.KeyVault.KeyVault("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-keyvalut",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         TenantId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.TenantId),
     ///         SkuName = "premium",
     ///         PurgeProtectionEnabled = true,
     ///     });
     /// 
-    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("exampleUserAssignedIdentity", new()
+    ///     var exampleUserAssignedIdentity = new Azure.Authorization.UserAssignedIdentity("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-identity",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///     });
     /// 
     ///     var example_identity = new Azure.KeyVault.AccessPolicy("example-identity", new()
@@ -273,17 +282,11 @@ namespace Pulumi.Azure.MachineLearning
     ///             "UnwrapKey",
     ///             "WrapKey",
     ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = 
-    ///         {
-    ///             test,
-    ///             current,
-    ///         },
     ///     });
     /// 
-    ///     var exampleKey = new Azure.KeyVault.Key("exampleKey", new()
+    ///     var exampleKey = new Azure.KeyVault.Key("example", new()
     ///     {
+    ///         Name = "example-keyvaultkey",
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         KeyType = "RSA",
     ///         KeySize = 2048,
@@ -295,13 +298,6 @@ namespace Pulumi.Azure.MachineLearning
     ///             "unwrapKey",
     ///             "verify",
     ///             "wrapKey",
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             exampleKeyVault,
-    ///             example_sp,
     ///         },
     ///     });
     /// 
@@ -333,10 +329,11 @@ namespace Pulumi.Azure.MachineLearning
     ///         PrincipalId = exampleUserAssignedIdentity.PrincipalId,
     ///     });
     /// 
-    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("exampleWorkspace", new()
+    ///     var exampleWorkspace = new Azure.MachineLearning.Workspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-workspace",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         ApplicationInsightsId = exampleInsights.Id,
     ///         KeyVaultId = exampleKeyVault.Id,
     ///         StorageAccountId = exampleAccount.Id,
@@ -355,16 +352,6 @@ namespace Pulumi.Azure.MachineLearning
     ///             UserAssignedIdentityId = exampleUserAssignedIdentity.Id,
     ///             KeyVaultId = exampleKeyVault.Id,
     ///             KeyId = exampleKey.Id,
-    ///         },
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             example_role1,
-    ///             example_role2,
-    ///             example_role3,
-    ///             example_role4,
-    ///             example_cosmosdb,
     ///         },
     ///     });
     /// 

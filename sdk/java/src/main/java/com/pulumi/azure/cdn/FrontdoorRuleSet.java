@@ -42,16 +42,19 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-cdn-frontdoor&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorProfile = new FrontdoorProfile(&#34;exampleFrontdoorProfile&#34;, FrontdoorProfileArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-profile&#34;)
+ *             .resourceGroupName(example.name())
  *             .skuName(&#34;Standard_AzureFrontDoor&#34;)
  *             .build());
  * 
  *         var exampleFrontdoorRuleSet = new FrontdoorRuleSet(&#34;exampleFrontdoorRuleSet&#34;, FrontdoorRuleSetArgs.builder()        
+ *             .name(&#34;ExampleRuleSet&#34;)
  *             .cdnFrontdoorProfileId(exampleFrontdoorProfile.id())
  *             .build());
  * 

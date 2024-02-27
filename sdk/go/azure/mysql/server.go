@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mysql.NewServer(ctx, "exampleServer", &mysql.ServerArgs{
-//				Location:                        exampleResourceGroup.Location,
-//				ResourceGroupName:               exampleResourceGroup.Name,
+//			_, err = mysql.NewServer(ctx, "example", &mysql.ServerArgs{
+//				Name:                            pulumi.String("example-mysqlserver"),
+//				Location:                        example.Location,
+//				ResourceGroupName:               example.Name,
 //				AdministratorLogin:              pulumi.String("mysqladminun"),
 //				AdministratorLoginPassword:      pulumi.String("H@Sh1CoR3!"),
 //				SkuName:                         pulumi.String("B_Gen5_2"),

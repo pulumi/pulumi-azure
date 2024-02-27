@@ -22,34 +22,38 @@ namespace Pulumi.Azure.StreamAnalytics
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleJob = Azure.StreamAnalytics.GetJob.Invoke(new()
+    ///     var example = Azure.StreamAnalytics.GetJob.Invoke(new()
     ///     {
     ///         Name = "example-job",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
+    ///         Name = "examplesa",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///         Location = exampleResourceGroup.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///     });
     /// 
-    ///     var exampleTable = new Azure.Storage.Table("exampleTable", new()
+    ///     var exampleTable = new Azure.Storage.Table("example", new()
     ///     {
+    ///         Name = "exampletable",
     ///         StorageAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleOutputTable = new Azure.StreamAnalytics.OutputTable("exampleOutputTable", new()
+    ///     var exampleOutputTable = new Azure.StreamAnalytics.OutputTable("example", new()
     ///     {
-    ///         StreamAnalyticsJobName = exampleJob.Apply(getJobResult =&gt; getJobResult.Name),
-    ///         ResourceGroupName = exampleJob.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
+    ///         Name = "output-to-storage-table",
+    ///         StreamAnalyticsJobName = example.Apply(getJobResult =&gt; getJobResult.Name),
+    ///         ResourceGroupName = example.Apply(getJobResult =&gt; getJobResult.ResourceGroupName),
     ///         StorageAccountName = exampleAccount.Name,
     ///         StorageAccountKey = exampleAccount.PrimaryAccessKey,
     ///         Table = exampleTable.Name,

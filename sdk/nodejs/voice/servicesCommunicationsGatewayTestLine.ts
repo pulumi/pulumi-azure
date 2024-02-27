@@ -13,9 +13,16 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Central US"});
- * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("exampleServicesCommunicationsGateway", {resourceGroupName: exampleResourceGroup.name});
- * const exampleServicesCommunicationsGatewayTestLine = new azure.voice.ServicesCommunicationsGatewayTestLine("exampleServicesCommunicationsGatewayTestLine", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Central US",
+ * });
+ * const exampleServicesCommunicationsGateway = new azure.voice.ServicesCommunicationsGateway("example", {
+ *     name: "example-vcg",
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleServicesCommunicationsGatewayTestLine = new azure.voice.ServicesCommunicationsGatewayTestLine("example", {
+ *     name: "example-vtl",
  *     location: "West Central US",
  *     voiceServicesCommunicationsGatewayId: exampleServicesCommunicationsGateway.id,
  *     phoneNumber: "123456789",

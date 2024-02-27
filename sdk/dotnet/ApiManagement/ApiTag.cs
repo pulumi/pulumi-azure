@@ -22,32 +22,36 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = Azure.ApiManagement.GetService.Invoke(new()
+    ///     var example = Azure.ApiManagement.GetService.Invoke(new()
     ///     {
     ///         Name = "example-apim",
     ///         ResourceGroupName = exampleResourceGroup.Name,
     ///     });
     /// 
-    ///     var exampleApi = new Azure.ApiManagement.Api("exampleApi", new()
+    ///     var exampleApi = new Azure.ApiManagement.Api("example", new()
     ///     {
+    ///         Name = "example-api",
     ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         ApiManagementName = exampleService.Apply(getServiceResult =&gt; getServiceResult.Name),
+    ///         ApiManagementName = example.Apply(getServiceResult =&gt; getServiceResult.Name),
     ///         Revision = "1",
     ///     });
     /// 
-    ///     var exampleTag = new Azure.ApiManagement.Tag("exampleTag", new()
+    ///     var exampleTag = new Azure.ApiManagement.Tag("example", new()
     ///     {
-    ///         ApiManagementId = exampleService.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///         ApiManagementId = example.Apply(getServiceResult =&gt; getServiceResult.Id),
+    ///         Name = "example-tag",
     ///     });
     /// 
-    ///     var exampleApiTag = new Azure.ApiManagement.ApiTag("exampleApiTag", new()
+    ///     var exampleApiTag = new Azure.ApiManagement.ApiTag("example", new()
     ///     {
     ///         ApiId = exampleApi.Id,
+    ///         Name = exampleTag.Name,
     ///     });
     /// 
     /// });

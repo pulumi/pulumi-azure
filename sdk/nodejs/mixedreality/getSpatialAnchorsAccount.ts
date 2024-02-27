@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  *
  * const example = azure.mixedreality.getSpatialAnchorsAccount({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
- * export const accountDomain = data.azurerm_spatial_anchors_account.account_domain;
+ * export const accountDomain = accountDomainAzurermSpatialAnchorsAccount;
  * ```
  */
 export function getSpatialAnchorsAccount(args: GetSpatialAnchorsAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetSpatialAnchorsAccountResult> {
@@ -78,9 +78,9 @@ export interface GetSpatialAnchorsAccountResult {
  *
  * const example = azure.mixedreality.getSpatialAnchorsAccount({
  *     name: "example",
- *     resourceGroupName: azurerm_resource_group.example.name,
+ *     resourceGroupName: exampleAzurermResourceGroup.name,
  * });
- * export const accountDomain = data.azurerm_spatial_anchors_account.account_domain;
+ * export const accountDomain = accountDomainAzurermSpatialAnchorsAccount;
  * ```
  */
 export function getSpatialAnchorsAccountOutput(args: GetSpatialAnchorsAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSpatialAnchorsAccountResult> {

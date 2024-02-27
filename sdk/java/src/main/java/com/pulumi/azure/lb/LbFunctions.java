@@ -49,18 +49,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
      * ```
@@ -95,18 +95,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
      * ```
@@ -141,18 +141,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
      * ```
@@ -187,18 +187,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
+     *         final var exampleGetBackendAddressPool = LbFunctions.getBackendAddressPool(GetBackendAddressPoolArgs.builder()
      *             .name(&#34;first&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
-     *         ctx.export(&#34;backendIpConfigurationIds&#34;, data.azurerm_lb_backend_address_pool().beap().backend_ip_configurations().stream().map(element -&gt; element.id()).collect(toList()));
+     *         ctx.export(&#34;backendAddressPoolId&#34;, exampleGetBackendAddressPool.applyValue(getBackendAddressPoolResult -&gt; getBackendAddressPoolResult.id()));
+     *         ctx.export(&#34;backendIpConfigurationIds&#34;, beap.backendIpConfigurations().stream().map(element -&gt; element.id()).collect(toList()));
      *     }
      * }
      * ```
@@ -546,18 +546,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -593,18 +593,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -640,18 +640,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```
@@ -687,18 +687,18 @@ public final class LbFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var exampleLB = LbFunctions.getLB(GetLBArgs.builder()
+     *         final var example = LbFunctions.getLB(GetLBArgs.builder()
      *             .name(&#34;example-lb&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
-     *         final var exampleLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
+     *         final var exampleGetLBRule = LbFunctions.getLBRule(GetLBRuleArgs.builder()
      *             .name(&#34;first&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
-     *             .loadbalancerId(exampleLB.applyValue(getLBResult -&gt; getLBResult.id()))
+     *             .loadbalancerId(example.applyValue(getLBResult -&gt; getLBResult.id()))
      *             .build());
      * 
-     *         ctx.export(&#34;lbRuleId&#34;, exampleLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
+     *         ctx.export(&#34;lbRuleId&#34;, exampleGetLBRule.applyValue(getLBRuleResult -&gt; getLBRuleResult.id()));
      *     }
      * }
      * ```

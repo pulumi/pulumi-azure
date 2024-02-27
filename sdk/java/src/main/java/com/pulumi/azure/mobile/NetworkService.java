@@ -54,20 +54,23 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;east us&#34;)
  *             .build());
  * 
  *         var exampleNetwork = new Network(&#34;exampleNetwork&#34;, NetworkArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mn&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .mobileCountryCode(&#34;001&#34;)
  *             .mobileNetworkCode(&#34;01&#34;)
  *             .build());
  * 
  *         var exampleNetworkService = new NetworkService(&#34;exampleNetworkService&#34;, NetworkServiceArgs.builder()        
+ *             .name(&#34;example-mns&#34;)
  *             .mobileNetworkId(exampleNetwork.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .servicePrecedence(0)
  *             .pccRules(NetworkServicePccRuleArgs.builder()
  *                 .name(&#34;default-rule&#34;)

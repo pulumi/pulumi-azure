@@ -32,15 +32,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleElasticSan, err := elasticsan.NewElasticSan(ctx, "exampleElasticSan", &elasticsan.ElasticSanArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleElasticSan, err := elasticsan.NewElasticSan(ctx, "example", &elasticsan.ElasticSanArgs{
+//				Name:              pulumi.String("examplees-es"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				BaseSizeInTib:     pulumi.Int(1),
 //				Sku: &elasticsan.ElasticSanSkuArgs{
 //					Name: pulumi.String("Premium_LRS"),
@@ -53,25 +55,28 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "exampleUserAssignedIdentity", &authorization.UserAssignedIdentityArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleUserAssignedIdentity, err := authorization.NewUserAssignedIdentity(ctx, "example", &authorization.UserAssignedIdentityArgs{
+//				Name:              pulumi.String("example-uai"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("example-vnet"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("example-subnet"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.1.0/24"),
@@ -83,9 +88,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "exampleKeyVault", &keyvault.KeyVaultArgs{
-//				Location:                 exampleResourceGroup.Location,
-//				ResourceGroupName:        exampleResourceGroup.Name,
+//			exampleKeyVault, err := keyvault.NewKeyVault(ctx, "example", &keyvault.KeyVaultArgs{
+//				Name:                     pulumi.String("examplekv"),
+//				Location:                 example.Location,
+//				ResourceGroupName:        example.Name,
 //				EnabledForDiskEncryption: pulumi.Bool(true),
 //				TenantId:                 *pulumi.String(current.TenantId),
 //				SoftDeleteRetentionDays:  pulumi.Int(7),
@@ -95,7 +101,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			userAssignedIdentity, err := keyvault.NewAccessPolicy(ctx, "userAssignedIdentity", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "userAssignedIdentity", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   exampleUserAssignedIdentity.PrincipalId,
@@ -111,7 +117,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			client, err := keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
+//			_, err = keyvault.NewAccessPolicy(ctx, "client", &keyvault.AccessPolicyArgs{
 //				KeyVaultId: exampleKeyVault.ID(),
 //				TenantId:   *pulumi.String(current.TenantId),
 //				ObjectId:   *pulumi.String(current.ObjectId),
@@ -138,7 +144,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleKey, err := keyvault.NewKey(ctx, "exampleKey", &keyvault.KeyArgs{
+//			exampleKey, err := keyvault.NewKey(ctx, "example", &keyvault.KeyArgs{
+//				Name:       pulumi.String("example-kvk"),
 //				KeyVaultId: exampleKeyVault.ID(),
 //				KeyType:    pulumi.String("RSA"),
 //				KeySize:    pulumi.Int(2048),
@@ -150,14 +157,12 @@ import (
 //					pulumi.String("verify"),
 //					pulumi.String("wrapKey"),
 //				},
-//			}, pulumi.DependsOn([]pulumi.Resource{
-//				userAssignedIdentity,
-//				client,
-//			}))
+//			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = elasticsan.NewVolumeGroup(ctx, "exampleVolumeGroup", &elasticsan.VolumeGroupArgs{
+//			_, err = elasticsan.NewVolumeGroup(ctx, "example", &elasticsan.VolumeGroupArgs{
+//				Name:           pulumi.String("example-esvg"),
 //				ElasticSanId:   exampleElasticSan.ID(),
 //				EncryptionType: pulumi.String("EncryptionAtRestWithCustomerManagedKey"),
 //				Encryption: &elasticsan.VolumeGroupEncryptionArgs{

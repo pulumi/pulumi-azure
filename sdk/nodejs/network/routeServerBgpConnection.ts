@@ -13,35 +13,43 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vn",
  *     addressSpaces: ["10.0.0.0/16"],
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     tags: {
  *         environment: "Production",
  *     },
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "RouteServerSubnet",
  *     virtualNetworkName: exampleVirtualNetwork.name,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     resourceGroupName: example.name,
  *     addressPrefixes: ["10.0.1.0/24"],
  * });
- * const examplePublicIp = new azure.network.PublicIp("examplePublicIp", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-pip",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     allocationMethod: "Static",
  *     sku: "Standard",
  * });
- * const exampleRouteServer = new azure.network.RouteServer("exampleRouteServer", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleRouteServer = new azure.network.RouteServer("example", {
+ *     name: "example-routerserver",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     sku: "Standard",
  *     publicIpAddressId: examplePublicIp.id,
  *     subnetId: exampleSubnet.id,
  *     branchToBranchTrafficEnabled: true,
  * });
- * const exampleRouteServerBgpConnection = new azure.network.RouteServerBgpConnection("exampleRouteServerBgpConnection", {
+ * const exampleRouteServerBgpConnection = new azure.network.RouteServerBgpConnection("example", {
+ *     name: "example-rs-bgpconnection",
  *     routeServerId: exampleRouteServer.id,
  *     peerAsn: 65501,
  *     peerIp: "169.254.21.5",

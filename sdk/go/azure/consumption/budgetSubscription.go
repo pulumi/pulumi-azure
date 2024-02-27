@@ -34,20 +34,23 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example"),
 //				Location: pulumi.String("eastus"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "exampleActionGroup", &monitoring.ActionGroupArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleActionGroup, err := monitoring.NewActionGroup(ctx, "example", &monitoring.ActionGroupArgs{
+//				Name:              pulumi.String("example"),
+//				ResourceGroupName: example.Name,
 //				ShortName:         pulumi.String("example"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = consumption.NewBudgetSubscription(ctx, "exampleBudgetSubscription", &consumption.BudgetSubscriptionArgs{
+//			_, err = consumption.NewBudgetSubscription(ctx, "example", &consumption.BudgetSubscriptionArgs{
+//				Name:           pulumi.String("example"),
 //				SubscriptionId: *pulumi.String(current.Id),
 //				Amount:         pulumi.Float64(1000),
 //				TimeGrain:      pulumi.String("Monthly"),
@@ -60,7 +63,7 @@ import (
 //						&consumption.BudgetSubscriptionFilterDimensionArgs{
 //							Name: pulumi.String("ResourceGroupName"),
 //							Values: pulumi.StringArray{
-//								exampleResourceGroup.Name,
+//								example.Name,
 //							},
 //						},
 //					},

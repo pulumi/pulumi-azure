@@ -40,17 +40,17 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         final var exampleUser = ApimanagementFunctions.getUser(GetUserArgs.builder()
+ *         final var example = ApimanagementFunctions.getUser(GetUserArgs.builder()
  *             .userId(&#34;my-user&#34;)
  *             .apiManagementName(&#34;example-apim&#34;)
  *             .resourceGroupName(&#34;search-service&#34;)
  *             .build());
  * 
  *         var exampleGroupUser = new GroupUser(&#34;exampleGroupUser&#34;, GroupUserArgs.builder()        
- *             .userId(exampleUser.applyValue(getUserResult -&gt; getUserResult.id()))
+ *             .userId(example.applyValue(getUserResult -&gt; getUserResult.id()))
  *             .groupName(&#34;example-group&#34;)
- *             .resourceGroupName(exampleUser.applyValue(getUserResult -&gt; getUserResult.resourceGroupName()))
- *             .apiManagementName(exampleUser.applyValue(getUserResult -&gt; getUserResult.apiManagementName()))
+ *             .resourceGroupName(example.applyValue(getUserResult -&gt; getUserResult.resourceGroupName()))
+ *             .apiManagementName(example.applyValue(getUserResult -&gt; getUserResult.apiManagementName()))
  *             .build());
  * 
  *     }

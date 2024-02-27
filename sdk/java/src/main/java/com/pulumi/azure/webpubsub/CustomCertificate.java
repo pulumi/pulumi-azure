@@ -16,6 +16,106 @@ import javax.annotation.Nullable;
 /**
  * Manages an Azure Web PubSub Custom Certificate.
  * 
+ * ## Example Usage
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.azure.core.CoreFunctions;
+ * import com.pulumi.azure.core.ResourceGroup;
+ * import com.pulumi.azure.core.ResourceGroupArgs;
+ * import com.pulumi.azurerm.webPubsubService;
+ * import com.pulumi.azurerm.WebPubsubServiceArgs;
+ * import com.pulumi.azure.keyvault.KeyVault;
+ * import com.pulumi.azure.keyvault.KeyVaultArgs;
+ * import com.pulumi.azure.keyvault.inputs.KeyVaultAccessPolicyArgs;
+ * import com.pulumi.azure.keyvault.Certificate;
+ * import com.pulumi.azure.keyvault.CertificateArgs;
+ * import com.pulumi.azure.keyvault.inputs.CertificateCertificateArgs;
+ * import com.pulumi.azure.webpubsub.CustomCertificate;
+ * import com.pulumi.azure.webpubsub.CustomCertificateArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         final var current = CoreFunctions.getClientConfig();
+ * 
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
+ *             .location(&#34;West Europe&#34;)
+ *             .build());
+ * 
+ *         var exampleWebPubsubService = new WebPubsubService(&#34;exampleWebPubsubService&#34;, WebPubsubServiceArgs.builder()        
+ *             .name(&#34;example-webpubsub&#34;)
+ *             .location(testAzurermResourceGroup.location())
+ *             .resourceGroupName(testAzurermResourceGroup.name())
+ *             .sku(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .identity(%!v(PANIC=Format method: runtime error: invalid memory address or nil pointer dereference))
+ *             .build());
+ * 
+ *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
+ *             .name(&#34;examplekeyvault&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
+ *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *             .skuName(&#34;premium&#34;)
+ *             .accessPolicies(            
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.objectId()))
+ *                     .certificatePermissions(                    
+ *                         &#34;Create&#34;,
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
+ *                     .secretPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
+ *                     .build(),
+ *                 KeyVaultAccessPolicyArgs.builder()
+ *                     .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
+ *                     .objectId(testAzurermWebPubsubService.identity()[0].principalId())
+ *                     .certificatePermissions(                    
+ *                         &#34;Create&#34;,
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
+ *                     .secretPermissions(                    
+ *                         &#34;Get&#34;,
+ *                         &#34;List&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *         var exampleCertificate = new Certificate(&#34;exampleCertificate&#34;, CertificateArgs.builder()        
+ *             .name(&#34;imported-cert&#34;)
+ *             .keyVaultId(exampleKeyVault.id())
+ *             .certificate(CertificateCertificateArgs.builder()
+ *                 .contents(StdFunctions.filebase64(Filebase64Args.builder()
+ *                     .input(&#34;certificate-to-import.pfx&#34;)
+ *                     .build()).result())
+ *                 .password(&#34;&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *         var test = new CustomCertificate(&#34;test&#34;, CustomCertificateArgs.builder()        
+ *             .name(&#34;example-cert&#34;)
+ *             .webPubsubId(exampleWebPubsubService.id())
+ *             .customCertificateId(exampleCertificate.id())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * 
  * ## Import
  * 
  * Custom Certificate for a Web PubSub service can be imported using the `resource id`, e.g.

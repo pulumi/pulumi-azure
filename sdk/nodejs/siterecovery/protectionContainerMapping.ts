@@ -15,41 +15,54 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const primaryResourceGroup = new azure.core.ResourceGroup("primaryResourceGroup", {location: "West US"});
- * const secondaryResourceGroup = new azure.core.ResourceGroup("secondaryResourceGroup", {location: "East US"});
+ * const primary = new azure.core.ResourceGroup("primary", {
+ *     name: "tfex-network-mapping-primary",
+ *     location: "West US",
+ * });
+ * const secondary = new azure.core.ResourceGroup("secondary", {
+ *     name: "tfex-network-mapping-secondary",
+ *     location: "East US",
+ * });
  * const vault = new azure.recoveryservices.Vault("vault", {
- *     location: secondaryResourceGroup.location,
- *     resourceGroupName: secondaryResourceGroup.name,
+ *     name: "example-recovery-vault",
+ *     location: secondary.location,
+ *     resourceGroupName: secondary.name,
  *     sku: "Standard",
  * });
- * const primaryFabric = new azure.siterecovery.Fabric("primaryFabric", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ * const primaryFabric = new azure.siterecovery.Fabric("primary", {
+ *     name: "primary-fabric",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
- *     location: primaryResourceGroup.location,
+ *     location: primary.location,
  * });
- * const secondaryFabric = new azure.siterecovery.Fabric("secondaryFabric", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ * const secondaryFabric = new azure.siterecovery.Fabric("secondary", {
+ *     name: "secondary-fabric",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
- *     location: secondaryResourceGroup.location,
+ *     location: secondary.location,
  * });
- * const primaryProtectionContainer = new azure.siterecovery.ProtectionContainer("primaryProtectionContainer", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ * const primaryProtectionContainer = new azure.siterecovery.ProtectionContainer("primary", {
+ *     name: "primary-protection-container",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: primaryFabric.name,
  * });
- * const secondaryProtectionContainer = new azure.siterecovery.ProtectionContainer("secondaryProtectionContainer", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ * const secondaryProtectionContainer = new azure.siterecovery.ProtectionContainer("secondary", {
+ *     name: "secondary-protection-container",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: secondaryFabric.name,
  * });
  * const policy = new azure.siterecovery.ReplicationPolicy("policy", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ *     name: "policy",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryPointRetentionInMinutes: 24 * 60,
  *     applicationConsistentSnapshotFrequencyInMinutes: 4 * 60,
  * });
  * const container_mapping = new azure.siterecovery.ProtectionContainerMapping("container-mapping", {
- *     resourceGroupName: secondaryResourceGroup.name,
+ *     name: "container-mapping",
+ *     resourceGroupName: secondary.name,
  *     recoveryVaultName: vault.name,
  *     recoveryFabricName: primaryFabric.name,
  *     recoverySourceProtectionContainerName: primaryProtectionContainer.name,

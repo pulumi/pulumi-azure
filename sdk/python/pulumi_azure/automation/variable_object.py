@@ -239,13 +239,17 @@ class VariableObject(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-example-rg",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="tfex-example-account",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_variable_object = azure.automation.VariableObject("exampleVariableObject",
-            resource_group_name=example_resource_group.name,
+        example_variable_object = azure.automation.VariableObject("example",
+            name="tfex-example-var",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             value=json.dumps({
                 "greeting": "Hello, Terraform Basic Test.",
@@ -286,13 +290,17 @@ class VariableObject(pulumi.CustomResource):
         import json
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.automation.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="tfex-example-rg",
+            location="West Europe")
+        example_account = azure.automation.Account("example",
+            name="tfex-example-account",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Basic")
-        example_variable_object = azure.automation.VariableObject("exampleVariableObject",
-            resource_group_name=example_resource_group.name,
+        example_variable_object = azure.automation.VariableObject("example",
+            name="tfex-example-var",
+            resource_group_name=example.name,
             automation_account_name=example_account.name,
             value=json.dumps({
                 "greeting": "Hello, Terraform Basic Test.",

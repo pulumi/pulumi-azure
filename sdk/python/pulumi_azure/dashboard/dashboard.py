@@ -222,15 +222,20 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_azure as azure
 
         config = pulumi.Config()
+        # Content for the MD tile
         md_content = config.get("mdContent")
         if md_content is None:
             md_content = "# Hello all :)"
+        # Link to a video
         video_link = config.get("videoLink")
         if video_link is None:
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="mygroup",
+            location="West Europe")
         my_board = azure.portal.Dashboard("my-board",
+            name="my-cool-dashboard",
             resource_group_name=example.name,
             location=example.location,
             tags={
@@ -388,15 +393,20 @@ class Dashboard(pulumi.CustomResource):
         import pulumi_azure as azure
 
         config = pulumi.Config()
+        # Content for the MD tile
         md_content = config.get("mdContent")
         if md_content is None:
             md_content = "# Hello all :)"
+        # Link to a video
         video_link = config.get("videoLink")
         if video_link is None:
             video_link = "https://www.youtube.com/watch?v=......"
         current = azure.core.get_subscription()
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="mygroup",
+            location="West Europe")
         my_board = azure.portal.Dashboard("my-board",
+            name="my-cool-dashboard",
             resource_group_name=example.name,
             location=example.location,
             tags={

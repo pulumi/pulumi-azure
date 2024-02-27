@@ -234,24 +234,27 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_network = azure.network.get_virtual_network(name="example-network",
+        example = azure.network.get_virtual_network(name="example-network",
             resource_group_name="example-resources")
-        example_lb = azure.lb.get_lb(name="example-lb",
+        example_get_lb = azure.lb.get_lb(name="example-lb",
             resource_group_name="example-resources")
-        example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
-            loadbalancer_id=example_lb.id)
-        example_backend_address_pool_address = azure.lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress",
-            backend_address_pool_id=example_backend_address_pool.id,
-            virtual_network_id=example_virtual_network.id,
+        example_get_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+            loadbalancer_id=example_get_lb.id)
+        example_backend_address_pool_address = azure.lb.BackendAddressPoolAddress("example",
+            name="example",
+            backend_address_pool_id=example_get_backend_address_pool.id,
+            virtual_network_id=example.id,
             ip_address="10.0.0.1")
         backend_pool_cr = azure.lb.get_backend_address_pool(name="globalLBBackendPool",
-            loadbalancer_id=example_lb.id)
+            loadbalancer_id=example_get_lb.id)
         example_1 = azure.lb.BackendAddressPoolAddress("example-1",
+            name="address1",
             backend_address_pool_id=backend_pool_cr.id,
-            backend_address_ip_configuration_id=azurerm_lb["backend-lb-R1"]["frontend_ip_configuration"][0]["id"])
+            backend_address_ip_configuration_id=backend_lb__r1["frontendIpConfiguration"][0]["id"])
         example_2 = azure.lb.BackendAddressPoolAddress("example-2",
+            name="address2",
             backend_address_pool_id=backend_pool_cr.id,
-            backend_address_ip_configuration_id=azurerm_lb["backend-lb-R2"]["frontend_ip_configuration"][0]["id"])
+            backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
 
         ## Import
@@ -289,24 +292,27 @@ class BackendAddressPoolAddress(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_network = azure.network.get_virtual_network(name="example-network",
+        example = azure.network.get_virtual_network(name="example-network",
             resource_group_name="example-resources")
-        example_lb = azure.lb.get_lb(name="example-lb",
+        example_get_lb = azure.lb.get_lb(name="example-lb",
             resource_group_name="example-resources")
-        example_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
-            loadbalancer_id=example_lb.id)
-        example_backend_address_pool_address = azure.lb.BackendAddressPoolAddress("exampleBackendAddressPoolAddress",
-            backend_address_pool_id=example_backend_address_pool.id,
-            virtual_network_id=example_virtual_network.id,
+        example_get_backend_address_pool = azure.lb.get_backend_address_pool(name="first",
+            loadbalancer_id=example_get_lb.id)
+        example_backend_address_pool_address = azure.lb.BackendAddressPoolAddress("example",
+            name="example",
+            backend_address_pool_id=example_get_backend_address_pool.id,
+            virtual_network_id=example.id,
             ip_address="10.0.0.1")
         backend_pool_cr = azure.lb.get_backend_address_pool(name="globalLBBackendPool",
-            loadbalancer_id=example_lb.id)
+            loadbalancer_id=example_get_lb.id)
         example_1 = azure.lb.BackendAddressPoolAddress("example-1",
+            name="address1",
             backend_address_pool_id=backend_pool_cr.id,
-            backend_address_ip_configuration_id=azurerm_lb["backend-lb-R1"]["frontend_ip_configuration"][0]["id"])
+            backend_address_ip_configuration_id=backend_lb__r1["frontendIpConfiguration"][0]["id"])
         example_2 = azure.lb.BackendAddressPoolAddress("example-2",
+            name="address2",
             backend_address_pool_id=backend_pool_cr.id,
-            backend_address_ip_configuration_id=azurerm_lb["backend-lb-R2"]["frontend_ip_configuration"][0]["id"])
+            backend_address_ip_configuration_id=backend_lb__r2["frontendIpConfiguration"][0]["id"])
         ```
 
         ## Import

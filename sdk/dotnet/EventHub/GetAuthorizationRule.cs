@@ -29,9 +29,9 @@ namespace Pulumi.Azure.EventHub
         ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
         ///     {
         ///         Name = "test",
-        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///         EventhubName = azurerm_eventhub.Test.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///         NamespaceName = testAzurermEventhubNamespace.Name,
+        ///         EventhubName = testAzurermEventhub.Name,
+        ///         ResourceGroupName = testAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });
@@ -60,9 +60,9 @@ namespace Pulumi.Azure.EventHub
         ///     var test = Azure.EventHub.GetAuthorizationRule.Invoke(new()
         ///     {
         ///         Name = "test",
-        ///         NamespaceName = azurerm_eventhub_namespace.Test.Name,
-        ///         EventhubName = azurerm_eventhub.Test.Name,
-        ///         ResourceGroupName = azurerm_resource_group.Test.Name,
+        ///         NamespaceName = testAzurermEventhubNamespace.Name,
+        ///         EventhubName = testAzurermEventhub.Name,
+        ///         ResourceGroupName = testAzurermResourceGroup.Name,
         ///     });
         /// 
         /// });

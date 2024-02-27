@@ -303,21 +303,25 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cognitive.Account("example",
+            name="example-cogacct",
+            location=example.location,
+            resource_group_name=example.name,
             kind="SpeechServices",
             sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+        example_channels_registration = azure.bot.ChannelsRegistration("example",
+            name="example-bcr",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech",
+        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("example",
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             cognitive_service_location=example_account.location,
             cognitive_service_access_key=example_account.primary_access_key)
         ```
@@ -357,21 +361,25 @@ class ChannelDirectLineSpeech(pulumi.CustomResource):
         import pulumi_azure as azure
 
         current = azure.core.get_client_config()
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.cognitive.Account("exampleAccount",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_account = azure.cognitive.Account("example",
+            name="example-cogacct",
+            location=example.location,
+            resource_group_name=example.name,
             kind="SpeechServices",
             sku_name="S0")
-        example_channels_registration = azure.bot.ChannelsRegistration("exampleChannelsRegistration",
+        example_channels_registration = azure.bot.ChannelsRegistration("example",
+            name="example-bcr",
             location="global",
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             sku="F0",
             microsoft_app_id=current.client_id)
-        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("exampleChannelDirectLineSpeech",
+        example_channel_direct_line_speech = azure.bot.ChannelDirectLineSpeech("example",
             bot_name=example_channels_registration.name,
             location=example_channels_registration.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name,
             cognitive_service_location=example_account.location,
             cognitive_service_access_key=example_account.primary_access_key)
         ```

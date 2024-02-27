@@ -106,17 +106,21 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             prefix_length=30,
             zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="example-NatGateway",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation",
+        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_prefix_id=example_public_ip_prefix.id)
         ```
@@ -149,17 +153,21 @@ class NatGatewayPublicIpPrefixAssociation(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_public_ip_prefix = azure.network.PublicIpPrefix("examplePublicIpPrefix",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_public_ip_prefix = azure.network.PublicIpPrefix("example",
+            name="example",
+            location=example.location,
+            resource_group_name=example.name,
             prefix_length=30,
             zones=["1"])
-        example_nat_gateway = azure.network.NatGateway("exampleNatGateway",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_nat_gateway = azure.network.NatGateway("example",
+            name="example-NatGateway",
+            location=example.location,
+            resource_group_name=example.name,
             sku_name="Standard")
-        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("exampleNatGatewayPublicIpPrefixAssociation",
+        example_nat_gateway_public_ip_prefix_association = azure.network.NatGatewayPublicIpPrefixAssociation("example",
             nat_gateway_id=example_nat_gateway.id,
             public_ip_prefix_id=example_public_ip_prefix.id)
         ```

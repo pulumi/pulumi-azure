@@ -15,20 +15,26 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "autoscalingTest",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     upgradeMode: "Manual",
  *     sku: "Standard_F2",
  *     instances: 2,
@@ -57,9 +63,10 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ *     name: "myAutoscaleSetting",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  *     profiles: [{
  *         name: "defaultProfile",
@@ -126,26 +133,32 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
- * ### For Fixed Dates)
+ * ### Repeating On Weekends)
  *
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     addressSpaces: ["10.0.0.0/16"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "autoscalingTest",
+ *     location: "West Europe",
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.0.2.0/24"],
  * });
- * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("exampleLinuxVirtualMachineScaleSet", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     upgradeMode: "Manual",
  *     sku: "Standard_F2",
  *     instances: 2,
@@ -174,10 +187,134 @@ import * as utilities from "../utilities";
  *         version: "latest",
  *     },
  * });
- * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("exampleAutoscaleSetting", {
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ *     name: "myAutoscaleSetting",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *     profiles: [{
+ *         name: "Weekends",
+ *         capacity: {
+ *             "default": 1,
+ *             minimum: 1,
+ *             maximum: 10,
+ *         },
+ *         rules: [
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "GreaterThan",
+ *                     threshold: 90,
+ *                 },
+ *                 scaleAction: {
+ *                     direction: "Increase",
+ *                     type: "ChangeCount",
+ *                     value: 2,
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *             {
+ *                 metricTrigger: {
+ *                     metricName: "Percentage CPU",
+ *                     metricResourceId: exampleLinuxVirtualMachineScaleSet.id,
+ *                     timeGrain: "PT1M",
+ *                     statistic: "Average",
+ *                     timeWindow: "PT5M",
+ *                     timeAggregation: "Average",
+ *                     operator: "LessThan",
+ *                     threshold: 10,
+ *                 },
+ *                 scaleAction: {
+ *                     direction: "Decrease",
+ *                     type: "ChangeCount",
+ *                     value: 2,
+ *                     cooldown: "PT1M",
+ *                 },
+ *             },
+ *         ],
+ *         recurrence: {
+ *             timezone: "Pacific Standard Time",
+ *             days: [
+ *                 "Saturday",
+ *                 "Sunday",
+ *             ],
+ *             hours: 12,
+ *             minutes: 0,
+ *         },
+ *     }],
+ *     notification: {
+ *         email: {
+ *             sendToSubscriptionAdministrator: true,
+ *             sendToSubscriptionCoAdministrator: true,
+ *             customEmails: ["admin@contoso.com"],
+ *         },
+ *     },
+ * });
+ * ```
+ * ### For Fixed Dates)
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "autoscalingTest",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "acctvn",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ * });
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "acctsub",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ * });
+ * const exampleLinuxVirtualMachineScaleSet = new azure.compute.LinuxVirtualMachineScaleSet("example", {
+ *     name: "exampleset",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     upgradeMode: "Manual",
+ *     sku: "Standard_F2",
+ *     instances: 2,
+ *     adminUsername: "myadmin",
+ *     adminSshKeys: [{
+ *         username: "myadmin",
+ *         publicKey: "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQDCsTcryUl51Q2VSEHqDRNmceUFo55ZtcIwxl2QITbN1RREti5ml/VTytC0yeBOvnZA4x4CFpdw/lCDPk0yrH9Ei5vVkXmOrExdTlT3qI7YaAzj1tUVlBd4S6LX1F7y6VLActvdHuDDuXZXzCDd/97420jrDfWZqJMlUK/EmCE5ParCeHIRIvmBxcEnGfFIsw8xQZl0HphxWOtJil8qsUWSdMyCiJYYQpMoMliO99X40AUc4/AlsyPyT5ddbKk08YrZ+rKDVHF7o29rh4vi5MmHkVgVQHKiKybWlHq+b71gIAUQk9wrJxD+dqt4igrmDSpIjfjwnd+l5UIn5fJSO5DYV4YT/4hwK7OKmuo7OFHD0WyY5YnkYEMtFgzemnRBdE8ulcT60DQpVgRMXFWHvhyCWy0L6sgj1QWDZlLpvsIvNfHsyhKFMG1frLnMt/nP0+YCcfg+v1JYeCKjeoJxB8DWcRBsjzItY0CGmzP8UYZiYKl/2u+2TgFS5r7NWH11bxoUzjKdaa1NLw+ieA8GlBFfCbfWe6YVB9ggUte4VtYFMZGxOjS2bAiYtfgTKFJv+XqORAwExG6+G2eDxIDyo80/OA9IG7Xv/jwQr7D6KDjDuULFcN/iTxuttoKrHeYz1hf5ZQlBdllwJHYx6fK2g8kha6r2JIQKocvsAXiiONqSfw== hello@world.com",
+ *     }],
+ *     networkInterfaces: [{
+ *         name: "TestNetworkProfile",
+ *         primary: true,
+ *         ipConfigurations: [{
+ *             name: "TestIPConfiguration",
+ *             primary: true,
+ *             subnetId: exampleSubnet.id,
+ *         }],
+ *     }],
+ *     osDisk: {
+ *         caching: "ReadWrite",
+ *         storageAccountType: "StandardSSD_LRS",
+ *     },
+ *     sourceImageReference: {
+ *         publisher: "Canonical",
+ *         offer: "0001-com-ubuntu-server-jammy",
+ *         sku: "22_04-lts",
+ *         version: "latest",
+ *     },
+ * });
+ * const exampleAutoscaleSetting = new azure.monitoring.AutoscaleSetting("example", {
+ *     name: "myAutoscaleSetting",
  *     enabled: true,
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     targetResourceId: exampleLinuxVirtualMachineScaleSet.id,
  *     profiles: [{
  *         name: "forJuly",

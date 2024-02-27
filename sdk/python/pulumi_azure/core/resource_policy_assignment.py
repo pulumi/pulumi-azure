@@ -520,9 +520,10 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_network = azure.network.get_virtual_network(name="production",
+        example = azure.network.get_virtual_network(name="production",
             resource_group_name="networking")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -538,8 +539,9 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
-            resource_id=example_virtual_network.id,
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            name="example-policy-assignment",
+            resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
 
@@ -589,9 +591,10 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_virtual_network = azure.network.get_virtual_network(name="production",
+        example = azure.network.get_virtual_network(name="production",
             resource_group_name="networking")
-        example_definition = azure.policy.Definition("exampleDefinition",
+        example_definition = azure.policy.Definition("example",
+            name="only-deploy-in-westeurope",
             policy_type="Custom",
             mode="All",
             display_name="my-policy-definition",
@@ -607,8 +610,9 @@ class ResourcePolicyAssignment(pulumi.CustomResource):
             }
           }
         \"\"\")
-        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("exampleResourcePolicyAssignment",
-            resource_id=example_virtual_network.id,
+        example_resource_policy_assignment = azure.core.ResourcePolicyAssignment("example",
+            name="example-policy-assignment",
+            resource_id=example.id,
             policy_definition_id=example_definition.id)
         ```
 

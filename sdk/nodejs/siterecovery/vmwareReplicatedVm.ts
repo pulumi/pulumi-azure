@@ -15,48 +15,58 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West US"});
- * const exampleVault = new azure.recoveryservices.Vault("exampleVault", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-rg",
+ *     location: "West US",
+ * });
+ * const exampleVault = new azure.recoveryservices.Vault("example", {
+ *     name: "example-recovery-vault",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     sku: "Standard",
  * });
- * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("exampleVMWareReplicationPolicy", {
+ * const exampleVMWareReplicationPolicy = new azure.siterecovery.VMWareReplicationPolicy("example", {
  *     recoveryVaultId: exampleVault.id,
+ *     name: "example-policy",
  *     recoveryPointRetentionInMinutes: 1440,
  *     applicationConsistentSnapshotFrequencyInMinutes: 240,
  * });
  * const test = new azure.siterecovery.VmwareReplicationPolicyAssociation("test", {
+ *     name: "example-association",
  *     recoveryVaultId: exampleVault.id,
  *     policyId: exampleVMWareReplicationPolicy.id,
  * });
- * const exampleAccount = new azure.storage.Account("exampleAccount", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleAccount = new azure.storage.Account("example", {
+ *     name: "examplestorageacc",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     accountTier: "Standard",
  *     accountKind: "StorageV2",
  *     accountReplicationType: "LRS",
  * });
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-net",
+ *     resourceGroupName: example.name,
  *     addressSpaces: ["192.168.2.0/24"],
- *     location: exampleResourceGroup.location,
+ *     location: example.location,
  * });
- * const exampleSubnet = new azure.network.Subnet("exampleSubnet", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleSubnet = new azure.network.Subnet("example", {
+ *     name: "example-subnet",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["192.168.2.0/24"],
  * });
- * const exampleVmwareReplicatedVm = new azure.siterecovery.VmwareReplicatedVm("exampleVmwareReplicatedVm", {
+ * const exampleVmwareReplicatedVm = new azure.siterecovery.VmwareReplicatedVm("example", {
+ *     name: "example-vmware-vm",
  *     recoveryVaultId: exampleVault.id,
  *     sourceVmName: "example-vm",
  *     applianceName: "example-appliance",
- *     recoveryReplicationPolicyId: azurerm_site_recovery_vmware_replication_policy_association.example.policy_id,
+ *     recoveryReplicationPolicyId: exampleAzurermSiteRecoveryVmwareReplicationPolicyAssociation.policyId,
  *     physicalServerCredentialName: "example-creds",
  *     licenseType: "NotSpecified",
  *     targetBootDiagnosticsStorageAccountId: exampleAccount.id,
  *     targetVmName: "example_replicated_vm",
- *     targetResourceGroupId: exampleResourceGroup.id,
+ *     targetResourceGroupId: example.id,
  *     defaultLogStorageAccountId: exampleAccount.id,
  *     defaultRecoveryDiskType: "Standard_LRS",
  *     targetNetworkId: exampleVirtualNetwork.id,

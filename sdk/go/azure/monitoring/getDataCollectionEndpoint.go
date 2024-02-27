@@ -29,7 +29,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := monitoring.LookupDataCollectionEndpoint(ctx, &monitoring.LookupDataCollectionEndpointArgs{
 //				Name:              "example-mdce",
-//				ResourceGroupName: azurerm_resource_group.Example.Name,
+//				ResourceGroupName: exampleAzurermResourceGroup.Name,
 //			}, nil)
 //			if err != nil {
 //				return err

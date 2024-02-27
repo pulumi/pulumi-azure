@@ -48,13 +48,15 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;KustoRG&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleCluster = new Cluster(&#34;exampleCluster&#34;, ClusterArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;kustocluster&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ClusterSkuArgs.builder()
  *                 .name(&#34;Standard_D13_v2&#34;)
  *                 .capacity(2)
@@ -62,15 +64,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDatabase = new Database(&#34;exampleDatabase&#34;, DatabaseArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;KustoDatabase&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .clusterName(exampleCluster.name())
  *             .hotCachePeriod(&#34;P7D&#34;)
  *             .softDeletePeriod(&#34;P31D&#34;)
  *             .build());
  * 
  *         var exampleDatabasePrincipalAssignment = new DatabasePrincipalAssignment(&#34;exampleDatabasePrincipalAssignment&#34;, DatabasePrincipalAssignmentArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;KustoPrincipalAssignment&#34;)
+ *             .resourceGroupName(example.name())
  *             .clusterName(exampleCluster.name())
  *             .databaseName(exampleDatabase.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))

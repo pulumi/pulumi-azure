@@ -15,9 +15,9 @@ import * as utilities from "../utilities";
  *
  * const test = azure.eventhub.getAuthorizationRule({
  *     name: "test",
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     namespaceName: testAzurermEventhubNamespace.name,
+ *     eventhubName: testAzurermEventhub.name,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
  */
@@ -111,9 +111,9 @@ export interface GetAuthorizationRuleResult {
  *
  * const test = azure.eventhub.getAuthorizationRule({
  *     name: "test",
- *     namespaceName: azurerm_eventhub_namespace.test.name,
- *     eventhubName: azurerm_eventhub.test.name,
- *     resourceGroupName: azurerm_resource_group.test.name,
+ *     namespaceName: testAzurermEventhubNamespace.name,
+ *     eventhubName: testAzurermEventhub.name,
+ *     resourceGroupName: testAzurermResourceGroup.name,
  * });
  * ```
  */

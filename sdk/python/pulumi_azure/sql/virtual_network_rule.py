@@ -238,23 +238,29 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-sql-server-vnet-rule",
+            location="West Europe")
         vnet = azure.network.VirtualNetwork("vnet",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
             location=example.location,
             resource_group_name=example.name)
         subnet = azure.network.Subnet("subnet",
+            name="example-subnet",
             resource_group_name=example.name,
             virtual_network_name=vnet.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
         sqlserver = azure.sql.SqlServer("sqlserver",
+            name="uniqueazuresqlserver",
             resource_group_name=example.name,
             location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example.name,
             server_name=sqlserver.name,
             subnet_id=subnet.id)
@@ -301,23 +307,29 @@ class VirtualNetworkRule(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example = azure.core.ResourceGroup("example", location="West Europe")
+        example = azure.core.ResourceGroup("example",
+            name="example-sql-server-vnet-rule",
+            location="West Europe")
         vnet = azure.network.VirtualNetwork("vnet",
+            name="example-vnet",
             address_spaces=["10.7.29.0/29"],
             location=example.location,
             resource_group_name=example.name)
         subnet = azure.network.Subnet("subnet",
+            name="example-subnet",
             resource_group_name=example.name,
             virtual_network_name=vnet.name,
             address_prefixes=["10.7.29.0/29"],
             service_endpoints=["Microsoft.Sql"])
         sqlserver = azure.sql.SqlServer("sqlserver",
+            name="uniqueazuresqlserver",
             resource_group_name=example.name,
             location=example.location,
             version="12.0",
             administrator_login="4dm1n157r470r",
             administrator_login_password="4-v3ry-53cr37-p455w0rd")
         sqlvnetrule = azure.sql.VirtualNetworkRule("sqlvnetrule",
+            name="sql-vnet-rule",
             resource_group_name=example.name,
             server_name=sqlserver.name,
             subnet_id=subnet.id)

@@ -22,59 +22,68 @@ namespace Pulumi.Azure.Storage
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleMover = new Azure.Storage.Mover("exampleMover", new()
+    ///     var exampleMover = new Azure.Storage.Mover("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "example-ssm",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///     });
     /// 
-    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent("exampleMoverAgent", new()
+    ///     var exampleMoverAgent = new Azure.Storage.MoverAgent("example", new()
     ///     {
+    ///         Name = "example-agent",
     ///         StorageMoverId = exampleMover.Id,
-    ///         ArcVirtualMachineId = exampleResourceGroup.Id.Apply(id =&gt; $"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
+    ///         ArcVirtualMachineId = example.Id.Apply(id =&gt; $"{id}/providers/Microsoft.HybridCompute/machines/examples-hybridComputeName"),
     ///         ArcVirtualMachineUuid = "3bb2c024-eba9-4d18-9e7a-1d772fcc5fe9",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplesa",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "LRS",
     ///         AllowNestedItemsToBePublic = true,
     ///     });
     /// 
-    ///     var exampleContainer = new Azure.Storage.Container("exampleContainer", new()
+    ///     var exampleContainer = new Azure.Storage.Container("example", new()
     ///     {
+    ///         Name = "acccontainer",
     ///         StorageAccountName = exampleAccount.Name,
     ///         ContainerAccessType = "blob",
     ///     });
     /// 
-    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("exampleMoverTargetEndpoint", new()
+    ///     var exampleMoverTargetEndpoint = new Azure.Storage.MoverTargetEndpoint("example", new()
     ///     {
+    ///         Name = "example-smte",
     ///         StorageMoverId = exampleMover.Id,
     ///         StorageAccountId = exampleAccount.Id,
     ///         StorageContainerName = exampleContainer.Name,
     ///     });
     /// 
-    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint("exampleMoverSourceEndpoint", new()
+    ///     var exampleMoverSourceEndpoint = new Azure.Storage.MoverSourceEndpoint("example", new()
     ///     {
+    ///         Name = "example-smse",
     ///         StorageMoverId = exampleMover.Id,
     ///         Host = "192.168.0.1",
     ///     });
     /// 
-    ///     var exampleMoverProject = new Azure.Storage.MoverProject("exampleMoverProject", new()
+    ///     var exampleMoverProject = new Azure.Storage.MoverProject("example", new()
     ///     {
+    ///         Name = "example-sp",
     ///         StorageMoverId = exampleMover.Id,
     ///     });
     /// 
-    ///     var exampleMoverJobDefinition = new Azure.Storage.MoverJobDefinition("exampleMoverJobDefinition", new()
+    ///     var exampleMoverJobDefinition = new Azure.Storage.MoverJobDefinition("example", new()
     ///     {
+    ///         Name = "example-sjd",
     ///         StorageMoverProjectId = exampleMoverProject.Id,
     ///         AgentName = exampleMoverAgent.Name,
     ///         CopyMode = "Additive",

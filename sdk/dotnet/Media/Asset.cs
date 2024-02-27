@@ -22,23 +22,26 @@ namespace Pulumi.Azure.Media
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "media-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Storage.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Storage.Account("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
-    ///         Location = exampleResourceGroup.Location,
+    ///         Name = "examplestoracc",
+    ///         ResourceGroupName = example.Name,
+    ///         Location = example.Location,
     ///         AccountTier = "Standard",
     ///         AccountReplicationType = "GRS",
     ///     });
     /// 
-    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("exampleServiceAccount", new()
+    ///     var exampleServiceAccount = new Azure.Media.ServiceAccount("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemediaacc",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         StorageAccounts = new[]
     ///         {
     ///             new Azure.Media.Inputs.ServiceAccountStorageAccountArgs
@@ -49,9 +52,10 @@ namespace Pulumi.Azure.Media
     ///         },
     ///     });
     /// 
-    ///     var exampleAsset = new Azure.Media.Asset("exampleAsset", new()
+    ///     var exampleAsset = new Azure.Media.Asset("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Asset1",
+    ///         ResourceGroupName = example.Name,
     ///         MediaServicesAccountName = exampleServiceAccount.Name,
     ///         Description = "Asset description",
     ///     });

@@ -30,28 +30,32 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleAccount, err := storage.NewAccount(ctx, "exampleAccount", &storage.AccountArgs{
-//				ResourceGroupName:      exampleResourceGroup.Name,
-//				Location:               exampleResourceGroup.Location,
+//			exampleAccount, err := storage.NewAccount(ctx, "example", &storage.AccountArgs{
+//				Name:                   pulumi.String("example"),
+//				ResourceGroupName:      example.Name,
+//				Location:               example.Location,
 //				AccountTier:            pulumi.String("Standard"),
 //				AccountReplicationType: pulumi.String("LRS"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleContainer, err := storage.NewContainer(ctx, "exampleContainer", &storage.ContainerArgs{
+//			exampleContainer, err := storage.NewContainer(ctx, "example", &storage.ContainerArgs{
+//				Name:               pulumi.String("examplecontainer"),
 //				StorageAccountName: exampleAccount.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = billing.NewAccountCostManagementExport(ctx, "exampleAccountCostManagementExport", &billing.AccountCostManagementExportArgs{
+//			_, err = billing.NewAccountCostManagementExport(ctx, "example", &billing.AccountCostManagementExportArgs{
+//				Name:                      pulumi.String("example"),
 //				BillingAccountId:          pulumi.String("example"),
 //				RecurrenceType:            pulumi.String("Monthly"),
 //				RecurrencePeriodStartDate: pulumi.String("2020-08-18T00:00:00Z"),

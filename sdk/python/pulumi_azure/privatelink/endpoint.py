@@ -388,46 +388,55 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         service = azure.network.Subnet("service",
-            resource_group_name=example_resource_group.name,
+            name="service",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
             enforce_private_link_service_network_policies=True)
         endpoint = azure.network.Subnet("endpoint",
-            resource_group_name=example_resource_group.name,
+            name="endpoint",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            location=example.location,
+            resource_group_name=example.name,
             nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
                 name=example_public_ip.name,
                 primary=True,
                 subnet_id=service.id,
             )],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=endpoint.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -442,15 +451,16 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example = azure.core.get_resource_group(name="example-resources")
         vnet = azure.network.get_virtual_network(name="example-network",
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         subnet = azure.network.get_subnet(name="default",
             virtual_network_name=vnet.name,
-            resource_group_name=example_resource_group.name)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -466,24 +476,32 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="exampleaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_zone = azure.privatedns.Zone("example",
+            name="privatelink.blob.core.windows.net",
+            resource_group_name=example.name)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=example_subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -495,8 +513,9 @@ class Endpoint(pulumi.CustomResource):
                 name="example-dns-zone-group",
                 private_dns_zone_ids=[example_zone.id],
             ))
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            resource_group_name=example_resource_group.name,
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="example-link",
+            resource_group_name=example.name,
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```
@@ -547,46 +566,55 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="example-network",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
+            location=example.location,
+            resource_group_name=example.name)
         service = azure.network.Subnet("service",
-            resource_group_name=example_resource_group.name,
+            name="service",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.1.0/24"],
             enforce_private_link_service_network_policies=True)
         endpoint = azure.network.Subnet("endpoint",
-            resource_group_name=example_resource_group.name,
+            name="endpoint",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"],
             enforce_private_link_endpoint_network_policies=True)
-        example_public_ip = azure.network.PublicIp("examplePublicIp",
+        example_public_ip = azure.network.PublicIp("example",
+            name="example-pip",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             allocation_method="Static")
-        example_load_balancer = azure.lb.LoadBalancer("exampleLoadBalancer",
+        example_load_balancer = azure.lb.LoadBalancer("example",
+            name="example-lb",
             sku="Standard",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name,
             frontend_ip_configurations=[azure.lb.LoadBalancerFrontendIpConfigurationArgs(
                 name=example_public_ip.name,
                 public_ip_address_id=example_public_ip.id,
             )])
-        example_link_service = azure.privatedns.LinkService("exampleLinkService",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_link_service = azure.privatedns.LinkService("example",
+            name="example-privatelink",
+            location=example.location,
+            resource_group_name=example.name,
             nat_ip_configurations=[azure.privatedns.LinkServiceNatIpConfigurationArgs(
                 name=example_public_ip.name,
                 primary=True,
                 subnet_id=service.id,
             )],
             load_balancer_frontend_ip_configuration_ids=[example_load_balancer.frontend_ip_configurations[0].id])
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=endpoint.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -601,15 +629,16 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.get_resource_group(name="example-resources")
+        example = azure.core.get_resource_group(name="example-resources")
         vnet = azure.network.get_virtual_network(name="example-network",
-            resource_group_name=example_resource_group.name)
+            resource_group_name=example.name)
         subnet = azure.network.get_subnet(name="default",
             virtual_network_name=vnet.name,
-            resource_group_name=example_resource_group.name)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+            resource_group_name=example.name)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -625,24 +654,32 @@ class Endpoint(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_account = azure.storage.Account("exampleAccount",
-            resource_group_name=example_resource_group.name,
-            location=example_resource_group.location,
+        example = azure.core.ResourceGroup("example",
+            name="example-rg",
+            location="West Europe")
+        example_account = azure.storage.Account("example",
+            name="exampleaccount",
+            resource_group_name=example.name,
+            location=example.location,
             account_tier="Standard",
             account_replication_type="LRS")
-        example_virtual_network = azure.network.VirtualNetwork("exampleVirtualNetwork",
+        example_virtual_network = azure.network.VirtualNetwork("example",
+            name="virtnetname",
             address_spaces=["10.0.0.0/16"],
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name)
-        example_subnet = azure.network.Subnet("exampleSubnet",
-            resource_group_name=example_resource_group.name,
+            location=example.location,
+            resource_group_name=example.name)
+        example_subnet = azure.network.Subnet("example",
+            name="subnetname",
+            resource_group_name=example.name,
             virtual_network_name=example_virtual_network.name,
             address_prefixes=["10.0.2.0/24"])
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_endpoint = azure.privatelink.Endpoint("exampleEndpoint",
-            location=example_resource_group.location,
-            resource_group_name=example_resource_group.name,
+        example_zone = azure.privatedns.Zone("example",
+            name="privatelink.blob.core.windows.net",
+            resource_group_name=example.name)
+        example_endpoint = azure.privatelink.Endpoint("example",
+            name="example-endpoint",
+            location=example.location,
+            resource_group_name=example.name,
             subnet_id=example_subnet.id,
             private_service_connection=azure.privatelink.EndpointPrivateServiceConnectionArgs(
                 name="example-privateserviceconnection",
@@ -654,8 +691,9 @@ class Endpoint(pulumi.CustomResource):
                 name="example-dns-zone-group",
                 private_dns_zone_ids=[example_zone.id],
             ))
-        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("exampleZoneVirtualNetworkLink",
-            resource_group_name=example_resource_group.name,
+        example_zone_virtual_network_link = azure.privatedns.ZoneVirtualNetworkLink("example",
+            name="example-link",
+            resource_group_name=example.name,
             private_dns_zone_name=example_zone.name,
             virtual_network_id=example_virtual_network.id)
         ```

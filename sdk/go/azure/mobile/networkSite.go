@@ -30,32 +30,36 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = databoxedge.NewDevice(ctx, "exampleDevice", &databoxedge.DeviceArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			_, err = databoxedge.NewDevice(ctx, "example", &databoxedge.DeviceArgs{
+//				Name:              pulumi.String("example-device"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				SkuName:           pulumi.String("EdgeP_Base-Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetwork, err := mobile.NewNetwork(ctx, "exampleNetwork", &mobile.NetworkArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetwork, err := mobile.NewNetwork(ctx, "example", &mobile.NetworkArgs{
+//				Name:              pulumi.String("example-mn"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				MobileCountryCode: pulumi.String("001"),
 //				MobileNetworkCode: pulumi.String("01"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = mobile.NewNetworkSite(ctx, "exampleNetworkSite", &mobile.NetworkSiteArgs{
+//			_, err = mobile.NewNetworkSite(ctx, "example", &mobile.NetworkSiteArgs{
+//				Name:            pulumi.String("example-mns"),
 //				MobileNetworkId: exampleNetwork.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //				Tags: pulumi.StringMap{
 //					"key": pulumi.String("value"),
 //				},

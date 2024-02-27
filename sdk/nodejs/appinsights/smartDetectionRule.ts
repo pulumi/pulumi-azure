@@ -13,13 +13,18 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "tf-test",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "tf-test-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleSmartDetectionRule = new azure.appinsights.SmartDetectionRule("exampleSmartDetectionRule", {
+ * const exampleSmartDetectionRule = new azure.appinsights.SmartDetectionRule("example", {
+ *     name: "Slow server response time",
  *     applicationInsightsId: exampleInsights.id,
  *     enabled: false,
  * });

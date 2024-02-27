@@ -24,11 +24,13 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// {
     ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "rg-example-virtualdesktop",
     ///         Location = "West Europe",
     ///     });
     /// 
     ///     var pooledbreadthfirst = new Azure.DesktopVirtualization.HostPool("pooledbreadthfirst", new()
     ///     {
+    ///         Name = "pooledbreadthfirst",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Type = "Pooled",
@@ -37,6 +39,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var remoteapp = new Azure.DesktopVirtualization.ApplicationGroup("remoteapp", new()
     ///     {
+    ///         Name = "remoteapp",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///         Type = "RemoteApp",
@@ -45,6 +48,7 @@ namespace Pulumi.Azure.DesktopVirtualization
     /// 
     ///     var workspace = new Azure.DesktopVirtualization.Workspace("workspace", new()
     ///     {
+    ///         Name = "workspace",
     ///         Location = example.Location,
     ///         ResourceGroupName = example.Name,
     ///     });

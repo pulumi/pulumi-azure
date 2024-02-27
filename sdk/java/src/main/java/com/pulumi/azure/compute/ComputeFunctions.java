@@ -2148,8 +2148,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2187,8 +2187,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2226,8 +2226,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2265,8 +2265,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImage(GetSharedImageArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .name(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2456,9 +2456,9 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
+     *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2496,9 +2496,9 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
+     *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2536,9 +2536,9 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
+     *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2576,9 +2576,9 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersion(GetSharedImageVersionArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
-     *             .imageName(&#34;my-image&#34;)
      *             .name(&#34;1.0.0&#34;)
+     *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2616,8 +2616,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2655,8 +2655,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2694,8 +2694,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 
@@ -2733,8 +2733,8 @@ public final class ComputeFunctions {
      * 
      *     public static void stack(Context ctx) {
      *         final var example = ComputeFunctions.getSharedImageVersions(GetSharedImageVersionsArgs.builder()
-     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .imageName(&#34;my-image&#34;)
+     *             .galleryName(&#34;my-image-gallery&#34;)
      *             .resourceGroupName(&#34;example-resources&#34;)
      *             .build());
      * 

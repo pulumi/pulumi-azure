@@ -369,12 +369,15 @@ class Profile(pulumi.CustomResource):
 
         server = random.RandomId("server",
             keepers={
-                "azi_id": 1,
+                "azi_id": "1",
             },
             byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="trafficmanagerProfile",
+            location="West Europe")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
+            name=server.hex,
+            resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
                 relative_name=server.hex,
@@ -433,12 +436,15 @@ class Profile(pulumi.CustomResource):
 
         server = random.RandomId("server",
             keepers={
-                "azi_id": 1,
+                "azi_id": "1",
             },
             byte_length=8)
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_traffic_manager_profile = azure.network.TrafficManagerProfile("exampleTrafficManagerProfile",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="trafficmanagerProfile",
+            location="West Europe")
+        example_traffic_manager_profile = azure.network.TrafficManagerProfile("example",
+            name=server.hex,
+            resource_group_name=example.name,
             traffic_routing_method="Weighted",
             dns_config=azure.network.TrafficManagerProfileDnsConfigArgs(
                 relative_name=server.hex,

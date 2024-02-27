@@ -22,28 +22,32 @@ namespace Pulumi.Azure.Automation
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleAccount = new Azure.Automation.Account("exampleAccount", new()
+    ///     var exampleAccount = new Azure.Automation.Account("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-account",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         SkuName = "Basic",
     ///     });
     /// 
-    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("exampleHybridRunbookWorkerGroup", new()
+    ///     var exampleHybridRunbookWorkerGroup = new Azure.Automation.HybridRunbookWorkerGroup("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example",
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///     });
     /// 
-    ///     var exampleRunBook = new Azure.Automation.RunBook("exampleRunBook", new()
+    ///     var exampleRunBook = new Azure.Automation.RunBook("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "Get-AzureVMTutorial",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         AutomationAccountName = exampleAccount.Name,
     ///         LogVerbose = true,
     ///         LogProgress = true,
@@ -55,8 +59,9 @@ namespace Pulumi.Azure.Automation
     ///         },
     ///     });
     /// 
-    ///     var exampleWatcher = new Azure.Automation.Watcher("exampleWatcher", new()
+    ///     var exampleWatcher = new Azure.Automation.Watcher("example", new()
     ///     {
+    ///         Name = "example",
     ///         AutomationAccountId = exampleAccount.Id,
     ///         Location = "West Europe",
     ///         ScriptName = exampleRunBook.Name,

@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleHealthbot = new azure.bot.Healthbot("exampleHealthbot", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-healthbot",
+ *     location: "West Europe",
+ * });
+ * const exampleHealthbot = new azure.bot.Healthbot("example", {
+ *     name: "example-bot",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "F0",
  * });
  * ```

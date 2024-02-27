@@ -13,9 +13,13 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleMover = new azure.storage.Mover("exampleMover", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleMover = new azure.storage.Mover("example", {
+ *     name: "example-ssm",
+ *     resourceGroupName: example.name,
  *     location: "West Europe",
  *     description: "Example Storage Mover Description",
  *     tags: {

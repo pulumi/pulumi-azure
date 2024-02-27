@@ -29,22 +29,25 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "exampleSharedImageGallery", &compute.SharedImageGalleryArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			exampleSharedImageGallery, err := compute.NewSharedImageGallery(ctx, "example", &compute.SharedImageGalleryArgs{
+//				Name:              pulumi.String("examplegallery"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewGalleryApplication(ctx, "exampleGalleryApplication", &compute.GalleryApplicationArgs{
+//			_, err = compute.NewGalleryApplication(ctx, "example", &compute.GalleryApplicationArgs{
+//				Name:            pulumi.String("example-app"),
 //				GalleryId:       exampleSharedImageGallery.ID(),
-//				Location:        exampleResourceGroup.Location,
+//				Location:        example.Location,
 //				SupportedOsType: pulumi.String("Linux"),
 //			})
 //			if err != nil {

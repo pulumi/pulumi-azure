@@ -22,23 +22,25 @@ namespace Pulumi.Azure.ApiManagement
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleService = new Azure.ApiManagement.Service("exampleService", new()
+    ///     var exampleService = new Azure.ApiManagement.Service("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-apim",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         PublisherName = "My Company",
     ///         PublisherEmail = "company@mycompany.io",
     ///         SkuName = "Developer_1",
     ///     });
     /// 
-    ///     var exampleIdentityProviderGoogle = new Azure.ApiManagement.IdentityProviderGoogle("exampleIdentityProviderGoogle", new()
+    ///     var exampleIdentityProviderGoogle = new Azure.ApiManagement.IdentityProviderGoogle("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         ApiManagementName = exampleService.Name,
     ///         ClientId = "00000000.apps.googleusercontent.com",
     ///         ClientSecret = "00000000000000000000000000000000",

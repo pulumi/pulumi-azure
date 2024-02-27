@@ -20,6 +20,7 @@ namespace Pulumi.Azure.ManagedApplication
     /// using System.Text.Json;
     /// using Pulumi;
     /// using Azure = Pulumi.Azure;
+    /// using Std = Pulumi.Std;
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
@@ -30,15 +31,17 @@ namespace Pulumi.Azure.ManagedApplication
     ///         Name = "Contributor",
     ///     });
     /// 
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("exampleDefinition", new()
+    ///     var exampleDefinition = new Azure.ManagedApplication.Definition("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "examplemanagedapplicationdefinition",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         LockLevel = "ReadOnly",
     ///         PackageFileUri = "https://github.com/Azure/azure-managedapp-samples/raw/master/Managed Application Sample Packages/201-managed-storage-account/managedstorage.zip",
     ///         DisplayName = "TestManagedAppDefinition",
@@ -48,20 +51,29 @@ namespace Pulumi.Azure.ManagedApplication
     ///             new Azure.ManagedApplication.Inputs.DefinitionAuthorizationArgs
     ///             {
     ///                 ServicePrincipalId = current.Apply(getClientConfigResult =&gt; getClientConfigResult.ObjectId),
-    ///                 RoleDefinitionId = Output.Tuple(builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/"), builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id).Split("/").Length).Apply(values =&gt;
+    ///                 RoleDefinitionId = Output.Tuple(Std.Split.Invoke(new()
     ///                 {
-    ///                     var split = values.Item1;
+    ///                     Separator = "/",
+    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///                 }), Std.Split.Invoke(new()
+    ///                 {
+    ///                     Separator = "/",
+    ///                     Text = builtin.Apply(getRoleDefinitionResult =&gt; getRoleDefinitionResult.Id),
+    ///                 }).Apply(invoke =&gt; invoke.Result).Length).Apply(values =&gt;
+    ///                 {
+    ///                     var invoke = values.Item1;
     ///                     var length = values.Item2;
-    ///                     return split[length - 1];
+    ///                     return invoke.Result[length - 1];
     ///                 }),
     ///             },
     ///         },
     ///     });
     /// 
-    ///     var exampleApplication = new Azure.ManagedApplication.Application("exampleApplication", new()
+    ///     var exampleApplication = new Azure.ManagedApplication.Application("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-managedapplication",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Kind = "ServiceCatalog",
     ///         ManagedResourceGroupName = "infrastructureGroup",
     ///         ApplicationDefinitionId = exampleDefinition.Id,
@@ -69,7 +81,7 @@ namespace Pulumi.Azure.ManagedApplication
     ///         {
     ///             ["location"] = new Dictionary&lt;string, object?&gt;
     ///             {
-    ///                 ["value"] = exampleResourceGroup.Location,
+    ///                 ["value"] = example.Location,
     ///             },
     ///             ["storageAccountNamePrefix"] = new Dictionary&lt;string, object?&gt;
     ///             {

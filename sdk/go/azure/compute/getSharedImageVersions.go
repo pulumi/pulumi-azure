@@ -28,8 +28,8 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := compute.GetSharedImageVersions(ctx, &compute.GetSharedImageVersionsArgs{
-//				GalleryName:       "my-image-gallery",
 //				ImageName:         "my-image",
+//				GalleryName:       "my-image-gallery",
 //				ResourceGroupName: "example-resources",
 //			}, nil)
 //			if err != nil {

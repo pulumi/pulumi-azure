@@ -254,10 +254,15 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_mx_record = azure.privatedns.MxRecord("exampleMxRecord",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_mx_record = azure.privatedns.MxRecord("example",
+            name="example",
+            resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[
@@ -307,10 +312,15 @@ class MxRecord(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_zone = azure.privatedns.Zone("exampleZone", resource_group_name=example_resource_group.name)
-        example_mx_record = azure.privatedns.MxRecord("exampleMxRecord",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_zone = azure.privatedns.Zone("example",
+            name="contoso.com",
+            resource_group_name=example.name)
+        example_mx_record = azure.privatedns.MxRecord("example",
+            name="example",
+            resource_group_name=example.name,
             zone_name=example_zone.name,
             ttl=300,
             records=[

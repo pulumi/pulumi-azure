@@ -22,14 +22,16 @@ namespace Pulumi.Azure.Network
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-resources",
     ///         Location = "West Europe",
     ///     });
     /// 
-    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("exampleTrafficManagerProfile", new()
+    ///     var exampleTrafficManagerProfile = new Azure.Network.TrafficManagerProfile("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-profile",
+    ///         ResourceGroupName = example.Name,
     ///         TrafficRoutingMethod = "Weighted",
     ///         DnsConfig = new Azure.Network.Inputs.TrafficManagerProfileDnsConfigArgs
     ///         {
@@ -51,8 +53,9 @@ namespace Pulumi.Azure.Network
     ///         },
     ///     });
     /// 
-    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("exampleTrafficManagerExternalEndpoint", new()
+    ///     var exampleTrafficManagerExternalEndpoint = new Azure.Network.TrafficManagerExternalEndpoint("example", new()
     ///     {
+    ///         Name = "example-endpoint",
     ///         ProfileId = exampleTrafficManagerProfile.Id,
     ///         AlwaysServeEnabled = true,
     ///         Weight = 100,

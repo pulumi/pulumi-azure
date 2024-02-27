@@ -29,15 +29,17 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = datashare.NewAccount(ctx, "exampleAccount", &datashare.AccountArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			_, err = datashare.NewAccount(ctx, "example", &datashare.AccountArgs{
+//				Name:              pulumi.String("example-dsa"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Identity: &datashare.AccountIdentityArgs{
 //					Type: pulumi.String("SystemAssigned"),
 //				},

@@ -234,6 +234,86 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
         """
         Manages a Firewall Policy Rule Collection Group.
 
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_firewall_policy = azure.network.FirewallPolicy("example",
+            name="example-fwpolicy",
+            resource_group_name=example.name,
+            location=example.location)
+        example_firewall_policy_rule_collection_group = azure.network.FirewallPolicyRuleCollectionGroup("example",
+            name="example-fwpolicy-rcg",
+            firewall_policy_id=example_firewall_policy.id,
+            priority=500,
+            application_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs(
+                name="app_rule_collection1",
+                priority=500,
+                action="Deny",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs(
+                    name="app_rule_collection1_rule1",
+                    protocols=[
+                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
+                            type="Http",
+                            port=80,
+                        ),
+                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
+                            type="Https",
+                            port=443,
+                        ),
+                    ],
+                    source_addresses=["10.0.0.1"],
+                    destination_fqdns=["*.microsoft.com"],
+                )],
+            )],
+            network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(
+                name="network_rule_collection1",
+                priority=400,
+                action="Deny",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(
+                    name="network_rule_collection1_rule1",
+                    protocols=[
+                        "TCP",
+                        "UDP",
+                    ],
+                    source_addresses=["10.0.0.1"],
+                    destination_addresses=[
+                        "192.168.1.1",
+                        "192.168.1.2",
+                    ],
+                    destination_ports=[
+                        "80",
+                        "1000-2000",
+                    ],
+                )],
+            )],
+            nat_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs(
+                name="nat_rule_collection1",
+                priority=300,
+                action="Dnat",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(
+                    name="nat_rule_collection1_rule1",
+                    protocols=[
+                        "TCP",
+                        "UDP",
+                    ],
+                    source_addresses=[
+                        "10.0.0.1",
+                        "10.0.0.2",
+                    ],
+                    destination_address="192.168.1.1",
+                    destination_ports="80",
+                    translated_address="192.168.0.1",
+                    translated_port=8080,
+                )],
+            )])
+        ```
+
         ## Import
 
         Firewall Policy Rule Collection Groups can be imported using the `resource id`, e.g.
@@ -259,6 +339,86 @@ class FirewallPolicyRuleCollectionGroup(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         Manages a Firewall Policy Rule Collection Group.
+
+        ## Example Usage
+
+        ```python
+        import pulumi
+        import pulumi_azure as azure
+
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_firewall_policy = azure.network.FirewallPolicy("example",
+            name="example-fwpolicy",
+            resource_group_name=example.name,
+            location=example.location)
+        example_firewall_policy_rule_collection_group = azure.network.FirewallPolicyRuleCollectionGroup("example",
+            name="example-fwpolicy-rcg",
+            firewall_policy_id=example_firewall_policy.id,
+            priority=500,
+            application_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionArgs(
+                name="app_rule_collection1",
+                priority=500,
+                action="Deny",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleArgs(
+                    name="app_rule_collection1_rule1",
+                    protocols=[
+                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
+                            type="Http",
+                            port=80,
+                        ),
+                        azure.network.FirewallPolicyRuleCollectionGroupApplicationRuleCollectionRuleProtocolArgs(
+                            type="Https",
+                            port=443,
+                        ),
+                    ],
+                    source_addresses=["10.0.0.1"],
+                    destination_fqdns=["*.microsoft.com"],
+                )],
+            )],
+            network_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionArgs(
+                name="network_rule_collection1",
+                priority=400,
+                action="Deny",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupNetworkRuleCollectionRuleArgs(
+                    name="network_rule_collection1_rule1",
+                    protocols=[
+                        "TCP",
+                        "UDP",
+                    ],
+                    source_addresses=["10.0.0.1"],
+                    destination_addresses=[
+                        "192.168.1.1",
+                        "192.168.1.2",
+                    ],
+                    destination_ports=[
+                        "80",
+                        "1000-2000",
+                    ],
+                )],
+            )],
+            nat_rule_collections=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionArgs(
+                name="nat_rule_collection1",
+                priority=300,
+                action="Dnat",
+                rules=[azure.network.FirewallPolicyRuleCollectionGroupNatRuleCollectionRuleArgs(
+                    name="nat_rule_collection1_rule1",
+                    protocols=[
+                        "TCP",
+                        "UDP",
+                    ],
+                    source_addresses=[
+                        "10.0.0.1",
+                        "10.0.0.2",
+                    ],
+                    destination_address="192.168.1.1",
+                    destination_ports="80",
+                    translated_address="192.168.0.1",
+                    translated_port=8080,
+                )],
+            )])
+        ```
 
         ## Import
 

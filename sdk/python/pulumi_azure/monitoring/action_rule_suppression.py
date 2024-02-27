@@ -308,12 +308,15 @@ class ActionRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("example",
+            name="example-amar",
+            resource_group_name=example.name,
             scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
                 type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
+                resource_ids=[example.id],
             ),
             suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
                 recurrence_type="Weekly",
@@ -369,12 +372,15 @@ class ActionRuleSuppression(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("exampleActionRuleSuppression",
-            resource_group_name=example_resource_group.name,
+        example = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example_action_rule_suppression = azure.monitoring.ActionRuleSuppression("example",
+            name="example-amar",
+            resource_group_name=example.name,
             scope=azure.monitoring.ActionRuleSuppressionScopeArgs(
                 type="ResourceGroup",
-                resource_ids=[example_resource_group.id],
+                resource_ids=[example.id],
             ),
             suppression=azure.monitoring.ActionRuleSuppressionSuppressionArgs(
                 recurrence_type="Weekly",

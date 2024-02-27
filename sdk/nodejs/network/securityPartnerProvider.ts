@@ -13,32 +13,37 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualWan = new azure.network.VirtualWan("exampleVirtualWan", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
  * });
- * const exampleVirtualHub = new azure.network.VirtualHub("exampleVirtualHub", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleVirtualWan = new azure.network.VirtualWan("example", {
+ *     name: "example-vwan",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
+ * });
+ * const exampleVirtualHub = new azure.network.VirtualHub("example", {
+ *     name: "example-vhub",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualWanId: exampleVirtualWan.id,
  *     addressPrefix: "10.0.2.0/24",
  * });
- * const exampleVpnGateway = new azure.network.VpnGateway("exampleVpnGateway", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVpnGateway = new azure.network.VpnGateway("example", {
+ *     name: "example-vpngw",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     virtualHubId: exampleVirtualHub.id,
  * });
- * const exampleSecurityPartnerProvider = new azure.network.SecurityPartnerProvider("exampleSecurityPartnerProvider", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleSecurityPartnerProvider = new azure.network.SecurityPartnerProvider("example", {
+ *     name: "example-spp",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     virtualHubId: exampleVirtualHub.id,
  *     securityProviderName: "IBoss",
  *     tags: {
  *         ENV: "Prod",
  *     },
- * }, {
- *     dependsOn: [exampleVpnGateway],
  * });
  * ```
  *

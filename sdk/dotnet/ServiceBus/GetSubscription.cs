@@ -34,7 +34,7 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
+        ///         ["servicebusSubscription"] = exampleAzurermServicebusNamespace,
         ///     };
         /// });
         /// ```
@@ -67,7 +67,7 @@ namespace Pulumi.Azure.ServiceBus
         /// 
         ///     return new Dictionary&lt;string, object?&gt;
         ///     {
-        ///         ["servicebusSubscription"] = data.Azurerm_servicebus_namespace.Example,
+        ///         ["servicebusSubscription"] = exampleAzurermServicebusNamespace,
         ///     };
         /// });
         /// ```

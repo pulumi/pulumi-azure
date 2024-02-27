@@ -58,7 +58,6 @@ import javax.annotation.Nullable;
  * import com.pulumi.azure.compute.inputs.LinuxVirtualMachineScaleSetRollingUpgradePolicyArgs;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSet;
  * import com.pulumi.azure.maintenance.AssignmentVirtualMachineScaleSetArgs;
- * import com.pulumi.resources.CustomResourceOptions;
  * import java.util.List;
  * import java.util.ArrayList;
  * import java.util.Map;
@@ -72,31 +71,36 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-resources&#34;)
  *             .location(&#34;West Europe&#34;)
  *             .build());
  * 
  *         var exampleVirtualNetwork = new VirtualNetwork(&#34;exampleVirtualNetwork&#34;, VirtualNetworkArgs.builder()        
+ *             .name(&#34;example-network&#34;)
  *             .addressSpaces(&#34;10.0.0.0/16&#34;)
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .build());
  * 
  *         var exampleSubnet = new Subnet(&#34;exampleSubnet&#34;, SubnetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;internal&#34;)
+ *             .resourceGroupName(example.name())
  *             .virtualNetworkName(exampleVirtualNetwork.name())
  *             .addressPrefixes(&#34;10.0.2.0/24&#34;)
  *             .build());
  * 
  *         var examplePublicIp = new PublicIp(&#34;examplePublicIp&#34;, PublicIpArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(example.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .allocationMethod(&#34;Static&#34;)
  *             .build());
  * 
  *         var exampleLoadBalancer = new LoadBalancer(&#34;exampleLoadBalancer&#34;, LoadBalancerArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(example.name())
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .frontendIpConfigurations(LoadBalancerFrontendIpConfigurationArgs.builder()
  *                 .name(&#34;internal&#34;)
  *                 .publicIpAddressId(examplePublicIp.id())
@@ -104,16 +108,19 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleBackendAddressPool = new BackendAddressPool(&#34;exampleBackendAddressPool&#34;, BackendAddressPoolArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .build());
  * 
  *         var exampleProbe = new Probe(&#34;exampleProbe&#34;, ProbeArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .port(22)
  *             .protocol(&#34;Tcp&#34;)
  *             .build());
  * 
  *         var exampleRule = new Rule(&#34;exampleRule&#34;, RuleArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .loadbalancerId(exampleLoadBalancer.id())
  *             .probeId(exampleProbe.id())
  *             .frontendIpConfigurationName(&#34;internal&#34;)
@@ -123,8 +130,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleConfiguration = new Configuration(&#34;exampleConfiguration&#34;, ConfigurationArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .scope(&#34;OSImage&#34;)
  *             .visibility(&#34;Custom&#34;)
  *             .window(ConfigurationWindowArgs.builder()
@@ -137,8 +145,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleNetworkInterface = new NetworkInterface(&#34;exampleNetworkInterface&#34;, NetworkInterfaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;sample-nic&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .ipConfigurations(NetworkInterfaceIpConfigurationArgs.builder()
  *                 .name(&#34;testconfiguration1&#34;)
  *                 .privateIpAddressAllocation(&#34;Dynamic&#34;)
@@ -146,8 +155,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachine = new LinuxVirtualMachine(&#34;exampleLinuxVirtualMachine&#34;, LinuxVirtualMachineArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example-machine&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .size(&#34;Standard_F2&#34;)
  *             .adminUsername(&#34;adminuser&#34;)
  *             .networkInterfaceIds(exampleNetworkInterface.id())
@@ -158,8 +168,9 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleLinuxVirtualMachineScaleSet = new LinuxVirtualMachineScaleSet(&#34;exampleLinuxVirtualMachineScaleSet&#34;, LinuxVirtualMachineScaleSetArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .sku(&#34;Standard_F2&#34;)
  *             .instances(1)
  *             .adminUsername(&#34;adminuser&#34;)
@@ -197,12 +208,10 @@ import javax.annotation.Nullable;
  *                 .maxUnhealthyUpgradedInstancePercent(20)
  *                 .pauseTimeBetweenBatches(&#34;PT0S&#34;)
  *                 .build())
- *             .build(), CustomResourceOptions.builder()
- *                 .dependsOn(&#34;azurerm_lb_rule.example&#34;)
- *                 .build());
+ *             .build());
  * 
  *         var exampleAssignmentVirtualMachineScaleSet = new AssignmentVirtualMachineScaleSet(&#34;exampleAssignmentVirtualMachineScaleSet&#34;, AssignmentVirtualMachineScaleSetArgs.builder()        
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .maintenanceConfigurationId(exampleConfiguration.id())
  *             .virtualMachineScaleSetId(exampleLinuxVirtualMachine.id())
  *             .build());

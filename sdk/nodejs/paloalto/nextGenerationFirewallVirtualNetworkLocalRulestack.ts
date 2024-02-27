@@ -9,6 +9,104 @@ import * as utilities from "../utilities";
 /**
  * Manages a Palo Alto Next Generation Firewall Deployed in a Virtual Network and configured via a Local Rulestack.
  *
+ * ## Example Usage
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as azure from "@pulumi/azure";
+ *
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resource-group",
+ *     location: "westeurope",
+ * });
+ * const examplePublicIp = new azure.network.PublicIp("example", {
+ *     name: "example-public-ip",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     allocationMethod: "Static",
+ *     sku: "Standard",
+ * });
+ * const exampleNetworkSecurityGroup = new azure.network.NetworkSecurityGroup("example", {
+ *     name: "example-nsg",
+ *     location: test.location,
+ *     resourceGroupName: test.name,
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
+ *     addressSpaces: ["10.0.0.0/16"],
+ *     location: example.location,
+ *     resourceGroupName: example.name,
+ *     tags: {
+ *         environment: "Production",
+ *     },
+ * });
+ * const trust = new azure.network.Subnet("trust", {
+ *     name: "example-trust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.1.0/24"],
+ *     delegations: [{
+ *         name: "trusted",
+ *         serviceDelegation: {
+ *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const trustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("trust", {
+ *     subnetId: trust.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * const untrust = new azure.network.Subnet("untrust", {
+ *     name: "example-untrust-subnet",
+ *     resourceGroupName: example.name,
+ *     virtualNetworkName: exampleVirtualNetwork.name,
+ *     addressPrefixes: ["10.0.2.0/24"],
+ *     delegations: [{
+ *         name: "untrusted",
+ *         serviceDelegation: {
+ *             name: "PaloAltoNetworks.Cloudngfw/firewalls",
+ *             actions: ["Microsoft.Network/virtualNetworks/subnets/join/action"],
+ *         },
+ *     }],
+ * });
+ * const untrustSubnetNetworkSecurityGroupAssociation = new azure.network.SubnetNetworkSecurityGroupAssociation("untrust", {
+ *     subnetId: untrust.id,
+ *     networkSecurityGroupId: exampleNetworkSecurityGroup.id,
+ * });
+ * const exampleLocalRulestack = new azure.paloalto.LocalRulestack("example", {
+ *     name: "example-rulestack",
+ *     resourceGroupName: example.name,
+ *     location: example.locatio,
+ * });
+ * const exampleLocalRulestackRule = new azure.paloalto.LocalRulestackRule("example", {
+ *     name: "example-rulestack-rule",
+ *     rulestackId: exampleLocalRulestack.id,
+ *     priority: 1001,
+ *     action: "Allow",
+ *     applications: ["any"],
+ *     destination: {
+ *         cidrs: ["any"],
+ *     },
+ *     source: {
+ *         cidrs: ["any"],
+ *     },
+ * });
+ * const exampleNextGenerationFirewallVirtualNetworkLocalRulestack = new azure.paloalto.NextGenerationFirewallVirtualNetworkLocalRulestack("example", {
+ *     name: "example-ngfwvn",
+ *     resourceGroupName: example.name,
+ *     rulestackId: exampleLocalRulestack.id,
+ *     networkProfile: {
+ *         publicIpAddressIds: [examplePublicIp.id],
+ *         vnetConfiguration: {
+ *             virtualNetworkId: exampleVirtualNetwork.id,
+ *             trustedSubnetId: trust.id,
+ *             untrustedSubnetId: untrust.id,
+ *         },
+ *     },
+ * });
+ * ```
+ *
  * ## Import
  *
  * Palo Alto Next Generation Firewall Virtual Network Local Rulestacks can be imported using the `resource id`, e.g.

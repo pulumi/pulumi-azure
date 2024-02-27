@@ -64,35 +64,40 @@ import javax.annotation.Nullable;
  *     public static void stack(Context ctx) {
  *         final var current = CoreFunctions.getClientConfig();
  * 
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;example-rg&#34;)
  *             .location(&#34;west europe&#34;)
  *             .tags(Map.of(&#34;stage&#34;, &#34;example&#34;))
  *             .build());
  * 
  *         var exampleInsights = new Insights(&#34;exampleInsights&#34;, InsightsArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-ai&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationType(&#34;web&#34;)
  *             .build());
  * 
  *         var exampleKeyVault = new KeyVault(&#34;exampleKeyVault&#34;, KeyVaultArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-kv&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .tenantId(current.applyValue(getClientConfigResult -&gt; getClientConfigResult.tenantId()))
  *             .skuName(&#34;standard&#34;)
  *             .purgeProtectionEnabled(true)
  *             .build());
  * 
  *         var exampleAccount = new Account(&#34;exampleAccount&#34;, AccountArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;examplesa&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .accountTier(&#34;Standard&#34;)
  *             .accountReplicationType(&#34;LRS&#34;)
  *             .build());
  * 
  *         var exampleWorkspace = new Workspace(&#34;exampleWorkspace&#34;, WorkspaceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;example-mlw&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .applicationInsightsId(exampleInsights.id())
  *             .keyVaultId(exampleKeyVault.id())
  *             .storageAccountId(exampleAccount.id())
@@ -102,12 +107,14 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleDataLakeGen2Filesystem = new DataLakeGen2Filesystem(&#34;exampleDataLakeGen2Filesystem&#34;, DataLakeGen2FilesystemArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .storageAccountId(exampleAccount.id())
  *             .build());
  * 
- *         var exampleSynapse_workspaceWorkspace = new Workspace(&#34;exampleSynapse/workspaceWorkspace&#34;, WorkspaceArgs.builder()        
- *             .resourceGroupName(exampleResourceGroup.name())
- *             .location(exampleResourceGroup.location())
+ *         var exampleWorkspace2 = new Workspace(&#34;exampleWorkspace2&#34;, WorkspaceArgs.builder()        
+ *             .name(&#34;example&#34;)
+ *             .resourceGroupName(example.name())
+ *             .location(example.location())
  *             .storageDataLakeGen2FilesystemId(exampleDataLakeGen2Filesystem.id())
  *             .sqlAdministratorLogin(&#34;sqladminuser&#34;)
  *             .sqlAdministratorLoginPassword(&#34;H@Sh1CoR3!&#34;)
@@ -117,15 +124,17 @@ import javax.annotation.Nullable;
  *             .build());
  * 
  *         var exampleSparkPool = new SparkPool(&#34;exampleSparkPool&#34;, SparkPoolArgs.builder()        
- *             .synapseWorkspaceId(exampleSynapse / workspaceWorkspace.id())
+ *             .name(&#34;example&#34;)
+ *             .synapseWorkspaceId(exampleWorkspace2.id())
  *             .nodeSizeFamily(&#34;MemoryOptimized&#34;)
  *             .nodeSize(&#34;Small&#34;)
  *             .nodeCount(3)
  *             .build());
  * 
  *         var exampleSynapseSpark = new SynapseSpark(&#34;exampleSynapseSpark&#34;, SynapseSparkArgs.builder()        
+ *             .name(&#34;example&#34;)
  *             .machineLearningWorkspaceId(exampleWorkspace.id())
- *             .location(exampleResourceGroup.location())
+ *             .location(example.location())
  *             .synapseSparkPoolId(exampleSparkPool.id())
  *             .identity(SynapseSparkIdentityArgs.builder()
  *                 .type(&#34;SystemAssigned&#34;)

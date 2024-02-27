@@ -30,36 +30,41 @@ import (
 //
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-rg"),
 //				Location: pulumi.String("East US"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVault, err := recoveryservices.NewVault(ctx, "exampleVault", &recoveryservices.VaultArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleVault, err := recoveryservices.NewVault(ctx, "example", &recoveryservices.VaultArgs{
+//				Name:              pulumi.String("example-recovery-vault"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				Sku:               pulumi.String("Standard"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHyperVSite, err := siterecovery.NewHyperVSite(ctx, "exampleHyperVSite", &siterecovery.HyperVSiteArgs{
+//			exampleHyperVSite, err := siterecovery.NewHyperVSite(ctx, "example", &siterecovery.HyperVSiteArgs{
 //				RecoveryVaultId: exampleVault.ID(),
+//				Name:            pulumi.String("example-site"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleHyperVReplicationPolicy, err := siterecovery.NewHyperVReplicationPolicy(ctx, "exampleHyperVReplicationPolicy", &siterecovery.HyperVReplicationPolicyArgs{
-//				RecoveryVaultId:                               exampleVault.ID(),
-//				RecoveryPointRetentionInHours:                 pulumi.Int(2),
+//			exampleHyperVReplicationPolicy, err := siterecovery.NewHyperVReplicationPolicy(ctx, "example", &siterecovery.HyperVReplicationPolicyArgs{
+//				Name:                          pulumi.String("policy"),
+//				RecoveryVaultId:               exampleVault.ID(),
+//				RecoveryPointRetentionInHours: pulumi.Int(2),
 //				ApplicationConsistentSnapshotFrequencyInHours: pulumi.Int(1),
 //				ReplicationIntervalInSeconds:                  pulumi.Int(300),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			_, err = siterecovery.NewHyperVReplicationPolicyAssociation(ctx, "exampleHyperVReplicationPolicyAssociation", &siterecovery.HyperVReplicationPolicyAssociationArgs{
+//			_, err = siterecovery.NewHyperVReplicationPolicyAssociation(ctx, "example", &siterecovery.HyperVReplicationPolicyAssociationArgs{
+//				Name:         pulumi.String("example-association"),
 //				HypervSiteId: exampleHyperVSite.ID(),
 //				PolicyId:     exampleHyperVReplicationPolicy.ID(),
 //			})

@@ -15,21 +15,27 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleVirtualNetwork = new azure.network.VirtualNetwork("exampleVirtualNetwork", {
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleVirtualNetwork = new azure.network.VirtualNetwork("example", {
+ *     name: "example-vnet",
  *     addressSpaces: ["10.7.29.0/29"],
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  * });
  * const internal = new azure.network.Subnet("internal", {
- *     resourceGroupName: exampleResourceGroup.name,
+ *     name: "internal",
+ *     resourceGroupName: example.name,
  *     virtualNetworkName: exampleVirtualNetwork.name,
  *     addressPrefixes: ["10.7.29.0/29"],
  *     serviceEndpoints: ["Microsoft.Sql"],
  * });
- * const exampleServer = new azure.mysql.Server("exampleServer", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleServer = new azure.mysql.Server("example", {
+ *     name: "example-mysqlserver",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     administratorLogin: "mysqladminun",
  *     administratorLoginPassword: "H@Sh1CoR3!",
  *     skuName: "GP_Gen5_2",
@@ -39,8 +45,9 @@ import * as utilities from "../utilities";
  *     geoRedundantBackupEnabled: false,
  *     sslEnforcementEnabled: true,
  * });
- * const exampleVirtualNetworkRule = new azure.mysql.VirtualNetworkRule("exampleVirtualNetworkRule", {
- *     resourceGroupName: exampleResourceGroup.name,
+ * const exampleVirtualNetworkRule = new azure.mysql.VirtualNetworkRule("example", {
+ *     name: "mysql-vnet-rule",
+ *     resourceGroupName: example.name,
  *     serverName: exampleServer.name,
  *     subnetId: internal.id,
  * });

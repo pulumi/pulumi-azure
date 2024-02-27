@@ -13,10 +13,14 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("exampleEnterpriseCluster", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-redisenterprise",
+ *     location: "West Europe",
+ * });
+ * const exampleEnterpriseCluster = new azure.redis.EnterpriseCluster("example", {
+ *     name: "example-redisenterprise",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "EnterpriseFlash_F300-3",
  * });
  * ```

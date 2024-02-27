@@ -26,43 +26,37 @@ import (
 //
 // import (
 //
-//	"os"
-//
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/compute"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/core"
 //	"github.com/pulumi/pulumi-azure/sdk/v5/go/azure/network"
+//	"github.com/pulumi/pulumi-std/sdk/go/std"
 //	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 //
 // )
 //
-//	func readFileOrPanic(path string) pulumi.StringPtrInput {
-//		data, err := os.ReadFile(path)
-//		if err != nil {
-//			panic(err.Error())
-//		}
-//		return pulumi.String(string(data))
-//	}
-//
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
-//			exampleResourceGroup, err := core.NewResourceGroup(ctx, "exampleResourceGroup", &core.ResourceGroupArgs{
+//			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("example-resources"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "exampleVirtualNetwork", &network.VirtualNetworkArgs{
+//			exampleVirtualNetwork, err := network.NewVirtualNetwork(ctx, "example", &network.VirtualNetworkArgs{
+//				Name: pulumi.String("acctvn"),
 //				AddressSpaces: pulumi.StringArray{
 //					pulumi.String("10.0.0.0/16"),
 //				},
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //			})
 //			if err != nil {
 //				return err
 //			}
-//			exampleSubnet, err := network.NewSubnet(ctx, "exampleSubnet", &network.SubnetArgs{
-//				ResourceGroupName:  exampleResourceGroup.Name,
+//			exampleSubnet, err := network.NewSubnet(ctx, "example", &network.SubnetArgs{
+//				Name:               pulumi.String("acctsub"),
+//				ResourceGroupName:  example.Name,
 //				VirtualNetworkName: exampleVirtualNetwork.Name,
 //				AddressPrefixes: pulumi.StringArray{
 //					pulumi.String("10.0.2.0/24"),
@@ -71,9 +65,10 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "exampleNetworkInterface", &network.NetworkInterfaceArgs{
-//				Location:          exampleResourceGroup.Location,
-//				ResourceGroupName: exampleResourceGroup.Name,
+//			exampleNetworkInterface, err := network.NewNetworkInterface(ctx, "example", &network.NetworkInterfaceArgs{
+//				Name:              pulumi.String("acctni"),
+//				Location:          example.Location,
+//				ResourceGroupName: example.Name,
 //				IpConfigurations: network.NetworkInterfaceIpConfigurationArray{
 //					&network.NetworkInterfaceIpConfigurationArgs{
 //						Name:                       pulumi.String("testconfiguration1"),
@@ -85,9 +80,16 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "exampleLinuxVirtualMachine", &compute.LinuxVirtualMachineArgs{
-//				ResourceGroupName: exampleResourceGroup.Name,
-//				Location:          exampleResourceGroup.Location,
+//			invokeFile, err := std.File(ctx, &std.FileArgs{
+//				Input: "~/.ssh/id_rsa.pub",
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			exampleLinuxVirtualMachine, err := compute.NewLinuxVirtualMachine(ctx, "example", &compute.LinuxVirtualMachineArgs{
+//				Name:              pulumi.String("example-machine"),
+//				ResourceGroupName: example.Name,
+//				Location:          example.Location,
 //				Size:              pulumi.String("Standard_F2"),
 //				AdminUsername:     pulumi.String("adminuser"),
 //				NetworkInterfaceIds: pulumi.StringArray{
@@ -96,7 +98,7 @@ import (
 //				AdminSshKeys: compute.LinuxVirtualMachineAdminSshKeyArray{
 //					&compute.LinuxVirtualMachineAdminSshKeyArgs{
 //						Username:  pulumi.String("adminuser"),
-//						PublicKey: readFileOrPanic("~/.ssh/id_rsa.pub"),
+//						PublicKey: invokeFile.Result,
 //					},
 //				},
 //				OsDisk: &compute.LinuxVirtualMachineOsDiskArgs{
@@ -113,7 +115,8 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			_, err = compute.NewExtension(ctx, "exampleExtension", &compute.ExtensionArgs{
+//			_, err = compute.NewExtension(ctx, "example", &compute.ExtensionArgs{
+//				Name:               pulumi.String("hostname"),
 //				VirtualMachineId:   exampleLinuxVirtualMachine.ID(),
 //				Publisher:          pulumi.String("Microsoft.Azure.Extensions"),
 //				Type:               pulumi.String("CustomScript"),
@@ -173,20 +176,6 @@ type Extension struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Type pulumi.StringOutput `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringOutput `pulumi:"typeHandlerVersion"`
@@ -274,20 +263,6 @@ type extensionState struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Type *string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion *string `pulumi:"typeHandlerVersion"`
@@ -327,20 +302,6 @@ type ExtensionState struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Type pulumi.StringPtrInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringPtrInput
@@ -384,20 +345,6 @@ type extensionArgs struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Type string `pulumi:"type"`
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion string `pulumi:"typeHandlerVersion"`
@@ -438,20 +385,6 @@ type ExtensionArgs struct {
 	// The type of extension, available types for a publisher can be found using the Azure CLI.
 	//
 	// > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-	//
-	// ```go
-	// package main
-	//
-	// import (
-	// 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-	// )
-	//
-	// func main() {
-	// 	pulumi.Run(func(ctx *pulumi.Context) error {
-	// 		return nil
-	// 	})
-	// }
-	// ```
 	Type pulumi.StringInput
 	// Specifies the version of the extension to use, available versions can be found using the Azure CLI.
 	TypeHandlerVersion pulumi.StringInput
@@ -609,23 +542,6 @@ func (o ExtensionOutput) Tags() pulumi.StringMapOutput {
 // The type of extension, available types for a publisher can be found using the Azure CLI.
 //
 // > **Note:** The `Publisher` and `Type` of Virtual Machine Extensions can be found using the Azure CLI, via:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			return nil
-//		})
-//	}
-//
-// ```
 func (o ExtensionOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *Extension) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }

@@ -5232,10 +5232,10 @@ type KubernetesClusterAciConnectorLinux struct {
 	// 				&network.SubnetDelegationArgs{
 	// 					Name: pulumi.String("aciDelegation"),
 	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 						Actions: pulumi.StringArray{
 	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 	// 						},
-	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 					},
 	// 				},
 	// 			},
@@ -5285,10 +5285,10 @@ type KubernetesClusterAciConnectorLinuxArgs struct {
 	// 				&network.SubnetDelegationArgs{
 	// 					Name: pulumi.String("aciDelegation"),
 	// 					ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 						Actions: pulumi.StringArray{
 	// 							pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 	// 						},
-	// 						Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 	// 					},
 	// 				},
 	// 			},
@@ -5410,10 +5410,10 @@ func (o KubernetesClusterAciConnectorLinuxOutput) ConnectorIdentities() Kubernet
 //					&network.SubnetDelegationArgs{
 //						Name: pulumi.String("aciDelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //						},
 //					},
 //				},
@@ -5487,10 +5487,10 @@ func (o KubernetesClusterAciConnectorLinuxPtrOutput) ConnectorIdentities() Kuber
 //					&network.SubnetDelegationArgs{
 //						Name: pulumi.String("aciDelegation"),
 //						ServiceDelegation: &network.SubnetDelegationServiceDelegationArgs{
+//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //							Actions: pulumi.StringArray{
 //								pulumi.String("Microsoft.Network/virtualNetworks/subnets/action"),
 //							},
-//							Name: pulumi.String("Microsoft.ContainerInstance/containerGroups"),
 //						},
 //					},
 //				},

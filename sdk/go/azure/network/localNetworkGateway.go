@@ -30,12 +30,14 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := core.NewResourceGroup(ctx, "example", &core.ResourceGroupArgs{
+//				Name:     pulumi.String("localNetworkGWTest"),
 //				Location: pulumi.String("West Europe"),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = network.NewLocalNetworkGateway(ctx, "home", &network.LocalNetworkGatewayArgs{
+//				Name:              pulumi.String("backHome"),
 //				ResourceGroupName: example.Name,
 //				Location:          example.Location,
 //				GatewayAddress:    pulumi.String("12.13.14.15"),

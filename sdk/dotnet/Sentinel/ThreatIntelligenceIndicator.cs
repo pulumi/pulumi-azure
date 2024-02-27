@@ -22,26 +22,28 @@ namespace Pulumi.Azure.Sentinel
     /// 
     /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///     var exampleResourceGroup = new Azure.Core.ResourceGroup("exampleResourceGroup", new()
+    ///     var example = new Azure.Core.ResourceGroup("example", new()
     ///     {
+    ///         Name = "example-rg",
     ///         Location = "east us",
     ///     });
     /// 
-    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("exampleAnalyticsWorkspace", new()
+    ///     var exampleAnalyticsWorkspace = new Azure.OperationalInsights.AnalyticsWorkspace("example", new()
     ///     {
-    ///         Location = exampleResourceGroup.Location,
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         Name = "example-law",
+    ///         Location = example.Location,
+    ///         ResourceGroupName = example.Name,
     ///         Sku = "PerGB2018",
     ///         RetentionInDays = 30,
     ///     });
     /// 
-    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("exampleLogAnalyticsWorkspaceOnboarding", new()
+    ///     var exampleLogAnalyticsWorkspaceOnboarding = new Azure.Sentinel.LogAnalyticsWorkspaceOnboarding("example", new()
     ///     {
-    ///         ResourceGroupName = exampleResourceGroup.Name,
+    ///         ResourceGroupName = example.Name,
     ///         WorkspaceName = exampleAnalyticsWorkspace.Name,
     ///     });
     /// 
-    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator("exampleThreatIntelligenceIndicator", new()
+    ///     var exampleThreatIntelligenceIndicator = new Azure.Sentinel.ThreatIntelligenceIndicator("example", new()
     ///     {
     ///         WorkspaceId = exampleAnalyticsWorkspace.Id,
     ///         PatternType = "domain-name",
@@ -49,12 +51,6 @@ namespace Pulumi.Azure.Sentinel
     ///         Source = "Microsoft Sentinel",
     ///         ValidateFromUtc = "2022-12-14T16:00:00Z",
     ///         DisplayName = "example-indicator",
-    ///     }, new CustomResourceOptions
-    ///     {
-    ///         DependsOn = new[]
-    ///         {
-    ///             azurerm_sentinel_log_analytics_workspace_onboarding.Test,
-    ///         },
     ///     });
     /// 
     /// });

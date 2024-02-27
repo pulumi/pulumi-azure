@@ -53,13 +53,15 @@ import javax.annotation.Nullable;
  *     }
  * 
  *     public static void stack(Context ctx) {
- *         var exampleResourceGroup = new ResourceGroup(&#34;exampleResourceGroup&#34;, ResourceGroupArgs.builder()        
+ *         var example = new ResourceGroup(&#34;example&#34;, ResourceGroupArgs.builder()        
+ *             .name(&#34;my-signalr&#34;)
  *             .location(&#34;West US&#34;)
  *             .build());
  * 
  *         var exampleService = new Service(&#34;exampleService&#34;, ServiceArgs.builder()        
- *             .location(exampleResourceGroup.location())
- *             .resourceGroupName(exampleResourceGroup.name())
+ *             .name(&#34;tfex-signalr&#34;)
+ *             .location(example.location())
+ *             .resourceGroupName(example.name())
  *             .sku(ServiceSkuArgs.builder()
  *                 .name(&#34;Free_F1&#34;)
  *                 .capacity(1)

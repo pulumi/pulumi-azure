@@ -289,16 +289,20 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.devcenter.DevCenter("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             identity=azure.devcenter.DevCenterIdentityArgs(
                 type="example-value",
             ))
-        example_project = azure.devcenter.Project("exampleProject",
-            dev_center_id=example_dev_center.id,
+        example_project = azure.devcenter.Project("example",
+            dev_center_id=example.id,
             location=example_resource_group.location,
+            name="example",
             resource_group_name=example_resource_group.name)
         ```
 
@@ -343,16 +347,20 @@ class Project(pulumi.CustomResource):
         import pulumi
         import pulumi_azure as azure
 
-        example_resource_group = azure.core.ResourceGroup("exampleResourceGroup", location="West Europe")
-        example_dev_center = azure.devcenter.DevCenter("exampleDevCenter",
+        example_resource_group = azure.core.ResourceGroup("example",
+            name="example-resources",
+            location="West Europe")
+        example = azure.devcenter.DevCenter("example",
+            name="example",
             resource_group_name=example_resource_group.name,
             location=example_resource_group.location,
             identity=azure.devcenter.DevCenterIdentityArgs(
                 type="example-value",
             ))
-        example_project = azure.devcenter.Project("exampleProject",
-            dev_center_id=example_dev_center.id,
+        example_project = azure.devcenter.Project("example",
+            dev_center_id=example.id,
             location=example_resource_group.location,
+            name="example",
             resource_group_name=example_resource_group.name)
         ```
 

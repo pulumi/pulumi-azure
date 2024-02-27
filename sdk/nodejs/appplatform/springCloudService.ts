@@ -15,15 +15,20 @@ import * as utilities from "../utilities";
  * import * as pulumi from "@pulumi/pulumi";
  * import * as azure from "@pulumi/azure";
  *
- * const exampleResourceGroup = new azure.core.ResourceGroup("exampleResourceGroup", {location: "West Europe"});
- * const exampleInsights = new azure.appinsights.Insights("exampleInsights", {
- *     location: exampleResourceGroup.location,
- *     resourceGroupName: exampleResourceGroup.name,
+ * const example = new azure.core.ResourceGroup("example", {
+ *     name: "example-resources",
+ *     location: "West Europe",
+ * });
+ * const exampleInsights = new azure.appinsights.Insights("example", {
+ *     name: "tf-test-appinsights",
+ *     location: example.location,
+ *     resourceGroupName: example.name,
  *     applicationType: "web",
  * });
- * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("exampleSpringCloudService", {
- *     resourceGroupName: exampleResourceGroup.name,
- *     location: exampleResourceGroup.location,
+ * const exampleSpringCloudService = new azure.appplatform.SpringCloudService("example", {
+ *     name: "example-springcloud",
+ *     resourceGroupName: example.name,
+ *     location: example.location,
  *     skuName: "S0",
  *     configServerGitSetting: {
  *         uri: "https://github.com/Azure-Samples/piggymetrics",

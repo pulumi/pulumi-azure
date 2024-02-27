@@ -123,11 +123,11 @@ def get_certificate_issuer(key_vault_id: Optional[str] = None,
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
         resource_group_name="some-resource-group")
-    example_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("id", example_certificate_issuer.id)
+    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
+        key_vault_id=example.id)
+    pulumi.export("id", example_get_certificate_issuer.id)
     ```
 
 
@@ -163,11 +163,11 @@ def get_certificate_issuer_output(key_vault_id: Optional[pulumi.Input[str]] = No
     import pulumi
     import pulumi_azure as azure
 
-    example_key_vault = azure.keyvault.get_key_vault(name="mykeyvault",
+    example = azure.keyvault.get_key_vault(name="mykeyvault",
         resource_group_name="some-resource-group")
-    example_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
-        key_vault_id=example_key_vault.id)
-    pulumi.export("id", example_certificate_issuer.id)
+    example_get_certificate_issuer = azure.keyvault.get_certificate_issuer(name="existing",
+        key_vault_id=example.id)
+    pulumi.export("id", example_get_certificate_issuer.id)
     ```
 
 

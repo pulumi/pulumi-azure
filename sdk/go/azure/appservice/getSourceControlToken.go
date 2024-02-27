@@ -31,7 +31,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
-//			ctx.Export("id", data.Azurerm_app_service_github_token.Example.Id)
+//			ctx.Export("id", exampleAzurermAppServiceGithubToken.Id)
 //			return nil
 //		})
 //	}
