@@ -39,6 +39,7 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// NOTE: the Name used for Redis needs to be globally unique
 //			_, err = redis.NewCache(ctx, "exampleCache", &redis.CacheArgs{
 //				Location:           exampleResourceGroup.Location,
 //				ResourceGroupName:  exampleResourceGroup.Name,
